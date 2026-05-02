@@ -1,3 +1,10 @@
+---
+created_at: "2026-04-29T22:41:39-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "unknown_llm"
+timestamp_source: "filesystem_birthtime"
+---
+
 # Algebraic topology and symplectic geometry for Chern--Simons theory and TQFT
 
 This note is meant to sit near the beginning of a review on Chern--Simons theory, anomaly inflow, and topological quantum field theory. It is written in a deliberately mathematical style, but with the physics target always kept in view. The central principle is that in low-dimensional quantum field theory the *global* structure of fields matters as much as, and often more than, the local differential equations. One therefore needs a toolkit that combines homotopy, homology and cohomology, bundles and characteristic classes, holonomy and flat connections, and symplectic reduction. The exposition below is built from standard references in algebraic topology, bundle theory, symplectic geometry, holonomy, Lie groups, and TQFT.[^1][^2][^3][^4][^5][^6][^7][^8][^9][^10][^11][^12]

@@ -1,6 +1,28 @@
+---
+created_at: "2026-05-01T23:26:05-04:00"
+updated_at: "2026-05-01T23:46:07-04:00"
+generated_by: "codex"
+timestamp_source: "filesystem_birthtime"
+---
+
 # LLM Docs
 
 This folder is for final-paper collaboration material generated or maintained with LLM help.
+
+## Metadata
+
+Generated markdown files should begin with YAML front matter:
+
+```yaml
+---
+created_at: "YYYY-MM-DDTHH:MM:SS-04:00"
+updated_at: "YYYY-MM-DDTHH:MM:SS-04:00"
+generated_by: "codex"
+timestamp_source: "agent_clock"
+---
+```
+
+Use full timestamps with timezone, not date-only stamps. Preserve `created_at` when editing an existing file, update `updated_at`, and set `generated_by` to the creating agent or import source.
 
 ## Current
 

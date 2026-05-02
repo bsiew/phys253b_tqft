@@ -1,3 +1,10 @@
+---
+created_at: "2026-05-01T22:10:40-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "chatgpt_import"
+timestamp_source: "filesystem_birthtime"
+---
+
 # you asked
 
 i want the section structure to be as simple as possible i think this might be a bit too much? like we were thinking

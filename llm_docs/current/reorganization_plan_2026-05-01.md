@@ -1,3 +1,10 @@
+---
+created_at: "2026-05-01T17:14:25-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "unknown_llm"
+timestamp_source: "filesystem_birthtime"
+---
+
 # Paper Reorganization Plan - 2026-05-01
 
 ## Source

@@ -1,3 +1,10 @@
+---
+created_at: "2026-04-28T20:55:47-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "codex"
+timestamp_source: "filesystem_birthtime"
+---
+
 # Codex Session Plan - 2026-04-29
 
 ## Active Target

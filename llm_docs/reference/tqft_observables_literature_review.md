@@ -1,3 +1,10 @@
+---
+created_at: "2026-05-01T22:10:07-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "unknown_llm"
+timestamp_source: "filesystem_birthtime"
+---
+
 # TQFT / Chern–Simons Observables: literature review and source map
 
 This note is organized as a source map for a review paper aimed at a reader who knows standard QFT at the Schwartz level and wants to move into topological field theory, Chern–Simons theory, and physically measurable consequences. The emphasis is on observables, what they actually probe, and where the conceptual assumptions enter.

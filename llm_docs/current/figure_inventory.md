@@ -1,3 +1,10 @@
+---
+created_at: "2026-04-29T01:28:29-04:00"
+updated_at: "2026-05-01T23:45:36-04:00"
+generated_by: "unknown_llm"
+timestamp_source: "filesystem_birthtime"
+---
+
 # Figure Inventory
 
 | Figure id | Local purpose | Type | Section | Must-show quantities | Status |
