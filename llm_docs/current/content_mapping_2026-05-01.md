@@ -2,7 +2,7 @@
 
 **Created:** 2026-05-01  
 **Purpose:** Map existing content from TeX files to new target sections I-X  
-**Source:** Reorganization plan at `llm_docs/reorganization_plan_2026-05-01.md`
+**Source:** Reorganization plan at `llm_docs/current/reorganization_plan_2026-05-01.md`
 
 ---
 

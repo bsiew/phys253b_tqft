@@ -284,7 +284,7 @@ This structure should be a template in the writing coach.
 
 ## Files Created This Session
 
-1. `/PROJECTS/QFT/253b_final_paper/llm_docs/deep_research_critique_2026-04-29.md` (8000 words)
+1. `/PROJECTS/QFT/253b_final_paper/llm_docs/reference/deep_research_critique_2026-04-29.md` (8000 words)
    - Full pedagogical critique
    - Style comparison analysis
    - Workflow enhancement proposals
@@ -299,7 +299,7 @@ This structure should be a template in the writing coach.
    - All key derivations inline
    - Connects back to transgression identity
    
-4. `/PROJECTS/QFT/253b_final_paper/llm_docs/implementation_summary_2026-04-29.md` (this file)
+4. `/PROJECTS/QFT/253b_final_paper/llm_docs/logs/implementation_summary_2026-04-29.md` (this file)
 
 ---
 

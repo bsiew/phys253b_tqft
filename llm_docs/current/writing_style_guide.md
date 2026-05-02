@@ -49,3 +49,18 @@ When expanding, add:
 The preferred dense style is teacherly rather than encyclopedic. Each derivation should tell the reader what is being computed, perform the calculation with enough intermediate structure to track signs and normalizations, and then explain what the result buys physically. Avoid repeated derivations: keep one worked version and point to it from shorter appearances.
 
 Flag figures directly in TeX with comments of the form `% FIGURE FLAG [F-id]: ...`, and mirror serious candidates into the figure inventory.
+
+## Voice: anti-defensive, anti-choppy
+
+Writing sounds LLM-generated when it argues with an imaginary skeptic, repeats its thesis at every header, and packages each claim as a slogan. Actively avoid this.
+
+- Do not open sentences with "This is not...", "This is not an accident", "This is not a failure", "This is not an artifact", "This is not an input", "not merely X but Y", or any comparable contrastive denial. Rewrite to state the positive content first; if an alternative reading needs ruling out, do so inside the sentence ("...not an additional boundary ingredient, but the degree of freedom required to restore gauge invariance"), not as a standalone sentence.
+- Do not use "The point is that...". It reads as correcting the reader. State the point directly.
+- Do not re-announce the organizing idea at the start of every section. Say it once at the top of the section and let the derivations carry it.
+- Prefer continuative transitions ("At this point", "The same coefficient reappears when", "Having derived the bulk response, we can now ask", "A second consequence is") over slogan punchlines. Transitions should register why the next paragraph follows from the last one.
+- Keep protagonists stable. If a derivation starts with the integer $m$, do not silently rename it to $k$ and then $K$ partway through; either use $k$ from the start and specialize to $m$ later, or stay with $m$ throughout and promote to matrices when actually generalizing.
+- Slightly narrower claims are usually stronger: "the universal topological content of the edge theory is fixed by the bulk order" beats "the edge spectrum is completely determined by the bulk topological order", because the latter is false on nonuniversal quantities the paragraph itself introduces.
+
+## Section granularity
+
+Eleven subsections in a ten-page section makes the headings feel like paragraph labels. Aim for roughly four to six subsections in a section of that length, grouped by physical move rather than by derivation step. If two subsections cover "one move in two steps", merge them. The closing subsection should be prose synthesis, not a recap outline or a bulleted list of things the section covered.

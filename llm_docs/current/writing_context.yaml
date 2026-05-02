@@ -1,0 +1,3 @@
+status: "pointer"
+canonical_file: "../../../state/writing_context.yaml"
+note: "Final-paper writing context is canonical in PROJECTS/QFT/state; this pointer prevents duplicate control state from drifting."
