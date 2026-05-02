@@ -1,0 +1,179 @@
+For a generic scalar field nonminimally coupled to gravity, we introduce the Jordan frame action which adds field-gravity interaction term of the form $\xi\phi^2R$. 
+\begin{equation}
+    S_J=\int d^4x \sqrt{-g_J}\qty[\f{M_P^2}{2}F(\phi)R_J-\frac{1}{2}h_{J}(\phi)\,g_J^{\mu\nu}\partial_\mu\phi \partial_\nu\phi - V_J(\phi)]
+\end{equation}
+\todo{rewrite}
+For a single field one often takes $F(\phi)=1+\xi f(\phi)/M_P^2$, e.g. $F(\phi)=1+\xi\phi^2/M_P^2$. 
+
+
+Historically, non-minimal coupling arises in scalar-tensor theories (see Kaiser 2016 \todo{cite}). A motivation of particular importance, though, is that renormalization counterterms in curved spacetime interactive quantum field theories admit the form
+\[
+\Lg_{R}=(1+\delta \R)\phi^2
+\]
+Put simply, nonminimal coupling to the inflaton is expected, at least up to radiative corrections, and especially at sufficiently high energies (unless protected by some explicit symmetry \cite{Kaiser2016NMC}\cite{Hertzberg2010NMC}). This makes NMC models natural candidates for early universe dynamics, especially as curvature and energy scales are large.
+
+\todo{note: is this relevant? since inflation itself drives flatness, its also reasonable to assume that curvature is dynamic and thus can be non-flat}
+
+
+
+The action is written in the Jordan Frame, where the field follows geodesics, but is often computationally cumbersome to work with but is important as it explicitly encodes the nonminimal coupling. . It is often more computationally convenient to move to the Einstein frame, which is completely equivalent up to a conformal transformation and field redefinition, where the gravity \todo{i dont like this word: sector} becomes canonical again. Following the standard treatment, we use the conformal rescaling
+\begin{equation}
+    g_{\mu\nu}^E=\Omega^2(\phi)g^J_{\mu\nu}, \qquad \Omega^2(\phi)\equiv F(\phi)
+\end{equation}
+Note, however that the Ricci scalar is dependent on the metric
+
+
+\[\]
+\todo{stuff from part ii}
+
+
+We start with a generic, single-field inflation action in the Jordan frame with some nonminimal coupling to the curvature
+\[
+S_J=\int d^4 x \sqrt{-g}\left[\frac{M_P^2}{2} F\left(\phi\right) \R-\frac{1}{2} g^{\mu \nu} \partial_\mu \phi \partial_\nu \phi-V_J\left(\phi\right)\right],
+\]
+Where  $M_P$ is the standard reduced Planck mass, and $F(\phi)$ is an arbitrary function encoding the non-minimal coupling to the standard EH action. The other terms are the standard scalar field action terms. 
+
+As we discussed above, the Jordan frame explicitly encodes the non-minimal coupling, but we uniquely reduce to the Einstein-Hilbert frame \todo{cite that paper about conformal transformations and graviton interactions}. By a conformal transformation of the metric and redefinition of the field, we can transform the Jordan action to the Einstein action
+\[
+g_{\mu\nu}^E=F(\phi)g^J_{\mu\nu}
+\]
+this eliminates the $f(\phi)R$ term, since
+\[
+R=g^{\mu\nu}R_{\mu\nu} \mapsto \frac{1}{F(\phi)}g^{\mu\nu}R_{\mu\nu} \quad\implies\quad F(\phi)R=g^{\mu\nu}R_{\mu\nu}
+\]
+
+and rescales the potential as
+\[
+V_E(\phi)=\frac{V_J}{F(\phi)^2}
+\]
+from here, we drop subscripts for the Einstein frame functions(?) and only specify when we use the Jordan frame.
+
+Now, we define
+\[
+\chi=
+\]
+
+and an induced field-space metric $G_{IJ}(\phi)$ (a nonlinear sigma-model structure).
+
+\[\]
+
+under the field redefinition, we get a nontrivial kinetic sector, admitting a term which we find to be
+\[
+K(\phi)=\f{1}{F(\phi)}+\f{3}{2}\qty(\f{M_PF_{,\phi}}{F(\phi)})^2
+\]
+\[
+\df{\chi}{\phi}\equiv \sqrt{K(\phi)}
+\]
+This gives us a single-field form of the action, except the potential is reshaped 
+\[
+V(\chi)=\f{V_J(\phi)}{f(\phi)^2}=\f{V_J(\phi)}{(1+\xi\phi^2)^2}
+\]
+
+We can see a couple of interesting limits (for $\xi\to0$ and $\f{1}{\xi}\to0$) from this rescaled potential.  Let $\tilde{\xi}=\f{1}{\xi}$.
+\[
+\lim_{\xi \ll 1}V(\chi)\approx V_J, \qquad \lim_{\tilde{\xi} \ll 1}V(\chi)\approx \f{V_J}{\xi^2\phi^4}
+\]
+So we can see that the minimal coupling regime reduces to the Jordan frame potential, as expected. In the nonminimal coupling regime, the potential is flattened and we begin to see attractor behavior as a result of conformal stretching. This behavior, when we go to compute observables, yield robust predictions for the $\Lambda$CDM parameters $n_s$ and $r$. This conformal stretching of the potential thus provides an attractor mechanism and thus NMC models overlap significantly with $\alpha$-attractor and plateau model phenomenology.
+
+
+
+
+\todo{robot}
+ After the rescaling, one obtains an Einstein-frame action of the form
+\begin{equation}
+S_E=\int d^4x \sqrt{-g_E}\left[\frac{M_P^2}{2}R_E-\frac{1}{2}G_{IJ}(\phi)\,g_E^{\mu\nu}\partial_\mu\phi^I\partial_\nu\phi^J - V_E(\phi)\right],
+\label{eq:EinsteinActionGeneral}
+\end{equation}
+
+
+
+
+
+\paragraph{Effective Field Theory}
+
+Inflation in recent literature is often treated as an effective field theory. As such, we cannot guarantee that it is valid to all orders in perturbation theory as in quantum field theory. We must impose some cutoff to keep the results within the limitations of perturbative expansion.
+
+Hertzberg
+
+\todo{summarize this section}
+
+Most descriptions of non-minimal models have focussed on just a single field $\phi$, even for cases where $\phi$ represents the Higgs. For example, in [18] it is explicitly assumed that all quantum issues require only a single field analysis (and it is concluded in [18] that the quantum field theory is highly unnatural and breaks down). In this case it is subtle as to whether the effective field theory makes sense. Let us go through the analysis first in the Jordan frame and then the Einstein frame. We begin by examining the gravity and kinetic sectors (as was the focus of Ref. [17]) before addressing the potential $V$ in the next section.
+
+In the Jordan frame we must examine the consequences of the $\xi \phi^2 \mathcal{R}$ operator. Let us expand around flat space. We decompose the metric as
+
+$$
+g_{\mu \nu}=\eta_{\mu \nu}+\frac{h_{\mu \nu}}{m_{\mathrm{P} 1}},
+$$
+
+here $h_{\mu \nu}$ are metric perturbations with mass dimension 1. The Ricci scalar has an expansion around flat space that goes as $\mathcal{R} \sim \square h / m_{\mathrm{P} 1}+\ldots$. To leading order in the Planck mass, this gives the following dimension 5 operator in the Jordan frame action
+
+$$
+\frac{\xi}{m_{\mathrm{Pl}}} \phi^2 \square h .
+$$
+
+
+It is tempting to declare that this implies the theory has a cutoff at $\Lambda=m_{\mathrm{P} 1} / \xi$, but is this correct? To answer this, let us consider the scattering process: $2 \phi \rightarrow 2 \phi$. At tree-level this proceeds via a single exchange of a graviton, giving the following leading order contribution to the matrix element (we assume massless $\phi$ particles)
+
+$$
+\mathcal{M}_c(2 \phi \rightarrow 2 \phi) \sim \frac{\xi^2 E^2}{m_{\mathrm{P} 1}^2}
+$$
+
+
+This appears to confirm that the cutoff is indeed $\Lambda=m_{\mathrm{P} 1} / \xi$, but this conclusion is premature. Let us explain why. The index c on $\mathcal{M}$ stands for "channel"; there are s, t, and u-channels, which all scale similarly (Fig. 1 diagrams 1-3). When we sum over all 3 channels to get $\mathcal{M}_{\text {tot }}$ and put the external particles on-shell, an amusing thing happens: they cancel. So the leading term in powers
+
+of $\xi$ vanishes [29, 30]. The first non-zero piece is
+
+$$
+\mathcal{M}_{\mathrm{tot}}(2 \phi \rightarrow 2 \phi) \sim \frac{E^2}{m_{\mathrm{Pl}}^2},
+$$
+
+which shows that the true cutoff in the pure gravity and kinetic sectors is $\Lambda=m_{\mathrm{P} 1}$ (although the inclusion of the potential $V$ will greatly change this, as we explain shortly). Hence, according to $2 \rightarrow 2$ tree-level scattering the theory only fails at Planckian energies.
+
+What about in the Einstein frame? To address this question we need to focus on the kinetic sector, which we presented earlier in eq. (2.3). By expanding for small $\phi$, we have the following contributions
+
+$$
+(\partial \phi)^2+\frac{6 \xi^2}{m_{\mathrm{P} 1}^2} \phi^2(\partial \phi)^2+\ldots
+$$
+
+
+The second term appears to represent a dimension 6 interaction term with cutoff $\Lambda=m_{\mathrm{P} 1} / \xi$. We can compute $2 \phi \rightarrow 2 \phi$ scattering at tree-level using this single 4 -point vertex (Fig. 1 diagram 4). We find the scaling $\mathcal{M} \sim \xi^2 E^2 / m_{\mathrm{P} 1}^2$, but when the external particles are put on-shell we find that the result is zero. This is also true at arbitrary loop order (see Fig. 2 for the 1-loop diagrams) and for any scattering process (despite the power counting estimates of Ref. [17]). The reason for this was alluded to earlier: in this single field case, we can perform a field redefinition to $\sigma$ (eq. (2.4)) which carries canonical kinetic energy. Hence the kinetic sector is that of a free theory, modulo its minimal coupling to gravity, giving the correct cutoff $\Lambda=m_{\mathrm{P} 1}$. This field redefinition can always be done for a single field. Once the field redefinition is performed we see that the only effective interactions that will be generated, in the absence of including contributions from the potential $V$, are Planck suppressed. Hence scattering amplitudes generated from purely the gravity and kinetic sectors allow the theory to be well defined up to Planckian energies. This shows that naive power counting can be misleading. However, the potential $V$ causes the cutoff to be greatly reduced, as we now explain.
+
+\[\]
+\todo{robot}
+\paragraph{A short EFT validity remark (what can break, and at what scale?)}
+The classical inflationary dynamics above does not automatically guarantee that the theory is under perturbative control as a quantum field theory. Hertzberg emphasizes an important distinction \cite{Hertzberg2010NMC}. For a \emph{single} scalar, scattering amplitudes from the pure gravity and kinetic sectors exhibit cancellations such that the naive cutoff $M_P/\xi$ is not forced upon the theory by those sectors alone; however, the potential sector typically implies a breakdown around energies of order $M_P/\xi$ when $\xi\gg 1$. For \emph{multiple} scalars, the situation is worse: NMC generically introduces interactions that lead to strong coupling already at scales $\sim M_P/\xi$ even in the gravity/kinetic sector. Since the Standard Model Higgs doublet contains multiple real scalars, this issue is directly relevant to Higgs-inflation interpretations \cite{Hertzberg2010NMC}.
+
+
+\[\]
+\paragraph{Multifield Extensions}
+
+While in the single-field case we can always define a  canonical field $\chi$, in multifield inflation the induced field-space metric, $G_IJ(\phi)$, is generically curved and cannot be made globally canonical \todo{wtf does this mean} by simple field redefinitions \cite{Kaiser2016NMC}
+
+
+
+\todo{summarize from kaiser!!}
+
+The potential is also stretched by the conformal factor upon transformation to the Einstein frame. In particular, we find
+
+$$
+V\left(\phi^I\right)=\frac{M_{\mathrm{pl}}^4}{\left[2 f\left(\phi^I\right)\right]^2} \tilde{V}\left(\phi^I\right)
+$$
+
+$f\left(\phi^I\right)=\frac{1}{2}\left[M_0^2+\sum_{I=1}^N \xi_I\left(\phi^I\right)^2\right]$.
+
+For multifield models with nonminimal couplings, the turn rate generically remains negligible. Therefore the types of observational consequences that may arise in multifield models, such as the overproduction of isocurvature modes or the amplification of significant non-Gaussianities, typically do not arise for this class of models. The reason comes from the conformal stretching of the potential, $V\left(\phi^I\right)$ of Eq. (10).
+
+For simplicity, consider a two-field model, with $\phi^I=(\phi, \chi)$. Then for a generic, renormalizable potential in the Jordan frame,
+
+$$
+\tilde{V}(\phi, \chi)=\frac{1}{2} m_\phi^2 \phi^2+\frac{1}{2} m_\chi^2 \chi^2+\frac{1}{2} g \phi^2 \chi^2+\frac{\lambda_\phi}{4} \phi^4+\frac{\lambda_\chi}{4} \chi^4,
+$$
+
+and a nonminimal coupling function $f(\phi, \chi)$ as in Eq. (5), we find from Eq. (10) the potential in the Einstein frame
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/kaiser_ex.png}
+    \caption{The potential $V(\phi, \chi)$ in the Einstein frame, Eq. (35), for $\xi_\phi=100, \xi_\chi=80$, $\lambda_\phi=10^{-2}, \lambda_\chi=1.25 \times 10^{-2}, g=0.8 \times 10^{-2}, m_\phi= 10^{-4} M_{\mathrm{pl}}$, and $m_\chi=1.5 \times 10^{-4} M_{\mathrm{pl}}$. The field values are shown in units of $M_{\mathrm{pl}}$.}
+    \label{fig:placeholder}
+\end{figure}

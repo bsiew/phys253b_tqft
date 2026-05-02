@@ -1,0 +1,135 @@
+\subsection{The Quantum Harmonic Oscillator}
+\label{sub:qho}
+
+The harmonic oscillator happens to be a great approximation for most things, and particle and molecular interactions are no exception. It's especially relevant in canonical quantization and quantum field theory: after a Fourier transform, each normal mode of a free field evolves as an independent harmonic oscillator. As such, we explore our familiar harmonic oscillator and quantize it! Consider the classical Hamiltonian 
+\begin{equation}
+H=\frac{p^{2}}{2m}+\frac{1}{2}m\omega^{2}x^{2},
+\end{equation}
+with canonical variables $(x,p)$. Quantization promotes $x$ and $p$ to operators by imposing the commutation relation
+\begin{equation}
+[x,p]=i\hbar.
+\end{equation}
+Now, it is helpful to define the ladder operators
+\begin{equation}
+a=\sqrt{\frac{m\omega}{2\hbar}}\left(x+\frac{i}{m\omega}p\right),
+\qquad
+a^{\dagger}=\sqrt{\frac{m\omega}{2\hbar}}\left(x-\frac{i}{m\omega}p\right),
+\end{equation}
+which satisfy
+\begin{equation}
+[a,a^{\dagger}]=1.
+\end{equation}
+In terms of these, our Hamiltonian thus becomes
+\begin{equation}
+H=\hbar\omega\left(a^{\dagger}a+\frac{1}{2}\right).
+\end{equation}
+The number operator $N=a^{\dagger}a$ has eigenstates $|n\rangle$ with eigenvalues $n=0,1,2,\ldots$, and the ladder operators act as
+\begin{equation}
+a|n\rangle=\sqrt{n}\,|n-1\rangle,\qquad
+a^{\dagger}|n\rangle=\sqrt{n+1}\,|n+1\rangle.
+\end{equation}
+Therefore the energy spectrum is
+\begin{equation}
+E_n=\hbar\omega\left(n+\frac{1}{2}\right).
+\end{equation}
+% The irreducible zero-point energy $\frac{1}{2}\hbar\omega$ will later reappear as the vacuum energy of quantum fields.
+
+
+
+
+\subsection{Second Quantization}
+\label{sub:secondquant}
+
+In quantum mechanics, $n$ generically refers to the energy level of the harmonic oscillator system which doesn't lend itself to any tangible physical interpretation. When we consider the quantization of a field, however, we find that this $n$ naturally corresponds to particle number. 
+
+Consider some field $\phi(\v{x},t)$ which satisfies the Klein-Gordon equation
+\begin{equation}
+    \qty(\Box+m^2)\phi=0
+\end{equation}
+Then in its standard plane wave expansion solution,
+\[
+\phi(x)=\int \f{d^3 p}{(2 \pi)^3}\qty(A_p e^{-i p x}+A_{p}^\star e^{i p x})
+\]
+Now, defining  the momentum conjugate of $\phi$ as $\pi=\dot{\phi}$ and imposing the equal-time commutation relations,
+\begin{equation}
+    \qty[\phi,\pi]=i\delta(x-y)
+\end{equation}
+(the field-theoretic generalization of $[x,p]=i\hbar$.)
+The free field expansion now not only satisfies the KG equations, but also admits canonical commutation relations derived using the harmonic oscillator quantization from Sec \ref{sub:qho}
+\begin{equation}
+    \qty[a_p,a_q^\dagger]=(2\pi)^3\delta^3(p-q)
+\end{equation}
+and we have thus defined the field operator
+\begin{equation}
+    \phi(x)=\int \f{d^3 p}{(2 \pi)^3}\f{1}{\sqrt{2\omega_p}}\qty(a_p e^{-i p x}+a_{p}^\dagger e^{i p x})
+\end{equation}
+where $\omega_p=\sqrt{p^2+m^2}$. The simplest interpretation of this free field expansion is that we take a system and give it access to all momentum modes. Thus we represent it as an integral over all possible $\v{p}$, where each momentum mode $\v{p}$ is itself a time-evolving harmonic oscillator with frequency $\omega_p$. Though it is largely historical convention, this is where the name "second quantization" comes from—we quantize a single mode as a harmonic oscillator, and then to quantize the classical plane wave theory we quantize all possible modes of the system!
+
+% \todo{rob}
+% The Hamiltonian of the free scalar field is
+
+% $$
+% H=\int \frac{d^3 p}{(2 \pi)^3} \omega_{\mathrm{p}}\left(a_{\mathrm{p}}^{\dagger} a_{\mathrm{p}}+\frac{1}{2}\right) .
+% $$
+
+
+% This is an infinite sum of independent harmonic oscillator Hamiltonians, one for each momentum mode. The vacuum $|0\rangle$ is defined by
+
+% $$
+% a_{\mathrm{p}}|0\rangle=0 \quad \text { for all } \mathrm{p} .
+% $$
+
+
+% Excited states are obtained by acting with creation operators,
+
+% $$
+% \left|\v{p}_1, \ldots, \v{p}_n\right\rangle=a_{\v{p}_1}^{\dagger} \ldots a_{\v{p}_n}^{\dagger}|0\rangle,
+% $$
+
+% and these states are interpreted as $n$-particle states with definite momenta. The full Hilbert space is the Fock space, a direct sum over all particle numbers.
+
+
+% \[\]
+% \todo{robot}
+
+% \[\]
+
+% \subsection{Mode Functions}
+% \label{app:tdho}
+
+% In an expanding universe, free fields still decompose into Fourier modes, but each mode behaves as a harmonic oscillator with a time-dependent frequency. For example, after suitable field redefinitions one often finds mode equations of the form
+% \begin{equation}
+% u_k''+\omega_k^2(\tau)\,u_k=0,
+% \qquad
+% \omega_k^2(\tau)=k^2+m_{\rm eff}^2(\tau),
+% \end{equation}
+% where primes denote derivatives with respect to conformal time. The time dependence of $\omega_k(\tau)$ implies that the notion of particles and the vacuum is not unique in general; the Bunch--Davies prescription selects the state that matches the Minkowski positive-frequency modes when $k\gg aH$.
+% This is the mathematical origin of mode amplification and ``freeze-out'' in inflationary perturbation theory.
+
+% \subsection{Spin 2 Particles}
+
+% \todo{gw's have spin 2 symmetry}
+% \todo{spin 2 particles have a unique irreducible rep and interact identically w all other particles (this is the graviton)}
+% \todo{putting 2 and 2, the symmetry of gw's is evidence of spin 2 particle info propagation (not necessarily graviton propagation itself). although we have reason to believe gravitons themselves are massless--}
+
+% \todo{speaking of u shoul finish that pset5 problem for the massless case!!}
+
+
+
+% \todo{schwratz:}
+% This is exactly the equation of motion of a harmonic oscillator. A general solution is
+
+% $$
+% \phi(x, t)=\int \frac{d^3 p}{(2 \pi)^3}\left[a_p(t) e^{i \vec{p} \cdot \vec{x}}+a_p^{\star}(t) e^{-i \vec{p} \cdot \vec{x}}\right]
+% $$
+
+% with $\left(\partial_t^2+\vec{p} \cdot \vec{p}\right) a_p(t)=0$, which is just a Fourier decomposition of the field into plane waves. Or more simply
+
+% $$
+% \phi(x, t)=\int \frac{d^3 p}{(2 \pi)^3}\left(a_p e^{-i p x}+a_p^{\star} e^{i p x}\right)
+% $$
+
+% with $a_p$ and $a_p^{\star}$ now just numbers and $p_\mu \equiv\left(\omega_p, \vec{p}\right)$ with $\omega_p \equiv|\vec{p}|$. To be extra clear about notation, $p x$ contains an implicit 4-vector contraction: $p x=p^\mu x_\mu=\omega_p x_0-\vec{p} \cdot \vec{x}$.
+
+
+% \todo{finish cp abov}

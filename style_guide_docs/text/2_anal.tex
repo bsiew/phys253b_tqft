@@ -1,0 +1,191 @@
+% \section{Methodology}
+
+% In this llysis we test 3 different fields. 
+% \begin{itemize}
+%     \item Minimally coupled, canonical Higgs-like potential
+%     \[
+%     V_J=\lambda\phi^4, \qquad \xi\approx0
+%     \]
+%     \item Non-minimally coupled, Higgs-like inflation potential
+%     \[
+%     V_J=\lambda(\phi^2-v^2)^2, \qquad \xi>0
+%     \]
+%     \item Alpha attractor family
+    
+% \end{itemize}
+
+% \[\]
+
+
+% All inflationary observables follow from the background evolution (e.g.\ $\epsilon(N)$, $\eta(N)$), and the scalar
+% power spectrum is controlled by the time dependence of the Mukhanov--Sasaki mass term $z''/z$.
+
+% \todo{robot}
+
+% \subsection*{Model 1 (baseline): minimal quartic}
+% \begin{equation}
+% F(\phi)=1,\qquad V_J(\phi)=\frac{\lambda}{4}\phi^4.
+% \end{equation}
+% Then $\chi=\phi$ and $V_E(\chi)=\lambda\chi^4/4$. This model is a useful control case because it has no
+% conformal flattening and no attractor plateau.
+
+% \subsection*{Model 2: Higgs-like NMC (Higgs inflation template)}
+% \begin{equation}
+% F(\phi)=1+\xi\frac{\phi^2}{M_P^2},\qquad
+% V_J(\phi)=\frac{\lambda}{4}\left(\phi^2-v^2\right)^2\simeq \frac{\lambda}{4}\phi^4\quad(\phi\gg v).
+% \end{equation}
+% The Einstein-frame potential is
+% \begin{equation}
+% V_E(\phi)=\frac{V_J(\phi)}{\left(1+\xi\phi^2/M_P^2\right)^2},
+% \end{equation}
+% which approaches a plateau $V_E\to \lambda M_P^4/(4\xi^2)$ at large $\phi$, providing slow-roll
+% inflation for $\xi\gg 1$. A brief caution is that the EFT validity scale can be $\sim M_P/\xi$ for large $\xi$,
+% and for multiple scalars the theory can become strongly coupled already at that scale \cite{Hertzberg2010NMC}.
+
+% \subsection*{Model 3: universal-attractor construction}
+% A convenient way to generate plateau behavior is to choose
+% \begin{equation}
+% F(\phi)=1+\xi\frac{f(\phi)}{M_P^2},\qquad
+% V_J(\phi)=\lambda f(\phi)^2.
+% \end{equation}
+% Then
+% \begin{equation}
+% V_E(\phi)=\lambda \frac{f(\phi)^2}{\left(1+\xi f(\phi)/M_P^2\right)^2}
+% \;\;\xrightarrow[\xi f(\phi)\gg M_P^2]{}\;\;
+% \lambda\frac{M_P^4}{\xi^2},
+% \end{equation}
+% independent of the detailed form of $f(\phi)$ at large field. This is the origin of the ``universal''
+% plateau phenomenology and is closely related to the attractor behavior emphasized by Kaiser \cite{Kaiser2016NMC}.
+% Small deviations from a pure plateau (e.g.\ engineered near-inflection regions in $V_E(\chi)$)
+% can induce transient ultra-slow-roll epochs, generating sharp enhancements in $P_\zeta(k)$
+% and therefore large scalar-induced gravitational waves.
+
+
+
+
+
+
+
+% \subsection{alpha attractor}
+% $\alpha$-attractors are a broad plateau class 
+
+% Alpha-attractors are a broad plateau class in which a non-canonical field-space geometry produces an exponentially approached flat potential after canonical normalization. A simple "T-model" representative is  
+% \begin{equation}
+%     V(\phi)=V_0\tanh^2\qty(\f{\phi}{\sqrt{6\alpha}})
+% \end{equation}
+% which approaches $V_0$ at large $\phi$.
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.6\linewidth]{figs/tanhalphamodel.png}
+%     \caption{The T-model with $\alpha$ values of 0.1, 1, and 10 to highlight the potential well differences}
+%     \label{fig:tmodel}
+% \end{figure}
+
+% The key reason this family is useful is that it gives near-universal CMB-scale predictions controlled by $\alpha$ and the e-fold number $N$. For the simplest cases one finds the standard attractor scaling  
+% \[  
+% n_s \simeq 1-\frac{2}{N},\qquad r \simeq \frac{12\alpha}{N_*^2},  
+% \]  
+% so $\alpha$ essentially sets the tensor amplitude while leaving the tilt largely "attractor-like."\footnote{https://arxiv.org/abs/2212.13363  $\alpha$-attractor inflation: Models and predictions}
+
+% In these notes, I treat alpha-attractors as a compact benchmark for plateau phenomenology and as a useful comparison point for NMC plateau models, since both share the same basic mechanism: an effective flattening/stretching of the potential in the canonical Einstein-frame description.
+
+
+% % model is any model whose potential can be written in terms of some stretched field coordinate such that, at large $\phi$, it plateaus to a constant. A simple example of such a model is the T-model
+
+
+% % Where we can see in Fig. \ref{fig:tmodel} how $V(\phi)$ grows from 0 at $\phi=0$ and plateaus at 1 in the $\abs{\phi}\gg0$ limit. Now, in the large $\phi$ limit, tanh behaves as
+% % \begin{equation}
+% %     \tanh\qty(\f{\phi}{\sqrt{6\alpha}})\approx 1-2e^{-\sqrt{\f{2}{3\alpha}}\phi}
+% % \end{equation}
+% % Derived using the standard Taylor expansion. This gives us a potential with approximate behavior
+% % \begin{equation}
+% %     V(\phi)\approx V_0\qty[1-4e^{-\sqrt{\f{2}{3\alpha}}\phi}]
+% % \end{equation}
+% % Letting $a=\sqrt{\f23}/M_{pl}$, we then plug $V$ and its derivative to find the number of inflationary e-folds
+% % \begin{equation}
+% %     N=\int \f{V}{V'}d\phi=\int \f{1}{2a}\f{1-\exp\qty[-a\phi]}{\exp\qty[-a\phi]}=\f{1}{2a^2}\exp\qty[a\phi]
+% % \end{equation}
+% % Which gives
+% % \begin{equation}
+% %     \exp[-a\phi]=\f{4}{3N}
+% % \end{equation}
+
+% % the slow parameters $\epsilon=\f{M_{pl}^2}{2}(V'/V)^2$ and \todo{do the eta param too.} to find
+% % \begin{equation}
+% %     \f{V'}{V}=\df{}{\phi}\ln V \nonumber=2a\f{\exp\qty[-a\phi]}{1-\exp\qty[-a\phi]} 
+% % \end{equation}
+% % and thus
+% % \begin{equation}
+% %     \epsilon=\f{M_{pl}^2}{2}(V'/V)^2\approx\f{M_{pl}^2}{2}\qty(\f4{3N})^2 =\f{3}{4N^2}
+% % \end{equation}
+
+% % One of the surprising things about alpha attractor models is the near identical behavior of this entire class of models, ranging from different kinds of coupling effects to chaotic models.
+% % \todo{is this accurate}
+
+
+\section{Analysis}
+% \subsection{Numerical results}
+
+paramter values:
+\begin{center}
+    \begin{tabular}{lc|c}
+    & Parameter & Value \\
+    \hline
+    Radiation density today & $\Omega_{r,0}$ & $5.38\times 10^{-5}$\\
+    m & $A_s$ & $2.1\times10^{-9}$
+\end{tabular}
+\end{center}
+
+
+% python code for our models 
+
+% \begin{verbatim}
+%         # -----------------------------
+%         # Scalar power spectra models
+%         # -----------------------------
+%         def Pzeta_quartic(k):
+%             # Nearly scale-invariant, slightly red
+%             ns = 0.96
+%             k0 = 0.05
+%             return As * (k / k0)**(ns - 1)
+        
+%         def Pzeta_higgs_inflection(k):
+%             # Log-normal bump (Higgs-like tuning)
+%             k0 = 0.05
+%             k_peak = 1e17
+%             sigma = 0.4
+%             A_peak = 1e-3
+%             return As * (k / k0)**(-0.04) + A_peak * np.exp(
+%                 - (np.log(k / k_peak))**2 / (2 * sigma**2)
+%             )
+        
+%         def Pzeta_attractor(k):
+%             # Sharper inflection (alpha-attractor-like)
+%             k0 = 0.05
+%             k_peak = 1e19
+%             sigma = 0.25
+%             A_peak = 1e-2
+%             return As * (k / k0)**(-0.035) + A_peak * np.exp(
+%                 - (np.log(k / k_peak))**2 / (2 * sigma**2)
+%             )
+            
+%         # -----------------------------
+%         # Radiation-era kernel
+%         # -----------------------------
+%         def kernel(u, v):
+%             num = (4*v**2 - (1 + v**2 - u**2)**2)**2
+%             den = 16 * u**2 * v**2
+%             return num / den
+% \end{verbatim}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{figs/output.png}
+%     \caption{preliminary plot (coarse grained over a few k modes). we recreate the Iacconi plot for alpha attractor}
+%     \label{fig:prelimplot}
+% \end{figure}
+% iacconi\footnote{\todo{cite!}}
+
+
+

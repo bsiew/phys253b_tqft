@@ -1,0 +1,328 @@
+\subsection{\textit{Review:} Field Theory}
+Our field of interest is the matter overdensity. Since we study it in the perturbative 
+regime, we can always expand as
+\begin{equation}
+    \delta=\delta^{(1)}+\delta^{(2)}+\delta^{(3)}+\cdots
+\end{equation}
+Because EFTofLSS is, as the name says, an \textit{effective} field theory, 
+it is non-renormalizable in the Wilsonian sense. Three consequences follow 
+\citep[Chs.~21--22]{SchwartzQFT}: the Lagrangian must include every 
+operator not forbidden by the symmetries of the problem,
+\begin{equation}
+    \Lg_{\rm eff}=\sum_i C_i(\Lambda) \Ord_{i},
+\end{equation}
+with coefficients $C_i(\Lambda)$ that depend on the scale $\Lambda$ at 
+which short-distance physics has been integrated out; an infinite tower 
+of counterterms is required; and correlation functions organize into a 
+schematic expansion
+\begin{equation}
+    \expval{\delta\cdots\delta}
+    =
+    \expval{\delta\cdots\delta}_{\rm tree}
+    +\expval{\delta\cdots\delta}_{\rm loop}
+    +\expval{\delta\cdots\delta}_{\rm ct}
+    +\cdots
+\end{equation}
+of tree-level, loop, and counterterm contributions. We will see all three 
+appear when we compute the power spectrum calculation below. 
+
+We take $\delta^{(1)}$ to be a Gaussian field, which through Wick's 
+theorem means every correlator reduces to a sum over pairwise 
+contractions. This is identical to the moments of the Gaussian, which we know from Lecture 20 \citep{Dvorkin2026} implies that every odd moment vanishes. The 
+equal-time two-point function is then
+
+Thus only even-powered terms survive in correlation functions. In the case of the $2$-point, we find
+\begin{align}
+    \expval{\delta\,\delta}
+    &=\expval{(\delta^{(1)}+\delta^{(2)}+\cdots)(\delta^{(1)}+\delta^{(2)}+\cdots)}\\
+    &=\expval{\delta^{(1)}\delta^{(1)}}
+     +\expval{\delta^{(2)}\delta^{(2)}}
+     +2\expval{\delta^{(1)}\delta^{(3)}}
+     +\cdots,
+\end{align}
+where terms odd in $\delta^{(1)}$ have been dropped. Defining 
+$P(k)\equiv\expval{\delta\delta}$, this organizes into
+\begin{equation}
+    P_{\rm SPT}^{\rm 1\text{-}loop}(k)=P_{11}(k)+P_{22}(k)+2P_{13}(k),
+\end{equation}
+where $P_{ij}$ denotes the contribution from $\expval{\delta^{(i)}\delta^{(j)}}$ 
+and the factor of 2 in $P_{13}$ accounts for the two equivalent 
+contractions. The leading term $P_{11}$ is the linear spectrum, which we 
+can regard as the primordial statistics evolved forward by the transfer 
+function and the linear growth factor \citep{Dvorkin2026}.
+
+We can also apply the same machinery to the three-point function 
+$B(k)\equiv\expval{\delta\delta\delta}$, which gives through one loop
+\begin{equation}
+    B(k)=B_{112}+B_{114}+B_{222}+B_{123}+B_{132}.
+\end{equation}
+This organization is standard in perturbation theory \citep{Bernardeau2002,Baldauf2020}.
+These contributions are most cleanly organized diagrammatically using \textit{Feynman diagrams}; The relevant tree- and one-loop diagrams for both statistics are in Fig.~\ref{fig:ptcorr}. They are essentially just a book-keeping device for correlation functions, and allow you to play a game of combinatorics rather than having to think of every possible way to compute an $n^{\rm th}$ order correlation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.425\linewidth]{figs/powerfeynman.jpeg}
+    \includegraphics[width=0.5\linewidth]{figs/bispecfeynman.jpeg}
+    \caption{Tree- and one-loop-level Feynman diagrams for the two- and 
+    three-point correlation functions.}
+    \label{fig:ptcorr}
+\end{figure}
+
+\subsection{Standard Perturbation Theory}
+\label{subsec:spt}
+In Lecture 16, we derived the density fluctuation to linear order from the 
+Euler, continuity, and Poisson equations. In this analysis, however, we want to go beyond linear, so we keep the full nonlinear pressureless fluid system on subhorizon scales before shell crossing:
+\begin{align}
+    \mathbf{v}'+\mathcal{H}\mathbf{v}+(\mathbf{v}\cdot\nabla)\mathbf{v}
+    &=-\nabla\phi,\label{eq:eulereq}\\
+    \delta'+\nabla\cdot[(1+\delta)\mathbf{v}] &= 0,\label{eq:continuityeq}\\
+    \nabla^2\phi&=\f{3}{2}\mathcal{H}^2\Omega_m\,\delta,\label{eq:poissoneq}
+\end{align}
+where primes denote conformal-time derivatives and 
+$\mathcal{H}\equiv a'/a$ \citep{Bernardeau2002,Baldauf2020}. In lecture we 
+worked in the $\delta\ll1$, small-$\abs*{\mathbf{v}}$ limit, but here we 
+need to hold on to the nonlinear velocity terms. Defining the velocity 
+divergence $\theta\equiv\nabla\cdot\mathbf{v}$ and recalling from Lecture 
+17 \citep{Dvorkin2026} that multiplication in real space corresponds to 
+convolution in $k$-space, the nonlinear products turn into mode-coupling 
+integrals:
+\begin{align}
+    \delta'(\mathbf{k})+\theta(\mathbf{k})
+    &=-\int\f{d^3q}{(2\pi)^3}\,
+    \alpha(\mathbf{q},\mathbf{k}-\mathbf{q})\,
+    \theta(\mathbf{q})\delta(\mathbf{k}-\mathbf{q}),\\
+    \theta'(\mathbf{k})+\mathcal{H}\theta(\mathbf{k})
+    +\f{3}{2}\mathcal{H}^2\Omega_m\,\delta(\mathbf{k})
+    &=-\int\f{d^3q}{(2\pi)^3}\,
+    \beta(\mathbf{q},\mathbf{k}-\mathbf{q})\,
+    \theta(\mathbf{q})\theta(\mathbf{k}-\mathbf{q}),
+\end{align}
+with
+\begin{equation}
+    \alpha(\mathbf{k}_1,\mathbf{k}_2)
+    =\f{\mathbf{k}_1\cdot(\mathbf{k}_1+\mathbf{k}_2)}{k_1^2},
+    \qquad
+    \beta(\mathbf{k}_1,\mathbf{k}_2)
+    =\f{(\mathbf{k}_1+\mathbf{k}_2)^2\,\mathbf{k}_1\cdot\mathbf{k}_2}{2k_1^2k_2^2}.
+\end{equation}
+These are the standard SPT convolutions. They follow from demanding that 
+the fluid is irrotational, so that $\mathbf{v}(\mathbf{k})=i\mathbf{k}\,\theta(\mathbf{k})/k^2$ 
+holds; together with the fact that spatial derivatives become factors of 
+$-i\mathbf{k}$, this is what generates the dot products of momenta \citep{Bernardeau2002,Baldauf2020}. 
+Dropping the quadratic terms on the right-hand side recovers the linear 
+theory, and Eqs.~\eqref{eq:continuityeq}--\eqref{eq:poissoneq} collapse 
+back to our beloved linear growth equation,
+\begin{equation}
+    \delta''+\mathcal{H}\delta'-\f{3}{2}\mathcal{H}^2\Omega_m\,\delta=0,
+\end{equation}
+which is the conformal-time equivalent to
+$\ddot{\delta}+2H\dot{\delta}-4\pi G\bar{\rho}_m\delta=0$ from Lecture 16.
+
+In the Einstein--de Sitter approximation, we take $w=0$ which we found leads to perturbations which grow proportionally to the scale factor \citep{Bernardeau2002,Baldauf2020}. This implies the growth mode factorizes in 
+time, so we can expand
+\begin{equation}
+    \delta(\mathbf{k},a)=\sum_{n=1}^{\infty}D^n(a)\,\delta^{(n)}(\mathbf{k}),
+\end{equation}
+with the $n$-th order density built from $n$ copies of the linear field,
+\begin{equation}
+    \delta^{(n)}(\mathbf{k})=
+    \int\prod_{i=1}^{n}\f{d^3q_i}{(2\pi)^3}\,
+    (2\pi)^3\delta_D\!\qty(\mathbf{k}-\textstyle\sum_i\mathbf{q}_i)\,
+    F_n(\mathbf{q}_1,\ldots,\mathbf{q}_n)\prod_{i=1}^{n}\delta^{(1)}(\mathbf{q}_i).
+\end{equation}
+The kernels $F_n$ are fixed recursively by the fluid equations; explicit 
+forms are given in \citep{Bernardeau2002}. For the one-loop power 
+spectrum we only need $F_2$, which after some tedious algebra reads
+\begin{equation}
+    F_2(\mathbf{k}_1,\mathbf{k}_2)
+    =\f{5}{7}
+    +\f{1}{2}\mu\qty(\f{k_1}{k_2}+\f{k_2}{k_1})
+    +\f{2}{7}\mu^2,
+    \qquad
+    \mu\equiv\f{\mathbf{k}_1\cdot\mathbf{k}_2}{k_1 k_2}.
+\end{equation}
+The constant, $\mu$, and $\mu^2$ pieces encode the growing-mode, 
+advection, and tidal contributions, respectively 
+\citep{Bernardeau2002,Baldauf2020}.
+
+Combining the kernel expansion with the $P_{11}+P_{22}+2P_{13}$ 
+decomposition from the previous section, the one-loop SPT contributions 
+evaluate to
+\begin{align}
+    P_{22}(k)&=
+    2\int\f{d^3q}{(2\pi)^3}
+    \bigl[F_2(\mathbf{q},\mathbf{k}-\mathbf{q})\bigr]^2
+    P_{11}(q)\,P_{11}(|\mathbf{k}-\mathbf{q}|),\\
+    P_{13}(k)&=
+    3\,P_{11}(k)\int\f{d^3q}{(2\pi)^3}\,
+    F_3^{\rm sym}(\mathbf{k},\mathbf{q},-\mathbf{q})\,P_{11}(q).
+\end{align}
+Now here's where things get interesting! In the soft limit $k\ll q$, these two terms behave very differently:
+\begin{equation}
+    \label{eq:softp22limit}
+    \lim_{k\to 0}P_{22}(k)\propto
+    k^4\int\f{d^3q}{(2\pi)^3}\f{P_{11}^2(q)}{q^4}+\cdots,
+\end{equation}
+\begin{equation}
+    \label{eq:softp13limit}
+    \lim_{k\to 0}P_{13}(k)\propto
+    -k^2P_{11}(k)\int^{\Lambda}\f{d^3q}{(2\pi)^3}\f{P_{11}(q)}{q^2}.
+\end{equation}
+Power counting the integrands, $P_{22}$ carries a $1/q^0$ (safe) 
+dependence on the UV, while $P_{13}$ has $1/q^2$ sensitivity that depends 
+explicitly on the cutoff $\Lambda$. To any effective field theorist, this should certainly ring a bell! Our loop produced a UV-sensitive piece with the 
+specific structure $k^2P_{11}$, which is exactly the $k$-dependence of a 
+counterterm allowed by symmetry
+\citep{CarrascoEtAl2012,PajerZaldarriaga2013}. This is a smoking gun of EFT, and a motivation for the full reformulation we pursue in  Sec. \ref{subsec:eft}.
+
+\subsection{Effective Field Theory}
+\label{subsec:eft}
+The point of the previous section is that the one-loop SPT integrals receive support from momenta of order and above the nonlinear scale, where the pressureless perfect-fluid description is no longer reliable. The EFT fixes this by separating the fields into long and
+short wavelengths at a smoothing scale $ \Lambda\sim k_{\rm NL} $. Recalling Lecture 17 \citep{Dvorkin2026}, for any field $\delta $, we can convolve with some smoothing kernel at a characteristic scale 
+\begin{equation}
+    \delta_\ell(\mathbf{x}) \equiv [\delta]_\Lambda(\mathbf{x})
+    = \int d^3x'\,W_\Lambda(\mathbf{x}-\mathbf{x}')\,\delta(\mathbf{x}'),
+    \qquad
+    \delta_s \equiv \delta - \delta_\ell,
+\end{equation}
+with $ W_\Lambda $ a smoothing kernel, often taken to be Gaussian
+\citep{CarrascoEtAl2012,Senatore_EFTofLSS_lectures}.
+
+After smoothing the
+Boltzmann/Euler system, the long-wavelength continuity equation keeps its perfect-fluid form, but the Euler equation does not. 
+\begin{align}
+    \delta_\ell' + \partial_i\!\left[(1+\delta_\ell)v_\ell^i\right] &= 0, \\
+    v_{\ell,i}' + \mathcal{H} v_{\ell,i}
+    + v_\ell^j \partial_j v_{\ell,i}
+    + \partial_i \phi_\ell
+    &= -\frac{1}{\rho_\ell}\partial_j\tau^{ij},
+\end{align}
+where $ \tau^{ij} $ is an effective stress tensor induced by the short modes encoding the 
+velocity dispersion, multistreaming, and short-scale gravitational 
+backreaction that bare SPT ignored.
+\citep{CarrascoEtAl2012,Senatore_EFTofLSS_lectures,Baldauf2020}.
+Now, we don't treat the $ \tau^{ij} $  short modes explicitly in EFT. Rather, we take its expectation value on a long-mode background and 
+expand in operators allowed by symmetry. Rotational invariance restricts the
+tensor structure, the equivalence principle forbids dependence on a uniform potential or
+uniform bulk flow, and we're left with a derivative expansion in the slowly varying long
+fields. At linear order,
+\begin{align}
+    [\tau^{ij}]
+    &=
+    p\,\delta^{ij}
+    + \bar\rho\,\tilde c_s^2\,\delta^{ij}\delta_\ell
+    - \bar\rho\,\tilde c_{v,b}^2\,\mathcal{H}^{-1}\delta^{ij}\partial_m v_\ell^m\nonumber\\
+    &\quad - \f{3}{4}\bar\rho\,\tilde c_{v,s}^2\,\mathcal{H}^{-1}
+    \qty(
+        \partial_i v_{\ell,j}+\partial_j v_{\ell,i}
+        - \f{2}{3}\delta^{ij}\partial_m v_\ell^m
+    )
+    + \Delta\tau^{ij},
+\end{align}
+where the first term is a background pressure,  $ \tilde c_s^2 $  is the leading sound-speed response, the $ \tilde c_v^2 $'s are viscosities, and $ \Delta\tau^{ij} $ is the
+stochastic piece. 
+
+For the power spectrum, we dont  care about all of $ \tau^{ij} $ itself, but rather its double divergence, which sources the density equation. Define
+\begin{equation}
+    \tau_\theta \equiv \partial_i\partial_j\tau^{ij}.
+\end{equation}
+At linear order this becomes
+\begin{equation}
+    \tau_\theta
+    =
+    \bar\rho
+    \left(
+        \tilde c_s^2\,\partial^2\delta_\ell
+        - \tilde c_v^2\,\mathcal{H}^{-1}\partial^2\theta_\ell
+    \right)
+    + \Delta J,
+\end{equation}
+where $ \tilde c_v^2 \equiv \tilde c_{v,b}^2+\tilde c_{v,s}^2 $ and
+$ \Delta J \equiv \partial_i\partial_j\Delta\tau^{ij} $.  Now, taking the divergence of the Euler equation and defining
+$ \theta_\ell\equiv \partial_i v_\ell^i $, the long-wavelength system essentially reduces to SPT with a new source term
+\begin{align}
+    \delta_\ell' + \theta_\ell &= S_\alpha, \\
+    \theta_\ell' + \mathcal{H}\theta_\ell
+    + \frac{3}{2}\mathcal{H}^2\Omega_m\,\delta_\ell
+    &= S_\beta + \frac{1}{\bar\rho}\tau_\theta,
+\end{align}
+where $ S_\alpha $ and $ S_\beta $ are the usual SPT nonlinear sources \citep{CarrascoEtAl2012,Baldauf2020}. 
+
+To obtain the leading EFT correction to the power spectrum, we now must solve the linearized system
+with the source $\tau_\theta/\bar\rho $, treating $\tilde c_s^2 $, $\tilde c_v^2 $, and $\Delta J $ as
+order-$(\delta^{(1)})^2 $ quantities (as they're 
+coefficients of terms which are already small). At first order, the stochastic and deterministic pieces decouple so we can handle them separately. The deterministic piece, after combining the linearized continuity and Euler
+equations, must then follow
+\begin{equation}
+    \delta_{\rm ct}''
+    + \mathcal{H}\,\delta_{\rm ct}'
+    - \f{3}{2}\mathcal{H}^2\Omega_m\,\delta_{\rm ct}
+    = \tilde c_s^2\,\partial^2\delta^{(1)}
+      - \tilde c_v^2\,\mathcal{H}^{-1}\partial^2\theta^{(1)}.
+\end{equation}
+and the LHS is the standard linear growth operator, but the RHS is distinctly non-zero---our EFT source! If we let the linear-growth Green's function absorb the time dependence by convolving, then we get a single time-dependent coefficient to the correction,
+\begin{equation}
+    \delta_{\rm ct}^{(3)}(\v{k})
+    =
+    -c_s^2\,k^2\,\delta^{(1)}(\v{k}),
+\end{equation}
+
+
+where $c_s^2$ now bundles the sound-speed and viscosity contributions 
+together with the Green's-function time integral. Although $\tau^{ij}$ first entered through the Euler equation, once we 
+solved the coupled system the leading density correction has \textit{exactly} 
+the same $k$-dependence as the UV-sensitive analytic part of $P_{13}$ 
+\citep{CarrascoEtAl2012,Senatore_EFTofLSS_lectures}. This is our sign that we've correctly identified the missing operator in our theory. The counterterm contribution to the power spectrum follows immediately:
+\begin{equation}
+    P_{\rm ct}(k)
+    =
+    2\expval{
+        \delta^{(1)}(\v{k})\,
+        \delta_{\rm ct}^{(3)}(-\v{k})
+    }
+    =
+    -2c_s^2\,k^2\,P_{11}(k).
+\end{equation}
+
+The other (final) piece of $\tau_\theta$ is the stochastic source $\Delta J$. It 
+generates its own density correction $\delta_J$, which contributes a 
+separate term $P_{JJ}(k)$ to the power spectrum. Because $\Delta J$ arises from local short-scale rearrangements which still have to conserve mass and momentum, $\delta_J(\v{k})=\order{k^2}$, so
+\begin{equation}
+    P_{JJ}(k)\propto k^4
+\end{equation}
+at low $k$ \citep{PajerZaldarriaga2013,Baldauf2020}. This mirrors the 
+low-$k$ structure of $P_{22}$, just as the deterministic counterterm 
+mirrored the analytic part of $P_{13}$. Thus everything the loop can produce in the soft limit is absorbed by something the EFT can write down.
+
+With counterterms in hand, the renormalization logic is now straightforward. With an explicit loop cutoff $\Lambda$, the one-loop SPT term splits into a finite 
+long-distance piece and an analytic UV-sensitive piece,
+\begin{equation}
+    2P_{13}(k,\Lambda)
+    =2P_{13}^{\rm finite}(k)
+    -2c_{13}(\Lambda)\,k^2P_{11}(k)
+    +\mathcal{O}(k^4),
+\end{equation}
+where $c_{13}(\Lambda)$ is proportional to the regulated displacement 
+variance $\sigma_d^2(\Lambda)$. The counterterm 
+$P_{\rm ct}=-2c_s^2(\Lambda)k^2P_{11}(k)$ has exactly the same 
+$k$-dependence, so the bare coefficient can be written as
+\begin{equation}
+    c_s^2(\Lambda)=c_{13}(\Lambda)+c_{s,{\rm ren}}^2,
+\end{equation}
+and the $\Lambda$-dependence of the loop is canceled by the 
+$\Lambda$-dependence of the Wilson coefficient. The renormalized 
+one-loop result is
+\begin{equation}
+    P_{\rm EFT}^{\rm 1\text{-}loop}(k)=
+    P_{11}(k)+P_{22}(k)+2P_{13}(k)
+    -2c_{s,{\rm ren}}^2 k^2 P_{11}(k)+P_{JJ}(k)+\cdots.
+\end{equation}
+% The stochastic piece $P_{\rm stoch}(k)$ starts at $k^4$ for dark matter, 
+% again because mass and momentum conservation forbid anything lower 
+% \citep{PajerZaldarriaga2013,Baldauf2020}.
+It is common, however, to take the deterministic truncation of the one-loop real-space matter power spectrum
+\begin{equation}
+    P_{\rm EFT}^{\rm 1\text{-}loop}(k)\simeq
+    P_{11}(k)+P_{22}(k)+2P_{13}(k)-2c_s^2 k^2 P_{11}(k),
+\end{equation}
+where $c_s^2$ is a Wilson coefficient, fit to simulation or data at some scale in the perturbative regime. This is the direct analogue of renormalizing a divergent bare coupling in ordinary QFT! \citep{CarrascoEtAl2012,PajerZaldarriaga2013,SchwartzQFT,Baldauf2020}

@@ -1,0 +1,203 @@
+
+**a quantum field is an infinite collection of harmonic oscillators, one for each Fourier mode**. We will find that inflationary dynamics enter solely through the time dependence of this oscillator frequency.
+
+A more detailed derivation of second quantization and the harmonic oscillator formalism is deferred to Appendix~\ref{app:secondquant}.
+
+\todo{rewrite above}
+
+This section assumes some knowledge of quantum field theory, specifically second quantization. For a more pedagogical treatment, we give a more explicit and careful derivation in Appendix \ref{app:secondquant}. Please also refer to Baumann's TASI lecture notes. 
+
+
+\todo{hm}
+
+
+
+In order to analyze primordial gravitational waves and their characteristic profiles, we must equip ourselves with the mathematical toolkit to understand it in the first place. Quantum fluctuations during inflation are largely responsible for seeding astrophysical structure today, generating primordial black holes, and especially primordial gravitational waves. 
+
+% We have much to thank to the microscopic world, but it is not an easy task to undergo. 
+
+% Again, we closely follow Baumann's TASI lecture notes as they contain one of the clearest derivations. As he did, we outline our steps below
+% \begin{enumerate}
+%     \item We first expand the action for single-field slow-roll inflation to the second order in terms of $\R $, which guarantees normalization when we later quantize the system.
+%     \item We derive the equations of motion for $\R $ and show it is of SHO form
+%     \item Consider various approximate solutions
+%     \item Promote $\R $ to a quantum operator and impose the commutation relation. This imposes boundary conditions on the mode functions
+%     \item Define the vacuum by matching solutions to Minkowski space on small, deeply sub-horizon scales.
+% \end{enumerate}
+
+% \todo{eh rewrite this}
+
+Now, we must derive the canonical quantization of the inflaton! This section relies on basic knowledge of quantum field theory—primarily its formalism—and thus lots of results are simply cited. For those not well versed, there is an explicit derivation of these components in in Appendix \todo{cite} and also in Baumann's notes.
+
+
+% While in the world of  this is
+
+\subsection{Scalar Perturbations}
+We begin with the standard single-field action 
+\begin{equation}
+    \label{eq:stdsinglefield}
+    S=\f12 \int d^4x \sqrt{-g} [R -(\nabla\phi)^2-2V(\phi)]
+\end{equation}
+for a scalar field minimally coupled to gravity. We work in the comoving gauge
+\begin{equation}
+    \label{eq:gauges}
+    \delta\phi=0, \qquad g_{ij}=a^2[(1-2\R )\delta_{ij}+h_{ij}], \qquad \del_ih_{ij}=h^i_i=0
+\end{equation}
+which removes all scalar degrees of freedom (dof) except for $\R $, defined as
+\begin{equation}
+    \R \equiv \Psi-\f{H}{\Bar{\rho}-\Bar{p}}\delta q.
+\end{equation}
+called the \textit{comoving curvature perturbation}. This allows us to only compute the correlation functions of $\R $ at horizon-crossing, because the scalar dofs are entirely parameterized by $\R (t,\v{x})$. After solving the constraint equations, we yield the second order expansion of the action in $\R$
+\begin{equation}
+    \label{eq:secorderstdaction}
+    S_{(2)}=\f12 \int d^4x\, a^3 \f{\dot \phi^2}{H^2}[\dot{\R }^2-a^{-2}(\del_i \R )^2]
+\end{equation}
+With dotted variables $\dot{x}$ denoting derivatives w.r.t time $t$. We now introduce conformal time
+\[
+d\tau\equiv \f{dt}{a}
+\]
+and define primed variables $x'$ as derivatives w.r.t conformal time $\tau$. Now, to make the harmonic oscillator structure obvious, we define the canonical Mukhanov variable
+\begin{equation}
+    v\equiv z\R, \qquad z^2\equiv a^2\f{\dot{\phi}^2}{H^2}=2a^2\varepsilon
+\end{equation}
+which lets us rewrite the action as
+\begin{equation}
+S_{(2)} = \f12 \int d\tau d^3x
+\qty[(v')^2 - (\del_i v)^2 + \f{z''}{z} v^2]
+\end{equation}
+Note that this admits a plane wave solution, satisfying the Mukhanov-Sasaki equation
+\begin{equation}
+    v_k''+(k^2-\f{z''}{z})v_k=0
+\end{equation}
+
+
+\paragraph{Canonical Quantization}
+
+We now promote $v$ and $v^\star$, its conjugate momentum, to quantum operators, and imposing the equal-time commutation relations
+\begin{equation}
+    [a_k,a_p^\dagger]=(2\pi)^3\delta^3(\v{p}-\v{k})
+\end{equation}
+
+
+fourier decompose
+\begin{equation}
+v(\tau,\v{x}) = \int \f{d^3k}{(2\pi)^3} v_k(\tau) e^{i\v{k}\cdot\v{x}},
+\end{equation}
+
+This allows us to write the free field expansion of $v$ as
+\begin{equation}
+    v(\tau,\v{x})=\int \f{d^3k}{(2\pi)^3}\qty\Big[v_k(\tau)a_ke^{ikx}+v^\star_k(\tau)a^\dagger_ke^{-ikx}]
+\end{equation}
+where we notate $kx=k^\mu x_\mu$ as a contraction.
+
+
+
+Important to note: the frequency of foruier modes $\omega_k$ 
+\begin{equation}
+    \omega^2_k(\tau)\equiv k^2-\f{z''}{z}
+\end{equation}
+are dependent on the field definition $\phi$ and the slow roll parameters, but this model dependency enters only through the Mukhanov
+\[
+\f{z''}{z}=?
+\]
+\todo{what is the explicit form of this}. This will be relevant later, when we study the modified dynamics of nonminimally coupled fields.
+
+Canonical quantization follows exactly as a Minkowski spacetime free scalar field, except instead of have a fixed integration measure
+\[
+\int \f{d^3k}{(2\pi)^3}\f{1}{\sqrt{2\omega_k}}
+\]
+we also have a frequency which evolves over time. 
+
+
+
+Finally, recall that standard QFT Lagrangians occur in a non-evolving Minkowski space to study the asymptotic states of particle interactions, and this defines a unique vacuum.
+
+In the case of inflation, however, spacetime itself is time-dependent and thus the vacuum is not uniquely prescribed. We account for this by picking a vacuum, and we use the standard Bunch Davies vacuum which states that deeply sub-horizon modes behave like asymptotic states
+\begin{equation}
+    \lim_{\tau\to -\infty} v_k(\tau) = \f{e^{-ik\tau}}{\sqrt{2k}}, \qquad k\gg aH
+\end{equation}
+
+\paragraph{Freeze-Out}
+
+Now in the low momentum limit, the wavelength of curvature modes exceed the horizon. On these superhorizon scales $k\ll aH$, we have 
+\[
+\omega_k^2(\tau)\underset{k\ll aH}{\longrightarrow} -\f{z''}{z}
+\]
+and the frequency loses its time dependency—it approaches a constant! 
+
+The power spectrum
+\begin{equation}
+    \Pw_\R(k)\equiv \f{k^3}{2\pi^2}\abs{\f{v_k}{z}}^2
+\end{equation}
+
+Thus, the scalar power spectrum is defined at the horizon exit of these modes
+\begin{equation}
+    \expval{\R_k\R_p}=(2\pi)^3\delta^3(k+p)\f{2\pi^2}{k^3}\qty[\Pw_\R(k)\eval_{k=aH}]
+\end{equation}
+
+And if we recall that inflationary microphysics enters exclusively through $z''/z$, this essentially tunes the effective mass of the Mukhanov-Sasaki field.
+
+
+
+%%%%%%%%%%%%%%
+\subsection{SIGW}
+How do we compute how primordial gravitational waves are generated and how they impact our observations?
+
+
+
+\todo{flesh this out more}
+
+
+the gravitational wave energy density 
+
+define the scalar energy density
+
+\[
+\Omega_{\rm GW}\equiv \f{1}{\rho_c(\tau)}\df{\rho_{\rm GW}}{\ln k}(\tau), \qquad \rho_c(\tau)=3M_{\rm pl}^2H^2
+\]
+traceless transverse metric perturbation
+\[
+ds^2=a^2[-dt^2+(\delta_{ij}+h_{ij})dx^idx^j], \qquad \del_i h_{ij}=0, \quad h_{ii}=0
+\]
+
+the graviton tensor defined in conformal time and space can be fourier expanmded in momentum space using its fourier dual  as
+\[
+h_{\mu\nu}= \int \f{d^3k}{(2\pi)^3} e^{ikx}\tilde{h}_{\mu\nu}
+\]
+where, if we apply the symmetric, traceless and transverse relations
+\[
+k_\mu\tilde{h}_{\mu\nu}=0, \qquad \tilde{h}_{ii}=0
+\]
+then we can uniquely express it's dual in terms of the spin-2 polarizations such that
+\[
+\tilde{h}_{\mu\nu}=\epsilon^\lambda_{\mu\nu}h_\lambda, \qquad h_\lambda=\eta^{\mu\nu}\epsilon^\lambda_{\mu\nu}h_{\mu\nu}
+\]
+where $\epsilon_{ij}^\lambda \epsilon_{ij}^{\lambda'}=\delta_{\lambda\lambda'}$
+
+
+
+subhorizon modes $k\gg aH$, superhorizon modes: $k\ll aH$ (wavelength much larger than comoving hubble radius)
+
+\[
+\rho_{GW}=\f{M_{\rm pl}^2}{8a^2}\expval{h'_{ij}h'_{ij}+(\Delta h_{ij})^2}
+\]
+
+define spectral density
+\[
+\df{\rho_{GW}}{\ln k}=\f{M_{\rm pl}^2}{4}\qty(\f ka)^2\Delta_h^2
+\]
+with
+\[
+\Delta_h^2=\sum_\lambda \Delta^2_{(h,\lambda)}, \qquad \expval{h_\lambda(\v{k})h_{\lambda'}(\v{k}')}=(2\pi)^3\delta_{\lambda \lambda'}^{(3)}(k+k')\f{2\pi^2}{k^3}\Delta_{h,\lambda}^2(k)
+\]
+\[
+\Omega_{GW}=\f{1}{12}\qty(\f k{aH})^2\Delta_h^2, \qquad k\gg aH
+\]
+
+
+\todo{hm?}
+
+- comparison bt vacuum pgws and SIGWs?
+
+- SIGW at small scales
+,

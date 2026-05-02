@@ -1,0 +1,767 @@
+\section{Formalism}
+\todo{cite} In this section, we heavily reference Domenechs review on SIGWs\footnote{https://arxiv.org/abs/2109.01398 Scalar induced gravitational waves review}
+
+Before we go any further, we need to make an important note:
+\begin{center}
+    \begin{tabular}{|p{12cm}}
+Physical observables are frame invariant, but intermediate quantities (fields, potentials, slow-roll parameters) are not.\\
+\end{tabular}
+\end{center}
+
+\subsection{Mukhanov-Sasaki}
+
+
+
+\todo{motivation for why theres a peak in the IGW spectrum}
+
+% \subsubsection{argh}
+We will find that inflationary dynamics enter solely through the time dependence of this oscillator frequency.
+
+
+\todo{rewrite above}
+
+Define the Hubble-flow hierarchy  
+$$
+\epsilon_1 \equiv \epsilon_H \equiv -\frac{\dot H}{H^2},\qquad  
+\epsilon_2 \equiv \frac{d\ln \epsilon_1}{dN},\qquad  
+\epsilon_3 \equiv \frac{d\ln \epsilon_2}{dN},  
+$$
+with $(dN\equiv \ln a)$ and dot $(=d/dt)$. For a canonical single field,  
+$$
+z \equiv a\frac{\dot\phi}{H} = a\sqrt{2\epsilon_1},M_P .  
+$$
+
+
+
+
+In order to analyze primordial gravitational waves and their characteristic profiles, we must equip ourselves with the mathematical toolkit to understand it in the first place. Quantum fluctuations during inflation are largely responsible for seeding astrophysical structure today, generating primordial black holes, and especially primordial gravitational waves. 
+
+% We have much to thank to the microscopic world, but it is not an easy task to undergo. 
+
+% Again, we closely follow Baumann's TASI lecture notes as they contain one of the clearest derivations. As he did, we outline our steps below
+% \begin{enumerate}
+%     \item We first expand the action for single-field slow-roll inflation to the second order in terms of $\R $, which guarantees normalization when we later quantize the system.
+%     \item We derive the equations of motion for $\R $ and show it is of SHO form
+%     \item Consider various approximate solutions
+%     \item Promote $\R $ to a quantum operator and impose the commutation relation. This imposes boundary conditions on the mode functions
+%     \item Define the vacuum by matching solutions to Minkowski space on small, deeply sub-horizon scales.
+% \end{enumerate}
+
+% \todo{eh rewrite this}
+
+Now, we must derive the canonical quantization of the inflaton! This section relies on basic knowledge of quantum field theory—primarily its formalism—and thus lots of results are simply cited. For those not well versed, there is an explicit derivation of these components in in Appendix \todo{cite} and also in Baumann's notes.
+
+
+% While in the world of  this is
+
+\subsubsection{Scalar Perturbations}
+We begin with the standard single-field action 
+\begin{equation}
+    \label{eq:stdsinglefield}
+    S=\f12 \int d^4x \sqrt{-g} [R -(\nabla\phi)^2-2V(\phi)]
+\end{equation}
+for a scalar field minimally coupled to gravity. We work in the comoving gauge
+\begin{equation}
+    \label{eq:gauges}
+    \delta\phi=0, \qquad g_{ij}=a^2[(1-2\R )\delta_{ij}+h_{ij}], \qquad \del_ih_{ij}=h^i_i=0
+\end{equation}
+which removes all scalar degrees of freedom (dof) except for $\R $, defined as
+\begin{equation}
+    \R \equiv \Psi-\f{H}{\Bar{\rho}-\Bar{p}}\delta q.
+\end{equation}
+called the \textit{comoving curvature perturbation}. This allows us to only compute the correlation functions of $\R $ at horizon-crossing, because the scalar dofs are entirely parameterized by $\R (t,\v{x})$. After solving the constraint equations, we yield the second order expansion of the action in $\R$
+\begin{equation}
+    \label{eq:secorderstdaction}
+    S_{(2)}=\f12 \int d^4x\, a^3 \f{\dot \phi^2}{H^2}[\dot{\R }^2-a^{-2}(\del_i \R )^2]
+\end{equation}
+With dotted variables $\dot{x}$ denoting derivatives w.r.t time $t$. We now introduce conformal time $d\tau\equiv \f{dt}{a}$ and define the Mukhanov variable
+\begin{equation}
+    z\equiv a\f{\dot{\phi}}{H}
+\end{equation}
+And thus
+\begin{equation}
+    S^{(2)}=\f12\int d\tau d^3x\,z^2  
+\qty[(\R')^2-(\del_i \R)^2].  
+\end{equation}
+
+and define primed variables $x'$ as derivatives w.r.t conformal time $\tau$. Now, to make the harmonic oscillator structure obvious, we define the canonical field
+\begin{equation}
+    v\equiv z\R
+\end{equation}
+and USing
+\begin{equation}
+    \R'=(\f{v'}{z}-\f{z'}{z^2})v
+\end{equation}
+ lets us rewrite the action as
+\begin{equation}
+S_{(2)} = \f12 \int d\tau d^3x
+\qty[(v')^2 - (\del_i v)^2 + \f{z''}{z} v^2]
+\end{equation}
+Note that this admits a plane wave solution, satisfying the Mukhanov-Sasaki equation
+\begin{equation}
+    v_k''+(k^2-\f{z''}{z})v_k=0
+\end{equation}
+
+\todo{wtf do i do w this}
+% \vspace{2cm}
+\todo{Quantization of the inflaton}
+% \paragraph{Quantization of the inflaton}
+
+The four scalar metric perturbations and the field perturbation itself give us five degrees of freedom (dof). The gauges eq. \eqref{eq:gauges} remove two of these dofs, and the Einstein field equation remove two more. We are left with one dof, which is our $\R $
+
+
+\textit{second order expansion}
+
+
+First, we expand eq. \eqref{eq:stdsinglefield} to second order in $\R $. 
+\todo{derive this explicitly}
+and after all of this we are left with  
+
+
+\textit{sho derivation}
+
+which streamlines our notation down the road. Let $\dot{x}$ refer to derivatives w.r.t time $t$, and $x'$ refer to derivatives w.r.t. conformal time $\tau$.
+Transition eq. \eqref{eq:secorderstdaction} to conformal time $\tau$ where $\del_t=a\del_\tau$ by the standard definition. We first note that $\R =\f vz$, and that 
+\begin{equation}
+    \dot{\R }=\df{\R }{t}=\f1a\df{\R }{\tau}=\f{1}{a}\R '
+\end{equation}
+so we find
+\begin{align}
+    \R '&=\df{}{\tau}\qty(\f vz)=\f{zv'-z'v}{z^2},\\
+    \dot{\R }^2&=\f{1}{a^2}\R '^2=\f{1}{a^2z^4}(zv'-z'v)^2.
+\end{align}
+And now, our action eq. \eqref{eq:secorderstdaction} easily molds into the shape we want! 
+\begin{align}
+    \int d^4x\, a^3 \f{\dot \phi^2}{H^2}[\dot{\R }^2-a^{-2}(\del_i \R )^2]&=\int d\tau d^3x\, a^2z^2\qty[\f{1}{a^2z^4}(zv'-z'v)^2-\f{1}{a^{2}}\qty(\del_i \f vz)^2] \nonumber \\
+    &=\int d\tau d^3x\qty[v'^2-2\qty(\f{z'}{z})vv'+\qty(\f{z'}{z})^2v^2-\qty(\del_i v)^2] \nonumber \\
+    S_{(2)}&=\f12 \int d\tau d^3x\qty[(v')^2+\f{z''}{z}v^2-\qty(\del_i v)^2].
+\end{align}
+Now, we may write the Fourier expansion of the field $v$ as
+\begin{equation}
+    v(\tau,\v{x})=\int \f{d^3k}{(2\pi)^3}v_{\v{k}}(\tau)e^{i\v{k}\cdot\v{x}},
+\end{equation}
+which yields the mode function equation, the Mukhanov-Sasaki equation:
+\begin{equation}
+    v''_k+\qty(k^2-\f{z''}{z})v_k=0
+\end{equation}
+Make careful note that this is of SHO form!
+
+We now promote $v$ and $\pi_v=v'$, its conjugate momentum, to quantum operators, and imposing the equal-time commutation relations
+
+
+
+fourier decompose
+\begin{equation}
+v(\tau,\v{x}) = \int \f{d^3k}{(2\pi)^3} v_k(\tau) e^{i\v{k}\cdot\v{x}},
+\end{equation}
+
+This allows us to write the free field expansion of $v$ as
+\begin{equation}
+    v(\tau,\v{x})=\int \f{d^3k}{(2\pi)^3}\qty\Big[v_k(\tau)a_ke^{ikx}+v^\star_k(\tau)a^\dagger_ke^{-ikx}]
+\end{equation}
+where we notate $kx=k^\mu x_\mu$ as a contraction.
+
+
+
+Important to note: the frequency of foruier modes $\omega_k$ 
+\begin{equation}
+    \omega^2_k(\tau)\equiv k^2-\f{z''}{z}
+\end{equation}
+are dependent on the field definition $\phi$ and the slow roll parameters, but this model dependency enters only through the Mukhanov
+\[
+\f{z''}{z}=?
+\]
+
+\todo{polish this argument:}
+we have
+$$
+z = a\sqrt{2\epsilon_1},M_P,  
+\qquad \epsilon_1\equiv -\frac{\dot H}{H^2}.  
+$$
+
+and defining the higher order hubble parameters (by continuous differentiation w.r.t. e-fold number)
+$$
+\epsilon_2\equiv\frac{d\ln\epsilon_1}{dN},\quad  
+\epsilon_3\equiv\frac{d\ln\epsilon_2}{dN}.  
+$$
+and we can expand using the fact
+$$
+\frac{z''}{z} = \left(\frac{z'}{z}\right)' + \left(\frac{z'}{z}\right)^2,  
+\qquad \frac{d}{d\tau}=a\frac{d}{dt}.  
+$$
+should eventually get
+$(\epsilon_i\ll 1)$,  
+$$
+\boxed{\frac{z''}{z} \simeq a^2H^2\left(2-\epsilon_1+\frac32\epsilon_2\right).}  
+$$
+% \todo{robot}
+% % For a canonical single field,  
+
+
+% %  Then the exact identity is  
+% % $$
+% % \boxed{  
+% % \frac{z''}{z}
+% % a^2H^2\left[
+% % 2-\epsilon_1+\frac32\epsilon_2  
+% % -\frac12\epsilon_1\epsilon_2  
+% % +\frac14\epsilon_2^2  
+% % +\frac12\epsilon_2\epsilon_3  
+% % \right].  
+% % }  
+% % $$
+
+% To first order in slow roll,  
+% $$
+% \boxed{  
+% \frac{z''}{z}\simeq a^2H^2\left(2-\epsilon_1+\frac32\epsilon_2\right).  
+% }  
+% $$
+
+% % This will be relevant later, when we study the modified dynamics of nonminimally coupled fields.
+
+% % Canonical quantization follows exactly as a Minkowski spacetime free scalar field, except instead of have a fixed integration measure
+% % \[
+% % \int \f{d^3k}{(2\pi)^3}\f{1}{\sqrt{2\omega_k}}
+% % \]
+% % we also have a frequency which evolves over time. 
+
+
+% Compute  
+% $$
+% \ln z = \ln a + \tfrac12 \ln \epsilon_1 + \ln(\sqrt2 M_P),  
+% $$
+% so  
+% $$
+% \frac{d\ln z}{dN} = 1+\frac12\epsilon_2.  
+% $$
+% Convert to conformal time:  
+% $$
+% \frac{z'}{z} = \frac{d\ln z}{d\tau} = aH\left(1+\frac12\epsilon_2\right).  
+% $$
+% Differentiate once more using ($ (aH)' = a^2H^2(1-\epsilon_1)$) and $(\epsilon_2' = aH,\epsilon_2\epsilon_3)$:  
+% $$
+% \left(\frac{z'}{z}\right)' = a^2H^2\left[(1-\epsilon_1)\left(1+\frac12\epsilon_2\right)+\frac12\epsilon_2\epsilon_3\right].  
+% $$
+% Then add ($(z'/z)^2=a^2H^2(1+\frac12\epsilon_2)^2$). The exact expression becomes  
+% $$
+% \boxed{  
+% \frac{z''}{z}a^2H^2\left[
+% 2-\epsilon_1+\frac{3}{2}\epsilon_2-\frac12\epsilon_1\epsilon_2  
+% +\frac14\epsilon_2^2+\frac12\epsilon_2\epsilon_3\right].  
+% }  
+% $$
+% To **first order** in slow-roll $(\epsilon_i\ll 1)$,  
+% $$
+% \boxed{\frac{z''}{z} \simeq a^2H^2\left(2-\epsilon_1+\frac32\epsilon_2\right).}  
+% $$
+% This is the form that’s most useful when you approximate the mode equation as Bessel/Hankel.
+
+
+% \todo{hm}
+
+\subsubsection{Tensor Perturbations}
+
+Inflationary dynamics enter the perturbation equations solely through the time dependence of the effective frequency of the associated harmonic oscillators.
+
+We define the Hubble-flow hierarchy
+\begin{equation}
+\epsilon_1 \equiv \epsilon_H \equiv -\frac{\dot H}{H^2}, \qquad
+\epsilon_2 \equiv \frac{d\ln\epsilon_1}{dN}, \qquad
+\epsilon_3 \equiv \frac{d\ln\epsilon_2}{dN},
+\end{equation}
+where $N \equiv \ln a$ and overdots denote derivatives with respect to cosmic time $t$. For a canonical single scalar field,
+\begin{equation}
+z \equiv a\frac{\dot\phi}{H} = a \sqrt{2\epsilon_1}\, M_P .
+\end{equation}
+
+Quantum fluctuations during inflation seed all primordial perturbations. In particular, scalar fluctuations source second-order gravitational waves, while the scalar sector itself is fully characterized by a single gauge-invariant degree of freedom. To make this explicit, we now derive the quadratic action governing scalar perturbations and show that it reduces to a time-dependent harmonic oscillator.
+
+\paragraph{Scalar Perturbations}
+
+We begin with the standard single-field action
+\begin{equation}
+\label{eq:stdsinglefield}
+S = \frac12 \int d^4x \sqrt{-g} \left[ R - (\nabla\phi)^2 - 2V(\phi) \right],
+\end{equation}
+describing a minimally coupled scalar field. We work in comoving gauge,
+\begin{equation}
+\label{eq:gauges}
+\delta\phi = 0, \qquad
+g_{ij} = a^2 \left[(1-2\mathcal R)\delta_{ij} + h_{ij}\right], \qquad
+\partial_i h_{ij} = h^i{}_i = 0 ,
+\end{equation}
+which removes all scalar degrees of freedom except the comoving curvature perturbation $\mathcal R$, defined by
+\begin{equation}
+\mathcal R \equiv \Psi - \frac{H}{\bar\rho+\bar p}\,\delta q .
+\end{equation}
+In this gauge, all scalar dynamics are encoded in $\mathcal R(t,\v x)$.
+
+After solving the constraint equations and expanding the action to second order in $\mathcal R$, one finds
+\begin{equation}
+\label{eq:secorderstdaction}
+S_{(2)} = \frac12 \int d^4x\, a^3 \frac{\dot\phi^2}{H^2}
+\left[ \dot{\mathcal R}^2 - a^{-2} (\partial_i \mathcal R)^2 \right].
+\end{equation}
+
+Introducing conformal time $d\tau = dt/a$ and defining
+\begin{equation}
+z \equiv a \frac{\dot\phi}{H},
+\end{equation}
+the action becomes
+\begin{equation}
+S_{(2)} = \frac12 \int d\tau\, d^3x\, z^2
+\left[ (\mathcal R')^2 - (\partial_i \mathcal R)^2 \right],
+\end{equation}
+where primes denote derivatives with respect to $\tau$.
+
+To exhibit the canonical structure, we define the Mukhanov variable
+\begin{equation}
+v \equiv z \mathcal R .
+\end{equation}
+Using
+\begin{equation}
+\mathcal R' = \frac{v'}{z} - \frac{z'}{z^2} v ,
+\end{equation}
+and integrating by parts, the action becomes
+\begin{equation}
+S_{(2)} = \frac12 \int d\tau\, d^3x
+\left[ (v')^2 - (\partial_i v)^2 + \frac{z''}{z} v^2 \right].
+\end{equation}
+
+Varying this action yields the Mukhanov--Sasaki equation for each Fourier mode,
+\begin{equation}
+v_k'' + \left( k^2 - \frac{z''}{z} \right) v_k = 0 ,
+\end{equation}
+which is the equation of a harmonic oscillator with a time-dependent frequency.
+
+\paragraph{Canonical Quantization}
+
+The field $v$ is promoted to an operator and expanded in Fourier modes,
+\begin{equation}
+v(\tau,\v x) =
+\int \frac{d^3k}{(2\pi)^3}
+\left[ v_k(\tau)\, a_{\v k} e^{i\v k\cdot\v x}
++ v_k^*(\tau)\, a^\dagger_{\v k} e^{-i\v k\cdot\v x} \right],
+\end{equation}
+with conjugate momentum $\pi_v = v'$. Canonical quantization imposes the equal-time commutation relation
+\begin{equation}
+[v(\tau,\v x), \pi_v(\tau,\v y)] = i \delta^{(3)}(\v x - \v y).
+\end{equation}
+
+The effective frequency of each mode is
+\begin{equation}
+\omega_k^2(\tau) \equiv k^2 - \frac{z''}{z},
+\end{equation}
+and all model dependence enters through the background quantity $z(\tau)$.
+
+% For a canonical single field,
+% \begin{equation}
+% z = a \sqrt{2\epsilon_1}\, M_P ,
+% \qquad
+% \epsilon_1 \equiv -\frac{\dot H}{H^2}.
+% \end{equation}
+% Defining the higher Hubble-flow parameters
+% \begin{equation}
+% \epsilon_2 \equiv \frac{d\ln\epsilon_1}{dN},
+% \qquad
+% \epsilon_3 \equiv \frac{d\ln\epsilon_2}{dN},
+% \end{equation}
+% one finds the exact identity
+% \begin{equation}
+% \frac{z''}{z} = a^2 H^2
+% \left[
+% 2 - \epsilon_1 + \frac32 \epsilon_2
+% - \frac12 \epsilon_1 \epsilon_2
+% + \frac14 \epsilon_2^2
+% + \frac12 \epsilon_2 \epsilon_3
+% \right].
+% \end{equation}
+% To first order in slow roll,
+% \begin{equation}
+% \frac{z''}{z} \simeq a^2 H^2 \left( 2 - \epsilon_1 + \frac32 \epsilon_2 \right).
+% \end{equation}
+
+% This form allows the mode equation to be approximated by Bessel or Hankel functions and provides the basis for computing the scalar power spectrum.
+
+
+% \newpage
+\subsection{Primordial Power Spectrum}
+
+Finally, recall that standard QFT Lagrangians occur in a non-evolving Minkowski space to study the asymptotic states of particle interactions, and this defines a unique vacuum.
+
+In the case of inflation, however, spacetime itself is time-dependent and thus the vacuum is not uniquely prescribed. We account for this by picking a vacuum, and we use the standard Bunch Davies vacuum which states that deeply sub-horizon modes behave like asymptotic states
+\begin{equation}
+    \lim_{\tau\to -\infty} v_k(\tau) = \f{e^{-ik\tau}}{\sqrt{2k}}, \qquad k\gg aH
+\end{equation}
+
+\paragraph{Freeze-Out}
+
+Now in the low momentum limit, the wavelength of curvature modes exceed the horizon. On these superhorizon scales $k\ll aH$, we have 
+\[
+\omega_k^2(\tau)\underset{k\ll aH}{\longrightarrow} -\f{z''}{z}
+\]
+
+\todo{ fix} curvature perturbation becomes constant
+% In the superhorizon limit $k^2 \ll z''/z$,  
+% $$
+% \omega_k^2(\tau) = k^2 - \frac{z''}{z} \approx -\frac{z''}{z}  
+% $$
+% which is \textit{strongly time-dependent}. What becomes constant is the **curvature perturbation $(\mathcal R)$**, not the frequency.
+% \todo{rob fix above}
+
+The power spectrum
+\begin{equation}
+    \Pw_\R(k)\equiv \f{k^3}{2\pi^2}\abs{\f{v_k}{z}}^2
+\end{equation}
+
+Thus, the scalar power spectrum is defined at the horizon exit of these modes
+\begin{equation}
+    \expval{\R_k\R_p}=(2\pi)^3\delta^3(k+p)\f{2\pi^2}{k^3}\qty[\Pw_\R(k)\eval_{k=aH}]
+\end{equation}
+
+And if we recall that inflationary microphysics enters exclusively through $z''/z$, this essentially tunes the effective mass of the Mukhanov-Sasaki field.
+
+\todo{robot}
+$$
+v_k(\tau)=A_k z(\tau)+B_k z(\tau)\int^\tau \frac{d\tau'}{z^2(\tau')}.  
+$$
+
+Thus  
+$$
+\mathcal R_k=\frac{v_k}{z}=A_k + B_k\int^\tau \frac{d\tau'}{z^2}.  
+$$
+
+During inflation, the second term decays, so  
+$$
+\boxed{\mathcal R_k \to \text{constant}}  
+\quad\text{(freeze-out).}  
+$$
+
+The power spectrum is defined by  
+$$
+\langle \mathcal R_{\vec k}\mathcal R_{\vec p}\rangle  
+=(2\pi)^3\delta^{(3)}(\vec k+\vec p)\frac{2\pi^2}{k^3}\mathcal P_\mathcal R(k).  
+$$
+
+Evaluated at horizon exit ($k=aH$),  
+$$
+\boxed{  
+\mathcal P_\mathcal R(k)=  
+\frac{1}{8\pi^2M_P^2}\frac{H^2}{\epsilon_1}.  
+}  
+$$
+
+
+
+
+\todo{incorporate these notes}
+
+3.3 Non-Uniqueness of Vacuum State
+- Mode functions $v_k(\tau)$ and $v_k^*(\tau)$ in the operator description (3.6) are linear independent solutions of the Mukhanov-Sasaki equation (3.5).
+$\rightarrow$ linear combination of $v_k(\tau)$ and $v_k^*(\tau), \chi_k(\tau)=\alpha_k v_k(\tau)+\beta_k v_k^*(\tau)$, is solution of (3.5).
+Note that for a SHO with time-independent frequenncy the coefficients in the operator description are fixed $c$ numbers, hence creation and annihilation operators are unique.
+- If the operator $\hat{v}_{\v{k}}$ is constructed with operators $\hat{a}_{\v{k}}$ and mode functions $v_k(\tau)$, then using a different set of mode functions, e.g., $\chi_k(\tau), \hat{v}_{\v{k}}$ has to be constructed with operators $\hat{b}_{\v{k}}$ according to (3.7):
+
+\[
+\hat{v}_{\v{k}}=\chi_k(\tau) \hat{b}_{\v{k}}+\chi_{-k}^*(\tau) \hat{b}_{-\v{k}}^{\dagger}
+\]
+
+$\hat{a}_{\v{k}}$ and $\hat{b}_{\v{k}}$ are related by the Bogolubov transformations [1].
+- $\rightarrow$ non-uniqueness of the vaccum state:
+
+The $b$-vacuum state, defined by $\hat{b}_{\v{k}}|0\rangle_b=0$, contains particles created from the $a$-vacuum state $\hat{a}_{\v{k}}^{\dagger}|0\rangle_a:{ }_b\langle 0| \hat{a}_{\v{k}}^{\dagger} \hat{a}_{\v{k}}|0\rangle_b=\abs{\beta_k}^2 \delta(0)$ [5].
+- $\rightarrow$ How to calculate zero-point fluctuations $\langle 0| \hat{v}_{\v{k}} \hat{v}_{\v{k}^{\prime}}|0\rangle$ if mode functions $v_k(\tau)$ and hence the vacuum state $|0\rangle$ are not unique?
+
+3.4 Bunch-Davies Mode Functions $v_k$
+- vacuum state for the fluctuations of $v_k(\tau)$ :
+
+The vacuum state is chosen to be the Minkowski vacuum state $\hat{a}_{\v{k}}|0\rangle=0$ observed for $\tau \rightarrow-\infty$.
+- boundary conditions:
+
+For $z^2=2 a^2 \epsilon$ the following equation holds
+
+\[
+\f{z^{\prime \prime}}{z}=(a H)^2\qty[2-\epsilon+\f{3}{2} \eta-\f{1}{2} \epsilon \eta+\f{1}{4} \eta^2 \eta \kappa]
+\]
+
+with $\epsilon=-\f{\dot{H}}{H^2}, \eta=\f{\dot{\epsilon}}{H \epsilon}, \kappa=\f{\dot{\eta}}{H \eta}$ [6].
+In the de Sitter limit, i.e., $\epsilon \rightarrow 0$, (3.9) simplifies to
+
+\[
+\f{z^{\prime \prime}}{z}=2(a H)^2=\f{2}{\tau^2}
+\]
+
+with $a(\tau)=-\f{1}{H \tau}$.
+In the chosen subhorizon limit $\tau \rightarrow-\infty$ (3.5) reads
+
+\[
+v_k^{\prime \prime}+k^2 v_k=0
+\]
+
+which has oscillating solutions $v_k=\f{e^{ \pm i k \tau}}{\sqrt{2 k}}$ The vacuum state $|0\rangle$ is the state with minimum energy for the solution $v_k=\f{e^{-i k \tau}}{\sqrt{2 k}}$.
+$\rightarrow$ initial condition for all modes:
+
+\[
+\lim _{\tau \rightarrow-\infty} v_k=\f{e^{-i k \tau}}{\sqrt{2 k}}
+\]
+
+
+In the de Sitter limit (3.5) reads
+
+\[
+v_k^{\prime \prime}+\qty(k^2-\f{2}{\tau^2}) v_k=0
+\]
+
+which has the general solution
+
+\[
+v_k=\alpha \f{e^{-i k \tau}}{\sqrt{2}}\qty(1-\f{i}{k \tau})+\beta \f{e^{i k \tau}}{\sqrt{2}}\qty(1+\f{i}{k \tau}) .
+\]
+
+
+Observe that $\alpha$ and $\beta$ are free parameters owing to to the non-uniqueness of the mode functions. However, the subhorizon limit (3.10) sets $\beta=0$ and the normalization condition (3.8) sets $\alpha=1$. The unique Bunch-Davies mode functions result:
+
+\[
+v_k=\f{e^{-i k \tau}}{\sqrt{2}}\qty(1-\f{i}{k \tau})
+\]
+
+with superhorizon limit
+
+\[
+\lim _{k \tau \rightarrow 0} v_k=\f{1}{i \sqrt{2}} \f{1}{k^{\f{3}{2} \tau}}
+\]
+
+3.5 Power Spectrum $P_{\R }(k)$ for Scalar Perturbations from Quantum Fluctuations
+- power spectrum $P_v(k)$ :
+
+Using (3.6) and (3.8), the following calculation is obvious:
+
+\[
+\begin{aligned}
+% \left\langle\hat{v}_{\v{k}}, \hat{v}_{\v{k}^{\prime}}\right\rangle & =\langle 0| \hat{v}_{\v{k}}, \hat{v}_{\v{k}^{\prime}}|0\rangle \\
+% & =\langle 0|\qty(v_k(\tau) \hat{a}_{\v{k}}+v_{-k}^*(\tau) \hat{a}_{-\v{k}}^{\dagger})\qty(v_k^{\prime}(\tau) \hat{a}_{\v{k}^{\prime}}+v_{-k^{\prime}}^*(\tau) \hat{a}_{-\v{k}^{\prime}}^{\dagger})|0\rangle \\
+% & =\abs{v_k}^2\langle 0|\qty[\hat{a}_{\v{k}}, \hat{a}_{-\v{k}^{\prime}}^{\dagger}]|0\rangle \\
+& =\abs{v_k}^2 \delta\qty(\v{k}+\v{k}^{\prime}) \\
+& \equiv P_v(k) \delta\qty(\v{k}+\v{k}^{\prime})
+\end{aligned}
+\]
+
+
+The quantum zero-point fluctuations $\left\langle\hat{v}_{\v{k}}, \hat{v}_{\v{k}^{\prime}}\right\rangle$ are created on subhorizon scales and freeze on superhorizon scales because the comoving curvature perturbation $\R $ is constant on superhorizon scales (see Figure 1). Since the power spectrum $P_{\R }(k)$ is calculated at horizon crossing the superhorizon limit (3.11) for the mode functions is used yielding $P_v(k)=\f{1}{2 k^3} \f{1}{\tau^2}=\f{1}{2 k^3}(a H)^2$.
+- power spectrum $P_{\R }(k)$ :
+
+Using $v=z \R , P_{\R }(k)$ equals
+
+\[
+\begin{aligned}
+P_{\R } & =\f{1}{z^2} P_v \\
+& =\f{1}{2 a^2 \epsilon_{\star}} \f{1}{2 k^3}\qty(a_{\star} H_{\star})^2 \\
+& =\f{1}{4 k^3} \f{H_{\star}^2}{\epsilon_{\star}} \\
+\Rightarrow P_{\R }(k) & =\f{1}{2 k^3} \f{H_{\star}^4}{\dot{\phi}_{\star}^2}
+\end{aligned}
+\]
+
+with the relation $\epsilon=\f{1}{2} \f{\dot{\phi}^2}{H^2}$ for a scalar field $\phi$ with action (2.6). Quantities with lower index $\star$ are evaluated at the time of horizon crossing.
+- Combining equations (3.6), (3.3), (2.8a), (2.8b), (3.1) and (2.7), the outcome is that the scalar metric perturbations (2.2) invoked to explain inhomogeneities are explained by quantum zero-point fluctuations.
+
+
+
+
+% SECTION 2:
+\subsection{Gravitational Wave Energy Density}
+How do we compute how primordial gravitational waves are generated and how they impact our observations?
+
+\todo{flesh this out more}
+
+
+the gravitational wave energy density 
+
+define the scalar energy density
+
+\[
+\Omega_{\rm GW}\equiv \f{1}{\rho_c(\tau)}\df{\rho_{\rm GW}}{\ln k}(\tau), \qquad \rho_c(\tau)=3M_{\rm pl}^2H^2
+\]
+traceless transverse metric perturbation
+\[
+ds^2=a^2[-dt^2+(\delta_{ij}+h_{ij})dx^idx^j], \qquad \del_i h_{ij}=0, \quad h_{ii}=0
+\]
+
+the graviton tensor defined in conformal time and space can be fourier expanmded in momentum space using its fourier dual  as
+\[
+h_{\mu\nu}= \int \f{d^3k}{(2\pi)^3} e^{ikx}\tilde{h}_{\mu\nu}
+\]
+where, if we apply the symmetric, traceless and transverse relations
+\[
+k_\mu\tilde{h}_{\mu\nu}=0, \qquad \tilde{h}_{ii}=0
+\]
+then we can uniquely express it's dual in terms of the spin-2 polarizations such that
+\[
+\tilde{h}_{\mu\nu}=\epsilon^\lambda_{\mu\nu}h_\lambda, \qquad h_\lambda=\eta^{\mu\nu}\epsilon^\lambda_{\mu\nu}h_{\mu\nu}
+\]
+where $\epsilon_{ij}^\lambda \epsilon_{ij}^{\lambda'}=\delta_{\lambda\lambda'}$
+
+
+
+subhorizon modes $k\gg aH$, superhorizon modes: $k\ll aH$ (wavelength much larger than comoving hubble radius)
+
+\[
+\rho_{GW}=\f{M_{\rm pl}^2}{8a^2}\expval{h'_{ij}h'_{ij}+(\Delta h_{ij})^2}
+\]
+
+define spectral density
+\[
+\df{\rho_{GW}}{\ln k}=\f{M_{\rm pl}^2}{4}\qty(\f ka)^2\Delta_h^2
+\]
+with
+\[
+\Delta_h^2=\sum_\lambda \Delta^2_{(h,\lambda)}, \qquad \expval{h_\lambda(\v{k})h_{\lambda'}(\v{k}')}=(2\pi)^3\delta_{\lambda \lambda'}^{(3)}(k+k')\f{2\pi^2}{k^3}\Delta_{h,\lambda}^2(k)
+\]
+\[
+\Omega_{GW}=\f{1}{12}\qty(\f k{aH})^2\Delta_h^2, \qquad k\gg aH
+\]
+
+% To make the relation between $\Omega_{\rm GW}$ and the scalar spectrum precise, we first introduce a convenient polarization decomposition of the transverse--traceless metric perturbation. 
+% % This is not an ADM step (ADM is a decomposition of the full metric into lapse, shift, and spatial metric used to solve constraints); rather, it is the standard Fourier and helicity decomposition of a free spin-2 field in an isotropic background. The ADM formalism can be used earlier to derive the quadratic action for $h_{ij}$, but the polarization decomposition itself is independent of ADM and relies only on the TT conditions and spatial isotropy.
+
+% We work with the TT metric perturbation
+% \begin{equation}
+% \label{eq:TTmetric}
+% ds^2=a^2(\tau)\left[-d\tau^2+\left(\delta_{ij}+h_{ij}\right)dx^i dx^j\right],
+% \qquad
+% \partial_i h_{ij}=0,
+% \qquad
+% h_{ii}=0.
+% \end{equation}
+% The tensor perturbation has two physical degrees of freedom. In Fourier space one expands
+% \begin{equation}
+% \label{eq:hij_Fourier}
+% h_{ij}(\tau,\v x)=\sum_{\lambda=+,\times}\int\frac{d^3k}{(2\pi)^3}\,
+% e^{i\v k\cdot \v x}\,
+% e^{(\lambda)}_{ij}(\hat{\v k})\,h_\lambda(\tau,\v k),
+% \end{equation}
+% where $\lambda$ labels the two polarizations and $e^{(\lambda)}_{ij}(\hat{\v k})$ are symmetric, transverse, traceless polarization tensors satisfying
+% \begin{equation}
+% \label{eq:polprops}
+% e^{(\lambda)}_{ii}=0,
+% \qquad
+% k_i e^{(\lambda)}_{ij}=0,
+% \qquad
+% e^{(\lambda)}_{ij}(\hat{\v k})\,e^{(\lambda')}_{ij}(\hat{\v k})=2\,\delta_{\lambda\lambda'}.
+% \end{equation}
+% It is often convenient to construct $e^{(\lambda)}_{ij}$ from an orthonormal basis $\{\hat{\v e}_1,\hat{\v e}_2,\hat{\v k}\}$ with $\hat{\v e}_a\cdot \hat{\v e}_b=\delta_{ab}$ and $\hat{\v e}_a\cdot \hat{\v k}=0$, for example
+% \begin{equation}
+% \label{eq:polbasis}
+% e^{(+)}_{ij}=\hat e_{1i}\hat e_{1j}-\hat e_{2i}\hat e_{2j},
+% \qquad
+% e^{(\times)}_{ij}=\hat e_{1i}\hat e_{2j}+\hat e_{2i}\hat e_{1j}.
+% \end{equation}
+% Equations \eqref{eq:hij_Fourier}--\eqref{eq:polbasis} are purely kinematical and apply in any spatially flat FLRW background.
+
+% The tensor power spectrum is defined by the two-point function of the mode amplitudes. Assuming statistical homogeneity, isotropy, and unpolarized perturbations,
+% \begin{equation}
+% \label{eq:tensor2pt}
+% \langle h_\lambda(\tau,\v k)\,h_{\lambda'}(\tau,\v k')\rangle
+% =(2\pi)^3\delta_{\lambda\lambda'}\,\delta^{(3)}(\v k+\v k')\,
+% \frac{2\pi^2}{k^3}\,\mathcal P_{h,\lambda}(k,\tau),
+% \end{equation}
+% and we define the total tensor spectrum by $\mathcal P_h\equiv \sum_\lambda \mathcal P_{h,\lambda}$. With these conventions, the oscillation-averaged GW energy density per logarithmic interval (valid for subhorizon modes $k\gg aH$) is \cite{domenech_scalar_2021}
+% \begin{equation}
+% \label{eq:OmegaGW_subhorizon_again}
+% \Omega_{\rm GW}(k,\tau)=\frac{k^2}{12a^2H^2}\,\mathcal P_h(k,\tau)
+% =\frac{k^2}{12a^2H^2}\sum_\lambda\mathcal P_{h,\lambda}(k,\tau).
+% \end{equation}
+% This relation follows from the effective stress-energy tensor for gravitational waves (Isaacson averaging) applied to a TT perturbation in an expanding background, together with the Fourier decomposition \eqref{eq:hij_Fourier} and the assumption that the mode is well inside the horizon so that the perturbation is oscillatory \cite{domenech_scalar_2021}.
+
+% In the scalar-induced case, the tensor spectrum $\mathcal P_h$ is sourced at second order by scalar perturbations. The resulting $\Omega_{\rm GW}$ is obtained by convolving the primordial curvature spectrum $\mathcal P_{\mathcal R}(k)$ with a background-dependent kernel (transfer function), as reviewed in \cite{domenech_scalar_2021}.
+
+
+\todo{hm?}
+- comparison bt vacuum pgws and SIGWs?
+- SIGW at small scales
+
+\section{Observational Constraints}
+\subsection{Reheating}
+
+
+
+\subsection{Caveats and Constraints}
+
+SIGWs are a unique and particularly powerful probe of early cosmology and small-scale physics beyond the CMB's (and indepndent of its) constraints.
+
+However, as we saw in this section they rely on quite a long chain of assumptions about primordial perturbations, statistical interpretations, the expansion history of the universe, and the ways we can interpret second-order tensor modes.
+
+There's various caveats we need to keep in mind when analyzing any data, as they limit how easily we can convert between data (stochastic gravitational wave detection) and theory (inflationary dynamics and the primordial power spectrum). We cover a couple of those key caveats in this subsection.
+
+\paragraph{Primordial Black Holes}
+
+There's a close relationship between SIGWs and primordial black holes (PBHs). Scalar perturbations that are large enough to source observable SIGWs also happen to be near the threshold for gravitational collapse. In a radiation dominated universe, PBH formation occurs when density contrasts from primordial fluctuations in Hubble patches exceeds about\footnote{190,203-208 in domenech}
+$$\delta_{\rm crit}\equiv \f{\delta\rho}{\rho_{\rm crit}}\approx 0.4-0.5$$
+which corresponds to a density fraction approximately half of the critical density, whcih itself depends on the EoS parameter $w$\footnote{209-216 domenech}. This corresponds with roughly
+$$
+\log_{10}(\mathcal{P}_{\R})\approx \qty{-2,-1}$$
+since PBH formation is exeedingly rare, unless some other mechanism exists to seed over-dense Hubble patches. This can be characterized by the power spectrum which is defined by our inflation assumptions.
+
+Thus any inflation model which predicts power spectrum enhancement (on observable scales) must also contend with the PBH problem. This leads us to the only two observational outcomes\footnote{domenech review}:
+\begin{enumerate}
+    \item only large SIGWs are associated with a large PBH fraction
+    \item a lack of detected SIGWs rules out PBHs sourced by primordial fluctuations
+\end{enumerate}
+
+If the post-inflationary universe is in fact \textit{not} radiation dominated, then we must be even more careful. Matter-dominated eras expect to see enhanced PBH formation because of the lack of pressure support (\todo{footnote this w a number or smth}). This unfortunately means that the same experimental detection that would give us bounds on an already highly-model dependent obsrevable (SIGW signals) is highly correlated with another highly model-dependent observable (PBH bounds). This makes it difficult to disentangle our assumptions about reheating physics and early-universe dynamics more generally.
+
+
+\paragraph{Reheating Models}
+% \todo{heres some values and corresponding reheayting history (?)} 
+In our derivation in section \ref{sub:omegagw}, we assumed instantaneous reheating followed by radiation domination. While this is the standard treatment of SIGWs, we very well could have some nontrivial period of time where the equation of state $w\neq\f13$. 
+
+That SIGWs are generated by scalar perturbation at horizon re-entry makes their characteristic features (amplitude and spectral shape) particularly sensitive to the background expansion. For any given state $w$, the scalar mode growth and tensor perturbation Green's functions are affected. This shifts anything from peak amplitude to the slope of the IR and UV tails, and the mapping between comoving $k$ and its present day frequency. Thus any uncertainties in our understanding of reheating (temperature, duration, equation of state) directly propagates into $\Omega_{\rm GW}$.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{r|c|c|p{7cm}}
+    Reheating Model & $b$ & $w$ & Description\\
+    \hline
+    Radiation domination & $0$&$\f13$  &  \\
+    Stiﬀ fluid (kinetic) domination & $-\f12$ & $1$ & (quintessential inflation)\\
+    Soft fluid domination & $\f12$ & $\f19$ & could be due to a scalar field rolling down an exponential potential\\
+    Pressure-less fluid domination & $1$ & $0$ & e.g., a scalar field rolling down an exponential potential. might be close to the coherent oscillations of a scalar field around the bottom of the potential\\
+    Negative EoS fluid domination  & $2$ & $-\f19$ & when $-\f13<w<0$ universe is
+    decelerating very slowly which yields to interesting slopes in the IR tail. 
+    \end{tabular}
+    \caption{Dust domination happens when $w=c_s^2=0$}
+    \label{tab:reheating}
+\end{table}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figs/eosreheating.png}
+    \caption{The different ways to model reheating dynamics based on fluid dynamics assumptions. $b$ is on the $x$-axis, and $w$ is on the $y$-axis.}
+    \label{fig:placeholder}
+\end{figure}
+
+% \vspace{5cm}
+This is both a limitation \textit{and} a crucial opportunity! While it is of course more difficult to constrain some model-independent consequences of inflation, SIGWs \textit{also} give us a unique chance to probe the universe's thermal history prior to BBN, beyond traditional probes like the CMB, Comptonization, the SZ-effect, among others.
+
+
+\paragraph{Observational Bounds}
+Many current acive observatories and known observational results already place pretty meaningful constraints on the possible induced spectra, not limited to but including:
+\begin{itemize}
+    \item BBN: $\Omega_{\mathrm{GW}} h^2 \lesssim 10^{-6}$ constrains tot GW nrg density 
+    \item CMB: limit ultra low frequency GWs from anisotropies
+    \item PTAs:constrain+hint at stochastic backgrounds relevent for small-scale perturbations (which SIGWs could be sourced by)
+    \item interferometers: (LIGO/Virgo/KAGRA, LISA, DECIGO, ET) probe millihertz to kilohertz frequencies and constrain higher-frequency SIGWs.
+\end{itemize}
+\todo{cite all relevant papers for these constraints}
+\todo{numerical plot showing constraints+probe ranges}
+These bounds are generated assuming a smooth/power-law gravitational wave spectrum, and as such are not exactly the tightest \todo{god rephrase this} bounds.
+
+Make careful note that SIGWs are characterized by sharp frequency peaks due to localized features in the scalar power spectrum. This means that in order to place meaningful constraints on $\mathcal{P}_{\R}(k)$, we must carefully propagate out the modeling
+$$
+\Omega_{\rm GW}(f)\to\mathcal{T}(u,v,b,w)\to \mathcal{P}_{\R}(k)
+$$
+Our present bounds may either significantly weaken or strengthen depending on the characteristic spectral shape (narrow,broad, oscillatory, etc) of our observed GWspectrum.
+
+\todo{robot:especially Sections 2.3, 6, 7, and 9, }
+
+
+\section{Induced Gravitational Waves}

@@ -1,0 +1,301 @@
+% Modular TeX snippet for the 253b final paper.
+% Physical applications and anomaly-facing half of the Chern--Simons review.
+
+\providecommand{\dd}{\mathrm{d}}
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\Lk}{\operatorname{Lk}}
+
+\section{Anomalies and Response}
+\label{sec:anomalies-boundaries-response}
+
+Chern--Simons theory becomes physically powerful when its topological terms are allowed to touch ordinary quantum field theory. The bulk action has no local propagating modes, but it controls three kinds of measurable or structural physics:
+\begin{itemize}
+  \item anomalous boundary variation and the need for edge degrees of freedom,
+  \item quantized Hall response and fractional quasiparticle data,
+  \item the contrast between pure topological gauge theory and Maxwell--Chern--Simons massive gauge dynamics.
+\end{itemize}
+This section develops these applications from the same action rather than presenting them as separate facts.
+
+% FIGURE FLAG [F-response-overview]: a schematic showing bulk CS term, boundary anomaly, Hall current, and quasiparticle braiding as outputs of the same action would orient the applications.
+
+\subsection{Anomaly Inflow}
+\label{subsec:boundary-variation-inflow}
+
+For a nonabelian connection, the variation of the Chern--Simons action on a manifold with boundary is
+\begin{equation}
+  \delta S_{\CS}
+  =
+  \frac{k}{2\pi}\int_{M_3}\tr(\delta A\wedge F)
+  -
+  \frac{k}{4\pi}\int_{\partial M_3}\tr(A\wedge\delta A).
+  \label{eq:anomaly-cs-variation-boundary}
+\end{equation}
+The first term gives the bulk equation of motion $F=0$. The second term says that the variational principle is not complete until one chooses boundary conditions or adds boundary degrees of freedom.
+
+The same issue appears in gauge transformations. In the abelian theory,
+\begin{equation}
+  S_{\U(1)}[A]
+  =
+  \frac{k}{4\pi}\int_{M_3}A\wedge\dd A,
+  \label{eq:anomaly-abelian-action}
+\end{equation}
+and for $A\mapsto A+\dd\lambda$,
+\begin{align}
+  \delta_\lambda S_{\U(1)}
+  &=
+  \frac{k}{4\pi}\int_{M_3}
+  \dd\lambda\wedge\dd A
+  \notag\\
+  &=
+  \frac{k}{4\pi}\int_{M_3}
+  \dd(\lambda\,\dd A)
+  =
+  \frac{k}{4\pi}\int_{\partial M_3}
+  \lambda\,\dd A.
+  \label{eq:anomaly-boundary-gauge-variation}
+\end{align}
+On a closed manifold this vanishes. On a manifold with boundary it is an anomaly: the bulk action alone is not gauge-invariant.
+
+The principle of anomaly inflow is that the boundary theory should have the opposite anomalous variation:
+\begin{equation}
+  \delta_\lambda S_{\partial}
+  =
+  -
+  \frac{k}{4\pi}\int_{\partial M_3}\lambda\,\dd A.
+  \label{eq:anomaly-boundary-cancel}
+\end{equation}
+The combined system is gauge-invariant even though neither piece is separately gauge-invariant. This is not a defect in the formulation. It is the mechanism by which the bulk remembers the existence of edge physics.
+
+% FIGURE FLAG [F-anomaly-inflow]: draw a three-manifold with boundary, the bulk gauge variation flowing to the edge, and an opposite edge anomaly.
+
+\subsection{Abelian Edge Mode}
+\label{subsec:abelian-edge-mode}
+
+The simplest boundary realization is a chiral boson. Take $M_3=\mathbb R_t\times\Sigma$ with boundary $\partial\Sigma$. In temporal gauge and locally solving the flatness constraint by $A_i=\partial_i\phi$, the Chern--Simons action reduces on the boundary to a first-order chiral action of the schematic form
+\begin{equation}
+  S_{\partial}
+  =
+  \frac{k}{4\pi}\int_{\partial M_3}
+  \left(\partial_t\phi\,\partial_x\phi
+  -
+  v(\partial_x\phi)^2\right)\dd t\,\dd x
+  +
+  \text{couplings to }A_{\mathrm{ext}}.
+  \label{eq:anomaly-chiral-boson}
+\end{equation}
+The velocity $v$ is not fixed by the topological bulk action; it depends on nonuniversal edge dynamics. The chirality and anomaly coefficient, however, are fixed by $k$.
+
+This distinction is crucial. Chern--Simons theory does not predict every microscopic detail of an edge. It predicts the anomaly that the edge must carry. In the quantum Hall effect, the chiral edge mode is therefore not an optional add-on. It is required so that the gauge variation of the boundary theory cancels the gauge variation of the bulk Chern--Simons term.
+
+\subsection{WZW Boundary Theory}
+\label{subsec:nonabelian-wzw-boundary}
+
+For nonabelian Chern--Simons theory, the analogous boundary theory is a Wess--Zumino--Witten model. Heuristically, the bulk flatness equation says that locally
+\begin{equation}
+  A=g^{-1}\dd g.
+  \label{eq:anomaly-flat-pure-gauge}
+\end{equation}
+Substituting a pure-gauge representative into the Chern--Simons functional produces the Wess--Zumino term
+\begin{equation}
+  \int_{M_3}\tr\left((g^{-1}\dd g)^{\wedge 3}\right),
+  \label{eq:anomaly-wz-term}
+\end{equation}
+while the boundary kinetic term turns the boundary field $g|_{\partial M}$ into a two-dimensional conformal field. The resulting chiral WZW model supplies the conformal blocks that appear in canonical quantization of nonabelian Chern--Simons theory.
+
+This gives a useful physical interpretation of a mathematical fact. The finite-dimensional Hilbert space of Chern--Simons theory on a surface is not arbitrary; it is tied to the space of conformal blocks of the boundary WZW model. Bulk topology and boundary current algebra are two ways of reading the same quantum structure.
+
+\subsection{Laughlin Response}
+\label{subsec:laughlin-response}
+
+For a Laughlin filling fraction $\nu=1/m$, the infrared bulk effective action is
+\begin{equation}
+  S[a;A]
+  =
+  \int\left[
+  \frac{1}{2\pi}A\wedge\dd a
+  -
+  \frac{m}{4\pi}a\wedge\dd a
+  \right].
+  \label{eq:anomaly-laughlin-action}
+\end{equation}
+Here $A$ is the background electromagnetic gauge field and $a$ is an emergent dynamical gauge field. The mixed term says that electric current is emergent flux; the $a\wedge\dd a$ term supplies the topological dynamics.
+
+Varying with respect to $a$ gives
+\begin{equation}
+  \frac{1}{2\pi}\dd A-\frac{m}{2\pi}\dd a=0,
+  \qquad
+  \dd a=\frac{1}{m}\dd A.
+  \label{eq:anomaly-integrate-a-eom}
+\end{equation}
+On a simply connected patch one may choose $a=A/m$. Substituting back gives the response action
+\begin{equation}
+  S_{\mathrm{eff}}[A]
+  =
+  \frac{1}{4\pi m}\int A\wedge\dd A.
+  \label{eq:anomaly-effective-A}
+\end{equation}
+The current is
+\begin{equation}
+  j^\mu
+  =
+  \frac{\delta S_{\mathrm{eff}}}{\delta A_\mu}
+  =
+  \frac{1}{2\pi m}\epsilon^{\mu\nu\rho}\partial_\nu A_\rho.
+  \label{eq:anomaly-current-response}
+\end{equation}
+Thus
+\begin{equation}
+  j^0=\frac{B}{2\pi m},
+  \qquad
+  j^i=\frac{1}{2\pi m}\epsilon^{ij}E_j,
+  \label{eq:anomaly-density-hall-current}
+\end{equation}
+and hence, in units $e=\hbar=1$,
+\begin{equation}
+  \sigma_{xy}=\frac{1}{2\pi m}.
+  \label{eq:anomaly-hall-conductance-natural}
+\end{equation}
+Restoring dimensions,
+\begin{equation}
+  \sigma_{xy}=\frac{e^2}{h}\frac{1}{m}.
+  \label{eq:anomaly-hall-conductance-physical}
+\end{equation}
+
+This is the cleanest example of topological response. The coefficient of a Chern--Simons term is quantized, and the corresponding transport coefficient is universal. Microscopic disorder, smooth changes of geometry, and weak local interactions cannot continuously change $\sigma_{xy}$ without closing the bulk gap or changing the topological order.
+
+% FIGURE FLAG [F-hall-response]: a Hall bar or disk schematic showing E field, transverse current, flux attachment, and sigma_xy=nu e^2/h would make the response formula concrete.
+
+\subsection{Fractional Anyons}
+\label{subsec:fractional-charge-statistics}
+
+A unit quasihole source coupled to $a$ modifies the $a$-field Gauss law:
+\begin{equation}
+  m f_{12}=2\pi\delta^{(2)}(x).
+  \label{eq:anomaly-quasihole-flux}
+\end{equation}
+The electric charge density follows from the mixed term:
+\begin{equation}
+  j^0=\frac{1}{2\pi}f_{12}
+  =
+  \frac{1}{m}\delta^{(2)}(x).
+  \label{eq:anomaly-quasihole-charge-density}
+\end{equation}
+Therefore
+\begin{equation}
+  Q_{\mathrm{qh}}=\frac{e}{m}.
+  \label{eq:anomaly-quasihole-charge}
+\end{equation}
+The same Chern--Simons field also attaches a braiding phase. A full winding of one unit quasihole around another gives
+\begin{equation}
+  \exp\left(\frac{2\pi i}{m}\right),
+  \label{eq:anomaly-full-braid}
+\end{equation}
+so an exchange gives
+\begin{equation}
+  \theta_{\mathrm{qh}}=\frac{\pi}{m}
+  \qquad
+  \text{mod }2\pi,
+  \label{eq:anomaly-exchange-angle}
+\end{equation}
+up to the orientation convention. The same coefficient $m$ has now produced the Hall conductance, fractional charge, and fractional statistics. This is why the Chern--Simons effective theory is more than a compact notation: it unifies several universal observables.
+
+% FIGURE FLAG [F-anyon-braid]: a worldline braid diagram distinguishing full monodromy from exchange would help connect phases to paths.
+
+\subsection{\texorpdfstring{$K$}{K}-Matrix Framework}
+\label{subsec:k-matrix-framework}
+
+The Laughlin theory is the one-component case of a general abelian Chern--Simons theory
+\begin{equation}
+  S_K[a^I;A]
+  =
+  \int\left[
+  \frac{1}{4\pi}K_{IJ}a^I\wedge\dd a^J
+  +
+  \frac{1}{2\pi}t_I A\wedge\dd a^I
+  \right].
+  \label{eq:anomaly-k-matrix-action}
+\end{equation}
+Here $K$ is an integral symmetric nondegenerate matrix, $t$ is the electromagnetic charge vector, and quasiparticles are labeled by integer vectors $\ell$. The universal abelian data are
+\begin{align}
+  \sigma_{xy}
+  &=
+  \frac{e^2}{h}\,t^{\mathsf T}K^{-1}t,
+  \label{eq:anomaly-k-hall}
+  \\
+  Q_\ell
+  &=
+  e\,t^{\mathsf T}K^{-1}\ell,
+  \label{eq:anomaly-k-charge}
+  \\
+  \theta_{\ell\ell'}
+  &=
+  2\pi\,\ell^{\mathsf T}K^{-1}\ell',
+  \label{eq:anomaly-k-mutual}
+  \\
+  \dim\mathcal H(\Sigma_g)
+  &=
+  |\det K|^g.
+  \label{eq:anomaly-k-degeneracy}
+\end{align}
+The first three equations are response and braiding data; the last is topological ground-state degeneracy. The same matrix controls all of them.
+
+The $K$-matrix does not encode every possible piece of geometric response by itself. For example, the Wen--Zee shift and spin vector require extra background geometry and coupling to the spin connection. In this paper we use the $K$-matrix at the level needed for charge, statistics, Hall response, and degeneracy, and we treat geometric response as a natural extension rather than a prerequisite.
+
+% FIGURE FLAG [F-kmatrix-table]: a compact table or diagram mapping K,t,ell to charge, statistics, Hall conductance, and degeneracy would be useful for review.
+
+\subsection{Maxwell--Chern--Simons}
+\label{subsec:maxwell-cs-contrast}
+
+Pure Chern--Simons theory has no propagating bulk modes because its equation of motion is flatness. Adding a Maxwell term changes the theory:
+\begin{equation}
+  S_{\mathrm{MCS}}
+  =
+  \int\dd^3x\left[
+  -\frac{1}{4g^2}f_{\mu\nu}f^{\mu\nu}
+  +
+  \frac{k}{4\pi}\epsilon^{\mu\nu\rho}a_\mu\partial_\nu a_\rho
+  \right].
+  \label{eq:anomaly-mcs-action}
+\end{equation}
+The equation of motion is
+\begin{equation}
+  \partial_\nu f^{\nu\mu}
+  +
+  \frac{k g^2}{4\pi}\epsilon^{\mu\nu\rho}f_{\nu\rho}
+  =
+  0.
+  \label{eq:anomaly-mcs-eom}
+\end{equation}
+Introducing the dual field strength
+\begin{equation}
+  F^\mu=\frac12\epsilon^{\mu\nu\rho}f_{\nu\rho},
+  \label{eq:anomaly-dual-field}
+\end{equation}
+one obtains a massive wave equation
+\begin{equation}
+  (\Box+m^2)F^\mu=0,
+  \qquad
+  m=\frac{|k|g^2}{2\pi}.
+  \label{eq:anomaly-topological-mass}
+\end{equation}
+This is not a contradiction with the topological nature of pure Chern--Simons theory. It is the point of the contrast. The Chern--Simons term alone supplies topological first-order structure; when combined with a metric-dependent Maxwell term, it becomes a parity-odd mass term for an otherwise propagating gauge field.
+
+\subsection{Synthesis}
+\label{subsec:anomaly-response-synthesis}
+
+The anomaly and response story can be summarized in one chain:
+\[
+\begin{aligned}
+  \dd\omega_{\CS}=\tr(F\wedge F)
+  &\Longrightarrow
+  \delta_\lambda S_{\CS}\in\text{boundary terms}
+  \\
+  &\Longrightarrow
+  \text{edge anomaly}
+  \Longrightarrow
+  \text{protected response}.
+\end{aligned}
+\]
+The same topological term that repairs gauge invariance across a boundary also predicts quantized Hall conductance and anyonic braiding in the bulk. This is the physical reason Chern--Simons theory belongs in a QFT paper that begins with anomalies: anomaly inflow, topological order, and fractional response are not separate topics. They are different faces of the same three-form.

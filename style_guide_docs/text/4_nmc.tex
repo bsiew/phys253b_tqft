@@ -1,0 +1,205 @@
+A nonminimally coupled (NMC) scalar field is one which interacts with spacetime curvature through a coupling term in its Lagrangian prescription of the form
+\[
+\Lg_{int}=F(\phi)R
+\]
+These kinds of terms arise quite naturally for self-interacting scalar fields in in curved spacetime as radiative counterterms in quantization\footnote{kaiser:}. Even when supressed(set to 0), there are nonzero radiative corrections of the form $\delta \xi \phi^2 R$.  This means that we expect nonminimal coupling especially in the high-energy and high-curvature scales relevant for inflationary physics.
+
+minimal coupling to the inflaton is not a generically protected symmetry and we thus need to account for its behavior unless a mechanism to suppress this coupling is discovered.\todo{eh not necessarily true?} NMC's have been extensively studied in various contexts\footnote{barbon naturalness,pallis, kallosh universal} The standard starting point for a scalar inflaton field with generalized non-minimal coupling to gravity  i The action in the Jordan frame is\footnote{kalosh universal+attractors, herzberg, kaiser}
+
+For a generic scalar field nonminimally coupled to gravity, we introduce the Jordan frame action which adds field-gravity interaction term of the form
+\begin{equation}
+    S_J=\int d^4 x \sqrt{-g}\qty[\f{1}{2} F(\phi) R-\f{1}{2} g^{\mu \nu} \del_\mu \phi \,\del_\nu \phi-V_J(\phi)],
+\end{equation}
+Where $F(\phi)$ is an arbitrary function encoding the non-minimal coupling to the standard EH action, and $V_J$ is an arbitrary potential. We follow the Kallosh Universal Attractor paper\footnote{cite}, whcih gives us the most generic choice we can pick is 
+\begin{equation}
+    F(\phi)=1+\xi f(\phi), \qquad V_J(\phi)=\lambda^2g^2(\phi)
+\end{equation}
+which becomes minimal again in the $\xi\to0$ limit. Note that for simplicity, we can set $g(\phi)=f(\phi)$ since at first order $\xi,\lambda$ can absorb these differences. While the Jordan frame makes the scalar-curvature coupling explicit, it is often computationally convenient to work in the Einstein frame, where the gravitational sector is canonical. To do this, we perform a conformal transformation,
+\begin{equation}
+    g_{\mu\nu}\mapsto \f{g_{\mu\nu}}{F(\phi)}
+\end{equation}
+which yields
+\begin{equation}
+    S_E=\int d^4 x \sqrt{-g}\qty[\f{1}{2} R-\f{1}{2} K(\phi)(\del \phi)^2-V_E(\phi)],
+\end{equation}
+where $K$ is the nontrivial kinetic term, and $V_E$ is a scaled potential
+\begin{equation}
+    V_E(\phi)=\f{V_J(\phi)}{F(\phi)^2}, \quad K(\phi)=\f{1}{F(\phi)}+\f{3}{2}\qty(\f{F_{, \phi}}{F(\phi)})^2 .
+\end{equation}
+This lets us define a scalar field by simply picking that the kinetic term be of the form $(\del\phi)^2$. Matching, we see
+\begin{equation}
+    \df{\chi}{\phi}=\sqrt{K(\phi)}
+\end{equation}
+gives us this desired form. FInally yielding the action
+\begin{equation}
+    S_E=\int d^4 x \sqrt{-g}\qty[\f{1}{2} R-\f{1}{2} (\del \chi)^2-V_E(\phi(\chi))].
+\end{equation}
+
+\[\] 
+
+\todo{useful? misc}
+These modifications directly propagate into the scalar perturbation spectrum and, of course, into scalar-induced gravitational waves (SIGWs).
+
+
+
+the Jordan frame explicitly encodes the non-minimal coupling, 
+
+Inflation is often given the modern treatment of effective field theory. It's been established that a Weyl transformation—the conformal transformation mapping from the Jordan to Einstein frame—in an EFT treatment of inflation is unique, and reduces from a full treatment of the graviton exchange Feynman diagram\footnote{https://arxiv.org/abs/2009.14782v3  Gravitational Contact Interactions and the Physical Equivalence
+of Weyl Transformations in Eﬀective Field Theory}
+
+
+Put simply, nonminimal coupling to the inflaton is expected, at least up to radiative corrections, and especially at sufficiently high energies (unless protected by some explicit symmetry \cite{Kaiser2016NMC}\cite{Hertzberg2010NMC}). This makes NMC models natural candidates for early universe dynamics, especially as curvature and energy scales are large.
+
+
+
+
+In many treatments of NMC inflation, this conformal transformation is enough to reduce the computational workload for computing things like $r$ and $n_s$. Note however however that the Ricci scalar is dependent on the metric, and thus we get a nontrivial kinetic term transformation which impacts our full computation of $\Omega_{\rm GW}$.
+
+This conformal stretching of the potential thus provides an attractor mechanism and thus NMC models overlap significantly with $\alpha$-attractor and plateau model phenomenology.
+
+\subsection{First Order Predictions and Constraints}
+As extensively explored by Kallosh and Linde\footnote{jfc}, this most generic form of nonminimally coupled inflation yields compelling attractor behavior. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.48\textwidth]{figs/FullRangePlanckCombChaotic.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/natural-linear.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/log.pdf}
+    \includegraphics[width=0.48\textwidth]{figs/natural-log.pdf}
+    \caption{left side: FIG. 1. The $\xi$-dependence of $\left(n_s, r\right)$ on a linear and a logarithmic scale for different chaotic models with $n= (2 / 3,1,2,3,4,6,8)$, from right to left, for 60 e-foldings. The points on the logarithmic scale (lower panel) correspond to $\log (\xi)=(-1, \ldots, 1)$, from top down. The convergence to the attractor point occurs almost instantly for $n \geq 4$. right side: The $\xi$-dependence of $\left(n_s, r\right)$ on a linear and a logarithmic scale for different natural models with $f=$ ( $5,5.25,5.75,6.33,7.5,10,100$ ) (in decreasing redshift) for 60 e-folds. The points correspond to $\log (\xi)=(0, \ldots, 3)$.}
+    \label{fig:naturalattractor}
+\end{figure}
+
+the plots above computed in\footnote{kallosh paper!!} In the original 2014 paper, they discuss chaotic and natural inflation in the large coupling limit ($\xi\gg1$) and make the interesting discovery that—independent of $f(\phi)$—the models all converge to the Starobinsky predictions
+\begin{equation}
+    n_s=1-\f2N, \qquad r=\f{12}{N^2}
+\end{equation}
+
+However, as discussed in Sec. \ref{sec:intro}, these models are increasingly disfavored at large $\xi$. In an updated paper in 2025, Kallosh revisits the simple, chaotic $\f12m\phi^2$ potential\footnote{cite} with the Lagrangian
+\begin{equation}
+    \f{1}{\sqrt{-g}}\Lg=\f12(1+\phi)R-\f12(\del\phi)^2-\f12m\phi^2
+\end{equation}
+
+\todo{plot}
+which corresponds with approximately
+\begin{equation}
+    n_s\approx 1-\f{3}{2N}, \qquad r\approx \f{4}{N^{3/2}}
+\end{equation}
+
+and we note that $n>4$ is disfavored at $x\sigma$\todo{get these exact values}\todo{theres other reasons why no??}, and the recent constraints seem to favor $\xi\sim\ord(1)$ monomial models.
+
+
+\paragraph{Effective Field Theory}
+
+
+Inflation in recent literature is often treated as an effective field theory. 
+\todo{define what an EFT is}
+
+In explicit treatments, \todo{cite number 18 from hertzberg} qft quickly breaks down, and so Hertzberg\cite{Hertzberg2010NMC}  sought to analyze the subtle relevance of EFT. This is because we cannot control the divergences to all orders in qft perturbation theory, and so we end up needing to impost some cutoff to keep the results within the limitations of perturbative expansion.
+
+Hertzberg documents an amusing consequence of the couplign term
+$$
+\Lg_{\rm int}=\xi\phi^2R
+$$
+After expanding around flat space, the respective Jordan and Einstein kinetic terms
+\begin{equation}
+    \Lg^J_{\rm Int}=\f{\xi}{M_p}\phi^2\Box h, \qquad \Lg^E_{\rm Int}=(\del\phi)^2+\f{6\xi^2}{M^2_p}\phi^2(\del\phi)^2+\cdots
+\end{equation}
+Following the effective field treatment, we can think of $\phi$ as an effective particle. However, when we compute the tree level $2\to2$ scattering amplitude, the sum of the respective $s$,$t$, and $u$ channels end up canceling to give
+\[
+\mathcal{M}_{\rm tot}(\phi\phi\to\phi\phi)\sim\f{E^2}{m_P^2}
+\]
+So while a naive interpretation would lead one to believe that the EFT cutoff is at $\Lambda=m_P/\xi$ based on the channel behavior
+\[
+\mathcal{M}_{s,t,u}\sim \f{\xi^2E^2}{m_P^2}
+\]
+the cutoff is actually at  $\Lambda=m_P$, which is notably \textit{smaller} than our original. 
+
+\todo{im kind of confused lol}
+We thus find that treelevel scattering only fails at Planckian energies
+
+\todo{incorporate the Hertzberg summary better?}
+\todo{summarize this section}
+
+What about in the Einstein frame? To address this question we need to focus on the kinetic sector, which we presented earlier in eq. (2.3). By expanding for small $\phi$, we have the following contributions
+
+$$
+(\partial \phi)^2+\frac{6 \xi^2}{m_{\mathrm{P} 1}^2} \phi^2(\partial \phi)^2+\ldots
+$$
+
+
+The second term appears to represent a dimension 6 interaction term with cutoff $\Lambda=m_{\mathrm{P} 1} / \xi$. We can compute $2 \phi \rightarrow 2 \phi$ scattering at tree-level using this single 4 -point vertex (Fig. 1 diagram 4). We find the scaling $\mathcal{M} \sim \xi^2 E^2 / m_{\mathrm{P} 1}^2$, but when the external particles are put on-shell we find that the result is zero. This is also true at arbitrary loop order (see Fig. 2 for the 1-loop diagrams) and for any scattering process (despite the power counting estimates of Ref. [17]). The reason for this was alluded to earlier: in this single field case, we can perform a field redefinition to $\sigma$ (eq. (2.4)) which carries canonical kinetic energy. Hence the kinetic sector is that of a free theory, modulo its minimal coupling to gravity, giving the correct cutoff $\Lambda=m_{\mathrm{P} 1}$. This field redefinition can always be done for a single field. Once the field redefinition is performed we see that the only effective interactions that will be generated, in the absence of including contributions from the potential $V$, are Planck suppressed. Hence scattering amplitudes generated from purely the gravity and kinetic sectors allow the theory to be well defined up to Planckian energies. This shows that naive power counting can be misleading. However, the potential $V$ causes the cutoff to be greatly reduced, as we now explain.
+
+\todo{hertzberg done uparrow}
+
+The situation in multifield inflation is worse! 
+
+The Higgs doublet poses scaling issues at $\sim m_P/\xi$ in Higgs-inflation models because (\todo{why?})
+% \[\]
+
+% \[\]
+% \todo{robot}
+
+% From the viewpoint of effective field theory, the harmonic-oscillator structure of quantum fields is not an incidental feature of free theories but the fundamental organizing principle for perturbations, even in the presence of interactions and time-dependent backgrounds. In EFT one does not attempt to model the ultraviolet completion explicitly. Instead, one writes the most general action consistent with the symmetries of the problem, organized as an expansion in operators suppressed by a cutoff scale. The quadratic part of the action plays a privileged role: it defines the propagating degrees of freedom and determines their linear dynamics. After canonical normalization, these degrees of freedom decompose into Fourier modes that are quantized as harmonic oscillators. All higher-dimension operators enter as interactions among these oscillators and are treated perturbatively.
+
+% For a scalar field $\phi$ coupled to gravity, a generic EFT action takes the schematic form
+
+% $$
+% S=\int d^4 x \sqrt{-g}\left[\frac{1}{2}(\partial \phi)^2-\frac{1}{2} m^2 \phi^2+\sum_i \frac{ci}{\Lambda^{\Delta_i-4}} \mathcal{O}i(\phi, \partial \phi)\right] .
+% $$
+
+
+% The quadratic terms determine the linearized equations of motion and hence the mode functions, while the higher-dimension operators encode interactions suppressed by powers of the cutoff $\Lambda$.  This clean separation between kinematics, fixed by the quadratic action, and dynamics, governed by perturbative interactions, is the basis for the predictive power of EFT.
+
+% In cosmology, the same logic applies, with the important difference that the background spacetime is time dependent.  For a scalar field written in conformal time $\tau$, the mode equation takes the form
+
+% $$
+% \phi_k^{\prime \prime}+\omega_k^2(\tau) \phi_k=0, \quad \omega_k^2(\tau)=k^2+a^2(\tau) m^2-\frac{a^{\prime \prime}}{a} .
+% $$
+
+
+% Canonical quantization is implemented exactly as in flat space,  However, because the frequency is time dependent, the notion of particles becomes ambiguous and vacuum choice acquires physical significance. 
+
+% Inflation provides a particularly transparent realization of these ideas. The field amplitude freezes, converting quantum fluctuations into classical perturbations. 
+
+
+% Scalar-induced gravitational waves arise naturally in this framework. Tensor perturbations of the metric are themselves quantized as harmonic oscillators. At linear order, their vacuum fluctuations correspond to primordial gravitational waves generated during inflation. At second order in perturbations, however, tensor modes are sourced by products of scalar perturbations. In the EFT language, this sourcing originates from interaction terms that couple two scalar modes to one tensor mode. Initially, the scalar perturbations are quantum operators, but after horizon exit they classicalize and act as classical sources for the tensor oscillators.
+
+% The calculation of scalar-induced gravitational waves is therefore a controlled perturbative computation within the EFT of inflation. The scalar sector is characterized by its power spectrum and higher-point correlation functions, determined by the underlying inflationary EFT. These scalar fluctuations enter the tensor equations of motion as source terms, driving the tensor harmonic oscillators and populating them with quanta. The resulting stochastic gravitational-wave background reflects the oscillator dynamics dictated by the quadratic action, as well as the interaction structure encoded in higher-order operators, leading to characteristic spectral features and scale dependence.
+
+
+\[\]
+\paragraph{Multifield Extensions}
+
+While in the single-field case we can always define a  canonical field $\chi$, in multifield inflation the induced field-space metric, $G_IJ(\phi)$, is generically curved and cannot be made globally canonical \todo{what does this mean} by simple field redefinitions \cite{Kaiser2016NMC}
+
+
+
+\todo{summarize from kaiser!!}
+
+The potential is also stretched by the conformal factor upon transformation to the Einstein frame. In particular, we find
+
+$$
+V\left(\phi^I\right)=\frac{M_{\mathrm{pl}}^4}{\left[2 f\left(\phi^I\right)\right]^2} \tilde{V}\left(\phi^I\right)
+$$
+
+$f\left(\phi^I\right)=\frac{1}{2}\left[M_0^2+\sum_{I=1}^N \xi_I\left(\phi^I\right)^2\right]$.
+
+For multifield models with nonminimal couplings, the turn rate generically remains negligible. Therefore the types of observational consequences that may arise in multifield models, such as the overproduction of isocurvature modes or the amplification of significant non-Gaussianities, typically do not arise for this class of models. The reason comes from the conformal stretching of the potential, $V\left(\phi^I\right)$ of Eq. (10).
+
+For simplicity, consider a two-field model, with $\phi^I=(\phi, \chi)$. Then for a generic, renormalizable potential in the Jordan frame,
+
+$$
+\tilde{V}(\phi, \chi)=\frac{1}{2} m_\phi^2 \phi^2+\frac{1}{2} m_\chi^2 \chi^2+\frac{1}{2} g \phi^2 \chi^2+\frac{\lambda_\phi}{4} \phi^4+\frac{\lambda_\chi}{4} \chi^4,
+$$
+
+and a nonminimal coupling function $f(\phi, \chi)$ as in Eq. (5), we find from Eq. (10) the potential in the Einstein frame
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/kaiser_ex.png}
+    \caption{The potential $V(\phi, \chi)$ in the Einstein frame, Eq. (35), for $\xi_\phi=100, \xi_\chi=80$, $\lambda_\phi=10^{-2}, \lambda_\chi=1.25 \times 10^{-2}, g=0.8 \times 10^{-2}, m_\phi= 10^{-4} M_{\mathrm{pl}}$, and $m_\chi=1.5 \times 10^{-4} M_{\mathrm{pl}}$. The field values are shown in units of $M_{\mathrm{pl}}$.}
+    \label{fig:placeholder}
+\end{figure}
+
+

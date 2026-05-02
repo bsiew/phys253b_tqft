@@ -1,0 +1,185 @@
+
+\paragraph{taxonomy}
+\todo{clean this up}
+
+Inflation models typically classified into universality classes based on the underlying dynamics and perturbation generation, such as plateau attractors, monomial potentials, and multifield scenarios (read On the Present Status of Inflationary Cosmology\footnote{https://arxiv.org/abs/2505.13646} for an overview).
+
+
+\subsection*{alpha attractor}
+
+$\alpha$-attractor models of inflation have been extensively developed primarily by Kallosh and Linde \todo{cite their papers here}. As we discussed in Section  inflation is driven by a scalar field $\phi$ rolling down a potential governed by the action
+\begin{equation}
+    S=\int d^4x \sqrt{-g}\qty(\f12 R-\f12(\del \phi)^2-V(\phi))
+\end{equation}
+
+
+An $\alpha$-attractor model is any model whose potential can be written in terms of some stretched field coordinate such that, at large $\phi$, it plateaus to a constant. A simple example of such a model is the T-model
+\begin{equation}
+    V(\phi)=V_0\tanh^2\qty(\f{\phi}{\sqrt{6\alpha}})
+\end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{figs/tanhalphamodel.png}
+    \caption{The T-model with $\alpha$ values of 0.1, 1, and 10 to highlight the potential well differences}
+    \label{fig:tmodel}
+\end{figure}
+Where we can see in Fig. \ref{fig:tmodel} how $V(\phi)$ grows from 0 at $\phi=0$ and plateaus at 1 in the $\abs{\phi}\gg0$ limit. Now, in the large $\phi$ limit, tanh behaves as
+\begin{equation}
+    \tanh\qty(\f{\phi}{\sqrt{6\alpha}})\approx 1-2e^{-\sqrt{\f{2}{3\alpha}}\phi}
+\end{equation}
+Derived using the standard Taylor expansion. This gives us a potential with approximate behavior
+\begin{equation}
+    V(\phi)\approx V_0\qty[1-4e^{-\sqrt{\f{2}{3\alpha}}\phi}]
+\end{equation}
+Letting $a=\sqrt{\f23}/M_{P}$, we then plug $V$ and its derivative to find the number of inflationary e-folds
+\begin{align*}
+    N=\int \f{V}{V'}d\phi&=\int \f{1}{2a}\f{1-\exp\qty[-a\phi]}{\exp\qty[-a\phi]}\\
+    &=\f{1}{2a^2}\exp\qty[a\phi]\\
+    &=\f34 \exp[a\phi]\\
+    \exp[-a\phi]&=\f{4}{3N}
+\end{align*}
+the slow parameters $\epsilon=\f{M_{P}^2}{2}(V'/V)^2$ and \todo{do the eta param too.} to find
+\begin{equation}
+    \f{V'}{V}=\df{}{\phi}\ln V=2a\f{\exp\qty[-a\phi]}{1-\exp\qty[-a\phi]} 
+\end{equation}
+giving 
+\begin{equation*}
+    \epsilon=\f{M_{P}^2}{2}\qty(2a\f{\exp\qty[-a\phi]}{1-\exp\qty[-a\phi]} )^2 = \f43\f{\exp\qty[-2a\phi]}{(1-\exp\qty[-a\phi])^2}
+\end{equation*}
+which in the slow roll limit is approximately
+\begin{equation}
+    \approx\f{M_{P}^2}{2}\qty(\f4{3N})^2, \quimplies
+    \epsilon=\f{3}{4N^2}
+\end{equation}
+% \begin{align}
+%     \nonumber \\
+%      \nonumber \\
+%     &
+% \end{align}
+\todo{we will need to double check this equation later}
+
+
+\todo{blah blah more math}
+
+% One of the surprising things about alpha attractor models is the near identical behavior of this entire class of models, ranging from different kinds of coupling effects to chaotic models.
+% \todo{is this accurate}
+
+% \todo{robot}
+
+% Consider a canonical scalar field $(\phi)$ in the Einstein frame with action  
+% $$
+% S = \int d^4x \sqrt{-g}  
+% \qty[
+% \f{M_{\rm P}^2}{2}R  
+% -\f12(\partial\phi)^2- V(\phi)  
+%     ].  
+%     $$
+    
+
+% For the T-model $ (\alpha)$-attractor,  
+% $$
+% V(\phi)=V_0\tanh^2\qty(\f{\phi}{\sqrt{6\alpha}M_{\rm P}}).  
+% $$
+
+% Define  
+% $$
+% x \equiv \f{\phi}{\sqrt{6\alpha}M_{\rm P}}.  
+% $$
+
+
+
+% then For $(x\gg1)$,  
+% $$
+% \tanh x = 1 - 2e^{-2x} + \mathcal O(e^{-4x}),  
+% $$
+% so  the potential takes on an exponential plateau shape
+% $$
+% V(\phi) \simeq V_0\qty(1 - 4e^{-2x}).  
+% $$
+% We can now find the slow-roll parameters cahracterizing the T-model. The first slow-roll parameter is  
+% $$
+% \epsilon_V \equiv \f{M_{\rm P}^2}{2}\qty(\f{V'}{V})^2.  
+% $$
+% and now, computing $V'/V$ we find
+% $$
+% \f{V'}{V}  
+% = \f{4}{\sqrt{6\alpha}M_{\rm P}}  
+% \f{e^{-2x}}{1-4e^{-2x}}  
+% \simeq \f{4}{\sqrt{6\alpha}M_{\rm P}}e^{-2x}.  
+% $$
+
+% Thus  
+% $$
+% \epsilon_V  
+% \simeq \f{8}{3\alpha}e^{-4x}.  
+% $$
+
+
+% Now, we compute The number of e-folds using  
+% $$
+% N=\f{1}{M_{\rm P}^2}\int_{\phi_{\rm end}}^{\phi_N}\f{V}{V'}d\phi
+% $$
+% which gives us The asymptotic form,  
+% $$
+% N \simeq \f{3\alpha}{4}e^{2x}.  
+% $$
+
+% Invert:  
+% $$
+% e^{-2x} \simeq \f{3\alpha}{4N}.  
+% $$
+
+% And finally we can compute some basic boservables
+
+% Substitute into $(\epsilon_V)$:  
+% $$
+% \epsilon_V \simeq \f{3\alpha}{4N^2}.  
+% $$
+
+% The tensor-to-scalar ratio is  
+% $$
+% \boxed{r \simeq 16\epsilon_V = \f{12\alpha}{N^2}.}  
+% $$
+
+% The scalar spectral index is  
+% $$
+% n_s \simeq 1 - \f{2}{N},  
+% $$
+% independent of $(\alpha)$ at leading order.
+
+% This is the \textit{attractor behavior}! Many different models collapse onto the same $((n_s,r))$ trajectory.
+
+
+
+\section{Discrimination}
+\subsection{Background dynamics}
+\subsection{Perturbation sourcing}
+
+\section{Representative Models}
+
+\subsection{Chaotic inflation}
+
+\subsection{Modified gravity (Starobinsky)}
+
+
+
+\subsection{Higgs-like inflation}
+
+
+\section{Discussion}
+
+\paragraph{constraints}
+Observations constrain $n_s \approx 0.97$ with $\sigma \lesssim 0.003$ and an upper bound on the tensor-to-scalar ratio $r \lesssim 0.03$ (95\% C.L.) when combining Planck+BICEP/Keck+ACT+BAO data.\footnote{https://arxiv.org/abs/2512.10613v1}\footnote{https://arxiv.org/html/2507.12459v1}
+
+
+Extended models (eg, extended Starobinsky\footnote{https://arxiv.org/abs/2312.01010} or alpha-Starobinsky\footnote{https://arxiv.org/abs/2409.05615}) are consistent with current CMB and large-scale structure data, and including reheating uncertainties can widen the allowed parameter space.
+
+
+
+
+\paragraph{Dark Matter Neutrino Interactions}
+
+Another recent Nature Astronomy article by Zu et al.\footnote{https://doi.org/10.1038/s41550-025-02733-1} finds a tentative reconciliation to the $S_8$ tension via a nonminimal neutrino-dark matter interaction. While impressive in its own right, in Supplementary Fig. 4 they analyze the impact of nonminimal $\nu$DM interactions on the $\Lambda$CDM parameters, including the scalar spectral index. 
+
+
+\todo{write this more coherent:} i think this means that models on the edge of our confidence intervals still have a bit of life? viability of models is famously sensitive to assumptions on late-time cosmology and also microphysics ? so despite the fact $n_s$ is god to inflation, CMB constraints are still model dependent and can be weakened by extensions to the SM and $\Lambda$CDM (eg thru this $\nu$DM extension)

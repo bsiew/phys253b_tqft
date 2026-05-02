@@ -1,0 +1,411 @@
+Throughout these notes, we set
+\[
+\f{1}{8\pi G}\equiv M_P^{-2}=\hbar=c=1
+\]
+after they are introduced. We take greek indices ($\mu,\nu$) to run over spacetime, and roman indices ($i,j$) to run over spatial dimensions.
+
+% %%%%%%%%%%%%%%%
+% I: cosmology
+% %%%%%%%%%%%%%%%
+\section{FLRW Cosmology}
+\label{sec:cosmo}
+
+As with all things, we must begin with nothing. One of the most foundational assumptions underlying cosmology is that we are not special. Mathematically, all this says is that universe must be homogeneous and isotropic. We know for a fact that it \textit{is} isotropic just by looking outside, but the only real assumption is homogeneity.
+
+\subsection{The FLRW Metric}
+The radially invariant metric (modelling an isotropic universe) can be written as 
+\begin{equation}
+\label{eq:isomet}
+     ds^2=-dt^2+dr^2 + g(r)\,d\Omega^2,
+\end{equation}
+using the mostly positive convetion, with $\Omega$ being the standard spherical coordinate $d\Omega^2=r^2(d\theta^2+\sin^2\theta \,d\phi^2)$. Here, $g(r)$ is a function of radius and is not necessarily trivial. Now, imposing homogeneity means that for any two points on a homogeneous surface there exists an isometry that maps one point to another. More explicitly, we impose
+\[
+R_{rr}=k \qquad \textrm{(const)}
+\]
+To find $R_{rr}$, we require only the nonzero Christoffel symbols which are given by
+\begin{equation}
+    \label{eq:chris}
+    \Gamma^r_{\theta\theta}=-\f12 g', \qquad \Gamma^r_{\phi\phi}=-\f12 g'\sin^2\theta, 
+    \qquad
+    \Gamma^\theta_{r\theta}= \Gamma^\phi_{r\phi}=\f{g'(r)}{2g(r)}
+\end{equation}
+and plugging into $ R_{rr}=\del_\mu\Gamma^r_{r\nu}-\del_r\Gamma^\mu_{r\mu}-\Gamma^\mu_{r\nu}\Gamma^\nu_{r\mu}$ yields
+\begin{equation}
+    R_{rr}=\f{g'^2-2gg''}{2g^2}\equiv k
+\end{equation}
+\paragraph{Exercise} Convince yourself why the other Christoffel symbols should be zero, and evaluate $R_{rr}$. 
+
+Defining $g(r)=f^2(r)$, this yields the ODE
+\begin{equation}
+    f''+\f k2 f=0
+\end{equation}
+whose solutions give
+\begin{equation}
+    g(r)=\begin{cases}
+        \f1k \sin^2\qty(\sqrt{k}r), & k>0,\\
+        r^2, & k=0,\\
+        \f1{\abs{k}}\sinh^2\qty(\sqrt{-k}r), & k<0.
+    \end{cases}
+\end{equation}
+Notice how limited these forms are—we're down to only 3 valid functions just by imposing homogeneity and isotropy! Now, we can construct the full metric.
+
+Consider a radial coordinate $\chi^i$ 
+\begin{equation}
+    ds^2=d\chi^2+S(\chi)^2d\Omega^2
+\end{equation}
+and define a new $r$
+\begin{equation}
+    r^2\equiv S^2(\chi)=
+    \begin{cases}
+        \sqrt{\f1k}\sin^2(\sqrt{k}\chi), &R<0,\\
+        \chi^2, &R=0\\
+        \sqrt{\f1k}\sinh^2(\sqrt{k}\chi), & R>0
+    \end{cases}
+\end{equation}
+with its derivative
+\begin{equation}
+    S'(\chi)^2=\qty{\cos^2(\chi),\chi^2,\cosh^2(\chi)}=1-kS(\chi)^2
+\end{equation}
+And finally, introducing the scale factor $a(t)$ and proper time, we have
+\begin{equation}
+    \label{eq:thefinalmetric}\boxed{ds^2=-dt^2+a(t)^2\qty[\f{dr^2}{1-kr^2}+r^2d\Omega^2]}
+\end{equation}
+\todo{define here?}
+\[
+H\equiv\f{\dot{a}}{a}, \qquad k\in\qty{+1,0,-1}
+\]
+
+
+\subsubsection{Corollaries}
+
+\paragraph{Hubble's Law}
+
+Define the proper distance between ourselves and another galaxy as
+\begin{equation}
+    D(t)=a(t)\qty[\int_0^R \f{dr}{\sqrt{1-kr^2}}]
+\end{equation}
+We define the integral as the \textit{comoving separation}, denoted $\mathcal{R}$.
+Notice that it is constant with respect to time, and so we can differentiate the distance $D=a\mathcal{R}$ with respect to time quite trivially, giving us $\dot{D}=\dot{a}\mathcal{R}.$ We can then divide these two equations, \todo{what is the intuitive motivation behind this?}
+\begin{align}
+    \f{\dot{D}}{D}=\f{\dot{a}}{a}\equiv H
+\end{align}
+Which is Hubble's law! As we know, Vera Rubin \todo{cite her?} first measured this by finding that galaxies were receding faster proportionally to how far away they were from us. This is the theoretical explanation of that monumental discovery.
+
+\paragraph{The Age of the Universe}
+
+To estimate the age of the universe, we start by noting that for any two comoving observers separated by a proper distance $D(t)$ the recession speed is given by Hubble’s law from above
+\[
+\dot{D} = H_0D(t_0),
+\]
+where $H_0$ is the Hubble constant today.  Since $D$ grew from zero at the Big Bang to its current value $D_0$, we can crudely estimate the age of the universe by simply extrapolating linearly
+\begin{equation}
+    t_0 \approx \frac{D(t_0)}{v} = \frac{1}{H_0}.
+\end{equation}
+
+$t_H = 1/H_0$ is called the “Hubble time,” which—for $H_0\approx 70\textrm{km}\cdot\textrm{s}^{-1}\cdot\textrm{Mpc}^{-1}$ is roughly 14 billion years.  To get a more accurate estimate, we need to take into account the actual evolution of $a(t)$ as we can see in Fig. \ref{fig:stupid-doodle}, but the Hubble time still yields a spectacularly close value.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figs/stupiddoodle.png}
+    \caption{stupid little doodle with the acceleration of the universe and the time elapsed. the blue squiggle is the path of $a(t)$ in time, which could be anything. the slope we measure at $t_0$ is $\dot{a}_0$.}
+    \label{fig:stupid-doodle}
+\end{figure}
+
+\subsection{Friedmann Equations}
+
+
+The Einstein field equations are given by
+\begin{equation}
+    G_{\mu\nu}+\Lambda g_{\mu\nu} =\f{8\pi G}{c^4}T_{\mu\nu}
+\end{equation}
+Where the stress energy tensor describes the energy and momentum densities, as well as pressure and shear stress of a given system. Below is a helpful way to illustrate how each sector of the stress-energy tensor behaves:
+\todo{insert fig}
+
+If we expand out the field equations in the FLRW metric, we can derive the stress-energy tensor of the universe
+
+
+To find the energy density of the universe, we want the time component $T_{00}$, which is given by
+...
+
+The critical density
+\begin{equation}
+    \rho_c\equiv \f{3H^2}{8\pi G}
+\end{equation}
+\todo{this comes from rewriting friedmann eqs using unitless scale factor}
+
+and thus we can define the energy densities of some component contributing to the total energy density of the universe as
+\begin{equation}
+    \Omega_X\equiv \f{\rho_X}{\rho_c}, \qquad \Omega=\sum_X\Omega_X
+\end{equation}
+
+
+Mass energy equivalence is defined as
+\begin{equation}
+    T^{\mu\nu}_{;\mu}\equiv \nabla_\mu T^{\mu\nu}=0
+\end{equation}
+...
+Finally this gives us the Friedmann equations
+
+
+\newpage
+% %%%%%%%%%%%%%%%
+% 2 Inflation
+% %%%%%%%%%%%%%%%
+\section{Inflation}
+\label{sec:inflation}
+
+\subsection{Scalar Field Dynamics}
+\todo{1. action, 2. eom generic then FLRW eom, 3. compute rho and p from T munu }
+\todo{stress-energy tensor}
+\todo{energy density+pressure}
+\todo{friedmann eqs w scalar source}
+
+\todo{fix these}
+
+
+Now that we have our metric established, we consider a scalar \textit{inflaton} field with the standard Einstein-Hilbert action
+\begin{equation}
+    S=\int d^4x \sqrt{-g}\qty[\f12 R +\f12 g^{\uv}\del_\mu\phi\del_\nu\phi-V(\phi)]\equiv S_{EH}+S_\phi
+\end{equation}
+
+Now, we vary $S$ with respect to $\phi$ to find the field equation
+
+\begin{equation}
+    \delta S_\phi=\int d^4x\sqrt{-g}\qty\big[g^{\uv}\del_\mu\phi\del_\nu(\delta\phi)- V_\phi(\phi)\delta\phi]
+\end{equation}
+And if we recall $\del_\nu\qty(\sqrt{-g}g^{\uv}\del_\mu\phi)=\sqrt{-g}\nabla_\nu\nabla^\nu\phi$, then we find
+
+\begin{equation}
+    \f{\delta S}{\delta\phi}=\f1{\sqrt{-g}}\del_\mu\qty(\sqrt{-g}g^{\uv}\del_\nu\phi)+V,_\phi(\phi)=0
+\end{equation}
+Which is exactly the Klein-Gordon equation. Now, we want to make some assumptions about $\phi$. Imposing homogeneity implies $\phi(t,x)\equiv \phi(t)$ or that it is not spatially dependent and so
+\begin{equation}
+    \del_0\phi=\dot {\phi}, \qquad \del_i\phi=0 
+\end{equation}
+
+
+
+with the energy momentum tensor defined as
+\begin{equation}
+    T^\phi_{\uv}=-\f{2}{\sqrt{-g}}\dpar{S_\phi}{g^{\uv}}=\del_\mu\phi\del_\nu\phi-g_{\uv}\qty(\f12 \del^\sigma\phi\del_\sigma\phi+V(\phi))
+\end{equation}
+we find this by varying $S_\phi$ with respect to the metric $g^{\uv}$
+
+
+ the energy tensor, we have 
+\begin{equation}
+    T^\phi_{\uv}=\del_\mu\phi\del_\nu\phi-g_{\uv}\qty(\f12 d^\sigma\phi d_\sigma\phi+V(\phi))
+\end{equation}
+Where the first term dies for any spatial element, and the second term gives us the field pressure. Note that if there were any spatial dependencies, they would manifest as anisotropic pressures which only really exist in the astrophysical limit. 
+
+Assuming a flat metric, $k=0$, we find $ds^2=-dt^2+a^2dx^2$ which gives us $\sqrt{-g}=a^3$. 
+
+\paragraph{Time}
+
+For the time component, we have
+\begin{equation}
+    T_{00}^\phi=\Dot{\phi}^2-g_{00}\qty(\f12[-\dot{\phi}^2+V(\phi)])=\f12 \dot{\phi}^2+V(\phi)
+\end{equation}
+And define $\rho_\phi$ as
+\begin{equation}
+    \rho_\phi\equiv T_{00}=\f12 \dot{\phi}^2+V(\phi)
+\end{equation}
+
+\paragraph{Space}
+Similarly, for $T^\phi_{ij}$ we have
+\begin{equation}
+    T^\phi_{ij}=0-g_{ij}\qty[\f12(-\dot{\phi}^2)-V(\phi)]=a^2\delta_{ij}\qty[\f12 \dot{\phi}^2-V(\phi)]
+\end{equation}
+which gives us $p_\phi$
+\begin{equation}
+    p_\phi\equiv T_{ij}=\f12 \dot{\phi}^2-V(\phi)
+\end{equation}
+
+\todo{inflation}
+
+
+
+For a great discussion about the motivations of inflation, please review Lectures 1 and 2 from David Baumann's TASI lecture notes on inflation \todo{cite here}. I briefly review the major derivations from those lectures below (titled \textit{Review}), but they are much more fleshed out in Baumann's notes. I refer to Pascal Vaudrevange's \cite{Vaudrevange2010} refreshingly straightforward and simplistic derivation of key basics in inflation 
+
+
+\paragraph{Equations of Motion}
+
+The Einstein-Hilbert action for a scalar field is given by
+\[
+S=\int d^4x\sqrt{-g}\qty[\f12R+\f12g^{\mu\nu}\del_\mu\phi\del_\nu\phi-V(\phi)]
+\]
+which yields the Einstein equations when we vary the action with respect to $g^{\mu\nu}$. 
+\[\f{\delta S}{\delta g^{\mu\nu}}=0 \quimplies R_{\mu\nu}-\f12g_{\mu\nu}R=T_{\mu\nu}(\phi)\]
+Imposing homogeneity and isotropy on the universe yields the Friedmann-Lemaitre-Robertson-Walker (FLRW) metric
+\begin{equation}
+    ds^2=-dt^2+a(t)^2\qty[\f{dr^2}{1-kr^2}+r^2\,d\Omega^2]
+\end{equation}
+where $k=+1,0,-1$ gives us the closed, flat, and open universes respectively. The Einstein equations then yield
+\begin{align}
+    H^2 &\equiv \qty(\f{\dot a}{a})^2 = \f{1}{3M_p^2}\rho - \f{k}{a^2} \\
+    \dot H &= -\f{1}{2M_p^2}(\rho + p)+\f{k}{a^2},
+\end{align}
+where we define the density and pressure
+\[
+\rho\equiv \f12\dot{\phi}^2+V(\phi), \qquad p\equiv \f12\dot{\phi}^2-V(\phi)
+\]
+with overdots referring to derivatives with respect to cosmic time. The equations of motion for a scalar field are given by the Euler-Lagrange equations
+\begin{align}
+    \dpar{\Lg}{\phi}-\del_\nu\dpar{\Lg}{(\del_\mu \phi)}&=0\nonumber\\
+    -\dpar{V}{\phi}-\del_\nu\qty(\del_\mu\phi\,\del^\mu\phi)&=0\nonumber\\
+    \del_\nu\qty(\dot{\phi}+3\f{\dot{a}}{a}\phi)+V_\phi&=0\nonumber\\
+    \ddot{\phi}+3H\dot{\phi}+V_\phi&=0
+\end{align}
+This defines the equations of motion for our scalar field. 
+
+\paragraph{Slow Roll} 
+\todo{slow roll params->eom under slow roll-> def of ns and r}
+\todo{outline}
+assume $\dot\phi^2\ll V$ and $|\ddot\phi|\ll 3H\dot\phi$,  show $H^2\simeq V/(3M_P^2)$ and $\dot\phi\simeq-V'/(3H)$, then $\epsilon_H\simeq \epsilon_V$
+
+
+In order to get a sufficiently small comoving Hubble radius to account for the CMB's absurd number of causally disconnected regions, we require significantly accelerated expansion. In terms of our variables, we can define the acceleration of expansion as
+
+\begin{equation}
+    \f{\ddot{a}}{a}=H^2+ \dot{H}=H^2(1-\epsilon_H), \qquad \epsilon_H\equiv -\f{\dot{H}}{H^2}
+\end{equation}
+which gives us our first \textit{slow roll parameter}.
+
+It is helpful to define something known as an $e$-fold,
+\begin{equation}
+    dN\equiv -Hdt
+\end{equation}
+which measures time in terms of the base-$e$ analog to doubling time and the size of the comoving Hubble radius. 
+
+\[\]
+\todo{finsh:}
+How do we get inflation from a scalar field? This can be seen - independently of a particular model - in the following way. Take equation (9) for a very flat potential. This should mean that we can neglect the acceleration $\ddot{\phi}$. For if the field $\phi$ starts off with a huge acceleration $\ddot{\phi} \gg 1$, the friction term will take care of it.
+
+$$
+\dot{\phi}=-\frac{1}{3 H} \partial_\phi V \approx 0 .
+$$
+
+
+Then from the Friedman equation (7) we see that
+
+$$
+\begin{aligned}
+H^2 & =\frac{1}{3} V \approx \text { const } \\
+\Rightarrow \epsilon_H & \approx 0 .
+\end{aligned}
+$$
+
+
+For the scale factor this means that $a=a_0 e^{H\left(t-t_0\right)}$ which explains why inflation is sometimes also referred to as exponential expansion.
+
+Most inflationary models function like outlined above. Introduce the slow roll parameter
+
+$$
+\eta_H=-\frac{\ddot{\phi}}{H \dot{\phi}}=-\frac{1}{2} \frac{\ddot{H}}{\dot{H} H} .
+$$
+
+
+So the requirement that we can neglect the term $\ddot{\phi}$ compared to $3 H \dot{\phi}$ is just the requirement that $\eta \ll 1$. (But note possible exceptions!)
+
+In terms of the potential, $\epsilon_V$ and $\eta_V$ are defined as
+
+$$
+\begin{aligned}
+\epsilon_V & \equiv \frac{1}{2}\left(\frac{\partial_\phi V}{V}\right)^2, \\
+\eta_V & \equiv \frac{\partial_\phi^2 V}{V} .
+\end{aligned}
+$$
+
+
+They equal the Hubble slow roll parameters only if they (and the higher order ones which I did not bother defining here) are small:
+
+$$
+\begin{aligned}
+\epsilon_V & \approx \epsilon_H, \\
+\eta_V & \approx \epsilon_H+\eta_H,
+\end{aligned}
+$$
+
+
+*\todo{goal: why are departures from slow roll important? how do you analyze inflection points? ie why does small scale structure matter} 
+
+
+\subsection{Observables}
+
+As we discussed in Section \ref{sec:classical}, inflation is driven by a scalar field $\phi$ rolling down a potential governed by the action
+\begin{equation}
+    S=\int d^4x \sqrt{-g}\qty(\f12 R-\f12(\del \phi)^2-V(\phi))
+\end{equation}
+In slow roll, we define
+\begin{align}
+    \epsilon&\equiv \f12\qty(\f{V'}{V})^2\\
+    \eta&\equiv \f{V''}{V}
+\end{align}
+where primes denote derivatives with respect to $\phi$. Inflation lasts while $\epsilon\ll1$ and $\abs{\eta}\ll 1$. The number of e-folds between a finite field value $\phi$ and the end of inflation is defined as
+\begin{equation}
+    N\approx \int_{\phi_{\rm end}}^\phi \f{V}{V'}d\phi
+\end{equation}
+which gives us the two main observables \todo{where do these observables come from again?}
+\begin{align}
+    n_s&\approx 1-6\epsilon+2\eta\\
+    r&\approx 16\epsilon
+\end{align}
+evaluated at the field value that gave $N\sim 50-60$ e-folds before the end.
+
+
+\todo{much of $\uparrow$ this will be discussed in the classical inflation section so move this up to that section later }
+
+
+\todo{robot}
+
+
+ Start from the scalar curvature power spectrum at horizon exit (k=aH):  
+$$
+\mathcal P_\mathcal R(k)=\frac{1}{8\pi^2M_P^2}\frac{H^2}{\epsilon_1}\Bigg|_{k=aH}.  
+$$
+Similarly, the tensor spectrum (two polarizations) is  
+$$
+\mathcal P_T(k)=\frac{2}{\pi^2}\frac{H^2}{M_P^2}\Bigg|_{k=aH}.  
+$$
+Then the tensor-to-scalar ratio is  
+$$
+r \equiv \frac{\mathcal P_T}{\mathcal P_\mathcal R}=\frac{
+\frac{2}{\pi^2}\frac{H^2}{M_P^2}
+}{
+\frac{1}{8\pi^2M_P^2} 
+\frac{H^2}{\epsilon_1}}=16\epsilon_1.  
+$$
+So at leading order, $(r\simeq 16\epsilon)$ (where your $\epsilon$ is the potential slow-roll parameter, approximately equal to $(\epsilon_1)$ in slow roll).
+
+For the scalar tilt,  
+$$
+n_s-1 \equiv \frac{d\ln \mathcal P_\mathcal R}{d\ln k}.  
+$$
+At horizon crossing, $k=aH$, so  
+$$
+d\ln k = d\ln(aH)= dN + d\ln H = (1-\epsilon_1),dN,  
+$$
+hence $ \frac{d}{d\ln k}\simeq \frac{d}{dN}$ to first order. Then  
+$$
+\frac{d\ln \mathcal P_\mathcal R}{dN}  
+= \frac{d}{dN}\left(\ln H^2 - \ln\epsilon_1\right)  
+= 2\frac{d\ln H}{dN} - \frac{d\ln \epsilon_1}{dN}  
+= -2\epsilon_1 - \epsilon_2.  
+$$
+Therefore  
+$$
+\boxed{n_s-1 \simeq -2\epsilon_1-\epsilon_2.} 
+$$
+Now connect to the potential slow-roll parameters you defined in the observables section,  
+$$
+\epsilon_V\equiv \frac{M_P^2}{2}\left(\frac{V'}{V}\right)^2,\qquad  
+\eta_V\equiv M_P^2\frac{V''}{V}.
+$$
+In slow roll one has $\epsilon_1\simeq \epsilon_V$ and $\epsilon_2 \simeq 4\epsilon_V-2\eta_V$. Plugging into $n_s-1=-2\epsilon_1-\epsilon_2$ gives  
+$$
+n_s-1 \simeq -2\epsilon_V-(4\epsilon_V-2\eta_V)= -6\epsilon_V+2\eta_V,  
+$$
+i.e.  
+$$
+\boxed{n_s \simeq 1-6\epsilon+2\eta,\qquad r\simeq 16\epsilon.}  
+$$

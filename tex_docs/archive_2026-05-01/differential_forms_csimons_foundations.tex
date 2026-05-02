@@ -1,0 +1,345 @@
+% Modular TeX snippet for the 253b final paper.
+% Source basis: PROJECTS/QFT/writings/brian_chern_simons_theory.tex,
+% with notation aligned to PROJECTS/QFT/writings/chern_simons_review.tex.
+% This file intentionally has no \documentclass or bibliography commands.
+
+\providecommand{\dd}{\mathrm{d}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\CS}{\operatorname{CS}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Lie}{\operatorname{Lie}}
+\providecommand{\id}{\operatorname{id}}
+
+\section{Differential Forms}
+\label{sec:forms-cs-foundations}
+
+The most efficient way to understand Chern--Simons theory is not to begin with a mysterious three-dimensional Lagrangian. It is to begin with the four-dimensional gauge-invariant density that already appears in anomaly physics,
+\begin{equation}
+  \tr(F\wedge F),
+\end{equation}
+and then ask for a three-form whose exterior derivative gives it. This is the mathematical move that turns Schwartz's Chern--Simons current into a genuine three-dimensional action. The purpose of this section is to make that move explicit enough that the later physical claims -- level quantization, anomaly inflow, Wilson-loop phases, and finite-dimensional Hilbert spaces -- do not feel like black boxes.
+
+There is a useful way to read the section. Differential forms are not extra decoration on a component calculation; they are the notation in which antisymmetry, orientation dependence, and boundary terms become visible. Whenever a later formula says ``this differs by an exact term'' or ``this is only invariant modulo an integer,'' the reason is already contained in the few identities below. We therefore move slowly through the bookkeeping once, and then use it as a shared language for the rest of the paper.
+
+% FIGURE FLAG [F-forms-antisymmetry]: a coordinate-cell diagram showing oriented area/volume elements and wedge-product sign changes would help the first forms discussion.
+
+\subsection{Forms and Orientation}
+\label{subsec:forms-toolkit}
+
+Let $M$ be a smooth $n$-manifold. In local coordinates $x^\mu$, a $p$-form is
+\begin{equation}
+  \omega
+  =
+  \frac{1}{p!}\omega_{\mu_1\cdots\mu_p}(x)
+  \,\dd x^{\mu_1}\wedge\cdots\wedge \dd x^{\mu_p},
+  \label{eq:forms-pform}
+\end{equation}
+where the coefficients are antisymmetric in their indices. The wedge product obeys
+\begin{equation}
+  \alpha\wedge\beta
+  =
+  (-1)^{pq}\beta\wedge\alpha,
+  \qquad
+  \alpha\in\Omega^p(M),\quad \beta\in\Omega^q(M).
+  \label{eq:forms-graded-comm}
+\end{equation}
+This sign rule is the source of many factors that otherwise look accidental in Chern--Simons manipulations.
+
+The point of \eqref{eq:forms-pform} is that the antisymmetry is not an afterthought. A two-form does not assign a number to one direction; it assigns a number to an oriented two-plane. If we reverse the order of the two directions, the sign reverses. This is exactly the behavior of magnetic flux through a surface, and it is why gauge theory naturally wants differential forms once we start integrating over curves, surfaces, and volumes.
+
+The exterior derivative is the coordinate-independent operation
+\begin{equation}
+  \dd:\Omega^p(M)\longrightarrow \Omega^{p+1}(M),
+  \qquad
+  \dd\omega
+  =
+  \frac{1}{p!}\partial_\nu \omega_{\mu_1\cdots\mu_p}
+  \,\dd x^\nu\wedge \dd x^{\mu_1}\wedge\cdots\wedge \dd x^{\mu_p}.
+  \label{eq:forms-exterior-derivative}
+\end{equation}
+It satisfies two identities:
+\begin{align}
+  \dd(\alpha\wedge\beta)
+  &=
+  (\dd\alpha)\wedge\beta
+  +
+  (-1)^p\alpha\wedge(\dd\beta),
+  \label{eq:forms-leibniz}
+  \\
+  \dd^2&=0.
+  \label{eq:forms-nilpotent}
+\end{align}
+The nilpotence follows because two partial derivatives are symmetric while the basis two-form $\dd x^\rho\wedge\dd x^\sigma$ is antisymmetric:
+\begin{equation}
+  \dd^2\omega
+  =
+  \frac{1}{p!}
+  \partial_\rho\partial_\sigma\omega_{\mu_1\cdots\mu_p}
+  \,\dd x^\rho\wedge\dd x^\sigma
+  \wedge\dd x^{\mu_1}\wedge\cdots\wedge\dd x^{\mu_p}
+  =
+  0.
+  \label{eq:forms-ddzero-proof}
+\end{equation}
+Physically, this is why Bianchi identities are kinematic rather than dynamical. For electromagnetism, $A=A_\mu\dd x^\mu$ and $F=\dd A$ give $\dd F=0$ automatically; one only needs a metric when writing the dynamical equation $\dd\star F=\star J$. This separation is one of the conceptual clues that Chern--Simons theory will be topological: the theory we are about to build uses $\dd$, wedge products, and integration, but not the Hodge star.
+
+\subsection{Gauge Curvature}
+\label{subsec:lie-valued-forms}
+
+For a gauge group $G$, the gauge potential is a Lie-algebra-valued one-form
+\begin{equation}
+  A=A_\mu^a T_a\,\dd x^\mu,
+  \qquad
+  T_a\in\mathfrak g=\Lie(G).
+  \label{eq:forms-connection}
+\end{equation}
+Wedge products multiply both the form components and the Lie-algebra matrices:
+\begin{equation}
+  \alpha\wedge\beta
+  =
+  \alpha^a\wedge\beta^b\,T_aT_b.
+  \label{eq:forms-matrix-wedge}
+\end{equation}
+Thus $A\wedge A$ need not vanish. Even though the one-form part is antisymmetric, the matrix product is not. The curvature is
+\begin{equation}
+  F=\dd A+A\wedge A.
+  \label{eq:forms-curvature}
+\end{equation}
+In components,
+\begin{equation}
+  F=\frac12 F_{\mu\nu}\,\dd x^\mu\wedge\dd x^\nu,
+  \qquad
+  F_{\mu\nu}
+  =
+  \partial_\mu A_\nu-\partial_\nu A_\mu+[A_\mu,A_\nu].
+  \label{eq:forms-curvature-components}
+\end{equation}
+
+This is the first place where the notation is doing real work. In an abelian theory, $A\wedge A=0$ and the curvature is just $\dd A$. In a nonabelian theory, the same symbol $A$ carries both a one-form index and a matrix index. The form part wants to antisymmetrize, while the matrix part remembers the commutator. The compact formula $F=\dd A+A\wedge A$ is therefore exactly the component expression $\partial_\mu A_\nu-\partial_\nu A_\mu+[A_\mu,A_\nu]$ with the geometry and the Lie algebra kept together.
+
+Gauge transformations are maps $g:M\to G$. We use the convention
+\begin{equation}
+  A\mapsto A^g=g^{-1}Ag+g^{-1}\dd g.
+  \label{eq:forms-gauge-transformation}
+\end{equation}
+With $\theta=g^{-1}\dd g$, the curvature transforms covariantly:
+\begin{equation}
+  F^g=\dd A^g+A^g\wedge A^g=g^{-1}Fg.
+  \label{eq:forms-curvature-covariant}
+\end{equation}
+The cancellation is worth spelling out once. Differentiating $g^{-1}g=1$ gives
+\begin{equation}
+  \dd g^{-1}=-g^{-1}(\dd g)g^{-1}.
+  \label{eq:forms-dginv}
+\end{equation}
+Substituting into $\dd A^g$ and then adding $A^g\wedge A^g$, all mixed terms involving $\theta$ cancel pairwise. This is the algebraic reason traces of powers of $F$ are gauge-invariant:
+\begin{equation}
+  \tr\left((F^g)^{\wedge r}\right)
+  =
+  \tr\left(g^{-1}F^{\wedge r}g\right)
+  =
+  \tr(F^{\wedge r}).
+  \label{eq:forms-gauge-invariant-polynomial}
+\end{equation}
+
+\subsection{Transgression Identity}
+\label{subsec:transgression-identity}
+
+The Chern--Simons three-form is
+\begin{equation}
+  \omega_{\CS}(A)
+  =
+  \tr\left(A\wedge\dd A+\frac23 A\wedge A\wedge A\right).
+  \label{eq:forms-cs-three-form}
+\end{equation}
+The basic identity is
+\begin{equation}
+  \dd\omega_{\CS}(A)=\tr(F\wedge F).
+  \label{eq:forms-transgression}
+\end{equation}
+This is the local calculation behind the slogan that the Chern--Simons current is a primitive for the instanton density.
+
+This calculation appears again in a more expanded form in Section~\ref{sec:dense-derivation-expansion}. Here we keep the main line visible: the four-form $\tr(F\wedge F)$ is closed for topological reasons, and locally it can be written as the derivative of a three-form. The latter three-form is exactly what becomes the Chern--Simons Lagrangian density in three dimensions.
+
+We verify it directly. First expand the right-hand side using $F=\dd A+A\wedge A$:
+\begin{align}
+  \tr(F\wedge F)
+  &=
+  \tr\left((\dd A+A\wedge A)\wedge(\dd A+A\wedge A)\right)
+  \notag\\
+  &=
+  \tr(\dd A\wedge\dd A)
+  +\tr(\dd A\wedge A\wedge A)
+  +\tr(A\wedge A\wedge\dd A)
+  +\tr(A\wedge A\wedge A\wedge A).
+  \label{eq:forms-ff-expand}
+\end{align}
+The middle two terms agree inside the trace because $\dd A$ is a two-form and $A\wedge A$ is a two-form. The quartic term vanishes: cycling the first one-form $A$ through three other one-forms gives a minus sign, while cyclicity of the trace gives the same expression back. Hence
+\begin{equation}
+  \tr(F\wedge F)
+  =
+  \tr(\dd A\wedge\dd A)
+  +
+  2\tr(\dd A\wedge A\wedge A).
+  \label{eq:forms-ff-final}
+\end{equation}
+Now differentiate the Chern--Simons form:
+\begin{align}
+  \dd\omega_{\CS}(A)
+  &=
+  \tr\left(\dd(A\wedge\dd A)\right)
+  +
+  \frac23\tr\left(\dd(A\wedge A\wedge A)\right)
+  \notag\\
+  &=
+  \tr(\dd A\wedge\dd A)
+  +
+  \frac23\tr\left(\dd A\wedge A\wedge A
+  -A\wedge\dd A\wedge A
+  +A\wedge A\wedge\dd A\right).
+  \label{eq:forms-dcs-intermediate}
+\end{align}
+Inside the trace, the three cubic terms are equal after moving the two-form $\dd A$ past one-forms, which costs no sign. Thus the second line becomes
+\begin{equation}
+  \dd\omega_{\CS}(A)
+  =
+  \tr(\dd A\wedge\dd A)
+  +
+  2\tr(\dd A\wedge A\wedge A),
+  \label{eq:forms-dcs-final}
+\end{equation}
+which matches \eqref{eq:forms-ff-final}.
+
+The physics interpretation is straightforward but important. A term like $\int\tr(F\wedge F)$ in four dimensions is a total derivative locally, so it naturally produces boundary or lower-dimensional data. Chern--Simons theory is what happens when we stop treating that primitive as a boundary bookkeeping device and make it the action of a three-dimensional theory in its own right.
+
+\subsection{Large Gauge Transformations}
+\label{subsec:cs-gauge-transformation}
+
+Although $\tr(F\wedge F)$ is gauge-invariant, its primitive $\omega_{\CS}(A)$ is not invariant as an ordinary three-form. Let
+\begin{equation}
+  \theta=g^{-1}\dd g.
+  \label{eq:forms-maurer-cartan-form}
+\end{equation}
+% FIGURE FLAG [F-transgression-ladder]: a ladder diagram linking tr(F wedge F), omega_CS, exact terms, and boundary/anomaly consequences would help readers see the dependency chain.
+The Maurer--Cartan equation is
+\begin{equation}
+  \dd\theta+\theta\wedge\theta=0.
+  \label{eq:forms-maurer-cartan}
+\end{equation}
+It follows immediately from $\dd(g^{-1}\dd g)=(\dd g^{-1})\wedge\dd g$ and \eqref{eq:forms-dginv}.
+
+With the convention \eqref{eq:forms-gauge-transformation}, the Chern--Simons form transforms as
+\begin{equation}
+  \omega_{\CS}(A^g)
+  =
+  \omega_{\CS}(A)
+  -
+  \frac13\tr(\theta\wedge\theta\wedge\theta)
+  +
+  \dd\,\tr\left(g(\dd g^{-1})\wedge A\right).
+  \label{eq:forms-cs-gauge-law}
+\end{equation}
+The exact term is locally harmless on a closed three-manifold, but the cubic term is global. It is the Wess--Zumino three-form
+\begin{equation}
+  \omega_{\mathrm{WZ}}(g)
+  =
+  \tr\left((g^{-1}\dd g)^{\wedge 3}\right).
+  \label{eq:forms-wz-form}
+\end{equation}
+It is closed:
+\begin{align}
+  \dd\,\tr(\theta^{\wedge 3})
+  &=
+  \tr\left((\dd\theta)\wedge\theta\wedge\theta
+  -\theta\wedge(\dd\theta)\wedge\theta
+  +\theta\wedge\theta\wedge\dd\theta\right)
+  \notag\\
+  &=
+  -3\tr(\theta^{\wedge 4})
+  =
+  0.
+  \label{eq:forms-wz-closed}
+\end{align}
+The last equality uses the same cyclicity argument as the quartic $A$ term above. On a closed oriented three-manifold, the integral of \eqref{eq:forms-wz-form} is therefore homotopy-invariant. For $G=SU(2)$ with the standard normalization,
+\begin{equation}
+  n(g)
+  =
+  \frac{1}{24\pi^2}
+  \int_M \tr\left((g^{-1}\dd g)^{\wedge 3}\right)
+  \in\mathbb Z.
+  \label{eq:forms-winding-number}
+\end{equation}
+
+The lesson is that gauge invariance is no longer just a local infinitesimal statement. Small gauge transformations are connected continuously to the identity, but large gauge transformations can wrap the three-manifold around the gauge group. The Chern--Simons form detects that wrapping through the Wess--Zumino integral. This is why the coefficient $k$ in the action cannot remain an arbitrary real number in the quantum theory.
+
+\subsection{Level Quantization}
+\label{subsec:level-quantization-forms}
+
+The Chern--Simons action on a closed oriented three-manifold is
+\begin{equation}
+  S_{\CS}[A]
+  =
+  \frac{k}{4\pi}\int_M
+  \tr\left(A\wedge\dd A+\frac23 A\wedge A\wedge A\right).
+  \label{eq:forms-cs-action}
+\end{equation}
+Using \eqref{eq:forms-cs-gauge-law} and Stokes's theorem, the action shifts under a large gauge transformation by
+\begin{align}
+  S_{\CS}[A^g]-S_{\CS}[A]
+  &=
+  \frac{k}{4\pi}
+  \left(-\frac13\right)
+  \int_M \tr\left((g^{-1}\dd g)^{\wedge 3}\right)
+  \notag\\
+  &=
+  -2\pi k\,n(g).
+  \label{eq:forms-action-shift}
+\end{align}
+The quantum path integral uses $\exp(iS_{\CS})$, so gauge-equivalent configurations are assigned the same phase only if
+\begin{equation}
+  k\in\mathbb Z.
+  \label{eq:forms-level-integer}
+\end{equation}
+This is the physical content of the transgression calculation. The local identity $\dd\omega_{\CS}=\tr(F\wedge F)$ explains why the three-dimensional action exists; the global Wess--Zumino term explains why its coefficient is quantized.
+
+This is also the first serious convention warning. The integer statement assumes a compact gauge group and a trace normalized so that the generator of $\pi_3(G)$ integrates to $24\pi^2$. Changing the trace normalization changes the symbol called $k$, not the underlying requirement that the exponentiated action be single-valued on gauge-equivalence classes. In later condensed-matter applications, this same integer becomes the quantized coefficient that fixes Hall response and braiding data.
+
+\subsection{Flat Connections}
+\label{subsec:flat-connection-eom}
+
+Varying \eqref{eq:forms-cs-action} gives
+\begin{align}
+  \delta\omega_{\CS}
+  &=
+  \tr\left(\delta A\wedge\dd A+A\wedge\dd(\delta A)
+  +2\delta A\wedge A\wedge A\right)
+  \notag\\
+  &=
+  2\tr(\delta A\wedge F)
+  -
+  \dd\,\tr(A\wedge\delta A).
+  \label{eq:forms-cs-variation}
+\end{align}
+On a closed manifold, or after imposing boundary conditions that kill the boundary term,
+\begin{equation}
+  \delta S_{\CS}
+  =
+  \frac{k}{2\pi}\int_M\tr(\delta A\wedge F).
+  \label{eq:forms-action-variation}
+\end{equation}
+The Euler--Lagrange equation is therefore
+\begin{equation}
+  F=0.
+  \label{eq:forms-flat-eom}
+\end{equation}
+So the classical theory is not organized around propagating gauge waves. It is organized around flat connections, equivalently around holonomies. On a spatial surface $\Sigma$, the reduced phase space is the moduli space
+\begin{equation}
+  \mathcal M_G(\Sigma)
+  =
+  \{A\in\Omega^1(\Sigma,\mathfrak g):F_A=0\}/\mathcal G
+  \simeq
+  \Hom(\pi_1(\Sigma),G)/G.
+  \label{eq:forms-flat-moduli}
+\end{equation}
+This is the bridge from the differential-form calculation to the finite-dimensional Hilbert spaces and topological observables of Chern--Simons theory.
