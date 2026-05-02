@@ -1,0 +1,116 @@
+% ============================================================================
+% PART II: PHYSICS ORGANIZED BY OBSERVABLE FAMILY
+% Section 6: Topological Sectors in 3+1 Dimensions
+% ============================================================================
+%
+% Purpose
+%   The four-dimensional gauge-theory consequences of topology: theta vacua,
+%   topological susceptibility chi_t, U(1)_A problem, eta' mass, strong CP,
+%   neutron EDM, axion physics. The narrative chain is standard in the axion
+%   / strong-CP literature (Hook, Dine, Marsh):
+%
+%     topology -> vacuum structure -> chi_t -> E(theta) -> eta' mass;
+%     neutron EDM constrains bar-theta; axion dynamically cancels it.
+%
+%   This is the "spectroscopic / CP-sensitive" observable family.
+%
+% Status: NEW WRITING. Build from the outline in
+%   tqft_observables_literature_review.md Sec. 5, supplemented with any class
+%   notes available in PROJECTS/QFT/literature/ for the instanton / theta
+%   material.
+%
+% Length target: ~15--20 pages
+%
+% Subsection plan (from Final QFT Project Overview.md)
+%   6.1  Theta vacua, topological susceptibility, and the U(1)_A problem
+%   6.2  The eta' mass and the Witten-Veneziano formula
+%   6.3  Strong CP, the neutron EDM, and the axion
+%   6.4  When the observables are clean, and when they are only effective
+%
+% References
+%   't Hooft 1976 BellJackiw (\cite{tHooft1976BellJackiw})
+%   't Hooft 1976 Pseudoparticle (\cite{tHooft1976Pseudoparticle})
+%   Witten 1979 (\cite{Witten1979U1GoldstoneBoson})   -- U(1)_A half of WV
+%   Veneziano 1979 (\cite{Veneziano1979U1WithoutInstantons}) -- WV other half
+%   Di Vecchia-Veneziano 1980 (\cite{DiVecchiaVeneziano1980ChiralDynamics})
+%     -- large-N chiral lagrangian with theta-dependence
+%   Dine 2000 (\cite{Dine2000TASIStrongCP})            -- strong CP TASI
+%   Hook 2018 (\cite{Hook2018TASIStrongCPAxions})      -- modern TASI review
+%   Marsh 2016 (\cite{Marsh2016AxionCosmology})        -- axion phenomenology
+%   Teper 2000 (\cite{Teper2000TopologyInQCD})         -- lattice topology review
+%   Cichy et al. 2015 (\cite{CichyLatticeWittenVeneziano})
+%     -- lattice test of Witten-Veneziano
+%   Arean et al. 2021 (\cite{AreanU1AHolographicQCD})  -- holographic chi_t
+%   Abel et al. 2020 (\cite{Abel2020NeutronEDM})       -- nEDM world limit
+%   Experiment placeholders: ADMX, CAST/IAXO, CASPEr, MADMAX
+%     (\cite{ADMXOverviewPlaceholder}, \cite{CASTIAXOOverviewPlaceholder},
+%      \cite{CASPErOverviewPlaceholder}, \cite{MADMAXOverviewPlaceholder})
+%
+% Writing notes
+%   - Open by reminding the reader that Sec. 3 already introduced the theta
+%     term and instanton number. Here we follow the chain from topology to
+%     measurable observables.
+%   - 6.1 derives chi_t as the curvature of E(theta).
+%   - 6.2 states Witten-Veneziano and motivates large-N; cite lattice support.
+%   - 6.3 connects bar-theta -> nEDM and describes axion solution (PQ
+%     mechanism, axion mass from chi_t, coupling hierarchy by UV model).
+%   - 6.4 is a local "iffiness" subsection paralleling Sec. 5.6.
+
+\section{Topological Sectors in $3+1$ Dimensions}
+\label{sec:sectors-3plus1d}
+
+% TODO: Open with the reminder that theta in F wedge F-tilde is not just an
+% observable --- it is a coupling whose physical consequences run through the
+% entire hadronic and CP-violation story.
+
+\subsection{$\theta$ Vacua, Topological Susceptibility, and $U(1)_A$}
+\label{subsec:theta-chi-u1a}
+
+% TODO: Define chi_t = int d^4x <q(x) q(0)> with q = (g^2/32 pi^2) tr(F F-tilde).
+% Relate to E(theta) = E(0) + (1/2) chi_t theta^2 + O(theta^4) at small theta.
+% Explain U(1)_A: anomaly kills naive Goldstone; large-N saves the story.
+% Cite: \cite{tHooft1976BellJackiw}, \cite{tHooft1976Pseudoparticle},
+%       \cite{Witten1979U1GoldstoneBoson}, \cite{Veneziano1979U1WithoutInstantons},
+%       \cite{DiVecchiaVeneziano1980ChiralDynamics},
+%       \cite{Teper2000TopologyInQCD}
+
+\subsection{The $\eta'$ Mass and the Witten--Veneziano Formula}
+\label{subsec:eta-prime-wv}
+
+% TODO: Derive (sketch) the Witten-Veneziano relation
+% m_{eta'}^2 + m_{eta}^2 - 2 m_K^2 = (2 N_f / F_pi^2) chi_t^{YM}
+% and interpret chi_t^{YM} as a pure-gauge-theory topological observable
+% inferred from hadron spectroscopy.
+% Cite: \cite{Witten1979U1GoldstoneBoson}, \cite{Veneziano1979U1WithoutInstantons},
+%       \cite{DiVecchiaVeneziano1980ChiralDynamics},
+%       \cite{CichyLatticeWittenVeneziano}, \cite{AreanU1AHolographicQCD}
+
+\subsection{Strong CP, the Neutron EDM, and the Axion}
+\label{subsec:strong-cp-axion}
+
+% TODO: bar-theta = theta + arg det M_q; nEDM bound d_n <= 1.8e-26 e cm ->
+% |bar-theta| <~ 10^{-10}. PQ mechanism: promote bar-theta to dynamical axion
+% field a/f_a; axion potential V(a) from chi_t gives m_a^2 f_a^2 = chi_t;
+% small-angle relaxation dynamically enforces CP.
+% Phenomenology: axion mass-coupling plane, haloscope / helioscope /
+% CASPEr / MADMAX experimental classes.
+% Cite: \cite{Dine2000TASIStrongCP}, \cite{Hook2018TASIStrongCPAxions},
+%       \cite{Marsh2016AxionCosmology}, \cite{Abel2020NeutronEDM},
+%       \cite{ADMXOverviewPlaceholder}, \cite{CASTIAXOOverviewPlaceholder},
+%       \cite{CASPErOverviewPlaceholder}, \cite{MADMAXOverviewPlaceholder}
+
+\subsection{When the Observables Are Clean, and When They Are Only Effective}
+\label{subsec:qcd-caveats}
+
+% Dedicated "iffiness" subsection for the 3+1d story
+% (tqft_observables_literature_review.md Sec. 5.4):
+%   - F wedge F-tilde is locally a total derivative, but not globally trivial.
+%   - Instanton-gas reasoning is semiclassical, not the strong-coupling story.
+%   - chi_t is Euclidean and theory-side; lattice / holographic QCD are needed
+%     to connect to hadronic observables.
+%   - Neutron EDM measurement is clean; extraction of bar-theta from the
+%     measurement involves hadronic matrix elements and model dependence.
+%   - Axion phenomenology: the mass comes from chi_t and is robust; photon /
+%     nucleon / spin couplings depend on the UV completion (KSVZ vs DFSZ etc).
+% Cite: \cite{Hook2018TASIStrongCPAxions}, \cite{Marsh2016AxionCosmology},
+%       \cite{Teper2000TopologyInQCD}

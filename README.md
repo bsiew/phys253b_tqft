@@ -11,28 +11,31 @@ Comprehensive review paper on TQFTs in physics, structured around Chern-Simons t
 ## Repository Structure
 
 ### `/tex_docs/`
-Main paper sections (10 files):
-- `01_introduction.tex` - [TO BE WRITTEN]
-- `02_topological_structures_ordinary_qft.tex` - [TO BE WRITTEN]
-- `03_mathematical_toolkit.tex` - [EXTRACT]
-- `04_chern_simons_from_anomalies.tex` - [REORGANIZE]
-- `05_classical_level_observables.tex` - [MERGE]
-- `06_quantization_functorial_emergence.tex` - [EXTRACT]
-- `07_functorial_tqft.tex` - [WRITE NEW]
-- `08_physical_applications.tex` - [REORGANIZE]
-- `09_contrasts_and_limits.tex` - [EXTRACT + WRITE]
-- `10_outlook.tex` - [TO BE WRITTEN]
+Simplified Part I / Part II structure (7 files, 2026-05-02):
 
-See `tex_docs/archive_2026-05-01/` for previous modular organization.
+Part I: Construction
+- `part1_01_introduction.tex` - [TO WRITE - write last]
+- `part1_02_mathematical_toolkit.tex` - [EXTRACT from archive]
+- `part1_03_ordinary_to_chern_simons.tex` - [REORGANIZE]
+- `part1_04_tqft_and_observables.tex` - [MERGE + write]
+
+Part II: Physics organized by observable family
+- `part2_05_response_2plus1d.tex` - [PARTIALLY DRAFTED; subs. 5.5, 5.6 TODO]
+- `part2_06_sectors_3plus1d.tex` - [NEW WRITING]
+- `part2_07_defects_caveats_outlook.tex` - [NEW WRITING]
+
+Wrapper: `tex_docs_main_wrapper_20260501.tex`
+Bibliography: `tqft_observables_unresolved_refs.bib`
+
+Previous organizations preserved under:
+- `tex_docs/archive_2026-05-01/` (original 7 modular drafts)
+- `tex_docs/archive_2026-05-02_pre_simplification/` (2026-05-01 10-section intermediate)
 
 ### `/llm_docs/`
-Planning and review documents:
-- `reorganization_plan_2026-05-01.md` - Overall strategy based on ChatGPT conversation analysis
-- `content_mapping_2026-05-01.md` - Detailed old→new content mapping
-- `REORGANIZATION_STATUS.md` - Current status and next steps (this tracks progress)
-- `figure_wishlist.md` - Figure specifications
-- `writing_style_guide.md` - Style guidelines
-- Other review and planning docs
+Planning and review documents, split by lifecycle:
+- `current/` - active status, mapping, strategy, style, and figure guidance
+- `reference/` - long-lived literature and background review notes
+- `logs/` - generated session summaries, imported conversation records, and historical handoff notes
 
 ### `/style_guide_docs/`
 Writing style examples from previous papers (for reference)
@@ -49,7 +52,7 @@ Writing style examples from previous papers (for reference)
 **Next steps**: 
 1. Review content mapping document
 2. Begin migrating Priority 1 content (strongest existing sections)
-3. See `llm_docs/REORGANIZATION_STATUS.md` for detailed plan
+3. See `llm_docs/current/REORGANIZATION_STATUS.md` for detailed plan
 
 ## Paper Structure Philosophy
 
@@ -76,17 +79,17 @@ Writing style examples from previous papers (for reference)
 
 ## Key Documents for Reorganization
 
-1. **Strategy**: `llm_docs/reorganization_plan_2026-05-01.md`
+1. **Strategy**: `llm_docs/current/reorganization_plan_2026-05-01.md`
    - Rationale for new structure
    - Section-by-section purpose and goals
    - Content sources and migration strategy
 
-2. **Mapping**: `llm_docs/content_mapping_2026-05-01.md`
+2. **Mapping**: `llm_docs/current/content_mapping_2026-05-01.md`
    - Line-by-line mapping old → new
    - Duplicate resolution decisions
    - What to cut, merge, or rewrite
 
-3. **Status**: `llm_docs/REORGANIZATION_STATUS.md`
+3. **Status**: `llm_docs/current/REORGANIZATION_STATUS.md`
    - Current phase and progress
    - Next steps and timeline
    - Dependencies and quality gates
@@ -94,8 +97,8 @@ Writing style examples from previous papers (for reference)
 ## Working with This Paper
 
 ### To continue content migration:
-1. Check `llm_docs/REORGANIZATION_STATUS.md` for current phase
-2. Consult `llm_docs/content_mapping_2026-05-01.md` for which old content maps to which new section
+1. Check `llm_docs/current/REORGANIZATION_STATUS.md` for current phase
+2. Consult `llm_docs/current/content_mapping_2026-05-01.md` for which old content maps to which new section
 3. Reference archived files in `tex_docs/archive_2026-05-01/` as needed
 4. Each new section file has header comments with detailed migration instructions
 
@@ -103,7 +106,7 @@ Writing style examples from previous papers (for reference)
 - Sections I, II, VII, X need new writing
 - Each stub file has purpose, content checklist, and guidelines in header comments
 - Maintain physics-first narrative arc
-- See `llm_docs/writing_style_guide.md` for style guidance
+- See `llm_docs/current/writing_style_guide.md` for style guidance
 
 ### Quality control checklist:
 - [ ] Notation consistency across sections (document in state files)

@@ -1,182 +1,119 @@
 ---
 created_at: "2026-05-01T17:23:47-04:00"
-updated_at: "2026-05-01T23:45:36-04:00"
-generated_by: "unknown_llm"
+updated_at: "2026-05-02T00:55:00-04:00"
+generated_by: "claude"
 timestamp_source: "filesystem_birthtime"
 ---
 
-# Paper Reorganization Status - 2026-05-01
+# Paper Reorganization Status - updated 2026-05-02
 
-## What Was Done
+## 2026-05-02: second-pass simplification
 
-### 1. Created New Structure
-- Created 10 new section files following the ChatGPT conversation recommendations
-- Files: `01_introduction.tex` through `10_outlook.tex`
-- Each file has detailed header comments documenting:
-  - Purpose and goals
-  - Content checklist
-  - Source files to draw from
-  - Current status (TO BE WRITTEN, EXTRACT, MERGE, etc.)
-  - Writing notes and guidelines
+The 10-section structure from 2026-05-01 has been simplified to a 7-section Part I / Part II structure following the user's instructions in `llm_docs/reference/Final QFT Project Overview.md` and the detailed source map in `llm_docs/reference/tqft_observables_literature_review.md`.
 
-### 2. Archived Old Files
-- Moved all previous modular TeX files to `tex_docs/archive_2026-05-01/`
-- Archived files:
-  - `topology_review.tex`
-  - `differential_forms_csimons_foundations.tex`
-  - `differential_forms_csimons_foundations_v2.tex`
-  - `chern_simons_two_review_synthesis.tex`
-  - `dense_derivation_expansion.tex`
-  - `anomalies_boundaries_topological_response.tex`
-  - `chern_simons_theory_FQHE_throughline_v2.tex`
+The previous 10 stub files were copied into `tex_docs/archive_2026-05-02_pre_simplification/` and removed from the active directory. The new files replace them and carry inline bibliographic citations.
 
-### 3. Created Planning Documents
-- `reorganization_plan_2026-05-01.md`: Overall strategy and rationale
-- `content_mapping_2026-05-01.md`: Detailed mapping of old → new content (created by agent)
-- This file: Status tracker
+### Simplification rationale
 
-## New Paper Structure
+The user's stated preferences:
+- One centralized math chapter (math is always referenceable) rather than math scattered throughout the construction.
+- Part II organized by *observable family*, not by subfield.
+- A dedicated "how real is this observable?" subsection, rather than apologetics scattered everywhere.
+- Fewer but denser sections.
 
-### I. Introduction [TO BE WRITTEN - write last]
-- Physics problem, not abstract definition
-- Three key questions frame the entire paper
-- 2-3 pages max
+## Active TeX files (2026-05-02)
 
-### II. Topological Structures in Ordinary QFT [TO BE WRITTEN]
-- Bridge from Schwartz
-- Survey: instantons, θ-term, anomalies, Wilson loops, monopoles
-- End: "now look for theory where topology is central, not peripheral"
-- ~10-15 pages
+```
+tex_docs/
+  part1_01_introduction.tex                 [TO WRITE - write last]
+  part1_02_mathematical_toolkit.tex         [EXTRACT from archive_2026-05-01]
+  part1_03_ordinary_to_chern_simons.tex     [REORGANIZE from archive_2026-05-01]
+  part1_04_tqft_and_observables.tex         [MERGE from archive + write]
+  part2_05_response_2plus1d.tex             [PARTIAL DRAFT migrated from archive_2026-05-02]
+  part2_06_sectors_3plus1d.tex              [NEW WRITING]
+  part2_07_defects_caveats_outlook.tex      [NEW WRITING]
+  tex_docs_main_wrapper_20260501.tex        [updated to include Parts I and II]
+  tqft_observables_unresolved_refs.bib      [expanded with ~20 new entries]
+  archive_2026-05-01/                       [original 7 modular TeX drafts]
+  archive_2026-05-02_pre_simplification/    [2026-05-01 10-section intermediate]
+```
 
-### III. Mathematical Toolkit [EXTRACT from topology_review.tex]
-- Just-in-time math, not front-loaded
-- Brief conventions and prerequisites only
-- Detailed treatments moved to sections where used
-- ~5 pages max
+## New 7-section structure
 
-### IV. Chern-Simons from Anomalies [REORGANIZE from v2 + Brian]
-- Physical motivation: anomaly descent
-- CS action and why it's different (no metric)
-- Use differential_forms_v2 as base, supplement with Brian's rigor
-- ~15-20 pages
+### Part I: Construction
 
-### V. Classical, Level, Observables [MERGE scattered content]
-- Four layers: action, global structure, quantization setup, observables
-- Sources: synthesis.tex + dense_derivation + Brian
-- ~15-20 pages
+| # | File | Title | Target pages | Status |
+|---|------|-------|-------------:|--------|
+| 1 | `part1_01_introduction.tex` | Introduction | 3-5 | TO WRITE (write last) |
+| 2 | `part1_02_mathematical_toolkit.tex` | Mathematical Toolkit | 15-20 | EXTRACT from archive |
+| 3 | `part1_03_ordinary_to_chern_simons.tex` | From Ordinary Gauge Theory to Chern-Simons | 20-25 | REORGANIZE |
+| 4 | `part1_04_tqft_and_observables.tex` | TQFT and Its Observables | 15-20 | MERGE from archive + write |
 
-### VI. Quantization and Functorial Emergence [EXTRACT from Brian + dense]
-- Canonical quantization on surfaces
-- Torus example (key!)
-- Show functorial structure emerging
-- ~10-15 pages
+### Part II: Physics organized by observable family
 
-### VII. Functorial TQFT [WRITE NEW - brief]
-- Atiyah-Segal axioms
-- "This codifies what we already computed"
-- 2-3 pages max
+| # | File | Title | Target pages | Status |
+|---|------|-------|-------------:|--------|
+| 5 | `part2_05_response_2plus1d.tex` | Topological Response in 2+1 Dimensions | 25-30 | PARTIALLY DRAFTED |
+| 6 | `part2_06_sectors_3plus1d.tex` | Topological Sectors in 3+1 Dimensions | 15-20 | NEW WRITING |
+| 7 | `part2_07_defects_caveats_outlook.tex` | Defects, Caveats, and Outlook | 12-15 | NEW WRITING |
 
-### VIII. Physical Applications [REORGANIZE using FQHE_v2 backbone]
-- Five parts: Laughlin, anyons, anomaly inflow, torus degeneracy, nonabelian
-- This is the HEART - longest section
-- ~25-30 pages
+Expected total: ~105-135 pages.
 
-### IX. Contrasts and Limits [EXTRACT + WRITE]
-- What is and isn't TQFT
-- Maxwell-CS, YM+θ, instantons, monopoles
-- ~8-10 pages
+## Citation integration
 
-### X. Outlook [TO BE WRITTEN - write after rest]
-- Why should QFT student care?
-- What does TQFT enable?
-- Forward look and open questions
-- ~3-5 pages
+Each section's header comments now list:
+- Primary sources to migrate from (archive paths).
+- Pedagogical and review references tied to that section.
+- Landmark theory and experiment citations tied to the relevant subsections.
 
-**Expected total: ~100-120 pages**
+Bibliography stubs for all cited works live in `tex_docs/tqft_observables_unresolved_refs.bib`. The 2026-05-02 pass added the following previously-missing entries:
 
-## Next Steps
+- Foundational TQFT / CS: `Atiyah1988TQFT`, `Dunne1999AspectsCS`.
+- Topological-phases bridges: `Witten2016ThreeLecturesTopologicalPhases`, `TongQuantumHallLectures`.
+- FQHE reviews: `Wen1995TopologicalOrdersEdgeExcitations`, `Stern2008AnyonsQHEReview`, `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons`, `HalperinSternNederRosenow2011FractionalCharge`.
+- FQHE experiment: `Saminadayar1997FractionalCharge`.
+- QCD topology / axion: `Dine2000TASIStrongCP`, `Hook2018TASIStrongCPAxions`, `Marsh2016AxionCosmology`, `Teper2000TopologyInQCD`, `CichyLatticeWittenVeneziano`, `AreanU1AHolographicQCD`.
+- Monopoles / defects: `Rajantie2024MonopoleTheoryOverview`, `FairbairnMonopolesRevisited`.
+- Line operators and generalized symmetries: `GaiottoKapustinSeibergWillett2015GeneralizedSymmetries`, `KapustinWitten2007ElectricMagneticLanglands`.
 
-### Immediate (Phase 1)
-1. ✅ Create stub files with structure (DONE)
-2. ✅ Archive old files (DONE)
-3. ✅ Create planning documents (DONE)
-4. ⏳ Review content mapping document created by agent
-5. ⏳ Begin content migration starting with strongest existing content
+Pre-existing stubs reused: `Witten1988TQFT`, `Witten1989Jones`, `BlauThompson1991TopologicalGauge`, `BirminghamBlauRakowskiThompson1991TopologicalFieldTheory`, `Dijkgraaf1989Geometry2dCFT`, `ElitzurMooreSchwimmerSeiberg1989CanonicalCS`, `Nakahara2003GeometryTopologyPhysics`, `BaezMuniain1994GaugeFieldsKnotsGravity`, `Laughlin1983AnomalousQHE`, `ArovasSchriefferWilczek1984FractionalStatistics`, `ZhangHanssonKivelson1989FQHE`, `WenZee1992AbelianQHClassification`, `WenNiu1990GroundStateDegeneracy`, `Wen1990TopologicalOrders`, `TsuiStormerGossard1982FQHEDiscovery`, `dePicciotto1997FractionalCharge`, `CaminoZhouGoldman2005ABSuperperiod`, `VenkatachalamHartPfeifferWestYacobyGrapheneInterferometers`, `Nakamura2020AnyonicBraiding`, `Bartolomei2020AnyonCollisions`, `tHooft1976BellJackiw`, `tHooft1976Pseudoparticle`, `Witten1979U1GoldstoneBoson`, `Veneziano1979U1WithoutInstantons`, `DiVecchiaVeneziano1980ChiralDynamics`, `Abel2020NeutronEDM`, `Dirac1931QuantisedSingularities`, `tHooft1974MagneticMonopoles`, `Polyakov1974ParticleSpectrum`, `MantonSutcliffeTopologicalSolitons`, `ShnirMagneticMonopoles`, `WeinbergClassicalSolutionsQFT`.
 
-### Phase 2: Content Migration Priority Order
-Based on "build from strength" principle:
+Still placeholders (from `tqft_observables_unresolved_cleanup_checklist.md`): `RosenowHalperinInterferometryPlaceholder`, `ADMXOverviewPlaceholder`, `CASTIAXOOverviewPlaceholder`, `CASPErOverviewPlaceholder`, `MADMAXOverviewPlaceholder`, `PDGMagneticMonopolesPlaceholder`, `KapustinSaulinaLineOperatorsPlaceholder`. Replace these with concrete papers before submission.
 
-**Priority 1: Strong existing content (can migrate now)**
-- Section IV: Use differential_forms_v2 as base
-- Section V: Merge synthesis + dense + Brian
-- Section VIII: FQHE_v2 is excellent backbone
-- Section VI: Brian has good quantization story + dense has torus example
+## Next steps
 
-**Priority 2: Extraction/reorganization**
-- Section III: Extract minimal toolkit from topology_review
-- Section IX: Extract Maxwell-CS contrast and write comparison
+1. Section 5 is the most populated: the Laughlin / quasihole / edge / K-matrix prose is already migrated inline, with `\cite{...}` calls present. Remaining TODOs: subsections 5.5 (Maxwell-CS) and 5.6 (QHE caveats).
+2. Section 2 (math toolkit): migrate `archive_2026-05-01/topology_review.tex` subsections into the new subsection plan in `part1_02_mathematical_toolkit.tex`.
+3. Section 3 (ordinary gauge -> CS): migrate `archive_2026-05-01/differential_forms_csimons_foundations_v2.tex` into subsection 3.3, and `archive_2026-05-01/dense_derivation_expansion.tex` level-quantization calculation into 3.5.
+4. Section 4 (TQFT + observables): migrate Wilson-loop and torus-H computations from the archive into 4.4-4.5; write the functorial summary and observable taxonomy.
+5. Sections 6 and 7: new writing from scratch, but the source map and review citations are already in the header comments.
+6. Sections 1 and final outlook of 7: write last, once all other material is stable.
+7. Pass through `tqft_observables_unresolved_cleanup_checklist.md` to convert placeholders to concrete papers.
 
-**Priority 3: New writing (do later)**
-- Section II: Survey of topological QFT features (new)
-- Section VII: Brief functorial TQFT (new, but short)
+## Migration priority (updated)
 
-**Priority 4: Bookends (write last)**
-- Section I: Introduction (write when rest is done)
-- Section X: Outlook (write when rest is done)
+**Priority 1 (strongest existing content / partly migrated)**
+- Section 5: finish Maxwell-CS and caveats subsections.
+- Section 3: migrate anomaly-descent / CS-action / level-quantization prose.
+- Section 4.4-4.5: migrate Wilson-loop and torus-H calculations.
 
-### Phase 3: Quality Control
-After initial content migration:
-- Notation consistency audit across all sections
-- Cross-reference audit
-- Figure specification for each FIGURE FLAG
-- Compile test with shared preamble
-- Style consistency pass
+**Priority 2 (extraction/reorganization)**
+- Section 2: extract math toolkit from `archive_2026-05-01/topology_review.tex`.
+- Section 4.1-4.3: write functorial summary and TQFT class taxonomy.
 
-### Phase 4: Integration
-- Create main wrapper document including all 10 sections
-- Bibliography integration
-- Final compile and review
+**Priority 3 (new writing)**
+- Section 6: theta, chi_t, eta', strong CP, axion.
+- Section 7.1: monopoles and line operators.
+- Section 7.2: unified strict-vs-effective taxonomy.
 
-## Key Principles to Maintain
+**Priority 4 (bookends)**
+- Section 1: introduction.
+- Section 7.3: guide du routard and closing.
 
-1. **Just-in-time math**: Introduce concepts where they're used, not front-loaded
-2. **Physics first**: Reader should always know physical motivation
-3. **One narrative arc**: Not "math chapter" + "physics chapter"
-4. **Center = Chern-Simons**: Everything else motivates or applies it
-5. **Concrete before abstract**: Examples and calculations before formal axioms
+## Key principles (unchanged)
 
-## Files to Reference
-
-- **Planning**: `reorganization_plan_2026-05-01.md`
-- **Content mapping**: `content_mapping_2026-05-01.md`
-- **Old content**: `tex_docs/archive_2026-05-01/`
-- **Source writings**: `PROJECTS/QFT/writings/brian_chern_simons_theory.tex`, `chern_simons_review.tex`
-
-## Dependencies for Content Migration
-
-Before starting migration, ensure:
-- [ ] Content mapping document reviewed and approved
-- [ ] Notation conventions documented
-- [ ] Decide on sign conventions (review dense_derivation alerts)
-- [ ] Figure inventory updated for new structure
-
-## Timeline Estimate
-
-- Phase 1 (structure): ✅ Complete
-- Phase 2 (content migration): ~2-3 weeks
-  - Priority 1: ~1 week
-  - Priority 2: ~3-4 days
-  - Priority 3: ~3-4 days
-  - Priority 4: ~2-3 days
-- Phase 3 (quality control): ~1 week
-- Phase 4 (integration): ~2-3 days
-
-**Total: ~4-5 weeks to fully reorganized, migrated, integrated paper**
-
-## Notes
-
-- Preserve all FIGURE FLAG comments during migration
-- Update cross-references as content moves
-- Keep TODO comments explicit about what needs work
-- Original source files remain in archive for reference
-- Can work on multiple sections in parallel once mapping is clear
+1. Math centralized in one reference chapter (Section 2).
+2. Physics organized by observable family, not by subfield.
+3. Concrete before abstract: Laughlin states before modular-tensor language.
+4. Dedicated "iffiness" subsections in each physics section + unified taxonomy in 7.2.
+5. Chern-Simons is the construction centerpiece; Sections 5-7 are the payoff.

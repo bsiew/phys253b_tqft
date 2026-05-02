@@ -1,3 +1,10 @@
+---
+created_at: "2026-05-01T17:25:51-04:00"
+updated_at: "2026-05-02T00:44:20-04:00"
+generated_by: "claude"
+timestamp_source: "filesystem_birthtime"
+---
+
 # Paper Reorganization Summary - 2026-05-01
 
 ## What Was Done
@@ -85,10 +92,10 @@ The previous structure felt like separate blocks (math + physics + applications)
 - **Status**: Reference only, no longer active
 
 ### Planning documents
-- **Strategy**: `llm_docs/reorganization_plan_2026-05-01.md`
-- **Mapping**: `llm_docs/content_mapping_2026-05-01.md` (detailed, created by agent)
-- **Status**: `llm_docs/REORGANIZATION_STATUS.md` (progress tracker)
-- **Quick start**: `llm_docs/QUICK_START_GUIDE.md` (oriented guide)
+- **Strategy**: `llm_docs/current/reorganization_plan_2026-05-01.md`
+- **Mapping**: `llm_docs/current/content_mapping_2026-05-01.md` (detailed, created by agent)
+- **Status**: `llm_docs/current/REORGANIZATION_STATUS.md` (progress tracker)
+- **Quick start**: `llm_docs/logs/QUICK_START_GUIDE.md` (historical oriented guide)
 - **This file**: `REORGANIZATION_SUMMARY.md` (high-level overview)
 
 ## Key Principles (from ChatGPT conversation)
@@ -144,10 +151,10 @@ These are the organizing principles for the new structure:
 ## How to Use This New Structure
 
 ### To continue the work:
-1. **Read strategy first**: `llm_docs/reorganization_plan_2026-05-01.md`
-2. **Consult mapping**: `llm_docs/content_mapping_2026-05-01.md` 
-3. **Track progress**: `llm_docs/REORGANIZATION_STATUS.md`
-4. **Quick reference**: `llm_docs/QUICK_START_GUIDE.md`
+1. **Read strategy first**: `llm_docs/current/reorganization_plan_2026-05-01.md`
+2. **Consult mapping**: `llm_docs/current/content_mapping_2026-05-01.md` 
+3. **Track progress**: `llm_docs/current/REORGANIZATION_STATUS.md`
+4. **Historical quick reference**: `llm_docs/logs/QUICK_START_GUIDE.md`
 
 ### To migrate content:
 - Each section stub file has header comments with:
@@ -158,7 +165,7 @@ These are the organizing principles for the new structure:
   - Warnings and notes
 
 ### To check status:
-- `llm_docs/REORGANIZATION_STATUS.md` tracks:
+- `llm_docs/current/REORGANIZATION_STATUS.md` tracks:
   - Current phase
   - What's complete
   - What's next

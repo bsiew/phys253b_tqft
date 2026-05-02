@@ -1,0 +1,111 @@
+% ============================================================================
+% PART I: CONSTRUCTION
+% Section 3: From Ordinary Gauge Theory to Chern--Simons
+% ============================================================================
+%
+% Purpose
+%   Start from Schwartz-level material --- instantons, F wedge F-tilde, large
+%   gauge transformations, anomaly descent, Wilson lines --- and show why these
+%   ideas force Chern--Simons language. This is the central bridge: ordinary
+%   QFT contains topological sectors, but still has local dynamics and metric
+%   dependence; we are looking for the theory where topology becomes the
+%   defining data rather than a decoration.
+%
+% Core narrative (from Final QFT Project Overview.md)
+%   - Yang-Mills vacua, large gauge transformations, pi_3(G).
+%   - Instanton number and the theta vacuum.
+%   - Anomaly descent: omega_CS with d omega_CS = tr(F wedge F) is the
+%     conceptual turning point.
+%   - Chern-Simons action from transgression, level quantization from pi_3(G).
+%   - Flatness F=0 on-shell: the bulk has no local propagating modes.
+%
+% Status: REORGANIZE from archive. Primary sources:
+%   - archive_2026-05-01/differential_forms_csimons_foundations_v2.tex
+%     (the "From Anomalies to Chern--Simons" derivation)
+%   - archive_2026-05-01/anomalies_boundaries_topological_response.tex
+%     (anomaly inflow motivation)
+%   - archive_2026-05-01/chern_simons_two_review_synthesis.tex
+%     (Schwartz current, pedagogical narrative)
+%   - archive_2026-05-01/dense_derivation_expansion.tex
+%     (level quantization calculation)
+%   - writings/brian_chern_simons_theory.tex (rigorous transgression / MC form)
+%
+% Length target: ~20--25 pages
+%
+% Subsections
+%   3.1  Yang-Mills vacua, large gauge transformations, pi_3(G)
+%   3.2  Instantons, F wedge F-tilde, and the theta vacuum (preview for Sec. 6)
+%   3.3  Anomaly descent and the Chern-Simons form
+%   3.4  The Chern-Simons action and equations of motion
+%   3.5  Level quantization from gauge invariance
+%   3.6  Why Chern-Simons is different: no metric, no local bulk modes
+%
+% References
+%   't Hooft 1976 BellJackiw (\cite{tHooft1976BellJackiw})         -- anomaly
+%   't Hooft 1976 Pseudoparticle (\cite{tHooft1976Pseudoparticle}) -- instanton
+%   Witten 1989 (\cite{Witten1989Jones})                           -- CS setup
+%   Dunne 1999 (\cite{Dunne1999AspectsCS})                         -- review
+%   Elitzur-Moore-Schwimmer-Seiberg 1989 (\cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS})
+%   Birmingham et al. 1991 (\cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory})
+%   Nakahara (\cite{Nakahara2003GeometryTopologyPhysics}) -- pi_3(G), bundles
+%   Baez-Muniain (\cite{BaezMuniain1994GaugeFieldsKnotsGravity}) -- transgression
+%
+% Writing notes
+%   - Transition paragraph at the end pointing to Sec. 4 (TQFT formalism)
+%     and to Sec. 5--7 (physical observables).
+
+\section{From Ordinary Gauge Theory to Chern--Simons}
+\label{sec:ordinary-to-cs}
+
+% TODO: Open with a reminder that the reader knows all the raw materials from
+% Schwartz-level QFT. Frame this section as the "reorganization" step.
+
+\subsection{Yang--Mills Vacua and Large Gauge Transformations}
+\label{subsec:ym-vacua-large-gauge}
+
+% TODO: A_mu -> U A_mu U^{-1} + U dU^{-1}, winding on S^3, pi_3(SU(N)) = Z.
+% Vacua labeled by integer winding; theta vacuum as Fourier conjugate.
+% Cite: \cite{tHooft1976Pseudoparticle}, \cite{Nakahara2003GeometryTopologyPhysics}
+
+\subsection{Instantons, $\int F\wedge\tilde F$, and the $\theta$ Vacuum}
+\label{subsec:instantons-theta}
+
+% TODO: instanton number as integral of tr(F wedge F-tilde), Bogomolnyi bound,
+% S_theta = theta int F wedge F-tilde, preview of Sec. 6 (theta in QCD).
+% Cite: \cite{tHooft1976Pseudoparticle}, \cite{tHooft1976BellJackiw}
+
+\subsection{Anomaly Descent and the Chern--Simons Form}
+\label{subsec:anomaly-descent-cs}
+
+% TODO: transgression identity d omega_CS = tr(F wedge F), descent equations.
+% Source: archive/differential_forms_csimons_foundations_v2.tex lines ~150-400.
+% This is the conceptual turning point (Final QFT Project Overview).
+% Cite: \cite{BaezMuniain1994GaugeFieldsKnotsGravity}, \cite{Nakahara2003GeometryTopologyPhysics}
+
+\subsection{The Chern--Simons Action}
+\label{subsec:cs-action}
+
+% TODO: S_CS = (k/4pi) int tr(A wedge dA + 2/3 A wedge A wedge A).
+% Equations of motion F_A = 0 (flat connection).
+% Variational derivation; mention boundary term (used in Sec. 5 for edge modes).
+% Cite: \cite{Witten1989Jones}, \cite{Dunne1999AspectsCS}
+
+\subsection{Level Quantization from Large Gauge Invariance}
+\label{subsec:level-quantization}
+
+% TODO: Large gauge transformation on S^3 picks up winding from pi_3(G)=Z;
+% requiring exp(iS) invariance forces k in Z.
+% Source: archive/dense_derivation_expansion.tex worked calculation.
+% Cite: \cite{Dunne1999AspectsCS}, \cite{Witten1989Jones},
+%       \cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS}
+
+\subsection{Why Chern--Simons is Different}
+\label{subsec:cs-distinction}
+
+% TODO: S_CS has no metric (contrast with Yang-Mills int tr(F wedge *F)).
+% On-shell F=0: no propagating bulk degrees of freedom. Framing dependence
+% as the first hint that observables become topological data.
+% Cite: \cite{Witten1989Jones}, \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}
+
+% Transition: the reader now believes this is a sensible theory. Sec. 4
+% installs the formal TQFT machinery that organizes its observables.
