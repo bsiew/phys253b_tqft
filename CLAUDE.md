@@ -1,0 +1,3 @@
+- Mirror session logs from `PROJECTS/QFT/logs/sessions/` into `PROJECTS/QFT/253b_final_paper/llm_docs/logs/` when the session concerns this paper.
+- When compiling TeX into `PROJECTS/QFT/artifacts/253b_final_paper_compile/`, do not leave `.aux`/`.log` files at the top level. Compile each target into `PROJECTS/QFT/artifacts/253b_final_paper_compile/<tex-basename>/` so the PDF and all auxiliary files stay together.
+- Prefer `PROJECTS/QFT/scripts/compile_253b_tex_to_artifacts.sh` for these builds.

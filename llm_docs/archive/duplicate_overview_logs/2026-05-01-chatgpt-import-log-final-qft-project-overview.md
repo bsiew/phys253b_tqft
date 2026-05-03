@@ -3,6 +3,8 @@ created_at: "2026-05-01T22:10:40-04:00"
 updated_at: "2026-05-01T23:45:36-04:00"
 generated_by: "chatgpt_import"
 timestamp_source: "filesystem_birthtime"
+project: "QFT"
+log_type: "generated_session"
 ---
 
 # you asked

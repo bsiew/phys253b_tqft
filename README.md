@@ -35,7 +35,7 @@ Previous organizations preserved under:
 Planning and review documents, split by lifecycle:
 - `current/` - active status, mapping, strategy, style, and figure guidance
 - `reference/` - long-lived literature and background review notes
-- `logs/` - generated session summaries, imported conversation records, and historical handoff notes
+- `logs/` - final-paper-local mirrors of generated session logs; canonical copies live in `PROJECTS/QFT/logs/sessions/`
 
 ### `/style_guide_docs/`
 Writing style examples from previous papers (for reference)
@@ -79,13 +79,13 @@ Writing style examples from previous papers (for reference)
 
 ## Key Documents for Reorganization
 
-1. **Strategy**: `llm_docs/current/reorganization_plan_2026-05-01.md`
-   - Rationale for new structure
-   - Section-by-section purpose and goals
-   - Content sources and migration strategy
+1. **Strategy**: `llm_docs/reference/Final QFT Project Overview.md` and `llm_docs/reference/tqft_observables_literature_review.md`
+   - Rationale for the simplified Part I / Part II structure
+   - Observable-family source map
+   - Citation and caveat guidance
 
-2. **Mapping**: `llm_docs/current/content_mapping_2026-05-01.md`
-   - Line-by-line mapping old → new
+2. **Legacy Mapping**: `llm_docs/current/content_mapping_2026-05-01.md`
+   - Line-by-line mapping old → 10-section intermediate
    - Duplicate resolution decisions
    - What to cut, merge, or rewrite
 
@@ -98,7 +98,7 @@ Writing style examples from previous papers (for reference)
 
 ### To continue content migration:
 1. Check `llm_docs/current/REORGANIZATION_STATUS.md` for current phase
-2. Consult `llm_docs/current/content_mapping_2026-05-01.md` for which old content maps to which new section
+2. Consult `llm_docs/current/REORGANIZATION_STATUS.md` and the active section headers for the 7-section migration plan; use `llm_docs/current/content_mapping_2026-05-01.md` only as a legacy source map
 3. Reference archived files in `tex_docs/archive_2026-05-01/` as needed
 4. Each new section file has header comments with detailed migration instructions
 

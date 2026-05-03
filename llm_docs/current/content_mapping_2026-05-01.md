@@ -1,6 +1,6 @@
 ---
 created_at: "2026-05-01T17:18:41-04:00"
-updated_at: "2026-05-01T23:45:36-04:00"
+updated_at: "2026-05-02T18:16:10-04:00"
 generated_by: "unknown_llm"
 timestamp_source: "filesystem_birthtime"
 ---
@@ -9,7 +9,7 @@ timestamp_source: "filesystem_birthtime"
 
 **Created:** 2026-05-01  
 **Purpose:** Map existing content from TeX files to new target sections I-X  
-**Source:** Reorganization plan at `llm_docs/current/reorganization_plan_2026-05-01.md`
+**Source:** Reorganization plan now archived at `llm_docs/archive/reorganization_plan_2026-05-01.md`
 
 ---
 
@@ -518,7 +518,7 @@ The reorganization plan emphasizes physics-first narrative. When merging content
 
 Several source files contain `FIGURE FLAG` comments indicating where diagrams would help. Collect these into a figure wishlist aligned with the new structure.
 
-**Action:** Create `figure_wishlist_2026-05-01.md` from existing flags.
+**Action:** Maintain the combined active figure list in `figure_inventory.md`; the older separate wishlist has been archived.
 
 ---
 

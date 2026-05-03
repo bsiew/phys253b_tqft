@@ -1,6 +1,6 @@
 ---
 created_at: "2026-05-01T17:25:51-04:00"
-updated_at: "2026-05-02T00:44:20-04:00"
+updated_at: "2026-05-02T18:16:10-04:00"
 generated_by: "claude"
 timestamp_source: "filesystem_birthtime"
 ---
@@ -92,10 +92,10 @@ The previous structure felt like separate blocks (math + physics + applications)
 - **Status**: Reference only, no longer active
 
 ### Planning documents
-- **Strategy**: `llm_docs/current/reorganization_plan_2026-05-01.md`
+- **Strategy**: `llm_docs/reference/Final QFT Project Overview.md` and `llm_docs/reference/tqft_observables_literature_review.md`
 - **Mapping**: `llm_docs/current/content_mapping_2026-05-01.md` (detailed, created by agent)
 - **Status**: `llm_docs/current/REORGANIZATION_STATUS.md` (progress tracker)
-- **Quick start**: `llm_docs/logs/QUICK_START_GUIDE.md` (historical oriented guide)
+- **Quick start**: `llm_docs/logs/2026-05-01-claude-opus-log-quick-start-guide.md` (historical oriented guide)
 - **This file**: `REORGANIZATION_SUMMARY.md` (high-level overview)
 
 ## Key Principles (from ChatGPT conversation)
@@ -151,10 +151,10 @@ These are the organizing principles for the new structure:
 ## How to Use This New Structure
 
 ### To continue the work:
-1. **Read strategy first**: `llm_docs/current/reorganization_plan_2026-05-01.md`
-2. **Consult mapping**: `llm_docs/current/content_mapping_2026-05-01.md` 
+1. **Read strategy first**: `llm_docs/reference/Final QFT Project Overview.md` and `llm_docs/reference/tqft_observables_literature_review.md`
+2. **Consult legacy mapping only as needed**: `llm_docs/current/content_mapping_2026-05-01.md` 
 3. **Track progress**: `llm_docs/current/REORGANIZATION_STATUS.md`
-4. **Historical quick reference**: `llm_docs/logs/QUICK_START_GUIDE.md`
+4. **Historical quick reference**: `llm_docs/logs/2026-05-01-claude-opus-log-quick-start-guide.md`
 
 ### To migrate content:
 - Each section stub file has header comments with:
@@ -193,9 +193,9 @@ They're not separate topics - they're stages in one story.
 ## Questions?
 
 - **"Where did X content go?"**: See `content_mapping_2026-05-01.md`
-- **"Why this structure?"**: See `reorganization_plan_2026-05-01.md`
+- **"Why this structure?"**: See `Final QFT Project Overview.md` and `tqft_observables_literature_review.md`
 - **"What should I do next?"**: See `REORGANIZATION_STATUS.md`
-- **"How do I start?"**: See `QUICK_START_GUIDE.md`
+- **"How do I start?"**: See `2026-05-01-claude-opus-log-quick-start-guide.md`
 
 ## Bottom Line
 
