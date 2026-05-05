@@ -38,9 +38,15 @@ Draft front matter, back matter, and all appendices. Propagate cross-references.
 ## Acceptance criteria
 
 - `paper/main.tex` compiles cleanly (zero warnings, zero undefined references) after three `latexmk` passes.
-- Abstract under 250 words, introduces the three-touchstone through-line.
-- Outlook covers non-invertible symmetries (1 paragraph), SPT/SET beyond group cohomology (1), fermionic topological order (1), fault-tolerant architectures (1).
-- All four "must include" items from outline v2 confirmed present.
+- Abstract under 250 words. Through-line updated: "Ordinary QFT contains
+  topological sectors; CS isolates them; TQFT formalizes them; observable
+  families organize the physics." (See migration_plan_2026-05-04.md §7.)
+- Outlook (Ch 16) covers non-invertible symmetries (1 paragraph), classification
+  beyond group cohomology (1), fault-tolerant architectures (1), SymTFT (1),
+  lattice/holographic chi_t checks (1).
+- "Must include" audit updated for new chapter numbers: gluing example (Part I
+  Sec 4), FQH connection (Ch 11), anyon comparison table (Ch 10 §10.5),
+  honesty boxes (Ch 11 §11.7, Ch 12 §12.3, Ch 13 §13.3).
 - All AI-tell phrases removed. Specific banned list: "we shall see", "in this chapter we have proved", "the key statement is", "an upshot of all this is", "note that", "it can be seen/verified/shown that".
 - Bibliography has no orphan entries and no undefined `\cite` calls.
 

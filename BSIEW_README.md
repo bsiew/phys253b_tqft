@@ -18,6 +18,7 @@ This directory is the working plan for the rest of the Physics 253b final paper.
 | **II** | Part I mathematical buildup A (Ch 2, 3, 4) | [stage_II_partI_A.md](stages/stage_II_partI_A.md) | 2 |
 | **III** | Part I mathematical buildup B (Ch 6, 7, 8) | [stage_III_partI_B.md](stages/stage_III_partI_B.md) | 2 |
 | **IV** | Part II physical applications (Ch 9, 10, 11) | [stage_IV_partII_A.md](stages/stage_IV_partII_A.md) | 2 |
+| **IV-B** | Part II cross-disciplinary (Ch 14, 15) | [stage_IV_B_partII_cross_disciplinary.md](stages/stage_IV_B_partII_cross_disciplinary.md) | 2 |
 | **V** | Part II experiments and applications (Ch 12, 13) | [stage_V_partII_B.md](stages/stage_V_partII_B.md) | 1.5 |
 | **VI** | Integration and polish | [stage_VI_integration.md](stages/stage_VI_integration.md) | 1 |
 | **VII** | Presentation and final submission | [stage_VII_presentation.md](stages/stage_VII_presentation.md) | 1 |
@@ -32,7 +33,9 @@ The complete split, section by section, is in [notes/author_split_decisions.md](
 
 ## Through-line (repeat in abstract and outlook)
 
-> *TQFT is the infrared language of gapped phases. We demonstrate this on three touchstones — Frobenius 2D TQFT, Chern–Simons theory, and Dijkgraaf–Witten theory — and use them to motivate generalized symmetries, anomaly inflow, and the experimental anyon program.*
+> *Ordinary QFT already contains topological sectors; Chern–Simons theory isolates them; TQFT formalizes them; observable families organize the physics. The condensed-matter core (Ch 9–13) demonstrates this on topological order, anyons, and the FQHE. The cross-disciplinary additions (Ch 14–15) show the same structures governing QCD vacuum topology, monopole charge quantization, and the "when topological vs. effective" question.*
+
+**(Updated 2026-05-04.)** The original three-touchstone through-line (Frobenius, CS, DW) was replaced when the paper adopted the BSIEW chapter structure for Part II while adding cross-disciplinary scope (QCD topology, monopoles). See `llm_docs/bsiew_plan/migration_plan_2026-05-04.md`.
 
 Every chapter must either reinforce this through-line or be cut.
 
@@ -46,14 +49,15 @@ Every chapter must either reinforce this through-line or be cut.
 
 ## Task files
 
-Task files are named `NN_M_short_slug.md` where `NN` is the stage number (I–VII) and `M` is the within-stage task number matching the master plan.
+Task files are named `NN_M_short_slug.md` where `NN` is the stage number (I–VII) and `M` is the within-stage task number matching the master plan. Files prefixed `14B_` are Stage IV-B (cross-disciplinary additions, created 2026-05-04).
 
 - [Stage I tasks →](tasks/) (1.1 – 1.9)
 - [Stage II tasks →](tasks/) (2.1 – 2.7, 3.1 – 3.5, 4.1 – 4.5)
 - [Stage III tasks →](tasks/) (6.1 – 6.4, 7.1 – 7.5, 8.1 – 8.9)
-- [Stage IV tasks →](tasks/) (9.1 – 9.4, 10.1 – 10.5, 11.1 – 11.5)
-- [Stage V tasks →](tasks/) (12.1 – 12.4, 13.1 – 13.3)
-- [Stage VI tasks →](tasks/) (14.1 – 14.11)
+- [Stage IV tasks →](tasks/) (9.1 – 9.4, 10.1 – 10.5, 11.1 – 11.5, 11.5b, 11.6)
+- [Stage IV-B tasks →](tasks/) (14B.1 – 14B.6: Ch 14–15 cross-disciplinary)
+- [Stage V tasks →](tasks/) (12.1 – 12.4, 12.4b, 13.1 – 13.3, 13.4)
+- [Stage VI tasks →](tasks/) (14.1 – 14.11, 16.1)
 - [Stage VII tasks →](tasks/) (15.1 – 15.7)
 
 ## How to use this tree

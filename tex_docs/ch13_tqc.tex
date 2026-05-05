@@ -1,0 +1,95 @@
+% ============================================================================
+% PART II: PHYSICAL APPLICATIONS
+% Chapter 13: Topological Quantum Computation
+% ============================================================================
+%
+% Purpose
+%   Non-abelian anyons as the substrate for fault-tolerant quantum
+%   computation. Kitaev's proposal, Ising worked example, honesty box.
+%
+% Status: NEW WRITING. Guided by BSIEW tasks 13_1--13_3.
+%
+% Length target: ~8 pages
+%
+% Section plan
+%   13.1  Non-abelian anyons and Kitaev's proposal
+%   13.2  Ising anyons: four sigmas = two qubits
+%   13.3  Honesty box: experiment vs. theory gap
+%   13.4  Brief outlook: what a working platform would mean
+%
+% Owner: Helena
+% Stage: V
+%
+% BSIEW task files:
+%   13_1_non_abelian_kitaev.md
+%   13_2_ising_gates.md
+%   13_3_honesty_box.md
+%
+% References
+%   Kitaev 2003 (\cite{Kitaev2003FaultTolerant})
+%   Nayak et al. 2008 (\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons})
+%
+% Dependencies
+%   - Ch 10 (anyon formalism, Ising data from comparison table).
+%   - Ch 12 (Andersen 2023 context).
+
+\section{Topological Quantum Computation}
+\label{sec:tqc}
+
+\subsection{Non-Abelian Anyons and Kitaev's Proposal}
+\label{subsec:kitaev-proposal}
+
+% TODO (Task 13_1): ~1.5 pages.
+% 1. Topological degeneracy: N non-abelian anyons of fixed fusion type have
+%    degenerate ground space, dimension grows exponentially in N.
+% 2. Topological protection: local perturbations commute with ground-space
+%    projector to exponential accuracy in system size; logical qubits
+%    inaccessible to local noise.
+% 3. Braiding as unitary gate: exchanging anyons effects unitary on ground
+%    space; computable sequence of braids implements a gate.
+% Cite: Kitaev 2003, Nayak et al. RMP 2008.
+
+\subsection{Ising Anyons: Four $\sigma$'s $=$ Two Qubits}
+\label{subsec:ising-gates}
+
+% TODO (Task 13_2): ~3 pages. WORKED EXAMPLE.
+% 1. Ising fusion: sigma x sigma = 1 + psi, so 4 sigma's fuse to
+%    4-dim space = 2 qubits.
+% 2. Braiding group: exchanges of adjacent sigma's generate representation
+%    of braid group B_4 on 2-qubit space.
+% 3. Gates implemented: generated gate set is Clifford group --- powerful
+%    but not universal.
+% 4. Need for additional resources: topologically-protected Clifford +
+%    non-topological T gate gives universality. Fault-tolerance comes
+%    from magic-state distillation.
+% Cite: Nayak et al. RMP 2008.
+
+\subsection{Required Honesty Box}
+\label{subsec:tqc-honesty-box}
+
+% TODO (Task 13_3): ~1 page. REQUIRED BY RUBRIC.
+%
+% Honesty box (visually distinct: tcolorbox or similar) stating:
+%
+% 1. No natural non-abelian anyonic phase has been unambiguously confirmed.
+%    nu = 5/2 Moore-Read is strongest candidate but not definitive.
+% 2. Majorana-based proposals: semiconductor/superconductor hybrids have
+%    produced suggestive but contested signatures; prominent claims retracted.
+%    Field has lower confidence than 5 years ago.
+% 3. Synthetic realizations (Ch 12 Sec 12.3) implement braid algebra but
+%    not passive topological protection.
+% 4. Fault-tolerance threshold: even with a working platform, achieving
+%    threshold requires substantial improvements in coherence times and
+%    operational fidelity.
+%
+% Tone: matter-of-fact, not hedging. The honesty is the point.
+
+\subsection{Brief Outlook: What a Working Platform Would Mean}
+\label{subsec:tqc-outlook}
+
+% TODO (new subsection): ~1 page.
+% Connect back to Ch 10 anyon data: which systems (Ising, Fibonacci) would
+% give universal TQC, and what the experimental requirements are.
+% Ising: Clifford only, needs magic state distillation.
+% Fibonacci: universal from braiding alone, but no known natural realization.
+% Cite: Nayak et al. RMP 2008.

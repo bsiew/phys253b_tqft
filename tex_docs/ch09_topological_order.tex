@@ -1,0 +1,120 @@
+% ============================================================================
+% PART II: PHYSICAL APPLICATIONS
+% Chapter 9: Topological Order and the Toric Code
+% ============================================================================
+%
+% Purpose
+%   Introduce topological order as the modern phase-of-matter concept,
+%   demonstrate it via the toric code, and close the loop to continuum
+%   field theory with a self-contained Z_2 BF mini-derivation.
+%
+% Status: NEW WRITING.
+%
+% Length target: ~8 pages
+%
+% Section plan (from BSIEW tasks 09_1--09_4, adapted)
+%   9.1  Long-range entanglement vs symmetry breaking
+%   9.2  Toric code Hamiltonian and 4-fold torus GSD
+%   9.3  Emergent anyons: e, m, epsilon
+%   9.4  Continuum limit: Z_2 BF theory (self-contained BF insert)
+%
+% Owner: Helena
+% Stage: IV
+%
+% BSIEW task files:
+%   09_1_long_range_entanglement.md
+%   09_2_toric_code_gsd.md
+%   09_3_emergent_anyons.md
+%   09_4_ir_bf_roundtrip.md
+%
+% References
+%   Kitaev 2003 (\cite{Kitaev2003FaultTolerant})
+%   Kitaev-Preskill 2006 (\cite{KitaevPreskill2006TEE})
+%   Levin-Wen 2006 (\cite{LevinWen2006DetectingTO})
+%   Wen 1990 (\cite{Wen1990TopologicalOrders})
+%
+% Dependencies
+%   - Part I Sec. 2 (homotopy, bundles) for notation.
+%   - Section 9.4 is SELF-CONTAINED for BF theory: does not assume
+%     Part I has a BF chapter. Derives the BF action, linking phase,
+%     and GSD from scratch in ~2 pages. Leaves \label{sec:bf-self-contained}
+%     for Part I to cross-reference later regardless of its structure.
+%
+% Writing notes
+%   - Open with physics: why Landau symmetry-breaking fails for gapped phases.
+%   - Toric code GSD: derive by constraint-counting, not "one can show."
+%   - String operators and anyon braiding: derive by explicit Pauli algebra.
+%   - BF insert: state the action, derive linking and GSD, match to lattice.
+%     Do NOT reproduce full BF theory --- just what is needed to close the loop.
+
+\section{Topological Order and the Toric Code}
+\label{sec:topological-order}
+
+\subsection{Long-Range Entanglement vs Symmetry Breaking}
+\label{subsec:lre-vs-symmetry-breaking}
+
+% TODO (Task 09_1): ~2 pages.
+% 1. Symmetry-breaking paradigm: order parameter <phi> != 0, local probes
+%    distinguish phases. Brief.
+% 2. What fails: gapped phases with no local order parameter, distinct from
+%    trivial phase. These are topologically ordered.
+% 3. Long-range entanglement: ground state cannot be deformed to product state
+%    by finite-depth local unitary. Contrast with symmetry-broken states.
+% 4. Three experimental signatures: GSD on nontrivial manifolds, anyonic
+%    excitations, topological entanglement entropy gamma = log D.
+% 5. Foreshadow: rest of Ch 9 makes signatures precise via toric code;
+%    Ch 10 develops anyon language; Ch 11 connects to FQH.
+% Cite: Wen 1990, Kitaev-Preskill 2006, Levin-Wen 2006.
+
+\subsection{Toric Code Hamiltonian and the Four-Fold Torus Degeneracy}
+\label{subsec:toric-code-gsd}
+
+% TODO (Task 09_2): ~2.5 pages.
+% 1. Lattice: qubits on edges of square lattice on T^2.
+% 2. Hamiltonian: H = -J_v sum_v A_v - J_p sum_p B_p
+%    A_v = prod_{e in v} X_e (star), B_p = prod_{e in p} Z_e (plaquette).
+% 3. Commutation: [A_v, B_p] = 0 for all v,p. Prove: any A_v and B_p share
+%    0 or 2 edges.
+% 4. Ground-state condition: A_v |psi> = B_p |psi> = |psi> for all v,p.
+% 5. Constraints: prod_v A_v = prod_p B_p = 1, so V-1 independent A_v and
+%    P-1 independent B_p. Total constraints = E-2. GS dim = 2^{E-(E-2)} = 4.
+% 6. String operators: W_1 = prod Z_e along non-contractible loop, W_2 other
+%    direction. Commute with all A_v, B_p. Distinguish 4 ground states.
+% Cite: Kitaev 2003.
+
+\subsection{Emergent Anyons}
+\label{subsec:emergent-anyons}
+
+% TODO (Task 09_3): ~1.5 pages.
+% 1. Anyon types: 1 (vacuum), e (electric: endpoint of open Z-string,
+%    violates A_v), m (magnetic: endpoint of open X-string, violates B_p),
+%    epsilon = e x m (fermion).
+% 2. Fusion rules: e x e = 1, m x m = 1, e x m = epsilon.
+% 3. Statistics: e and m are bosons (self-braiding trivial), epsilon is fermion.
+%    Mutual braiding: winding e around m gives -1 phase. Verify via string
+%    operator algebra.
+% 4. Bridge to continuum: e-string = Wilson line of Z_2 gauge field;
+%    m-string = 't Hooft surface; mutual braiding = BF linking phase (Sec 9.4).
+% Cite: Kitaev 2003.
+
+\subsection{Continuum Limit: $\mathbb{Z}_2$ BF Theory}
+\label{sec:bf-self-contained}
+
+% TODO (Task 09_4, adapted): ~2 pages. SELF-CONTAINED BF insert.
+%
+% This subsection derives the Z_2 BF action, its linking phase, and its GSD
+% from scratch, without assuming Part I has a dedicated BF chapter. The label
+% sec:bf-self-contained is designed for Part I to cross-reference later.
+%
+% 1. State the BF action: S = (N/2pi) int B wedge dA, with A,B compact U(1)
+%    gauge fields and N=2 for Z_2.
+% 2. Equations of motion: dA = 0, dB = 0 (both flat).
+% 3. Observables: Wilson line exp(i oint_gamma A) and 't Hooft surface
+%    exp(i oint_gamma' B). Their linking phase:
+%    <W_A(gamma) W_B(gamma')> = exp(2 pi i Lk(gamma,gamma')/N).
+%    For N=2: phase = (-1)^{Lk}. This is the -1 mutual braiding of Sec 9.3.
+% 4. GSD: on T^2, quantizing flat connections gives N^{2g} = 4 on torus.
+%    Matches Sec 9.2.
+% 5. Explicit statement: all three matches (linking = mutual braiding, GSD = 4,
+%    anyons = Wilson/'t Hooft endpoints) confirm toric code = Z_2 BF in the IR.
+% Cite: Kitaev 2003. (For full BF theory treatment, see Part I if available.)

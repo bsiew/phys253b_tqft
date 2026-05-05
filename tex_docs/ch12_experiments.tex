@@ -1,0 +1,122 @@
+% ============================================================================
+% PART II: PHYSICAL APPLICATIONS
+% Chapter 12: Experiments on Anyonic Braiding
+% ============================================================================
+%
+% Purpose
+%   Give each major experiment 2-3 pages: device, observable, theoretical
+%   prediction tested, what was actually measured, caveats. Required honesty
+%   boxes for non-abelian claims.
+%
+% Status: NEW WRITING. Guided by BSIEW tasks 12_1--12_4.
+%
+% Length target: ~10 pages
+%
+% Section plan
+%   12.1  Nakamura 2020: nu=1/3 Fabry-Perot interferometer
+%   12.2  Werkmeister 2024: graphene interferometer
+%   12.3  Andersen 2023: non-abelian braiding on superconducting processor
+%   12.4  Bartolomei 2020 and shot-noise experiments
+%   12.5  Figures
+%
+% Owner: Helena
+% Stage: V
+%
+% BSIEW task files:
+%   12_1_nakamura_2020.md
+%   12_2_werkmeister_2024.md
+%   12_3_andersen_2023.md
+%   12_4_experiment_figures.md
+%
+% References
+%   Nakamura et al. 2020 (\cite{Nakamura2020AnyonicBraiding})
+%   Werkmeister et al. 2024 (\cite{Werkmeister2024GrapheneInterferometer})
+%   Andersen et al. 2023 (\cite{Andersen2023NonAbelianBraiding})
+%   Bartolomei et al. 2020 (\cite{Bartolomei2020AnyonCollisions})
+%   Saminadayar et al. 1997 (\cite{Saminadayar1997FractionalCharge})
+%   de-Picciotto et al. 1997 (\cite{dePicciotto1997FractionalCharge})
+%   Camino-Zhou-Goldman 2005 (\cite{CaminoZhouGoldman2005ABSuperperiod})
+%   Venkatachalam et al. (\cite{VenkatachalamHartPfeifferWestYacobyGrapheneInterferometers})
+%   Rosenow-Halperin (\cite{RosenowHalperinInterferometryPlaceholder})
+%
+% Dependencies
+%   - Ch 11 (theoretical predictions cited back).
+%   - Ch 10 (anyon data for comparison).
+%
+% Writing notes
+%   - For each experiment: device -> observable -> prediction -> measurement.
+%   - Andersen 2023 REQUIRES honesty box: synthetic emulation, not natural phase.
+%   - Bartolomei 2020 is a new subsection not in the BSIEW plan; it expands
+%     what was a parenthetical citation in the old Sec 5.2.
+
+\section{Experiments on Anyonic Braiding}
+\label{sec:experiments}
+
+\subsection{Nakamura 2020: $\nu = 1/3$ Fabry--P\'erot Interferometer}
+\label{subsec:nakamura-2020}
+
+% TODO (Task 12_1): ~3 pages.
+% 1. Device: GaAs/AlGaAs heterostructure, Fabry-Perot with two QPCs.
+% 2. Observable: interference oscillation as magnetic flux varies; discrete
+%    phase jump when bulk quasiparticle enters interference region.
+% 3. Measured value: Delta phi ~ 2 pi/3, consistent with Laughlin braiding.
+% 4. Theoretical prediction: from Ch 11 Sec 11.3 and Part I Wilson-loop:
+%    e^{2 pi i / m} = e^{2 pi i/3} for nu = 1/3.
+% 5. Statement: first direct observation of anyonic braiding (not inference).
+% Cite: Nakamura et al. Nature Physics 16 (2020) 931.
+
+\subsection{Werkmeister 2024: Graphene Interferometer}
+\label{subsec:werkmeister-2024}
+
+% TODO (Task 12_2): ~2 pages.
+% 1. Platform: hBN-encapsulated graphene, cleaner edges, tunable filling.
+% 2. Claims: detection of anyonic statistics with improved phase resolution;
+%    telegraph-noise signature.
+% 3. Novelty: different material platform corroborates anyonic interpretation;
+%    improved noise floor.
+% Cite: Werkmeister et al. 2024.
+
+\subsection{Andersen 2023: Non-Abelian Braiding on a Superconducting Processor}
+\label{subsec:andersen-2023}
+
+% TODO (Task 12_3): ~2 pages + REQUIRED HONESTY BOX.
+% 1. Platform: superconducting qubit array programmed to realize Z_2 toric
+%    code + defects carrying non-abelian (Ising-like) braiding.
+% 2. What was demonstrated: initialization, braiding, measurement of
+%    non-abelian anyons (graph vertices with Ising fusion).
+% 3. What was NOT demonstrated: not a natural topologically ordered phase.
+%    Hamiltonian is programmed in software. Decoherence limits fidelity.
+%
+% REQUIRED HONESTY BOX (tcolorbox or visually distinguished):
+% "This experiment realizes the braid-group algebra of non-abelian anyons on
+%  a quantum processor, but it is not a discovery of non-abelian topological
+%  order in a natural material. The distinction matters: natural topological
+%  order would provide passive protection from decoherence, whereas the
+%  synthetic realization relies on active error correction during the braiding
+%  protocol."
+%
+% Cite: Andersen et al. 2023, Nature.
+
+\subsection{Bartolomei 2020 and Shot-Noise Experiments}
+\label{subsec:bartolomei-shot-noise}
+
+% TODO (new subsection, not in BSIEW plan): ~1.5 pages.
+% Currently only parenthetical citations in Ch 11. Expand:
+% 1. Bartolomei 2020: collider-style noise measurement, what the
+%    observable is, how noise evidence differs from interferometry.
+% 2. Earlier shot-noise: Saminadayar 1997, de-Picciotto 1997.
+%    Fractional charge e/3 from current fluctuations.
+% 3. How shot-noise complements interferometry: charge vs. statistics.
+% Cite: Bartolomei et al. 2020, Saminadayar 1997, de-Picciotto 1997.
+
+\subsection{Figures}
+\label{subsec:experiment-figures}
+
+% TODO (Task 12_4): 3 figures.
+% 1. Interferometer schematic for Nakamura 2020.
+% 2. Graphene device for Werkmeister 2024.
+% 3. Qubit-array diagram for Andersen 2023.
+%
+% Approach: obtain permission or redraw schematically.
+% Each caption cites original with DOI.
+% If redrawn: "schematic based on [citation]."

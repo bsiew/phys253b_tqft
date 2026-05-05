@@ -1,0 +1,110 @@
+% ============================================================================
+% PART II: PHYSICAL APPLICATIONS
+% Chapter 10: Anyons, Braiding, Fusion, and Modular Data
+% ============================================================================
+%
+% Purpose
+%   Develop the formal anyon framework at review level: fusion rules, braiding
+%   matrices, modular S-matrix, and the bridge back to Chern-Simons observables.
+%   The comparison table (toric code / Laughlin / Ising) is the showpiece.
+%
+% Status: NEW WRITING.
+%
+% Length target: ~10 pages
+%
+% Section plan (from BSIEW tasks 10_1--10_5)
+%   10.1  Fusion rules, pentagon axiom
+%   10.2  Braiding, hexagon, topological spin
+%   10.3  Modular S-matrix for U(1)_k from CS Hilbert space
+%   10.4  CS primary labels and Wilson-loop dictionary
+%   10.5  Anyon comparison table (toric code / Laughlin / Ising)
+%
+% Owner: Joint (Helena: 10.1, 10.2, 10.5 Ising column + prose;
+%               Brian: 10.3, 10.4, 10.5 toric code + Laughlin columns)
+% Stage: IV
+%
+% BSIEW task files:
+%   10_1_fusion_pentagon.md
+%   10_2_braiding_hexagon.md
+%   10_3_modular_S_U1k.md
+%   10_4_cs_primary_labels.md
+%   10_5_anyon_comparison_table.md
+%
+% References
+%   Witten 1989 (\cite{Witten1989Jones})
+%   Nayak et al. 2008 (\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons})
+%   Kitaev 2003 (\cite{Kitaev2003FaultTolerant})
+%
+% Dependencies
+%   - Ch 9 (toric code anyon data for table).
+%   - Part I Sec. 4 (CS Hilbert space, Wilson-loop correlators).
+%   - Ch 11 (Laughlin anyon data for table).
+%
+% Writing notes
+%   - Pentagon and hexagon: STATE, do not derive.
+%   - Sec 10.3 is a real derivation: S_{rs} from CS torus Hilbert space.
+%   - Table in 10.5 must have every entry derived or cross-referenced
+%     elsewhere in the paper.
+
+\section{Anyons, Braiding, Fusion, and Modular Data}
+\label{sec:anyons}
+
+\subsection{Fusion Rules and the Pentagon Axiom}
+\label{subsec:fusion-pentagon}
+
+% TODO (Task 10_1): ~1.5 pages.
+% 1. Labels: finite set {1, a, b, ...} with vacuum 1.
+% 2. Abelian anyons: a x b is a single label. Example: Z_k anyons of Laughlin.
+% 3. Non-abelian anyons: a x b = sum_c N^c_{ab} c. Example: Ising with
+%    sigma x sigma = 1 + psi.
+% 4. Pentagon axiom: associativity via F-symbols. State; do not derive.
+% Three examples: Z_k, Ising, toric code.
+
+\subsection{Braiding, Hexagon, and Topological Spin}
+\label{subsec:braiding-hexagon}
+
+% TODO (Task 10_2): ~1.5 pages.
+% 1. Braiding: R^{ab}_c phase (abelian) or matrix (non-abelian).
+% 2. Hexagon axiom: consistency of R with fusion via F. State; do not derive.
+% 3. Topological spin theta_a: phase from 2pi self-rotation.
+% 4. Examples: toric code (theta_epsilon = -1), Ising (theta_sigma = e^{i pi/8}).
+
+\subsection{Modular $S$-Matrix for $U(1)_k$}
+\label{subsec:modular-s-matrix}
+
+% TODO (Task 10_3): ~3 pages. DERIVATION.
+% 1. Setup: H_{U(1),k}(T^2) with basis {psi_r}_{r=0}^{k-1}, finite
+%    Heisenberg algebra U V = e^{-2pi i/k} V U.
+% 2. Modular transformation S: SL(2,Z) on torus swaps cycles.
+%    S_{rs} = (1/sqrt{k}) exp(2 pi i rs/k).
+% 3. Derivation: S must exchange U <-> V. Fix S_{rs} from intertwining;
+%    verify S U S^{-1} = V.
+% 4. Verlinde check: N^t_{rs} = sum_u S_{ru} S_{su} S*_{tu} / S_{0u}
+%    gives delta_{t, r+s mod k}.
+% Cite: CS chapter Proposition prop:dimU1k (cross-ref to Part I Sec. 4).
+
+\subsection{CS Primary Labels and Wilson-Loop Dictionary}
+\label{subsec:cs-primary-labels}
+
+% TODO (Task 10_4): ~2 pages.
+% U(1)_k: labels r=0,...,k-1; fusion r x s = r+s mod k;
+%   braiding theta_r = exp(i pi r^2/k); S_{rs} from Sec 10.3.
+% SU(2)_k: labels j=0,1/2,...,k/2; truncated tensor product fusion;
+%   primary count = k+1 = dim H_{SU(2),k}(T^2).
+% Connection: each label <-> representation at level k;
+%   Wilson-loop VEVs compute fusion/braiding.
+% Cite: Witten 1989.
+
+\subsection{Anyon Comparison Table}
+\label{subsec:anyon-comparison-table}
+
+% TODO (Task 10_5): ~1 page. SHOWPIECE TABLE.
+%
+% | System | Labels | Fusion | Self-braiding | Topological spin |
+% |--------|--------|--------|---------------|------------------|
+% | Toric code (Z_2) | 1,e,m,eps | e.e=m.m=1, e.m=eps | theta_e=theta_m=1, theta_eps=-1 | bosons/fermion |
+% | Laughlin 1/m (Z_m) | 0,...,m-1 | r.s = r+s mod m | theta_r = exp(i pi r^2/m) | r^2/(2m) |
+% | Ising | 1,sigma,psi | sigma.sigma=1+psi, psi.psi=1 | theta_sigma=e^{i pi/8}, theta_psi=-1 | mixed |
+%
+% Short contextualizing paragraph: abelian (toric, Laughlin) vs non-abelian (Ising).
+% Every entry cited or derived elsewhere in paper.

@@ -33,6 +33,15 @@ Write Chapters 12 and 13: experiments on anyonic braiding, and topological quant
 - Chapter 13 states honestly that no natural non-abelian anyon has been unambiguously observed and that Majorana-based proposals remain unverified.
 - Figure credits in Chapter 12 include DOI, year, journal, and explicit "reproduced with permission" wording. If permissions aren't available in time, we will redraw schematically.
 
+## Integration Notes (2026-05-04)
+
+- **Ch 12 gains a new §12.4** (Bartolomei 2020 + shot-noise experiments),
+  expanding parenthetical citations from Ch 11 into their own subsection.
+- **Ch 13 gains a new §13.4** (brief outlook: what a working platform would
+  mean), connecting back to the anyon data of Ch 10.
+- **New tex files:** `ch12_experiments.tex`, `ch13_tqc.tex`.
+- See `migration_plan_2026-05-04.md` for the full migration plan.
+
 ## Dependencies
 
 - Depends on: Stage IV (Chapter 11 FQH setup feeds Chapter 12; Chapter 10 anyon framework feeds Chapter 13).

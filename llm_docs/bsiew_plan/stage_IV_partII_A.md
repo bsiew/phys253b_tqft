@@ -46,10 +46,25 @@ Write Chapters 9, 10, 11: topological order as infrared TQFT, anyons and modular
 - Chapter 11 reuses the CS chapter's $\sigma_{xy} = e^2/(kh)$ derivation via citation, not duplication.
 - The anyon comparison table in §10.5 is explicit, with labels/fusion/braiding/spin for all three systems.
 
+## Integration Notes (2026-05-04)
+
+- **Ch 9 §9.4 is now self-contained for BF theory.** The dependency on Part I
+  Ch 6 (BF) has been removed. §9.4 derives the Z_2 BF action, linking phase,
+  and GSD from scratch in ~2 pages. Part I can cross-reference
+  `\label{sec:bf-self-contained}` later regardless of its structure.
+- **Ch 11 gains two non-BSIEW subsections:** §11.5 (K-matrix theory, migrated
+  from existing drafted content) and §11.6 (Maxwell-CS contrast, TODO stub).
+- **Ch 11 §11.7** merges BSIEW task 11_5 (honesty box) with the caveat outline
+  from the current structure's Sec 5.6.
+- **New tex files:** `ch09_topological_order.tex`, `ch10_anyons.tex`,
+  `ch11_fqhe.tex`. The old `part2_05_response_2plus1d.tex` is superseded.
+- See `migration_plan_2026-05-04.md` for the full migration plan.
+
 ## Dependencies
 
 - Blocks: Stage V (experiments chapter references FQH setup from Ch 11).
-- Depends on: Stage III (Ch 6, 7, 8) and Stage 0 (CS chapter).
+- Depends on: Stage 0 (CS chapter) for cross-references. Part I Ch 6/7/8
+  dependency removed for Ch 9 via self-contained BF insert.
 
 ## Risks
 

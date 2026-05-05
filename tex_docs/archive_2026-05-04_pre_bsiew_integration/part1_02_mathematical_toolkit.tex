@@ -1,0 +1,118 @@
+% ============================================================================
+% PART I: CONSTRUCTION
+% Section 2: Mathematical Toolkit
+% ============================================================================
+%
+% Purpose
+%   Centralized math chapter so the reader can consult one place for every
+%   structure used later. This follows the user's preference (Final QFT
+%   Project Overview.md): "its better to have it centralized rather than
+%   scattered bc im always kind of frustrated at having something mathy
+%   defined and then not being able to see any consequences of that definition
+%   until pages of physics."
+%
+% Scope (from tqft_observables_literature_review.md Sec. 1)
+%   - Homotopy and large gauge transformations.
+%   - Bundles, connections, curvature, characteristic classes.
+%   - Holonomy, Wilson loops, flat connections.
+%   - Symplectic reduction and moduli spaces.
+%   - Bordisms and the Atiyah--Segal definition (stated here, used in Sec. 4).
+%
+% Status: EXTRACT from archive. Primary sources:
+%   - archive_2026-05-01/topology_review.tex (main body)
+%   - archive_2026-05-01/differential_forms_csimons_foundations_v2.tex (forms)
+%   - writings/brian_chern_simons_theory.tex (moduli, holonomy rigor)
+%
+% Length target: ~15--20 pages
+%
+% Pedagogical references to cite
+%   Nakahara (\cite{Nakahara2003GeometryTopologyPhysics}) -- bundles, char classes
+%   Baez-Muniain (\cite{BaezMuniain1994GaugeFieldsKnotsGravity}) -- geometry+knots
+%   Manton-Sutcliffe (\cite{MantonSutcliffeTopologicalSolitons}) -- soliton moduli
+%   Weinberg (\cite{WeinbergClassicalSolutionsQFT}) -- classical solutions/moduli
+%
+% Structural references
+%   Atiyah (\cite{Atiyah1988TQFT})                      -- bordism / axioms
+%   Elitzur-Moore-Schwimmer-Seiberg (\cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS})
+%                                                       -- symplectic quantization of CS
+%   Witten (\cite{Witten1989Jones})                     -- knot/link context
+%
+% Subsection plan
+%   2.1  Manifolds, forms, Hodge star, orientations, and conventions
+%   2.2  Lie groups, Lie algebras, adjoint action, Killing form
+%   2.3  Principal bundles and connections
+%   2.4  Curvature, gauge transformations, and characteristic classes
+%   2.5  Homotopy groups, winding, and $\pi_n(G)$
+%   2.6  Holonomy, Wilson loops, and flat connections
+%   2.7  Moduli spaces of flat connections and symplectic reduction
+%   2.8  Bordism categories and the Atiyah--Segal axioms (statement)
+%
+% Writing notes
+%   - Introduce standard definitions and equations before applying them
+%     (project CLAUDE.md convention).
+%   - Theorems and proofs short: statement, sketch, consequence.
+%   - Each subsection ends with a brief physical reading so the chapter is
+%     not a dry math dump.
+
+\section{Mathematical Toolkit}
+\label{sec:mathematical-toolkit}
+
+% TODO: Migrate content from archive_2026-05-01/topology_review.tex and
+%       differential_forms_csimons_foundations_v2.tex, supplemented with
+%       brian_chern_simons_theory.tex for moduli / holonomy rigor.
+
+\subsection{Forms, Manifolds, and Conventions}
+\label{subsec:forms-conventions}
+
+% TODO: differential forms, wedge, exterior derivative, Hodge star, orientation.
+% Source: archive/differential_forms_csimons_foundations_v2.tex
+% Cite: \cite{Nakahara2003GeometryTopologyPhysics}
+
+\subsection{Lie Groups and Lie Algebras}
+\label{subsec:lie-groups}
+
+% TODO: G, g, adjoint action, Killing form, structure constants.
+% Source: archive/topology_review.tex
+% Cite: \cite{Nakahara2003GeometryTopologyPhysics}, \cite{BaezMuniain1994GaugeFieldsKnotsGravity}
+
+\subsection{Principal Bundles, Connections, Curvature}
+\label{subsec:bundles-connections}
+
+% TODO: principal G-bundle, connection 1-form A, curvature F = dA + A wedge A.
+% Characteristic classes (Chern, Pontryagin) as cohomology classes.
+% Cite: \cite{Nakahara2003GeometryTopologyPhysics}
+
+\subsection{Gauge Transformations and Characteristic Classes}
+\label{subsec:gauge-char-classes}
+
+% TODO: gauge transformations, Chern-Simons form as transgression,
+% relation d omega_CS = tr(F wedge F).
+% Cite: \cite{BaezMuniain1994GaugeFieldsKnotsGravity}
+
+\subsection{Homotopy and Winding}
+\label{subsec:homotopy-winding}
+
+% TODO: pi_n(G), pi_3(SU(N)) = Z, pi_2(G/H) for monopole sectors.
+% This machinery is used for level quantization in Sec. 3 and for monopoles in Sec. 7.
+% Cite: \cite{Nakahara2003GeometryTopologyPhysics}
+
+\subsection{Holonomy, Wilson Loops, and Flat Connections}
+\label{subsec:holonomy-flat}
+
+% TODO: holonomy P exp(integral A), flat condition F = 0,
+% moduli M_flat(M,G) = Hom(pi_1(M),G)/G.
+% Cite: \cite{Witten1989Jones}, \cite{BaezMuniain1994GaugeFieldsKnotsGravity}
+
+\subsection{Moduli Spaces and Symplectic Reduction}
+\label{subsec:moduli-symplectic}
+
+% TODO: symplectic structure on M_flat(Sigma,G), geometric quantization setup.
+% Cite: \cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS},
+%       \cite{MantonSutcliffeTopologicalSolitons}, \cite{WeinbergClassicalSolutionsQFT}
+
+\subsection{Bordism Categories and the Atiyah--Segal Axioms}
+\label{subsec:bordism-atiyah-segal}
+
+% TODO: Bord_n, symmetric monoidal functor Z: Bord_n -> Vect_k.
+% State axioms here; CS theory realizes them in Sec. 4.
+% Cite: \cite{Atiyah1988TQFT}, \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}
