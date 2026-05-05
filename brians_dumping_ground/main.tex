@@ -1,0 +1,69 @@
+% ============================================================
+% paper/main.tex
+%
+% Master file for the TQFT review paper.
+%
+% Builds with: pdflatex main  (three passes for refs + bib, plus bibtex).
+% Alternative: latexmk -pdf main  once a local toolchain is available
+% (Task 1.10 will settle the canonical build route).
+%
+% Skeleton committed 2026-05-03 (Task 1.4). Chapter 5 is the verified
+% Chern-Simons material, included non-destructively via
+% ch05_chern_simons.tex -> chern_simons_body.tex. Every other chapter
+% is a placeholder until the relevant Stage II-VI task fills it in.
+% ============================================================
+
+\documentclass[11pt]{report}
+
+\input{preamble}
+
+\title{Topological Quantum Field Theory, Generalized Symmetries, and Topological Order\\
+{\large A Pedagogical Review Bridging High-Energy and Condensed-Matter Viewpoints}}
+\author{Helena Brittain \and Brian Siew}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\emph{Abstract placeholder --- to be written in Task 14.1 (Stage VI).}
+\end{abstract}
+
+\tableofcontents
+
+% ---------- Part I: Theoretical buildup ----------
+
+\include{ch01_intro}
+\include{ch02_forms}
+\include{ch03_axiomatic}
+\include{ch04_frobenius}
+\include{ch05_chern_simons}
+\include{ch06_bf}
+\include{ch07_dw}
+\include{ch08_gensym}
+
+% ---------- Part II: Physical applications and experiment ----------
+
+\include{ch09_toporder}
+\include{ch10_anyons}
+\include{ch11_fqh}
+\include{ch12_experiments}
+\include{ch13_tqc}
+\include{ch14_outlook}
+
+% ---------- Appendices ----------
+
+\appendix
+\include{appA_category}
+\include{appB_frobenius}
+\include{appC_cs_level}
+\include{appD_bf_zn}
+\include{appE_tee}
+
+% ---------- Bibliography ----------
+
+\bibliographystyle{unsrtnat}
+\bibliography{tqft_review}
+
+\end{document}
