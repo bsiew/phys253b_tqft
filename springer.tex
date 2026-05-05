@@ -1,0 +1,659 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb, latexsym, amsfonts, amscd, amsthm, epsfig, subfigure, enumerate, bbold, physics, bm, calligra, quiver, cancel, mathrsfs}
+\usepackage[numbers,sort&compress]{natbib}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\G}{\mathbb{G}}
+
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ch}{\operatorname{char}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\kernel}{\operatorname{ker}}
+\newcommand{\nil}{\operatorname{nil}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\sign}{\operatorname{sgn}}
+\newcommand{\tor}{\operatorname{Tor}}
+\newcommand{\Sp}{\operatorname{span}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}[equation]{Theorem}
+\numberwithin{equation}{section} % number equations like (1.1), (1.2), etc.
+
+% Macro to capitalize input
+\usepackage{mfirstuc}
+\newcommand{\capitalizename}[1]{\makefirstuc{#1}}
+
+% Define a theorem following the theorem counter
+\newcommand{\defthm}[1]{%
+  \newtheorem{#1}[equation]{\capitalizename{#1}}%
+}
+
+% Iterate the defthm command over a csv
+\newcommand{\defthms}[1]{%
+  \forcsvlist{\defthm}{#1}%
+}
+
+% Define theorems
+\defthms{%
+  answer,assumption,claim,conjecture,construction,corollary,
+  counterexample,definition,digression,discussion,example,
+  examples,exercise,fact,goal,idea,intuition,lemma,
+  motivation,notation,note,proposition,question,remark,setup,
+  slogan,strategy,terminology,upshot,warning%
+}
+
+% force unique anchors
+\makeatletter
+\renewcommand*\theHequation{\thesection.\arabic{equation}}
+
+\let\theHtheorem\theHequation
+\let\theHassumption\theHequation
+\let\theHclaim\theHequation
+\let\theHconjecture\theHequation
+\let\theHconvention\theHequation
+\let\theHcorollary\theHequation
+\let\theHcounterexample\theHequation
+\let\theHdefinition\theHequation
+\let\theHdigression\theHequation
+\let\theHexample\theHequation
+\let\theHexamples\theHequation
+\let\theHexercise\theHequation
+\let\theHfact\theHequation
+\let\theHidea\theHequation
+\let\theHintuition\theHequation
+\let\theHlemma\theHequation
+\let\theHmetathm\theHequation
+\let\theHnotation\theHequation
+\let\theHnote\theHequation
+\let\theHproposition\theHequation
+\let\theHremark\theHequation
+\let\theHstrategy\theHequation
+\let\theHterminology\theHequation
+\let\theHupshot\theHequation
+\let\theHwarn\theHequation
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%% Text commands and categories
+\newcommand{\deftextcommand}[1]{%
+  \expandafter\providecommand\csname #1\endcsname{\mathrm{#1}}%
+}
+\newcommand{\deftextcommands}[1]{%
+    \forcsvlist{\deftextcommand}{#1}%
+}
+
+% Text commands
+\deftextcommands{ab,alg,an,ann,Aut,BG,BGL,Bl,BO,BP,BSL,BSO,BSp,BSU,BU,can,cd,cdh,ch,cl,coBar,codim,codom,coeq,coev,cof,cofib,coker,colim,coim,cone,conj,const,coTor,cyc,diag,Desc,dg,Disc,disc,Div,dR,dual,eff,EKL,End,eq,ess,et,Et,EU,ev,Ex,ex,Exc,Ext,fib,Fix,Fl,fppf,fpqc,Fr,Frac,Frob,Fun,Gal,gen,germ,GL,gp,Gr,gr,GW,Her,Ho,hocofib,hocolim,hofib,holim,Hom,id,Idem,im,incl,Ind,ind,inj,Inn,Inv,inv,iso,Jac,KGL,kgl,KH,KO,ko,KQ,kq,KR,KSp,KU,ku,Lan,Map,map,MGL,MO,Mor,mor,MSL,MSO,MSp,MSU,MU,mult,MUP,Nm,ob,obj,op,Orb,ord,Out,perf,Perm,PGL,pr,pre,Prin,Proj,proj,prom,PSL,quot,Ran,rank,Res,res,RO,Sec,sep,sgn,SH,sig,Sing,SL,SO,soc,Sp,Span,Spec,Spin,spn,Sq,st,Stab,SU,supp,Supp,Syl,syl,Sym,syn,SYT,TC,td,Th,THH,Tor,Tot,TP,TR,Tr,tr,triv,univ,var,veff,vol,Wel,Wr}
+
+% Categories
+\deftextcommands{Ab,Aff,Alg,Ani,Bimod,CAlg,Cat,CDGA,CG,CGWH,Ch,CMon,coAlg,Coh,CommRing,ConjSub,coMod,Cor,Corr,CoSh,Cov,CRing,CW,Field,Fin,FinSet,Gpd,Grp,Grpd,Grph,Kan,Kar,LMod,Mfld,Mod,NAlg,Nat,Open,Ouv,Perf,Poset,Pr,Pre,PSh,PShv,qCat,QCoh,Rep,Ring,RMod,sAb,Set,SH,Sh,Shv,sing,Sm,Sp,Spc,Spectra,sPre,sSet,sShv,Stack,Sub,Top,Tors,Var,Vect}
+
+%%%%%%%%%%%%%%% Blackboard letters
+\newcommand{\defblackboardletter}[1]{%
+  \expandafter\providecommand\csname #1\endcsname{\mathbb{#1}}
+}
+\newcommand{\defblackboardletters}[1]{%
+  \forcsvlist{\defblackboardletter}{#1}%
+}
+
+\defblackboardletters{A,C,F,P,Q,R,Z}
+
+%%%%%%%%%%%%%%% Arrows
+
+% Pushout, pullback
+\providecommand{\po}{\arrow[ul,phantom,"\ulcorner" very near start]}
+\providecommand{\pb}{\arrow[dr,phantom,"\lrcorner" very near start]}
+
+% Overset to and from
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\from}{\leftarrow}
+\providecommand{\xfrom}[1]{\overset{#1}{\leftarrow}}
+
+% Backwards verion of mapsto
+\providecommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\providecommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
+
+% Hook arrows
+\providecommand{\hookto}{\xhookrightarrow{}}
+\providecommand{\xhookto}[1]{\overset{#1}{\hookrightarrow}}
+\providecommand{\hookfrom}{\xhookleftarrow{}}
+\providecommand{\xhookfrom}[1]{\xhookleftarrow{#1}}
+
+% Two-headed arrows
+\providecommand{\tto}{\twoheadrightarrow}
+\providecommand{\xtto}[1]{\overset{#1}{\twoheadrightarrow}}
+\providecommand{\ffrom}{\twoheadleftarrow}
+\providecommand{\xffrom}[1]{\overset{#1}{\ffrom}}
+
+% Closed and open hook arrows
+\providecommand{\clhookto}{\mathrel{\raisebox{0.1em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.1em}\smallslash}{\hookrightarrow}}}$}}}
+\providecommand{\xclhook}[1]{\overset{#1}{\clhook}}
+\providecommand{\clhookfrom}{\mathrel{\raisebox{0.1em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.1em}\smallslash}{\hookleftarrow}}}$}}}
+\providecommand{\ohookto}{\mathrel{\raisebox{0.03em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.03em}\mbox{\small$\circ$}}{\hookrightarrow}}}$}}}
+\providecommand{\ohookfrom}{\mathrel{\raisebox{0.03em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.03em}\mbox{\small$\circ$}}{\hookleftarrow}}}$}}}
+
+% Arrows with tails
+\providecommand{\cofto}{\rightarrowtail}
+\providecommand{\coffrom}{\leftarrowtail}
+\providecommand{\xcofto}[1]{\overset{#1}{\cofto}}
+\providecommand{\xcoffrom}[1]{\overset{#1}{\coffrom}}
+
+% Squiggle arrows
+\providecommand{\sqto}{\rightsquigarrow}
+\providecommand{\sqfrom}{\mathrel{\reflectbox{\ensuremath{\sqto}}}}
+
+
+%%%%%%%%%%%%%%% Misc commands
+
+% Projective spaces
+\providecommand{\CP}{{\mathbb{C}\text{P}}}
+\providecommand{\HP}{{\mathbb{H}\text{P}}}
+\providecommand{\RP}{{\mathbb{R}\text{P}}}
+
+% Heart (for t-structures)
+\newcommand{\heart}{\ensuremath\heartsuit}
+
+% For blackboard bold number and delta categories
+\RequirePackage{bbm}
+\providecommand{\onecat}{\mathbbm{1}}
+\providecommand{\twocat}{\mathbbm{2}}
+
+% Blackboard delta
+\RequirePackage{pict2e,picture}
+\makeatletter
+\DeclareRobustCommand{\DDelta}{{\mathpalette\bb@Delta\relax}}
+\newcommand{\bb@Delta}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\Delta$}%
+  \dimendef\Dht=6 \dimendef\Dwd=8
+  \setlength{\Dwd}{\wd\z@}%
+  \setlength{\Dht}{\ht\z@}%
+  \begin{picture}(\Dwd,\Dht)
+  \put(0,0){$\m@th#1\Delta$}
+  \put(.42\Dwd,.7\Dht){\line(10,-26){.25\Dht}}
+  \end{picture}%
+  \endgroup
+}
+
+% Better-looking empty set
+\let\emptyset\varnothing
+\let\minus\smallsetminus
+
+%%%%%%%%%%%%%%%%%%%%%% Style
+
+% Custom bullet point for itemize environments
+\renewcommand{\labelitemi}{$\triangleright$}
+
+\let\del\partial
+\let\til\widetilde
+
+
+%%%%%%%%%%%%%%%%%%%%%% Coding
+\usepackage{fancyvrb,newverbs,xcolor}
+
+\definecolor{cverbbg}{gray}{0.93}
+
+\newenvironment{cverbatim}
+ {\SaveVerbatim{cverb}}
+ {\endSaveVerbatim
+  \flushleft\fboxrule=0pt\fboxsep=.5em
+  \colorbox{cverbbg}{\BUseVerbatim{cverb}}%
+  \endflushleft
+}
+\newenvironment{lcverbatim}
+ {\SaveVerbatim{cverb}}
+ {\endSaveVerbatim
+  \flushleft\fboxrule=0pt\fboxsep=.5em
+  \colorbox{cverbbg}{%
+    \makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
+  }
+  \endflushleft
+}
+
+\newcommand{\ctexttt}[1]{\colorbox{cverbbg}{\texttt{#1}}}
+\newverbcommand{\cverb}
+  {\setbox\verbbox\hbox\bgroup}
+  {\egroup\colorbox{cverbbg}{\box\verbbox}}
+
+  %Writing in stupid command for varphi
+\newcommand{\p}{\varphi}
+
+%%%%%%%%%%%%%%%%%%%%% Pictorial
+\usepackage{dynkin-diagrams}
+\usepackage[vcentermath]{youngtab}
+
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Computation of some Springer fibers for type $A_n$ Lie algebras}
+\author{Brian Siew}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a brief overview of the Springer resolution of a complex semisimple Lie algebra of type $A_n = \mathfrak{sl}_{n+1}(\C)$. The fibers of this resolution are the Springer fibers, and we explicitly compute the some of the fibers, focussing on the regular and sub-regular cases.  
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Review of Lie theory}
+We first undertake a brief overview of the necessary Lie theory to construct the Springer resolution, but take as given anything explained in the \emph{Lecture Notes} of this class. Throughout this paper, $G$ will denote a complex semisimple connected Lie group, with $\mathfrak{g} = \mathrm{Lie}(G)$. A Cartan subalgebra is a nilpotent, self-normalizing subalgebra, which is equivalent (when $\mathfrak{g}$ is complex semisimple) to a maximal abelian subalgebra consisting of elements $x$ where $\mathrm{ad}_x$ is diagonalizable. A Borel subalgebra is a maximal solvable subalgebra.
+
+\begin{definition}
+    The \emph{rank} of $\mathfrak{g}$ is the dimension of any given Cartan subalgebra $\mathfrak{h}\subseteq\mathfrak{g}$, i.e. $\rk \mathfrak{g} = \dim \mathfrak{h}$.
+\end{definition}
+
+\noindent We denote with $Z_G(x)$ and $Z_\mathfrak{g}(x)$ the centralizer of an element $x\in \mathfrak{g}$ in $G$ and $\mathfrak{g}$ respectively. That is:
+\begin{align*}
+    Z_G(x) &:= \left\{g\in G \mid \mathrm{Ad}_g(x) =x  \right\} \\
+    Z_\mathfrak{g}(x) &:= \left\{y\in \mathfrak{g} \mid [y,x] =0\right\}
+\end{align*}
+
+\noindent We also define $N_G(S)$ and $N_\mathfrak{g}(\mathfrak{s})$ the normalizers of a subset $S\subseteq G$ and a subset $T\in \mathfrak{g}$ respectively. That is:
+\begin{align*}
+    N_G(S) &:= \left\{g\in G \mid gSg^{-1}=S  \right\} \\
+    N_\mathfrak{g}(T) &:= \left\{y\in \mathfrak{g} \mid [y,s] \in T \; \forall s\in T\right\}
+\end{align*}
+
+\noindent We note that the normalizers of Borel subgroups and subalgebras are particularly well-behaved. 
+\begin{proposition}
+    Any Borel subalgebra $\mathfrak{b}\subseteq \mathfrak{g}$ is self-normalizing, and any Borel subgroup $B\subseteq G$ is self-normalizing also, i.e. $N_\mathfrak{g}(\mathfrak{b}) = \mathfrak{b}$ and $N_G(B) = B$. 
+\end{proposition}
+
+\begin{proof}
+    We prove this for the Borel subalgebras, and omit the proof for Borel subgroups for brevity (it can be found as \textbf{Theorem 11.16} in \cite{Borel1991LinearAlgebraicGroups}). Suppose $x\in N_\mathfrak{g}(\mathfrak{b})$. Then $\mathfrak{b} + \C x$ is a subalgebra of $\mathfrak{g}$, and solvable because $[\mathfrak{b}+\C x, \mathfrak{b} + \C x]\subseteq \mathfrak{b}$. But recall that a Borel is a maximal solvable subalgebra, hence $x\in \mathfrak{b}$. Thus, $N_\mathfrak{g}(\mathfrak{b}) \subseteq \mathfrak{b}$. The reverse inclusion trivially follows from the definition of a subalgebra.
+\end{proof}
+
+\noindent It is known that $\dim Z_\mathfrak{g}(x)\geq \rk \mathfrak{g}$, and generically we expect equality, so we make the following definition. 
+
+\begin{definition}
+    An element $x\in \mathfrak{g}$ is called \emph{regular} if $\dim Z_\mathfrak{g}(x)= \rk \mathfrak{g}$. 
+\end{definition}
+
+\noindent There are other important types of elements in the Lie algebra $\mathfrak{g}$:
+
+\begin{definition}
+    An element $x\in \mathfrak{g}$ is \emph{semisimple} (resp. \emph{nilpotent}) if $\mathrm{ad}_x:\mathfrak{g}\to \mathfrak{g}$ is diagonalizable (resp. nilpotent). Nilpotent elements can also be characterized as those which act nilpotently on every finite-dimensional $\mathfrak{g}$-module. We denote the regular semisimple elements in $\mathfrak{g}$ as $\mathfrak{g}^{sr}$. 
+\end{definition}
+
+\noindent These satisfy several nice properties:
+
+\begin{lemma}
+    Fix $\mathfrak{h}\subseteq\mathfrak{b}$ Cartan and Borel subalgebras of $\mathfrak{g}$. We have that:
+    
+    \begin{enumerate}[(a)]
+        \item Any element of $\mathfrak{h}$ is semisimple, and any semisimple element of $\mathfrak{g}$ is $G$-conjugate to an element of $\mathfrak{h}$, i.e. if $x\in \mathfrak{g}$ is semisimple, there exists $g\in G$ such that $\mathrm{Ad}_g(x)\in \mathfrak{h}$. 
+
+        \item If $x\in \mathfrak{g}^{sr}$, then $Z_\mathfrak{g}(x)$ is a Cartan subalgebra, and moreover, if $x\in \mathfrak{b}$ also, then $Z_\mathfrak{g}(x)\subseteq \mathfrak{b}$.
+
+        \item $\mathfrak{g}^{sr}\subseteq \mathfrak{g}$ is dense, and $G$-stable, i.e. $x\in \mathfrak{g}^{sr} \implies \mathrm{Ad}_g(x)\in \mathfrak{g}^{sr}$ for all $g\in G$.
+    \end{enumerate} 
+\end{lemma}
+
+\noindent  
+
+\begin{proof}
+We provide proofs of some parts and omit the longer, more technical arguments, providing references for those instead.
+    \begin{enumerate}[(a)]
+        \item % Say $x\in \mathfrak{h}$. Using the SN decomposition, we have $x=s+n$. Then, for any $y\in \mathfrak{h}$, since $\mathfrak{h}$ is an abelian subalgebra, we have $[y,x]=0 \implies [y,s]=[y,n]=0$. Thus, $s,n\in Z_\mathfrak{g}(\mathfrak{h})\subseteq N_\mathfrak{g}(\mathfrak{h}) = \mathfrak{h}$. Now, we have $0=\mathrm{ad}_{[y,n]} = \left[\mathrm{ad}_y, \mathrm{ad}_n\right]$, so $\mathrm{ad}_y\circ \mathrm{ad}_n = \mathrm{ad}_n\circ \mathrm{ad}_y$. Since $\mathrm{ad}_n$ is nilpotent, $\mathrm{ad}_n^k=0$ for some positive integer $k$. Since $\mathrm{ad}_y$ and $\mathrm{ad}_n$ commute:
+        %$$
+        %\left(\mathrm{ad}_y\circ \mathrm{ad}_n\right)^k = \mathrm{ad}_y^k \circ \mathrm{ad}_n^k = 0
+        %$$
+        %Letting $B(-,-)$ denote the Killing form on $\mathfrak{g}$, by definition, we have $B(y,n)= \mathrm{tr} \left(\mathrm{ad}_y\circ\mathrm{ad}_n\right)=0$. Since $n\in \mathfrak{h}$ and $B(y,n) =0$ for all $y\in \mathfrak{h}$, nondegeneracy of $B$ when restricted to $\mathfrak{h}$ (see \textbf{Theorem III.3} in Serre) guarantees $n=0 \implies x=s$.  
+        The first part of the statement follows immediately from the definition of a Cartan subalgebra in \cite{ClassLectureNotes}. The second part results from \textbf{Theorem III.2} in \cite{Serre2001ComplexSemisimpleLieAlgebras}, which states that $G$ acts transitively on the Cartan subalgebras of $\mathfrak{g}$. Pick some semisimple $x\in \mathfrak{g}$. Then $\C x\in \mathfrak{g}$ is an abelian subalgebra, all of whose elements are semisimple, and therefore lies inside some Cartan $\mathfrak{h}'$, which is $G$-conjugate to $\mathfrak{h}$, hence we are done.
+
+        \item The first part follows from the fact that for $g\in G$ and $x\in \mathfrak{g}$, we have $Z_\mathfrak{g}\left(\mathrm{Ad}_g(x)\right) = \mathrm{Ad}_g\left(Z_\mathfrak{g}(x)\right)$. For brevity, we omit the proof of this. Thus:
+        $$
+        \dim Z_\mathfrak{g}\left(\mathrm{Ad}_g(x)\right) = \dim \mathrm{Ad}_g\left(Z_\mathfrak{g}(x)\right) = \dim Z_\mathfrak{g}(x)
+        $$
+        The final equality holds since $\mathrm{Ad}_g$ is a Lie algebra automorphism. Thus, $x$ is regular iff $\mathrm{Ad}_g(x)$ is regular. If $x\in \mathfrak{g}^{sr}$, then by (a) there exists some $g\in G$ satisfying $\mathrm{Ad}_g(x) \in \mathfrak{h}$. Define $h:= \mathrm{Ad}_g(x)$ and note that it is regular by our earlier discussion. We obviously have $\mathfrak{h} \subseteq  Z_\mathfrak{g}(h)$, and together with $\dim Z_\mathfrak{g}(h) = \rk \mathfrak{g} = \dim \mathfrak{h}$ this gives us $ Z_\mathfrak{g}(h) = \mathfrak{h}$. But then since Lie algebra automorphisms send Cartans to Cartans, $Z_\mathfrak{g}(x) = Z_\mathfrak{g}\left(\mathrm{Ad}_{g^{-1}}(h)\right) = \mathrm{Ad}_{g^{-1}}\left(Z_\mathfrak{g}(h)\right) = \mathrm{Ad}_{g^{-1}}(\mathfrak{h})$ is a Cartan too, as desired. We omit the proof for the second part. 
+
+        \item We omit the proof of density, which can be found as \textbf{Proposition III.1} in Serre's \cite{Serre2001ComplexSemisimpleLieAlgebras}. From our proof for (b), we already know that if $x\in \mathfrak{g}^{sr}$, then $\mathrm{Ad}_g(x)$ is regular for all $g\in G$. Then by (a), we know there exists $k\in G$ such that $x':=\mathrm{Ad}_k(x) \in \mathfrak{h}$. Fix such a $k$, then since $g= gk^{-1}k$, and $\mathrm{Ad}$ is a group homomorphism, we have:
+        $$
+        \mathrm{Ad}_g(x) = \left(\mathrm{Ad}_{gk^{-1}}\circ \mathrm{Ad}_k\right) (x)  = \mathrm{Ad}_{gk^{-1}}(x')
+        $$
+        $\mathrm{Ad}_g(x)$ must belong to some Cartan since Lie algebra automorphisms send Cartans to Cartans, and thus, it must be semisimple. Hence, for any $g\in G$, $\mathrm{Ad}_g(x)\in \mathfrak{g}^{sr}$.
+    \end{enumerate}
+\end{proof}
+
+\noindent At this point, we introduce an object crucial to the definition of the Springer resolution. Let $\mathcal{B}$ denote the set of all Borel subalgebras in $\mathfrak{g}$. Fix some Borel subgroup $B$. We know from \textbf{Theorem 11.1} of \cite{Borel1991LinearAlgebraicGroups} that all Borel subgroups of a Lie group $G$ are $G$-conjugate to $B$, and $G/B$ has the structure of a projective variety. Likewise, via the identification $\mathrm{Lie}\left(gBg^{-1}\right) = \mathrm{Ad}_g\left(\mathrm{Lie}(B)\right)$, all Borel subalgebras are also $G$-conjugate, i.e. $G$ acts (via the adjoint action) transitively on $\mathcal{B}$. Let $\mathfrak{b} = \mathrm{Lie}(B)$, and let $G_\mathfrak{b} := \left\{g\in G \mid \mathrm{Ad}_g( \mathfrak{b} )= \mathfrak{b}\right\}$ be the stabilizer subgroup of $\mathfrak{b}$ in $G$. Then, from \textbf{Proposition 1.2}, we know that $B = G_\mathfrak{b}$. Transitivity of the adjoint $G$-action and the \textbf{orbit-stabilizer theorem} gives us a bijection $G/B \simeq \mathcal{B}$.
+
+\section{Bruhat decomposition}
+Let $B\subseteq G$ be a Borel subgroup, and define $\mathfrak{b}_o := \mathrm{Lie}(B)$. Fix a maximal torus $T\subseteq B$ (this is a Lie subgroup of $G$ corresponding to a Cartan subalgebra). Then, we write $W_T = N_G(T)/T$ for the Weyl group of $G$ with respect to $T$. Below, $B\backslash G/B$ is the set of double cosets $BgB$.
+
+\begin{theorem}
+    We have an important series of bijections:
+    $$
+    W_T \overset{\phi}\to B\backslash G/B \overset{\psi}\to \left\{B\text{-orbits on }\mathcal{B}\right\}\overset{\eta}\to \left\{G\text{-diagonal orbits on }\mathcal{B}\times \mathcal{B}\right\}
+    $$
+    The maps above are described as follows. $\phi$ sends $w\mapsto B\overset{\bullet}{w}B$ where $\overset{\bullet}{w}$ denotes some representative of $w$ in $N_G(T)$, where the choice of representative is irrelevant since $T\subseteq B$. $\psi$ sends $BgB\mapsto$ the $B$-orbit of $gB\in G/B \simeq \mathcal{B}$, $\eta$ sends the $B$-orbit of $\mathfrak{b}$ to the $G$-diagonal orbit of $\left(\mathfrak{b}_o, \mathfrak{b}\right)$.
+\end{theorem}
+
+\begin{proof}
+    For this proof, we will show $\psi$ and $\eta$ are bijections, but omit the proof for $\phi$ for brevity since it is more technical and requires use of the \emph{Bialynicki-Birula decomposition}. A full proof can be found in pages 130 to 132 of \cite{ChrissGinzburg2010RepresentationTheoryComplexGeometry}.
+    
+    \smallskip
+    
+    \noindent We begin by showing $\psi$ is well-defined. If $Bg_1B = Bg_2B$, then there exist $b_1, b_2\in B$ such that $g_2 = b_1g_1b_2$. Thus, $g_2B = b_1g_1b_2B = b_1g_1B$, which is in the same $B$-orbit as $g_1B$. Surjectivity is immediate from the definition; it remains to check injectivity. Suppose $Bg_1B$ and $Bg_2 B$ were sent to the same $B$-orbit. Then $g_2B$ would be in the same $B$-orbit as $g_1B$, which means there must be some $b\in B$ such that $g_2B = bg_1B$, i.e. $g_2 = bg_1b'$ for $b'\in B$. Thus, $Bg_2B = Bbg_1b'B = Bg_1B$, verifying injectivity.
+
+    \smallskip
+
+    \noindent Next, we turn our attention to the map $\eta$. First, we note that it is well-defined, since if $\mathfrak{b}$ and $\mathfrak{b}'$ were in the same $B$-orbit, then there would exist some $b\in B$ such that $\mathfrak{b}' = \mathrm{Ad}_b(\mathfrak{b})$. Then we get $b\cdot \left(\mathfrak{b}_o, \mathfrak{b}\right) = \left(\mathrm{Ad}_b\left(\mathfrak{b}_o\right), \mathrm{Ad}_b\left(\mathfrak{b}\right)\right) = \left(\mathfrak{b}_o, \mathfrak{b}'\right)$, so $\left(\mathfrak{b}_o, \mathfrak{b}\right)$ and $\left(\mathfrak{b}_o, \mathfrak{b}'\right)$ are in the same diagonal $G$-orbit. $\eta$ is also surjective since given some $\left(\mathfrak{b}_1, \mathfrak{b}_2\right)\in \mathcal{B}\times \mathcal{B}$, if we pick $g \in G$ such that $\mathrm{Ad}_g\left(\mathfrak{b}_o\right) = \mathfrak{b}_1$, then $\left(\mathfrak{b}_1, \mathfrak{b}_2\right)$ would be in the same orbit as $\left(\mathfrak{b}_o, \mathrm{Ad}_{g^{-1}}\left(\mathfrak{b}_2\right)\right)$, and this orbit would be mapped onto by $\eta$ from the $B$-orbit of $\mathrm{Ad}_{g^{-1}}\left(\mathfrak{b}_2\right)$. Finally, $\eta$ is injective. Suppose $g\cdot \left(\mathfrak{b}_o, \mathfrak{b}\right) = \left(\mathfrak{b}_o, \mathfrak{b}'\right)$ for some $g\in G$. Then $\mathrm{Ad}_g \left(\mathfrak{b}_o\right)= \mathfrak{b}_o \implies g\in B$, and $\mathrm{Ad}_g(\mathfrak{b})  =\mathfrak{b}'$, i.e. $\mathfrak{b}$ and $\mathfrak{b}'$ are in the same $B$-orbit.
+\end{proof}
+
+\noindent This series of bijections is important since the construction of the leftmost set $W_T$ clearly required the choice of a maximal torus $T$ and a Borel $B$ containing it, while the rightmost set requires no such choice. This gives us a way to identify Weyl group elements with an entirely intrinsic object, and it is in fact true that the $G$-diagonal orbits on $\mathcal{B}\times \mathcal{B}$ can be identified canonically with an ``abstract'' Weyl group $\mathbb{W}$.
+
+\section{Springer resolution and Springer fibers for $\mathfrak{sl}_2(\C)$ and $\mathfrak{sl}_3(\C)$}
+
+With the set-up complete, we now define the primary object of study in this paper, the incidence variety $\tilde{\mathfrak{g}}:=\left\{(x,\mathfrak{b})\in \mathfrak{g}\times \mathcal{B}\mid x\in \mathfrak{b}\right\}$, and denote its natural projections to the first and second factor $\mu$ and $\pi$ respectively:
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJcXHRpbGRle1xcbWF0aGZyYWt7Z319Il0sWzAsMSwiXFxtYXRoZnJha3tnfSJdLFsyLDEsIlxcbWF0aGNhbHtCfSJdLFswLDEsIlxcbXUiLDJdLFswLDIsIlxccGkiXV0=
+\[\begin{tikzcd}
+	& {\tilde{\mathfrak{g}}} & \\
+	{\mathfrak{g}} && {\mathcal{B}}
+	\arrow["\mu"', from=1-2, to=2-1]
+	\arrow["\pi", from=1-2, to=2-3]
+\end{tikzcd}\]
+The fibers of the map $\pi:\tilde{\mathfrak{g}}\to \mathcal{B}$, $\pi^{-1}(\mathfrak{b})$, are simply all the elements of $\mathfrak{g}$ contained in $\mathfrak{b}$, i.e. $\pi^{-1}(\mathfrak{b}) \cong \mathfrak{b}$. The map $\mu:\tilde{\mathfrak{g}}\to \mathfrak{g}$ is comparatively more interesting. The fibers $\mathcal{B}_x :=\mu^{-1}(x)$ are all the Borels that contain a given $x\in \mathfrak{g}$, and it suffices to just pick a representative element in each orbit of the adjoint $G$-action to study its fiber. This is because if we consider the obvious $G$-action on $\tilde{\mathfrak{g}}$, given by $g\cdot (x,\mathfrak{b})\mapsto \left(\mathrm{Ad}_g(x), \mathrm{Ad}_g(\mathfrak{b})\right)$, the map $\mu$ is $G$-equivariant, so if $x,y\in \mathfrak{g}$ are in the same $G$-orbit, in other words $y=\mathrm{Ad}_g(x)$ for some $g\in G$,  then $\mathcal{B}_y = \mu^{-1}\left(\mathrm{Ad}_g(x)\right) =g\cdot \mu^{-1}(x) = g\cdot \mathcal{B}_x$, i.e. $\mathcal{B}_x$ and $\mathcal{B}_y$ are isomorphic varieties. 
+
+\smallskip
+
+\noindent To get a handle on this construction, it would be instructive to specialize to the case of $G = \mathrm{SL}_n(\C)$. We let $\mathfrak{g}=\mathrm{Lie}(G) = \mathfrak{sl}_n(\C)$. In this particular case, we have a very nice characterization of $\mathcal{B}$.
+
+\begin{lemma}
+    For $G=\mathrm{SL}_n(\C)$, $\mathcal{B}$ is identified naturally with the variety of full flags $F = \left(0=F_0\subseteq F_1\subseteq \cdots \subseteq F_{n-1} \subseteq F_n = \C^n\right)$ in $\C^n$, where each $F_i$ is a subspace and $\dim F_i = i$. 
+\end{lemma}
+
+\begin{example}
+    We will not prove the above fact, it can be found as \textbf{Lemma 3.1.15} in \cite{ChrissGinzburg2010RepresentationTheoryComplexGeometry}. However, we will provide an example to provide intuition for this identification. Let $e_1, \ldots, e_n$ be the standard coordinate basis for $\C^n$. Then we call
+    $$
+    0 \subseteq \left\langle e_1\right \rangle \subseteq \left\langle e_1, e_2\right\rangle \subseteq \cdots \subseteq \left\langle e_1, \ldots, e_n\right\rangle 
+    $$
+    the ``coordinate flag''. If we consider the elements $x\in \mathfrak{g}$ that fix the flag, i.e. $x\left(F_i\right)\subseteq F_i$ for all $i$, it is clear that these elements are precisely the Borel formed by the upper-triangular matrices (when we take the coordinate flag). In general, if given a full flag, one can assign to it the Borel consisting of all elements that fix the flag. 
+\end{example}
+
+\smallskip
+
+\noindent With this, our incidence variety then becomes $\tilde{\mathfrak{g}} = \left\{(x,F)\in \mathfrak{sl}_n\times \mathcal{B}\mid x\left(F_i\right)\subseteq F_i,\;\forall i\right\}$. The fibers of $\mu$, given by $\mu^{-1}(x) =: \mathcal{B}_x$, then admit a nice identification as $\left\{F\in  \mathcal{B}\mid x\left(F_i\right)\subseteq F_i,\;\forall i\right\}$. In fact, it is often most interesting to consider fibers of $\mu$ over nilpotent elements, and this motivates the following definition / notation.
+
+% Fix a Borel $B\subseteq G$. We first define the $B$-action on $G\times \mathfrak{b}$. For $b\in B$, $g\in G$ and $x\in \mathfrak{b}$, we set:
+%$$
+%b\cdot (g, x) := \left(gb^{-1}, \mathrm{Ad}_b(x)\right)
+%$$
+%Note this action is clearly free since $gb^{-1} = g\iff b=e$. We let $G\times^B\mathfrak{b}$ denote the orbit space of $G\times\mathfrak{b}$ under the $B$-action. 
+%\begin{lemma}
+  %  The map $[g,x]\mapsto \left(\mathrm{Ad}_g(x), gB\right)$ defines a $G$-equivariant isomorphism $G\times^B\mathfrak{b}\overset{\sim}\to \tilde{\mathfrak{g}}$. Here, square brackets denote equivalence classes in the orbit space.
+%\end{lemma}
+
+%\begin{proof}
+    %\textbf{SUPPLY PROOF!}
+%\end{proof}
+
+
+\begin{definition}
+    The \emph{nilpotent cone}, denoted $\mathcal{N}$, is the cone subvariety of all nilpotent elements of $\mathfrak{g}$.
+\end{definition}
+
+\begin{example}
+    For $\mathfrak{g} = \mathfrak{sl}_2(\C)$, the nilpotent elements are precisely those with determinant zero. Hence, we have:
+    $$
+    \mathcal{N} \left\{\begin{pmatrix} a & b \\ c & -a \end{pmatrix} \mid a^2+bc=0\right\}
+    $$
+    Geometrically, $\mathcal{N}$ is a quadratic cone in $\C^3$.
+\end{example}
+
+\noindent If we now define the new incidence variety $\tilde{\mathcal{N}} := \mu^{-1}(\mathcal{N}) = \left\{(x,\mathfrak{b})\in \mathcal{N}\times \mathcal{B}\mid x\in \mathfrak{b}\right\}$, then our projection maps nicely restrict to give us:
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJcXHRpbGRle1xcbWF0aGNhbHtOfX0iXSxbMCwxLCJcXG1hdGhjYWx7Tn0iXSxbMiwxLCJcXG1hdGhjYWx7Qn0iXSxbMCwxLCJcXG11IiwyXSxbMCwyLCJcXHBpIl1d
+\[\begin{tikzcd}
+	& {\tilde{\mathcal{N}}} & \\
+	{\mathcal{N}} && {\mathcal{B}}
+	\arrow["\mu"', from=1-2, to=2-1]
+	\arrow["\pi", from=1-2, to=2-3]
+\end{tikzcd}\]
+The map $\mu:\tilde{\mathcal{N}}\to \mathcal{N}$ is known as the \emph{Springer resolution}, and its fibers are \emph{Springer fibers}. At this juncture, it is appropriate to provide some simple examples to concretize this construction. 
+
+\begin{example}
+    We set $\mathfrak{g} = \mathfrak{sl}_2(\C)$. As mentioned, it is enough to look at a representative from each nilpotent orbit since the fibers over elements in the same orbit are isomorphic as varieties. We know from linear algebra (see \textbf{Proposition 8.45} in \cite{Axler2024LinearAlgebraDoneRight}) that every nilpotent element in $\mathfrak{sl}_2(\C)$ is either the zero matrix or similar (in the same orbit) to the Jordan block:
+    $$
+    X_2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+    $$
+    If we let $e_1,e_2 \in \C^2$ be the standard coordinate basis, we note that $X_2$ sends $e_1\mapsto 0, e_2\mapsto e_1$. We therefore have two different types of Springer fibers. $\mu^{-1}(0)$ is simply $\{0\} \times \mathcal{B} \cong \mathcal{B}$ since every Borel contains $0$. As for $\mu^{-1}\left(X_2\right)$, we can compute this directly. Say $\left(X_2, \mathfrak{b}\right)\in \mu^{-1}\left(X_2\right)$. Then $\mathfrak{b}$ corresponds to some full flag $F = \left(0 = F_0\subseteq F_1\subseteq F_2=\C^2\right)$ fixed by $X_2$. If we let $F_1 = \left\langle ae_1+be_2\right\rangle$, then $F_1\ni X_2\left(ae_1 + be_2\right) = be_1$. Note that we must have $b=0$, otherwise $e_1 = \frac{1}{b}\cdot be_1\in F_1$ and $ae_1 = \frac{a}{b}\cdot be_1 \in F_1 \implies be_2 \in F_1\implies e_2 = \frac{1}{b} \cdot be_2 \in F_1$, which contradicts $\dim F_1 = 1$. As such, $F_1 = \left\langle e_1\right\rangle$ is the only possibility, i.e. there is only one flag that is fixed by $X_2$. So $\mu^{-1}\left(X_2\right)$ is simply a point, the Borel corresponding to the flag $0 \subseteq \left \langle e_1\right\rangle \subseteq \C^2$.
+\end{example}
+
+\smallskip 
+
+\noindent Before we tackle some computations for $\mathfrak{g} = \mathfrak{sl}_n(\C)$ in general, we do one more example -- that of $\mathfrak{sl}_3(\C)$.
+
+\begin{example}
+    For $\mathfrak{g} = \mathfrak{sl}_3(\C)$, every nilpotent element is either the zero matrix or similar to one of the two possible Jordan decompositions (respectively the \emph{regular} case and the \emph{sub-regular} case):
+    \begin{align*}
+    X_3 &= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} \\ 
+    X_{2,1} &= \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+    \end{align*}
+    We now have three different types of Springer fibers. Once again, $\mu^{-1}(0) \cong \mathcal{B}$. 
+    
+    \smallskip
+    
+    \noindent For the regular case $\mu^{-1}\left(X_3\right)$, $X_3$ sends $e_3\mapsto e_2 \mapsto e_1 \mapsto 0$, where $\left\{e_1,e_2,e_3\right\}$ is the standard coordinate basis of $\C^3$. Say $F=\left(0 = F_0\subseteq F_1\subseteq F_2\subseteq F_3 = \C^3\right)$ is a flag fixed by $X_3$. If we let $F_1 = \left\langle ae_1+be_2+ce_3\right\rangle$, then $F_1 \ni be_1 + ce_2$ and $F_1\ni ce_1$ by demanding stability under action of $X_3$. By similar logic to \textbf{Example 3.5}, $c=0$ and $b=0$. We therefore have $F_1 = \left\langle e_1\right\rangle$. Then, we can let $F_2 = \left\langle e_1, de_2+fe_3\right\rangle$, and stability of $F_2$ under $X_3$ gives $F_2 \ni de_1 + fe_2$, $F_2 \ni fe_1$. We must have $f=0$, otherwise $e_1,e_2,e_3\in F_2$ contradicting $\dim F_2 = 2$. So $F_2 = \left\langle e_1,e_2\right\rangle$, and once again we only have one possible flag $0\subseteq \left\langle e_1\right\rangle \subseteq \left\langle e_1,e_2\right\rangle\subseteq \C^3$. Thus, $\mu^{-1}\left(X_3\right)$ is a single point $\left(X_3, \mathfrak{b}\right)$ with $\mathfrak{b}$ corresponding to the ``coordinate flag'' described above. 
+
+    \smallskip
+
+    \noindent As for the sub-regular case $\mu^{-1}\left(X_{2,1}\right)$, $X_{2,1}$ sends $e_2\mapsto e_1\mapsto 0$ and $e_3\mapsto 0$. Again, say $F=\left(0 = F_0\subseteq F_1\subseteq F_2\subseteq F_3 = \C^3\right)$ is a flag fixed by $X_3$. If we let $F_1 = \left\langle ae_1+be_2+ce_3\right\rangle$, then $F_1 \ni be_1$ by demanding stability under action of $X_3$. We therefore must have $b=0$, so $F_1 = \left\langle v\right\rangle$ where $v\in \Sp \left\{e_1,e_3\right\} \setminus \{0\}$. Now, say $F_2 = \left\langle v, de_1 +fe_2+ge_3\right\rangle$. Stability of $F_2$ under $X_3$ implies $F_2 \ni fe_1$. If $f=0$, then $F_2 = \left\langle e_1,e_3\right\rangle$. If $f\neq 0$, then $e_1\in F_2$. Now, if $\langle v\rangle \neq \left\langle e_1\right\rangle$, then $e_3\in F_2$ so $F_2 = \left\langle e_1, e_3\right\rangle$ again. If $\langle v\rangle = \left\langle e_1\right\rangle$, then $F_2 = \left\langle e_1, w\right\rangle$ for $w\in \Sp\left\{e_2,e_3\right\}\setminus \{0\}$. This gives us:
+    \begin{align*}
+    \mu^{-1}\left(X_{2,1}\right) &= X_{2,1} \times \left(\left\{0\subseteq \langle v\rangle \subseteq \left\langle e_1,e_2\right\rangle \subseteq \C^3 \mid v\in \Sp\left\{e_1,e_3\right\}\setminus \{0\}\right\} \right.\\
+    &\qquad\qquad \left.\cup \left\{0\subseteq \langle e_1\rangle \subseteq \left\langle e_1,w\right\rangle \subseteq \C^3 \mid w\in \Sp\left\{e_2,e_3\right\}\setminus \{0\}\right\} \right)
+    \end{align*}
+    Now, note that each of the sets in the above expression corresponds to $\bP^1$ since we get a different flag for every choice of $v$ that produces a different space (or $w$), and the space of one-dimensional subspaces in a space isomorphic to $\C^2$ is precisely $\bP^1$. Moreover, the intersection between these two sets contains only one point, in particular, the Borel corresponding to the ``coordinate flag'' $0\subseteq \left\langle e_1\right\rangle \subseteq \left\langle e_1, e_2\right\rangle \subseteq \C^3$. Thus, the Springer fiber in the sub-regular case looks like $\bP^1\cup \bP^1$ with a one-point overlap.
+\end{example}  
+
+
+\section{The $\left[1^{n+1}\right], [n+1], [n,1]$ cases for type $A_n$ Lie algebras}
+With the exploration of $\mathfrak{sl}_2(\C)$ and $\mathfrak{sl}_3(\C)$ Springer fibers complete, we are now able to make a few comments about Springer fibers for general type $A_n$ Lie algebras. First, it is clear that the nilpotent orbits of $A_n = \mathfrak{sl}_{n+1}(\C)$ are indexed by the partitions of $n+1$, and this follows from the Jordan decomposition (putting a given nilpotent element into Jordan form, the partition precisely gives the sizes of the Jordan blocks). In this section, we look at the Springer fibers of nilpotent elements in orbits corresponding to the following 3 partitions of $n+1$:
+\begin{align*}
+    \left[1^{n+1}\right] &= \overbrace{1+\cdots +1}^{n+1} \\
+    [n+1] &= (n+1) \\
+    [n,1] &= n+1
+\end{align*} 
+
+\begin{theorem}
+    For $\mathfrak{g} = A_n$, we have the fibers:
+    \begin{enumerate}[(a)]
+        \item $\mu^{-1}\left(X_{1^{n+1}}\right) \cong \mathcal{B}$
+        \item $\mu^{-1}\left(X_{n+1}\right) \cong \{\text{pt}\}$
+        \item $\mu^{-1}\left(X_{n,1}\right) \cong \underbrace{\bP^1\cup\cdots \cup\bP^1}_{n\text{ copies}}$, where each $\bP^1$ overlaps only with the successive or preceding one and the overlap is a single point.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We classify the fibers rigorously below.
+    \begin{enumerate}[(a)]
+        \item In $\left[1^{n+1}\right]$, each Jordan block is $1\times 1$, and so we are simply dealing with $0\in \mathfrak{sl}_{n+1}(\C)$. Here, $\mu^{-1}(0) \cong \mathcal{B}$ since every Borel contains $0$.
+
+        \item In the second case, we have a single $(n+1)\times (n+1)$ Jordan block, given by $X_{n+1} = \left(x_{ij}\right)_{1\leq i,j\leq n+1}$ where:
+        $$
+        x_{ij} = \begin{cases} 1, & j=i+1 \\ 0, &\text{otherwise} \end{cases}
+        $$
+        $X_{n+1}$ sends $e_{n+1}\mapsto e_n \mapsto \cdots \mapsto e_1\mapsto 0$. Say $F = \left(0=F_0\subseteq F_1\subseteq \cdots \subseteq F_{n+1} = \C^{n+1}\right)$ is a flag fixed by $X_{n+1}$. We show via induction that $F_i = \left\langle e_1, \ldots, e_i\right\rangle$ for all $1\leq i\leq n$. 
+
+        \smallskip
+
+        \noindent \textbf{Base case:} $i=1$. Suppose $F_1 = \left\langle a_1e_1 + \cdots + a_{n+1}e_{n+1}\right\rangle$. Due to stability of $F_1$ under $X_{n+1}$ action, by repeated application we have:
+        \begin{align*}
+        a_2e_1 + \cdots + a_{n+1}e_{n} &\in F_1 \\
+        a_3e_1 + \cdots + a_{n+1}e_{n-1} & \in F_1 \\
+        \vdots \\
+        a_{n} e_1 + a_{n+1}e_2 &\in F_1 \\
+        a_{n+1}e_1 & \in F_1
+        \end{align*}
+        From this, we can immediately see that $a_{n+1} =0$, otherwise $\dim F_1 =1$ is contradicted. This then implies $a_n =0$, $a_{n-1}=0$, and so on. Thus, $F_1 = \left\langle e_1\right\rangle$, and the base case is shown.
+
+        \smallskip
+
+        \textbf{Induction step.} Say $F_i = \left\langle e_1, \ldots, e_i\right\rangle$ for $1\leq i\leq r$, where $r\leq n-1$. We show $F_{r+1} = \left\langle e_1, \ldots, e_{r+1}\right\rangle$. Since $F_{r+1}\supseteq F_r$, and by the inductive hypothesis $F_r = \left\langle e_1, \ldots, e_{r}\right\rangle$, we may write $F_{r+1} = \left\langle e_1, \ldots, e_{r},v\right\rangle$, where $v\in \Sp\left\{e_{r+1},\ldots, e_n\right\}$. We write $v=b_{r+1}e_{r+1} + \cdots + b_ne_n$. Due to stability of $F_{r+1}$ under the action of $X_{n+1}$, by repeated application to $v$ and subtracting off appropriate multiples of $e_1,\ldots, e_r$, we have:
+        \begin{align*}
+        b_{r+2} e_{r+1} + \cdots  b_ne_{n-1} &\in F_{r+1} \\
+        b_{r+3} e_{r+1} + \cdots  b_ne_{n-2} &\in F_{r+1} \\
+        \vdots \\
+        b_{n-1} e_{r+1} + b_ne_{r+2} &\in F_{r+1} \\
+        b_n e_{r+1} &\in F_{r+1}
+        \end{align*}
+        Now, if $b_n\neq 0$, then $e_{r+1}, e_{r+2}, \ldots, e_{n-1}, e_n\in F_{r+1}$, contradicting $\dim F_{r+1} = r+1$. Thus, $b_n =0$. Likewise, $b_{n-1} =0$, $b_{n-2} =0$ and so on, until $b_{r+1} \neq 0$. Thus, $\langle v\rangle = \left\langle e_{r+1}\right\rangle$, and this proves the induction step. 
+
+        \smallskip
+
+        As such, there is only one flag fixed by $X_{n+1}$, given by the ``coordinate flag'':
+        $$
+        0 \subseteq \left\langle e_1\right\rangle \subseteq \left\langle e_1,e_2\right\rangle \subseteq \cdots \subseteq \C^{n+1}
+        $$
+        Therefore, $\mu^{-1}\left(X_{n+1}\right)$ is a point as desired.
+
+        \item Now, for the sub-regular case, we have a $n\times n$ Jordan block, and a $1\times 1$ Jordan block, so $X_{n,1} = \left(y_{ij}\right)_{1\leq i,j\leq n+1}$, where:
+        $$
+        y_{ij} = \begin{cases} 1, & j=i+1,\; 1\leq i\leq n-1 \\ 0, & \text{otherwise} \end{cases}
+        $$
+        $X_{n,1}$ sends $e_n\mapsto e_{n-1}\mapsto \cdots \mapsto e_1\mapsto 0$ and $e_{n+1}\mapsto 0$. We note that, via the discussion of the regular case, the only full flag of the subspace $W:=\Sp\left\{e_1, \ldots, e_n\right\}$ stabilized by $X_{n,1}$ is given by:
+        $$
+        0 \subseteq \left\langle e_1\right\rangle \subseteq \left\langle e_1, e_2\right\rangle \subseteq\cdots \subseteq \left\langle e_1, \ldots, e_n\right\rangle
+        $$
+        We seek to transform this into a full flag for $V:=\C^{n+1}$ stabilized by $X_{n,1}$. Say
+        $$
+        F = \left(0=F_0\subseteq F_1\subseteq \cdots \subseteq F_{n+1} = V\right)
+        $$
+        is such a full flag of $V$. Let $F_i$ be the first entry where it leaves the subspace $W$. That is, $F_j\subseteq W$ for all $j\leq i-1$ but $F_i\not\subseteq W$. Then we have that $F_j = \left\langle e_1, \ldots, e_j\right\rangle$ for all $j\leq i-1$. Since $F_i \supseteq F_{i-1} = \left\langle e_1, \ldots, e_{i-1}\right\rangle$ and $\dim F_i = i$, we can pick some $v\in \Sp\left\{e_i, e_{i+1}, \ldots, e_{n+1}\right\} \setminus \{0\}$ such that $\langle v\rangle \neq \left\langle e_i\right\rangle$, and have $F_i = \left\langle e_1, \ldots, e_{i-1}, v\right\rangle$. If we let $v=c_ie_i + c_{i+1}e_{i+1} + \cdots + c_ne_n +c_{n+1}e_{n+1}$, we note that stability of $F_i$ under $X_{n,1}$ action gives:
+        \begin{align*}
+        c_{i+1}e_i + \cdots + c_{n}e_{n-1} &\in F_i \\
+        c_{i+2}e_i + \cdots + c_{n}e_{n-2} &\in F_i \\
+        \vdots \\
+        c_{n-1}e_i + c_{n}e_{i+1} &\in F_i \\
+        c_{n}e_i &\in F_i
+        \end{align*}
+        This immediately gives $c_n =0$, otherwise $\dim F_i = i$ is contradicted. This then implies $c_{n-1}=0$, $c_{n-2}=0$, and so on until $c_{i+1}=0$. Thus, $v=c_ie_i + c_{n+1}e_{n+1}$, i.e. we can only pick $v\in \Sp\left\{e_i, e_{n+1}\right\} \setminus \{0\}$ such that $\langle v\rangle \neq \left\langle e_i\right\rangle$. Now, we claim that $F_j = \left\langle e_1, \ldots, e_{j-1}, e_{n+1}\right\rangle$ for all $j\geq i+1$, and we prove this by induction on $j$.
+
+        \smallskip
+
+        \textbf{Base case:} $j=i+1$. $X_{n,1}$ induces a map $F_{i+1}/F_i \to F_{i+1}/F_i$ between one-dimensional subspaces which is nilpotent, hence $X_{n,1} \left(F_{i+1}\right) \subseteq F_i$. Pick some $u\in F_{i+1}\setminus F_i$. Then $X_{n,1}(u) \in F_i$, but we also have $X_{n,1}(u) \in W$, thus:
+        $$
+        X_{n,1}(u) \in F_i\cap W = \left\langle e_1, \ldots, e_{i-1}\right\rangle \implies u \in X_{n,1}^{-1}\left(\left\langle e_1, \ldots, e_{i-1}\right\rangle \right) = \left\langle e_1, \ldots, e_{i-1}, e_i, e_{n+1}\right\rangle
+        $$
+        But since $u\notin F_i$, $F_{i+1} = \left\langle e_1, \ldots, e_{i-1}, e_i, e_{n+1}\right\rangle$, and this shows the base case.
+
+        \smallskip 
+
+        \textbf{Induction step.} Suppose $F_j = \left\langle e_1, \ldots, e_{j-1}, e_{n+1}\right\rangle$ for $i+1\leq  j\leq r$, where $r\leq n$. We show that $F_{r+1} = \left\langle e_1, \ldots, e_{r}, e_{n+1}\right\rangle$. Once again, $X_{n,1}$ induces a map $F_{r+1}/F_r \to F_{r+1}/F_r$ between one-dimensional subspaces which is nilpotent, hence $X_{n,1} \left(F_{r+1}\right)\subseteq F_r$. Pick some $u\in F_{r+1}\setminus F_r$. Then by the inductive hypothesis and the same idea as the base case:
+        $$
+        X_{n,1}(u) \in F_r \cap W = \left\langle e_1, \ldots, e_{r-1}\right\rangle \implies u \in X_{n-1}^{-1} \left(\left\langle e_1, \ldots, e_{r-1}\right\rangle\right) = \left\langle e_1, \ldots, e_{r-1}, e_r, e_{n+1}\right\rangle
+        $$
+        Once again, since $u\notin F_r$, $F_{r+1} =  \left\langle e_1, \ldots, e_{r}, e_{n+1}\right\rangle$ and this completes the induction.
+
+        \smallskip
+
+        In other words, once we choose to leave $W$, we only have the freedom to pick the first flag entry outside of $W$, but the rest is fixed from there. With this in mind, the fiber is as follows:
+        \begin{align*}
+        \mu^{-1}\left(X_{n,1}\right) &= X_{n,1} \times \bigcup_{i=1}^{n+1} Y_i \\
+        Y_i &:= \left\{0\subseteq \left\langle e_1\right\rangle \subseteq \left\langle e_1, e_2\right\rangle \subseteq \cdots \subseteq \left\langle e_1, \ldots, e_{i-1}\right\rangle \subseteq \left\langle e_1, \ldots, e_{i-1},v\right\rangle \subseteq \left\langle e_1, \ldots, e_{i-1}, e_i, e_{n+1}\right\rangle\right. \\
+        &\;\;\;\;\;\;\;\;\;\;\;\;\;\left.\subseteq \cdots \subseteq \left\langle e_1, \ldots, e_{n-1}, e_{n+1}\right\rangle\subseteq \C^{n+1} \mid v\in \Sp\left\{e_i, e_{n+1}\right\} \setminus \{0\}\right\}
+        \end{align*}
+        We have $Y_i \cong \bP^1$, since for each component, we are required to select a line from a two-dimensional subspace. Moreover, it is obvious that only components with adjacent indices have any overlap, i.e. $Y_i \cap Y_{i+1}\neq \emptyset$, and the overlap is the single point given by:
+        $$
+        \left\{0\subseteq \left\langle e_1\right\rangle \subseteq \cdots \subseteq \left\langle e_1, \ldots, e_{i-1}\right\rangle \subseteq \left\langle e_1, \ldots, e_i\right\rangle \subseteq \left\langle e_1, \ldots, e_i, e_{n+1}\right\rangle \subseteq \cdots \subseteq \left\langle e_1, \ldots, e_{n-1}, e_{n+1}\right\rangle\subseteq \C^{n+1} \right\} 
+        $$   
+    \end{enumerate} 
+    
+    \noindent This completes the characterization of the Springer fibers for the $\left[1^{n+1}\right]$, $[n+1]$, and $[n,1]$ nilpotent orbits. 
+    \end{proof}
+
+\noindent
+
+\section{The $[2,2]$ case for $\mathfrak{sl}_4(\C)$}
+With the Springer fibers for type $A_n$ Lie algebras fully described in the zero, regular and sub-regular cases, we now turn to a slightly more technical example. In particular, we consider the simplest case of a Springer fiber that does not belong to one of these three categories, the fiber of an element in $\mathfrak{g} = \mathfrak{sl}_4(\C)$ belonging to the nilpotent orbit corresponding to the partition $[2,2] = 2+2$. We show that the fiber of this element is the union of two irreducible components, one isomorphic to $\bP^1\times \bP^1$ and the other a $\bP^1$-bundle over $\bP^1$. Their intersection is a copy of $\bP^1$.
+
+\begin{example}
+    Any such element is conjugate to the following matrix:
+    $$
+    X_{2,2} = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+    $$
+    $X_{2,2}$ sends $e_2\mapsto e_1\mapsto 0$ and $e_4\mapsto e_3 \mapsto 0$. Say the flag $0=F_0\subseteq F_1\subseteq F_2\subseteq F_3\subseteq F_4 = \C^4$ is fixed by $X_{2,2}$. Since $\dim F_1 = 1$, this must mean $X_{2,2}$ acts as the zero map on $F_1$, i.e. $F_1\subseteq \ker X_{2,2} = \left\langle e_1, e_3\right\rangle$. Thus, for $F_1$ we can pick any one-dimensional subspace in $\left\langle e_1, e_3\right\rangle$, and this is precisely parametrized by $\bP^1$. Since $X_{2,2}$ fixes the flag, it induces a map $\C^4/F_3 \to \C^4\to F_3$ between one-dimensional subspaces which is nilpotent, i.e. it must be the zero map. Thus, $X_{2,2}\left(\C^4\right) = \image X_{2,2} \subseteq F_3$. But $\image X_{2,2} = \left\langle e_1, e_3\right\rangle$, so $\left\langle e_1, e_3\right\rangle\subseteq F_3$. In other words, $F_3$ is a hyperplane that contains $\left\langle e_1, e_3\right\rangle$, and this is parametrized by $\left(\bP^1\right)^* \cong \bP^1$ (see \textbf{Example 1.1} from \cite{Harris1992AlgebraicGeometryFirstCourse}).
+
+    \smallskip
+
+    \noindent $X_{2,2}$ induces a map $F_2/F_1\to F_2/F_1$ between one-dimensional subspaces which is nilpotent, hence $X_{2,2}\left(F_2\right) \subseteq F_1$, i.e. $F_2\subseteq X_{2,2}^{-1}\left(F_1\right)$. There are two possibilities, either $F_2 = \left\langle e_1, e_3\right\rangle$, or $F_2 \neq \left\langle e_1, e_3\right\rangle$. In the first case, we have $\bP^1$ of choices for $F_1$ and $\bP^1$ of choices for $F_3$, thus the flags are parametrized by $\bP^1\times \bP^1$ in this case. Writing this out concretely, these flags are given by:
+    $$
+    \mu^{-1}\left(X_{2,2}\right) \supseteq X_{2,2}\times \left\{ 0\subseteq \langle v\rangle \subseteq \left\langle e_1, e_3\right\rangle \subseteq \left\langle e_1, e_3, w\right\rangle \subseteq \C^4\mid v\in \Sp\left\{e_1, e_3\right\}\setminus\{0\}, \; w\in \Sp\left\{e_2, e_4\right\}\setminus \{0\} \right\}
+    $$
+    The other possibility is if we let $F_2$ range generically, that is, we do \emph{not} fix $F_2 =\left\langle e_1, e_3\right\rangle =:K$. Since $\dim F_2 = 2$, $F_2\cap K = F_1$. Consider the complementary 2-plane $U = \left\langle e_2, e_4\right\rangle$ and note that $X_{2,2}\vert_U : U\to K$ is an isomorphism. We define $W:=\left(X_{2,2}\vert_U\right)^{-1}\left(F_1\right)\subseteq U$. This gives us $X_{2,2}^{-1}\left(F_1\right) = K\oplus W$, and this is a three-dimensional subspace. Because $F_2\subseteq X_{2,2}^{-1}\left(F_1\right)$ and $F_2\not\subseteq K$, the image of $F_2$ in $\C^4/K \cong U$ is exactly $W$. As such, the only hyperplane containing $K$ and $F_2$ is $F_3 = K\oplus W = X_{2,2}^{-1}\left(F_1\right)$. In other words, once $F_1$ is fixed and $F_2$ is allowed to be generic, $F_3$ is forced. $F_2$ can be any two-dimensional subspace satisfying:
+    $$
+    F_1 \subseteq F_2\subseteq X_{2,2}^{-1}\left(F_1\right) = F_3
+    $$
+    Such intermediate spaces are parametrized by $\bP\left(\left(X_{2,2}^{-1}\left(F_1\right)\right)/F_1\right)\cong \bP^1$. Since $F_1$ itself was parametrized by $\bP K \cong \bP^1$, the set of all such flags is therefore a $\bP^1$-bundle over $\bP K\cong \bP^1$.
+
+    \smallskip
+
+    \noindent We consider the overlap. These two components meet precisely when $F_2 = K$ \emph{and} $F_3 = X_{2,2}^{-1}\left(F_1\right)$ is the forced hyperplane. Letting the $\bP^1\times \bP^1$ component of the fiber be $Y_1$, and the $\bP^1$-bundle component be $Y_2$, we therefore have:
+    $$
+    Y_1\cap Y_2 = X_{2,2} \times \left\{0\subseteq \langle v\rangle \subseteq K\subseteq X_{2,2}^{-1}\left(\langle v\rangle\right)\subseteq \C^4 \mid v\in K \setminus \{0\}\right\}
+    $$
+    This is parametrized by choice of line $\langle v\rangle$ in the two-dimensional $K$, and thus $Y_1\cap Y_2 \cong \bP^1$. 
+
+    \smallskip
+
+    \noindent To summarize, $\mu^{-1}\left(X_{2,2}\right) = Y_1\cup Y_2$, where $Y_1\cong \bP^1\times \bP^1$, $Y_2\to \bP^1$ is a $\bP^1$-bundle, and $Y_1\cap Y_2 \cong \bP^1$.
+\end{example}
+
+\section{Further classificatory efforts}
+In fact, attempts have been made to characterize these nilpotent fibers in more general cases, and we will highlight two satisfying results in particular, which we will state without proof.
+
+\begin{theorem}
+    \cite{Vargas1979FixedPointsUnipotent} Let $\mathfrak{g} = \mathfrak{sl}_n(\C)$. Consider the nilpotent element $u\in \mathfrak{g}$ in an orbit corresponding to $\left[\lambda_1, \ldots, \lambda_k\right]$, where $\lambda_1\geq \cdots \geq \lambda_k$ and $\lambda_1+\cdots+\lambda_k = n$. In other words, these precisely give the sizes of the Jordan block. Then associate to $u$ the Young diagram with $\lambda_i$ boxes in the $i^\text{th}$ row. The number of irreducible components of the fiber $\mu^{-1}(u)$ is precisely given by the number of standard tableaux for the Young diagram, which are fillings of $1,\ldots, n$ in the $n$ boxes such that the numbers in each row and column are decreasing. 
+\end{theorem}
+
+\noindent While this allows for the number of irreducible components to be very quickly computed, the next result provides further insight into the \emph{structure} of the irreducible components for particular types of nilpotent orbits. 
+
+\begin{theorem}
+    \cite{Fung2003TopologySpringerFibers} Once again, take a nilpotent element $u \in \mathfrak{g} = \mathfrak{sl}_n(\C)$, in an orbit corresponding to $\left[\lambda_1, \ldots, \lambda_k\right]$. If $k=2$, we say $u$ is of \emph{two-row type}, since the associated Young diagram will have $2$ rows. Then, we let the irreducible component associated to a given standard Young tableaux $A$ be denoted $K(A)$. Suppose it has top row $n, i_{b-1}, \ldots, i_1$. Then $K(A)$ consists of all flags satisfying:
+    \begin{enumerate}[(i)]
+        \item $F_i\subseteq u^{-1}\left(F_{i-1}\right), \; \forall i$
+        
+        \item If $i$ is on the top row and $i-1$ is on the bottom row, then $F_i = u^{-1}\left(F_{i-2}\right)$. 
+
+        \item If $i$ and $i-1$ are both in the top row, then if $F_{i-1} = u^{-d}\left(F_r\right)$ where $r$ is on the bottom row, then $F_i = u^{-d-1}\left(F_{r-1}\right)$. 
+
+        \item If $F_{i-1} = u^{-d}\left(\image u^{b-i}\right)$ where $0\leq i<n-b$, then $F_{i} = u^{-d}\left(\image u^{b-i-1}\right)$.
+    \end{enumerate}
+\end{theorem}
+
+\noindent These remarkable results allow for a great deal of simplification of the derivations earlier in the paper, providing shortcuts via constraints on the subspaces composing the flag. 
+
+\section{Acknowledgement}
+I would like to extend my utmost gratitude to Merrick for his invaluable guidance and frequent encouragement. Your patient explanation and re-explanation of the concepts has often provided much-needed intuition in the thicket of notation and constructions -- and you manage it all while being so approachable and friendly!
+
+\section{Bibliography}
+\nocite{Borel1991LinearAlgebraicGroups,Serre2001ComplexSemisimpleLieAlgebras,ChrissGinzburg2010RepresentationTheoryComplexGeometry,Axler2024LinearAlgebraDoneRight,Harris1992AlgebraicGeometryFirstCourse,Vargas1979FixedPointsUnipotent,Fung2003TopologySpringerFibers,ClassLectureNotes}
+
+\bibliographystyle{alpha}
+\bibliography{springer_fibers_refs}
+
+\end{document}

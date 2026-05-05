@@ -1,0 +1,692 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb, latexsym, amsfonts, amscd, amsthm, epsfig, subfigure, enumerate, bbold, physics, bm, calligra, quiver, cancel, mathrsfs}
+\usepackage[numbers,sort&compress]{natbib}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\G}{\mathbb{G}}
+
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ch}{\operatorname{char}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\kernel}{\operatorname{ker}}
+\newcommand{\nil}{\operatorname{nil}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\sign}{\operatorname{sgn}}
+\newcommand{\tor}{\operatorname{Tor}}
+\newcommand{\Sp}{\operatorname{span}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}[equation]{Theorem}
+\numberwithin{theorem}{section} % important bit
+\numberwithin{equation}{section} % number equations like (1.1), (1.2), etc.
+
+% Macro to capitalize input
+\usepackage{mfirstuc}
+\newcommand{\capitalizename}[1]{\makefirstuc{#1}}
+
+% Define a theorem following the theorem counter
+\newcommand{\defthm}[1]{%
+  \newtheorem{#1}[equation]{\capitalizename{#1}}%
+}
+
+% Iterate the defthm command over a csv
+\newcommand{\defthms}[1]{%
+  \forcsvlist{\defthm}{#1}%
+}
+
+% Define theorems
+\defthms{%
+  answer,assumption,claim,conjecture,construction,corollary,
+  counterexample,definition,digression,discussion,example,
+  examples,exercise,fact,goal,idea,intuition,lemma,
+  motivation,notation,note,proposition,question,remark,setup,
+  slogan,strategy,terminology,upshot,warning%
+}
+
+% force unique anchors
+\makeatletter
+\renewcommand*\theHequation{\thesection.\arabic{equation}}
+
+\let\theHtheorem\theHequation
+\let\theHassumption\theHequation
+\let\theHclaim\theHequation
+\let\theHconjecture\theHequation
+\let\theHconvention\theHequation
+\let\theHcorollary\theHequation
+\let\theHcounterexample\theHequation
+\let\theHdefinition\theHequation
+\let\theHdigression\theHequation
+\let\theHexample\theHequation
+\let\theHexamples\theHequation
+\let\theHexercise\theHequation
+\let\theHfact\theHequation
+\let\theHidea\theHequation
+\let\theHintuition\theHequation
+\let\theHlemma\theHequation
+\let\theHmetathm\theHequation
+\let\theHnotation\theHequation
+\let\theHnote\theHequation
+\let\theHproposition\theHequation
+\let\theHremark\theHequation
+\let\theHstrategy\theHequation
+\let\theHterminology\theHequation
+\let\theHupshot\theHequation
+\let\theHwarn\theHequation
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%% Text commands and categories
+\newcommand{\deftextcommand}[1]{%
+  \expandafter\providecommand\csname #1\endcsname{\mathrm{#1}}%
+}
+\newcommand{\deftextcommands}[1]{%
+    \forcsvlist{\deftextcommand}{#1}%
+}
+
+% Text commands
+\deftextcommands{ab,alg,an,ann,Aut,BG,BGL,Bl,BO,BP,BSL,BSO,BSp,BSU,BU,can,cd,cdh,ch,cl,coBar,codim,codom,coeq,coev,cof,cofib,coker,colim,coim,cone,conj,const,coTor,cyc,diag,Desc,dg,Disc,disc,Div,dR,dual,eff,EKL,End,eq,ess,et,Et,EU,ev,Ex,ex,Exc,Ext,fib,Fix,Fl,fppf,fpqc,Fr,Frac,Frob,Fun,Gal,gen,germ,GL,gp,Gr,gr,GW,Her,Ho,hocofib,hocolim,hofib,holim,Hom,id,Idem,im,incl,Ind,ind,inj,Inn,Inv,inv,iso,Jac,KGL,kgl,KH,KO,ko,KQ,kq,KR,KSp,KU,ku,Lan,Map,map,MGL,MO,Mor,mor,MSL,MSO,MSp,MSU,MU,mult,MUP,Nm,ob,obj,op,Orb,ord,Out,perf,Perm,PGL,pr,pre,Prin,Proj,proj,prom,PSL,quot,Ran,rank,Res,res,RO,Sec,sep,sgn,SH,sig,Sing,SL,SO,soc,Sp,Span,Spec,Spin,spn,Sq,st,Stab,SU,supp,Supp,Syl,syl,Sym,syn,SYT,TC,td,Th,THH,Tor,Tot,TP,TR,Tr,tr,triv,univ,var,veff,vol,Wel,Wr}
+
+% Categories
+\deftextcommands{Ab,Aff,Alg,Ani,Bimod,CAlg,Cat,CDGA,CG,CGWH,Ch,CMon,coAlg,Coh,CommRing,ConjSub,coMod,Cor,Corr,CoSh,Cov,CRing,CW,Field,Fin,FinSet,Gpd,Grp,Grpd,Grph,Kan,Kar,LMod,Mfld,Mod,NAlg,Nat,Open,Ouv,Perf,Poset,Pr,Pre,PSh,PShv,qCat,QCoh,Rep,Ring,RMod,sAb,Set,SH,Sh,Shv,sing,Sm,Sp,Spc,Spectra,sPre,sSet,sShv,Stack,Sub,Top,Tors,Var,Vect}
+
+%%%%%%%%%%%%%%% Blackboard letters
+\newcommand{\defblackboardletter}[1]{%
+  \expandafter\providecommand\csname #1\endcsname{\mathbb{#1}}
+}
+\newcommand{\defblackboardletters}[1]{%
+  \forcsvlist{\defblackboardletter}{#1}%
+}
+
+\defblackboardletters{A,C,F,P,Q,R,Z}
+
+%%%%%%%%%%%%%%% Arrows
+
+% Pushout, pullback
+\providecommand{\po}{\arrow[ul,phantom,"\ulcorner" very near start]}
+\providecommand{\pb}{\arrow[dr,phantom,"\lrcorner" very near start]}
+
+% Overset to and from
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\from}{\leftarrow}
+\providecommand{\xfrom}[1]{\overset{#1}{\leftarrow}}
+
+% Backwards verion of mapsto
+\providecommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\providecommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
+
+% Hook arrows
+\providecommand{\hookto}{\xhookrightarrow{}}
+\providecommand{\xhookto}[1]{\overset{#1}{\hookrightarrow}}
+\providecommand{\hookfrom}{\xhookleftarrow{}}
+\providecommand{\xhookfrom}[1]{\xhookleftarrow{#1}}
+
+% Two-headed arrows
+\providecommand{\tto}{\twoheadrightarrow}
+\providecommand{\xtto}[1]{\overset{#1}{\twoheadrightarrow}}
+\providecommand{\ffrom}{\twoheadleftarrow}
+\providecommand{\xffrom}[1]{\overset{#1}{\ffrom}}
+
+% Closed and open hook arrows
+\providecommand{\clhookto}{\mathrel{\raisebox{0.1em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.1em}\smallslash}{\hookrightarrow}}}$}}}
+\providecommand{\xclhook}[1]{\overset{#1}{\clhook}}
+\providecommand{\clhookfrom}{\mathrel{\raisebox{0.1em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.1em}\smallslash}{\hookleftarrow}}}$}}}
+\providecommand{\ohookto}{\mathrel{\raisebox{0.03em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.03em}\mbox{\small$\circ$}}{\hookrightarrow}}}$}}}
+\providecommand{\ohookfrom}{\mathrel{\raisebox{0.03em}{$\mathrel{\mathpalette\superimpose{{\hspace{0.1cm}\vspace{0.03em}\mbox{\small$\circ$}}{\hookleftarrow}}}$}}}
+
+% Arrows with tails
+\providecommand{\cofto}{\rightarrowtail}
+\providecommand{\coffrom}{\leftarrowtail}
+\providecommand{\xcofto}[1]{\overset{#1}{\cofto}}
+\providecommand{\xcoffrom}[1]{\overset{#1}{\coffrom}}
+
+% Squiggle arrows
+\providecommand{\sqto}{\rightsquigarrow}
+\providecommand{\sqfrom}{\mathrel{\reflectbox{\ensuremath{\sqto}}}}
+
+
+%%%%%%%%%%%%%%% Misc commands
+
+% Projective spaces
+\providecommand{\CP}{{\mathbb{C}\text{P}}}
+\providecommand{\HP}{{\mathbb{H}\text{P}}}
+\providecommand{\RP}{{\mathbb{R}\text{P}}}
+
+% Heart (for t-structures)
+\newcommand{\heart}{\ensuremath\heartsuit}
+
+% For blackboard bold number and delta categories
+\RequirePackage{bbm}
+\providecommand{\onecat}{\mathbbm{1}}
+\providecommand{\twocat}{\mathbbm{2}}
+
+% Blackboard delta
+\RequirePackage{pict2e,picture}
+\makeatletter
+\DeclareRobustCommand{\DDelta}{{\mathpalette\bb@Delta\relax}}
+\newcommand{\bb@Delta}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\Delta$}%
+  \dimendef\Dht=6 \dimendef\Dwd=8
+  \setlength{\Dwd}{\wd\z@}%
+  \setlength{\Dht}{\ht\z@}%
+  \begin{picture}(\Dwd,\Dht)
+  \put(0,0){$\m@th#1\Delta$}
+  \put(.42\Dwd,.7\Dht){\line(10,-26){.25\Dht}}
+  \end{picture}%
+  \endgroup
+}
+
+% Better-looking empty set
+\let\emptyset\varnothing
+\let\minus\smallsetminus
+
+%%%%%%%%%%%%%%%%%%%%%% Style
+
+% Custom bullet point for itemize environments
+\renewcommand{\labelitemi}{$\triangleright$}
+
+\let\del\partial
+\let\til\widetilde
+
+
+%%%%%%%%%%%%%%%%%%%%%% Coding
+\usepackage{fancyvrb,newverbs,xcolor}
+
+\definecolor{cverbbg}{gray}{0.93}
+
+\newenvironment{cverbatim}
+ {\SaveVerbatim{cverb}}
+ {\endSaveVerbatim
+  \flushleft\fboxrule=0pt\fboxsep=.5em
+  \colorbox{cverbbg}{\BUseVerbatim{cverb}}%
+  \endflushleft
+}
+\newenvironment{lcverbatim}
+ {\SaveVerbatim{cverb}}
+ {\endSaveVerbatim
+  \flushleft\fboxrule=0pt\fboxsep=.5em
+  \colorbox{cverbbg}{%
+    \makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
+  }
+  \endflushleft
+}
+
+\newcommand{\ctexttt}[1]{\colorbox{cverbbg}{\texttt{#1}}}
+\newverbcommand{\cverb}
+  {\setbox\verbbox\hbox\bgroup}
+  {\egroup\colorbox{cverbbg}{\box\verbbox}}
+
+  %Writing in stupid command for varphi
+\newcommand{\p}{\varphi}
+
+%%%%%%%%%%%%%%%%%%%%% Pictorial
+\usepackage{dynkin-diagrams}
+\usepackage[vcentermath]{youngtab}
+
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{The Hodge-de Rham spectral sequence}
+\author{Brian Siew}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We explain the spectral sequence $H^p\left(X,\Omega^q\right)\Rightarrow H^{p+q}(X,\C)$ valid for complex manifolds, following Deligne, Fr\"olicher, and others. We then explain why it degenerates for compact K\"ahler manifolds, and give examples of the failure of degeneration in other settings.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction and historical context}
+
+A foundational problem in algebraic topology and complex geometry is relating the analytic properties of a complex manifold $X$ to its underlying topological invariants, such as its de Rham cohomology $H^k_\mathrm{dR}(X, \C)$. For a complex manifold, the exterior derivative $d$ splits into two operators, $\partial$ and $\bar\partial$, yielding the Dolbeault cohomology groups $H^{p,q}_{\bar{\partial}}(X)$.
+
+\medskip
+
+\noindent In 1955, A. Fr\"olicher defined a spectral sequence that relates the two. A spectral sequence is an device that iteratively computes successive approximations of cohomology. Fr\"olicher's sequence takes the Dolbeault cohomology as its initial input (the ``first page'') and converges to the de Rham cohomology. \cite{Frolicher1955}. The purpose of this appendix is to construct this spectral sequence rigorously, prove that it degenerates at the first page for compact K\"ahler manifolds (following Deligne and others), and demonstrate its failure to degenerate in the non-K\"ahler setting via the Iwasawa manifold.
+
+\medskip
+
+\noindent Why is this degeneration important? The degeneration of the Fr\"olicher spectral sequence tells us that for K\"ahler manifolds, the analytic invariants (Dolbeault cohomology) and the topological invariants (de Rham cohomology) are not just related by a sequence of approximations, but are essentially isomorphic as vector spaces. This yields immediate and powerful restrictions on the topology of K\"ahler manifolds, such as the fact that their odd Betti numbers must be even, and that every holomorphic form is automatically $d$-closed.
+
+\section{Review of complex manifolds and spectral sequences}
+
+
+\subsection{Complex manifolds and the Dolbeault cohomology}
+We begin by providing a quick review of the theory of complex manifolds and recalling some basic constructions.
+\begin{definition}
+    Following \textbf{Definition 2.1.1} in \cite{Huybrechts2005}, a \emph{holomorphic atlas} on a differentiable manifold is an atlas of the form $\left\{\left(U_i, \varphi_i\right)\right\}$, where $\varphi_i:U_i\to \varphi_i\left(U_i\right)\subseteq \C^n$ is a homeomorphism, and the transition functions given by $\varphi_{ij}:=\varphi_i\circ \varphi_j^{-1} : \varphi_j\left(U_i\cap U_j\right)\to \varphi_i\left(U_i\cap U_j\right)$ are holomorphic. We then call a pair $\left\{\left(U_i, \varphi_i\right)\right\}$ a \emph{holomorphic chart}, and call two holomorphic atlases $\left\{\left(U_i, \varphi_i\right)\right\}$, $\left\{\left(U_j', \varphi_j'\right)\right\}$ \emph{equivalent} if all maps $\varphi_i\circ \varphi_j'^{-1}: \varphi_j'\left(U_i\cap U_j'\right)\to \varphi_i\left(U_i\cap U_j'\right)$ are holomorphic. 
+\end{definition}
+
+\begin{definition}
+Following \textbf{Definition 2.1.2} in \cite{Huybrechts2005}, a \emph{complex manifold} $X$ of dimension $n$ is a real differentiable manifold of dimension $2n$ endowed with an equivalence class of holomorphic atlases.
+\end{definition}
+
+\noindent We recall from \textbf{Proposition 2.6.2} of \cite{Huybrechts2005} that a complex manifold $X$ must admit an \emph{almost complex structure}, that is, some vector bundle endomorphism $I:TX\to TX$ with $I^2 = -\id$, where $TX$ is the real tangent bundle of the underlying real manifold. Complexifying the tangent bundle via $TX_\C = TX \otimes_\R \C$, we can extend $I$ to $TX_\C$ via complex linearity, and since $I^2=-1$, the eigenvalues of $I$ on the complexified tangent bundle are exactly $\pm i$. This yields a direct sum decomposition of the complexified tangent bundle
+$$
+TX_\C = T^{1,0}X \oplus T^{0,1}X
+$$
+following \textbf{Proposition 2.6.4(i)} of \cite{Huybrechts2005}, where $T^{1,0}X$ is the eigenspace associated with $i$, and $T^{0,1}X$ is the eigenspace associated with $-i$. Passing to the dual, we get:
+$$
+T^*X_\C =\Omega^{1,0}_X \oplus \Omega^{0,1}_X
+$$
+
+\noindent Following the notation in \textbf{Section 2.3} of \cite{VoisinI2002}, above $\Omega^{1,0}_X$ is the bundle of $(1,0)$-covectors, and $\Omega^{0,1}_X$ is the bundle of $(0,1)$-covectors. If we take holomorphic local coordinates $z_1, \ldots, z_n$, then the bundle $\Omega^{1,0}_X$ is locally spanned by $\left\{dz_j = dx_j + i dy_j\right\}_{1\leq j\leq n}$, and $\Omega^{0,1}_X$ is locally spanned by $\left\{d\bar{z}_j = dx_j - i dy_j\right\}_{1\leq j\leq n}$. Now, we take the $k^\text{th}$ exterior power on both sides, and recalling from \textbf{Proposition XIX.1.4} of \cite{Lang2002} how the exterior power distributes over the direct sum, this gives:
+$$
+\bigwedge^kT^*X_\C = \bigwedge^k\left(\Omega^{1,0}_X \oplus \Omega^{0,1}_X\right) = \bigoplus_{p+q=k}\left( \bigwedge^p\Omega^{1,0}_X \otimes \bigwedge^q \Omega^{0,1}_X\right)
+$$
+
+\noindent We define $\bigwedge^k_\C X:=\bigwedge^k T^* X_\C$, and the bundle of $(p,q)$-covectors $\Omega^{p,q}_X:=\bigwedge^p \Omega^{1,0}_X \otimes \bigwedge^q \Omega^{0,1}_X$. Then the above decomposition can be written as:
+$$
+\bigwedge^k_\C X = \bigoplus_{p+q=k} \Omega_X^{p,q}
+$$
+
+\noindent We further denote by $\mathcal{A}^k_{X,\C}$ and $\mathcal{A}^{p,q}_X$ the \emph{sheaves of sections} of these respective bundles, and the global sections of $\mathcal{A}^{p,q}_X$, i.e. elements of $\mathcal{A}^{p,q}(X)$ are the \emph{forms of type} $(p,q)$. Then following \textbf{Corollary 2.6.8} in \cite{Huybrechts2005}, we also have the decomposition:
+$$
+\mathcal{A}^k_{X,\C} = \bigoplus_{p+q=k} \mathcal{A}^{p,q}_X
+$$
+
+\noindent If we now denote by $\mathcal{A}^*(X)$ the graded space of all smooth $\C$-valued differential forms on $X$, then we have natural projections $\Pi^{k}:\mathcal{A}^*(X)\to \mathcal{A}^k(X)$ and $\Pi^{p,q}:\mathcal{A}^*(X)\to \mathcal{A}^{p,q}(X)$. The exterior derivative may be extended in $\C$-linear fashion to $d:\mathcal{A}^k_{X,\C}\to \mathcal{A}^{k+1}_{X,\C}$, and with the aid of the projection maps we can split it into two maps that each remind us of the usual real exterior derivative, which we denote $\partial$ and $\bar \partial$:
+\begin{align*}
+    \partial &:= \Pi^{p+1,q}\circ d:\mathcal{A}^{p,q}_X\to \mathcal{A}^{p+1,q}_X \\
+    \bar \partial &:= \Pi^{p,q+1}\circ d:\mathcal{A}^{p,q}_X\to \mathcal{A}^{p,q+1}_X
+\end{align*}
+
+\noindent The Leibniz rule for $d$ is inherited by $\partial$ and $\bar \partial$, that is
+\begin{align*}
+    \partial(\alpha \wedge \beta) &= \partial(a)\wedge \beta +(-1)^{p+q} \alpha\wedge \partial(\beta) \\
+    \bar\partial(\alpha \wedge \beta) &= \bar\partial(a)\wedge \beta +(-1)^{p+q} \alpha\wedge \bar\partial(\beta)
+\end{align*}
+for any $\alpha\in \mathcal{A}^{p,q}$ and $\beta\in \mathcal{A}^{r,s}$. $\partial$ and $\bar\partial$ can be thought of as isolating the type $(p+1,q)$ forms and type $(p,q+1)$ forms respectively after passing a type $(p,q)$ form through the exterior derivative $d$. Now, observe that in holomorphic local coordinates $z_1,\ldots, z_n$, a general form of type $(p,q)$ can be written as $d\alpha = \sum_{I,J}\alpha_{I,J}\wedge dz_I \wedge d\bar z_J$, where $|I|=p$ and $|J|=q$, and $dz_I = dz_{i_1}\wedge \cdots \wedge dz_{i_p}$, and the same for $J$. Applying the exterior derivative gives us:
+$$
+d\alpha = \sum_{I,J}d\alpha_{I,J}\wedge dz_I \wedge d\bar z_J
+$$
+
+\noindent We note that $\alpha_{I,J}$ is a function, hence by definition, we have:
+$$
+d\alpha_{I,J} = \sum_{k}\frac{\partial \alpha_{I,J}}{\partial z_k}dz_k + \sum_{k} \frac{\partial\alpha_{I,J}}{\partial \bar z_k}d\bar z_k
+$$
+
+\noindent Substituting this back in, we obtain:
+$$
+d\alpha =\sum_{I,J,k}\frac{\partial \alpha_{I,J}}{\partial z_k}dz_k\wedge dz_I \wedge d\bar z_J + \sum_{I,J,k} \frac{\partial\alpha_{I,J}}{\partial \bar z_k}d\bar z_k \wedge dz_I \wedge d\bar z_J
+$$
+
+\noindent Notice that the first sum is of type $(p+1,q)$ and the second sum is of type $(p,q+1)$. So, there are no other types of forms present, and we have $d\alpha = \partial \alpha + \bar\partial \alpha$. Importantly, we summarize the following relations involving $\partial$ and $\bar \partial$, which are given by \textbf{Lemma 2.29} of \cite{VoisinI2002}.
+\begin{lemma}
+    $\bar\partial^2 =0$, $\partial\bar\partial + \bar\partial \partial =0$, $\partial^2=0$.
+\end{lemma}
+\begin{proof}
+    These are easily derivable from $d^2=0$ and $d=\partial + \bar\partial$, for applying $d^2$ to some arbitrary form $\alpha$ of type $(p,q)$, we get:
+$$
+d^2\alpha = (\partial + \bar\partial)^2 \alpha = \partial^2 \alpha + (\partial\bar\partial + \bar\partial \partial)\alpha + \bar\partial^2 \alpha = 0
+$$
+
+\noindent Now, note that $\partial^2\alpha$ is a form of type $(p+2,q)$, $\bar\partial^2\alpha$ is a form of type $(p,q+2)$, and $(\partial\bar\partial + \bar\partial \partial)\alpha$ is a form of type $(p+1,q+1)$. As such, these must all vanish separately, giving us the desired identities. 
+\end{proof}
+
+\noindent We now recognize that fixing $p$ and exploiting $\bar\partial^2=0$ gives us a new cochain complex
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCIwIl0sWzIsMCwiXFxtYXRoY2Fse0F9XntwLDB9KFgpIl0sWzQsMCwiXFxtYXRoY2Fse0F9XntwLDF9KFgpIl0sWzYsMCwiXFxtYXRoY2Fse0F9XntwLDJ9KFgpIl0sWzgsMCwiXFxjZG90cyJdLFswLDFdLFsxLDIsIlxcYmFyXFxwYXJ0aWFsIl0sWzIsMywiXFxiYXJcXHBhcnRpYWwiXSxbMyw0XV0=
+\[\begin{tikzcd}
+	0 && {\mathcal{A}^{p,0}(X)} && {\mathcal{A}^{p,1}(X)} && {\mathcal{A}^{p,2}(X)} && \cdots
+	\arrow[from=1-1, to=1-3]
+	\arrow["{\bar\partial}", from=1-3, to=1-5]
+	\arrow["{\bar\partial}", from=1-5, to=1-7]
+	\arrow[from=1-7, to=1-9]
+\end{tikzcd}\]
+whence we seize the opportunity to define a new form of cohomology, following \textbf{Definition 2.6.20} in \cite{Huybrechts2005}.
+
+\begin{definition}
+    For a complex manifold $X$, the $(p,q)$-\emph{Dolbeault cohomology} is the vector space:
+    $$
+    H^{p,q}_{\bar\partial}(X) := H^q\left(\mathcal{A}^{p,\bullet}(X), \bar\partial\right) = \frac{\ker \left(\bar\partial:\mathcal{A}^{p,q}(X) \to \mathcal{A}^{p,q+1}(X)\right)}{\image \left(\bar\partial:\mathcal{A}^{p,q-1}(X) \to \mathcal{A}^{p,q}(X)\right)}
+    $$
+\end{definition}
+
+
+\subsection{Spectral sequences}
+Before we discuss the Fr\"olicher spectral sequence, we review the mechanism of spectral sequences of filtered complexes. We refer extensively to \textbf{Chapter 8.3.1} and \textbf{8.3.2} of \cite{VoisinI2002}, but we will first build intuition for what these objects actually mean.
+
+\medskip
+
+\noindent If one has a cochain complex, computing its cohomology can be immensely difficult. A filtration allows us to break the complex into smaller, more manageable pieces. A spectral sequence is an iterative algebraic device that computes the cohomology of the whole complex by starting with the cohomology of the small pieces and successively gluing them together to resolve ambiguities.
+\begin{definition}
+    Let $\left(K^\bullet,d\right)$ be a cochain complex in some abelian category. Then a \emph{decreasingly filtered cochain complex} $\left(K^\bullet, d, F^\bullet\right)$ is the cochain complex $\left(K^\bullet, d\right)$ equipped with a decreasing family of subcomplexes
+    $$
+    \cdots \subseteq F^{p+1} K^\bullet \subseteq F^p K^\bullet \subseteq F^{p-1} K^\bullet \subseteq \cdots \subseteq F^0K^\bullet  = K^\bullet
+    $$
+    such that $d\left(F^pK^n\right)\subseteq F^pK^{n+1}$. 
+\end{definition}
+
+\noindent Now, note that we have an inclusion of the complexes $F^pK^\bullet \hookrightarrow K^\bullet$, and since $F^pK^\bullet$ is a subcomplex, this commutes with the differential. We can therefore pass to cohomology and get a natural map $H^n\left(F^pK^\bullet\right) \to H^n\left(K^\bullet\right)$, from which we observe that a filtration on a complex naturally gives rise to a filtration on the cohomology, namely:
+$$
+F^pH^n\left(K^\bullet\right):= \image \left(H^n\left(F^pK^\bullet\right) \to H^n\left(K^\bullet\right)\right)
+$$
+
+\begin{definition}
+    We define the \emph{associated graded complex} $\mathrm{Gr}_p^F H^n\left(K^\bullet\right)$ as successive quotients of the induced filtration on cohomology:
+    $$
+    \mathrm{Gr}_p^F H^n\left(K^\bullet\right) := F^pH^n\left(K^\bullet\right)/F^{p+1}H^n\left(K^\bullet\right)
+    $$
+\end{definition}
+
+\noindent With these objects, we can now begin constructing the \emph{spectral sequence} $\left(E_r^{p,q}, d_r\right)$ associated to the filtration $F$. A good way to conceptualize the complex $E_r^{p,q}$, which initially appears forbidding and unwieldy, is as a book with pages indexed by $r=0,1,2,\ldots$. Each page consists of a two-dimensional grid of vector spaces $E_r^{p,q}$ equipped with differential arrows $d_r$ between them, coming out of and going into each object. The directions of the arrows are dictated by the page number, and to ``flip'' to the next page, one takes the cohomology of the current page with respect to the arrows $d_r$. Let us visually define the first few pages before providing the formal proof.
+
+\begin{itemize}
+
+\item \textbf{The $E_0$ page:} The objects are simply the graded pieces of the original complex itself: $E_0^{p,q} = F^pK^{p+q}/F^{p+1}K^{p+q}$. Since $d$ takes $F^p$ to $F^p$, it induces a ``vertical'' differential $d_0: E_0^{p,q} \to E_0^{p,q+1}$.
+
+\[\begin{tikzcd}
+E_0^{p-1, q+1} & E_0^{p, q+1} & E_0^{p+1, q+1} \\
+E_0^{p-1, q} \arrow[u, "d_0"] & E_0^{p, q} \arrow[u, "d_0"] & E_0^{p+1, q} \arrow[u, "d_0"] \\
+E_0^{p-1, q-1} \arrow[u, "d_0"] & E_0^{p, q-1} \arrow[u, "d_0"] & E_0^{p+1, q-1} \arrow[u, "d_0"]
+\end{tikzcd}\]
+
+\item \textbf{The $E_1$ page:} We turn the page by taking cohomology: $E_1^{p,q} = \ker d_0 / \image d_0$. The original differential $d$ now induces ``horizontal'' arrows $d_1: E_1^{p,q} \to E_1^{p+1, q}$. 
+\[\begin{tikzcd}
+E_1^{p-1, q+1} \arrow[r, "d_1"] & E_1^{p, q+1} \arrow[r, "d_1"] & E_1^{p+1, q+1} \\
+E_1^{p-1, q} \arrow[r, "d_1"] & E_1^{p, q} \arrow[r, "d_1"] & E_1^{p+1, q} \\
+E_1^{p-1, q-1} \arrow[r, "d_1"] & E_1^{p, q-1} \arrow[r, "d_1"] & E_1^{p+1, q-1}
+\end{tikzcd}\]
+
+\item \textbf{The $E_2$ page and beyond:} Again, we take cohomology: $E_2^{p,q} = \ker d_1 / \image d_1$. The arrows now moves two steps to the right and one step down: $d_2: E_2^{p,q} \to E_2^{p+2, q-1}$. In general, the $r^\text{th}$ page differential (for a cohomological spectral sequence) goes $r$ steps to the right and $r-1$ steps down: $d_r: E_r^{p,q} \to E_r^{p+r, q-r+1}$.
+\[\begin{tikzcd}
+E_2^{p-2, q+1} \arrow[drr, "d_2"] & E_2^{p-1, q+1} & E_2^{p, q+1} & E_2^{p+1, q+1} \\
+E_2^{p-2, q} & E_2^{p-1, q} \arrow[drr, "d_2" near start] & E_2^{p, q} & E_2^{p+1, q} \\
+E_2^{p-2, q-1} & E_2^{p-1, q-1} & E_2^{p, q-1} & E_2^{p+1, q-1}
+\end{tikzcd}\]
+\end{itemize}
+
+\noindent What are we actually computing? To formally capture ``taking cohomology sequentially'', we define the space of \emph{approximate cocycles} $Z_r^{p,q}$. This represents elements in $F^p$ that are ``closed up to page $r$''. Meaning, if you apply $d$, the result lands $r$ levels deeper into the filtration, i.e. in $F^{p+r}$. Similarly, the \emph{approximate coboundaries} $B_r^{p,q}$ are elements that come from $d$ of something $r-1$ levels higher up.
+
+\medskip
+
+\noindent For the purpose of the next crucial theorem, we assume our filtration is bounded, i.e. for each degree $n$, there exists some $a$ such that $F^a K^n=0$. When the filtration is bounded, the differential arrows eventually point into spaces that are zero. When all incoming and outgoing arrows to a space $E_r^{p,q}$ are zero, taking cohomology does nothing, and the space stabilizes. We denote this stable limit page $E_\infty^{p,q}$. Following \textbf{Definition 8.26} of \cite{VoisinI2002}, we make the following definition:
+
+\begin{definition}
+    We say that the spectral sequence associated to the filtered cochain complex $\left(K^\bullet, d, F^\bullet\right)$ \emph{degenerates} at $E_r$ if, for all $k\geq r$, we have $d_k=0$. We then have $E_r^{p,q} = E_\infty^{p,q} = \mathrm{Gr}_p^F H^{p+q}\left(K^\bullet\right)$.
+\end{definition}
+
+\noindent We may now state and prove the theorem of interest:
+
+\begin{theorem}
+    There exist complexes $\left(E_r^{p,q}, d_r\right)$ where $d_r:E_r^{p,q} \to E_r^{p+r,q-r+1}$ satisfying the following conditions:
+    \begin{enumerate}[i.]
+        \item $E_0^{p,q}=\mathrm{Gr}_p^F K^{p+q}:= F^pK^{p+q}/F^{p+1}K^{p+q}$, with $d_0$ induced by $d$.
+        \item The $E_{r+1}$ page is determined by the cohomology of the $E_r$ page. Concretely, $E_{r+1}^{p,q} = \ker\left(d_r:E_r^{p,q}\to E_r^{p+r,q-r+1}\right)/\image \left(d_r:E_r^{p-r, q+r-1}\to E_r^{p,q}\right)$. 
+        \item Fix $p+q$. Then for $r$ sufficiently large, the sequence degenerates and we have $E_r^{p,q} = E_\infty^{p,q} = \mathrm{Gr}_p^F H^{p+q}\left(K^\bullet\right)$. We denote this convergence as $E_1^{p,q} \Rightarrow H^{p+q}\left(K^\bullet\right)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We begin by constructing these complexes. Define:
+    $$
+    Z^{p,q}_r:=\left\{x\in F^p K^{p+q}\mid dx\in F^{p+r}K^{p+q+1}\right\}
+    $$
+    
+    Now, observe that:
+    \begin{align*}
+    Z^{p+1,q-1}_{r-1}&:= \left\{x\in F^{p+1} K^{p+q}\mid dx\in F^{p+r}K^{p+q+1}\right\} \\
+    Z_{r-1}^{p-r+1,q+r-2} &:= \left\{x\in F^{p-r+1} K^{p+q-1}\mid dx\in F^{p}K^{p+q}\right\} 
+    \end{align*}
+    
+    \noindent Since $F$ is a decreasing filtration, the inclusion $Z_{r-1}^{p+1,q-1} \subseteq Z_r^{p,q}$ is obvious. Then, say $y\in Z_{r-1}^{p-r+1,q+r-2}$. This implies that $y\in F^{p-r+1} K^{p+q-1}$ and $dy\in F^{p} K^{p+q}$. We have $d^2y =0\in F^{p+r}K^{p+q+1}$ trivially, so $dy \in Z_r^{p,q}$, giving us the inclusion $dZ_{r-1}^{p-r+1,q+r-2}\subseteq Z_r^{p,q}$. We then define:
+    $$
+    B_r^{p,q} := Z_{r-1}^{p+1,q-1} + dZ_{r-1}^{p-r+1,q+r-2} \subseteq Z_r^{p,q}
+    $$
+    
+    \noindent This notation is suggestive of cocycles and coboundaries, and we define our complex $E_r^{p,q}:= Z_r^{p,q}/B_r^{p,q}$ in the usual fashion. We check that the differential $d$ sends $Z_r^{p,q}$ to $Z_r^{p+r,q-r+1}$ and $B_r^{p,q}$ to $B_r^{p+r,q-r+1}$. 
+
+    \medskip
+    
+    \noindent For $x\in Z^{p,q}_r$, we have $x\in F^p K^{p+q}$ and $dx \in F^{p+r}K^{p+q+1}$. Then $d^2x = 0\in F^{p+2r}K^{p+q+2}$ trivially, so $dx\in Z_r^{p+r, q-r+1}$ as desired. 
+
+    \medskip
+    
+    \noindent For $x\in Z_{r-1}^{p+1,q-1}$, $dx\in dZ_{r-1}^{p+1,q-1}$. But we have $B_r^{p+r,q-r+1}:= Z_{r-1}^{p+r+1, q-r} + dZ_{r-1}^{p+1,q-1}$. On the other hand, if $x\in dZ_{r-1}^{p-r+1,q+r-2}$, then $dx=0$ immediately. Taken together we have $d\left(B_r^{p,q}\right) \subseteq B_r^{p+r,q-r+1}$ as desired. 
+
+    \medskip
+
+    \noindent Since $d$ sends $Z_r^{p,q}$ to $Z_r^{p+r,q-r+1}$ and $B_r^{p,q}$ to $B_r^{p+r,q-r+1}$, it descends to a map $d_r:E_r^{p,q}\to E_r^{p+r,q-r+1}$ on the quotient, and inherits $d_r^2=0$ from $d^2=0$. Now that our complexes $\left(E_r^{p,q},d_r\right)$ are constructed, we merely need to verify the conditions provided.
+
+    \begin{enumerate}[i.]
+        \item We have $Z_0^{p,q} = F^pK^{p+q}$, $B_0^{p,q} = Z^{p+1,q-1}_{-1} + dZ^{p+1,q-2}_{-1}$. Then since $Z^{p+1,q-1}_{-1} = F^{p+1}K^{p+q}$ and $Z^{p+1,q-2}_{-1} = F^{p+2}K^{p+q-1} \implies dZ^{p+1,q-2}_{-1}\subseteq F^{p+2}K^{p+q} \subseteq F^{p+1}K^{p+q}$, we have $B_0^{p,q} =  F^{p+1}K^{p+q}$. Thus, $E_0^{p,q} = F^pK^{p+q}/F^{p+1}K^{p+q}=: \mathrm{Gr}_p^F K^{p+q}$ as desired. Then, since the differential $Z_0^{p,q}\to Z_0^{p,q+1}$ is $d$, $d_0$ is simply the induced differential $\bar{d}:\mathrm{Gr}_p^FK^{p+q}\to \mathrm{Gr}_p^F K^{p+q+1}$.  
+
+        \item Observe that if $z\in Z_{r+1}^{p,q}$, then $z\in F^p K^{p+q}$ and $dz\in F^{p+r+1}K^{p+q+1}$. Then, $d^2z = 0\in F^{p+2r}K^{p+q+2}$ trivially, so $dz\in Z_{r-1}^{p+r+1,q-r} \subseteq B_r^{p+r, q-r+1}$. Since obviously $Z_{r+1}^{p,q}\subseteq Z_r^{p,q}$, $z\in Z_r^{p,q}$ also, hence we let $\bar z$ denote the class of $z$ in $E_r^{p,q}$, and we have $d_r\bar z = 0$, i.e. $\bar z\in \ker \left(d_r:E_r^{p,q} \to E_r^{p+r,q-r+1}\right)$. 
+
+        \medskip
+        
+        Then, if $z \in B_{r+1}^{p,q}$, we can write $z=z_1+dz_2$ for $z_1 \in Z_r^{p+1,q-1}$ and $z_2\in Z_r^{p-r,q+r-1}$. Since $Z_r^{p+1,q-1}\subseteq Z_{r-1}^{p+1,q-1}\subseteq B_r^{p,q}$, we have $\bar{z} = \overline{z_1+dz_2} = \overline{dz_2}$. But since $z_2\in Z_r^{p-r,q+r-1}$, $dz_2 \in Z_r^{p,q}$, so this descends to the quotient and we have $d_r\left(\overline{z_2}\right) = \overline{dz_2} =\bar z$. In other words, $\bar z \in \image\left(d_r:E_r^{p-r,q+r-1} \to E_r^{p,q}\right)$. Thus, taking the class of an element in $E_r^{p,q}$ produces a map:
+        $$
+        Z_{r+1}^{p,q}/B_{r+1}^{p,q} \to \ker \left(d_r:E_r^{p,q} \to E_r^{p+r,q-r+1}\right) / \image\left(d_r:E_r^{p-r,q+r-1} \to E_r^{p,q}\right)
+        $$
+        
+        It remains to show that this map is a bijection. We show surjectivity first. Let $\bar z \in \ker d_r$, and pick some representative $z\in Z_r^{p,q}$, then $d_r(\bar z) = 0 \implies$ the class of $dz$ in $E_r^{p+r,q-r+1}$ is zero, i.e. $dz \in B_r^{p+r,q-r+1} = dZ_{r-1}^{p+1,q-1} +Z_{r-1}^{p+r+1,q-r}$. So there exists $w\in Z_{r-1}^{p+1,q-1}$ such that $d(z-w) \in Z_{r-1}^{p+r+1,q-r}\subseteq F^{p+r+1}K^{p+q+1}$. On the other hand, $z\in F^pK^{p+q}$ and $w\in F^{p+1}K^{p+q} \subseteq F^pK^{p+q}$, so $z-w\in F^pK^{p+q}$, and this gives us $z-w\in Z_{r+1}^{p,q}$. Then, since $w\in Z_{r-1}^{p+1,q-1}\subseteq B_r^{p,q}$, we have $\bar w=0$, and $\overline{z-w} = \bar z$. Hence, there exists $z-w$ sent by the map above to $\bar z$, and it is thus surjective. For brevity, we omit the proof for injectivity. 
+
+        \item Fix some $n$. Then for $\ell\geq n$ sufficiently large, by assumption of a bounded filtration, we have $F^\ell K^n = F^\ell K^{n-1} = F^\ell K^{n+1} =0$. For $p+q=n$, we then have:
+        $$
+        Z_{\ell+1}^{p,q} =\left\{x\in F^p K^n \mid dx\in F^{p+\ell+1} K^{n+1} = 0\right\}= \ker \left(d:F^pK^n\to F^pK^{n+1}\right)
+        $$
+        Similarly, we have:
+        $$
+        Z_{\ell}^{p+1,q-1} = \left\{x\in F^{p+1}K^n\mid dx\in F^{p+1+\ell} K^{n+1}=0\right\} = \ker \left(d:F^{p+1}K^n\to F^{p+1}K^{n+1}\right)
+        $$
+        Then, since $\ell \geq n=p+q \implies p-\ell \leq -q \leq 0$, so $Z_\ell^{p-\ell,q+\ell-1} = \left\{x\in F^{p-\ell}K^{n-1} =K^{n-1}\mid dx\in F^p K^{n}\right\}$. Now, we apply $d$ and this gives us exactly $dZ_\ell^{p-\ell,q+\ell-1}=F^pK^n\cap \image (d)$. Thus, we have
+        \begin{align*}
+        E_{\ell+1}^{p,q} &:= Z_{\ell+1}^{p,q} /B_{\ell+1}^{p,q} \\
+        &= Z_{\ell+1}^{p,q} /\left(Z_{\ell}^{p+1,q-1} + dZ_{\ell}^{p-\ell,q+\ell-1}\right) \\
+        &= \ker \left(d:F^pK^n\to F^pK^{n+1}\right) / \left(\ker \left(d:F^{p+1}K^n\to F^{p+1}K^{n+1}\right) +F^pK^n\cap \image (d)\right) \\
+        &= \image \left(H^n\left(F^pK^\bullet\right)\to H^n\left(K^\bullet\right)\right)/\image \left(H^n\left(F^{p+1}K^\bullet\right)\to H^n\left(K^\bullet\right)\right) \\
+        &= F^pH^n\left(K^\bullet\right) / F^{p+1}H^n\left(K^\bullet\right) \\
+        &= \mathrm{Gr}_p^FH^{p+q}\left(K^\bullet\right)
+        \end{align*}
+        as desired.
+    \end{enumerate}
+\end{proof}
+
+\section{The Hodge filtration and the Fr\"olicher spectral sequence}
+With the machinery of the spectral sequence fully set up, we are now able to delve into Fr\"olicher's construction in earnest. We set our cochain complex $K^\bullet$ to be $\mathcal{A}^\bullet(X)$, the complex of $\C$-valued differential forms on a complex manifold $X$ defined in \textbf{Section 2.1}, and we let $d$ be the usual exterior derivative. The cohomology of this complex is then the de Rham cohomology $H^\bullet_\mathrm{dR}(X)$. We can define the so-called \emph{naive filtration} on $\mathcal{A}^\bullet(X)$, given by:
+$$
+F^p\mathcal{A}^k(X) :=\bigoplus_{r\geq p, r+s=k} \mathcal{A}^{r,s}(X)
+$$
+
+\noindent Recall $d=\partial + \bar\partial$, and given $\mathcal{A}^{r,s}(X)$ in the decomposition of $F^p\mathcal{A}^k(X)$, we have $\partial\left(\mathcal{A}^{r,s}(X)\right) \subseteq \mathcal{A}^{r+1,s}(X) \subseteq F^p \mathcal{A}^{k+1}(X)$, $\bar\partial\left(\mathcal{A}^{r,s}(X)\right) \subseteq \mathcal{A}^{r,s+1}(X) \subseteq F^p \mathcal{A}^{k+1}(X)$, so $d\left(F^p\mathcal{A}^k(X)\right) \subseteq F^p \mathcal{A}^{k+1}(X)$, implying $F^\bullet$ is a valid filtration. 
+
+\medskip
+
+\noindent Since the naive filtration is trivially bounded, we can start to apply \textbf{Theorem 2.7} and construct our spectral sequence $\left(E_r^{p,q}, d_r\right)$. We begin by computing the $E_0$ page. By definition:
+$$
+E_0^{p,q} = F^p\mathcal{A}^{p+q}(X) / F^{p+1}\mathcal{A}^{p+q}(X) \cong  \mathcal{A}^{p,q}(X)
+$$
+
+\noindent Then, we determine the differential $d_0:E_0^{p,q} \to E_0^{p,q+1}$. This is induced by the exterior derivative $d$. For a given $x\in \mathcal{A}^{p,q}(X)$, $dx = \partial x  + \bar\partial x$. The term $\partial x$ is a form of type $(p+1,q)$, and hence in $\mathcal{A}^{p+1,q}(X) \subseteq F^{p+1}\mathcal{A}^{p+q+1}(X)$. It therefore vanishes when passing to $E_0^{p,q+1}$. On the other hand, $\bar\partial x$ is a form of type $(p,q+1)$, and hence in $\mathcal{A}^{p,q+1}(X) \cong E_0^{p,q+1}$, so the induced differential $d_0 = \bar\partial$ precisely. 
+
+\medskip
+
+\noindent We are now ready to assemble the next page, the $E_1$ page. Recall that the $E_1$ page is determined by the cohomology of the $E_0$ page along the $d_0$ arrows. Therefore, we have:
+\begin{align*}
+E_1^{p,q} &= \ker \left(d_0:E_0^{p,q} \to E_0^{p,q+1}\right) / \image \left(d_0: E_0^{p,q-1}\to E_0^{p,q}\right) \\
+&= \ker\left(\bar\partial: \mathcal{A}^{p,q}(X)\to \mathcal{A}^{p,q+1}(X) \right) / \image \left(\bar\partial: \mathcal{A}^{p,q-1}(X)\to \mathcal{A}^{p,q}(X) \right)
+\end{align*}
+
+\noindent But referring to \textbf{Definition 2.4}, this is nothing but the $(p,q)$-Dolbeault cohomology of $X$! In other words, we have:
+$$
+E_1^{p,q} \cong H_{\bar\partial}^{p,q}(X)
+$$
+
+\noindent At this point, we invoke \textbf{Corollary 2.6.21} of \cite{Huybrechts2005}, which tells us that the Dolbeault cohomology of $X$ computes the cohomology of the sheaf of holomorphic $p$-forms on $X$, $\Omega_X^p$, giving us an isomorphism $H_{\bar\partial}^{p,q}(X)\cong H^q\left(X,\Omega_X^p\right)$, and a clean way to express the data of the $E_1$ page:
+$$
+E_1^{p,q} \cong H^q\left(X,\Omega_X^p\right)
+$$
+Finally, from \textbf{Theorem 2.7(iii)}, we have one of the key results of this Appendix:
+\begin{theorem}
+    The Fr\"olicher spectral sequence converges $E_1^{p,q} = H^q\left(X,\Omega_X^p\right) \Rightarrow H^{p+q}_\mathrm{dR}(X)$, and agrees with the Dolbeault cohomology on the $E_1$ page. 
+\end{theorem}
+
+\section{The Hodge decomposition and degeneration for compact K\"ahler manifolds}
+Recall from \textbf{Definition 2.8} that a spectral sequence degenerates at the $E_r$ page if all arrows from that page onward are trivial, i.e. $d_k=0$ for all $k\geq r$. This immediately causes all subsequent pages to be identical. We show that, for a particular class of complex manifold, the Fr\"olicher spectral sequence defined in the previous section degenerates immediately. We begin with a definition from \textbf{Chapter 3} of \cite{VoisinI2002}:
+
+\begin{definition}
+    A \emph{K\"ahler manifold} is a complex manifold equipped with a Hermitian metric $h$, whose associated K\"ahler form $\omega = -\Im(h)$ satisfies $d\omega =0$ (closed). 
+\end{definition}
+
+\noindent If our manifold $X$ is K\"ahler, and we let $d:\mathcal{A}^{k-1}(X) \to \mathcal{A}^k(X)$ be the exterior derivative as per usual, we define the adjoint operator $d^*: -*\circ d\circ *:\mathcal{A}^k(X) \to \mathcal{A}^{k-1}(X)$, where $*$ denotes the \emph{Hodge star operator} (see \textbf{Section 1.2} of \cite{Huybrechts2005}). Analogously, we can define $\partial^*:\mathcal{A}^{p,q}(X) \to \mathcal{A}^{p-1,q}(X)$ and $\bar\partial^*:\mathcal{A}^{p,q}(X) \to \mathcal{A}^{p,q-1}(X)$.
+
+\begin{definition}
+    (Laplacian) We define the operators $\Delta_d = d^*d + dd^*$, $\Delta_\partial = \partial^*\partial+\partial\partial^*$, and $\Delta_{\bar \partial} = \bar\partial^*\bar\partial + \bar\partial \bar\partial^*$. Observe immediately that the latter two preserve bidegree, i.e. are bihomogeneous.
+\end{definition}
+
+\noindent These are connected by the so-called K\"ahler identities (\textbf{Proposition 3.1.12} in \cite{Huybrechts2005}); we state without proof one of the important ones since the proof is rather lengthy and analysis-heavy.
+
+\begin{lemma}
+If $X$ is K\"ahler, then $\Delta_d = 2\Delta_\partial = 2\Delta_{\bar \partial}$.
+\end{lemma}
+
+\begin{corollary}
+    Let $X$ be a K\"ahler manifold and $\alpha\in \mathcal{A}^k(X)$. $\alpha$ is $d$-harmonic $\iff \alpha$ is $\partial$-harmonic $\iff \alpha$ is $\bar\partial$-harmonic. Moreover, $\Delta_d$ is bidegree preserving, i.e. bihomogeneous. If $\alpha$ is $d$-harmonic, then all of its components of type $(p,q)$ are also $d$-harmonic. 
+\end{corollary}
+
+\begin{proof}
+    The first two assertions follow trivially from \textbf{Lemma 4.3}. For the last assertion, note we have $0 = \Delta_d\alpha = \sum_{p+q=k}\Delta_d\alpha^{p,q}$, and since $\Delta_d\alpha^{p,q}$ is a form of type $(p,q)$, they must all vanish separately.
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a K\"ahler manifold, let $\mathcal{H}^k_d(X)$ be the space of $d$-harmonic $k$-forms, let $\mathcal{H}^{p,q}_d(X)$ be the space of $d$-harmonic forms of type $(p,q)$, and let $\mathcal{H}^{p,q}_{\bar\partial}(X)$ be the space of $\bar\partial$-harmonic forms of type $(p,q)$. Then:
+    $$
+    \mathcal{H}^{k}_d(X) = \bigoplus_{p+q=k}\mathcal{H}^{p,q}_{d}(X)=\bigoplus_{p+q=k}\mathcal{H}^{p,q}_{\bar\partial}(X)
+    $$
+\end{corollary}
+
+\noindent From here, \textbf{Theorems 5.23} and \textbf{5.24} of \cite{VoisinI2002} provide isomorphisms $\mathcal{H}^k_d(X) \to H^k_\mathrm{dR}(X,\C)$ and $\mathcal{H}^{p,q}_{\bar\partial}(X) \to H^{p,q}_\mathrm{\bar\partial}(X)$ in the case where $X$ is compact. In other words, every de Rham cohomology class contains a unique $d$-harmonic representative, and every Dolbeault cohomology class contains a unique $\bar\partial$-harmonic representative. With this, we obtain the celebrated:
+\begin{theorem}
+    (Hodge decomposition) If $X$ is a compact K\"ahler manifold, then:
+    $$
+    H^k_\mathrm{dR}(X,\C) = \bigoplus_{p+q=k} H^{p,q}_{\bar\partial} (X) = \bigoplus_{p+q=k} H^q\left(X,\Omega_X^p\right)
+    $$
+\end{theorem}
+
+\noindent Armed with the Hodge decomposition, we can now prove the following important result. 
+\begin{theorem}
+    If $X$ is a compact K\"ahler manifold, the Fr\"olicher spectral sequence associated to $X$ degenerates at the $E_1$ page. 
+\end{theorem}
+
+\begin{proof}
+        Let $b_k:=\dim H_\mathrm{dR}^k(X,\C)$ be the $k^\text{th}$ Betti number, and let $h^{p,q}:=\dim H^q\left(X,\Omega_X^p\right)$ be the Hodge numbers. We note that the theory of spectral sequences gives us:
+        $$
+        E_\infty^{p,q} = F^p H_\mathrm{dR}^{p+q}(X,\C) / F^{p+1} H_\mathrm{dR}^{p+q}(X,\C) = \mathrm{Gr}^F_p H_\mathrm{dR}^{p+q}(X,\C)
+        $$
+        
+        \noindent Now, we have:
+        $$
+        b_k = \dim H_\mathrm{dR}^k(X,\C) = \sum_{p=0}^k\dim \mathrm{Gr}^F_p H_\mathrm{dR}^k(X,\C) = \sum_{p=0}^k\dim E^{p,k-p}_\infty = \sum_{p+q=k} \dim E_\infty^{p,q}
+        $$
+        
+        \noindent Then, since $E_{r+1}^{p,q}$ is always calculated from $E_r^{p,q}$ via taking cohomology, we have $\dim E_{r+1}^{p,q} \leq \dim E_r^{p,q}$. Thus, $\dim E_\infty^{p,q} \leq \dim E_1^{p,q} = h^{p,q}$. But taking dimensions on both sides of the Hodge decomposition gives us $b_k = \sum_{p+q=k} h^{p,q}$. Substituting this into our inequality gives:
+        $$
+        \sum_{p+q=k} h^{p,q} = b_k = \sum_{p+q=k} \dim E_\infty^{p,q} \leq \sum_{p+q=k} h^{p,q}
+        $$
+        
+        \noindent Since the left and right sides are equal, we must have strict equality for every $p$ and $q$, i.e. $\dim E_{r+1}^{p,q} = \dim E_r^{p,q}$ for all $r\geq 1$. As noted in the proof to \textbf{Theorem 8.28} of \cite{VoisinI2002}, the dimension preservation guarantees $d_r = 0$ for all $r\geq 1$. As such, the spectral sequence degenerates at the $E_1$ page.
+\end{proof}
+
+\noindent Why is \textbf{Theorem 4.7} so powerful? The fact that a spectral sequence degenerates at the very first page means that $E_1^{p,q} = E_\infty^{p,q}$. By definition, this yields:
+$$
+H^q\left(X,\Omega_X^p\right) \cong \mathrm{Gr}^F_p H^{p+q}_\mathrm{dR}(X,\C)
+$$
+We list some immediate applications of this theorem to further illustrate its importance and power. 
+
+\begin{corollary}
+    Every odd Betti number of a compact K\"ahler manifold must be even.
+\end{corollary}
+
+\begin{proof}
+    The Laplacian $\Delta_d$ is a real operator, complex conjugation provides an isomorphism $\overline{H_{\bar{\partial}}^{p,q}(X)} \cong H_{\bar{\partial}}^{q,p}(X)$. Therefore, their dimensions, the Hodge numbers $h^{p,q}$, satisfy $h^{p,q} = h^{q,p}$. Consequently, the $k^\text{th}$ Betti number is $b_k = \sum_{p+q=k} h^{p,q}$. If $k$ is odd, the terms $h^{p,q}$ and $h^{q,p}$ pair up perfectly, and $b_k$ is therefore even.
+\end{proof}
+\noindent This provides an immediate topological obstruction to admitting a K\"ahler metric. For instance, the Hopf surface $S^1 \times S^3$ is a complex manifold but its first Betti number is $b_1=1$. Hence, it can never be given a K\"ahler metric.
+
+\begin{corollary}
+    Every holomorphic form on a compact K\"ahler manifold is $d$-closed.
+\end{corollary}
+
+\begin{proof}
+    Consider a globally defined holomorphic $p$-form $\alpha \in H^0\left(X, \Omega_X^p\right)$. In our spectral sequence, this corresponds to a class in $E_1^{p,0}$. Since the sequence degenerates at $E_1$, the differential $d_1: E_1^{p,0} \to E_1^{p+1, 0}$ must be exactly zero. However, we established that $d_1$ is precisely induced by the $\partial$ operator. Therefore, $\partial \alpha$. Since $\alpha$ is holomorphic, we already know $\bar\partial \alpha =0$. Consequently, $d\alpha = (\partial + \bar{\partial})\alpha = 0$. Thus, on a compact K\"ahler manifold, every holomorphic form is automatically closed.
+\end{proof}
+
+\section{Failure of degeneration}
+\subsection{The Iwasawa manifold}
+
+We now exhibit a compact complex manifold for which the Fr\"olicher spectral sequence does \emph{not}
+degenerate at the $E_1$ page. Here, we take reference from \textbf{Example 3.A.34} of \cite{Huybrechts2005}. Define the complex Heisenberg group as follows:
+$$
+G=\left\{ \begin{pmatrix}
+1 & z_1 & z_3\\ 0 & 1 & z_2\\ 0 & 0 & 1\end{pmatrix} \mid z_1,z_2,z_3\in\C \right\}
+$$
+
+\noindent If we further define $\Gamma = G\cap \mathrm{GL}(3,\Z[i])$, then the quotient $X:=G/\Gamma$ is a compact complex manifold of complex dimension $3$, called the \emph{Iwasawa manifold}. On $G$, consider the left-invariant forms of type $(1,0)$:
+\begin{align*}
+\varphi^1 &= dz_1\\
+\varphi^2 &= dz_2\\
+\varphi^3 &= dz_3 - z_1 \,dz_2
+\end{align*}
+
+\noindent These descend to global forms of type $(1,0)$ on $X$, and satisfy the following equations:
+\begin{align*}
+d\varphi^1 &= d\varphi^2 = 0 \\
+d\varphi^3 &= -\varphi^1\wedge \varphi^2
+\end{align*}
+
+\noindent Since $d\varphi^j$ has no $(0,1)$ component, we have:
+$$
+\bar\partial \varphi^1=\bar\partial \varphi^2=\bar\partial \varphi^3=0
+$$
+
+\noindent Thus, all three define classes in $H_{\bar\partial}^{1,0}(X)$. In fact, we have $h^{1,0}(X)=\dim H_{\bar\partial}^{1,0}(X)=3$. Now consider the forms of type $(0,1)$ $\bar\varphi^1,\bar\varphi^2,\bar\varphi^3$. We have:
+\begin{align*}
+\bar\partial \bar\varphi^1&=\bar\partial \bar\varphi^2=0 \\
+\bar\partial \bar\varphi^3 &= -\bar\varphi^1\wedge \bar\varphi^2.
+\end{align*}
+
+\noindent As such, $\bar\varphi^1$ and $\bar\varphi^2$ define nontrivial Dolbeault classes, while $\bar\varphi^3$ does not. Hence, $h^{0,1}(X)=\dim H_{\bar\partial}^{0,1}(X)=2$. On the other hand, the first Betti number of the Iwasawa manifold is $b_1(X) = 4$. Therefore:
+$$
+\dim E_1^{1,0}+\dim E_1^{0,1} = h^{1,0}(X)+h^{0,1}(X) = 3+2 = 5 > 4 = b_1(X)
+$$
+
+\noindent But if the Fr\"olicher spectral sequence degenerated at $E_1$, then by \textbf{Theorem 2.8(iii)} we would have
+$$
+\sum_{p+q=1}\dim E_1^{p,q} = \sum_{p+q=1}\dim E_\infty^{p,q} = \dim H^1_{dR}(X,\C) = b_1(X),
+$$
+which is impossible. Hence the Fr\"olicher spectral sequence of the Iwasawa manifold does \emph{not}
+degenerate at the $E_1$ page.
+
+\section{Bibliography}
+\nocite{Huybrechts2005,VoisinI2002,VoisinII2003,Frolicher1955,Lang2002}
+
+\bibliographystyle{unsrtnat}
+\bibliography{finalpaper}
+
+\end{document}
