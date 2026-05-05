@@ -1,0 +1,64 @@
+\chapter{Discrete gauge theory computations}\label{app:bf-zn}
+
+This appendix collects the discrete-gauge calculations that Chapters~\ref{ch:bf} and \ref{ch:dw} deliberately keep out of the main narrative. The guiding division of labor is the following:
+\begin{itemize}
+\item the main text keeps the conceptual BF $\leftrightarrow \Z_N$ bridge, one explicit family of cyclic-group cocycles, and the toric-code / untwisted-$\Z_2$ round-trip;
+\item this appendix absorbs the longest lattice bookkeeping, the full bar-resolution proof that the cyclic cocycle family generates $H^3(B\Z_N,U(1))$, and secondary checks that are useful for verification but would interrupt the flow of Chapters~6 and 7.
+\end{itemize}
+The detailed computations themselves are deferred to Stage~VI, Task~AD.1 of the writing plan. The purpose of the present appendix skeleton is to state that scope boundary explicitly before those later proof-writing passes begin.
+
+\section{Scope and relation to the main text}\label{sec:appD-scope}
+
+Chapter~\ref{ch:bf} uses only the structural consequence that compact level-$N$ BF theory reduces the continuous gauge data to flat $\Z_N$ data, together with the resulting linking phase and genus-$g$ ground-state degeneracy. Chapter~\ref{ch:dw} uses only the classification
+\begin{equation*}
+H^3(B\Z_N,U(1))\cong \Z_N,
+\end{equation*}
+one explicit cocycle family $\omega_p$, and the resulting untwisted-versus-twisted $\Z_2$ distinction.
+
+\medskip
+
+\noindent Appendix~\ref{app:bf-zn} is where the longer proofs live when they are too long for the body chapters:
+\begin{enumerate}
+\item the cell-by-cell derivation of the compact-BF path integral as a projector onto flat $\Z_N$ holonomy sectors;
+\item the chain-level bar-resolution computation showing that $\omega_1$ is a generator of $H^3(B\Z_N,U(1))$;
+\item overflow checks, low-$N$ sanity tests, and convention comparisons that are useful for correctness but not for first-pass readability.
+\end{enumerate}
+
+\section{Compact BF on a lattice and the \texorpdfstring{$\Z_N$}{Z\_N} reduction}\label{sec:appD-bf-lattice}
+
+This section is the depth-version of Chapter~\ref{ch:bf}, especially Section~\ref{sec:bf-zn}. Its job is to take the schematic lattice argument from the main text and write every step in a fixed convention:
+\begin{itemize}
+\item choose an oriented cell decomposition of the closed $3$-manifold $M$;
+\item write the compact $U(1)$ BF partition function with one compact gauge variable on each $1$-cell and one integer Fourier mode on each $2$-cell;
+\item perform the $B$-summation or its lattice Fourier-dual step carefully enough to show that the plaquette holonomy is projected onto the subgroup $\mu_N\cong \Z_N$;
+\item identify the surviving data with flat $\Z_N$ gauge fields and compare the result directly with the untwisted Dijkgraaf--Witten partition sum.
+\end{itemize}
+The main text already proves the structural outcome of this calculation, so Appendix~D will focus on the full bookkeeping: incidence signs, normalization choices, and the exact match between the lattice BF measure and the discrete gauge-theory sum.
+
+\section{Bar-resolution proof for \texorpdfstring{$H^3(B\Z_N,U(1))\cong \Z_N$}{H3(BZ\_N,U(1))}}\label{sec:appD-bar-resolution}
+
+This section is the depth-version of Chapter~\ref{ch:dw}, especially Section~\ref{sec:dw-zn}. The main text already gives the classification and verifies directly that the cocycles
+\begin{equation*}
+\omega_p(a,b,c)
+=
+\exp\!\left(\frac{2\pi i p}{N}\,\widetilde a\left\lfloor \frac{\widetilde b+\widetilde c}{N}\right\rfloor\right)
+\end{equation*}
+satisfy the $3$-cocycle condition. What remains for the appendix is the heavier chain-level proof:
+\begin{itemize}
+\item state a single bar-resolution convention, following Brown's \emph{Cohomology of Groups};
+\item write the normalized cochain differential explicitly in that convention;
+\item verify at the chain level that $\omega_1$ is not a coboundary and in fact generates the cyclic group of classes;
+\item show that $\omega_p\sim \omega_q$ if and only if $p\equiv q \pmod N$ by an explicit coboundary computation;
+\item record the $N=2$ specialization as the untwisted / double-semion split used in Section~\ref{sec:dw-inflow}.
+\end{itemize}
+This is the section that protects Chapter~7 from expanding into a long group-cohomology appendix in disguise.
+
+\section{Secondary checks and overflow material}\label{sec:appD-secondary}
+
+The final section of Appendix~D is reserved for material that may or may not be needed once the whole manuscript is assembled, but whose natural home is clearly not the main text. Candidate items include:
+\begin{itemize}
+\item alternative normalizations of the finite-group path integral and their relation to the orbit-weighted convention of Section~\ref{sec:dw-action};
+\item low-$N$ sanity checks beyond the ones already kept in the chapter body;
+\item overflow from the BF $\leftrightarrow \Z_N$ equivalence derivation if later prose edits force further compression in Chapter~\ref{ch:bf}.
+\end{itemize}
+If none of this material is needed, this section may remain short. Its presence here simply makes the appendix boundary explicit before the final integration pass.

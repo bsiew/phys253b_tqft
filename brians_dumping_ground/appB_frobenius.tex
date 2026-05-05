@@ -1,0 +1,61 @@
+\chapter{Frobenius algebras and 2D TQFT: full proof}\label{app:frobenius}
+
+This appendix is the landing zone for the parts of Chapter~\ref{ch:frobenius} that were stated honestly but not proved in full in the main text. The guiding principle is simple: every deferred argument in Chapter~\ref{ch:frobenius} should have a named home here, even if the full derivation is postponed until the Stage VI integration pass.
+
+\section{From a Frobenius algebra to a TQFT}\label{appsec:frob-to-tqft}
+
+\emph{To be drafted in Stage VI.}
+
+This section will supply the full converse direction of the classification theorem:
+\begin{equation*}
+(V,m,\eta,\epsilon)
+\quad\Longrightarrow\quad
+Z_V : \mathrm{Cob}_2 \to \mathrm{Vect}_{\C}.
+\end{equation*}
+The main-text version in Proposition~\ref{prop:Frob-to-TQFT} defined $Z_V$ on the generators and explained why the local algebraic relations match the local cobordism relations. What remains here is the global well-definedness argument: given an arbitrary cobordism and a Morse decomposition into caps, cups, cylinders, and pairs of pants, prove that the resulting linear map is independent of the chosen Morse function and chosen sequence of cuts.
+
+\medskip
+
+\noindent Planned contents:
+\begin{enumerate}
+\item Construct $Z_V$ on generators and disconnected objects.
+\item Show invariance under local generator relations.
+\item Show that any two Morse decompositions are connected by the standard Cerf-theoretic moves.
+\item Conclude that $Z_V$ is a well-defined symmetric monoidal functor.
+\end{enumerate}
+
+\section{Independence of handle decomposition and mapping-class-group moves}\label{appsec:mapping-class}
+
+\emph{To be drafted in Stage VI.}
+
+This section will isolate the geometric input behind the converse direction. Chapter~\ref{ch:frobenius} used the slogan that ``the relations already encoded in the Frobenius algebra are enough.'' Here that slogan will be expanded into a precise statement about moves relating decompositions of the same surface.
+
+\medskip
+
+\noindent Planned contents:
+\begin{enumerate}
+\item The Morse-move/Cerf-move list for surfaces.
+\item Why these moves reduce to associativity, commutativity, unitality, and the Frobenius relation.
+\item How the resulting invariance packages the mapping class group action on decomposed surfaces.
+\item A clean statement of where Kock's proof is being used and where this appendix reproduces the argument directly.
+\end{enumerate}
+
+\section{Handle-operator spectrum in the finite-group examples}\label{appsec:handle-spectrum}
+
+\emph{To be drafted in Stage VI.}
+
+Section~\ref{sec:genus-g-partition} derived the general genus formula in terms of the handle operator. The examples in Section~\ref{sec:frobenius-examples} showed how to build Frobenius algebras from $\C[x]/(x^n-1)$ and from $Z(\C[G])$, but did not carry out the full diagonalization of the handle operator in those bases. This section will do that explicitly.
+
+\medskip
+
+\noindent Planned contents:
+\begin{enumerate}
+\item Compute the handle element and handle operator for $A_n=\C[x]/(x^n-1)$.
+\item Compute the handle operator on the class-sum basis of $Z(\C[G])$.
+\item Rewrite the genus formula of Theorem~\ref{thm:genus-g-handle} in those examples.
+\item Compare the unnormalized Frobenius-theory answer with the conventional finite-gauge-theory normalization.
+\end{enumerate}
+
+\medskip
+
+\noindent In particular, this section is the designated home for the statement deferred after Proposition~\ref{prop:idempotent-genus}: the explicit eigenvalues of the handle operator in the finite-group examples used to foreshadow Chapter~\ref{ch:dw}.
