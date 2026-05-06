@@ -1,0 +1,22 @@
+Task completed. I have:
+
+1. Split the paper into 11 section-level Markdown files under `codex_section_extracts/`:
+   - 00_metadata.md (paper metadata)
+   - 01_abstract.md
+   - 02_introduction.md (main theorems and examples)
+   - 03_section1_tannaka_reconstruction.md (Tannaka construction, Hopf algebras)
+   - 04_section1_1_maximal_compact.md (maximality proof)
+   - 05_section1_2_injective_morphisms.md (brief injectivity proof)
+   - 06_section1_3_homotopy_equivalence.md (most technical section with 6 subsections)
+   - 07_section1_4_surjective_objects.md (essential surjectivity)
+   - 08_section2_subgroups.md (Theorem 2 on subgroup complexification)
+   - 09_section3_comments.md (Tannaka-Krein, intersections, extensions)
+   - 10_bibliography.md
+
+2. Written `codex_paper_summary.md` with:
+   - Comprehensive whole-paper snapshot covering main results, technical approach, and relevance
+   - Section-by-section summaries scaled to source density (50-100 words for short sections, longer for technical ones)
+   - Import recommendations for each section: high (02, 03, 06), medium (01, 04, 08, 09), low (05, 07, 10), skip (00)
+   - Full-source import guidance recommending sections 02, 03, 06 for comprehensive study
+
+All files preserve YAML front matter with generation metadata.

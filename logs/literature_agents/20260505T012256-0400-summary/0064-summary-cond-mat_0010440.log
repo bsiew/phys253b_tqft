@@ -1,0 +1,11 @@
+Task complete. I've split the Kitaev Majorana fermion paper into 5 section-level extracts and created a comprehensive summary with import recommendations.
+
+**Generated files:**
+- `codex_section_extracts/01_abstract.md` — **high** priority
+- `codex_section_extracts/02_introduction.md` — **high** priority  
+- `codex_section_extracts/03_toy_model.md` — **high** priority (Kitaev chain details)
+- `codex_section_extracts/04_general_condition.md` — **high** priority (Pfaffian formula)
+- `codex_section_extracts/05_physical_realization.md` — **medium** priority (experimental speculation)
+
+**Summary structure:**
+The `codex_paper_summary.md` provides a whole-paper snapshot emphasizing the three main contributions (solvable toy model, topological invariant, simplified Fermi-point criterion), followed by section-by-section summaries scaled to technical density. Sections 01–04 cover complete theoretical foundations and are recommended for initial context load; section 05 contains forward-looking experimental proposals and can be deferred.

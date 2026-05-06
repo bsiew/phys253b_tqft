@@ -1,0 +1,21 @@
+Done. I've created a consolidated and cleaned scientific extract of the paper "String Topology for Lie Groups" by Richard Hepworth. The extraction:
+
+**Preserved:**
+- YAML front matter with updated timestamp
+- All scientific definitions (loop product, BV-operator, Batalin-Vilkovisky algebra)
+- Main theorems and propositions with full statements
+- Key results for $SO(n)$ with rational and mod 2 coefficients
+- Properties of the homology suspension
+- Complete worked examples for $S^1$, $S^3$, and $\mathbb{RP}^3$
+- Full proofs of the main theorem and key lemmas
+- All derivation specifications
+
+**Removed:**
+- TeX document class, packages, and setup commands
+- Macro definitions (\newcommand, \newtheorem, etc.)
+- Author affiliation formatting and footnotes
+- Bibliography commands and citations (kept reference structure)
+- Purely presentational TeX markup
+- Commented-out lines
+
+The file now at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0905.1199/codex_scientific_text.md` contains the scientific content in clean, readable markdown format suitable for literature analysis and note-taking.

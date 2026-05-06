@@ -1,0 +1,19 @@
+Done. I've extracted the scientific content from the arXiv paper 2409.11777 into `codex_scientific_text.md`. The extraction:
+
+**Preserved:**
+- All scientific prose from introduction through conclusion
+- Definitions of axion physics and the PQ mechanism
+- Equations for sensitivity, overlap formalism, noise models (in LaTeX)
+- Experimental setup details for the CB200 prototype
+- Data analysis procedures (Savitzky-Golay filtering, grand spectrum analysis, Maxwell-Boltzmann line-shape)
+- Systematic uncertainty budget
+- Supplemental material on electromagnetic booster modeling, bead-pull verification, Y-factor calibration, noise models
+
+**Removed:**
+- Document class and package declarations (revtex4, hyperref, etc.)
+- Macro definitions (booster peak frequencies as variables, MADMAX formatting commands)
+- Bibliography commands and author attribution metadata
+- Figure/table scaffolding (includegraphics, caption structure for layout)
+- Editorial comments and TeX formatting directives
+
+The frontmatter was preserved with updated timestamps. The file is now ready for literature extraction into the QFT project knowledge base.

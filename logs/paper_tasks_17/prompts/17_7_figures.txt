@@ -1,0 +1,64 @@
+You are generating TikZ figures for a physics review paper on TQFT.
+
+## Context
+
+Figures go in: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/figures/
+Some figures may already exist there. Check first and only create missing ones.
+
+## Task specification
+
+# Task 17.7 — Generate Figures
+
+- **Status:** pending
+- **Owner:** Brian + Helena (per owner in `paper/figures/README.md`)
+- **Duration:** 3 hours
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+
+## Goal
+
+Produce the 8 figures from the Task 1.8 checklist, either as TikZ files or as extracted/redrawn images.
+
+## Figures to produce
+
+1. Cobordism generators (TikZ, B, Ch 4).
+2. Pair-of-pants multiplication (TikZ, B, Ch 4).
+3. Hopf link for Wilson loops (TikZ, B, Ch 5 or Ch 10).
+4. Higher-form symmetry defect insertion (TikZ, B, Ch 8).
+5. Bulk-boundary anomaly inflow schematic (TikZ, B, Ch 8).
+6. Anyon braiding worldlines (TikZ, H, Ch 10).
+7. FQH interferometer (extract or redraw, H, Ch 12) — Task 12.4.
+8. Ising fusion tree (TikZ, H, Ch 13).
+
+## Steps
+
+1. For each TikZ figure: write the `.tex` source under `paper/figures/`, include via `\input{figures/figN_xxx}` or `\includegraphics` of a compiled PDF.
+2. For the extracted figure: see Task 12.4.
+3. Verify each figure renders correctly in the full compiled paper.
+
+## Fallback
+
+If TikZ becomes a time sink, hand-draw on tablet, export to PDF, `\includegraphics`. The rubric does not require vector graphics.
+
+## Acceptance criteria
+
+- All 8 figures present in compiled `main.pdf`.
+- Captions are complete (one-sentence description + attribution if extracted).
+
+## Risks
+
+- **Time sink.** TikZ can consume hours. Switch to hand-drawn if blocked for > 30 min on any single figure.
+
+## Priority figures (from critical evaluation)
+
+1. Pair-of-pants cobordism (ch03/ch04) -- the canonical illustration of the multiplication map in 2D TQFT. File: f_pair_of_pants.tex
+2. Cobordism generators -- cap, cup, identity cylinder, twist. File: f_cobordism_generators.tex
+3. Anyon braiding worldlines -- two particles exchanging in 2+1D spacetime, showing the worldlines crossing. File: f_anyon_braiding.tex
+4. Bulk-boundary anomaly inflow schematic -- 3D bulk with CS action, 2D boundary with chiral edge mode, arrow showing inflow. File: f_anomaly_inflow.tex
+
+## Instructions
+
+1. Check which figures already exist in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/figures/
+2. For each missing figure, write a standalone TikZ file that can be \input{} into a chapter.
+3. Use \begin{tikzpicture}...\end{tikzpicture} (no standalone document class -- these get input'd).
+4. Keep figures clean and readable. Use standard tikz libraries (decorations, calc, arrows.meta, knots if available).
+5. Add a brief comment at the top of each file identifying which chapter uses it.

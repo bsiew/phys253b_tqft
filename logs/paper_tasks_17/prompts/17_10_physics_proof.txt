@@ -1,0 +1,58 @@
+You are performing a physics/citation proofreading pass on a physics review paper on TQFT.
+
+## Task specification
+
+---
+created_at: "2026-05-05T19:01:28-04:00"
+updated_at: "2026-05-05T19:01:29-04:00"
+generated_by: "claude-code"
+updated_by: "claude-code"
+timestamp_source: hook
+---
+# Task 17.10 — Physics / Citation Proofreading Pass
+
+- **Status:** pending
+- **Owner:** Helena
+- **Duration:** 2.5 hours (expanded scope)
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+- **Reference:** [`llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md`](../../llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md) — see Ch 12 and Ch 13 evaluations
+
+## Goal
+
+End-to-end read with a focus on: experimental numbers, physical plausibility, and citation attribution.
+
+## Specific checks
+
+1. **Experimental values.** $\sigma_{xy}$ values, filling fractions, measured braiding phases — all match published experimental papers.
+2. **Citation attribution.** Every experimental claim cites the primary source (not a review). Primary = Nakamura 2020, Werkmeister 2025, Andersen 2023, plus any 2025 follow-up papers actually mentioned.
+3. **Historical claims.** Kitaev 2003 originated fault-tolerant anyonic QC — check. Callan–Harvey 1985 originated the inflow mechanism — check.
+4. **Honesty-box tone.** Chapters 11, 12, 13 honesty boxes read as matter-of-fact, not hedging or polemical.
+
+## Additional checks from Critical Evaluation (2026-05-05)
+
+5. **Ch 12 epistemic hierarchy.** After restructuring (if done), verify the new ordering (direct braiding → indirect correlations → synthetic emulation) is reflected in section order and prose framing.
+6. **Andersen 2023 honesty box sharpness.** Must say explicitly: "not an observation of non-abelian anyons in condensed matter; a programmatic verification on an engineered system." No hedging.
+7. **Ch 12 synthesis paragraph.** Verify closing section states: (a) fractional charge settled, (b) abelian braiding at ν=1/3 directly observed, (c) non-abelian braiding in natural system unobserved.
+8. **Ch 13 §13.4 honesty.** Must state: no natural non-abelian platform confirmed as of 2024-2025; ν=5/2 remains debated.
+9. **Ch 11 §11.7 tunneling exponents.** If written: verify the Luttinger-liquid prediction $I \propto V^{2/\nu - 1}$ and the measured discrepancy are correctly attributed to edge reconstruction.
+
+## Acceptance criteria
+
+- All experimental numbers cross-verified with primary sources.
+- Citation accuracy confirmed.
+- Honesty boxes read correctly.
+- Epistemic-status framing in ch12 and ch13 is sharp, not hedging.
+
+## Instructions
+
+1. Read each tex file in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/ (focus on ch11, ch12, ch13, ch14, ch15, ch16).
+2. Verify experimental numbers match published papers:
+   - sigma_xy values, filling fractions
+   - Measured braiding phases (Nakamura 2020: exp(2pi i/3) at nu=1/3)
+   - nEDM bound: |d_n| < 1.8e-26 e cm (Abel et al 2020)
+3. Verify citation attribution (primary sources, not reviews).
+4. Check honesty-box/caveats tone: matter-of-fact, not hedging.
+5. Verify Ch 12 synthesis: (a) fractional charge settled, (b) abelian braiding at nu=1/3 observed, (c) non-abelian in natural system unobserved.
+6. Verify Ch 13 states: no natural non-abelian platform confirmed as of 2024-2025.
+7. Fix any issues directly in the tex files.
+8. Write a summary to /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_17/17_10_physics_findings.md

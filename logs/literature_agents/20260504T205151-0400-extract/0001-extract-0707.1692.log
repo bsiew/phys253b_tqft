@@ -1,0 +1,2085 @@
+OpenAI Codex v0.128.0-alpha.1 (research preview)
+--------
+workdir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/helenabrittain/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019df59e-b2ae-7261-a62f-dff655c72744
+--------
+user
+You are the QFT literature extraction agent for project QFT.
+
+Working directory: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+Output file: codex_scientific_text.md
+
+Task:
+Use bash to make a mechanical starting copy from the TeX source. For a single substantive file, a starting move like
+`cp main.tex codex_scientific_text.md` is fine; for multi-file papers, concatenate the
+substantive TeX files with source-file headings. Then clean the copied text.
+
+Keep scientific prose, definitions, assumptions, derivations, equations,
+interpretations, caveats, and named results. Remove only non-scientific TeX
+plumbing: classes/packages, macro/style setup, comments, bibliography commands,
+author formatting, and purely presentational table/figure scaffolding.
+
+Preserve YAML front matter in codex_scientific_text.md. Use only files in this paper
+directory as scientific sources.
+
+2026-05-05T00:51:54.180825Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:51:54.181186Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:51:54.807812Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:51:54.808739Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:51:54.823284Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.823300Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:54.823612Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.823618Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:54.823928Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.823933Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:54.824242Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.824247Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:54.824555Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.824560Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:54.825213Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:54.825218Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.201687Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:51:58.202062Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:51:58.215086Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.215102Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.215430Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.215439Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.215776Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.215782Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.216111Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.216121Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.216449Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.216455Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:51:58.217161Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:51:58.217167Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’m checking the paper directory to identify the substantive TeX sources and whether `codex_scientific_text.md` already has YAML front matter that needs to be preserved.
+exec
+/bin/zsh -lc pwd in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'ls -la' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'rg --files' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:52:07.873588Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:52:07.873933Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:52:07.887241Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.887263Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:07.887586Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.887593Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:07.887918Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.887924Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:07.888235Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.888242Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:07.888558Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.888563Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:07.889235Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:07.889240Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 246ms:
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+
+ succeeded in 258ms:
+total 64
+drwxr-xr-x@  4 helenabrittain  staff    128 May  4 20:51 .
+drwxr-xr-x@ 92 helenabrittain  staff   2944 May  4 20:47 ..
+-rw-r--r--@  1 helenabrittain  staff    388 May  4 20:51 codex_scientific_text.md
+-rw-r--r--@  1 helenabrittain  staff  25559 May  4 18:04 revised2.tex
+
+ succeeded in 253ms:
+codex_scientific_text.md
+revised2.tex
+
+codex
+There’s a single substantive source, `revised2.tex`. I’m reading the existing Markdown header and the TeX structure so I can preserve the front matter and strip only the non-scientific scaffolding.
+exec
+/bin/zsh -lc "sed -n '1,120p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '1,220p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:51:51-04:00"
+updated_at: "2026-05-04T20:51:51-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+
+ succeeded in 0ms:
+
+\documentclass[twocolumn,showpacs,floatfix,prl]{revtex4}
+
+\usepackage[dvips]{epsfig}
+
+\usepackage{float}
+
+
+\begin{document}
+
+\title{Superconducting proximity effect and Majorana fermions
+at the surface of a topological insulator
+}
+
+\author{Liang Fu and C.L. Kane}
+\affiliation{Dept. of Physics and Astronomy, University of Pennsylvania,
+Philadelphia, PA 19104}
+
+\begin{abstract}
+We study the proximity effect between an $s$-wave superconductor and the
+surface states of a strong topological insulator.  The resulting two
+dimensional state resembles a spinless $p_x+ip_y$ superconductor, but
+does not break time reversal symmetry.  This state supports Majorana
+bound states at vortices.  We show that linear junctions between
+superconductors mediated by the topological insulator form a non chiral 1
+dimensional wire for Majorana fermions, and that circuits formed from
+these junctions provide a method for creating, manipulating and
+fusing Majorana bound states.
+\end{abstract}
+
+\pacs{71.10.Pm, 74.45.+c, 03.67.Lx, 74.90.+n}
+\maketitle
+
+Excitations with non-Abelian statistics\cite{mooreread} are the basis for the
+intriguing proposal of topological quantum computation\cite{kitaev}.  The simplest
+non-Abelian excitation is the zero energy Majorana bound state (MBS)
+associated with a vortex in a spinless $p_x+ip_y$
+superconductor\cite{readgreen,ivanov,stern,stone}.  The presence of $2N$ vortices
+leads to a $2^N$ fold
+ground state degeneracy.  Braiding processes, in which the
+vortices are adiabatically rearranged, perform non trivial operations
+in that degenerate space.  Though MBSs do not have the structure necessary
+to construct
+a universal quantum computer\cite{friedman}, the quantum information encoded in
+their degenerate states is topologically protected from local sources of
+decoherence\cite{kitaev3}.
+
+MBSs have been proposed to exist as quasiparticle
+excitations of the $\nu=5/2$ quantum Hall effect\cite{mooreread,readgreen},
+ in the cores of
+$h/4e$ vortices in the $p$-wave superconductor Sr$_2$RuO$_4$\cite{dassarma}
+and in cold atoms\cite{gurarie,tewari}.  In this
+paper we show that the proximity effect between an ordinary $s$-wave
+superconductor and the surface of a strong topological
+insulator (TI)\cite{fkm,moore,roy,fukane}
+leads to a state which hosts MBSs at vortices.  We then
+show that a linear superconductor - TI - superconductor
+(STIS) junction forms a non chiral 1D wire for Majorana fermions.
+Such junctions can be combined into circuits, which allow for
+the creation, manipulation and fusion of MBSs.
+
+A strong TI is a material with an insulating
+time reversal invariant
+bandstructure for which strong spin orbit interactions lead to an
+inversion of the band gap at an odd number of time reversed pairs of
+points in the Brillouin zone.
+Candidate materials include the semiconducting alloy
+Bi$_{1-x}$Sb$_x$, as well as HgTe and $\alpha$-Sn under uniaxial
+strain\cite{fukane}.  Strong TIs are distinguished from ordinary insulators
+by the presence of surface states, whose Fermi arc encloses an odd number of
+Dirac points and is associated with a Berry's phase of $\pi$.  In the
+simplest case, there is a single non degenerate Fermi arc
+described by the time reversal invariant Hamiltonian
+\begin{equation}
+H_0 = \psi^\dagger (-i v\vec\sigma\cdot \nabla -\mu)\psi.
+\label{h0}
+\end{equation}
+Here $\psi = (\psi_\uparrow, \psi_\downarrow)^T$ are electron field
+operators, $\vec \sigma =
+(\sigma^x,\sigma^y)$ are Pauli spin matrices and $\mu$ is the
+chemical potential.
+$H_0$ can only exist on a surface because it violates the fermion
+doubling theorem\cite{nielson}.  The topological metal is essentially {\it half}
+of an ordinary 2D electron gas.
+
+Suppose that an s-wave superconductor is deposited on the surface.
+Due to the proximity effect, Cooper pairs can tunnel into the surface
+states.  This can be described by adding
+$V = \Delta \psi_\uparrow^\dagger \psi_\downarrow^\dagger + h.c.$ to
+$H_0$, where $\Delta = \Delta_0 e^{i\phi}$ depends on the phase
+$\phi$ of the superconductor and the nature of the interface\cite{volkov}.
+The states of the surface can then be described by
+$H = \Psi^\dagger {\cal H} \Psi/2$, where in the Nambu
+notation $\Psi = ((\psi_\uparrow,
+\psi_\downarrow),(\psi_\downarrow^\dagger,-\psi_\uparrow^\dagger))^T$ and
+\begin{equation}
+{\cal H} = - i v \tau^z \sigma\cdot\nabla - \mu \tau^z + \Delta_0
+(\tau^x \cos\phi + \tau^y\sin\phi).
+\label{hbdg}
+\end{equation}
+$\vec\tau$ are Pauli matrices that mix the $\psi$ and $\psi^\dagger$ blocks of $\Psi$.
+Time reversal invariance follows from $[\Theta,{\cal
+H}]=0$, where $\Theta = i \sigma^y K$
+and $K$ is complex conjugation.  Particle hole symmetry
+is expressed by $\Xi = \sigma^y \tau^y K$, which satisfies $\{\Xi,{\cal H}\}=0$.
+When $\Delta$ is spatially homogeneous, the excitation spectrum is
+$E_{\bf k} = \pm \sqrt{(\pm v|{\bf k}| - \mu)^2 + \Delta_0^2}$.  For
+$\mu \gg \Delta_0$, the low energy
+spectrum resembles that of a spinless $p_x+i p_y$ superconductor.
+This analogy can be made precise by defining $c_{\bf k} =
+(\psi_{\uparrow {\bf k}} + e^{i\theta_{\bf k}} \psi_{\downarrow {\bf
+k}})/\sqrt{2}$ for ${\bf k} = k_0(\cos \theta_{\bf k},\sin\theta_{\bf
+k})$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+$\sum_{\bf k} (v|{\bf k}|-\mu)  c_{\bf k}^\dagger c_{\bf k} +
+(\Delta e^{i\theta_{\bf k}} c_{\bf k}^\dagger c_{-{\bf k}}^\dagger +
+h.c.)/2$.  Though this is formally equivalant to a
+spinless $p_x + i p_y$ superconductor there is an important
+difference: ${\cal
+H}$ respects time reversal symmetry, while the $p_x+i p_y$
+superconductor does not.
+%Unlike for spinless fermions, $\Theta$ is not
+%simply $K$.
+
+
+It is well known that a $h/2e$ vortex in a $p_x+i p_y$ superconductor
+leads to a MBS\cite{readgreen}.  This suggests that for
+$\mu \gg \Delta_0$ a
+similar bound state
+should exist for (\ref{hbdg}).  The bound states at a
+vortex are determined by solving the Bogoliubov de Gennes (BdG) equation
+${\cal H} \xi = E \xi$ in polar coordinates
+with $\Delta(r,\theta) =
+\Delta_0(r) e^{\pm i\theta}$.  A zero energy solution exists
+for any $\mu$.  The algebra is simplest for $\mu = 0$, where the zero
+mode has the form
+\begin{equation}
+\xi^\pm_0(r,\theta) = \chi^\pm e^{-\int_0^r dr' \Delta_0(r')/v},
+\label{vortex}
+\end{equation}
+with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+
+Another feature of $p_x + i p_y$ superconductors is the
+presence of chiral edge states
+\cite{readgreen,buchholtz,sigrist}.
+With time reversal symmetry,
+chiral edge states can {\it not} occur in our system.  The
+surface - which itself is the boundary of a three dimensional crystal
+- can not have a boundary.  By breaking time reversal symmetry,
+however, a Zeeman field can introduce a mass term $M\sigma^z$ into
+(\ref{h0},\ref{hbdg})
+which can open an insulating
+gap in the surface state spectrum.  By solving (\ref{hbdg})
+we find that the interface between this
+insulating state and the superconducting state has chiral
+Majorana edge states.  This could possibly be
+realized by depositing superconducting and insulating magnetic materials
+on the surface to form a superconductor-TI-magnet (STIM) junction.  It is interesting to note that
+for spinless electrons the $p_x+ip_y$ superconductor violates
+time reversal, while the vacuum does not.  For our surface states it is
+the {\it insulator} which violates time reversal.
+A related effect could also occur at the
+edge of a {\it two dimensional} TI\cite{km,murakami,bhz},
+which is described by (\ref{h0},\ref{hbdg}) restricted to one spatial dimension.
+At the boundary between a region with superconducting gap $\Delta \tau^x$
+and a region with insulating gap $M \sigma^z$ we find a
+MBS, analogous to the end states
+discussed in Refs. \onlinecite{kitaev2,semenoff}.
+%Further discussion of STIM junctions will be deferred to elsewhere.
+In the following we will focus on STIS junctions, which
+can lead to {\it non chiral} one dimensional Majorana fermions, as well
+as MBSs.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig1.eps,width=3.0in} }
+ \caption{(a) A STIS line junction.  (b) Spectrum of a line junction
+ for $W=\mu=0$ as a function of
+ momentum for various $\phi$.  The solid line shows the Andreev bound
+ states for $\phi=\pi$.  The dashed lines are for $\phi = 3\pi/4$,
+ $\pi/2$ and $\pi/4$.  The bound states for $\phi=0$ merge with the
+ continuum, indicated by the shaded region.
+   (c) A tri-junction between three superconductors.  (d)
+ Phase diagram for the tri-junction.  In
+ the shaded regions there is a  $\pm$ MBS at the junction.
+ }
+\end{figure}
+
+Consider a line junction of width $W$
+and length $L\rightarrow \infty$
+between two superconductors with phases $0$ and $\phi$ in contact with
+TI surface states.
+We analyze the Andreev bound states in the surface state channel
+between the superconductors by solving the BdG
+equation with $\Delta(x,y) = \Delta_0 e^{i\phi}$ for
+$y>W/2$, $\Delta_0$ for $y<-W/2$ and $0$ otherwise.
+The calculation is similar to Titov, Ossipov and
+Beenakker's\cite{beenakker} analysis of graphene SNS junctions,
+except for the
+important difference that graphene has four independent Dirac points,
+while we only have one.
+For $W \ll v/\Delta_0$ there are two branches
+of bound states, which disperse with the momentum
+$q$ in the $x$ direction.  For  $W=\mu=0$
+we find
+\begin{equation}
+E_\pm(q) = \pm \left[v^2 q^2 + \Delta_0^2 \cos^2 (\phi/2)\right]^{1/2}.
+\end{equation}
+
+For $\phi=\pi$ the spectrum is gapless. It is useful to construct a
+low energy theory, for $q \sim 0$ and $\phi = \pi - \epsilon$. Finite
+$W$ and $\mu$ can then easily be included. We first solve the BdG
+equation for the two $E=0$ modes $\zeta_{a=1,2}(y)$ at $q=0$
+and $\phi=\pi$.  It is useful to choose them to satisfy $\Xi \zeta_a
+= \zeta_a$. Up to a normalization they may be written
+\begin{equation} \zeta_1 \pm i
+\zeta_2 =  ((1,\pm i),(\pm i,-1))^T
+ e^{\pm i \mu y/ v -\int_0^{|y|}d\tilde y\Delta_0(\tilde y)/v}.
+ \label{zeta}
+\end{equation}
+We next evaluate $\langle\zeta_a| q \sigma^x\tau^z|\zeta_b\rangle$ and
+$\langle\zeta_a|\epsilon\Delta_0 \theta(y-W) \tau^y|\zeta_b\rangle$
+
+exec
+/bin/zsh -lc "rg -n \"\\\\\\b(begin\\{document\\}|end\\{document\\}|title\\{|author\\{|abstract|section\\{|subsection\\{|bibliograph|input\\{|include\\{|includegraphics|begin\\{figure\\}|begin\\{table\\}|label\\{|ref\\{|cite\\{|footnote\\{|appendix)\" revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 1 in 0ms:
+2026-05-05T00:52:17.039859Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:52:17.040272Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:52:17.053349Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.053368Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:17.053733Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.053740Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:17.054130Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.054138Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:17.054504Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.054512Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:17.054874Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.054882Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:17.055590Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:17.055600Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ve confirmed the Markdown file currently contains only the YAML front matter and heading. I’m reading through the remainder of the TeX body now so I can extract the scientific content without dropping equations or derivations.
+exec
+/bin/zsh -lc "sed -n '221,440p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+to obtain the ``$k\cdot p$" Hamiltonian,
+\begin{equation}
+\tilde{\cal  H} = -i \tilde v \tau^x \partial_x + \delta \tau^y,
+\label{h1d}
+\end{equation}
+where
+$\tilde v = v[\cos\mu W +
+(\Delta_0/\mu)\sin\mu W]\Delta_0^2/(\mu^2+\Delta_0^2)$ and
+$\delta = \Delta_0 \cos(\phi/2)$.
+The Pauli matrices $\tau^{x,y}_{ab}$ act on $\zeta_a$ and are different from
+those in (\ref{hbdg}).  In this basis $\Theta = i\tau^y K$ and $\Xi = K$.
+%The effect of finite $\mu$ is to reduce $\tilde v$.
+$\tilde{\cal H}$ resembles the Su Schrieffer Heeger (SSH)
+model\cite{ssh}.
+% for polyacetalene,
+%where $\delta$ plays the role of the phonon displacement.
+However, unlike that model, the $E_\pm(q)$
+states are not independent, and
+the corresponding Bogoliubov quasiparticle operators
+satisfy $\gamma_+(q) = \gamma_-(-q)^\dagger$.
+The system is thus {\it half} a regular 1D Fermi gas,
+or a non chiral ``Majorana quantum wire".
+
+Below it will be useful to consider
+junctions that bend and close.  When a line junction makes an angle
+$\theta$ with the $x$ axis the basis vectors (\ref{zeta}) are
+modified according to $\zeta_a\rightarrow e^{i \sigma_z
+\theta/2} \zeta_a$.  $\tilde{\cal H}$, however, is
+unchanged even when $\theta(x)$ varies.  On a circle,
+$\zeta_a$ changes sign when
+$\theta$ advances by $2\pi$.  Therefore,
+eigenstates of $\tilde{\cal H}$ must obey {\it antiperiodic} boundary
+conditions, $\varphi(0) = -\varphi(2\pi)$.
+
+Next consider a tri-junction, where three superconductors
+separated by line junctions meet at a point, as in Fig. 1c.
+When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+exists at the junction.  Though the general BdG
+equation cannot be solved analytically, this phase
+diagram can be deduced by solving
+special limits.  When $\phi_k = 0$ there is
+no bound state.  Another solvable limit
+is when three line junctions with $W=0$
+are oriented at 120$^\circ$, and $\phi_k =\pm k (2\pi/3)$.  This is
+a discrete analog of a $\pm$ vortex with $C_3$ symmetry, and is
+indicated by the circles in Fig. 1d.  For $\mu = 0$ we find a MBS
+identical to (\ref{vortex})
+with the exponent replaced by $-\Delta_0 \hat n\cdot {\bf r}/v$.  Here
+$\hat n$ is a constant unit vector in each superconductor
+that bisects the angle between neighboring junctions.
+The MBS can not disappear
+when $\phi_k$ are changed continuously
+unless the energy gap closes. The phase boundaries indicated in Fig.
+1d therefore follow from the solution of the
+line junction, and occur when the phase difference between
+neighboring superconductors is $\pi$.
+
+It is instructive to consider the limit where two of the lines
+entering the tri-junction are nearly gapless.  For
+$\phi_1=\pi-\epsilon_1$ and $\phi_2 =
+\pi-\epsilon_2$ Fig. 1d predicts
+a MBS when $\epsilon_1\epsilon_2<0$.
+This can be understood with Eq. \ref{h1d}, which describes the lower two
+line junctions, which have masses
+$\delta_{1,2} = \Delta_0 \epsilon_{1,2}/2$.  When $\epsilon_1\epsilon_2<0$
+$\delta$ changes sign, leading
+to the well known midgap
+state of the SSH model\cite{ssh,jackiw},
+which in the present context is a MBS.
+
+A line junction terminated by two tri-junctions
+allows MBSs to be created, manipulated and fused.  When $\phi$
+passes through $\pi$ MBSs appear or disappear at both ends.
+To model this we assume the phases of the superconductors
+on either side of the line junction are $0$ and
+$\pi - \epsilon$, and that
+the superconductors at the left (right) ends have phases
+$\phi_{L(R)}$, which are not close to $0$ or $\pi$.  This allows us to
+model the ends using a hard wall boundary condition
+$\delta \rightarrow \pm \infty$, where the sign at each end is
+$s_{L,R} = {\rm sgn}\sin\phi_{L,R}$.  It is straightforward to solve (\ref{h1d})
+to determine the spectrum as a function of $\delta = \Delta_0 \epsilon/2$
+for a line of length $L$ using this boundary condition.  There are two
+cases depending on the sign of $s_L s_R$.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig2.eps,width=3.2in} }
+ \caption{Energy levels in units of $\Delta E = \tilde v/L$ for a STIS line junction terminated by two tri-junctions as a
+ function of $\delta = \Delta_0 \cos \phi/2$ for $\phi\sim \pi$.  In (a) two MBSs are created
+ or fused when $\phi$ passes through $\pi$.  In (b) a single MBS is transported from one
+ end to the other.  The insets depict the MBSs. }
+\end{figure}
+
+For
+$s_L=s_R=1$ either zero or a $\pm$ pair of MBSs are expected.  The
+spectrum, shown in Fig. 2a, may be written
+$E_n^\pm(\delta) = \pm \sqrt{\delta^2 + \tilde v^2 k_n^2}$, where $k_n$ are
+solutions to $\tan k_n L = - \tilde v k_n/\delta$.
+Midgap states are present for $\delta  < 0$.  For
+$L\rightarrow\infty$ a pair
+of zero energy states $\xi_{1,2}(x,y)$
+are localized at each end with wavefunctions
+\begin{equation}
+\xi_1 = \zeta_1  e^{-|\delta|
+x/\tilde v},  \quad \xi_2  = \zeta_2  e^{-|\delta|
+(L-x)/\tilde v},
+\end{equation}
+where $\zeta_a(y)$ are given in (\ref{zeta}).
+For finite $-\delta L/\tilde v\gg 1$ the eigenstates are
+$\varphi_\pm = \xi_1 \pm i \xi_2$, with energies
+$E_0^\pm(\delta) \sim \pm 2|\delta| e^{-|\delta| L/\tilde v}$.
+These define Bogoliubov quasiparticle operators,
+$\Gamma_\pm = (\varphi_\pm)^\dagger \Psi$.  Since $\varphi_\pm = \Xi \varphi_\mp$
+it follows that $\Gamma_+ = \Gamma_-^\dagger \equiv (\gamma_1-i\gamma_2)/2$
+where $\gamma_a = (\xi_a)^\dagger \Psi$ are Majorana operators.
+The pair $\gamma_{1,2}$ thus define a two state Hilbert space
+indexed by $n_{12} = \Gamma_+^\dagger \Gamma_+$.
+The splitting
+between $\varphi_\pm$ then characterizes the interaction between
+the MBSs,
+\begin{equation}
+H = E_0^+(\delta) ( \Gamma_+^\dagger\Gamma_+-1/2) = i E_0^+(\delta) \gamma_2 \gamma_1/2.
+\label{splitting}
+\end{equation}
+The $s_L=s_R=-1$ case is similar.  Eq. \ref{splitting}
+applies to both cases, provided $\gamma_2$ is associated with the $+$
+vortex.
+
+This provides a method for both creating and fusing pairs of
+MBSs.  Suppose we begin in the ground state at $\delta >
+0$ with no MBSs present.  Upon adiabatically decreasing
+$\delta$ through $0$ MBSs appear in
+the state $|0_{12}\rangle$.   Next suppose that initially $\delta<0$, and
+ a pair of MBSs are present in the state $|n_{12}\rangle$.
+When $\delta$ is
+adiabatically increased through $0$ the system will remain in
+$|n_{12}\rangle$, which will either evolve to
+the ground state or to a state with one extra
+fermion.  The difference between the two states can be probed by
+measuring the {\it current} flowing across the linear junction,
+which depends on whether the Andreev bound state $\varphi_+$ is occupied.
+The measured current will be $I = \bar I \pm \Delta I/2$, where
+the current carried by $\varphi_+$ is
+$\Delta I = (e/\hbar)dE_0^+/d\phi \sim e \Delta_0/2\hbar$
+for $\delta L/\tilde v \gtrsim 1$.  For $\Delta_0 \sim .1$ meV
+$\Delta I \sim 10$ nA.
+
+
+Finally, consider the case
+$s_L = -s_R = 1$, in which a $-$ MBS is at one end or the other, as in
+Fig. 2b.  There are plane wave solutions with energy
+$E^\pm_n = \pm \sqrt{\delta^2 + (n \pi \tilde v/L)^2}$ for
+$n=1, 2, ...$, along with a single $E_0=0$ state
+with wavefunction
+\begin{equation}
+\xi(x,y) \propto
+\zeta_1(y) e^{\delta x/\tilde v}
+\end{equation}
+Depending on the sign of $\delta$,
+$\xi$ is exponentially localized at one end or the other.
+When $\delta$ changes sign, the MBS
+smoothly switches sides.  This provides a method for transporting
+a MBS from one node to another.
+
+
+
+We now discuss simple circuits built from
+STIS junctions.  First, consider Fig. 3a and a
+process in which the phase of the central island is
+adiabatically advanced from $0$ to $2\pi$.  For $\phi=0$ there
+are no MBSs.  At $\phi = 2\pi/3$ two pairs of
+MBSs are created at the top and bottom line junctions.
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find\cite{kitaev3}
+\begin{equation}
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+\label{entangle}
+\end{equation}
+Thus, after the cycle, the left and right segments are in an
+entangled state.  The currents measured across the left and
+right junctions will be $\bar I \pm \Delta I/2$ with 50\% probability and will be
+perfectly correlated.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig3.eps,width=2.5
+in} }
+ \caption{Simple circuits made from STIS junctions.  When
+ $\phi$ is advanced from $0$ to $2\pi$ (a)
+ produces an entangled state and
+ (b) interchanges MBSs 1 and 2.}
+\end{figure}
+
+Eq. \ref{entangle} can be understood in two ways.  First, the cycle
+effectively creates two pairs of MBS's, interchanges a pair (say 2
+and 4) and brings the pairs back together.  As shown by Ivanov
+\cite{ivanov}, this corresponds to the operator
+$P_{24} = (1+\gamma_2\gamma_4)/\sqrt{2}$, which leads directly to
+(\ref{entangle}).  Alternatively, this result can be derived from
+(\ref{h1d},\ref{splitting}).  From (\ref{splitting}),
+the Hamiltonian for $\phi \lesssim 2\pi/3$ is
+$H_1 \propto i(\gamma_1\gamma_2+\gamma_3\gamma_4)$.  For $\phi \gtrsim 4\pi/3$
+it becomes $H_2 \propto i(\gamma_1\gamma_4 - \gamma_3\gamma_2)$.
+Here the minus sign arises because, as explained after Eq.
+\ref{h1d}, the closed 1D circuit must have antiperiodic boundary
+conditions.  Thus, one of the line junctions must have a cut where
+the wavefunction changes sign.  We chose the cut to be on the
+junction between 2 and 3.  It is then straightforward to
+express the groundstate of $H_1$ in terms of the eigenstates of
+$H_2$, which leads directly to (\ref{entangle}).
+
+Fig. 3b gives a geometry for interchanging MBSs without fusing them.
+For $\phi = 0$ MBSs are located as shown.  When $\phi$
+advances by $2\pi$ the MBSs hop counterclockwise three
+times and are interchanged.  Ivanov's rules\cite{ivanov} predict
+$\gamma_2 \rightarrow \gamma_1$, $\gamma_1 \rightarrow -\gamma_2$.
+Again the minus sign can be understood in terms of the cut due to
+antiperiodic boundary conditions.  One can imagine larger arrays,
+
+exec
+/bin/zsh -lc "rg -n '\\\\(begin\\{document\\}|end\\{document\\}|title\\{|author\\{|affiliation\\{|begin\\{abstract\\}|end\\{abstract\\}|section\\{|subsection\\{|bibliograph|bibliography|cite\\{|onlinecite\\{|ref\\{|eqref\\{|label\\{|footnote\\{|begin\\{figure\\}|end\\{figure\\}|begin\\{table\\}|end\\{table\\}|includegraphics|epsfig|pacs\\{|maketitle)' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+9:\begin{document}
+11:\title{Superconducting proximity effect and Majorana fermions
+15:\author{Liang Fu and C.L. Kane}
+16:\affiliation{Dept. of Physics and Astronomy, University of Pennsylvania,
+19:\begin{abstract}
+29:\end{abstract}
+31:\pacs{71.10.Pm, 74.45.+c, 03.67.Lx, 74.90.+n}
+32:\maketitle
+34:Excitations with non-Abelian statistics\cite{mooreread} are the basis for the
+35:intriguing proposal of topological quantum computation\cite{kitaev}.  The simplest
+38:superconductor\cite{readgreen,ivanov,stern,stone}.  The presence of $2N$ vortices
+44:a universal quantum computer\cite{friedman}, the quantum information encoded in
+46:decoherence\cite{kitaev3}.
+49:excitations of the $\nu=5/2$ quantum Hall effect\cite{mooreread,readgreen},
+51:$h/4e$ vortices in the $p$-wave superconductor Sr$_2$RuO$_4$\cite{dassarma}
+52:and in cold atoms\cite{gurarie,tewari}.  In this
+55:insulator (TI)\cite{fkm,moore,roy,fukane}
+69:strain\cite{fukane}.  Strong TIs are distinguished from ordinary insulators
+76:\label{h0}
+83:doubling theorem\cite{nielson}.  The topological metal is essentially {\it half}
+91:$\phi$ of the superconductor and the nature of the interface\cite{volkov}.
+99:\label{hbdg}
+126:leads to a MBS\cite{readgreen}.  This suggests that for
+129:should exist for (\ref{hbdg}).  The bound states at a
+138:\label{vortex}
+144:\cite{readgreen,buchholtz,sigrist}.
+150:(\ref{h0},\ref{hbdg})
+152:gap in the surface state spectrum.  By solving (\ref{hbdg})
+162:edge of a {\it two dimensional} TI\cite{km,murakami,bhz},
+163:which is described by (\ref{h0},\ref{hbdg}) restricted to one spatial dimension.
+167:discussed in Refs. \onlinecite{kitaev2,semenoff}.
+173:\begin{figure}
+174: \centerline{ \epsfig{figure=fig1.eps,width=3.0in} }
+185:\end{figure}
+196:Beenakker's\cite{beenakker} analysis of graphene SNS junctions,
+217: \label{zeta}
+224:\label{h1d}
+231:those in (\ref{hbdg}).  In this basis $\Theta = i\tau^y K$ and $\Xi = K$.
+234:model\cite{ssh}.
+246:$\theta$ with the $x$ axis the basis vectors (\ref{zeta}) are
+267:identical to (\ref{vortex})
+283:This can be understood with Eq. \ref{h1d}, which describes the lower two
+288:state of the SSH model\cite{ssh,jackiw},
+301:$s_{L,R} = {\rm sgn}\sin\phi_{L,R}$.  It is straightforward to solve (\ref{h1d})
+306:\begin{figure}
+307: \centerline{ \epsfig{figure=fig2.eps,width=3.2in} }
+312:\end{figure}
+328:where $\zeta_a(y)$ are given in (\ref{zeta}).
+343:\label{splitting}
+345:The $s_L=s_R=-1$ case is similar.  Eq. \ref{splitting}
+396:$\phi\rightarrow 2\pi$ we find\cite{kitaev3}
+400:\label{entangle}
+407:\begin{figure}
+408: \centerline{ \epsfig{figure=fig3.eps,width=2.5
+414:\end{figure}
+416:Eq. \ref{entangle} can be understood in two ways.  First, the cycle
+419:\cite{ivanov}, this corresponds to the operator
+421:(\ref{entangle}).  Alternatively, this result can be derived from
+422:(\ref{h1d},\ref{splitting}).  From (\ref{splitting}),
+427:\ref{h1d}, the closed 1D circuit must have antiperiodic boundary
+432:$H_2$, which leads directly to (\ref{entangle}).
+437:times and are interchanged.  Ivanov's rules\cite{ivanov} predict
+447:have gaps of order 30 meV \cite{fukane}. The next is to interface
+450:wavelengths\cite{volkov}.  If these can be optimized, $\Delta_0$ can
+451:be comparable to the gap of the bulk superconductor \cite{chrestin}.
+460:be similar to a graphene SNS junction\cite{beenakker}.
+470:MBSs envisioned in Refs. \onlinecite{semenoff,demler}.
+602:\end{document}
+
+2026-05-05T00:52:24.725864Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:52:24.726169Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:52:24.737985Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.738001Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:24.738354Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.738364Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:24.738722Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.738730Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:24.739046Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.739052Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:24.739397Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.739402Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:24.740110Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:24.740118Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "sed -n '441,620p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '560,620p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+
+\bibitem{sigrist} M. Matsumoto and M. Sigrist, J. Phys. Soc. Jpn.
+{\bf 68}, 994 (1999).
+
+\bibitem{km} C.L. Kane and E.J. Mele Phys. Rev. Lett. {\bf 95}
+226801 (2005); ibid {\bf 95} 146802 (2005).
+
+
+\bibitem{murakami} S. Murakami, Phys. Rev. Lett. {\bf 97}, 236805
+(2006).
+
+\bibitem{bhz} A. Bernevig, T. Hughes and S.C. Zhang, Science
+{\bf 314}, 1757 (2006).
+
+\bibitem{kitaev2} A. Kitaev, ArXiv:cond-mat/0010440 (unpublished).
+
+\bibitem{semenoff} G. W. Semenoff and P. Sodano, ArXiv:cond-mat/0601261
+(unpublished).
+
+\bibitem{beenakker} M. Titov and C.W.J. Beenakker, Phys. Rev. B {\bf
+74}, 041401(R) (2006); M. Titov, A. Ossipov and C.W.J. Beenakker, Phys.
+Rev. B {\bf 75}, 045417 (2007).
+
+\bibitem{ssh} W.P. Su, J.R. Schrieffer and A.J. Heeger, Phys. Rev.
+B {\bf 22}, 2099 (1980).
+
+\bibitem{jackiw} R. Jackiw and C. Rebbi, Phys Rev. D {\bf 13}, 3398
+(1976).
+
+\bibitem{chrestin} A. Chrestin, T. Matsuyama and U. Merkt, Phys. Rev.
+B {\bf 55}, 8457 (1997).
+
+\bibitem{demler} C. J. Bolech and E. Demler,
+Phys. Rev. Lett. {\bf 98}, 237002 (2007).
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+ succeeded in 0ms:
+where this process performs elementary braiding operations.
+
+
+The experimental implementation of this proposal will require
+progress on many fronts.  The first is to find a strong TI
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV \cite{fukane}. The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths\cite{volkov}.  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor \cite{chrestin}.
+%The phases of the different superconducting islands must be controlled using a
+%sequence of Josephson junctions.
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+be similar to a graphene SNS junction\cite{beenakker}.
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+tri-junctions as in Fig. 2 the presence of
+MBSs can be controlled.  It would then
+be interesting to perform tests of the non locality of
+MBSs envisioned in Refs. \onlinecite{semenoff,demler}.
+
+Manipulating and fusing MBSs places more
+stringent requirements on the energy gaps.  The junctions should
+be sufficiently short that
+$\Delta E = \tilde v/L > k_B T$, but sufficiently long
+that the MBSs are well localized.  The good news is that
+$\Delta E$ varies as a power of $L$, while the MBS overlap
+is exponential, so at low temperature both criteria can
+be achieved.
+
+%It is desirable to choose a topological
+%insulator with $\mu \sim 0$ to maximize $\tilde v$.
+If the process of varying $\delta$ to manipulate the MBSs
+is non adiabatic or $\Delta E < k_B T$ then
+additional quasiparticles could be excited.
+If those quasiparticles escape and interact with
+other MBSs, then the state of the MBSs will
+be disturbed.  However, if $\delta \ll \Delta_0$ the excited
+quasiparticles will be confined to the segment in which they were
+created.  If $\delta$ is turned up so that
+$k_B T \ll \delta \ll \Delta_0$, and
+the system relaxes back to its ground state, then the state of
+the MBSs will remain intact.  Thus, if there is
+sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+can tolerate these excitations.
+
+%To conclude, this paper proposes a new venue for non-Abelian
+%excitations.  We hope that this will motivate the search for
+%TIs.
+
+We thank Sankar das Sarma and Steve Simon for
+helpful discussions.   This work was supported by NSF grant
+DMR-0605066, and by ACS PRF grant 44776-AC10.
+
+
+
+
+
+\begin{thebibliography}{10}
+
+
+\bibitem{mooreread} G. Moore and N. Read, Nucl. Phys. B {\bf 360},
+362 (1991).
+
+\bibitem{kitaev} A. Kitaev, Ann. Phys. {\bf 303}, 2 (2003).
+
+\bibitem{readgreen} N. Read and D. Green, Phys. Rev. B {\bf 61},
+10267 (2000).
+
+\bibitem{ivanov} D.A. Ivanov, Phys. Rev. Lett. {\bf 86}, 268 (2001).
+
+\bibitem{stern} A. Stern, F. von Oppen, E. Mariani, Phys. Rev. B {\bf
+70}, 205338 (2004).
+
+\bibitem{stone} M. Stone and S.B. Chung, Phys. Rev. B {\bf 73},
+014505 (2006).
+
+\bibitem{friedman} M.H. Freedman, M. Larsen and Z. Wang,
+Commun. Math. Phys. {\bf 227}, 605 (2002).
+
+\bibitem{kitaev3} A. Kitaev, Ann. Phys. {\bf 321}, 2 (2006).
+
+\bibitem{dassarma} S. Das Sarma, C. Nayak, S. Tewari, Phys. Rev. B
+{\bf 73}, 220502(R) (2006).
+
+\bibitem{gurarie} V. Gurarie, L. Radzihovsky and A.V. Andreev, Phys.
+Rev. Lett. {\bf 94}, 230403 (2005).
+
+\bibitem{tewari} S. Tewari, et al., Phys. Rev. Lett. {\bf 98}, 010506
+(2007).
+
+\bibitem{fkm} L. Fu, C.L. Kane and E.J. Mele, Phys. Rev. Lett. {\bf
+98}, 106803 (2007).
+
+\bibitem{moore} J.E. Moore and L. Balents, Phys. Rev. B {\bf 75},
+121306(R) (2007).
+
+\bibitem{roy} R. Roy, arXiv:cond-mat/0607531 (unpublished).
+
+\bibitem{fukane} L. Fu and C.L. Kane, Phys. Rev. B {\bf 76}, 045302
+(2007).
+
+\bibitem{nielson}  H. Nielssen and N. Ninomiya, Phys. Lett. {\bf
+130B}, 389 (1983).
+
+\bibitem{volkov} A.F. Volkov et al., Physica C {\bf 242}, 261 (1995).
+
+\bibitem{buchholtz} L.J. Buchholtz and G. Zwicknagl, Phys. Rev. B {\bf
+23}, 5788 (1981).
+
+\bibitem{sigrist} M. Matsumoto and M. Sigrist, J. Phys. Soc. Jpn.
+{\bf 68}, 994 (1999).
+
+\bibitem{km} C.L. Kane and E.J. Mele Phys. Rev. Lett. {\bf 95}
+226801 (2005); ibid {\bf 95} 146802 (2005).
+
+
+\bibitem{murakami} S. Murakami, Phys. Rev. Lett. {\bf 97}, 236805
+(2006).
+
+\bibitem{bhz} A. Bernevig, T. Hughes and S.C. Zhang, Science
+{\bf 314}, 1757 (2006).
+
+\bibitem{kitaev2} A. Kitaev, ArXiv:cond-mat/0010440 (unpublished).
+
+\bibitem{semenoff} G. W. Semenoff and P. Sodano, ArXiv:cond-mat/0601261
+(unpublished).
+
+\bibitem{beenakker} M. Titov and C.W.J. Beenakker, Phys. Rev. B {\bf
+74}, 041401(R) (2006); M. Titov, A. Ossipov and C.W.J. Beenakker, Phys.
+Rev. B {\bf 75}, 045417 (2007).
+
+\bibitem{ssh} W.P. Su, J.R. Schrieffer and A.J. Heeger, Phys. Rev.
+B {\bf 22}, 2099 (1980).
+
+\bibitem{jackiw} R. Jackiw and C. Rebbi, Phys Rev. D {\bf 13}, 3398
+(1976).
+
+\bibitem{chrestin} A. Chrestin, T. Matsuyama and U. Merkt, Phys. Rev.
+B {\bf 55}, 8457 (1997).
+
+\bibitem{demler} C. J. Bolech and E. Demler,
+Phys. Rev. Lett. {\bf 98}, 237002 (2007).
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+2026-05-05T00:52:29.148800Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:52:29.149199Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:52:29.162826Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.162845Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:29.163204Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.163212Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:29.163542Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.163549Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:29.163868Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.163875Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:29.164207Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.164213Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:52:29.164919Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:52:29.164925Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ve got the transformation rules. Next I’m rewriting `codex_scientific_text.md` from the single TeX source, preserving the YAML block and converting the paper body into a cleaned scientific extract.
+exec
+/bin/zsh -lc 'tmp_header=$(mktemp)
+tmp_body=$(mktemp)
+sed -n '"'1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md > \""'$tmp_header"
+perl -0pe '"'
+s/\\r\\n/\\n/g;
+s/"'^'"\\s*%.*\\n//mg;
+s/(?<"'!'"\\\\)%["'^'"\\n]*//g;
+s/\\\\begin\\{thebibliography\\}[\\s\\S]*//s;
+s/\\nWe thank[\\s\\S]*?(?=\\n\\\\begin\\{thebibliography\\})/\\n/s;
+s/"'^'"\\\\documentclass["'^'"\\n]*\\n//mg;
+s/"'^'"\\\\usepackage["'^'"\\n]*\\n//mg;
+s/\\\\begin\\{document\\}\\s*//s;
+s/\\\\end\\{document\\}\\s*//s;
+s/\\\\title\\{([\\s\\S]*?)\\}\\s*/\"## \".(("'$t=$1)=~s/'"\\s+/ /gr).\"\\n\\n\"/se;
+s/\\\\author\\{[\\s\\S]*?\\}\\s*//s;
+s/\\\\affiliation\\{[\\s\\S]*?\\}\\s*//s;
+s/\\\\pacs\\{[\\s\\S]*?\\}\\s*//s;
+s/\\\\maketitle\\s*//s;
+s/\\\\begin\\{abstract\\}\\s*/\"### Abstract\\n\\n\"/se;
+s/\\\\end\\{abstract\\}\\s*/\"\\n\\n\"/se;
+s/\\\\begin\\{figure\\}[\\s\\S]*?\\\\caption\\{([\\s\\S]*?)\\}[\\s\\S]*?\\\\end\\{figure\\}/\"\\nFigure: \".(("'$c=$1)=~s/'"\\s+/ /gr).\"\\n\\n\"/sge;
+s/\\\\begin\\{table\\}[\\s\\S]*?\\\\caption\\{([\\s\\S]*?)\\}[\\s\\S]*?\\\\end\\{table\\}/\"\\nTable: \".(("'$c=$1)=~s/'"\\s+/ /gr).\"\\n\\n\"/sge;
+s/\\\\begin\\{equation\\}\\s*([\\s\\S]*?)\\s*\\\\label\\{(["'^}]*)'"\\}\\s*\\\\end\\{equation\\}/\"\\n\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$'"\\n[Eq. "'$2]'"\\n\\n\"/sge;
+s/\\\\begin\\{equation\\}\\s*([\\s\\S]*?)\\s*\\\\end\\{equation\\}/\"\\n\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$'"\\n\\n\"/sge;
+s/\\\\onlinecite\\{["'^}]*'"\\}//g;
+s/\\\\cite\\{["'^}]*'"\\}//g;
+s/\\\\ref\\{(["'^}]*)'"\\}/"'$1/g;
+s/'"\\\\label\\{(["'^}]*)'"\\}/[Label: "'$1]/g;
+s/'"\\\\centerline\\{[\\s\\S]*?\\}//g;
+s/\\\\epsfig\\{["'^}]*'"\\}//g;
+s/\\\\begin\\{figure\\*?\\}|\\\\end\\{figure\\*?\\}|\\\\begin\\{table\\*?\\}|\\\\end\\{table\\*?\\}//g;
+s/\\\\documentclass|\\\\usepackage//g;
+s/\\{\\\\it\\s+(["'^}]*)'"\\}/*"'$1*/g;
+s/'"\\{\\\\bf\\s+(["'^}]*)'"\\}/**"'$1**/g;
+s/``/"/g;
+s/'"''/\"/g;
+s/\\n{3,}/\\n\\n/g;
+s/[ \\t]+\\n/\\n/g;
+s/\\n[ \\t]+/\\n/g;
+' revised2.tex > \""'$tmp_body"
+cat "$tmp_header" > codex_scientific_text.md
+printf '"'\\n\\n' >> codex_scientific_text.md
+cat \""'$tmp_body" >> codex_scientific_text.md
+rm -f "$tmp_header" "$tmp_body"
+' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:53:51.530868Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:53:51.531828Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:53:51.552538Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.552558Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:53:51.553004Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.553009Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:53:51.553336Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.553341Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:53:51.553665Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.553670Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:53:51.553989Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.553997Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:53:51.554759Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:53:51.554763Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 1008ms:
+Backslash found where operator expected at -e line 11, near "s/\\title\{([\s\S]*?)\}\s*/"## ".(($t=$1)=~s/\"
+Backslash found where operator expected at -e line 11, near "begin\"
+Backslash found where operator expected at -e line 11, near "equation\"
+Backslash found where operator expected at -e line 11, near "}\"
+	(Missing operator before \?)
+syntax error at -e line 11, near "s/\\title\{([\s\S]*?)\}\s*/"## ".(($t=$1)=~s/\"
+Unknown regexp modifier "/r" at -e line 11, at end of line
+Unmatched ( in regex; marked by <-- HERE in m/( <-- HERE [\s\S]/ at -e line 11.
+
+codex
+The first pass hit a quoting issue in the inline Perl transform. I’m switching to a temporary Perl script so the cleanup stays mechanical but remains readable and reliable.
+exec
+/bin/zsh -lc 'tmp_header=$(mktemp)
+tmp_body=$(mktemp)
+tmp_pl=$(mktemp)
+sed -n '"'1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md > \""'$tmp_header"
+cat > "$tmp_pl" <<'"'PERL'
+use strict;
+use warnings;
+local "'$/;
+my $text = <>;
+
+$text =~ s/'"\\r\\n/\\n/g;
+"'$text =~ s/''^'"\\s*%.*\\n//mg;
+"'$text =~ s/(?<!'"\\\\)%["'^'"\\n]*//g;
+"'$text =~ s/'"\\nWe thank[\\s\\S]*?(?=\\n\\\\begin\\{thebibliography\\})/\\n/s;
+"'$text =~ s/'"\\\\begin\\{thebibliography\\}[\\s\\S]*//s;
+"'$text =~ s/''^'"\\\\documentclass["'^'"\\n]*\\n//mg;
+"'$text =~ s/''^'"\\\\usepackage["'^'"\\n]*\\n//mg;
+"'$text =~ s/'"\\\\begin\\{document\\}\\s*//s;
+"'$text =~ s/'"\\\\end\\{document\\}\\s*//s;
+"'$text =~ s/'"\\\\title\\{([\\s\\S]*?)\\}\\s*/\"## \" . _compact("'$1) . "'"\\n\\n\"/se;
+"'$text =~ s/'"\\\\author\\{[\\s\\S]*?\\}\\s*//s;
+"'$text =~ s/'"\\\\affiliation\\{[\\s\\S]*?\\}\\s*//s;
+"'$text =~ s/'"\\\\pacs\\{[\\s\\S]*?\\}\\s*//s;
+"'$text =~ s/'"\\\\maketitle\\s*//s;
+"'$text =~ s/'"\\\\begin\\{abstract\\}\\s*/### Abstract\\n\\n/s;
+"'$text =~ s/'"\\\\end\\{abstract\\}\\s*/\\n\\n/s;
+"'$text =~ s/'"\\\\begin\\{figure\\*?\\}[\\s\\S]*?\\\\caption\\{([\\s\\S]*?)\\}[\\s\\S]*?\\\\end\\{figure\\*?\\}/\"\\nFigure: \" . _compact("'$1) . "'"\\n\\n\"/sge;
+"'$text =~ s/'"\\\\begin\\{table\\*?\\}[\\s\\S]*?\\\\caption\\{([\\s\\S]*?)\\}[\\s\\S]*?\\\\end\\{table\\*?\\}/\"\\nTable: \" . _compact("'$1) . "'"\\n\\n\"/sge;
+"'$text =~ s/'"\\\\begin\\{equation\\}\\s*([\\s\\S]*?)\\s*\\\\label\\{(["'^}]*)'"\\}\\s*\\\\end\\{equation\\}/\"\\n\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$'"\\n[Eq. "'$2]'"\\n\\n\"/sge;
+"'$text =~ s/'"\\\\begin\\{equation\\}\\s*([\\s\\S]*?)\\s*\\\\end\\{equation\\}/\"\\n\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$'"\\n\\n\"/sge;
+"'$text =~ s/'"\\\\onlinecite\\{["'^}]*'"\\}//g;
+"'$text =~ s/'"\\\\cite\\{["'^}]*'"\\}//g;
+"'$text =~ s/'"\\\\ref\\{(["'^}]*)'"\\}/"'$1/g;
+$text =~ s/'"\\\\label\\{(["'^}]*)'"\\}/[Label: "'$1]/g;
+$text =~ s/'"\\\\centerline\\{[\\s\\S]*?\\}//g;
+"'$text =~ s/'"\\\\epsfig\\{["'^}]*'"\\}//g;
+"'$text =~ s/'"\\\\begin\\{figure\\*?\\}|\\\\end\\{figure\\*?\\}|\\\\begin\\{table\\*?\\}|\\\\end\\{table\\*?\\}//g;
+"'$text =~ s/'"\\{\\\\it\\s+(["'^}]*)'"\\}/*"'$1*/g;
+$text =~ s/'"\\{\\\\bf\\s+(["'^}]*)'"\\}/**"'$1**/g;
+$text =~ s/``/"/g;
+$text =~ s/'"''/\"/g;
+"'$text =~ s/'"\\n{3,}/\\n\\n/g;
+"'$text =~ s/[ '"\\t]+\\n/\\n/g;
+"'$text =~ s/'"\\n[ \\t]+/\\n/g;
+print "'$text;
+
+sub _compact {
+    my ($s) = @_;
+    $s =~ s/'"\\s+/ /g;
+    "'$s =~ s/''^'"\\s+|\\s+"'$//g;
+    return $s;
+}
+PERL
+perl "$tmp_pl" revised2.tex > "$tmp_body"
+cat "$tmp_header" > codex_scientific_text.md
+printf '"'\\n\\n' >> codex_scientific_text.md
+cat \""'$tmp_body" >> codex_scientific_text.md
+rm -f "$tmp_header" "$tmp_body" "$tmp_pl"
+' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:54:19.733859Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:54:19.734994Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:54:19.756180Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.756193Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:19.756690Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.756695Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:19.757037Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.757042Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:19.757389Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.757394Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:19.757733Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.757737Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:19.758543Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:19.758548Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 237ms:
+codex
+The extraction pass completed. I’m validating the cleaned Markdown now to catch any leftover TeX plumbing or places where the mechanical cleanup was too aggressive.
+exec
+/bin/zsh -lc "sed -n '1,220p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '221,440p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+$\tilde{\cal H}$ resembles the Su Schrieffer Heeger (SSH)
+model.
+However, unlike that model, the $E_\pm(q)$
+states are not independent, and
+the corresponding Bogoliubov quasiparticle operators
+satisfy $\gamma_+(q) = \gamma_-(-q)^\dagger$.
+The system is thus *half* a regular 1D Fermi gas,
+or a non chiral "Majorana quantum wire".
+
+Below it will be useful to consider
+junctions that bend and close.  When a line junction makes an angle
+$\theta$ with the $x$ axis the basis vectors (zeta) are
+modified according to $\zeta_a\rightarrow e^{i \sigma_z
+\theta/2} \zeta_a$.  $\tilde{\cal H}$, however, is
+unchanged even when $\theta(x)$ varies.  On a circle,
+$\zeta_a$ changes sign when
+$\theta$ advances by $2\pi$.  Therefore,
+eigenstates of $\tilde{\cal H}$ must obey *antiperiodic* boundary
+conditions, $\varphi(0) = -\varphi(2\pi)$.
+
+Next consider a tri-junction, where three superconductors
+separated by line junctions meet at a point, as in Fig. 1c.
+When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+exists at the junction.  Though the general BdG
+equation cannot be solved analytically, this phase
+diagram can be deduced by solving
+special limits.  When $\phi_k = 0$ there is
+no bound state.  Another solvable limit
+is when three line junctions with $W=0$
+are oriented at 120$^\circ$, and $\phi_k =\pm k (2\pi/3)$.  This is
+a discrete analog of a $\pm$ vortex with $C_3$ symmetry, and is
+indicated by the circles in Fig. 1d.  For $\mu = 0$ we find a MBS
+identical to (vortex)
+with the exponent replaced by $-\Delta_0 \hat n\cdot **r**/v$.  Here
+$\hat n$ is a constant unit vector in each superconductor
+that bisects the angle between neighboring junctions.
+The MBS can not disappear
+when $\phi_k$ are changed continuously
+unless the energy gap closes. The phase boundaries indicated in Fig.
+1d therefore follow from the solution of the
+line junction, and occur when the phase difference between
+neighboring superconductors is $\pi$.
+
+It is instructive to consider the limit where two of the lines
+entering the tri-junction are nearly gapless.  For
+$\phi_1=\pi-\epsilon_1$ and $\phi_2 =
+\pi-\epsilon_2$ Fig. 1d predicts
+a MBS when $\epsilon_1\epsilon_2<0$.
+This can be understood with Eq. h1d, which describes the lower two
+line junctions, which have masses
+$\delta_{1,2} = \Delta_0 \epsilon_{1,2}/2$.  When $\epsilon_1\epsilon_2<0$
+$\delta$ changes sign, leading
+to the well known midgap
+state of the SSH model,
+which in the present context is a MBS.
+
+A line junction terminated by two tri-junctions
+allows MBSs to be created, manipulated and fused.  When $\phi$
+passes through $\pi$ MBSs appear or disappear at both ends.
+To model this we assume the phases of the superconductors
+on either side of the line junction are $0$ and
+$\pi - \epsilon$, and that
+the superconductors at the left (right) ends have phases
+$\phi_{L(R)}$, which are not close to $0$ or $\pi$.  This allows us to
+model the ends using a hard wall boundary condition
+$\delta \rightarrow \pm \infty$, where the sign at each end is
+$s_{L,R} = {\rm sgn}\sin\phi_{L,R}$.  It is straightforward to solve (h1d)
+to determine the spectrum as a function of $\delta = \Delta_0 \epsilon/2$
+for a line of length $L$ using this boundary condition.  There are two
+cases depending on the sign of $s_L s_R$.
+
+Figure: Energy levels in units of $\Delta E = \tilde v/L$ for a STIS line junction terminated by two tri-junctions as a function of $\delta = \Delta_0 \cos \phi/2$ for $\phi\sim \pi$. In (a) two MBSs are created or fused when $\phi$ passes through $\pi$. In (b) a single MBS is transported from one end to the other. The insets depict the MBSs.
+
+For
+$s_L=s_R=1$ either zero or a $\pm$ pair of MBSs are expected.  The
+spectrum, shown in Fig. 2a, may be written
+$E_n^\pm(\delta) = \pm \sqrt{\delta^2 + \tilde v^2 k_n^2}$, where $k_n$ are
+solutions to $\tan k_n L = - \tilde v k_n/\delta$.
+Midgap states are present for $\delta  < 0$.  For
+$L\rightarrow\infty$ a pair
+of zero energy states $\xi_{1,2}(x,y)$
+are localized at each end with wavefunctions
+
+$$
+\xi_1 = \zeta_1  e^{-|\delta|
+x/\tilde v},  \quad \xi_2  = \zeta_2  e^{-|\delta|
+(L-x)/\tilde v},
+$$
+
+where $\zeta_a(y)$ are given in (zeta).
+For finite $-\delta L/\tilde v\gg 1$ the eigenstates are
+$\varphi_\pm = \xi_1 \pm i \xi_2$, with energies
+$E_0^\pm(\delta) \sim \pm 2|\delta| e^{-|\delta| L/\tilde v}$.
+These define Bogoliubov quasiparticle operators,
+$\Gamma_\pm = (\varphi_\pm)^\dagger \Psi$.  Since $\varphi_\pm = \Xi \varphi_\mp$
+it follows that $\Gamma_+ = \Gamma_-^\dagger \equiv (\gamma_1-i\gamma_2)/2$
+where $\gamma_a = (\xi_a)^\dagger \Psi$ are Majorana operators.
+The pair $\gamma_{1,2}$ thus define a two state Hilbert space
+indexed by $n_{12} = \Gamma_+^\dagger \Gamma_+$.
+The splitting
+between $\varphi_\pm$ then characterizes the interaction between
+the MBSs,
+
+$$
+H = E_0^+(\delta) ( \Gamma_+^\dagger\Gamma_+-1/2) = i E_0^+(\delta) \gamma_2 \gamma_1/2.
+$$
+[Eq. splitting]
+
+The $s_L=s_R=-1$ case is similar.  Eq. splitting
+applies to both cases, provided $\gamma_2$ is associated with the $+$
+vortex.
+
+This provides a method for both creating and fusing pairs of
+MBSs.  Suppose we begin in the ground state at $\delta >
+0$ with no MBSs present.  Upon adiabatically decreasing
+$\delta$ through $0$ MBSs appear in
+the state $|0_{12}\rangle$.   Next suppose that initially $\delta<0$, and
+a pair of MBSs are present in the state $|n_{12}\rangle$.
+When $\delta$ is
+adiabatically increased through $0$ the system will remain in
+$|n_{12}\rangle$, which will either evolve to
+the ground state or to a state with one extra
+fermion.  The difference between the two states can be probed by
+measuring the *current* flowing across the linear junction,
+which depends on whether the Andreev bound state $\varphi_+$ is occupied.
+The measured current will be $I = \bar I \pm \Delta I/2$, where
+the current carried by $\varphi_+$ is
+$\Delta I = (e/\hbar)dE_0^+/d\phi \sim e \Delta_0/2\hbar$
+for $\delta L/\tilde v \gtrsim 1$.  For $\Delta_0 \sim .1$ meV
+$\Delta I \sim 10$ nA.
+
+Finally, consider the case
+$s_L = -s_R = 1$, in which a $-$ MBS is at one end or the other, as in
+Fig. 2b.  There are plane wave solutions with energy
+$E^\pm_n = \pm \sqrt{\delta^2 + (n \pi \tilde v/L)^2}$ for
+$n=1, 2, ...$, along with a single $E_0=0$ state
+with wavefunction
+
+$$
+\xi(x,y) \propto
+\zeta_1(y) e^{\delta x/\tilde v}
+$$
+
+Depending on the sign of $\delta$,
+$\xi$ is exponentially localized at one end or the other.
+When $\delta$ changes sign, the MBS
+smoothly switches sides.  This provides a method for transporting
+a MBS from one node to another.
+
+We now discuss simple circuits built from
+STIS junctions.  First, consider Fig. 3a and a
+process in which the phase of the central island is
+adiabatically advanced from $0$ to $2\pi$.  For $\phi=0$ there
+are no MBSs.  At $\phi = 2\pi/3$ two pairs of
+MBSs are created at the top and bottom line junctions.
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find
+\begin{equation}
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+$$
+[Eq. entangle]
+
+Thus, after the cycle, the left and right segments are in an
+entangled state.  The currents measured across the left and
+right junctions will be $\bar I \pm \Delta I/2$ with 50\% probability and will be
+perfectly correlated.
+
+Figure: Simple circuits made from STIS junctions. When $\phi$ is advanced from $0$ to $2\pi$ (a) produces an entangled state and (b) interchanges MBSs 1 and 2.
+
+Eq. entangle can be understood in two ways.  First, the cycle
+effectively creates two pairs of MBS's, interchanges a pair (say 2
+and 4) and brings the pairs back together.  As shown by Ivanov
+, this corresponds to the operator
+$P_{24} = (1+\gamma_2\gamma_4)/\sqrt{2}$, which leads directly to
+(entangle).  Alternatively, this result can be derived from
+(h1d,splitting).  From (splitting),
+the Hamiltonian for $\phi \lesssim 2\pi/3$ is
+$H_1 \propto i(\gamma_1\gamma_2+\gamma_3\gamma_4)$.  For $\phi \gtrsim 4\pi/3$
+it becomes $H_2 \propto i(\gamma_1\gamma_4 - \gamma_3\gamma_2)$.
+Here the minus sign arises because, as explained after Eq.
+h1d, the closed 1D circuit must have antiperiodic boundary
+conditions.  Thus, one of the line junctions must have a cut where
+the wavefunction changes sign.  We chose the cut to be on the
+junction between 2 and 3.  It is then straightforward to
+express the groundstate of $H_1$ in terms of the eigenstates of
+$H_2$, which leads directly to (entangle).
+
+Fig. 3b gives a geometry for interchanging MBSs without fusing them.
+For $\phi = 0$ MBSs are located as shown.  When $\phi$
+advances by $2\pi$ the MBSs hop counterclockwise three
+times and are interchanged.  Ivanov's rules predict
+$\gamma_2 \rightarrow \gamma_1$, $\gamma_1 \rightarrow -\gamma_2$.
+Again the minus sign can be understood in terms of the cut due to
+antiperiodic boundary conditions.  One can imagine larger arrays,
+where this process performs elementary braiding operations.
+
+The experimental implementation of this proposal will require
+progress on many fronts.  The first is to find a strong TI
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV . The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths.  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor .
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+be similar to a graphene SNS junction.
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+
+exec
+/bin/zsh -lc "rg -n '"'^'"\\\\documentclass|"'^'"\\\\usepackage|"'^'"\\\\author|"'^'"\\\\affiliation|"'^'"\\\\pacs|"'^'"\\\\maketitle|\\\\begin\\{thebibliography\\}|\\\\bibitem|\\\\epsfig|\\\\centerline|\\\\label\\{|\\\\cite\\{|\\\\onlinecite\\{|"'^We thank '"' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 1 in 0ms:
+2026-05-05T00:54:27.922588Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:54:27.923701Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+ succeeded in 102ms:
+2026-05-05T00:54:27.944065Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.944076Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:27.944545Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.944551Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:27.944869Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.944873Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:27.945199Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.945204Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:27.945526Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.945540Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:27.946294Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:27.946299Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The validation found a few cleanup misses: two equation environments weren’t converted cleanly, and the `{\bf ...}` math formatting was turned into Markdown bold. I’m patching those mechanically and rechecking the output.
+exec
+/bin/zsh -lc "sed -n '180,260p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '388,406p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+ continuum, indicated by the shaded region.
+   (c) A tri-junction between three superconductors.  (d)
+ Phase diagram for the tri-junction.  In
+ the shaded regions there is a  $\pm$ MBS at the junction.
+ }
+\end{figure}
+
+Consider a line junction of width $W$
+and length $L\rightarrow \infty$
+between two superconductors with phases $0$ and $\phi$ in contact with
+TI surface states.
+We analyze the Andreev bound states in the surface state channel
+between the superconductors by solving the BdG
+equation with $\Delta(x,y) = \Delta_0 e^{i\phi}$ for
+$y>W/2$, $\Delta_0$ for $y<-W/2$ and $0$ otherwise.
+The calculation is similar to Titov, Ossipov and
+Beenakker's\cite{beenakker} analysis of graphene SNS junctions,
+except for the
+important difference that graphene has four independent Dirac points,
+while we only have one.
+For $W \ll v/\Delta_0$ there are two branches
+of bound states, which disperse with the momentum
+$q$ in the $x$ direction.  For  $W=\mu=0$
+we find
+\begin{equation}
+E_\pm(q) = \pm \left[v^2 q^2 + \Delta_0^2 \cos^2 (\phi/2)\right]^{1/2}.
+\end{equation}
+
+For $\phi=\pi$ the spectrum is gapless. It is useful to construct a
+low energy theory, for $q \sim 0$ and $\phi = \pi - \epsilon$. Finite
+$W$ and $\mu$ can then easily be included. We first solve the BdG
+equation for the two $E=0$ modes $\zeta_{a=1,2}(y)$ at $q=0$
+and $\phi=\pi$.  It is useful to choose them to satisfy $\Xi \zeta_a
+= \zeta_a$. Up to a normalization they may be written
+\begin{equation} \zeta_1 \pm i
+\zeta_2 =  ((1,\pm i),(\pm i,-1))^T
+ e^{\pm i \mu y/ v -\int_0^{|y|}d\tilde y\Delta_0(\tilde y)/v}.
+ \label{zeta}
+\end{equation}
+We next evaluate $\langle\zeta_a| q \sigma^x\tau^z|\zeta_b\rangle$ and
+$\langle\zeta_a|\epsilon\Delta_0 \theta(y-W) \tau^y|\zeta_b\rangle$
+to obtain the ``$k\cdot p$" Hamiltonian,
+\begin{equation}
+\tilde{\cal  H} = -i \tilde v \tau^x \partial_x + \delta \tau^y,
+\label{h1d}
+\end{equation}
+where
+$\tilde v = v[\cos\mu W +
+(\Delta_0/\mu)\sin\mu W]\Delta_0^2/(\mu^2+\Delta_0^2)$ and
+$\delta = \Delta_0 \cos(\phi/2)$.
+The Pauli matrices $\tau^{x,y}_{ab}$ act on $\zeta_a$ and are different from
+those in (\ref{hbdg}).  In this basis $\Theta = i\tau^y K$ and $\Xi = K$.
+%The effect of finite $\mu$ is to reduce $\tilde v$.
+$\tilde{\cal H}$ resembles the Su Schrieffer Heeger (SSH)
+model\cite{ssh}.
+% for polyacetalene,
+%where $\delta$ plays the role of the phonon displacement.
+However, unlike that model, the $E_\pm(q)$
+states are not independent, and
+the corresponding Bogoliubov quasiparticle operators
+satisfy $\gamma_+(q) = \gamma_-(-q)^\dagger$.
+The system is thus {\it half} a regular 1D Fermi gas,
+or a non chiral ``Majorana quantum wire".
+
+Below it will be useful to consider
+junctions that bend and close.  When a line junction makes an angle
+$\theta$ with the $x$ axis the basis vectors (\ref{zeta}) are
+modified according to $\zeta_a\rightarrow e^{i \sigma_z
+\theta/2} \zeta_a$.  $\tilde{\cal H}$, however, is
+unchanged even when $\theta(x)$ varies.  On a circle,
+$\zeta_a$ changes sign when
+$\theta$ advances by $2\pi$.  Therefore,
+eigenstates of $\tilde{\cal H}$ must obey {\it antiperiodic} boundary
+conditions, $\varphi(0) = -\varphi(2\pi)$.
+
+Next consider a tri-junction, where three superconductors
+separated by line junctions meet at a point, as in Fig. 1c.
+When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+exists at the junction.  Though the general BdG
+equation cannot be solved analytically, this phase
+diagram can be deduced by solving
+
+ succeeded in 0ms:
+STIS junctions.  First, consider Fig. 3a and a
+process in which the phase of the central island is
+adiabatically advanced from $0$ to $2\pi$.  For $\phi=0$ there
+are no MBSs.  At $\phi = 2\pi/3$ two pairs of
+MBSs are created at the top and bottom line junctions.
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find\cite{kitaev3}
+\begin{equation}
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+\label{entangle}
+\end{equation}
+Thus, after the cycle, the left and right segments are in an
+entangled state.  The currents measured across the left and
+right junctions will be $\bar I \pm \Delta I/2$ with 50\% probability and will be
+perfectly correlated.
+
+
+exec
+/bin/zsh -lc "rg -n '\\\\begin\\{equation\\}|\\\\end\\{equation\\}|\\*\\*[A-Za-z]+\\*\\*' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+106:$E_**k** = \pm \sqrt{(\pm v|**k**| - \mu)^2 + \Delta_0^2}$.  For
+109:This analogy can be made precise by defining $c_**k** =
+110:(\psi_{\uparrow **k**} + e^{i\theta_**k**} \psi_{\downarrow **k**})/\sqrt{2}$ for $**k** = k_0(\cos \theta_**k**,\sin\theta_**k**)$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+111:$\sum_**k** (v|**k**|-\mu)  c_**k**^\dagger c_**k** +
+112:(\Delta e^{i\theta_**k**} c_**k**^\dagger c_{-**k**}^\dagger +
+190:\end{equation}
+254:with the exponent replaced by $-\Delta_0 \hat n\cdot **r**/v$.  Here
+380:\begin{equation}
+
+2026-05-05T00:54:43.797599Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:54:43.798637Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:54:43.818804Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.818818Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:43.819281Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.819288Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:43.819619Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.819627Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:43.819947Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.819953Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:43.820272Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.820277Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:43.821039Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:43.821045Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "sed -n '376,386p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find
+\begin{equation}
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+$$
+[Eq. entangle]
+
+Thus, after the cycle, the left and right segments are in an
+
+exec
+/bin/zsh -lc "sed -n '100,118p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+$\vec\tau$ are Pauli matrices that mix the $\psi$ and $\psi^\dagger$ blocks of $\Psi$.
+Time reversal invariance follows from $[\Theta,{\cal
+H}]=0$, where $\Theta = i \sigma^y K$
+and $K$ is complex conjugation.  Particle hole symmetry
+is expressed by $\Xi = \sigma^y \tau^y K$, which satisfies $\{\Xi,{\cal H}\}=0$.
+When $\Delta$ is spatially homogeneous, the excitation spectrum is
+$E_**k** = \pm \sqrt{(\pm v|**k**| - \mu)^2 + \Delta_0^2}$.  For
+$\mu \gg \Delta_0$, the low energy
+spectrum resembles that of a spinless $p_x+i p_y$ superconductor.
+This analogy can be made precise by defining $c_**k** =
+(\psi_{\uparrow **k**} + e^{i\theta_**k**} \psi_{\downarrow **k**})/\sqrt{2}$ for $**k** = k_0(\cos \theta_**k**,\sin\theta_**k**)$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+$\sum_**k** (v|**k**|-\mu)  c_**k**^\dagger c_**k** +
+(\Delta e^{i\theta_**k**} c_**k**^\dagger c_{-**k**}^\dagger +
+h.c.)/2$.  Though this is formally equivalant to a
+spinless $p_x + i p_y$ superconductor there is an important
+difference: ${\cal
+H}$ respects time reversal symmetry, while the $p_x+i p_y$
+superconductor does not.
+
+
+exec
+/bin/zsh -lc "sed -n '184,194p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+of bound states, which disperse with the momentum
+$q$ in the $x$ direction.  For  $W=\mu=0$
+we find
+
+$$
+E_\pm(q) = \pm \left[v^2 q^2 + \Delta_0^2 \cos^2 (\phi/2)\right]^{1/2}.
+\end{equation}
+
+For $\phi=\pi$ the spectrum is gapless. It is useful to construct a
+low energy theory, for $q \sim 0$ and $\phi = \pi - \epsilon$. Finite
+$W$ and $\mu$ can then easily be included. We first solve the BdG
+
+2026-05-05T00:54:51.485652Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:54:51.485973Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:54:51.497862Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.497879Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:51.498207Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.498214Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:51.498521Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.498527Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:51.498879Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.498885Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:51.499229Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.499238Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:54:51.500213Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:54:51.500227Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "perl -0pi -e '
+s/\\n\\\\begin\\{equation\\}\\s*([\\s\\S]*?)\\s*\\"'$'"\\"'$'"\\s*\\n\\[Eq\\. (["'^'"\\]]+)\\]/\"\\n\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$'"\\n[Eq. "'$2]"/sge;
+s/'"\\"'$'"\\"'$'"\\s*\\n([\\s\\S]*?)\\s*\\\\end\\{equation\\}/\"\\"'$'"\\"'$'"\\n"'$1'"\\n\\"'$'"\\"'$"/sge;
+s/'"\\*\\*([A-Za-z]+)\\*\\*/\\\\mathbf{"'$1}/g;
+s/Eq'"\\. ([A-Za-z0-9_:-]+)/Eq. ("'$1)/g;
+s/'"\\n{3,}/\\n\\n/g;
+' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:55:09.006518Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:09.007637Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:09.028779Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.028791Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:09.029264Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.029275Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:09.029644Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.029651Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:09.029997Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.030003Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:09.030370Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.030376Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:09.031270Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:09.031275Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 114ms:
+codex
+I’ve patched the residual equation formatting and restored the vector notation in math. One more verification pass will make sure the file is clean enough to hand off.
+exec
+/bin/zsh -lc "rg -n '\\\\begin\\{equation\\}|\\\\end\\{equation\\}|\\\\label\\{|\\\\cite\\{|\\\\onlinecite\\{|\\\\bibitem|"'^'"\\\\documentclass|"'^'"\\\\usepackage|"'^'"\\\\author|"'^'"\\\\affiliation|"'^'"\\\\pacs|"'^'"\\\\maketitle|\\\\epsfig|\\\\centerline|\\*\\*[A-Za-z]+\\*\\*' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '184,194p' codex_scientific_text.md && sed -n '376,386p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '100,118p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+and $K$ is complex conjugation.  Particle hole symmetry
+is expressed by $\Xi = \sigma^y \tau^y K$, which satisfies $\{\Xi,{\cal H}\}=0$.
+When $\Delta$ is spatially homogeneous, the excitation spectrum is
+$E_\mathbf{k} = \pm \sqrt{(\pm v|\mathbf{k}| - \mu)^2 + \Delta_0^2}$.  For
+$\mu \gg \Delta_0$, the low energy
+spectrum resembles that of a spinless $p_x+i p_y$ superconductor.
+This analogy can be made precise by defining $c_\mathbf{k} =
+(\psi_{\uparrow \mathbf{k}} + e^{i\theta_\mathbf{k}} \psi_{\downarrow \mathbf{k}})/\sqrt{2}$ for $\mathbf{k} = k_0(\cos \theta_\mathbf{k},\sin\theta_\mathbf{k})$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+$\sum_\mathbf{k} (v|\mathbf{k}|-\mu)  c_\mathbf{k}^\dagger c_\mathbf{k} +
+(\Delta e^{i\theta_\mathbf{k}} c_\mathbf{k}^\dagger c_{-\mathbf{k}}^\dagger +
+h.c.)/2$.  Though this is formally equivalant to a
+spinless $p_x + i p_y$ superconductor there is an important
+difference: ${\cal
+H}$ respects time reversal symmetry, while the $p_x+i p_y$
+superconductor does not.
+
+It is well known that a $h/2e$ vortex in a $p_x+i p_y$ superconductor
+leads to a MBS.  This suggests that for
+$\mu \gg \Delta_0$ a
+
+2026-05-05T00:55:19.242855Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:19.244039Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:19.265320Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.265338Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:19.265817Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.265825Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:19.266193Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.266199Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:19.266551Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.266556Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:19.266907Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.266913Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:19.267769Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:19.267775Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ exited 1 in 111ms:
+ succeeded in 102ms:
+codex
+The file is clean of the targeted TeX plumbing now. I’m doing one last cosmetic pass to normalize a couple of labels and trim excess blank space at the top.
+exec
+/bin/zsh -lc "perl -0pi -e 's/\\[Eq\\. \\((["'^'"\\]]+)\\)\\]/[Eq. "'$1]/g; s/# Scientific TeX Extract'"\\n{3,}/# Scientific TeX Extract\\n\\n/s;' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:55:30.613518Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:30.614596Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:30.636174Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.636186Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:30.636663Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.636671Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:30.637041Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.637047Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:30.637413Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.637419Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:30.637781Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.637788Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:30.638641Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:30.638648Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 118ms:
+exec
+/bin/zsh -lc 'tail -n 24 codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'wc -l codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+     464 codex_scientific_text.md
+
+exec
+/bin/zsh -lc "sed -n '1,24p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:51:51-04:00"
+updated_at: "2026-05-04T20:51:51-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+
+### Abstract
+
+We study the proximity effect between an $s$-wave superconductor and the
+surface states of a strong topological insulator.  The resulting two
+dimensional state resembles a spinless $p_x+ip_y$ superconductor, but
+does not break time reversal symmetry.  This state supports Majorana
+bound states at vortices.  We show that linear junctions between
+superconductors mediated by the topological insulator form a non chiral 1
+dimensional wire for Majorana fermions, and that circuits formed from
+these junctions provide a method for creating, manipulating and
+fusing Majorana bound states.
+
+2026-05-05T00:55:36.826566Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:36.827611Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:36.847511Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.847528Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:36.847967Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.847974Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:36.848303Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.848309Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:36.848641Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.848647Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:36.848996Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.849002Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:36.849788Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:36.849794Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 242ms:
+MBSs envisioned in Refs. .
+
+Manipulating and fusing MBSs places more
+stringent requirements on the energy gaps.  The junctions should
+be sufficiently short that
+$\Delta E = \tilde v/L > k_B T$, but sufficiently long
+that the MBSs are well localized.  The good news is that
+$\Delta E$ varies as a power of $L$, while the MBS overlap
+is exponential, so at low temperature both criteria can
+be achieved.
+If the process of varying $\delta$ to manipulate the MBSs
+is non adiabatic or $\Delta E < k_B T$ then
+additional quasiparticles could be excited.
+If those quasiparticles escape and interact with
+other MBSs, then the state of the MBSs will
+be disturbed.  However, if $\delta \ll \Delta_0$ the excited
+quasiparticles will be confined to the segment in which they were
+created.  If $\delta$ is turned up so that
+$k_B T \ll \delta \ll \Delta_0$, and
+the system relaxes back to its ground state, then the state of
+the MBSs will remain intact.  Thus, if there is
+sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+can tolerate these excitations.
+
+
+codex
+There’s one obvious citation-stripping artifact left near the end. I’m removing those empty-reference remnants so the prose reads cleanly.
+exec
+/bin/zsh -lc "rg -n 'Refs\\. \\.|Ref\\. \\.|\\bFig\\. [0-9][a-z]?\\b|\\.\\s*\\.|"'^'"\\."'$'"' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n 'discussed in Refs\\.|As shown by Ivanov|have gaps of order 30 meV|gap of the bulk superconductor|MBSs envisioned' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+137:.
+160:discussed in Refs. .
+239:separated by line junctions meet at a point, as in Fig. 1c.
+240:When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+249:indicated by the circles in Fig. 1d.  For $\mu = 0$ we find a MBS
+264:\pi-\epsilon_2$ Fig. 1d predicts
+293:spectrum, shown in Fig. 2a, may be written
+351:Fig. 2b.  There are plane wave solutions with energy
+353:$n=1, 2, ...$, along with a single $E_0=0$ state
+368:STIS junctions.  First, consider Fig. 3a and a
+408:Fig. 3b gives a geometry for interchanging MBSs without fusing them.
+438:tri-junctions as in Fig. 2 the presence of
+441:MBSs envisioned in Refs. .
+
+ succeeded in 0ms:
+160:discussed in Refs. .
+392:and 4) and brings the pairs back together.  As shown by Ivanov
+420:have gaps of order 30 meV . The next is to interface
+424:be comparable to the gap of the bulk superconductor .
+441:MBSs envisioned in Refs. .
+
+2026-05-05T00:55:44.784063Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:44.785368Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:44.805693Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.805705Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:44.806176Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.806182Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:44.806521Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.806529Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:44.806859Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.806865Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:44.807207Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.807213Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:44.807977Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:44.807982Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "sed -n '132,142p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '156,162p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '418,443p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+2026-05-05T00:55:51.082891Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:55:51.084005Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:55:51.105963Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.105988Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:51.106462Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.106470Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:51.106810Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.106820Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:51.107168Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.107174Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:51.107506Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.107512Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:55:51.108317Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:55:51.108323Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 177ms:
+
+with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+
+Another feature of $p_x + i p_y$ superconductors is the
+presence of chiral edge states
+.
+With time reversal symmetry,
+chiral edge states can *not* occur in our system.  The
+surface - which itself is the boundary of a three dimensional crystal
+- can not have a boundary.  By breaking time reversal symmetry,
+however, a Zeeman field can introduce a mass term $M\sigma^z$ into
+
+ succeeded in 168ms:
+which is described by (h0,hbdg) restricted to one spatial dimension.
+At the boundary between a region with superconducting gap $\Delta \tau^x$
+and a region with insulating gap $M \sigma^z$ we find a
+MBS, analogous to the end states
+discussed in Refs. .
+In the following we will focus on STIS junctions, which
+can lead to *non chiral* one dimensional Majorana fermions, as well
+
+ succeeded in 168ms:
+progress on many fronts.  The first is to find a strong TI
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV . The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths.  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor .
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+be similar to a graphene SNS junction.
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+tri-junctions as in Fig. 2 the presence of
+MBSs can be controlled.  It would then
+be interesting to perform tests of the non locality of
+MBSs envisioned in Refs. .
+
+Manipulating and fusing MBSs places more
+
+codex
+I’m making a small manual cleanup for the few citation-removal scars the mechanical pass left behind. The scientific content stays the same; this just fixes broken sentences.
+apply patch
+patch: completed
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index dc194843d824fa88b5dc7e72f78667c6ee7441d0..9e8d6fdbf86727d6883e9684de1418c2d60d4dce
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -133,8 +133,7 @@
+ with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+ 
+ Another feature of $p_x + i p_y$ superconductors is the
+-presence of chiral edge states
+-.
++presence of chiral edge states.
+ With time reversal symmetry,
+ chiral edge states can *not* occur in our system.  The
+ surface - which itself is the boundary of a three dimensional crystal
+@@ -157,7 +156,7 @@
+ At the boundary between a region with superconducting gap $\Delta \tau^x$
+ and a region with insulating gap $M \sigma^z$ we find a
+ MBS, analogous to the end states
+-discussed in Refs. .
++discussed in earlier work.
+ In the following we will focus on STIS junctions, which
+ can lead to *non chiral* one dimensional Majorana fermions, as well
+ as MBSs.
+@@ -417,11 +416,11 @@
+ The experimental implementation of this proposal will require
+ progress on many fronts.  The first is to find a strong TI
+ with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+-have gaps of order 30 meV . The next is to interface
++have gaps of order 30 meV. The next is to interface
+ with an appropriate superconductor. $\Delta_0$ depends on the quality
+ of the interface, Schottky barriers and the mismatch in the Fermi
+ wavelengths.  If these can be optimized, $\Delta_0$ can
+-be comparable to the gap of the bulk superconductor .
++be comparable to the gap of the bulk superconductor.
+ 
+ The simplest experimental geometry
+ would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+@@ -438,7 +437,7 @@
+ tri-junctions as in Fig. 2 the presence of
+ MBSs can be controlled.  It would then
+ be interesting to perform tests of the non locality of
+-MBSs envisioned in Refs. .
++MBSs envisioned in earlier work.
+ 
+ Manipulating and fusing MBSs places more
+ stringent requirements on the energy gaps.  The junctions should
+@@ -461,4 +460,3 @@
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+ can tolerate these excitations.
+-
+
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index dc194843d824fa88b5dc7e72f78667c6ee7441d0..9e8d6fdbf86727d6883e9684de1418c2d60d4dce
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -133,8 +133,7 @@
+ with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+ 
+ Another feature of $p_x + i p_y$ superconductors is the
+-presence of chiral edge states
+-.
++presence of chiral edge states.
+ With time reversal symmetry,
+ chiral edge states can *not* occur in our system.  The
+ surface - which itself is the boundary of a three dimensional crystal
+@@ -157,7 +156,7 @@
+ At the boundary between a region with superconducting gap $\Delta \tau^x$
+ and a region with insulating gap $M \sigma^z$ we find a
+ MBS, analogous to the end states
+-discussed in Refs. .
++discussed in earlier work.
+ In the following we will focus on STIS junctions, which
+ can lead to *non chiral* one dimensional Majorana fermions, as well
+ as MBSs.
+@@ -417,11 +416,11 @@
+ The experimental implementation of this proposal will require
+ progress on many fronts.  The first is to find a strong TI
+ with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+-have gaps of order 30 meV . The next is to interface
++have gaps of order 30 meV. The next is to interface
+ with an appropriate superconductor. $\Delta_0$ depends on the quality
+ of the interface, Schottky barriers and the mismatch in the Fermi
+ wavelengths.  If these can be optimized, $\Delta_0$ can
+-be comparable to the gap of the bulk superconductor .
++be comparable to the gap of the bulk superconductor.
+ 
+ The simplest experimental geometry
+ would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+@@ -438,7 +437,7 @@
+ tri-junctions as in Fig. 2 the presence of
+ MBSs can be controlled.  It would then
+ be interesting to perform tests of the non locality of
+-MBSs envisioned in Refs. .
++MBSs envisioned in earlier work.
+ 
+ Manipulating and fusing MBSs places more
+ stringent requirements on the energy gaps.  The junctions should
+@@ -461,4 +460,3 @@
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+ can tolerate these excitations.
+-
+
+2026-05-05T00:56:03.989665Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:56:03.990762Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:56:04.013106Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.013117Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:04.013635Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.013641Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:04.013998Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.014003Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:04.014373Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.014378Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:04.014734Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.014740Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:04.015609Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:04.015615Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The hand-cleanup is in place. I’m running one final scan for leftover plumbing and the specific artifacts we just corrected, then I’ll stop.
+exec
+/bin/zsh -lc "sed -n '418,443p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '132,162p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n '\\\\begin\\{equation\\}|\\\\end\\{equation\\}|\\\\label\\{|\\\\cite\\{|\\\\onlinecite\\{|\\\\bibitem|"'^'"\\\\documentclass|"'^'"\\\\usepackage|"'^'"\\\\author|"'^'"\\\\affiliation|"'^'"\\\\pacs|"'^'"\\\\maketitle|\\\\epsfig|\\\\centerline|Refs\\. \\.|\\s\\.("'$| )'"' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index dc194843d824fa88b5dc7e72f78667c6ee7441d0..9e8d6fdbf86727d6883e9684de1418c2d60d4dce
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -133,8 +133,7 @@
+ with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+ 
+ Another feature of $p_x + i p_y$ superconductors is the
+-presence of chiral edge states
+-.
++presence of chiral edge states.
+ With time reversal symmetry,
+ chiral edge states can *not* occur in our system.  The
+ surface - which itself is the boundary of a three dimensional crystal
+@@ -157,7 +156,7 @@
+ At the boundary between a region with superconducting gap $\Delta \tau^x$
+ and a region with insulating gap $M \sigma^z$ we find a
+ MBS, analogous to the end states
+-discussed in Refs. .
++discussed in earlier work.
+ In the following we will focus on STIS junctions, which
+ can lead to *non chiral* one dimensional Majorana fermions, as well
+ as MBSs.
+@@ -417,11 +416,11 @@
+ The experimental implementation of this proposal will require
+ progress on many fronts.  The first is to find a strong TI
+ with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+-have gaps of order 30 meV . The next is to interface
++have gaps of order 30 meV. The next is to interface
+ with an appropriate superconductor. $\Delta_0$ depends on the quality
+ of the interface, Schottky barriers and the mismatch in the Fermi
+ wavelengths.  If these can be optimized, $\Delta_0$ can
+-be comparable to the gap of the bulk superconductor .
++be comparable to the gap of the bulk superconductor.
+ 
+ The simplest experimental geometry
+ would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+@@ -438,7 +437,7 @@
+ tri-junctions as in Fig. 2 the presence of
+ MBSs can be controlled.  It would then
+ be interesting to perform tests of the non locality of
+-MBSs envisioned in Refs. .
++MBSs envisioned in earlier work.
+ 
+ Manipulating and fusing MBSs places more
+ stringent requirements on the energy gaps.  The junctions should
+@@ -461,4 +460,3 @@
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+ can tolerate these excitations.
+-
+
+2026-05-05T00:56:12.350303Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-05T00:56:12.351340Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/helenabrittain/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-05T00:56:12.371498Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.371508Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:12.371987Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.371994Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:12.372332Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.372338Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:12.372673Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.372679Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:12.373019Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.373025Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-05T00:56:12.373825Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-05T00:56:12.373831Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 102ms:
+
+with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+
+Another feature of $p_x + i p_y$ superconductors is the
+presence of chiral edge states.
+With time reversal symmetry,
+chiral edge states can *not* occur in our system.  The
+surface - which itself is the boundary of a three dimensional crystal
+- can not have a boundary.  By breaking time reversal symmetry,
+however, a Zeeman field can introduce a mass term $M\sigma^z$ into
+(h0,hbdg)
+which can open an insulating
+gap in the surface state spectrum.  By solving (hbdg)
+we find that the interface between this
+insulating state and the superconducting state has chiral
+Majorana edge states.  This could possibly be
+realized by depositing superconducting and insulating magnetic materials
+on the surface to form a superconductor-TI-magnet (STIM) junction.  It is interesting to note that
+for spinless electrons the $p_x+ip_y$ superconductor violates
+time reversal, while the vacuum does not.  For our surface states it is
+the *insulator* which violates time reversal.
+A related effect could also occur at the
+edge of a *two dimensional* TI,
+which is described by (h0,hbdg) restricted to one spatial dimension.
+At the boundary between a region with superconducting gap $\Delta \tau^x$
+and a region with insulating gap $M \sigma^z$ we find a
+MBS, analogous to the end states
+discussed in earlier work.
+In the following we will focus on STIS junctions, which
+can lead to *non chiral* one dimensional Majorana fermions, as well
+as MBSs.
+
+ succeeded in 102ms:
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV. The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths.  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor.
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+be similar to a graphene SNS junction.
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+tri-junctions as in Fig. 2 the presence of
+MBSs can be controlled.  It would then
+be interesting to perform tests of the non locality of
+MBSs envisioned in earlier work.
+
+Manipulating and fusing MBSs places more
+stringent requirements on the energy gaps.  The junctions should
+
+ exited 1 in 104ms:
+codex
+Updated [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md) from the single substantive source `revised2.tex`, preserving the YAML front matter and replacing the placeholder body with a cleaned scientific extract.
+
+The cleanup removed TeX plumbing, author/preamble metadata, bibliography, comments, and figure scaffolding while keeping the title, abstract, prose, equations, derivations, and figure-caption scientific content. Cross-references were retained mechanically via source labels like `[Eq. h1d]` and inline refs such as `(hbdg)` rather than compiled numbering.
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index dc194843d824fa88b5dc7e72f78667c6ee7441d0..9e8d6fdbf86727d6883e9684de1418c2d60d4dce
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -133,8 +133,7 @@
+ with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+ 
+ Another feature of $p_x + i p_y$ superconductors is the
+-presence of chiral edge states
+-.
++presence of chiral edge states.
+ With time reversal symmetry,
+ chiral edge states can *not* occur in our system.  The
+ surface - which itself is the boundary of a three dimensional crystal
+@@ -157,7 +156,7 @@
+ At the boundary between a region with superconducting gap $\Delta \tau^x$
+ and a region with insulating gap $M \sigma^z$ we find a
+ MBS, analogous to the end states
+-discussed in Refs. .
++discussed in earlier work.
+ In the following we will focus on STIS junctions, which
+ can lead to *non chiral* one dimensional Majorana fermions, as well
+ as MBSs.
+@@ -417,11 +416,11 @@
+ The experimental implementation of this proposal will require
+ progress on many fronts.  The first is to find a strong TI
+ with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+-have gaps of order 30 meV . The next is to interface
++have gaps of order 30 meV. The next is to interface
+ with an appropriate superconductor. $\Delta_0$ depends on the quality
+ of the interface, Schottky barriers and the mismatch in the Fermi
+ wavelengths.  If these can be optimized, $\Delta_0$ can
+-be comparable to the gap of the bulk superconductor .
++be comparable to the gap of the bulk superconductor.
+ 
+ The simplest experimental geometry
+ would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+@@ -438,7 +437,7 @@
+ tri-junctions as in Fig. 2 the presence of
+ MBSs can be controlled.  It would then
+ be interesting to perform tests of the non locality of
+-MBSs envisioned in Refs. .
++MBSs envisioned in earlier work.
+ 
+ Manipulating and fusing MBSs places more
+ stringent requirements on the energy gaps.  The junctions should
+@@ -461,4 +460,3 @@
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+ can tolerate these excitations.
+-
+
+tokens used
+76,958
+Updated [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md) from the single substantive source `revised2.tex`, preserving the YAML front matter and replacing the placeholder body with a cleaned scientific extract.
+
+The cleanup removed TeX plumbing, author/preamble metadata, bibliography, comments, and figure scaffolding while keeping the title, abstract, prose, equations, derivations, and figure-caption scientific content. Cross-references were retained mechanically via source labels like `[Eq. h1d]` and inline refs such as `(hbdg)` rather than compiled numbering.

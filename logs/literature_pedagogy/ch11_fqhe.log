@@ -1,0 +1,33 @@
+Good — no unclosed `\emph{}` commands. The edits are all clean.
+
+Here's a summary of the 12 pedagogical improvements I made to `ch11_fqhe.tex`:
+
+1. **Why interactions dominate** (§11.1): Added a sentence explaining that kinetic energy is quenched so Coulomb is the *only* scale, not just "there's no small parameter."
+
+2. **Forest of solenoids** (§11.2, flux attachment): Added Stern's vivid physical picture — each electron sees every other as a tiny solenoid — before the formal flux-attachment construction.
+
+3. **Why composite fermions feel zero field** (§11.2): Added a plain-language restatement that the fictitious flux exactly cancels the external field at mean-field level.
+
+4. **Why a theory is needed** (§11.2): Sharpened the "wavefunction is not a theory" transition to say it tells us *what* but not *why*, and that the EFT retains only universal, geometry-independent data.
+
+5. **Absence of Hodge star** (§11.2, effective action): Added a sentence explaining concretely why no-metric means no-geometry-dependence.
+
+6. **What goes wrong without quantization** (§11.2, level quantization): Added a sentence saying a non-integer $m$ would make the path integral gauge-dependent — inconsistent, not just inaccurate.
+
+7. **Laughlin's gedanken experiment** (§11.3, fractional charge): Added the adiabatic flux-threading argument from Stern's review, giving an alternative route to fractional charge that doesn't require field theory.
+
+8. **Charge + vorticity = anyons** (§11.3, braiding): Added a physical explanation that the anyonic phase arises because each quasiparticle carries both fractional charge and emergent flux.
+
+9. **Edge chirality from drift velocity** (§11.4): Added a sentence explaining physically why the edge mode propagates in one direction only ($\mathbf{E}\times\mathbf{B}$ drift).
+
+10. **Anomaly inflow intuition** (§11.4): Expanded the "not an additional ingredient" sentence to explain that the gapped bulk *must* leak its gauge non-invariance to the boundary.
+
+11. **GSD = holonomy sectors** (§11.4): Added a sentence explaining what the three ground states on the torus physically are.
+
+12. **K-matrix motivation** (§11.5): Added a one-sentence motivating remark before the formalism.
+
+13. **Nonabelian anyons: Majorana picture** (§11.5): Added Stern's physical explanation of the degeneracy via Majorana zero modes in $p+ip$ vortices.
+
+14. **Topological mass has no $(3{+}1)$-d analog** (§11.6): Added a parenthetical noting this mass-generation mechanism is unique to $(2{+}1)$ dimensions.
+
+15. **RG-flow intuition for MCS crossover** (§11.6): Added a sentence connecting the short-to-long-distance crossover to Wilsonian RG.

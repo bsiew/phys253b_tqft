@@ -1,0 +1,6 @@
+Compiles without errors. The figure is at `253b_final_paper/tex_docs/figures/f_anyon_braid.tex` — a two-panel TikZ diagram with:
+
+- **Left panel (Exchange):** Two worldlines cross once with a clear over/under gap convention, labeled $e^{i\pi/m}$.
+- **Right panel (Full monodromy):** Two worldlines cross twice (particle 2 always passes under particle 1), labeled $e^{2\pi i/m}$.
+
+Include it in your paper with `\input{figures/f_anyon_braid.tex}` inside a `figure` environment.

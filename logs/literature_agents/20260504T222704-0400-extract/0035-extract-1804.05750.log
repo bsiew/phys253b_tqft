@@ -1,0 +1,15 @@
+Done. I've created a cleaned scientific extract of the ADMX axion dark matter search paper. The extraction preserves:
+
+- **Scientific content**: The abstract, introduction, experimental setup (Generation 2 ADMX detector), data acquisition and analysis methods, results, and conclusions
+- **Key physics**: Definitions of axions and the Peccei-Quinn solution; the haloscope principle; the SNR formula and power equation; KSVZ and DFSZ coupling models
+- **Experimental details**: Cavity specs, cryogenic system temperatures, RF chain architecture, analysis procedures, systematic uncertainties
+- **Results**: The 645–680 MHz exclusion range, the factor-of-7 sensitivity improvement, DFSZ coupling exclusion
+- **YAML front matter**: Preserved with updated timestamp
+
+Removed:
+- TeX plumbing (documentclass, packages, author/affiliation blocks)
+- Bibliography commands and citations (but kept scientific references inline where needed)
+- Commented-out code and draft watermarks
+- Purely presentational table/figure scaffolding (while keeping table data and figure captions as text)
+
+The file is ready for literature integration.

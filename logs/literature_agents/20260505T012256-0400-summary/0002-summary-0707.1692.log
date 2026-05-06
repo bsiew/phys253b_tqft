@@ -1,0 +1,9 @@
+Task complete. I've split the source text into 12 section files under `codex_section_extracts/` and written the summary import map to `codex_paper_summary.md`.
+
+The summary provides:
+- A whole-paper snapshot identifying Fu & Kane (2007) as the foundational work establishing TI-based Majorana platforms
+- Section-by-section summaries scaled to technical density (50-150 words each)
+- Import triage recommendations: 9 sections rated **high** (core theory and protocols), 1 **medium** (symmetry considerations), 1 **skip** (references placeholder)
+- A selective import strategy recommending always loading sections 03-05, 07-10 for core physics, with sections 01-02, 06, 11 as context-dependent additions
+
+All generated files include proper YAML front matter with timestamps and project metadata.

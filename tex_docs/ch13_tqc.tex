@@ -5,7 +5,7 @@
 %
 % Purpose
 %   Non-abelian anyons as the substrate for fault-tolerant quantum
-%   computation. Kitaev's proposal, Ising worked example, honesty box.
+%   computation. Kitaev's proposal, Ising worked example, experimental status.
 %
 % Status: NEW WRITING. Guided by BSIEW tasks 13_1--13_3.
 %
@@ -14,7 +14,7 @@
 % Section plan
 %   13.1  Non-abelian anyons and Kitaev's proposal
 %   13.2  Ising anyons: four sigmas = two qubits
-%   13.3  Honesty box: experiment vs. theory gap
+%   13.3  Experimental status: experiment vs. theory gap
 %   13.4  Brief outlook: what a working platform would mean
 %
 % Owner: Helena
@@ -39,57 +39,198 @@
 \subsection{Non-Abelian Anyons and Kitaev's Proposal}
 \label{subsec:kitaev-proposal}
 
-% TODO (Task 13_1): ~1.5 pages.
-% 1. Topological degeneracy: N non-abelian anyons of fixed fusion type have
-%    degenerate ground space, dimension grows exponentially in N.
-% 2. Topological protection: local perturbations commute with ground-space
-%    projector to exponential accuracy in system size; logical qubits
-%    inaccessible to local noise.
-% 3. Braiding as unitary gate: exchanging anyons effects unitary on ground
-%    space; computable sequence of braids implements a gate.
-% Cite: Kitaev 2003, Nayak et al. RMP 2008.
+Why do quantum computers fail?  Local noise kills local qubits long before any useful computation finishes.  Kitaev's idea \cite{Kitaev2003FaultTolerant} is beautifully simple: store quantum information where no local operator can reach it.  Encode a qubit in the fusion channel of widely separated non-abelian anyons; the gap shields it from local noise.  Compute by braiding: the gate depends only on the topology of the worldlines---not on speed, trajectory, or how carefully you drive the apparatus.
+
+This works because non-abelian anyons deliver three things at once.  Topological degeneracy supplies exponentially many states.  Topological protection ensures no local measurement can read them and no local perturbation can corrupt them.  Braiding furnishes a natural gate set that inherits the same protection.  These are not three independent ingredients bolted together---they are three faces of a single structure, the modular tensor category of the underlying TQFT.  We develop each in turn.
+
+\subsubsection*{Topological degeneracy}
+
+Place $2n$ non-abelian anyons of type $\sigma$ at well-separated positions, with total charge in the vacuum sector.  The fusion rules
+\begin{equation}
+  \sigma \times \sigma = \mathbf{1} + \psi + \cdots
+  \label{eq:generic-fusion}
+\end{equation}
+admit multiple channels at each pairwise fusion---like combining angular momenta, except no measurement on a single anyon reveals the outcome.  The internal state is a genuinely nonlocal degree of freedom.  Successive fusion yields a \emph{fusion space} whose dimension grows exponentially:
+\begin{equation}
+  \dim \mathcal{V}_{2n} \;\sim\; d_\sigma^{\,2n}
+  \qquad (n \gg 1).
+  \label{eq:topo-degeneracy}
+\end{equation}
+For Ising anyons ($d_\sigma = \sqrt{2}$), four anyons give a two-dimensional space---one qubit---while $2n$ anyons encode $n-1$ qubits.  The exponential growth is not accidental; it is forced by the non-abelian fusion category \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+\subsubsection*{Topological protection}
+
+The degeneracy is exact in the TQFT.  Any physical realization lives in a gapped medium with finite correlation length $\xi$---so what saves us?  Local operators cannot distinguish states within the fusion space.  If $P_0$ projects onto the degenerate ground manifold and $\mathcal{O}$ is supported in a disk of radius $\ell \ll L$ (the inter-anyon separation), then
+\begin{equation}
+  P_0 \, \mathcal{O} \, P_0 \;=\; c \, P_0 + \mathcal{O}\!\left(e^{-L/\xi}\right),
+  \label{eq:topo-protection}
+\end{equation}
+where $c$ is a state-independent scalar.  Every local operator acts as the identity on the code space, up to corrections exponentially small in $L/\xi$.  The physics is transparent: distinguishing two fusion-space states requires correlating information between widely separated anyons, and any operator confined to a region much smaller than $L$ simply cannot do this.  The only operations that rotate within the fusion space transport one anyon around another---manifestly nonlocal \cite{Kitaev2003FaultTolerant}.
+
+\subsubsection*{Braiding as unitary gates}
+
+Adiabatically exchange a pair of anyons.  Because they are non-abelian, the exchange implements a nontrivial unitary on the fusion space:
+\begin{equation}
+  \ket{\Psi} \;\longmapsto\; R_{ij}\,\ket{\Psi},
+  \qquad R_{ij} \in \mathrm{U}\!\left(\mathcal{V}_{2n}\right).
+  \label{eq:braid-gate}
+\end{equation}
+The matrices $R_{ij}$ furnish a representation of the braid group $B_{2n}$.  A quantum algorithm is a word in this group: a sequence of exchanges composing to the desired unitary.  The gate depends only on the topology of the braid, so the computation inherits the same exponential protection as the memory.  This is qualitatively different from conventional error correction.  Braids are discrete topological invariants: either a particle winds around another or it does not.  There is no analogue of ``rotating $90.01^\circ$ instead of $90^\circ$.''  Timing jitter and path wobble produce corrections suppressed by $e^{-L/\xi}$
+\cite{Kitaev2003FaultTolerant, NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+The gate set depends on the anyon model.  For Ising anyons, braiding generates only the Clifford group---not universal (Section~\ref{subsec:ising-gates}).  For Fibonacci anyons, braiding alone is universal: any unitary can be approximated to precision $\epsilon$ by a braid of length $\mathcal{O}(\mathrm{poly}(\log 1/\epsilon))$.  Either way, the problem of fault-tolerant quantum computation reduces to a materials challenge: find a medium hosting non-abelian anyons with sufficient density, coherence, and control.
 
 \subsection{Ising Anyons: Four $\sigma$'s $=$ Two Qubits}
 \label{subsec:ising-gates}
 
-% TODO (Task 13_2): ~3 pages. WORKED EXAMPLE.
-% 1. Ising fusion: sigma x sigma = 1 + psi, so 4 sigma's fuse to
-%    4-dim space = 2 qubits.
-% 2. Braiding group: exchanges of adjacent sigma's generate representation
-%    of braid group B_4 on 2-qubit space.
-% 3. Gates implemented: generated gate set is Clifford group --- powerful
-%    but not universal.
-% 4. Need for additional resources: topologically-protected Clifford +
-%    non-topological T gate gives universality. Fault-tolerance comes
-%    from magic-state distillation.
-% Cite: Nayak et al. RMP 2008.
+The Ising topological order has three particle types---$\mathbf{1}$ (vacuum), $\psi$ (fermion), $\sigma$ (non-abelian anyon)---with fusion rules
+\begin{equation}
+  \sigma \times \sigma = \mathbf{1} + \psi, \qquad
+  \psi \times \psi = \mathbf{1}, \qquad
+  \sigma \times \psi = \sigma.
+  \label{eq:ising-fusion-rules}
+\end{equation}
+The quantum dimension $d_\sigma = \sqrt{2}$ is irrational---it cannot be the dimension of any single-particle Hilbert space.  It reflects the nonlocal character of the information: each additional pair of $\sigma$'s contributes $\sqrt{2}^2 = 2$ to the total dimension, exactly one qubit.  We now show that four $\sigma$ anyons encode two qubits, braiding generates the Clifford group, and one non-topological supplement yields universality.
 
-\subsection{Required Honesty Box}
-\label{subsec:tqc-honesty-box}
+\subsubsection*{Four anyons, two qubits}
 
-% TODO (Task 13_3): ~1 page. REQUIRED BY RUBRIC.
-%
-% Honesty box (visually distinct: tcolorbox or similar) stating:
-%
-% 1. No natural non-abelian anyonic phase has been unambiguously confirmed.
-%    nu = 5/2 Moore-Read is strongest candidate but not definitive.
-% 2. Majorana-based proposals: semiconductor/superconductor hybrids have
-%    produced suggestive but contested signatures; prominent claims retracted.
-%    Field has lower confidence than 5 years ago.
-% 3. Synthetic realizations (Ch 12 Sec 12.3) implement braid algebra but
-%    not passive topological protection.
-% 4. Fault-tolerance threshold: even with a working platform, achieving
-%    threshold requires substantial improvements in coherence times and
-%    operational fidelity.
-%
-% Tone: matter-of-fact, not hedging. The honesty is the point.
+Fix four $\sigma$ anyons at well-separated positions with total charge $\mathbf{1}$.  Fuse pairwise: let $a$ be the channel of $(\sigma_1, \sigma_2)$ and $b$ the channel of $(\sigma_3, \sigma_4)$:
+\begin{equation}
+  \sigma_1 \times \sigma_2 = a, \qquad
+  \sigma_3 \times \sigma_4 = b, \qquad
+  a \times b = \mathbf{1}.
+  \label{eq:pairwise-fusion}
+\end{equation}
+The vacuum constraint forces $a = b$ (since $\mathbf{1}\times\mathbf{1}=\mathbf{1}$ and $\psi\times\psi=\mathbf{1}$, but $\mathbf{1}\times\psi\neq\mathbf{1}$).  Each can be $\mathbf{1}$ or $\psi$, giving a two-dimensional vacuum-sector fusion space:
+\begin{equation}
+  \mathcal{V}_4^{\,(\mathbf{1})} = \mathrm{span}\bigl\{
+    \ket{a = \mathbf{1},\, b = \mathbf{1}},\;
+    \ket{a = \psi,\, b = \psi}
+  \bigr\}.
+  \label{eq:one-qubit-space}
+\end{equation}
+One logical qubit.  Initialization is free: pulling a $\sigma$--$\bar\sigma$ pair from the vacuum creates them in the $a=\mathbf{1}$ channel, giving a definite $\ket{0}$.
+
+Allowing total charge $\mathbf{1}$ or $\psi$ gives a four-dimensional space---two qubits.  In what follows we work in the fixed-total-charge sector \eqref{eq:one-qubit-space}, noting that braiding extends block-diagonally to the full space \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+\subsubsection*{Braiding representation of $B_4$}
+
+The braid group $B_4$ has three generators: exchanges of $\sigma_1\leftrightarrow\sigma_2$, $\sigma_2\leftrightarrow\sigma_3$, and $\sigma_3\leftrightarrow\sigma_4$.  The Ising $R$-matrix for a counterclockwise half-twist of two $\sigma$'s is diagonal in the fusion-channel basis:
+\begin{equation}
+  R^{\sigma\sigma}_{\mathbf{1}} = e^{-i\pi/8}, \qquad
+  R^{\sigma\sigma}_{\psi} = e^{i 3\pi/8}.
+  \label{eq:ising-R-matrix}
+\end{equation}
+Their ratio $R^{\sigma\sigma}_\psi / R^{\sigma\sigma}_{\mathbf{1}} = i$ is the measurable relative phase.  The braiding operator is diagonal in the basis labeled by the fusion channel of the exchanged pair, but off-diagonal in any other---and that is why braiding generates nontrivial gates.
+
+In the basis \eqref{eq:one-qubit-space}, exchanging the first pair is diagonal:
+\begin{equation}
+  \rho(\sigma_1) = \begin{pmatrix}
+    e^{-i\pi/8} & 0 \\ 0 & e^{i3\pi/8}
+  \end{pmatrix}
+  = e^{i\pi/8}\begin{pmatrix}
+    e^{-i\pi/4} & 0 \\ 0 & e^{i\pi/4}
+  \end{pmatrix}.
+  \label{eq:braid-sigma1}
+\end{equation}
+Up to the unobservable overall phase, this is a $Z$-rotation by $\pi/2$.  Exchanging the middle pair $(\sigma_2, \sigma_3)$ mixes particles from both pairs that define the qubit, so it is off-diagonal.  Its matrix requires the $F$-matrix (the change-of-fusion-tree basis):
+\begin{equation}
+  \rho(\sigma_2) = \frac{e^{-i\pi/8}}{\sqrt{2}}
+  \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+  \cdot
+  \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix}
+  = \frac{e^{-i\pi/8}}{\sqrt{2}}
+  \begin{pmatrix} 1 & i \\ 1 & -i \end{pmatrix}.
+  \label{eq:braid-sigma2}
+\end{equation}
+The third generator $\rho(\sigma_3)$ acts identically to $\rho(\sigma_1)$.
+
+\subsubsection*{Generated gate set: the Clifford group}
+
+Direct computation shows that \eqref{eq:braid-sigma1} and \eqref{eq:braid-sigma2} generate (up to phases) exactly the single-qubit Clifford group---the normalizer of the Pauli group in $\mathrm{U}(2)$:
+\begin{itemize}
+  \item The Hadamard gate $H$ is (proportional to) $\rho(\sigma_2)^2$.
+  \item The phase gate $S = \mathrm{diag}(1, i)$ is (proportional to)
+    $\rho(\sigma_1)^2$.
+\end{itemize}
+Since $H$ and $S$ generate the single-qubit Clifford group, braiding of four Ising anyons delivers complete Clifford control.  Extending to $2n$ anyons produces the full multi-qubit Clifford group, including CNOT \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+The Clifford group is powerful---it includes Bell states, teleportation, and stabilizer operations---but by the Gottesman--Knill theorem it is classically simulable, hence \emph{not} universal.  Ising anyons are not non-abelian enough: their braid representation has finite image (up to phases), generated by $90^\circ$ rotations that cannot densely fill $\mathrm{U}(2)$.
+
+\subsubsection*{Achieving universality: the $T$ gate and magic-state
+distillation}
+
+Supplement the Clifford group with one non-Clifford gate---the $T$ (or $\pi/8$) gate:
+\begin{equation}
+  T = \begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}.
+  \label{eq:T-gate}
+\end{equation}
+The set $\{H, S, T, \mathrm{CNOT}\}$ is dense in $\mathrm{U}(2^n)$: universal.
+
+Braiding cannot produce $T$, so it must come from outside topology---for instance, bring two anyons close enough that their splitting $\Delta E(r) \sim e^{-r\Delta/v}$ becomes appreciable, wait a calibrated time until the accumulated phase hits $\pi/4$, then separate.  This operation is unprotected and introduces errors at rate $p$.
+
+Here is the punchline: \emph{magic-state distillation} \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons} lets you purify noisy $T$-gate ancillas using only Clifford operations---which \emph{are} topologically exact.  Prepare many noisy copies of the magic state $\ket{T} = T\ket{+}$, then distill a few high-fidelity copies via topologically protected circuits.  The effective error rate drops as $p^{2^r}$ after $r$ rounds, with overhead polynomial in $\log(1/\epsilon)$.
+
+The architecture for a universal topological quantum computer from Ising anyons is therefore: topologically protected Clifford gates via braiding (exact, no error correction needed), supplemented by noisy $T$-gate preparation via a non-topological mechanism (error rate $p$), with magic-state distillation using Clifford operations to suppress $T$-gate errors to any desired level.  This hybrid scheme eliminates the dominant error source---gate noise in Clifford operations---through topology, while handling the single non-topological component at polynomial overhead.  Only one gate type needs active error correction, so the fault-tolerance threshold is far more forgiving than in a fully unprotected architecture.
+
+A complete computation---initialization through braiding to measurement---corresponds to \emph{closed links} in spacetime rather than open braids.  Pair creation from vacuum initializes; pairwise fusion or interferometry measures.  Start to finish, the process is topological.
+
+\subsection{Experimental Status}
+\label{subsec:tqc-experimental-status}
+
+The gap between architecture and experiment is large.
+
+\medskip
+\noindent\textbf{The Experimental Status of Topological
+Quantum Computation.}
+\begin{quote}
+\textbf{1.\ No confirmed non-abelian platform (as of 2025).}  The $\nu = 5/2$ fractional quantum Hall state remains the strongest condensed-matter candidate for Moore--Read order.  Thermal Hall and upstream neutral-mode experiments provide circumstantial evidence, but competing abelian explanations survive.  No experiment has directly demonstrated non-abelian braiding at $\nu = 5/2$ \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+\textbf{2.\ Majorana nanowire promises have not materialized.}  Semiconductor/superconductor hybrids were proposed as an engineered route to Majorana zero modes.  Several claims of quantized zero-bias peaks have been contested or retracted; community confidence is substantially lower than five years ago.
+
+\textbf{3.\ Synthetic platforms verify algebra, not protection.}  The superconducting-processor experiment of Chapter~\ref{sec:experiments} (and analogous trapped-ion and photonic demonstrations) implements braid-group algebra successfully---but the information lives in actively controlled degrees of freedom, not a degenerate ground manifold shielded by a gap.  These platforms confirm the mathematics without providing passive, hardware-level error suppression.
+
+\textbf{4.\ Fault-tolerance thresholds remain demanding.}  Even given a working platform: coherence times must exceed distillation circuits, inter-anyon separations must satisfy $L \gg \xi$ for Eq.~\eqref{eq:topo-protection}, and transport/measurement fidelities must clear the topological threshold.  No existing system meets these requirements.
+\end{quote}
+\medskip
+
+\noindent These facts do not invalidate the topological approach---they locate it as theoretical and mathematical rather than engineering-ready.  The framework's value is as a target specification: what a physical platform must deliver for topological protection to work as advertised.
 
 \subsection{Brief Outlook: What a Working Platform Would Mean}
 \label{subsec:tqc-outlook}
 
-% TODO (new subsection): ~1 page.
-% Connect back to Ch 10 anyon data: which systems (Ising, Fibonacci) would
-% give universal TQC, and what the experimental requirements are.
-% Ising: Clifford only, needs magic state distillation.
-% Fibonacci: universal from braiding alone, but no known natural realization.
-% Cite: Nayak et al. RMP 2008.
+Which anyon models from Chapter~\ref{sec:anyons} give a universal quantum computer from braiding alone, and which need help?
+
+\subsubsection*{Ising anyons: Clifford group from braiding}
+
+As shown in Section~\ref{subsec:ising-gates}, Ising anyons ($\sigma\times\sigma = \mathbf{1}+\psi$, $d_\sigma=\sqrt{2}$) give exactly the Clifford group.  Clifford circuits are classically simulable (Gottesman--Knill), so braiding alone is not universal---you need a $T$ gate via magic-state distillation at polynomial overhead.
+
+The physical candidates---$\nu = 5/2$ and Majorana nanowires---have produced no unambiguous demonstration of non-abelian statistics (Section~\ref{subsec:tqc-experimental-status}).
+
+\subsubsection*{Fibonacci anyons: universality from braiding alone}
+
+The Fibonacci model has one nontrivial particle $\tau$ with
+\begin{equation}
+  \tau \times \tau = \mathbf{1} + \tau.
+  \label{eq:fibonacci-fusion}
+\end{equation}
+The quantum dimension is the golden ratio $d_\tau = \varphi = (1+\sqrt{5})/2$, and the fusion space of $n$ anyons has dimension equal to the $n$-th Fibonacci number.  (Two $\tau$'s give 2; three give 3; four give 5---the Fibonacci recursion, obviously.)  The braid group representation is \emph{dense} in $\mathrm{SU}(N)$: any unitary can be approximated to precision $\epsilon$ by a braid of length $\mathcal{O}(\mathrm{poly}(\log 1/\epsilon))$ \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.  The generators have only two eigenvalues (constrained by the Jones skein relation) and cannot close into a finite group, so their image is dense by classification.  No magic-state distillation, no non-topological supplement---universality from topology alone.
+
+This makes Fibonacci the theoretical gold standard.  Its drawback: no known natural realization.  Possible hosts include the $\nu = 12/5$ state and certain non-abelian phases in rotating Bose gases, but evidence remains far from conclusive \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+\subsubsection*{Experimental requirements for a working platform}
+
+Regardless of anyon model, a functioning topological quantum computer requires:
+\begin{enumerate}
+  \item \textbf{Gap $\Delta \gg k_B T$.}  Topological protection \eqref{eq:topo-protection} requires the system to stay in its ground manifold.  Thermal excitations at rate $\sim e^{-\Delta/k_BT}$ create stray anyons that poison encoded information.  (A thermally excited pair that braids around only one computational anyon causes no error---it returns to the vacuum.  Errors require a stray to encircle at least two computational anyons, exponentially suppressed at large separation.)
+  \item \textbf{Coherence time $\tau_{\mathrm{coh}} \gg \tau_{\mathrm{braid}}$.}  Finite-size effects and quasiparticle tunneling limit circuit depth.
+  \item \textbf{Controlled creation and measurement.}  Initialization requires producing anyons in known fusion channels; readout requires projective fusion measurement, both above threshold.
+  \item \textbf{Scalability.}  $\mathcal{O}(100)$ or more anyons with individually addressable braiding paths, without mutual interference or gap degradation.
+\end{enumerate}
+Current platforms---GaAs at $\nu = 5/2$, graphene heterostructures, InAs/Al nanowires---satisfy at most one or two of these.  The gap at $\nu = 5/2$ is $\sim 500\;\mathrm{mK}$, requiring temperatures below $30\;\mathrm{mK}$; quasiparticle poisoning and measurement fidelities remain far from threshold.
+
+The value of this framework is not as a near-term blueprint but as a precise target: the topological data (fusion rules, $R$-matrices, $F$-matrices) a material must realize, and the physical scales (gap, coherence length, braiding time) it must achieve.  The classification of Chapter~\ref{sec:anyons} tells us what to look for.  The challenge is finding---or building---a system that delivers it.
+
+\medskip
+
+\noindent But $2{+}1$ dimensions are not the end of the story.  Chapter~\ref{sec:sectors-3plus1d} lifts to $3{+}1$ dimensions, where the topological sectors are instantons rather than anyons---and their consequences are spectacular: the $\eta'$ mass, the strong-CP problem, and the axion all emerge from topological field theory organizing four-dimensional physics with the same force it brings to the quantum Hall effect.

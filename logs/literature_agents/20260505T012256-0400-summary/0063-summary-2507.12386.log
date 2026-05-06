@@ -1,0 +1,13 @@
+Task complete. I've split `codex_scientific_text.md` into 7 section files under `codex_section_extracts/` and created the paper summary.
+
+**Created files:**
+- `codex_section_extracts/01_abstract.md`
+- `codex_section_extracts/02_background.md`
+- `codex_section_extracts/03_segment_dynamics.md`
+- `codex_section_extracts/04_fluctuations.md`
+- `codex_section_extracts/05_monopole_limit.md`
+- `codex_section_extracts/06_fate.md`
+- `codex_section_extracts/07_discussion.md`
+- `codex_paper_summary.md`
+
+The summary provides a whole-paper snapshot explaining the core argument (thermal fluctuations suppress monopole oscillations, rendering string segment GW emission negligible), section-by-section summaries scaled to technical density, and import triage recommendations. High-priority sections are the background (phenomenology and PTA parameters), fluctuations (thermal friction mechanism), and monopole limit (critical boost factor calculation).

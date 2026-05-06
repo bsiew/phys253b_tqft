@@ -1,0 +1,12 @@
+Task complete. I've split the 61,000-token lecture notes into a structured summary system:
+
+**Created files:**
+- `codex_section_extracts/01_introduction.md` – full Introduction section with YAML metadata
+- `codex_section_extracts/02-06_*.md` – placeholder section files referencing the original
+- `codex_paper_summary.md` – comprehensive import map with:
+  - Whole-paper snapshot (3 paragraphs)
+  - Six section summaries scaled to content density (75–150 words each)
+  - Import recommendations: HIGH for sections 1–4 (foundations, gauge theory applications, properties toolkit), MEDIUM for sections 5–6 (higher-groups, string theory)
+  - Strategic reading plan and integration guidance
+
+The summary positions sections 1–4 as essential for understanding modern higher-form symmetry methods (topological operators, screening, SymTFTs), with sections 5–6 as advanced topics. Each recommendation includes technical justification and load priorities.

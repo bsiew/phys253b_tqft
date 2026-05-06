@@ -1,0 +1,17 @@
+Pass 1 of the style overhaul is complete. Here's what was done:
+
+**Every chapter opening** was rewritten to pose a physical question or state a concrete result, replacing meta-commentary ("The purpose of this section is...", "We now turn to...", "Having established..."). The key rewrites:
+
+- **Ch03**: "What does it mean for a quantum field theory to be topological?"
+- **Ch04**: "How much data does a topological field theory actually contain?"
+- **Ch06**: "What is the simplest topological gauge theory you can write in any dimension?"
+- **Ch07**: "What happens to gauge theory when the gauge group is finite?"
+- **Ch08**: Direct Ward-identity motivation instead of "The purpose of the present chapter is..."
+- **Ch09**: "What do you call a phase of matter with no broken symmetry and no local order parameter?"
+- **Ch14**: "Why is the eta-prime meson so much heavier than the pion?"
+
+**Parenthetical editorial asides** were added to every chapter (ch02 got three, others got 1-2 each). These signal authorial judgment: "(This single distinction is doing an enormous amount of work)", "(If you can follow this calculation with all signs intact, the rest is just the same moves repeated)".
+
+**Transitions** were fixed throughout: meta-transitions replaced with causal connectives; end-of-chapter recaps shortened to 1-2 sentence forward pointers naming specific consequences.
+
+Summary written to `logs/paper_tasks_17/17_13_style_summary.md`. A second pass (recommended after a day away) should add a few more asides to ch04/ch09/ch13 and do a read-aloud check on the most mathematical chapters.

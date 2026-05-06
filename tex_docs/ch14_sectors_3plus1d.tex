@@ -57,70 +57,454 @@
 %      \cite{CASPErOverviewPlaceholder}, \cite{MADMAXOverviewPlaceholder})
 %
 % Writing notes
-%   - Open by reminding the reader that Sec. 3 already introduced the theta
-%     term and instanton number. Here we follow the chain from topology to
-%     measurable observables.
-%   - 6.1 derives chi_t as the curvature of E(theta).
-%   - 6.2 states Witten-Veneziano and motivates large-N; cite lattice support.
-%   - 6.3 connects bar-theta -> nEDM and describes axion solution (PQ
+%   - Open by reminding the reader that Part I Sec. 3 already introduced the
+%     theta term and instanton number. Here we follow the chain from topology
+%     to measurable observables.
+%   - 14.1 derives chi_t as the curvature of E(theta).
+%   - 14.2 states Witten-Veneziano and motivates large-N; cite lattice support.
+%   - 14.3 connects bar-theta -> nEDM and describes axion solution (PQ
 %     mechanism, axion mass from chi_t, coupling hierarchy by UV model).
-%   - 6.4 is a local "iffiness" subsection paralleling Sec. 5.6.
+%   - 14.4 is a local "iffiness" subsection paralleling Ch 11 §11.7.
 
 \section{Topological Sectors in $3+1$ Dimensions}
 \label{sec:sectors-3plus1d}
 
-% TODO: Open with the reminder that theta in F wedge F-tilde is not just an
-% observable --- it is a coupling whose physical consequences run through the
-% entire hadronic and CP-violation story.
+Why is the $\eta'$ meson so heavy?  Both the $\eta'$ and the pion are pseudoscalar mesons built from light quarks; the approximate chiral symmetry $U(N_f)_L \times U(N_f)_R$ should produce $N_f^2$ light pseudo-Goldstone bosons when it breaks.  For $N_f = 3$ we get eight---the pion octet---but the ninth, the $\eta'$, weighs 958~MeV, far beyond what quark masses can explain.  The answer is topological: the $U(1)_A$ current has an anomaly proportional to $\tr(F\wedge F)$, the same topological density whose integral gives the Chern--Simons form of Chapter~\ref{ch:chern-simons}.  The vacuum structure of QCD---the $\theta$ parameter, instantons, the topological susceptibility $\chi_t$---controls the $\eta'$ mass, constrains CP violation through the neutron electric dipole moment, and motivates axion physics.  This chapter follows that chain from topology to observables.
 
 \subsection{$\theta$ Vacua, Topological Susceptibility, and $U(1)_A$}
 \label{subsec:theta-chi-u1a}
 
-% TODO: Define chi_t = int d^4x <q(x) q(0)> with q = (g^2/32 pi^2) tr(F F-tilde).
-% Relate to E(theta) = E(0) + (1/2) chi_t theta^2 + O(theta^4) at small theta.
-% Explain U(1)_A: anomaly kills naive Goldstone; large-N saves the story.
-% Cite: \cite{tHooft1976BellJackiw}, \cite{tHooft1976Pseudoparticle},
-%       \cite{Witten1979U1GoldstoneBoson}, \cite{Veneziano1979U1WithoutInstantons},
-%       \cite{DiVecchiaVeneziano1980ChiralDynamics},
-%       \cite{Teper2000TopologyInQCD}
+\subsubsection{Instanton number and the $\theta$ term}
+
+Recall from Section~\ref{sec:CS-form} that for an $SU(N)$ gauge field on a compact Euclidean four-manifold $M$, the instanton number
+\begin{equation}\label{eq:instanton-number}
+  \nu = \frac{1}{8\pi^2}\int_M \tr(F\wedge F) \;\in\; \Z
+\end{equation}
+is a topological invariant: insensitive to smooth deformations of the connection, integer-valued by the index theorem. In components,
+\begin{equation}\label{eq:topological-charge-density}
+  q(x) \;=\; \frac{g^2}{32\pi^2}\,\tr\bigl(F_{\mu\nu}\tilde{F}^{\mu\nu}\bigr),
+\end{equation}
+where $\tilde{F}^{\mu\nu} = \frac{1}{2}\varepsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}$ is the dual field strength (trace in the fundamental), so $\nu = \int d^4x\, q(x)$.
+
+The Euclidean path integral sums over all gauge configurations, decomposed into topological sectors labeled by $\nu$. A vacuum angle $\theta\in[0,2\pi)$ weights them:
+\begin{equation}\label{eq:theta-partition-function}
+  Z(\theta) \;=\; \sum_{\nu=-\infty}^{\infty} e^{i\nu\theta}\,Z_\nu,
+  \qquad Z_\nu = \int_{\nu\text{-sector}} \mathcal{D}A\; e^{-S_{\mathrm{YM}}[A]}.
+\end{equation}
+Equivalently, the $\theta$ term adds to the Euclidean action:
+\begin{equation}\label{eq:theta-action}
+  S_\theta \;=\; -i\theta\,\nu \;=\; -\frac{i\theta}{8\pi^2}\int_M \tr(F\wedge F).
+\end{equation}
+Because $\tr(F\wedge F) = d\omega_{\CS}$ locally, this term leaves the classical equations of motion untouched.  Its effects are entirely quantum-mechanical---they arise from the sum over topologically distinct configurations in the path integral.
+
+\subsubsection{Theta vacua and cluster decomposition}
+
+Canonical quantization in temporal gauge on $\R\times S^3$ makes $\theta$ a vacuum label. Static pure-gauge configurations on $S^3$ are classified by $\pi_3(SU(N))\cong\Z$: large gauge transformations carry nonzero winding number $n$, connected to the identity only through field configurations that pass over the sphaleron barrier.  They act on the Hilbert space as
+\begin{equation}\label{eq:winding-sectors}
+  T|n\rangle = |n+1\rangle,
+\end{equation}
+where $T$ implements a unit winding and $|n\rangle$ is localized near the classical vacuum of winding $n$.  Since $[H,T]=0$, energy eigenstates are Bloch waves:
+
+\begin{definition}[Theta vacuum]\label{def:theta-vacuum}
+The $\theta$ vacuum is the gauge-invariant superposition
+\begin{equation}\label{eq:theta-vacuum}
+  |\theta\rangle \;=\; \sum_{n=-\infty}^{\infty} e^{in\theta}\,|n\rangle,
+  \qquad T|\theta\rangle = e^{-i\theta}|\theta\rangle.
+\end{equation}
+\end{definition}
+
+\noindent Different $\theta$ values label orthogonal superselection sectors: $\langle\theta|\theta'\rangle = 2\pi\delta(\theta-\theta')$.  The choice of $\theta$ is an input parameter, like a coupling constant.  Cluster decomposition selects a unique sector: any state satisfying the cluster property has a well-defined vacuum energy density depending analytically on $\theta$.  The states $|n\rangle$ individually violate cluster decomposition---correlators retain coherence across winding sectors.
+
+\subsubsection{Vacuum energy and topological susceptibility}
+
+The vacuum energy density at angle $\theta$ satisfies
+\begin{equation}\label{eq:vacuum-energy-theta}
+  e^{-V\cdot E(\theta)} = Z(\theta) = \sum_\nu e^{i\nu\theta}\,Z_\nu,
+\end{equation}
+with $V$ the spacetime volume. CP invariance at $\theta=0$ makes $E(\theta)$ even, so
+\begin{equation}\label{eq:E-theta-expansion}
+  E(\theta) = E(0) + \frac{1}{2}\chi_t\,\theta^2 + \mathcal{O}(\theta^4),
+\end{equation}
+where the quadratic coefficient defines:
+
+\begin{definition}[Topological susceptibility]\label{def:chi-t}
+\begin{equation}\label{eq:chi-t-definition}
+  \chi_t \;\equiv\; \frac{\del^2 E(\theta)}{\del\theta^2}\bigg|_{\theta=0}
+  \;=\; \int d^4x\;\langle q(x)\,q(0)\rangle\big|_{\mathrm{connected}}.
+\end{equation}
+\end{definition}
+
+\noindent The second equality follows from differentiating $\ln Z(\theta)$ twice at $\theta=0$: each derivative pulls down $i\int d^4x\,q(x)$, producing the connected two-point function.  Equivalently,
+\begin{equation}\label{eq:chi-t-variance}
+  \chi_t = \frac{\langle\nu^2\rangle}{V}.
+\end{equation}
+The susceptibility is the mean-square topological charge fluctuation per unit four-volume.
+
+In pure Yang--Mills (no quarks), $\chi_t^{\mathrm{YM}}\neq 0$: instantons are unsuppressed and topological charge fluctuates freely.  Lattice simulations give $\chi_t^{\mathrm{YM}} \approx (180\;\mathrm{MeV})^4$ for $SU(3)$ \cite{Teper2000TopologyInQCD}.  This nonvanishing susceptibility resolves the $U(1)_A$ problem.
+
+\subsubsection{The $U(1)_A$ problem}
+
+QCD with $N_f$ massless quarks has a classical $U(N_f)_L\times U(N_f)_R$ symmetry.  The diagonal $SU(N_f)_V$ is the visible flavor symmetry; the axial $SU(N_f)_A$ breaks spontaneously via $\langle\bar{q}q\rangle\neq 0$, producing $N_f^2-1$ Goldstone bosons (the pion octet for $N_f=3$).  What about the remaining $U(1)_A$?
+
+If $U(1)_A$---the simultaneous rotation $q\to e^{i\alpha\gamma_5}q$---were spontaneously broken, there should be a ninth Goldstone boson.  The $\eta'$ at 958~MeV is far too heavy.  Something beyond quark masses must explicitly break $U(1)_A$ \cite{tHooft1976BellJackiw}.
+
+The resolution ('t~Hooft \cite{tHooft1976BellJackiw,tHooft1976Pseudoparticle}): the axial anomaly breaks $U(1)_A$.  Under a $U(1)_A$ rotation with parameter $\alpha$, the fermion measure transforms as
+\begin{equation}\label{eq:u1a-anomaly}
+  \mathcal{D}\bar{q}\,\mathcal{D}q \;\to\; \mathcal{D}\bar{q}\,\mathcal{D}q\;\exp\!\left(-2i\alpha N_f \int d^4x\, q(x)\right).
+\end{equation}
+A $U(1)_A$ rotation shifts $\theta\to\theta + 2N_f\alpha$---it moves between superselection sectors rather than acting as a symmetry within one.  No spontaneous breaking, no Goldstone boson.
+
+'t~Hooft made this concrete via fermion zero modes.  A single instanton of charge $\nu=1$ produces $N_f$ left-handed zero modes (one per flavor) by the Atiyah--Singer index theorem.  The resulting 't~Hooft vertex---an effective $2N_f$-fermion interaction---violates $U(1)_A$ while preserving $SU(N_f)_L\times SU(N_f)_R$.  Its strength is the semiclassical amplitude $\sim e^{-8\pi^2/g^2}$: exponentially small at weak coupling, $\mathcal{O}(1)$ at $\Lambda_{\mathrm{QCD}}$.
+
+\subsubsection{The large-$N$ perspective}
+
+The semiclassical picture raises a puzzle: the instanton amplitude $e^{-8\pi^2/g^2}$ vanishes at large $N$ (where $g^2\sim 1/N$ at fixed 't~Hooft coupling $\lambda = g^2 N$), yet the $\eta'$ mass should stay nonzero.  Witten \cite{Witten1979U1GoldstoneBoson} and Veneziano \cite{Veneziano1979U1WithoutInstantons} resolved this: the $\eta'$ mass is controlled not by individual instantons but by the topological susceptibility of the pure gauge theory, which survives the large-$N$ limit.
+
+In pure $SU(N)$ Yang--Mills:
+\begin{equation}\label{eq:chi-t-spectral}
+  \chi_t^{\mathrm{YM}} = \int d^4x\;\langle q(x)\,q(0)\rangle^{\mathrm{YM}}.
+\end{equation}
+At large $N$, $q(x) = (g^2/32\pi^2)\tr(F\tilde{F})$ is a single-trace operator.  Its connected two-point function scales as $N^0$ in 't~Hooft counting (each $g^2\tr(\cdots)$ brings $\lambda$; the planar diagram carries no extra $N$ suppression):
+\begin{equation}\label{eq:chi-t-largeN}
+  \chi_t^{\mathrm{YM}} = \mathcal{O}(N^0) \quad\text{as } N\to\infty.
+\end{equation}
+Vacuum fluctuations of topological charge per unit volume remain finite as $N\to\infty$, even though individual instanton contributions are exponentially suppressed.  The susceptibility is a nonperturbative vacuum property that does not reduce to a dilute gas at strong coupling.
+
+Now add $N_f$ massless quarks.  The full QCD susceptibility $\chi_t^{\mathrm{QCD}}$ vanishes identically---the anomalous Ward identity lets a $U(1)_A$ rotation absorb $\theta$.  The quark determinant screens topological charge fluctuations.  The screening agent is the $\eta'$ field, and the quantitative relation between $\chi_t^{\mathrm{YM}}$ and $m_{\eta'}$ is the Witten--Veneziano formula (Section~\ref{subsec:eta-prime-wv}).
+
+In short:
+\begin{enumerate}
+  \item The $\theta$ term weights topological sectors; the curvature of $E(\theta)$ defines $\chi_t$.
+  \item In pure Yang--Mills, $\chi_t^{\mathrm{YM}}\neq 0$ and is $\mathcal{O}(N^0)$ at large $N$.
+  \item The anomaly converts the would-be Goldstone into the massive $\eta'$, with $m_{\eta'}^2\propto\chi_t^{\mathrm{YM}}/F_\pi^2$.
+  \item In full QCD with massless quarks, $\chi_t^{\mathrm{QCD}}=0$: the $\eta'$ dynamically screens all topological fluctuations.
+\end{enumerate}
 
 \subsection{The $\eta'$ Mass and the Witten--Veneziano Formula}
 \label{subsec:eta-prime-wv}
 
-% TODO: Derive (sketch) the Witten-Veneziano relation
-% m_{eta'}^2 + m_{eta}^2 - 2 m_K^2 = (2 N_f / F_pi^2) chi_t^{YM}
-% and interpret chi_t^{YM} as a pure-gauge-theory topological observable
-% inferred from hadron spectroscopy.
-% Cite: \cite{Witten1979U1GoldstoneBoson}, \cite{Veneziano1979U1WithoutInstantons},
-%       \cite{DiVecchiaVeneziano1980ChiralDynamics},
-%       \cite{CichyLatticeWittenVeneziano}, \cite{AreanU1AHolographicQCD}
+We established that $\chi_t^{\mathrm{YM}}\neq 0$ at $\mathcal{O}(N^0)$, while massless quarks screen it to zero.  The $\eta'$ is the physical agent of this screening: it acquires a mass proportional to $\chi_t^{\mathrm{YM}}$ precisely because it absorbs the vacuum's topological fluctuations.  The quantitative statement is the Witten--Veneziano formula \cite{Witten1979U1GoldstoneBoson,Veneziano1979U1WithoutInstantons}.
+
+\subsubsection{The flavor-singlet mass problem at large $N$}
+
+Take QCD with $N_f$ light quarks and gauge group $SU(N)$, $N\to\infty$ at fixed $\lambda = g^2 N$ and $N_f$.  The divergence of the singlet axial current $J_\mu^{5,0} = \bar{q}\gamma_\mu\gamma_5 q$ is
+\begin{equation}\label{eq:singlet-axial-divergence}
+  \del_\mu J^{5,0\,\mu} = 2N_f\, q(x) + 2i\sum_f m_f \bar{q}_f\gamma_5 q_f,
+\end{equation}
+with $q(x) = (g^2/32\pi^2)\tr(F\tilde{F})$ carrying an explicit $g^2\sim 1/N$ at fixed $\lambda$.  At $N=\infty$, $U(1)_A$ is exact in the massless theory, the singlet $\eta_0$ is a true Goldstone degenerate with pions, and its mass must arise at subleading order.  What $\mathcal{O}(1/N)$ mechanism lifts it?  Witten and Veneziano answered by expressing the singlet mass entirely in terms of the quenched susceptibility \cite{Witten1979U1GoldstoneBoson,Veneziano1979U1WithoutInstantons}.
+
+\subsubsection{Effective Lagrangian with the singlet field}
+
+The low-energy dynamics of pseudoscalar mesons, including the singlet $\eta_0$, are captured by a $U(N_f)$-valued chiral Lagrangian augmented by the anomaly.  Following Di~Vecchia and Veneziano \cite{DiVecchiaVeneziano1980ChiralDynamics}, write
+\begin{equation}\label{eq:U-field}
+  U = \exp\!\left(\frac{i\sqrt{2}\,\Phi}{F}\right), \qquad
+  \Phi = \sum_{a=0}^{N_f^2-1} \phi^a T^a,
+\end{equation}
+with $T^a$ the $U(N_f)$ generators ($\tr(T^a T^b)=\delta^{ab}/2$), $F$ the chiral-limit decay constant, and $\phi^0 = \eta_0/\sqrt{2N_f}$.  The effective Lagrangian is
+\begin{equation}\label{eq:effective-lagrangian-anomaly}
+  \mathcal{L}_{\mathrm{eff}} = \frac{F^2}{4}\tr\!\left(\del_\mu U^\dagger\,\del^\mu U\right)
+  + \frac{F^2}{4}\tr\!\left(\chi^\dagger U + U^\dagger \chi\right)
+  - \frac{\chi_t^{\mathrm{YM}}}{2}\left(\frac{-i}{2}\ln\det U\right)^{\!2},
+\end{equation}
+where $\chi = 2B_0 \mathcal{M}$ with $\mathcal{M} = \mathrm{diag}(m_u, m_d, m_s,\ldots)$ and $B_0 = -\langle\bar{q}q\rangle/F^2$.  The last term is the Veneziano--Di~Vecchia anomaly potential: it depends only on $\det U = e^{i\sqrt{2N_f}\,\eta_0/F}$, contributes exclusively to the singlet channel, and has its coefficient fixed by matching to $\langle q(x)\,q(0)\rangle^{\mathrm{YM}}$.
+
+Expanding to quadratic order:
+\begin{equation}\label{eq:anomaly-mass-contribution}
+  -\frac{\chi_t^{\mathrm{YM}}}{2}\left(\frac{\sqrt{2N_f}\,\eta_0}{2F}\right)^{\!2}
+  = -\frac{N_f\,\chi_t^{\mathrm{YM}}}{2F^2}\,\eta_0^2.
+\end{equation}
+This gives the singlet a mass-squared absent for non-singlet fields:
+\begin{equation}\label{eq:singlet-mass-squared}
+  m_{\eta_0}^2\big|_{\mathrm{anomaly}} = \frac{2N_f}{F^2}\,\chi_t^{\mathrm{YM}}.
+\end{equation}
+
+\subsubsection{The Witten--Veneziano formula}
+
+In the real world ($N_f = 3$, nonzero quark masses), the physical $\eta$ and $\eta'$ mix singlet $\eta_0$ with octet $\eta_8$.  The trace of the mass matrix (independent of mixing angle) gives:
+\begin{equation}\label{eq:mass-trace}
+  m_{\eta'}^2 + m_\eta^2 = 2m_K^2 + m_{\eta_0}^2\big|_{\mathrm{anomaly}},
+\end{equation}
+where $2m_K^2$ comes from quark-mass contributions via Gell-Mann--Okubo.  Substituting \eqref{eq:singlet-mass-squared}:
+
+\begin{proposition}[Witten--Veneziano formula]\label{prop:witten-veneziano}
+In the large-$N$ limit with $N_f$ light quark flavors, the pseudoscalar meson masses satisfy
+\begin{equation}\label{eq:witten-veneziano}
+  \boxed{\;m_{\eta'}^2 + m_\eta^2 - 2m_K^2 \;=\; \frac{2N_f}{F_\pi^2}\,\chi_t^{\mathrm{YM}}\;}
+\end{equation}
+where $F_\pi$ is the pion decay constant and $\chi_t^{\mathrm{YM}}$ is the topological susceptibility of pure Yang--Mills theory.
+\end{proposition}
+
+\noindent The left-hand side is measured in experiment---meson masses.  The right-hand side is a property of the pure gauge theory, computed without quarks.  The formula is exact at leading order in $1/N$; corrections enter at $\mathcal{O}(1/N^2)$.  Setting quark masses to zero ($m_K\to 0$, $m_\eta\to 0$) gives $m_{\eta'}^2 = 2N_f\,\chi_t^{\mathrm{YM}}/F_\pi^2$: in the chiral limit, the $\eta'$ mass is entirely topological.
+
+\subsubsection{The large-$N$ derivation: why the anomaly scales as $1/N$}
+
+We sketch Witten's argument \cite{Witten1979U1GoldstoneBoson}.  The two-point function of topological charge density in pure $SU(N)$ Yang--Mills:
+\begin{equation}\label{eq:chi-correlator-pure}
+  \chi_t^{\mathrm{YM}} = \int d^4x\;\langle q(x)\,q(0)\rangle^{\mathrm{YM}} = \mathcal{O}(N^0).
+\end{equation}
+This follows from 't~Hooft counting: $q(x) = (g^2/32\pi^2)\tr(F\tilde{F})$ is single-trace with $g^2\sim 1/N$; the planar two-point function is $\mathcal{O}(1)$.
+
+Now introduce $N_f$ massless quarks.  The anomalous Ward identity reads
+\begin{equation}\label{eq:ward-identity-singlet}
+  \del_\mu\langle J^{5,0\,\mu}(x)\, q(0)\rangle = 2N_f\,\langle q(x)\,q(0)\rangle.
+\end{equation}
+At zero momentum, the left-hand side gets a pole from any massless singlet pseudoscalar coupling to $J^{5,0}_\mu$.  Such a particle exists at $N=\infty$ (where the anomaly vanishes), so consistency at $p^2\to 0$ forces:
+\begin{equation}\label{eq:pole-matching}
+  \lim_{p\to 0} p_\mu\langle J^{5,0\,\mu}\, q\rangle \;\supset\; \frac{F_{\eta_0}\,\langle 0|q|\eta_0\rangle}{p^2 - m_{\eta_0}^2}.
+\end{equation}
+Matching poles and using $\chi_t^{\mathrm{QCD}}=0$ gives:
+\begin{equation}\label{eq:mass-from-ward}
+  m_{\eta_0}^2 = \frac{2N_f}{F_{\eta_0}^2}\,\chi_t^{\mathrm{YM}} + \mathcal{O}(1/N^2).
+\end{equation}
+At leading order $F_{\eta_0} = F_\pi + \mathcal{O}(1/N)$, reproducing \eqref{eq:singlet-mass-squared}.  The $1/N$ scaling:
+\begin{equation}\label{eq:eta-mass-N-scaling}
+  m_{\eta_0}^2 \sim \frac{N^0}{N} = \frac{1}{N},
+\end{equation}
+since $\chi_t^{\mathrm{YM}} = \mathcal{O}(N^0)$ while $F_\pi^2 = \mathcal{O}(N)$.  The anomaly gives a mass vanishing at $N\to\infty$ (consistent with $U(1)_A$ becoming exact there) but remaining $\mathcal{O}(\Lambda_{\mathrm{QCD}}^2)$ at $N=3$.
+
+\subsubsection{Numerical evaluation and the role of $\chi_t^{\mathrm{YM}}$}
+
+Experimental values for $N_f = 3$:
+\begin{equation}\label{eq:wv-numerical}
+  m_{\eta'}^2 + m_\eta^2 - 2m_K^2 \approx (958)^2 + (548)^2 - 2(496)^2 \;\mathrm{MeV}^2 \approx (726\;\mathrm{MeV})^2,
+\end{equation}
+so with $F_\pi \approx 92\;\mathrm{MeV}$:
+\begin{equation}\label{eq:chi-t-from-spectrum}
+  \chi_t^{\mathrm{YM}} = \frac{F_\pi^2}{2N_f}\left(m_{\eta'}^2 + m_\eta^2 - 2m_K^2\right) \approx (180\;\mathrm{MeV})^4.
+\end{equation}
+This is striking: a property of the pure-glue vacuum---the variance of topological charge per unit volume, a quantity defined in a world with no quarks at all---is determined from measured meson masses.  You weigh pions and kaons, and the answer tells you how much the gluon vacuum fluctuates between topological sectors.
+
+\subsubsection{Lattice verification}
+
+Cichy et~al.\ \cite{CichyLatticeWittenVeneziano} tested both sides independently: $N_f = 2+1+1$ dynamical twisted-mass fermions at three lattice spacings, plus a quenched $\chi_t^{\mathrm{YM}}$ computation at four spacings.  After continuum extrapolation:
+\begin{equation}\label{eq:lattice-wv-results}
+  \chi_t^{\mathrm{YM}} = (185.3 \pm 5.6\;\mathrm{MeV})^4, \qquad
+  \chi_t^{\mathrm{dyn}} = (193.5 \pm 6.2_{\mathrm{stat}} \pm 13.4_{\mathrm{sys}}\;\mathrm{MeV})^4,
+\end{equation}
+where $\chi_t^{\mathrm{dyn}}$ is inferred from meson masses and the singlet decay constant.  Agreement at $\sim\!10\%$ confirms the formula nontrivially: quenched topological fluctuations correctly predict the anomalous pseudoscalar mass in full QCD.
+
+A subtlety: the singlet decay constant $f_0$ need not equal $F_\pi$ at finite $N$.  Cichy et~al.\ find $f_0/F_\pi \approx 1.12$ for the strange sector; replacing $F_\pi$ by $f_0$ absorbs part of the $\mathcal{O}(1/N)$ correction.
+
+\subsubsection{Holographic crosscheck}
+
+Arean et~al.\ \cite{AreanU1AHolographicQCD} study the singlet pseudoscalar in a soft-wall holographic model, introducing a bulk field $Y(x,z)$ dual to $(\alpha_s/8\pi)G_{\mu\nu}\tilde{G}^{\mu\nu}$.  Mixing between this field and those dual to the axial current generates the $\eta'$ mass---the holographic avatar of the anomaly.  They reproduce $m_{\eta'} = 958\;\mathrm{MeV}$ and $\chi_t^{\mathrm{YM}} \approx (191\;\mathrm{MeV})^4$, consistent with both lattice and phenomenology.  The Witten--Veneziano relation emerges analytically at large $N_c$, and the model gives the correct quark-mass dependence:
+\begin{equation}\label{eq:chi-t-mass-dependence}
+  \chi_t \;\xrightarrow{m_q\to 0}\; \frac{\langle\bar{q}q\rangle\, m_q}{N_f}, \qquad
+  \chi_t \;\xrightarrow{m_q\to\infty}\; \chi_t^{\mathrm{YM}}.
+\end{equation}
+The first limit is the Ward identity (a massless quark screens completely, $\chi_t$ vanishing linearly in $m_q$); the second is heavy-quark decoupling.
+
+\medskip
+
+\noindent The Witten--Veneziano formula inverts the usual logic: rather than predicting a meson mass from microscopic input, it \emph{extracts} a pure-gauge quantity from the measured spectrum.  Agreement across lattice \cite{CichyLatticeWittenVeneziano} and holographic \cite{AreanU1AHolographicQCD} calculations establishes $\chi_t^{\mathrm{YM}}$ as a well-determined topological observable---the curvature of the pure-glue vacuum energy at $\theta=0$ (Definition~\ref{def:chi-t}), measurable through the pseudoscalar spectrum.  And the same $\chi_t^{\mathrm{YM}}$ that gives the $\eta'$ its mass also determines the axion mass through $m_a^2 f_a^2 = \chi_t^{\mathrm{YM}}$, connecting topological vacuum structure to both spectroscopy and the strong CP problem.
 
 \subsection{Strong CP, the Neutron EDM, and the Axion}
 \label{subsec:strong-cp-axion}
 
-% TODO: bar-theta = theta + arg det M_q; nEDM bound d_n <= 1.8e-26 e cm ->
-% |bar-theta| <~ 10^{-10}. PQ mechanism: promote bar-theta to dynamical axion
-% field a/f_a; axion potential V(a) from chi_t gives m_a^2 f_a^2 = chi_t;
-% small-angle relaxation dynamically enforces CP.
-% Phenomenology: axion mass-coupling plane, haloscope / helioscope /
-% CASPEr / MADMAX experimental classes.
-% Cite: \cite{Dine2000TASIStrongCP}, \cite{Hook2018TASIStrongCPAxions},
-%       \cite{Marsh2016AxionCosmology}, \cite{Abel2020NeutronEDM},
-%       \cite{ADMXOverviewPlaceholder}, \cite{CASTIAXOOverviewPlaceholder},
-%       \cite{CASPErOverviewPlaceholder}, \cite{MADMAXOverviewPlaceholder}
+The susceptibility $\chi_t^{\mathrm{YM}}$ characterizes the curvature of the vacuum energy at $\theta=0$.  In principle $\theta$ could be anything; the strong CP problem is the experimental fact that it is extremely close to zero.
+
+\subsubsection{The physical parameter $\bar\theta$}
+
+The bare $\theta$ of \eqref{eq:theta-action} is not physical by itself.  A chiral rotation $q_f\to e^{i\alpha_f\gamma_5}q_f$ shifts $\theta\to\theta - 2\alpha_f$ via the anomaly while transforming the mass $m_f\to m_f\,e^{2i\alpha_f}$.  The rephasing-invariant combination is \cite{Dine2000TASIStrongCP}
+\begin{equation}\label{eq:bar-theta-def}
+  \bar\theta \;=\; \theta + \arg\det \mathcal{M}_q.
+\end{equation}
+No redefinition removes $\bar\theta$ when all quarks are massive: eliminating $\theta$ from the gauge sector reintroduces it in the mass matrix.  This single parameter measures strong CP violation.
+
+When $\bar\theta\neq 0$, QCD violates P and T.  The leading consequence: a permanent neutron electric dipole moment.
+
+\subsubsection{The neutron electric dipole moment}
+
+A nonzero $\bar\theta$ induces a CP-violating pion--nucleon coupling.  The leading contribution to the neutron EDM is a one-loop diagram with a charged pion \cite{Hook2018TASIStrongCPAxions}:
+\begin{equation}\label{eq:nEDM-estimate}
+  d_n \;\sim\; \bar\theta\;\frac{e\, m_*}{4\pi^2 F_\pi^2}\,\ln\!\frac{\Lambda_\chi}{m_\pi},
+\end{equation}
+where $m_* = m_u m_d/(m_u + m_d)$ is the reduced quark mass.  Numerically ($m_*\approx 3.5\;\mathrm{MeV}$, $F_\pi\approx 92\;\mathrm{MeV}$):
+\begin{equation}\label{eq:nEDM-numerical}
+  |d_n| \;\approx\; 3\times 10^{-16}\,|\bar\theta|\;\;e\;\mathrm{cm}.
+\end{equation}
+
+The world's best bound (Abel et~al., ultracold neutrons at PSI \cite{Abel2020NeutronEDM}):
+\begin{equation}\label{eq:nEDM-bound}
+  |d_n| \;<\; 1.8\times 10^{-26}\;e\;\mathrm{cm} \qquad (90\%\;\text{C.L.}).
+\end{equation}
+Combined:
+\begin{equation}\label{eq:bar-theta-bound}
+  |\bar\theta| \;\lesssim\; 10^{-10}.
+\end{equation}
+
+\subsubsection{The strong CP problem}
+
+Why is $\bar\theta$ so small?  No Standard Model symmetry forces $\bar\theta=0$.  The gauge angle $\theta$ and the quark-mass phase $\arg\det\mathcal{M}_q$ come from independent sectors---QCD and the electroweak Yukawas.  Their sum must cancel to one part in $10^{10}$ with no mechanism enforcing the cancellation.
+
+Three classes of solutions exist \cite{Dine2000TASIStrongCP,Hook2018TASIStrongCPAxions}: (i) $m_u=0$ at high scale (now disfavored by lattice); (ii) UV CP symmetry broken spontaneously without reintroducing $\bar\theta$; (iii) the Peccei--Quinn mechanism, which promotes $\bar\theta$ to a dynamical field that relaxes to zero.  The third is both the most economical and the most testable.
+
+\subsubsection{The Peccei--Quinn mechanism}
+
+Introduce a global $U(1)_{\mathrm{PQ}}$ symmetry anomalous under QCD, spontaneously broken at scale $f_a$.  The pseudo-Nambu--Goldstone boson $a(x)$ (the axion) couples to topological charge:
+\begin{equation}\label{eq:axion-coupling}
+  \mathcal{L} \;\supset\; \frac{1}{2}(\del_\mu a)^2 + \frac{a}{f_a}\,\frac{g^2}{32\pi^2}\tr\!\left(F_{\mu\nu}\tilde{F}^{\mu\nu}\right).
+\end{equation}
+Under $U(1)_{\mathrm{PQ}}$, $a\to a + \alpha f_a$, shifting $\bar\theta_{\mathrm{eff}} = \bar\theta + a/f_a$ by $\alpha$.  The shift symmetry is exact perturbatively but broken by the QCD anomaly, which generates a potential.
+
+At leading order in chiral perturbation theory \cite{Hook2018TASIStrongCPAxions}:
+\begin{equation}\label{eq:axion-potential}
+  V(a) \;=\; -m_\pi^2 F_\pi^2\sqrt{1 - \frac{4m_u m_d}{(m_u+m_d)^2}\sin^2\!\frac{a}{2f_a}}\,,
+\end{equation}
+which for small $a/f_a$ reduces to:
+\begin{equation}\label{eq:axion-potential-cosine}
+  V(a) \;\approx\; \chi_t\left(1 - \cos\frac{a}{f_a}\right).
+\end{equation}
+The unique minimum sits at $a = -\bar\theta\, f_a$, i.e., $\bar\theta_{\mathrm{eff}} = 0$.  The axion dynamically enforces CP conservation regardless of the bare $\bar\theta$.
+
+\begin{remark}
+The cosine form \eqref{eq:axion-potential-cosine} is the leading approximation to \eqref{eq:axion-potential}. They differ at order $(m_u - m_d)^2/(m_u + m_d)^2$, affecting self-coupling and domain walls but not the mass or the CP-conserving minimum.
+\end{remark}
+
+\subsubsection{Axion mass from the topological susceptibility}
+
+The curvature at the minimum gives the axion mass:
+\begin{equation}\label{eq:axion-mass}
+  m_a^2 \;=\; \frac{\del^2 V}{\del a^2}\bigg|_{a=0} \;=\; \frac{\chi_t}{f_a^2}.
+\end{equation}
+The same susceptibility from Definition~\ref{def:chi-t} and the Witten--Veneziano formula (Proposition~\ref{prop:witten-veneziano}).  The axion is light because $\chi_t\sim\Lambda_{\mathrm{QCD}}^4$ while $f_a\gg\Lambda_{\mathrm{QCD}}$.
+
+High-precision chiral calculations using $m_u/m_d = 0.48(3)$ from the lattice give \cite{1511.02867}:
+\begin{equation}\label{eq:axion-mass-numerical}
+  m_a \;=\; 5.70(7)\;\mu\mathrm{eV}\;\left(\frac{10^{12}\;\mathrm{GeV}}{f_a}\right).
+\end{equation}
+Independently verified by Borsanyi et~al.\ \cite{1606.07494}: $\chi_t^{1/4} = 75.5(5)\;\mathrm{MeV}$ in the continuum limit with $2+1+1$ flavors.
+
+The punchline: $m_a\propto 1/f_a$.  As $f_a$ increases, the axion becomes lighter and more weakly coupled---simultaneously harder to produce and detect.
+
+\subsubsection{The axion--photon coupling and UV completions}
+
+The mass is model-independent ($\chi_t/f_a^2$); the detection couplings are not.  The photon coupling \cite{Hook2018TASIStrongCPAxions}:
+\begin{equation}\label{eq:axion-photon}
+  g_{a\gamma\gamma} \;=\; \frac{\alpha_{\mathrm{em}}}{2\pi f_a}\left(\frac{E}{N} - 1.92(4)\right),
+\end{equation}
+where $E/N$ is the electromagnetic-to-color anomaly ratio and $-1.92(4)$ is model-independent axion--pion mixing.  Two benchmark completions:
+
+\begin{enumerate}
+  \item \textbf{KSVZ (Kim--Shifman--Vainshtein--Zakharov).} PQ symmetry acts on a new heavy color-triplet quark, electroweak singlet.  SM fermions carry no PQ charge.  $E/N = 0$; axion--photon coupling from mixing alone; no tree-level electron coupling.
+
+  \item \textbf{DFSZ (Dine--Fischler--Srednicki--Zhitnitsky).} PQ symmetry acts on SM quarks through a two-Higgs-doublet sector.  $E/N = 8/3$; enhanced photon coupling; tree-level electron coupling $g_{ae}\propto m_e/f_a$.
+\end{enumerate}
+
+\noindent The two models occupy different locations in the $(m_a, g_{a\gamma\gamma})$ plane---the axion band---which is the primary experimental target.
+
+\subsubsection{Experimental landscape}
+
+Four classes of experiment probe complementary regions of axion parameter space \cite{Marsh2016AxionCosmology}:
+
+\begin{enumerate}
+  \item \textbf{Haloscopes:} galactic dark matter axions converting to photons in a resonant cavity ($\omega_{\mathrm{cav}} = m_a$) in a strong $B$-field.  ADMX \cite{ADMXOverviewPlaceholder} reaches DFSZ sensitivity at $2$--$4\;\mu\mathrm{eV}$.
+
+  \item \textbf{Helioscopes:} solar axions (Primakoff production) reconverted to X-rays in a tracking magnet.  CAST/IAXO \cite{CASTIAXOOverviewPlaceholder} probes $g_{a\gamma\gamma}\sim 10^{-12}\;\mathrm{GeV}^{-1}$ for $m_a\lesssim 0.02\;\mathrm{eV}$.
+
+  \item \textbf{NMR (CASPEr):} the oscillating axion field $a(t) = a_0\cos(m_a t)$ induces a CP-violating nuclear EDM, creating a transverse magnetization detectable by NMR \cite{CASPErOverviewPlaceholder}.  Sensitive to $g_{aN}$ at $m_a\lesssim 10^{-9}\;\mathrm{eV}$ ($f_a\gtrsim 10^{15}\;\mathrm{GeV}$).
+
+  \item \textbf{Dielectric haloscopes (MADMAX):} stacked dielectric disks in a $B$-field; constructive interference boosts signal by $(\text{number of disks})^2$ \cite{MADMAXOverviewPlaceholder}.  Covers $40$--$400\;\mu\mathrm{eV}$.
+\end{enumerate}
+
+\noindent Together these programs span $10^{-12}$ to $10^{-1}\;\mathrm{eV}$, covering $10^{9}\lesssim f_a \lesssim 10^{17}\;\mathrm{GeV}$.  Vacuum misalignment with generic initial conditions points to $f_a\sim 10^{11}$--$10^{12}\;\mathrm{GeV}$ ($m_a\sim 5$--$50\;\mu\mathrm{eV}$) for the observed dark matter abundance \cite{Marsh2016AxionCosmology}.
+
+\medskip
+
+\noindent The topological susceptibility thus plays a triple role: it generates the $\eta'$ mass (Section~\ref{subsec:eta-prime-wv}), quantifies the vacuum's response to $\theta$ (Section~\ref{subsec:theta-chi-u1a}), and fixes the axion mass that solves strong CP.
 
 \subsection{When the Observables Are Clean, and When They Are Only Effective}
 \label{subsec:qcd-caveats}
 
-% Dedicated "iffiness" subsection for the 3+1d story
-% (tqft_observables_literature_review.md Sec. 5.4):
-%   - F wedge F-tilde is locally a total derivative, but not globally trivial.
-%   - Instanton-gas reasoning is semiclassical, not the strong-coupling story.
-%   - chi_t is Euclidean and theory-side; lattice / holographic QCD are needed
-%     to connect to hadronic observables.
-%   - Neutron EDM measurement is clean; extraction of bar-theta from the
-%     measurement involves hadronic matrix elements and model dependence.
-%   - Axion phenomenology: the mass comes from chi_t and is robust; photon /
-%     nucleon / spin couplings depend on the UV completion (KSVZ vs DFSZ etc).
-% Cite: \cite{Hook2018TASIStrongCPAxions}, \cite{Marsh2016AxionCosmology},
-%       \cite{Teper2000TopologyInQCD}
+Every link in the chain---instanton number to $\chi_t$ to $\eta'$ mass to neutron EDM to axion---deserves scrutiny.  Where is the reasoning exact?  Where does it rely on semiclassical or lattice input?  Where does model-dependence creep in?  This parallels Section~\ref{subsec:qhe-caveats} for the quantum Hall story and feeds into the four-category classification of Section~\ref{subsec:when-topological} (Table~\ref{tab:observable-taxonomy}).
+
+\subsubsection{$F\wedge\tilde{F}$ is locally a total derivative but not globally trivial}
+
+The charge density $q(x) = (g^2/32\pi^2)\tr(F_{\mu\nu}\tilde{F}^{\mu\nu})$ satisfies $\tr(F\wedge F) = d\omega_{\CS}$ locally---hence no classical effect of the $\theta$ term.  But the integral
+\begin{equation}\label{eq:instanton-global}
+  \nu = \frac{1}{8\pi^2}\int_M \tr(F\wedge F)
+\end{equation}
+is nonzero when the gauge bundle is nontrivial.  On a compact manifold without boundary, Stokes' theorem fails globally because $\omega_{\CS}$ transforms inhomogeneously on patch overlaps.  The integer $\nu$ is a genuine topological invariant, not a boundary artifact.
+
+On manifolds with boundary, $\nu$ receives a boundary contribution from the Chern--Simons form.  Lattice simulations (periodic $T^4$) sidestep this; semiclassical calculations on $\R^4$ (compactified to $S^4$) rely on fall-off conditions for finite action.  Topological quantization is exact on closed manifolds; its interpretation as a path-integral sector label requires boundary conditions that make the decomposition well-defined.
+
+\subsubsection{Semiclassical reasoning and its domain of validity}
+
+The dilute instanton gas---vacuum tunneling via isolated configurations of action $8\pi^2/g^2$---is valid at weak coupling.  't~Hooft's computation of zero modes and the $2N_f$-fermion vertex \cite{tHooft1976BellJackiw,tHooft1976Pseudoparticle} lives in this regime.  The suppression $e^{-8\pi^2/g^2(\mu)}$ becomes $\mathcal{O}(1)$ at $\mu\sim\Lambda_{\mathrm{QCD}}$, where the approximation breaks down.
+
+At the QCD scale---where strong CP and the $\eta'$ mass live---semiclassics is qualitatively right but quantitatively unreliable.  What survives into strong coupling:
+\begin{enumerate}
+  \item $\chi_t^{\mathrm{YM}}\neq 0$---verified on the lattice \cite{Teper2000TopologyInQCD}, $\chi_t^{1/4}\approx 180$--$200\;\mathrm{MeV}$ for $SU(3)$.
+  \item The anomalous Ward identity $\del_\mu J^{5,0\,\mu} = 2N_f\,q(x)$---an exact operator relation at all couplings.
+  \item The Witten--Veneziano formula---exact at leading $1/N$, lattice-verified \cite{CichyLatticeWittenVeneziano}.
+\end{enumerate}
+What relies on semiclassics and lacks independent strong-coupling confirmation: the instanton size distribution $d(\rho)\propto\rho^{b-5}$ at large $\rho$, the 't~Hooft vertex coefficient, the dilute-gas tunneling rate.  These enter the narrative but not the quantitative predictions reaching experiment.
+
+\subsubsection{$\chi_t$ is Euclidean and theory-side}
+
+The susceptibility $\chi_t = \int d^4x\,\langle q(x)\,q(0)\rangle$ is a Euclidean correlator computed by Monte Carlo \cite{Teper2000TopologyInQCD}.  It is UV-finite after continuum extrapolation, with controlled systematics.  But $\chi_t$ is not itself a laboratory observable.  It reaches physics through two channels:
+\begin{itemize}
+  \item \textit{Meson masses.} Witten--Veneziano connects $\chi_t^{\mathrm{YM}}$ to the spectrum.  The derivation uses large-$N$ and chiral perturbation theory; the map from Euclidean correlator to physical mass requires hadronization---intrinsically non-topological.
+  \item \textit{Axion mass.} $m_a^2 = \chi_t/f_a^2$ follows from periodicity of the potential and the definition of $\chi_t$ as curvature of $E(\theta)$.  No hadronic modeling needed.  This is ``category (c)'' in the sense of Table~\ref{tab:observable-taxonomy}: theory-side topological, with a clean map to a physical mass.
+\end{itemize}
+In the language of Section~\ref{subsec:when-topological}, $\chi_t$ sits at category (c): a well-defined Euclidean quantity whose connection to experiment goes through analytic continuation or chiral matching.  The topology is exact; the last mile to the detector is not.
+
+\subsubsection{The neutron EDM measurement is clean}
+
+The nEDM measurement---precession frequency of ultracold neutrons in parallel/antiparallel $E$ and $B$ fields, looking for a shift linear in $E$ \cite{Abel2020NeutronEDM}---is free of hadronic modeling.  It is a direct electromagnetic null test with well-understood systematics (geometric phases, field gradients, mercury co-magnetometry).
+
+The subtlety is \emph{extracting} $\bar\theta$ from $d_n$.  The relation \eqref{eq:nEDM-numerical}
+\begin{equation}\label{eq:nEDM-extraction}
+  |\bar\theta| \;\approx\; \frac{|d_n|}{3\times 10^{-16}\;e\;\mathrm{cm}}
+\end{equation}
+relies on a hadronic matrix element ($\bar{g}_{\pi NN}$ from chiral perturbation theory), with lattice QCD providing independent determinations at $\sim\!20\%$.  The separation:
+\begin{itemize}
+  \item $|d_n|< 1.8\times 10^{-26}\;e\;\mathrm{cm}$ is a hard experimental fact.
+  \item $|\bar\theta|\lesssim 10^{-10}$ involves hadronic physics that introduces factor-of-two uncertainty but cannot change the order of magnitude.
+\end{itemize}
+The strong CP problem is robust regardless of conservative matrix-element estimates.
+
+\subsubsection{Axion phenomenology: mass versus couplings}
+
+The parameter space divides cleanly \cite{Hook2018TASIStrongCPAxions,Marsh2016AxionCosmology}:
+
+\paragraph{Model-independent: the axion mass.}
+The relation
+\begin{equation}\label{eq:axion-mass-robust}
+  m_a^2 f_a^2 \;=\; \chi_t
+\end{equation}
+holds for any QCD axion---any pseudo-Goldstone whose shift symmetry is broken solely by the QCD anomaly---regardless of UV completion.  The numerical value is fixed by QCD alone, verified by independent lattice determinations.
+
+\paragraph{Model-dependent: the detection couplings.}
+The couplings enabling detection---$g_{a\gamma\gamma}$, $g_{aNN}$, $g_{aee}$---depend on PQ charges:
+\begin{equation}\label{eq:coupling-model-dependence}
+  g_{a\gamma\gamma} = \frac{\alpha_{\mathrm{em}}}{2\pi f_a}\!\left(\frac{E}{N} - 1.92\right), \qquad
+  \frac{E}{N} = \begin{cases} 0 & \text{(KSVZ)} \\ 8/3 & \text{(DFSZ)} \end{cases}.
+\end{equation}
+KSVZ and DFSZ differ by a factor $\sim\!2.4$ in photon coupling at the same mass.  More exotic constructions shift $g_{a\gamma\gamma}$ by an order of magnitude.  Similarly, $g_{aee}$ vanishes at tree level in KSVZ but is $\propto m_e/f_a$ in DFSZ; $g_{aNN}$ varies by $\mathcal{O}(1)$ factors \cite{Marsh2016AxionCosmology}.
+
+\paragraph{The experimental consequence.}
+Discovery at a definite $m_a$ immediately gives $f_a$ via \eqref{eq:axion-mass-robust}.  But the signal strength depends on model-dependent couplings.  A null result at DFSZ sensitivity does not exclude KSVZ at the same mass.
+
+\medskip
+
+\noindent Epistemic status of this chapter's observables:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l c l}
+\hline\hline
+\textbf{Observable} & \textbf{Category} & \textbf{What enters beyond topology} \\
+\hline
+Instanton number $\nu$ & (c) & Boundary conditions; exact on closed $M$ \\
+$\chi_t^{\mathrm{YM}}$ (lattice) & (c) & Continuum extrapolation; well-controlled \\
+$\eta'$ mass (Witten--Veneziano) & (c) & $1/N$ corrections, chiral matching \\
+Axion mass $m_a$ & (c) & Nothing beyond $\chi_t$ and $f_a$ \\
+nEDM bound on $\bar\theta$ & (c)/(d) & Hadronic matrix elements ($\sim\!2\times$ uncertainty) \\
+Axion--photon coupling & (d) & UV completion ($E/N$) \\
+Axion--nucleon, axion--electron & (d) & PQ charge assignments \\
+\hline\hline
+\end{tabular}
+\end{center}
+The topological backbone---classification of bundles by $\nu\in\Z$, quantization of $\tr(F\wedge F)$, the anomalous Ward identity---is exact.  What varies is the map from that backbone to a detector number.  The axion mass (clean, model-independent) sits at one end; detection couplings (topology-inspired, UV-dependent) at the other.  Same pattern as Section~\ref{subsec:when-topological}: topology constrains and organizes, but the final observable requires non-topological physics.
+
+Chapter~\ref{sec:defects-synthesis} completes the synthesis: line operators, monopoles, and the global structure of the gauge group---the $3{+}1$-dimensional analogues of anyon lines and boundary conditions---and asks for each observable: how topological is it really?

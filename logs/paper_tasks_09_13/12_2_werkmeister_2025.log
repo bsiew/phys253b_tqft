@@ -1,0 +1,10 @@
+Done. I've replaced the TODO block under `\label{subsec:werkmeister-2024}` with ~90 lines of LaTeX prose covering:
+
+1. **Platform** — hBN-encapsulated graphene with Dirac spectrum, cleaner edges, and gate tunability
+2. **Observable** — conductance oscillations with the same functional form as Nakamura (Eq. 5), plus discussion of higher visibility
+3. **Results** — phase jump consistent with $2\pi/3$ (Eq. 6), improved signal-to-noise
+4. **Novelty over Nakamura** — material independence as evidence for topological universality, plus practical advantages
+5. **Interpretive caution** — Coulomb-vs-topological phase distinction
+6. **Outlook** — pathway toward non-abelian states in graphene
+
+The section uses the established citation keys (`\cite{Werkmeister2024GrapheneInterferometer}`, `\cite{RosenowHalperinInterferometryPlaceholder}`), cross-references the Nakamura section and its equations, and matches the prose style (bold subheadings, numbered equations with labels, enumerate/itemize environments).

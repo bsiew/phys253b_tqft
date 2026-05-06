@@ -1,0 +1,45 @@
+You are resolving cross-reference issues in a physics review paper on TQFT.
+
+## Task specification
+
+# Task 17.4 — Propagate Cross-References
+
+- **Status:** pending
+- **Owner:** Brian
+- **Duration:** 45 min
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+
+## Goal
+
+Resolve every `\ref{}` so the compiled PDF has no "undefined reference" warnings.
+
+## Steps
+
+1. Run the canonical compile command (see [`plan/notes/build_route.md`](../notes/build_route.md)) enough times to resolve forward references.
+2. Grep the log for `LaTeX Warning: Reference`.
+3. For each unresolved reference:
+   - Find the intended target.
+   - If the target exists, fix the label.
+   - If the target doesn't exist, either create it or replace the reference with prose.
+4. Repeat until the log is clean.
+
+## Acceptance criteria
+
+- Zero `LaTeX Warning: Reference ... undefined` messages in the log for the chosen build route.
+- Zero `?? ??` rendered in the PDF.
+
+## Risks
+
+- **Dangling refs from trim decisions.** If Stage III Task 8.9 cut a section that other chapters reference, those references are orphaned. Expect to fix ~5–10 of these.
+
+## Instructions
+
+1. Grep all tex files in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/ for \ref{...} and \label{...}.
+2. Build a list of all labels defined and all labels referenced.
+3. For each \ref{} that references a label not defined anywhere:
+   - If the intended target is obvious (e.g., a section that exists with a slightly different label), fix the \ref{}.
+   - If the target does not exist and cannot be created, replace the \ref{} with descriptive prose.
+4. Also check for duplicate labels (same label defined in multiple files).
+5. Write a summary to /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_17/17_4_crossref_fixes.md
+
+Note: You cannot actually compile LaTeX, but you CAN grep for all \label{} and \ref{} definitions/uses and match them up programmatically.

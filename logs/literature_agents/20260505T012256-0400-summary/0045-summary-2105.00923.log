@@ -1,0 +1,13 @@
+Task complete. I've split the paper into 8 section files under `codex_section_extracts/` and written `codex_paper_summary.md` as the import map.
+
+**Section files created:**
+- 01_abstract.md
+- 02_introduction.md (high priority)
+- 03_model.md (high priority)
+- 04_pure_gauge.md (medium priority)
+- 05_nonsinglet_pseudoscalar_mesons.md (medium priority)
+- 06_singlet_pseudoscalar_mesons.md (high priority)
+- 07_topological_susceptibility.md (high priority)
+- 08_conclusions.md (medium priority)
+
+Each section file preserves the YAML front matter with appropriate metadata. The summary provides a whole-paper snapshot covering the $U(1)_A$ problem solution via AdS/QCD soft-wall model, $\eta^\prime$ mass from meson-glueball mixing, holographic anomaly equation derivation, and topological susceptibility computation. Import recommendations scale with technical density: high priority for the model setup, singlet sector analysis, and topological susceptibility derivation; medium priority for phenomenological sections and glueball spectrum.

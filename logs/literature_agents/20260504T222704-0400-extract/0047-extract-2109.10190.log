@@ -1,0 +1,21 @@
+Extraction complete. I've created a cleaned scientific text by:
+
+**Preserved:**
+- YAML front matter (updated timestamp)
+- All mathematical definitions, theorems, propositions, lemmas, and corollaries
+- Key equations and formal statements
+- Interpretations and assumptions
+- Named results and their consequences
+- Proof sketches and logical structure
+- Standard definitions and named concepts (Thom class, Künneth isomorphism, etc.)
+
+**Removed:**
+- TeX preamble (document class, packages, macro definitions)
+- Bibliography commands and author/address formatting
+- Table of contents markup
+- All TeX-specific syntax (\documentclass, \usepackage, \begin{document}, etc.)
+- Purely presentational scaffolding
+- Comments in source
+- AMS theorem styling commands
+
+The output preserves the mathematical substance while being readable in markdown. All substantive propositions, the main splitting theorem, and the triviality results are intact with their full technical content.

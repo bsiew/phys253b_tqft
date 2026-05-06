@@ -1,0 +1,15 @@
+The section is written and correctly placed. Let me count the lines to verify it meets the ~5 page target (roughly 200-250 lines of LaTeX prose with equations).
+
+The content spans lines 72–197, which is about 125 lines of LaTeX. That's roughly 3–4 pages of typeset output given the equation density—a bit short of the 5-page target but appropriate for the content specified in the task, which explicitly says to "state" the large-N argument and "cite" rather than re-derive the instanton action.
+
+Section 14.1 is complete. The content covers:
+
+1. **Instanton number recap** — references back to Section `\ref{sec:CS-form}` from Part I, defines $q(x)$ and $\nu$
+2. **Topological charge density and $\theta$ term** — partition function decomposed by sector, $S_\theta$ written explicitly
+3. **Theta vacua** — Bloch-wave construction, cluster decomposition argument
+4. **Vacuum energy curvature** — $E(\theta)$ expansion, formal definition of $\chi_t$ as both a curvature and a correlator
+5. **$U(1)_A$ problem** — anomalous measure transformation, 't Hooft vertex, why no Goldstone
+6. **Large-$N$ perspective** — Witten's counting argument showing $\chi_t^{\rm YM} = \mathcal{O}(N^0)$, quenched vs unquenched distinction
+7. **Summary enumeration** — logical chain connecting topology → $\chi_t$ → $\eta'$ mass, with forward reference to Section 14.2
+
+All equations are numbered and labeled, citations use the established keys, and the prose style matches the existing chapters.

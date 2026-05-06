@@ -1,13 +1,14 @@
-% BibTeX stubs for the unresolved/manual-cleanup subset of
-% tqft_observables_literature_review.md.
+% BibTeX entries for the TQFT review paper.
+% Consolidated 2026-05-05: all \cite{} keys now resolve.
 %
-% Concrete-title entries below are intended to be usable immediately.
-% Placeholder @misc entries near the bottom mark citation buckets that still
-% need a canonical paper choice.
+% Conventions:
+%   - Short-key aliases (e.g. BlauThompson1991) point to the same data as their long-form counterparts.
+%   - Placeholder entries that are cited in the text are kept.
+%   - Former orphan entries (never cited) have been removed.
 
-% ----------------------------------------------------------------------
+% ======================================================================
 % Foundational TQFT / Chern-Simons
-% ----------------------------------------------------------------------
+% ======================================================================
 
 @article{Witten1988TQFT,
   author  = {Edward Witten},
@@ -15,7 +16,18 @@
   journal = {Communications in Mathematical Physics},
   volume  = {117},
   pages   = {353--386},
-  year    = {1988}
+  year    = {1988},
+  doi     = {10.1007/BF01223371}
+}
+
+@article{Witten1988Sigma,
+  author  = {Edward Witten},
+  title   = {Topological Sigma Models},
+  journal = {Communications in Mathematical Physics},
+  volume  = {118},
+  pages   = {411--449},
+  year    = {1988},
+  doi     = {10.1007/BF01466725}
 }
 
 @article{Witten1989Jones,
@@ -24,16 +36,28 @@
   journal = {Communications in Mathematical Physics},
   volume  = {121},
   pages   = {351--399},
-  year    = {1989}
+  year    = {1989},
+  doi     = {10.1007/BF01217730}
 }
 
-@article{BlauThompson1991TopologicalGauge,
+@article{Atiyah1988TQFT,
+  author  = {Michael F. Atiyah},
+  title   = {Topological Quantum Field Theories},
+  journal = {Publications Math\'ematiques de l'IH\'ES},
+  volume  = {68},
+  pages   = {175--186},
+  year    = {1988},
+  doi     = {10.1007/BF02698547}
+}
+
+@article{BlauThompson1991,
   author  = {M. Blau and G. Thompson},
   title   = {Topological Gauge Theories of Antisymmetric Tensor Fields},
   journal = {Annals of Physics},
   volume  = {205},
   pages   = {130--172},
-  year    = {1991}
+  year    = {1991},
+  doi     = {10.1016/0003-4916(91)90240-9}
 }
 
 @article{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory,
@@ -42,338 +66,182 @@
   journal = {Physics Reports},
   volume  = {209},
   pages   = {129--340},
-  year    = {1991}
-}
-
-@phdthesis{Dijkgraaf1989Geometry2dCFT,
-  author = {R. Dijkgraaf},
-  title  = {A Geometrical Approach to Two-Dimensional Conformal Field Theory},
-  year   = {1989},
-  note   = {TODO: normalize thesis institution / degree metadata}
+  year    = {1991},
+  doi     = {10.1016/0370-1573(91)90117-5}
 }
 
 @article{ElitzurMooreSchwimmerSeiberg1989CanonicalCS,
   author  = {S. Elitzur and G. Moore and A. Schwimmer and N. Seiberg},
-  title   = {Remarks on the Canonical Quantization of the Chern--Simons-Witten Theory},
+  title   = {Remarks on the Canonical Quantization of the Chern--Simons--Witten Theory},
   journal = {Nuclear Physics B},
   volume  = {326},
   pages   = {108--134},
-  year    = {1989}
+  year    = {1989},
+  doi     = {10.1016/0550-3213(89)90436-7}
 }
 
-% ----------------------------------------------------------------------
-% Pedagogical bridge references
-% ----------------------------------------------------------------------
-
-@book{Nakahara2003GeometryTopologyPhysics,
-  author    = {Mikio Nakahara},
-  title     = {Geometry, Topology and Physics},
-  edition   = {2},
-  publisher = {CRC Press / Taylor \& Francis},
-  year      = {2003},
-  note      = {TODO: confirm preferred edition if you want a different one}
-}
-
-@book{BaezMuniain1994GaugeFieldsKnotsGravity,
-  author    = {John Baez and Javier P. Muniain},
-  title     = {Gauge Fields, Knots and Gravity},
-  year      = {1994},
-  note      = {TODO: confirm edition / publisher formatting}
-}
-
-% ----------------------------------------------------------------------
-% FQHE / topological order theory
-% ----------------------------------------------------------------------
-
-@article{Wen1990TopologicalOrders,
-  author  = {X.-G. Wen},
-  title   = {Topological Orders in Rigid States},
-  journal = {International Journal of Modern Physics B},
-  volume  = {4},
-  pages   = {239--271},
-  year    = {1990}
-}
-
-@article{Wen2019ChoreographedEntanglementDances,
-  author  = {X.-G. Wen},
-  title   = {Choreographed Entanglement Dances: Topological States of Quantum Matter},
-  journal = {Science},
-  volume  = {363},
-  pages   = {eaal3099},
-  year    = {2019}
-}
-
-@book{HalperinJain2020FQHENewDevelopments,
-  editor    = {B. I. Halperin and J. K. Jain},
-  title     = {Fractional Quantum Hall Effects: New Developments},
-  publisher = {World Scientific},
-  year      = {2020},
-  note      = {TODO: add full volume metadata if needed}
-}
-
-@article{Laughlin1983AnomalousQHE,
-  author  = {R. B. Laughlin},
-  title   = {Anomalous Quantum Hall Effect: An Incompressible Quantum Fluid with Fractionally Charged Excitations},
-  journal = {Physical Review Letters},
-  volume  = {50},
-  pages   = {1395--1398},
-  year    = {1983}
-}
-
-@article{ArovasSchriefferWilczek1984FractionalStatistics,
-  author  = {D. Arovas and J. R. Schrieffer and F. Wilczek},
-  title   = {Fractional Statistics and the Quantum Hall Effect},
-  journal = {Physical Review Letters},
-  volume  = {53},
-  pages   = {722--723},
-  year    = {1984}
-}
-
-@article{ZhangHanssonKivelson1989FQHE,
-  author  = {S.-C. Zhang and T. H. Hansson and S. Kivelson},
-  title   = {Effective-Field-Theory Model for the Fractional Quantum Hall Effect},
-  journal = {Physical Review Letters},
-  volume  = {62},
-  pages   = {82--85},
-  year    = {1989}
-}
-
-@article{WenZee1992AbelianQHClassification,
-  author  = {X.-G. Wen and A. Zee},
-  title   = {Classification of Abelian Quantum Hall States and Matrix Formulation of Topological Fluids},
-  journal = {Physical Review B},
-  volume  = {46},
-  pages   = {2290--2301},
-  year    = {1992}
-}
-
-@article{WenNiu1990GroundStateDegeneracy,
-  author  = {X.-G. Wen and Q. Niu},
-  title   = {Ground-State Degeneracy of the Fractional Quantum Hall States in the Presence of a Random Potential and on High-Genus Riemann Surfaces},
-  journal = {Physical Review B},
-  volume  = {41},
-  pages   = {9377--9396},
-  year    = {1990}
-}
-
-% ----------------------------------------------------------------------
-% FQHE / anyon experiments
-% ----------------------------------------------------------------------
-
-@article{TsuiStormerGossard1982FQHEDiscovery,
-  author  = {D. C. Tsui and H. L. Stormer and A. C. Gossard},
-  title   = {Two-Dimensional Magnetotransport in the Extreme Quantum Limit},
-  journal = {Physical Review Letters},
-  volume  = {48},
-  pages   = {1559--1562},
-  year    = {1982}
-}
-
-@article{dePicciotto1997FractionalCharge,
-  author  = {R. de-Picciotto and others},
-  title   = {Direct Observation of a Fractional Charge},
-  journal = {Nature},
-  volume  = {389},
-  pages   = {162--164},
-  year    = {1997}
-}
-
-@article{CaminoZhouGoldman2005ABSuperperiod,
-  author  = {F. E. Camino and W. Zhou and V. J. Goldman},
-  title   = {Aharonov--Bohm Superperiod in a Laughlin Quasiparticle Interferometer},
-  journal = {Physical Review Letters},
-  volume  = {95},
-  pages   = {246802},
-  year    = {2005}
-}
-
-@misc{VenkatachalamHartPfeifferWestYacobyGrapheneInterferometers,
-  author = {V. Venkatachalam and S. Hart and L. Pfeiffer and K. W. West and A. Yacoby},
-  title  = {Localized Electronic States in the Quantum Hall Regime and Discrete Charging in Graphene Interferometers},
-  note   = {TODO: add canonical venue, volume, pages, and year}
-}
-
-@article{Nakamura2020AnyonicBraiding,
-  author  = {M. Nakamura and others},
-  title   = {Direct Observation of Anyonic Braiding Statistics},
-  journal = {Nature Physics},
-  volume  = {16},
-  pages   = {931--936},
-  year    = {2020}
-}
-
-@article{Bartolomei2020AnyonCollisions,
-  author  = {J. Bartolomei and others},
-  title   = {Fractional Statistics in Anyon Collisions},
-  journal = {Science},
-  volume  = {368},
-  pages   = {173--177},
-  year    = {2020}
-}
-
-% ----------------------------------------------------------------------
-% QCD topology / strong CP / axions
-% ----------------------------------------------------------------------
-
-@article{tHooft1976BellJackiw,
-  author  = {G. 't Hooft},
-  title   = {Symmetry Breaking Through Bell--Jackiw Anomalies},
-  journal = {Physical Review Letters},
-  volume  = {37},
-  pages   = {8--11},
-  year    = {1976}
-}
-
-@article{tHooft1976Pseudoparticle,
-  author  = {G. 't Hooft},
-  title   = {Computation of the Quantum Effects Due to a Four-Dimensional Pseudoparticle},
-  journal = {Physical Review D},
-  volume  = {14},
-  pages   = {3432--3450},
-  year    = {1976}
-}
-
-@article{Witten1979U1GoldstoneBoson,
-  author  = {Edward Witten},
-  title   = {Current Algebra Theorems for the U(1) ``Goldstone Boson''},
+% Short alias used in ch05
+@article{ElitzurMooreSchwimmerSeiberg1989,
+  author  = {S. Elitzur and G. Moore and A. Schwimmer and N. Seiberg},
+  title   = {Remarks on the Canonical Quantization of the Chern--Simons--Witten Theory},
   journal = {Nuclear Physics B},
-  volume  = {156},
-  pages   = {269--283},
-  year    = {1979}
+  volume  = {326},
+  pages   = {108--134},
+  year    = {1989},
+  doi     = {10.1016/0550-3213(89)90436-7}
 }
 
-@article{Veneziano1979U1WithoutInstantons,
-  author  = {G. Veneziano},
-  title   = {U(1) Without Instantons},
+@article{DeserJackiwTempleton1982,
+  author  = {S. Deser and R. Jackiw and S. Templeton},
+  title   = {Topologically Massive Gauge Theories},
+  journal = {Annals of Physics},
+  volume  = {140},
+  pages   = {372--411},
+  year    = {1982},
+  doi     = {10.1016/0003-4916(82)90164-6}
+}
+
+@article{DijkgraafWitten1990,
+  author  = {Robbert Dijkgraaf and Edward Witten},
+  title   = {Topological Gauge Theories and Group Cohomology},
+  journal = {Communications in Mathematical Physics},
+  volume  = {129},
+  pages   = {393--429},
+  year    = {1990},
+  doi     = {10.1007/BF02096988}
+}
+
+@article{Horowitz1989,
+  author  = {Gary T. Horowitz},
+  title   = {Exactly Soluble Diffeomorphism Invariant Theories},
+  journal = {Communications in Mathematical Physics},
+  volume  = {125},
+  pages   = {417--437},
+  year    = {1989},
+  doi     = {10.1007/BF01218410}
+}
+
+@article{ReshetikhinTuraev1991,
+  author  = {N. Reshetikhin and V. G. Turaev},
+  title   = {Invariants of 3-Manifolds via Link Polynomials and Quantum Groups},
+  journal = {Inventiones Mathematicae},
+  volume  = {103},
+  pages   = {547--597},
+  year    = {1991},
+  doi     = {10.1007/BF01239527}
+}
+
+@book{Turaev2016QuantumInvariants,
+  author    = {Vladimir G. Turaev},
+  title     = {Quantum Invariants of Knots and 3-Manifolds},
+  edition   = {3},
+  publisher = {De Gruyter},
+  year      = {2016},
+  doi       = {10.1515/9783110435221}
+}
+
+@article{Kauffman1987,
+  author  = {Louis H. Kauffman},
+  title   = {State Models and the Jones Polynomial},
+  journal = {Topology},
+  volume  = {26},
+  pages   = {395--407},
+  year    = {1987},
+  doi     = {10.1016/0040-9383(87)90009-7}
+}
+
+@article{GuadagniniMartelliniMintchev1990,
+  author  = {E. Guadagnini and M. Martellini and M. Mintchev},
+  title   = {Wilson Lines in {C}hern--{S}imons Theory and Link Invariants},
   journal = {Nuclear Physics B},
-  volume  = {159},
-  pages   = {213--224},
-  year    = {1979}
+  volume  = {330},
+  pages   = {575--607},
+  year    = {1990},
+  doi     = {10.1016/0550-3213(90)90124-V}
 }
 
-@article{DiVecchiaVeneziano1980ChiralDynamics,
-  author  = {P. Di Vecchia and G. Veneziano},
-  title   = {Chiral Dynamics in the Large-$N$ Limit},
-  journal = {Nuclear Physics B},
-  volume  = {171},
-  pages   = {253--272},
-  year    = {1980}
+@article{Freed1995CSnotes,
+  author = {Daniel S. Freed},
+  title  = {Classical {C}hern--{S}imons Theory, Part 1},
+  journal = {Advances in Mathematics},
+  volume  = {113},
+  pages   = {237--303},
+  year    = {1995},
+  doi     = {10.1006/aima.1995.1039}
 }
 
-@article{Abel2020NeutronEDM,
-  author  = {C. Abel and others},
-  title   = {Measurement of the Permanent Electric Dipole Moment of the Neutron},
-  journal = {Physical Review Letters},
-  volume  = {124},
-  pages   = {081803},
-  year    = {2020},
-  note    = {nEDM Collaboration}
-}
-
-% ----------------------------------------------------------------------
-% Monopoles / defects / solitons
-% ----------------------------------------------------------------------
-
-@article{Dirac1931QuantisedSingularities,
-  author  = {P. A. M. Dirac},
-  title   = {Quantised Singularities in the Electromagnetic Field},
-  journal = {Proceedings of the Royal Society A},
-  volume  = {133},
-  pages   = {60--72},
-  year    = {1931}
-}
-
-@article{tHooft1974MagneticMonopoles,
-  author  = {G. 't Hooft},
-  title   = {Magnetic Monopoles in Unified Gauge Theories},
-  journal = {Nuclear Physics B},
-  volume  = {79},
-  pages   = {276--284},
-  year    = {1974}
-}
-
-@article{Polyakov1974ParticleSpectrum,
-  author  = {A. M. Polyakov},
-  title   = {Particle Spectrum in Quantum Field Theory},
-  journal = {JETP Letters},
-  volume  = {20},
-  pages   = {194--195},
-  year    = {1974}
-}
-
-@book{MantonSutcliffeTopologicalSolitons,
-  author = {N. S. Manton and P. Sutcliffe},
-  title  = {Topological Solitons},
-  note   = {TODO: add publisher and year}
-}
-
-@book{ShnirMagneticMonopoles,
-  author = {Y. M. Shnir},
-  title  = {Magnetic Monopoles},
-  note   = {TODO: add publisher and year}
-}
-
-@book{WeinbergClassicalSolutionsQFT,
-  author = {E. J. Weinberg},
-  title  = {Classical Solutions in Quantum Field Theory},
-  note   = {TODO: add publisher and year}
-}
-
-% ----------------------------------------------------------------------
-% Placeholder citation buckets that still need canonical paper choices
-% ----------------------------------------------------------------------
-
-@misc{RosenowHalperinInterferometryPlaceholder,
-  author = {A. Rosenow and B. I. Halperin and others},
-  note   = {TODO: replace with one or two concrete quantum Hall interferometry / Coulomb-dominated-regime papers}
-}
-
-@misc{ADMXOverviewPlaceholder,
-  author = {{ADMX Collaboration}},
-  note   = {TODO: replace with a specific ADMX overview or flagship experimental status paper}
-}
-
-@misc{CASTIAXOOverviewPlaceholder,
-  note = {TODO: replace with concrete CAST and/or IAXO overview papers}
-}
-
-@misc{CASPErOverviewPlaceholder,
-  note = {TODO: replace with a concrete CASPEr overview / proposal paper}
-}
-
-@misc{MADMAXOverviewPlaceholder,
-  note = {TODO: replace with a concrete MADMAX overview / design paper}
-}
-
-@misc{PDGMagneticMonopolesPlaceholder,
-  note = {TODO: replace with the exact PDG magnetic monopoles review edition to be cited}
-}
-
-@misc{KapustinSaulinaLineOperatorsPlaceholder,
-  author = {A. Kapustin and N. Saulina},
-  note   = {TODO: replace with a specific Kapustin-Saulina line / surface operator paper}
-}
-
-% ----------------------------------------------------------------------
-% Additional references pulled in by the 2026-05-02 restructuring
-% (tqft_observables_literature_review.md Secs. 3.1--3.2, 4.1--4.3, 5.1--5.3,
-%  6.1, 7.1).
-% ----------------------------------------------------------------------
-
-@article{Atiyah1988TQFT,
-  author  = {Michael F. Atiyah},
-  title   = {Topological Quantum Field Theories},
-  journal = {Publications Math\'ematiques de l'IH\'ES},
-  volume  = {68},
-  pages   = {175--186},
-  year    = {1988}
+@article{SeibergWitten2016Spin,
+  author  = {Nathan Seiberg and Edward Witten},
+  title   = {Gapped Boundary Phases of Topological Insulators via Weak Coupling},
+  journal = {Progress of Theoretical and Experimental Physics},
+  volume  = {2016},
+  pages   = {12C101},
+  year    = {2016},
+  note    = {arXiv:1602.04251}
 }
 
 @article{Dunne1999AspectsCS,
   author = {Gerald V. Dunne},
   title  = {Aspects of {C}hern--{S}imons Theory},
-  note   = {Lectures at the 1998 Les Houches Summer School, ``Aspects topologiques de la physique en basse dimension'', arXiv:hep-th/9902115},
+  note   = {Lectures at the 1998 Les Houches Summer School; arXiv:hep-th/9902115},
   year   = {1999}
+}
+
+@article{Marino2005,
+  author = {Marcos Mari\~no},
+  title  = {{C}hern--{S}imons Theory and Topological Strings},
+  journal = {Reviews of Modern Physics},
+  volume  = {77},
+  pages   = {675--720},
+  year    = {2005},
+  note    = {arXiv:hep-th/0406005},
+  doi     = {10.1103/RevModPhys.77.675}
+}
+
+% ======================================================================
+% Pedagogical / textbook references
+% ======================================================================
+
+@book{Nakahara2003GTP,
+  author    = {Mikio Nakahara},
+  title     = {Geometry, Topology and Physics},
+  edition   = {2},
+  publisher = {CRC Press / Taylor \& Francis},
+  year      = {2003},
+  doi       = {10.1201/9781420056945}
+}
+
+@book{Schwartz2014QFT,
+  author    = {Matthew D. Schwartz},
+  title     = {Quantum Field Theory and the Standard Model},
+  publisher = {Cambridge University Press},
+  year      = {2014},
+  doi       = {10.1017/9781139540940}
+}
+
+@book{Kock2004Frobenius,
+  author    = {Joachim Kock},
+  title     = {Frobenius Algebras and 2D Topological Quantum Field Theories},
+  publisher = {Cambridge University Press},
+  year      = {2004},
+  doi       = {10.1017/CBO9780511615443}
+}
+
+@book{MacLane1998,
+  author    = {Saunders Mac Lane},
+  title     = {Categories for the Working Mathematician},
+  publisher = {Springer},
+  year      = {1998},
+  edition   = {2nd},
+  doi       = {10.1007/978-1-4757-4721-8}
+}
+
+@book{Brown1982,
+  author    = {Kenneth S. Brown},
+  title     = {Cohomology of Groups},
+  publisher = {Springer},
+  year      = {1982},
+  doi       = {10.1007/978-1-4684-9327-6}
 }
 
 @article{Witten2016ThreeLecturesTopologicalPhases,
@@ -393,6 +261,28 @@
   year   = {2016}
 }
 
+% Short alias used in ch05
+@misc{Tong2016QHE,
+  author = {David Tong},
+  title  = {Lectures on the Quantum Hall Effect},
+  note   = {arXiv:1606.06687},
+  year   = {2016}
+}
+
+% ======================================================================
+% FQHE / topological order theory
+% ======================================================================
+
+@article{Wen1990TopologicalOrders,
+  author  = {X.-G. Wen},
+  title   = {Topological Orders in Rigid States},
+  journal = {International Journal of Modern Physics B},
+  volume  = {4},
+  pages   = {239--271},
+  year    = {1990},
+  doi     = {10.1142/S0217979290000139}
+}
+
 @article{Wen1995TopologicalOrdersEdgeExcitations,
   author  = {X.-G. Wen},
   title   = {Topological Orders and Edge Excitations in Fractional Quantum Hall States},
@@ -403,6 +293,107 @@
   note    = {arXiv:cond-mat/9506066}
 }
 
+@book{HalperinJain2020FQHENewDevelopments,
+  editor    = {B. I. Halperin and J. K. Jain},
+  title     = {Fractional Quantum Hall Effects: New Developments},
+  publisher = {World Scientific},
+  year      = {2020},
+  doi       = {10.1142/11751}
+}
+
+@article{Laughlin1983AnomalousQHE,
+  author  = {R. B. Laughlin},
+  title   = {Anomalous Quantum Hall Effect: An Incompressible Quantum Fluid with Fractionally Charged Excitations},
+  journal = {Physical Review Letters},
+  volume  = {50},
+  pages   = {1395--1398},
+  year    = {1983},
+  doi     = {10.1103/PhysRevLett.50.1395}
+}
+
+@article{ArovasSchriefferWilczek1984FractionalStatistics,
+  author  = {D. Arovas and J. R. Schrieffer and F. Wilczek},
+  title   = {Fractional Statistics and the Quantum Hall Effect},
+  journal = {Physical Review Letters},
+  volume  = {53},
+  pages   = {722--723},
+  year    = {1984},
+  doi     = {10.1103/PhysRevLett.53.722}
+}
+
+@article{ZhangHanssonKivelson1989FQHE,
+  author  = {S.-C. Zhang and T. H. Hansson and S. Kivelson},
+  title   = {Effective-Field-Theory Model for the Fractional Quantum Hall Effect},
+  journal = {Physical Review Letters},
+  volume  = {62},
+  pages   = {82--85},
+  year    = {1989},
+  doi     = {10.1103/PhysRevLett.62.82}
+}
+
+@article{WenZee1992AbelianQHClassification,
+  author  = {X.-G. Wen and A. Zee},
+  title   = {Classification of Abelian Quantum Hall States and Matrix Formulation of Topological Fluids},
+  journal = {Physical Review B},
+  volume  = {46},
+  pages   = {2290--2301},
+  year    = {1992},
+  doi     = {10.1103/PhysRevB.46.2290}
+}
+
+@article{WenNiu1990GroundStateDegeneracy,
+  author  = {X.-G. Wen and Q. Niu},
+  title   = {Ground-State Degeneracy of the Fractional Quantum Hall States in the Presence of a Random Potential and on High-Genus Riemann Surfaces},
+  journal = {Physical Review B},
+  volume  = {41},
+  pages   = {9377--9396},
+  year    = {1990},
+  doi     = {10.1103/PhysRevB.41.9377}
+}
+
+@article{KitaevPreskill2006TEE,
+  author  = {Alexei Kitaev and John Preskill},
+  title   = {Topological Entanglement Entropy},
+  journal = {Physical Review Letters},
+  volume  = {96},
+  pages   = {110404},
+  year    = {2006},
+  doi     = {10.1103/PhysRevLett.96.110404}
+}
+
+@article{LevinWen2006DetectingTO,
+  author  = {Michael Levin and X.-G. Wen},
+  title   = {Detecting Topological Order in a Ground State Wave Function},
+  journal = {Physical Review Letters},
+  volume  = {96},
+  pages   = {110405},
+  year    = {2006},
+  doi     = {10.1103/PhysRevLett.96.110405}
+}
+
+@article{Kitaev2003FaultTolerant,
+  author  = {A. Yu. Kitaev},
+  title   = {Fault-Tolerant Quantum Computation by Anyons},
+  journal = {Annals of Physics},
+  volume  = {303},
+  pages   = {2--30},
+  year    = {2003},
+  doi     = {10.1016/S0003-4916(02)00018-0},
+  note    = {arXiv:quant-ph/9707021}
+}
+
+% Short alias used in ch07_dw
+@article{Kitaev2003,
+  author  = {A. Yu. Kitaev},
+  title   = {Fault-Tolerant Quantum Computation by Anyons},
+  journal = {Annals of Physics},
+  volume  = {303},
+  pages   = {2--30},
+  year    = {2003},
+  doi     = {10.1016/S0003-4916(02)00018-0},
+  note    = {arXiv:quant-ph/9707021}
+}
+
 @article{Stern2008AnyonsQHEReview,
   author  = {Ady Stern},
   title   = {Anyons and the Quantum Hall Effect---A Pedagogical Review},
@@ -410,7 +401,8 @@
   volume  = {323},
   pages   = {204--249},
   year    = {2008},
-  note    = {arXiv:0711.4697}
+  note    = {arXiv:0711.4697},
+  doi     = {10.1016/j.aop.2007.10.008}
 }
 
 @article{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons,
@@ -420,7 +412,52 @@
   volume  = {80},
   pages   = {1083--1159},
   year    = {2008},
-  note    = {arXiv:0707.1889}
+  note    = {arXiv:0707.1889},
+  doi     = {10.1103/RevModPhys.80.1083}
+}
+
+% ======================================================================
+% FQHE / anyon experiments
+% ======================================================================
+
+@article{TsuiStormerGossard1982FQHEDiscovery,
+  author  = {D. C. Tsui and H. L. Stormer and A. C. Gossard},
+  title   = {Two-Dimensional Magnetotransport in the Extreme Quantum Limit},
+  journal = {Physical Review Letters},
+  volume  = {48},
+  pages   = {1559--1562},
+  year    = {1982},
+  doi     = {10.1103/PhysRevLett.48.1559}
+}
+
+@article{dePicciotto1997FractionalCharge,
+  author  = {R. de-Picciotto and others},
+  title   = {Direct Observation of a Fractional Charge},
+  journal = {Nature},
+  volume  = {389},
+  pages   = {162--164},
+  year    = {1997},
+  doi     = {10.1038/38241}
+}
+
+@article{Saminadayar1997FractionalCharge,
+  author  = {L. Saminadayar and D. C. Glattli and Y. Jin and B. Etienne},
+  title   = {Observation of the $e/3$ Fractionally Charged {L}aughlin Quasiparticle},
+  journal = {Physical Review Letters},
+  volume  = {79},
+  pages   = {2526--2529},
+  year    = {1997},
+  doi     = {10.1103/PhysRevLett.79.2526}
+}
+
+@article{CaminoZhouGoldman2005ABSuperperiod,
+  author  = {F. E. Camino and W. Zhou and V. J. Goldman},
+  title   = {Aharonov--Bohm Superperiod in a Laughlin Quasiparticle Interferometer},
+  journal = {Physical Review Letters},
+  volume  = {95},
+  pages   = {246802},
+  year    = {2005},
+  doi     = {10.1103/PhysRevLett.95.246802}
 }
 
 @article{HalperinSternNederRosenow2011FractionalCharge,
@@ -430,21 +467,122 @@
   volume  = {83},
   pages   = {155440},
   year    = {2011},
-  note    = {arXiv:2102.08998 (date ordering reflects the literature-review note; confirm before final citation)}
+  doi     = {10.1103/PhysRevB.83.155440}
 }
 
-@article{Saminadayar1997FractionalCharge,
-  author  = {L. Saminadayar and D. C. Glattli and Y. Jin and B. Etienne},
-  title   = {Observation of the $e/3$ Fractionally Charged {L}aughlin Quasiparticle},
+@article{Nakamura2020AnyonicBraiding,
+  author  = {J. Nakamura and S. Liang and G. C. Gardner and M. J. Manfra},
+  title   = {Direct Observation of Anyonic Braiding Statistics},
+  journal = {Nature Physics},
+  volume  = {16},
+  pages   = {931--936},
+  year    = {2020},
+  doi     = {10.1038/s41567-020-1019-1}
+}
+
+% Short alias used in ch05
+@article{Nakamura2020,
+  author  = {J. Nakamura and S. Liang and G. C. Gardner and M. J. Manfra},
+  title   = {Direct Observation of Anyonic Braiding Statistics},
+  journal = {Nature Physics},
+  volume  = {16},
+  pages   = {931--936},
+  year    = {2020},
+  doi     = {10.1038/s41567-020-1019-1}
+}
+
+@article{Bartolomei2020AnyonCollisions,
+  author  = {H. Bartolomei and others},
+  title   = {Fractional Statistics in Anyon Collisions},
+  journal = {Science},
+  volume  = {368},
+  pages   = {173--177},
+  year    = {2020},
+  doi     = {10.1126/science.aaz5601}
+}
+
+@article{Andersen2023NonAbelianBraiding,
+  author  = {Trond I. Andersen and others},
+  title   = {Non-{A}belian Braiding of Graph Vertices in a Superconducting Processor},
+  journal = {Nature},
+  volume  = {618},
+  pages   = {264--269},
+  year    = {2023},
+  doi     = {10.1038/s41586-023-05954-4}
+}
+
+@article{Werkmeister2024GrapheneInterferometer,
+  author  = {S. Werkmeister and others},
+  title   = {Anyonic Interference and Braiding Phase in a Graphene Quantum Hall Interferometer},
+  journal = {preprint},
+  year    = {2024},
+  note    = {arXiv:2401.01466; TODO: confirm venue and DOI upon publication}
+}
+
+% ======================================================================
+% QCD topology / strong CP / axions
+% ======================================================================
+
+@article{tHooft1976BellJackiw,
+  author  = {G. 't Hooft},
+  title   = {Symmetry Breaking Through Bell--Jackiw Anomalies},
   journal = {Physical Review Letters},
-  volume  = {79},
-  pages   = {2526--2529},
-  year    = {1997}
+  volume  = {37},
+  pages   = {8--11},
+  year    = {1976},
+  doi     = {10.1103/PhysRevLett.37.8}
 }
 
-% ----------------------------------------------------------------------
-% QCD topology / strong CP / axion reviews added for Sec. 6
-% ----------------------------------------------------------------------
+@article{tHooft1976Pseudoparticle,
+  author  = {G. 't Hooft},
+  title   = {Computation of the Quantum Effects Due to a Four-Dimensional Pseudoparticle},
+  journal = {Physical Review D},
+  volume  = {14},
+  pages   = {3432--3450},
+  year    = {1976},
+  doi     = {10.1103/PhysRevD.14.3432}
+}
+
+@article{Witten1979U1GoldstoneBoson,
+  author  = {Edward Witten},
+  title   = {Current Algebra Theorems for the U(1) ``Goldstone Boson''},
+  journal = {Nuclear Physics B},
+  volume  = {156},
+  pages   = {269--283},
+  year    = {1979},
+  doi     = {10.1016/0550-3213(79)90031-2}
+}
+
+@article{Veneziano1979U1WithoutInstantons,
+  author  = {G. Veneziano},
+  title   = {U(1) Without Instantons},
+  journal = {Nuclear Physics B},
+  volume  = {159},
+  pages   = {213--224},
+  year    = {1979},
+  doi     = {10.1016/0550-3213(79)90332-8}
+}
+
+@article{DiVecchiaVeneziano1980ChiralDynamics,
+  author  = {P. Di Vecchia and G. Veneziano},
+  title   = {Chiral Dynamics in the Large-$N$ Limit},
+  journal = {Nuclear Physics B},
+  volume  = {171},
+  pages   = {253--272},
+  year    = {1980},
+  doi     = {10.1016/0550-3213(80)90370-3}
+}
+
+@article{Abel2020NeutronEDM,
+  author  = {C. Abel and others},
+  title   = {Measurement of the Permanent Electric Dipole Moment of the Neutron},
+  journal = {Physical Review Letters},
+  volume  = {124},
+  pages   = {081803},
+  year    = {2020},
+  doi     = {10.1103/PhysRevLett.124.081803},
+  note    = {nEDM Collaboration}
+}
 
 @article{Dine2000TASIStrongCP,
   author = {Michael Dine},
@@ -469,7 +607,8 @@
   volume  = {643},
   pages   = {1--79},
   year    = {2016},
-  note    = {arXiv:1510.07633}
+  note    = {arXiv:1510.07633},
+  doi     = {10.1016/j.physrep.2016.06.005}
 }
 
 @article{Teper2000TopologyInQCD,
@@ -489,19 +628,106 @@
   volume  = {09},
   pages   = {020},
   year    = {2015},
-  note    = {arXiv:1504.07954}
+  note    = {arXiv:1504.07954},
+  doi     = {10.1007/JHEP09(2015)020}
 }
 
 @article{AreanU1AHolographicQCD,
   author = {D. Are\'an and others},
-  title  = {$U(1)_A$ axial anomaly, $\eta'$, and topological susceptibility in holographic {QCD}},
+  title  = {$U(1)_A$ Axial Anomaly, $\eta'$, and Topological Susceptibility in Holographic {QCD}},
   note   = {arXiv:2105.00923},
   year   = {2021}
 }
 
-% ----------------------------------------------------------------------
-% Monopoles / defects reviews added for Sec. 7
-% ----------------------------------------------------------------------
+@article{1511.02867,
+  author  = {M. Grilli di Cortona and E. Hardy and J. Pardo Vega and G. Villadoro},
+  title   = {The {QCD} Axion, Precisely},
+  journal = {JHEP},
+  volume  = {01},
+  pages   = {034},
+  year    = {2016},
+  note    = {arXiv:1511.02867},
+  doi     = {10.1007/JHEP01(2016)034}
+}
+
+@article{1606.07494,
+  author  = {S. Borsanyi and others},
+  title   = {Calculation of the Axion Mass Based on High-Temperature Lattice Quantum Chromodynamics},
+  journal = {Nature},
+  volume  = {539},
+  pages   = {69--71},
+  year    = {2016},
+  note    = {arXiv:1606.07494},
+  doi     = {10.1038/nature20115}
+}
+
+% ======================================================================
+% Monopoles / defects / solitons
+% ======================================================================
+
+@article{Dirac1931QuantisedSingularities,
+  author  = {P. A. M. Dirac},
+  title   = {Quantised Singularities in the Electromagnetic Field},
+  journal = {Proceedings of the Royal Society A},
+  volume  = {133},
+  pages   = {60--72},
+  year    = {1931},
+  doi     = {10.1098/rspa.1931.0130}
+}
+
+@article{tHooft1974MagneticMonopoles,
+  author  = {G. 't Hooft},
+  title   = {Magnetic Monopoles in Unified Gauge Theories},
+  journal = {Nuclear Physics B},
+  volume  = {79},
+  pages   = {276--284},
+  year    = {1974},
+  doi     = {10.1016/0550-3213(74)90486-6}
+}
+
+@article{Polyakov1974ParticleSpectrum,
+  author  = {A. M. Polyakov},
+  title   = {Particle Spectrum in Quantum Field Theory},
+  journal = {JETP Letters},
+  volume  = {20},
+  pages   = {194--195},
+  year    = {1974},
+  note    = {Pisma Zh. Eksp. Teor. Fiz. 20, 430 (1974)}
+}
+
+@book{MantonSutcliffeTopologicalSolitons,
+  author    = {N. S. Manton and P. Sutcliffe},
+  title     = {Topological Solitons},
+  publisher = {Cambridge University Press},
+  year      = {2004},
+  doi       = {10.1017/CBO9780511617034}
+}
+
+@book{ShnirMagneticMonopoles,
+  author    = {Y. M. Shnir},
+  title     = {Magnetic Monopoles},
+  publisher = {Springer},
+  year      = {2005},
+  doi       = {10.1007/3-540-29082-6}
+}
+
+@book{WeinbergClassicalSolutionsQFT,
+  author    = {Erick J. Weinberg},
+  title     = {Classical Solutions in Quantum Field Theory},
+  publisher = {Cambridge University Press},
+  year      = {2012},
+  doi       = {10.1017/CBO9781139017787}
+}
+
+@article{CallanHarvey1985,
+  author  = {Curtis G. Callan and Jeffrey A. Harvey},
+  title   = {Anomalies and Fermion Zero Modes on Strings and Domain Walls},
+  journal = {Nuclear Physics B},
+  volume  = {250},
+  pages   = {427--436},
+  year    = {1985},
+  doi     = {10.1016/0550-3213(85)90489-4}
+}
 
 @article{Rajantie2024MonopoleTheoryOverview,
   author = {Arttu Rajantie},
@@ -520,9 +746,9 @@
   note    = {arXiv:2005.05100}
 }
 
-% ----------------------------------------------------------------------
-% Generalized symmetries / line operators (Sec. 7)
-% ----------------------------------------------------------------------
+% ======================================================================
+% Generalized symmetries / line operators
+% ======================================================================
 
 @article{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries,
   author  = {Davide Gaiotto and Anton Kapustin and Nathan Seiberg and Brian Willett},
@@ -531,15 +757,173 @@
   volume  = {02},
   pages   = {172},
   year    = {2015},
-  note    = {arXiv:1412.5148}
+  note    = {arXiv:1412.5148},
+  doi     = {10.1007/JHEP02(2015)172}
 }
 
-@article{KapustinWitten2007ElectricMagneticLanglands,
-  author  = {Anton Kapustin and Edward Witten},
-  title   = {Electric--Magnetic Duality and the Geometric {L}anglands Program},
-  journal = {Communications in Number Theory and Physics},
-  volume  = {1},
-  pages   = {1--236},
-  year    = {2007},
-  note    = {arXiv:hep-th/0604151}
+% Short alias used throughout
+@article{GKSW2015,
+  author  = {Davide Gaiotto and Anton Kapustin and Nathan Seiberg and Brian Willett},
+  title   = {Generalized Global Symmetries},
+  journal = {JHEP},
+  volume  = {02},
+  pages   = {172},
+  year    = {2015},
+  note    = {arXiv:1412.5148},
+  doi     = {10.1007/JHEP02(2015)172}
+}
+
+@article{AharonySeibergTachikawa2013,
+  author  = {Ofer Aharony and Nathan Seiberg and Yuji Tachikawa},
+  title   = {Reading Between the Lines of Four-Dimensional Gauge Theories},
+  journal = {JHEP},
+  volume  = {08},
+  pages   = {115},
+  year    = {2013},
+  note    = {arXiv:1305.0318},
+  doi     = {10.1007/JHEP08(2013)115}
+}
+
+@article{FreedMooreTeleman2024TopologicalSymmetry,
+  author  = {Daniel S. Freed and Gregory W. Moore and Constantin Teleman},
+  title   = {Topological Symmetry in Field Theory},
+  year    = {2024},
+  note    = {arXiv:2209.07471}
+}
+
+% Short alias
+@article{FreedMooreTeleman2024,
+  author  = {Daniel S. Freed and Gregory W. Moore and Constantin Teleman},
+  title   = {Topological Symmetry in Field Theory},
+  year    = {2024},
+  note    = {arXiv:2209.07471}
+}
+
+@article{Bhardwaj2023GeneralizedSymmetryLectures,
+  author  = {Lakshya Bhardwaj and others},
+  title   = {Lectures on Generalized Symmetries},
+  year    = {2023},
+  note    = {arXiv:2307.07547}
+}
+
+% Short alias
+@article{Bhardwaj2023Lectures,
+  author  = {Lakshya Bhardwaj and others},
+  title   = {Lectures on Generalized Symmetries},
+  year    = {2023},
+  note    = {arXiv:2307.07547}
+}
+
+% ======================================================================
+% Placeholder citation buckets (cited in text, awaiting concrete papers)
+% ======================================================================
+
+@misc{RosenowHalperinInterferometryPlaceholder,
+  author = {B. Rosenow and B. I. Halperin},
+  title  = {Quantum Hall Interferometry in the Coulomb-Dominated Regime},
+  year   = {2007},
+  note   = {TODO: replace with concrete interferometry paper(s)}
+}
+
+@misc{ADMXOverviewPlaceholder,
+  author = {{ADMX Collaboration}},
+  title  = {{ADMX} Experimental Status},
+  year   = {2021},
+  note   = {TODO: replace with a specific ADMX overview or flagship result paper}
+}
+
+@misc{CASTIAXOOverviewPlaceholder,
+  title = {{CAST/IAXO} Solar Axion Searches},
+  year  = {2017},
+  note  = {TODO: replace with concrete CAST and/or IAXO overview papers}
+}
+
+@misc{CASPErOverviewPlaceholder,
+  title = {{CASPEr}: Cosmic Axion Spin Precession Experiment},
+  year  = {2014},
+  note  = {TODO: replace with a concrete CASPEr overview / proposal paper}
+}
+
+@misc{MADMAXOverviewPlaceholder,
+  title = {{MADMAX}: Magnetized Disc and Mirror Axion Experiment},
+  year  = {2019},
+  note  = {TODO: replace with a concrete MADMAX overview / design paper}
+}
+
+@misc{KapustinSaulinaLineOperatorsPlaceholder,
+  author = {A. Kapustin and N. Saulina},
+  title  = {Topological Boundary Conditions in Abelian {C}hern--{S}imons Theory},
+  year   = {2011},
+  note   = {TODO: replace with specific Kapustin-Saulina line / surface operator paper; arXiv:1008.0654}
+}
+
+% ======================================================================
+% Additional references for Appendix C (app_cs_global.tex)
+% ======================================================================
+
+@article{Bott1956Application,
+  author  = {Raoul Bott},
+  title   = {An Application of the {M}orse Theory to the Topology of {L}ie-Groups},
+  journal = {Bulletin de la Soci\'et\'e Math\'ematique de France},
+  volume  = {84},
+  pages   = {251--281},
+  year    = {1956},
+  doi     = {10.24033/bsmf.1472}
+}
+
+@incollection{Atiyah1990Geometry,
+  author    = {Michael F. Atiyah},
+  title     = {On Framings of 3-Manifolds},
+  booktitle = {Topology},
+  volume    = {29},
+  pages     = {1--7},
+  year      = {1990},
+  doi       = {10.1016/0040-9383(90)90021-B}
+}
+
+@article{BarNatan1995Perturbative,
+  author  = {Dror Bar-Natan},
+  title   = {Perturbative {C}hern--{S}imons Theory},
+  journal = {Journal of Knot Theory and Its Ramifications},
+  volume  = {4},
+  pages   = {503--547},
+  year    = {1995},
+  doi     = {10.1142/S0218216595000247}
+}
+
+@article{Cerf1970,
+  author  = {Jean Cerf},
+  title   = {La stratification naturelle des espaces de fonctions diff\'erentiables r\'eelles et le th\'eor\`eme de la pseudo-isotopie},
+  journal = {Publications Math\'ematiques de l'IH\'ES},
+  volume  = {39},
+  pages   = {5--173},
+  year    = {1970}
+}
+
+@article{Dehn1938,
+  author  = {Max Dehn},
+  title   = {Die {G}ruppe der {A}bbildungsklassen},
+  journal = {Acta Mathematica},
+  volume  = {69},
+  pages   = {135--206},
+  year    = {1938}
+}
+
+@article{Lickorish1962,
+  author  = {W. B. R. Lickorish},
+  title   = {A representation of orientable combinatorial 3-manifolds},
+  journal = {Annals of Mathematics},
+  volume  = {76},
+  number  = {3},
+  pages   = {531--540},
+  year    = {1962}
+}
+
+@article{Mednykh1978,
+  author  = {Alexander D. Mednykh},
+  title   = {Determination of the number of nonequivalent coverings over a compact {R}iemann surface},
+  journal = {Soviet Mathematics Doklady},
+  volume  = {19},
+  pages   = {318--320},
+  year    = {1978}
 }

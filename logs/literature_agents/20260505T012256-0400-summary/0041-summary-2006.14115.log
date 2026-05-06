@@ -1,0 +1,26 @@
+Task complete. I've split the paper into 13 section-level files under `codex_section_extracts/` and written the comprehensive summary to `codex_paper_summary.md`.
+
+## Structure created:
+
+**Section files (all with YAML front matter):**
+- 01_title_authors.md → skip
+- 02_abstract.md → **high**
+- 03_background.md → **high** 
+- 04_device_design.md → medium
+- 05_discrete_phase_slips.md → **high**
+- 06_constant_filling_to_constant_density.md → **high**
+- 07_temperature_dependence.md → **high**
+- 08_conclusions.md → medium
+- 09_methods.md → low
+- 10_supp_periods_lever_arms.md → medium
+- 11_supp_simulations.md → medium
+- 12_supp_velocity_measurements.md → medium
+- 13_supp_bulk_edge_interaction.md → low
+
+**Summary file** includes:
+- Whole-paper snapshot: comprehensive overview of the first direct observation of anyonic braiding statistics at ν=1/3
+- Section-by-section summaries scaled to content density (50-150 words each)
+- Import recommendations for each section
+- Context-loading strategy with conceptual dependencies
+
+**Key result:** First experimental measurement of θ_anyon = 2π × (0.31 ± 0.04) ≈ 2π/3 for fractional quantum Hall quasiparticles through discrete phase jumps in a screened Fabry-Perot interferometer.

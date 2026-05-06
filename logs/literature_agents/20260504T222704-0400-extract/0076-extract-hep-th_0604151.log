@@ -1,0 +1,9 @@
+Excellent. The codex file now contains the complete scientific content from the TeX source, including:
+
+✓ **Preserved:** scientific prose, definitions, assumptions, derivations, equations (in TeX), interpretations, caveats, named results, section markers, mathematical notation
+
+✓ **Removed:** TeX package/macro setup, pure formatting commands, author/affiliation scaffolding, comment lines, bibliography command scaffolding (kept only inline citations which contain the reference information)
+
+✓ **Front matter:** YAML metadata with creation timestamp, update timestamp, and source information
+
+The output file at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/hep-th_0604151/codex_scientific_text.md` now contains 11,193 lines of the extracted scientific content, starting from the abstract and concluding with the discussion of boundary operators and cohomology. The mechanical extraction and basic cleanup is complete.

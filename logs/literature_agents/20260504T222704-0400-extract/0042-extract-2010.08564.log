@@ -1,0 +1,7 @@
+Perfect. I've successfully extracted and cleaned the scientific text from the TeX source. The extraction removed all TeX plumbing while preserving all scientific content:
+
+**Removed:** documentclass, packages, macros (\be, \ee), \cite commands, figure/bibliography scaffolding, author/affiliation formatting, comments, and other presentational TeX commands.
+
+**Preserved:** all scientific prose, definitions, equations, derivations, interpretations, caveats, theorems, and named results. The front matter was updated with the source file and current timestamp, and the full paper structure (sections, subsections, equations in plain text, acronym list) is maintained.
+
+The cleaned markdown now contains the complete scientific content: the review of chiral anomaly experiments in Dirac/Weyl semimetals with all theory, experimental descriptions, and supplementary QFT context, formatted as readable markdown with properly formatted mathematics.

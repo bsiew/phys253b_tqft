@@ -1,0 +1,9 @@
+All cross-references are resolved. Here's what was done:
+
+- **23 undefined references fixed** across 8 tex files (20 `\ref{}` + 3 `\eqref{}`)
+- **7 `ch:X` → `sec:X`** prefix corrections (introduction and other chapters used wrong prefix for chapter labels)
+- **6 typo/mismatch** label names corrected (e.g., `thm:stokes` → `thm:ch2-stokes`, `sec:atiyah-axioms` → `sec:atiyah-segal-axioms`)
+- **3 subsection** redirects (pointed to the correct existing section)
+- **2 appendix stub files created** (`app_frobenius.tex`, `app_bf_zn.tex`) with the necessary `\label{}` targets for 7 forward references to deferred material
+- **1 duplicate label** confirmed benign (in a comment)
+- Final state: **zero undefined references**, verified by re-scanning all files

@@ -1,0 +1,8 @@
+Perfect! The extraction is complete. The file now contains:
+- Proper YAML front matter with metadata
+- 3,400+ lines of cleaned scientific content from the TeX source
+- All scientific prose, definitions, equations, derivations, and theorems preserved
+- All TeX plumbing removed (package declarations, macro definitions, formatting commands, comments)
+- Bibliography reference structure preserved as found in the source
+
+The codex file at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/hep-th_9206021/codex_scientific_text.md` is ready for use.

@@ -1,0 +1,18 @@
+Excellent. Task complete. I've successfully:
+
+1. **Split the paper into 7 section-level files** under `codex_section_extracts/`:
+   - 01_introduction.md (21K, 348 lines)
+   - 02_complex_p_wave_spinless.md (51K, 882 lines) — **high priority**
+   - 03_spin_triplet_p_wave.md (14K, 216 lines) — **high priority**
+   - 04_complex_d_wave_singlet.md (48K, 781 lines) — **high priority**
+   - 05_disorder_effects.md (31K, 508 lines) — **medium priority**
+   - 06_conclusion.md (4.3K, 75 lines) — **low priority**
+   - 07_appendix_spin_hall.md (20K, 397 lines) — **medium priority**
+
+2. **Created `codex_paper_summary.md`** with:
+   - **Whole-paper snapshot** (180 words) covering main results on weak/strong pairing phase transitions, topological classification, FQHE applications (MR, HR, 331 states), and disorder effects
+   - **Section-by-section summaries** (50-150 words each) describing technical content, key results, and when to import
+   - **Import priority recommendations** based on centrality to core formalism
+   - **Full-source import guidance** for when section-level loading is insufficient
+
+Each section file preserves YAML front matter with metadata including section title, slug, line range, and import priority.

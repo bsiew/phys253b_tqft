@@ -1,0 +1,11 @@
+The section is complete and properly placed between the `\label{subsec:eta-prime-wv}` line and the next `\subsection`. The content runs approximately 165 lines of LaTeX (roughly 4 pages), matching the target length.
+
+The section covers all required content:
+1. **Puzzle** — why the $\eta'$ is heavy despite being a would-be Goldstone at large $N$
+2. **Witten-Veneziano formula** — derived via the Di Vecchia-Veneziano effective Lagrangian, stated as a boxed proposition with all mass terms identified
+3. **Large-$N$ derivation sketch** — the Ward identity argument showing $m_{\eta_0}^2 \sim 1/N$, kept to two paragraphs as instructed
+4. **Numerical evaluation** — extracting $\chi_t^{\rm YM} \approx (180\,\text{MeV})^4$ from experiment
+5. **Lattice verification** — Cichy et al. 2015 results confirming WV to ~10%
+6. **Holographic crosscheck** — Arean et al. 2021 reproducing $\chi_t$ and the $\eta'$ mass
+
+All citations use the keys from the file header, equations are numbered/labeled, and forward/backward references connect to §14.1 and §14.3.

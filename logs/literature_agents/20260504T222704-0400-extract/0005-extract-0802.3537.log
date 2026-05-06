@@ -1,0 +1,15 @@
+Extraction complete. I've created `codex_scientific_text.md` from the TeX source (Chern2new.tex) with the following approach:
+
+**Processing:**
+- Removed all TeX plumbing: `\documentclass`, `\usepackage`, macros, author/title metadata, `\maketitle`, `\tableofcontents`
+- Converted section commands to markdown (## Introduction, etc.)
+- Removed citation commands, figure/table scaffolding, and label/reference markers
+- Preserved all scientific content: definitions, equations (in math mode), derivations, physical interpretations, and named results
+
+**Output:**
+- YAML front matter with creation timestamp, source file reference, and project metadata
+- Full paper prose: abstract, introduction, theoretical development of the 4+1D topological field theory, dimensional reduction to lower dimensions, surface state physics, and experimental signatures
+- Math expressions preserved in LaTeX format ($...$)
+- Structural organization matching the original sections
+
+The file is now ready for literature integration into the QFT project vault.

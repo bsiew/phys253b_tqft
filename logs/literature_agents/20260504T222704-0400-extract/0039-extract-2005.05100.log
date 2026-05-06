@@ -1,0 +1,10 @@
+Extraction complete. I've created a mechanical starting copy of the TeX source, cleaned of non-scientific plumbing while preserving all substantive content:
+
+**Extraction summary:**
+- Source: `MM_review_monopoles.tex` (1218 lines)
+- Output: `codex_scientific_text.md` 
+- Removed: document class declarations, package imports, macro definitions, bibliography commands, author/affiliation formatting, purely presentational figure/table scaffolding, and LaTeX comments
+- Preserved: all scientific prose, definitions, theoretical derivations, equations (in original TeX form), section structure, citations, named results, and caveats
+- YAML front matter: updated with extraction metadata and preserved creation timestamp
+
+The document now contains the full scientific narrative on magnetic monopoles, from historical context through Dirac's formalism, 't Hooft-Polyakov theory, modern extensions of the Standard Model (Cho-Maison, Born-Infeld), effective field theory descriptions, experimental search techniques at colliders and in cosmic rays, and phenomenological prospects—all with mathematical notation intact.

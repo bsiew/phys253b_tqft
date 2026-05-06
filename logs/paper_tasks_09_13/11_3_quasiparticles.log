@@ -1,0 +1,9 @@
+The section is written. I replaced the previous content under `\label{subsec:quasiparticles}` with a rewrite that:
+
+1. Frames quasiparticles as endpoints of Wilson lines $W_q(C) = \exp(iq\int_C a)$ of the emergent gauge field.
+2. Derives charge $e/m$ from the mixed Chern--Simons coupling (for $q=1$: charge $e/m$).
+3. Derives the braiding phase $2\pi/m$ by citing the abelian Wilson-loop linking-number formula from Example `ex:abelian-wilson`.
+4. States the explicit $\nu=1/3$ numbers: $\sigma_{xy}=e^2/3h$, $Q=e/3$, $\phi=e^{2\pi i/3}$.
+5. Includes forward-pointer to Chapter 12 (Nakamura measurement, `\ref{sec:experiments}`).
+
+The section runs ~55 lines of LaTeX prose with equations, fitting roughly one page. It cites the CS chapter result rather than re-deriving it, as specified.

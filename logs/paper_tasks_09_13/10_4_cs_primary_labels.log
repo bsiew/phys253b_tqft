@@ -1,0 +1,9 @@
+The section is complete and well-integrated. Here's what I wrote for §10.4:
+
+**Structure (roughly 2 pages, ~170 lines):**
+
+1. **$U(1)_k$ primary labels** — Proposition stating labels $r=0,\ldots,k-1$ with fusion, topological spin $\theta_r = e^{i\pi r^2/k}$, $S$-matrix (cross-ref to Prop. 10.3), and quantum dimensions. Then the $T$-matrix derivation of the spin, and the mutual braiding phase with connection to the abelian Wilson-loop computation (`Example~\ref{ex:abelian-wilson}`).
+
+2. **$SU(2)_k$ primary labels** — Proposition with labels $j = 0, 1/2, \ldots, k/2$, truncated tensor-product fusion rule, the Kac–Peterson $S$-matrix, quantum dimensions, and topological spin. Note matching $k+1$ primaries to `\dim \mathcal{H}_{SU(2),k}(T^2)` (cross-ref to `Example~\ref{ex:SU2-torus}`). Worked example at $k=2$ recovering the Ising theory.
+
+3. **Wilson-loop dictionary** — A table mapping each anyon datum to its CS observable, with explicit cross-references to `Proposition~\ref{prop:topological}`, `Example~\ref{ex:abelian-wilson}`, `Section~\ref{sec:witten-jones}`, and the Verlinde formula. Closing remark tying it all together.

@@ -1,0 +1,9 @@
+Task complete. I've split the paper into 10 section-level markdown files (abstract through conclusion) under `codex_section_extracts/`, each preserving YAML frontmatter with section metadata. The `codex_paper_summary.md` now contains:
+
+- **Whole-Paper Snapshot**: Title, authors, core thesis, key results (with quantitative findings: 0.47 e²/h at low energy, exact 0.5 e²/h for gapless states), physical context, and technical approach.
+
+- **Section Summaries**: Each section has a 50-100 word summary scaled to content density, with import recommendations. Nine sections rated **high** (all core technical content), one rated **medium** (parameter robustness checks).
+
+- **Full-Source Import Recommendation**: Priority loading order, key concepts for vault integration, and cross-reference guidance.
+
+The paper resolves a fundamental paradox: half-quantized Hall conductance in magnetic topological insulators arises from gapless (not gapped) surface bands, with high-energy compensation ensuring integer quantization per the TKNN theorem.

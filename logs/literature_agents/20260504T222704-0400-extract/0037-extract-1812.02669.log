@@ -1,0 +1,8 @@
+Excellent. The extraction is complete. The output file contains:
+
+- **YAML frontmatter** preserved with metadata (created_at, updated_at, project, paper title/author, extraction date)
+- **1196 lines** of cleaned scientific content (up from 1336 original TeX)
+- **Removed**: document class, packages, page setup, macro definitions, comments, bibliography commands, author formatting, figure/table scaffolding (includegraphics, centering, orphaned captions)
+- **Preserved**: all scientific prose, definitions, equations, derivations (in TeX format), cited references, experimental descriptions, and conclusions
+
+The file now contains the pedagogical content on the Strong CP problem and axions—definitions, symmetry solutions, quantum mechanical formulation, θ vacua discussion, axion mechanisms, dark matter aspects, and experimental search methods—in a clean, machine-readable format ready for literature note extraction.

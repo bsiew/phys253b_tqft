@@ -1,0 +1,12 @@
+Task cannot be completed: the input file `codex_scientific_text.md` is empty (only YAML front matter, no scientific content).
+
+**Findings**:
+- Source LaTeX file `PTEP_Majorana_Rev_arXiv.tex` (37 KB) exists and contains a review paper on "Searching for Majorana quasiparticles at vortex cores in iron-based superconductors"
+- Expected input `codex_scientific_text.md` has only 11 lines (389 bytes) with no extracted content
+- Section extracts directory `codex_section_extracts/` is empty
+
+**Root cause**: The TeX-to-Markdown extraction step (codex-gpt-5.4-literature-extraction-agent) failed or was interrupted before writing scientific content.
+
+**Action taken**: Updated `codex_paper_summary.md` to document the pipeline error with status `incomplete_extraction` and diagnostic information.
+
+**Resolution needed**: Re-run the extraction pipeline to populate `codex_scientific_text.md` from the LaTeX source before invoking this summary agent again.

@@ -1,0 +1,7 @@
+Done. I've extracted the scientific content from topentsh.tex into codex_scientific_text.md.
+
+**What was removed:** TeX document class declarations, package/macro setup, author formatting and affiliation scaffolding, figure/includegraphics commands, bibliography style definitions, and all BibTeX command wrappers.
+
+**What was preserved:** The full scientific narrative including the abstract, introduction, main theoretical result (the topological entropy formula), physical interpretation, the $Z_2$ gauge theory example with explicit calculations, the general string-net model construction with tensor data characterization, density matrix derivations, entanglement entropy formulas, and all key equations. The paper's logical flow is intact: from motivation through concrete example to general classification framework.
+
+The YAML front matter has been updated with creation/modification timestamps and source metadata as specified in your workspace constitution.

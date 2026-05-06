@@ -1,0 +1,17 @@
+You are writing Appendix C (Global Chern-Simons and Level-Quantization Technicalities) for a physics review paper on TQFT.
+
+## Context
+
+The paper is at 253b_final_paper/tex_docs/. The main CS chapter (chern_simons_body.tex) proves level quantization for SU(2) and references this appendix for generalizations. The existing stub is at app_bf_zn.tex — but that is Appendix D (discrete gauge). You are writing a NEW file for Appendix C.
+
+## Task
+
+Write 253b_final_paper/tex_docs/app_cs_global.tex (new file). Target: 3-4 pages.
+
+Content:
+1. Level quantization for general compact simple simply-connected G. The argument that tr((g^{-1}dg)^3)/(24pi^2) represents the generator of H^3(G,Z). Main chapter proves SU(2); this states the general case.
+2. Abelian U(1)_k on non-spin manifolds. k in Z vs k in 2Z vs k in Z+1/2 depending on spin structure. Cite Seiberg-Witten 2016.
+3. Framing anomaly. Wilson-loop expectation depends on framing via exp(2pi i h_R * n). Cite Witten 1989.
+4. Shifted level k -> k + h^vee. One-loop quantum correction.
+
+Read chern_simons_body.tex first to find what it defers to "Appendix C" and match those forward references. Use label \label{app:cs-global}. Style: state results precisely, cite carefully, do not re-derive what the main chapter already covers.

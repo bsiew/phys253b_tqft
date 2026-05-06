@@ -1,0 +1,14 @@
+Perfect. The extraction is complete. The `codex_scientific_text.md` file now contains the cleaned scientific content from the TeX source, with:
+
+- YAML front matter preserved
+- Title and author information preserved
+- Abstract section clearly marked
+- All sections converted to markdown headings (##, ###, ####)
+- Scientific prose, definitions, equations, and derivations kept intact
+- TeX class/package declarations removed
+- Bibliography commands and entries removed
+- Comment lines removed
+- Figure/table plumbing removed while preserving captions
+- Citation commands preserved (they provide semantic links to references)
+
+The file is 1217 lines and ready for literature note extraction.

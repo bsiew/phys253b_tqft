@@ -1,0 +1,3 @@
+Task complete. I've split the TASI lectures paper into 9 section-level Markdown files under `codex_section_extracts/` and written `codex_paper_summary.md` as the import map.
+
+The summary identifies sections 3 (quantum CP problem), 4 (theta vacua), 6 (axions), 7 (dark matter), and 8 (experiments) as high-priority technical content worth ~19-21KB each. The introduction and abstract are marked skip/low, while non-axion solutions received medium priority. All files preserve the original YAML front matter.

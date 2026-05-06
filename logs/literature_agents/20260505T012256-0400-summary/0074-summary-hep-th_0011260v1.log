@@ -1,0 +1,13 @@
+Task complete. I've split the paper into 10 section files and generated the summary with import recommendations:
+
+**Section files created:**
+- `00_abstract.md`, `00_introduction.md` 
+- `01_quantization.md` through `08_chern_simons_sigma.md`
+- `09_acknowledgements.md`
+
+**Summary generated at `codex_paper_summary.md`:**
+- **Whole-paper snapshot**: Traces Schwarz's trajectory from Faddeev-Popov → elliptic resolutions → BRST-BFV → BV formalism, highlighting the BV sigma-model as unifying framework
+- **Section summaries**: Each with 50-100+ word technical summaries scaled to density
+- **Import triage**: High priority for Introduction (0), Quantization (1), Topological gauge (2), BV formalism (4), Observables (6), Families (7); medium for BRST-BFV (3) and Perturbation (5); low/skip for Abstract, Chern-Simons/sigma (8), Acknowledgements
+
+High-priority sections form the conceptual spine: foundational machinery (§1-2), geometric BV framework (§4), and novel results on observables and moduli-space forms (§6-7).

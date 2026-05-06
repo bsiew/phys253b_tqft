@@ -1,0 +1,1 @@
+Figure is complete at `253b_final_paper/tex_docs/figures/f_wilson_linking.tex`. It's includable via `\input{figures/f_wilson_linking.tex}` in the main document — just a bare `tikzpicture` environment matching the project's existing figure conventions.

@@ -1,0 +1,7 @@
+Task complete. I've split `codex_scientific_text.md` into 13 section-level files under `codex_section_extracts/` and written `codex_paper_summary.md` with:
+
+- **Whole-Paper Snapshot**: Overview of the paper's contribution (integral Pontrjagin homology of loop spaces on flag manifolds, torsion-freeness theorem, split extensions).
+- **Section Summaries**: Each of the 13 sections summarized at appropriate length with import recommendations (high/medium/low).
+- **Full-Source Import Recommendation**: Strategic guidance on which sections to load for different use cases.
+
+All files preserve YAML frontmatter. The summary scales section detail to source length and technical density, with high-priority sections covering the main theorem, Sullivan minimal models, and exemplar integral calculations.

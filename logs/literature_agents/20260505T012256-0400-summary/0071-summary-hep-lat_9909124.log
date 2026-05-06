@@ -1,0 +1,11 @@
+Task complete. I've split `codex_scientific_text.md` into 6 section-level files under `codex_section_extracts/` and generated the paper summary with import recommendations.
+
+**Section breakdown:**
+- **01_title_author.md** (skip) — basic metadata
+- **02_introduction.md** (high) — conceptual framing, instanton gas picture, paper roadmap
+- **03_topological_susceptibility.md** (high) — core technical content: lattice methods, continuum extrapolations from multiple groups, χ_t ≈ (200 MeV)⁴, η′ mass predictions
+- **04_chiral_symmetry_breaking.md** (medium) — Dirac spectral density argument, Ginsparg-Wilson fermion breakthrough
+- **05_instanton_vacuum_content.md** (medium) — cooling methods for instanton extraction, scaling analysis
+- **06_instantons_confinement.md** (low) — speculative claim about dense instanton gases producing confinement
+
+The summary scales to source length: section 03 gets the longest treatment (~180 words) as it contains the paper's main technical results and comparison of multiple lattice calculations, while shorter sections receive proportionally briefer summaries.

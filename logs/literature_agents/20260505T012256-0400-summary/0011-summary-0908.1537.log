@@ -1,0 +1,8 @@
+Task completed. I've split the paper into 9 section-level files in `codex_section_extracts/` and written the paper summary with import recommendations.
+
+**Summary structure:**
+- **Whole-paper snapshot:** Overview explaining this paper proposes dynamical axion fields in antiferromagnetic topological insulators, with two experimental detection schemes (axionic polariton via ATR, microcantilever torque magnetometry)
+- **Section summaries:** Each of the 9 sections has a 50-150 word summary scaled to technical density, with import priority (high/medium/low/skip)
+- **Import recommendations:** Core sections are 02, 04, 06, 07 (introduction, P,T breaking, axion electrodynamics, axionic polariton) for the essential theoretical framework and primary experimental proposal
+
+All files include preserved YAML front matter with `created_at`, `updated_at`, `generated_by`, `updated_by`, and `timestamp_source` fields.

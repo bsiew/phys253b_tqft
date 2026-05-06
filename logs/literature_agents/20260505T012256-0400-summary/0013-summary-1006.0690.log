@@ -1,0 +1,25 @@
+Task completed successfully. I've split the Teo & Kane paper (arXiv:1006.0690) into 13 section-level files and created the import map summary.
+
+## What was created:
+
+**Section files under `codex_section_extracts/`:**
+- 6 main body sections (front matter, introduction, periodic table, line defects, point defects, adiabatic pumps)
+- 1 conclusion section
+- 6 appendix sections (periodicity proofs, representative Hamiltonians, zero modes, class-specific invariants)
+
+**Summary document: `codex_paper_summary.md`**
+
+The summary provides:
+- **Whole-paper snapshot**: Framework for classifying topological defects using K-theory and Altland-Zirnbauer symmetry classes, with the key insight that classification depends only on δ = d - D
+- **Section-by-section summaries**: Each with file path, line count, technical density, content overview, and import recommendation (HIGH/MEDIUM/LOW)
+- **Import triage**: Four priority tiers ranging from essential core (Sections 00-04, ~7-9k tokens) to specialized topics
+
+## Import recommendations:
+
+**HIGH priority** (Tier 1): Sections 00-04 provide complete conceptual understanding—core classification framework, physical motivation, and primary applications for line/point defects.
+
+**MEDIUM-HIGH priority** (Tier 2): Section 05 (pumping cycles) and Appendix E (time-reversal symmetric invariants) extend to quantum computation and rigorous time-reversal physics.
+
+**MEDIUM/LOW priority** (Tiers 3-4): Appendices with mathematical proofs, explicit formulas, and specialized calculations—useful references but not essential for conceptual understanding.
+
+All files include proper YAML front matter with timestamps and metadata.

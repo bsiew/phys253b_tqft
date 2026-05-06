@@ -1,0 +1,16 @@
+Task complete. I've split the scientific text into 11 section-level files and created the paper summary with import recommendations.
+
+**Section files created:**
+- 00_abstract.md
+- 01_introduction.md (high priority)
+- 02_experimental_setup_resonator.md (low priority)
+- 03_experimental_setup_signal_theory.md (high priority)
+- 04_experimental_setup_receiver.md (medium priority)
+- 05_experimental_setup_cryogenic.md (skip)
+- 06_data_acquisition_procedure.md (medium priority)
+- 07_data_acquisition_noise.md (medium priority)
+- 08_results_candidate_veto.md (medium priority)
+- 09_results_limit_setting.md (high priority)
+- 10_results_main.md (medium priority)
+
+**High-priority sections** focus on theoretical motivation (Peccei-Quinn mechanism, KSVZ/DFSZ models), the axion power equation connecting QFT parameters to observables, and statistical methodology for setting exclusion limits. These sections offer the most relevant content for QFT research on axion phenomenology and beyond-Standard-Model physics.

@@ -1,0 +1,23 @@
+You are doing the final compile and page-count check for a physics review paper on TQFT.
+
+## Context
+
+The paper is at 253b_final_paper/tex_docs/. The compile script is at scripts/compile_253b_tex_to_artifacts.sh. Artifacts go to artifacts/253b_final_paper_compile/<tex-basename>/.
+
+## Task
+
+1. First, check what main wrapper/compile target exists. Look for a main.tex or wrapper file that includes all chapters.
+2. If no single-document wrapper exists yet, create one at 253b_final_paper/tex_docs/main.tex that:
+   - Uses the shared preamble
+   - Includes all chapters (ch01 through ch16) via \input or \include
+   - Includes all appendices (app_category, app_frobenius, app_cs_global, app_bf_zn, app_e_tee)
+   - Has a bibliography section using the .bib file
+3. Run the compile script or pdflatex directly (run twice for refs, then bibtex, then twice more).
+4. Report:
+   - Whether it compiles cleanly (list any errors/warnings)
+   - Total page count (main text vs appendices)
+   - Any undefined references or missing citations
+5. If main > 120 pages, note which chapters are longest and suggest cuts.
+6. If there are compile errors, fix them.
+
+The final PDF should be named sensibly. Write a summary of findings to the log.

@@ -1,0 +1,7 @@
+Done. The appendix now has:
+
+1. **TikZ figure** (lines 53–73): A Kitaev-Preskill disk partition showing three sectors $A_1, A_2, A_3$ meeting at a center point, with the boundary labeled $\partial A$. Referenced from the subtraction scheme paragraph via `Figure~\ref{fig:kp-geometry}`.
+
+2. **Laughlin $\nu = 1/m$ example** (lines 108–114): Shows $\mathcal{D} = \sqrt{m}$, $\gamma = \frac{1}{2}\log m$, with the $\nu = 1/3$ case worked out and the $m=1$ trivial limit noted.
+
+3. **Ising example** (lines 116–122): Shows $d_\sigma = \sqrt{2}$ giving $\mathcal{D} = 2$, $\gamma = \log 2$, with a remark on why this coincidence with the toric code value doesn't imply equivalent topological order.

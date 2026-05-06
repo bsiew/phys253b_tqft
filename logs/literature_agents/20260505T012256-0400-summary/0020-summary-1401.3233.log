@@ -1,0 +1,22 @@
+Task completed. I've split the scientific text into 12 section files under `codex_section_extracts/` and created the import map in `codex_paper_summary.md`.
+
+**Section files created:**
+- 01_introduction.md — Physics motivation, helioscope history, IAXO overview
+- 02_magnet_design.md — MFOM optimization, toroidal geometry rationale
+- 03_conductor.md — NbTi superconductor specifications
+- 04_coil_structure.md — Racetrack geometry details
+- 05_structural_design.md — Octagonal support structure
+- 06_xray_optics.md — Wolter type I optics, concentration factor
+- 07_detectors.md — Micromegas TPC technology, background performance
+- 08_magnet_details.md — Cryogenics, tracking infrastructure
+- 09_optics_details.md — Mirror specifications, performance metrics
+- 10_detector_details.md — Pixelated readout, calibration
+- 11_platform_infrastructure.md — Tracking platform, power, DAQ, extended physics
+- 12_conclusions.md — Summary and outlook
+
+**Import recommendations:**
+- **High priority** (4 sections): Introduction, magnet design, optics, detectors — essential physics and key technical innovations
+- **Medium priority** (5 sections): Conductor, magnet/optics/detector details, platform, conclusions — technical depth and operational feasibility
+- **Low priority** (3 sections): Coil structure, structural design — engineering details with minimal physics content
+
+The summary scales section length appropriately: short sections like conductor (~60 words) vs. detailed sections like magnet design (~140 words) reflecting source density.

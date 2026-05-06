@@ -1,0 +1,7 @@
+Compiles cleanly. The figure is at `253b_final_paper/tex_docs/figures/f_1form_braiding.tex`. It shows:
+
+- A violet shaded elliptical surface operator $U(\Sigma)$ (emphasizing its 2d extent with hatching)
+- A teal Wilson line $W_R(C)$ threading vertically through the surface, with piercing points marked
+- Proper back/front layering with faded back arcs to convey 3d depth
+- Labels for both objects with dimension annotations (2d surface, 1d line)
+- The linking phase relation $U(\Sigma)\,W_R(C) = e^{2\pi i\,q/N}\,W_R(C)$ and $\mathrm{Lk}(\Sigma,C) = +1$

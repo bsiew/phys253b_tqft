@@ -1,0 +1,7 @@
+Done. I've replaced the TODO block under `\label{subsec:tqc-outlook}` with ~85 lines of LaTeX prose covering:
+
+1. **Ising anyons** — Clifford-only from braiding, needs magic-state distillation, tied to $\nu = 5/2$ and Majorana platforms.
+2. **Fibonacci anyons** — universal from braiding alone via dense braid-group image, golden-ratio quantum dimension, no known natural host.
+3. **Experimental requirements** — four concrete conditions (gap vs. temperature, coherence vs. braiding time, controlled creation/measurement, scalability) with current platform status.
+
+The section cross-references `\ref{sec:anyons}`, `\ref{subsec:ising-gates}`, `\ref{subsec:tqc-honesty-box}`, and `\eqref{eq:topo-protection}`, and cites `\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}` throughout. One new labeled equation (`eq:fibonacci-fusion`) is introduced for the Fibonacci fusion rule.

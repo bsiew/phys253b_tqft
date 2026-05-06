@@ -1,0 +1,6 @@
+Done. Created both cheat cards at:
+
+- `plan/presentation/cheat_card_brian.md` — board layout, 8 minute checkpoints, questions on level quantization subtleties / Jones polynomial rigor / spin-structure issues
+- `plan/presentation/cheat_card_helena.md` — board layout (inheriting Brian's top panels), 8 minute checkpoints, questions on fault-tolerance feasibility / experimental robustness / why effective theory over microscopic
+
+Each is under 60 lines and formatted for at-a-glance readability. The minute checkpoints are keyed to absolute clock time (with relative offsets noted) so you can glance down mid-talk.

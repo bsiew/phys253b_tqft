@@ -1,0 +1,3 @@
+Complete. The extraction is done.
+
+**Summary**: Copied `domainwallGW_v2.tex` (2238 lines) and cleaned it to `codex_scientific_text.md` (1701 lines). Preserved: abstract, all section content, prose, equations, definitions (with proper LaTeX environment markers), derivations, cited references, and mathematical symbols. Removed: documentclass, packages, formatting commands, layout control, author/title scaffolding, page commands, and bibliography plumbing commands (`\bibitem` cite keys remain for reference integrity). YAML frontmatter preserved with metadata about the extraction.

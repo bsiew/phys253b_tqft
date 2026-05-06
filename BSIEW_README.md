@@ -1,4 +1,17 @@
+---
+created_at: "2026-05-05T22:04:18-04:00"
+updated_at: "2026-05-05T22:04:18-04:00"
+generated_by: "claude-code"
+updated_by: "claude-code"
+timestamp_source: hook
+---
 # Plan of Attack — TQFT Review Paper
+
+Canonical Brian-tree mirror: [brians_dumping_ground/plan/README.md](brians_dumping_ground/plan/README.md).
+
+This root-level file is kept as a lightweight pointer so the nested final-paper
+repo still advertises the BSIEW planning surface even after the pulled Brian
+materials were reorganized into the legacy tree shape.
 
 This directory is the working plan for the rest of the Physics 253b final paper. It mirrors the structure of Schwartz's sample plan of attack (`references/sample_plan_of_attack.pdf`): stages → subsections → granular tasks, with insight/warning callouts where needed.
 
@@ -44,7 +57,7 @@ Every chapter must either reinforce this through-line or be cut.
 1. No ghost references. If you cite `\cite[Theorem X.Y]{Source}`, open the source and confirm the theorem number before the citation survives review.
 2. No `upshot`, `note`, `slogan`, `motivation` environments in the final paper; match the allowed environments in `references/style references/hdr.tex` and `references/style references/springer.tex`.
 3. No AI-tell phrasing: "we shall see", "in this chapter we have proved", "the key statement is", "an upshot of all this is". Run Task 14.11 to purge.
-4. Honesty boxes in Chapters 12 and 13 are required by the outline and the course rubric. No softening them.
+4. Caveats/experimental-status sections in Chapters 12 and 13 are required by the outline and the course rubric. No softening them.
 5. Total main-text target: 75–100 pages. Appendix: 15–25 pages. If over budget, cut before submit.
 
 ## Task files

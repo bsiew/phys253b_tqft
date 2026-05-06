@@ -1,0 +1,19 @@
+Task complete. I've split the paper into 9 section files and created the import map.
+
+**Section files created:**
+- `01_title_abstract.md` – Abstract and main results overview
+- `02_introduction.md` – Background, experimental puzzles, results preview, symbol table
+- `03_physical_model_weak.md` – Energy functional framework, IQHE/FQHE models
+- `04_ab_cd_regimes.md` – Thermal averaging, Fourier analysis, $\Delta$ parameter, 2D lattice structure
+- `05_intermediate_backscattering.md` – Finite reflection amplitude, Friedel sum rule
+- `06_strong_backscattering.md` – Transmission resonances, Coulomb blockade interpretation
+- `07_multiple_edges.md` – Toy models for multiple edge states, coupling renormalization
+- `08_literature.md` – Historical context, experimental comparisons
+- `09_discussion_conclusions.md` – Synthesis, extracting anyonic phase, open questions
+
+**Import priorities:**
+- **High** (02, 03, 04, 09): Core theory, energy functional, AB/CD crossover, big picture
+- **Medium** (01, 05, 06): Abstract, intermediate/strong backscattering extensions
+- **Low** (07, 08): Pedagogical models, literature review
+
+The paper develops a capacitive energy functional distinguishing Aharonov-Bohm and Coulomb-dominated interference regimes via the crossover parameter $\Delta = K_{IL}/K_I$, with $\Delta < 1/2$ favoring AB and $\Delta > 1/2$ favoring CD behavior.

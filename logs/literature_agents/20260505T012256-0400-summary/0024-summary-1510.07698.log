@@ -1,0 +1,9 @@
+Task completed. I've split the source extract into four section files under `codex_section_extracts/` and created the import map in `codex_paper_summary.md`.
+
+**Section breakdown:**
+- `01_abstract.md` - Brief scope statement (import: low)
+- `02_introduction.md` - Lecture context and structure (import: low)  
+- `03_lecture_one_1d_dispersion.md` - 1D chiral fermions, anomaly cancellation, topological constraints (import: high)
+- `04_lecture_one_3d.md` - 3D Weyl fermions, dimensional analysis, band crossings (import: high)
+
+The technical sections (03, 04) contain the core material on emergent relativistic dispersion relations in condensed matter systems, connecting band theory to Dirac/Weyl fermions with explicit Hamiltonian derivations and anomaly arguments. The source extract is incomplete, ending mid-sentence during the Weyl fermion discussion.

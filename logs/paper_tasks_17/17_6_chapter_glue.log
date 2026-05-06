@@ -1,0 +1,24 @@
+All braces balanced. Here's a summary of what was done:
+
+**Completed: Chapter-to-chapter pedagogical glue sentences added to 12 chapters (ch02–ch14).**
+
+Each chapter now ends with 1–2 sentences that:
+1. Name the specific next chapter
+2. Name a concrete Part 2 payoff (equation, observable, or measurement)
+
+| Chapter | Points to | Specific payoff named |
+|---|---|---|
+| Ch02 | Ch03 (axiomatic) | linking-number integral → $e^{2\pi i/3}$ braiding phase (Nakamura, Ch12) |
+| Ch03 | Ch04 (Frobenius) | $\mathbb{C}[\mathbb{Z}_N]$ → toric-code GSD on torus (Ch09) |
+| Ch04 | Ch05 (Chern–Simons) | genus formula & $N^{2g}$ degeneracy (Ch09) |
+| Ch05 | Already complete | Ch06/08/11 with Wilson-loop phases, GSD |
+| Ch06 | Ch07 (Dijkgraaf–Witten) | cocycle twist → toric code vs double-semion (Ch09) |
+| Ch07 | Ch08 (generalized symmetries) | anomaly inflow → FQHE edge chiral anomaly (Ch11) |
+| Ch08 | Ch09 (topological order) | toric-code GSD and $(-1)$ braiding from $\mathbb{Z}_2$ BF |
+| Ch09 | Ch10 (anyons) | topological spins → Nakamura $e^{2\pi i/3}$ measurement (Ch12) |
+| Ch10 | Ch11 (FQHE) | $\sigma_{xy}$, $e^*=e/m$, braiding phase from $U(1)_m$ CS |
+| Ch11 | Ch12 (experiments) | Nakamura interferometry, Bartolomei collider, synthetic braiding |
+| Ch12 | Ch13 (TQC) | $R$-matrices → fault-tolerant gates, topological gap → error suppression |
+| Ch13 | Ch14 (3+1d sectors) | instantons, $\eta'$ mass, strong-CP, axion |
+| Ch14 | Ch15 (defects/synthesis) | line operators, monopoles, four-category taxonomy |
+| Ch15 | Ch16 (outlook) | Already present |

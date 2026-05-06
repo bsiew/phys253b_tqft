@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist[itemize]{itemsep=0.25em,topsep=0.35em}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\CS}{\operatorname{CS}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\U}{\operatorname{U}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\Lk}{\operatorname{Lk}}
+\newcommand{\SLk}{\operatorname{SLk}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\del}{\partial}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle #1\right|}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2\right\rangle}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[definition]{Example}
+\newtheorem{remark}[definition]{Remark}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+
+\title{253b Final Paper Draft Modules}
+\author{}
+\date{May 4, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% ============================================================================
+% PART I: CONSTRUCTION (Secs 1--4, defer integration to later)
+% ============================================================================
+\part{Construction}
+
+\input{part1_01_introduction.tex}
+\input{part1_02_mathematical_toolkit.tex}
+\input{part1_03_ordinary_to_chern_simons.tex}
+\input{part1_04_tqft_and_observables.tex}
+
+% ============================================================================
+% PART II: PHYSICAL APPLICATIONS (Ch 9--16, BSIEW-integrated structure)
+% ============================================================================
+\part{Physical Applications}
+
+% --- Condensed-matter core (Ch 9--13, BSIEW Stages IV--V) ---
+\input{ch09_topological_order.tex}
+\input{ch10_anyons.tex}
+\input{ch11_fqhe.tex}
+\input{ch12_experiments.tex}
+\input{ch13_tqc.tex}
+
+% --- Cross-disciplinary scope additions (Ch 14--15, no BSIEW precursor) ---
+\input{ch14_sectors_3plus1d.tex}
+\input{ch15_defects_synthesis.tex}
+
+% --- Outlook (Ch 16) ---
+\input{ch16_outlook.tex}
+
+% ============================================================================
+% APPENDICES
+% ============================================================================
+\appendix
+
+\input{app_e_tee.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{tqft_observables_unresolved_refs}
+
+\end{document}

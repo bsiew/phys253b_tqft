@@ -1,0 +1,23 @@
+Done. I've created a cleaned scientific extract from the TeX source, preserving all substantive content:
+
+**Kept:**
+- Title, authors, affiliations
+- Abstract
+- All theoretical framework, definitions, and equations
+- Experimental setup and methodology
+- Derivations of key results (exclusion quasiprobability, Fano factor formulas)
+- Quantitative measurements and data
+- Predictions and comparisons with theory
+- Interpretations and implications
+
+**Removed:**
+- TeX document class and package declarations
+- Macro definitions (`\md`, `\me`, `\mi`)
+- Bibliography commands and formatting
+- Author footnote formatting and superscripts
+- Figure/table scaffolding (`\begin{figure}`, `\includegraphics`, `\caption`)
+- Comments and commented-out code blocks
+- `\maketitle`, `\begin{document}`, `\end{document}` plumbing
+- Bibliography section (kept as reference list implied by citations)
+
+The YAML frontmatter is preserved with updated timestamp. The file is ready for literature integration.

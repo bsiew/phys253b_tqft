@@ -1,0 +1,10 @@
+Done. I've split `codex_scientific_text.md` into 15 section files under `codex_section_extracts/` and written the comprehensive summary to `codex_paper_summary.md`.
+
+**Summary structure:**
+- **Whole-paper snapshot:** Pedagogical review of anyons in FQHE, covering abelian anyons (ν=1/m Laughlin fractions) and non-abelian anyons (ν=5/2 Moore-Read state)
+- **15 section summaries:** Each with import recommendation (high/medium/low/skip) scaled to technical density
+- **Full-source recommendation:** High-priority chain follows logical progression: QHE phenomenology → Aharonov-Bohm → fractional charge → vortex dynamics → anyonic statistics → non-abelian generalization
+
+**High-priority sections (6):** quantum Hall effect, Aharonov-Bohm effect, fractionally charged excitations, charges/vortices/Magnus forces, fractional statistics, non-abelian anyons
+
+**Key result:** Paper demonstrates how FQHE quasi-particles must be anyons by combining Laughlin gedanken experiment (fractional charge e/m) with Berry phase analysis (vorticity → phase 2πν per winding → interchange phase πν).

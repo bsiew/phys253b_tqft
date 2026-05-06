@@ -1,0 +1,20 @@
+Perfect. I've completed the extraction and cleaning of the TeX source into a scientific markdown document. Here's what was done:
+
+## Summary
+
+**Starting copy**: Created by copying PRX5.tex to codex_scientific_text.md.
+
+**Cleaning applied**:
+- Removed all TeX class declarations, package imports, and macro definitions
+- Removed document environment tags (`\documentclass`, `\usepackage`, `\begin{document}`, `\end{document}`)
+- Removed author/affiliation TeX scaffolding, converting to a clean author list
+- Removed TeX comments and planning notes from the `\begin{comment}` block
+- Removed figure/table inclusion commands while preserving numerical parameters and captions as text
+- Removed bibliography commands (`\begin{thebibliography}`) — citations remain inline for context
+- Removed section/subsection TeX markup, converting to markdown headers
+- Converted equation environments to inline markdown math notation
+- Preserved all scientific content: definitions, assumptions, derivations, equations, physical parameters, cavity coherence, experimental procedures, sensitivity analysis, noise sources, and interpretations
+- Updated YAML front matter with new timestamp
+- Kept standard results and parameter tables in cleaned markdown format
+
+The output file now contains all physics, methodology, and experimental design while removing non-scientific TeX plumbing. The prose is readable as markdown with properly formatted equations and structure.

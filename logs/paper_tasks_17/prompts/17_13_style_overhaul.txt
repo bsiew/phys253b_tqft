@@ -1,0 +1,171 @@
+You are performing a full style overhaul on a physics review paper on TQFT, bringing it into alignment with the Tong lecture-note style and the Brennan-Hong (GGS) review style.
+
+## Task specification
+
+---
+created_at: "2026-05-05T19:14:08-04:00"
+updated_at: "2026-05-05T19:14:08-04:00"
+generated_by: "claude-code"
+updated_by: "claude-code"
+timestamp_source: hook
+---
+# Task 17.13 — Full Style Overhaul Against Reference Documents
+
+- **Status:** pending
+- **Owner:** Brian + Helena
+- **Duration:** 5–6 hours (full paper, chapter by chapter)
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+- **Reference:** 
+  - [`style_guide_docs/qft.md`](../../style_guide_docs/qft.md) (Tong QFT)
+  - [`style_guide_docs/qhe.md`](../../style_guide_docs/qhe.md) (Tong QHE)
+  - [`style_guide_docs/gt.md`](../../style_guide_docs/gt.md) (Tong Gauge Theory)
+  - [`style_guide_docs/arXiv-2306.00912v2/GGS_Submission.tex`](../../style_guide_docs/arXiv-2306.00912v2/GGS_Submission.tex) (Brennan-Hong generalized symmetries)
+  - [`style_guide_docs/pspec.tex`](../../style_guide_docs/pspec.tex) (problem set style reference)
+  - [`llm_docs/current/writing_style_guide.md`](../../llm_docs/current/writing_style_guide.md) (existing local style guide)
+
+## Goal
+
+Bring the entire paper's prose, transitions, and pedagogical rhythm into alignment with the Tong lecture-note style and the Brennan-Hong review style. The paper currently reads like competent AI-generated mathematical exposition. It should read like a physicist wrote it for other physicists. The difference is voice, rhythm, and the ratio of calculation to commentary.
+
+## What the reference documents do that this paper doesn't (yet)
+
+### David Tong's style (qft.md, qhe.md, gt.md):
+
+1. **Opens sections with physical questions, not definitions.** Tong starts with "Why does X happen?" or "What goes wrong when we try Y?" — then derives the answer. Our paper starts sections with "We now define..." or "The purpose of this section is..." The fix: every section opening should pose a question or state a puzzle that the section resolves.
+
+2. **Uses second person and direct address.** "You might worry that..." / "The reader can check..." / "If you've seen the Schwartz derivation, you'll recognize..." — this creates engagement. Our paper uses "one" and passive voice. Shift to "we" and occasional "you" where it's natural.
+
+3. **Includes parenthetical asides that reveal the author's judgment.** "(This is charming but ultimately irrelevant)" / "(More importantly, it is also experimentally wrong)" / "(This is the key step — everything else is bookkeeping)". These tiny editorial intrusions signal a human author who has opinions. Our paper has zero of these.
+
+4. **Physical intuition precedes formal development.** Tong tells you what the answer is going to be, then derives it. Our paper derives first, then interprets. For a QFT reader, the Tong ordering is better: they can follow the derivation because they know where it's going.
+
+5. **Sentence rhythm varies.** Tong uses short punchy sentences between long technical ones. "This is wrong." / "There is a subtlety." / "It works." Our paper has uniform sentence length throughout. Vary it.
+
+6. **Specific forward pointers with payoff.** Tong says "We will see in Section 4 that this innocent-looking factor of 2 is responsible for the mass of the eta-prime." Our paper says "This will be discussed further below." The fix: every forward pointer must name the specific consequence.
+
+### Brennan-Hong style (arXiv-2306.00912v2):
+
+1. **Explicit Ward-identity-level computations shown in full.** They don't skip steps in the operator algebra. Our paper does this well already (ch02, ch05).
+
+2. **Figures that show operator action, not just topology.** Their figures (TopologicalSDOFig, 0FormAction, 1DefectAction, 1formBraiding, LinkingNumbersFig) show *dynamical* processes — an operator deforming, acting on a charged object, linking with another operator. These are more pedagogically useful than static topology diagrams.
+
+3. **Clean theorem/definition/example structure without over-formalization.** They use `\defn{}`, `\expl{}`, `\rmk{}` macros that produce simple bold labels, not heavy boxed environments. Our paper uses `\begin{definition}`, `\begin{theorem}` etc., which is fine — but the prose around the environments should not be formal-logic stiff.
+
+## Chapter-by-chapter style targets
+
+| Chapter | Primary reference | Key style fix |
+|---|---|---|
+| Ch 02 (forms) | gt.md (Tong gauge theory) | Already close. Add 2-3 parenthetical judgments. |
+| Ch 03 (axiomatic) | gt.md | Open with "what does it mean for a theory to be topological?" not "let $\mathrm{Cob}_n$ be..." |
+| Ch 04 (Frobenius) | gt.md | Needs physical motivation opening paragraph (see CRITICAL_EVALUATION) |
+| Ch 05 (CS) | qft.md + gt.md | After §5.2 deletion: open §5.3 with "The question is: can we write $\tr(F \wedge F)$ as a total derivative?" |
+| Ch 06 (BF) | gt.md | Open with: "What's the simplest topological gauge theory you can write in any dimension?" |
+| Ch 07 (DW) | gt.md | Open with: "What happens to gauge theory when the gauge group is finite?" |
+| Ch 08 (gensym) | GGS_Submission.tex | Already uses the defect-language approach from GGS. Match their explicit computation style for the Ward identity action. |
+| Ch 09 (toric code) | qhe.md (condensed-matter Tong) | Open with the failure of Landau theory: "What do you call a phase of matter with no broken symmetry and no order parameter?" |
+| Ch 10 (anyons) | qhe.md | Open with the physical punchline: "In two dimensions, winding one particle around another can give any phase — not just ±1." |
+| Ch 11 (FQHE) | qhe.md | Already the best-voiced chapter. Light touch. |
+| Ch 12 (experiments) | qhe.md | Needs more Tong-style "the experiment does X; the prediction says Y; the agreement is Z" directness |
+| Ch 13 (TQC) | qhe.md | Cut meta-commentary; the Ising calculation speaks for itself |
+| Ch 14 (3+1d) | qft.md + gt.md | Opening is good. Maintain the "chain" narrative: topology → susceptibility → mass → EDM |
+| Ch 15 (defects) | gt.md + GGS | Already well-voiced in §15.1 (monopoles). §15.2 to be written fresh in this style. |
+| Ch 16 (outlook) | Any Tong closing | Short. Conversational. "If you found X interesting, look at Y." |
+
+## Specific prose transformations
+
+### Section openings (every chapter, every section)
+
+**Before:** "The purpose of this section is to introduce the concept of X and derive Y."  
+**After:** "Why does the Hall conductance come in exact fractions? The answer is a Chern-Simons term."
+
+**Before:** "We now turn to the study of..."  
+**After:** [State the question or result directly. No meta-commentary.]
+
+### Transitions between calculations
+
+**Before:** "Having established X, we now proceed to derive Y."  
+**After:** "The same coefficient appears in a different context:" or "There is a second consequence of Eq. (N):" or simply start the next calculation — the logical connection should be evident from proximity.
+
+### Interpretive paragraphs after equations
+
+**Before:** "This result is significant because it shows that the observable is topological."  
+**After:** "The metric has dropped out. This is a topological invariant — it depends only on the manifold, not on how you measure distances on it." (Concrete → abstract, not abstract → abstract.)
+
+## Figures from arXiv-2306.00912v2 to reference/adapt
+
+The following figures from the Brennan-Hong GGS paper are relevant as style models or potential adaptations for our generalized-symmetry and defect chapters:
+
+| GGS figure | Relevant to our chapter | Adaptation |
+|---|---|---|
+| `TopologicalSDOFig.pdf` | Ch 08 §8.1 (SDO deformation) | Adapt for our defect-operator discussion: show $U_g(\Sigma)$ deforming past a charged operator |
+| `0FormAction.pdf` | Ch 08 §8.1 | SDO action on a local operator — link with our Ward identity computation |
+| `1DefectAction.pdf` | Ch 08 §8.2 (1-form symmetry) | Show 1-form SDO acting on Wilson line |
+| `1formBraiding.pdf` | Ch 08 §8.2–8.3 / Ch 15 §15.1 | Braiding of 1-form defect with Wilson/'t Hooft line — directly relevant to our line-operator discussion |
+| `LinkingNumbersFig.pdf` | Ch 05 §5.6 / Ch 06 §6.3 | Linking-number visualization — compare with our `f_wilson_linking` spec |
+| `BFTHooftDefects.pdf` | Ch 06 §6.3 / Ch 15 §15.1 | BF theory 't Hooft defects — directly relevant |
+| `AxionStringDef.pdf` | Ch 14 §14.3 (axion) | Axion string as a defect — relevant if we expand the axion discussion |
+
+**Action:** Add the following to the figure inventory as "style reference" entries:
+- `F-sdo-deformation` (adapt TopologicalSDOFig for ch08)
+- `F-1form-braiding` (adapt 1formBraiding for ch08/ch15)
+- `F-bf-thooft-defects` (adapt BFTHooftDefects for ch06/ch15)
+
+## Process
+
+1. Read each chapter with `qhe.md` or `gt.md` open side-by-side (whichever matches the chapter's content).
+2. For each section opening: rewrite to pose a question or state a result.
+3. For each transition: kill "having established" / "we now turn" / "the purpose of"; replace with causal connectives or direct statements.
+4. For every 3–4 pages: insert at least one parenthetical editorial aside.
+5. For every calculation block: verify the interpretive paragraph says something *specific* about why the metric dropped out / why the integer appeared / what physical measurement this controls.
+6. Final pass: read aloud. Anything that sounds like a textbook *summary* rather than a textbook *explanation* gets rewritten.
+
+## Acceptance criteria
+
+- Every section opens with a physical question or concrete statement, not a meta-description.
+- Zero instances of "the purpose of this section" / "we now turn to" / "having established" as section openers.
+- At least one parenthetical editorial aside per chapter (more in longer chapters).
+- Every forward pointer names a specific consequence (equation, observable, experiment).
+- Reading a random page aloud does not immediately trigger "this sounds like ChatGPT."
+- The paper reads as if written by someone who has *opinions* about the physics, not just knowledge of it.
+
+## Dependencies
+
+- Run AFTER Task 17.12 (decontamination pass). The decontamination pass kills the worst offenders; this task fixes the underlying voice.
+- Run AFTER all content is written (ch14, ch15, ch16, ch11 §11.6-11.7 complete).
+- Run BEFORE Task 17.11 (prose pass), which does the final mechanical cleanup.
+
+## Risks
+
+- **Overcorrection.** Don't turn rigorous mathematical prose into chatty blog posts. The target is Tong's lecture notes — still precise, still rigorous, but with voice and rhythm. If in doubt, leave the formal version.
+- **Fatigue.** 5-6 hours is a long pass. Split across 2 sessions with a day between.
+
+## Style references to emulate
+
+Read this file for style guidance:
+- /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/llm_docs/current/writing_style_guide.md (local style rules)
+
+## Key style principles
+
+1. Open sections with PHYSICAL QUESTIONS, not definitions.
+   Bad: "We now define the topological susceptibility..."
+   Good: "Why is the eta-prime so much heavier than the pion?"
+
+2. Use "we" and occasional "you" -- not "one" or passive voice.
+
+3. Vary sentence rhythm. Short declarative sentences after long derivations.
+
+4. Transitions should be CAUSAL, not meta.
+   Bad: "We now turn to the experimental evidence."
+   Good: "The prediction is sharp: exp(2pi i/3) for each quasiparticle exchange. Nakamura et al. set out to measure it."
+
+5. Parenthetical asides reveal authorial judgment: "(this is the only place where lattice input is genuinely needed)"
+
+## Instructions
+
+1. Go chapter by chapter (ch01 through ch16).
+2. For each section opening: if it starts with a definition or meta-statement, rewrite to open with a question or puzzle.
+3. For transitions between sections: make them causal.
+4. Vary sentence length -- after a 3-line equation, the next sentence should be SHORT.
+5. This is the LAST editorial pass. Content should not change -- only phrasing, rhythm, and voice.
+6. Do NOT rewrite derivations or proofs. Focus on the prose AROUND derivations.
+7. Write a summary to /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_17/17_13_style_summary.md

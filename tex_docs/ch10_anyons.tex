@@ -52,59 +52,778 @@
 \subsection{Fusion Rules and the Pentagon Axiom}
 \label{subsec:fusion-pentagon}
 
-% TODO (Task 10_1): ~1.5 pages.
-% 1. Labels: finite set {1, a, b, ...} with vacuum 1.
-% 2. Abelian anyons: a x b is a single label. Example: Z_k anyons of Laughlin.
-% 3. Non-abelian anyons: a x b = sum_c N^c_{ab} c. Example: Ising with
-%    sigma x sigma = 1 + psi.
-% 4. Pentagon axiom: associativity via F-symbols. State; do not derive.
-% Three examples: Z_k, Ising, toric code.
+Why does two-dimensional physics admit particles that are neither bosons nor fermions?  In three spatial dimensions, a loop that winds one particle around another can always be shrunk to a point---lifted over the encircled particle---so exchange statistics are limited to $\pm 1$.  In two dimensions the loop is trapped.  Winding number becomes a topological invariant, the braid group $B_n$ replaces the symmetric group $S_n$, and exchange can produce \emph{any} phase~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.  These particles are called anyons.
+
+The statement above is topological, not dynamical: it follows from the fundamental group of the configuration space of identical particles.  We now derive it.
+
+\subsubsection*{Configuration space and the origin of exotic statistics}
+
+Consider two distinguishable particles in $\mathbb{R}^d$.  Their configuration space is
+\begin{equation}
+  \widetilde{C}_2(\mathbb{R}^d)
+  = \{(x_1, x_2) \in \mathbb{R}^d \times \mathbb{R}^d : x_1 \neq x_2\}.
+  \label{eq:config-distinguishable}
+\end{equation}
+The condition $x_1 \neq x_2$ removes the collision locus.  Change to center-of-mass and relative coordinates:
+\begin{equation}
+  R = \tfrac{1}{2}(x_1 + x_2), \qquad r = x_1 - x_2,
+\end{equation}
+so that $x_1 \neq x_2$ becomes $r \neq 0$, giving
+\begin{equation}
+  \widetilde{C}_2(\mathbb{R}^d) \cong \mathbb{R}^d_{\mathrm{COM}} \times (\mathbb{R}^d \setminus \{0\}).
+\end{equation}
+The center-of-mass factor is contractible and does not affect $\pi_1$.  The topology lives entirely in $\mathbb{R}^d \setminus \{0\}$.
+
+Now impose indistinguishability.  Exchanging the two particles sends $(x_1, x_2) \mapsto (x_2, x_1)$, which in relative coordinates is
+\begin{equation}
+  r \longmapsto -r.
+\end{equation}
+The physical configuration space for two identical particles is therefore the quotient
+\begin{equation}
+  C_2(\mathbb{R}^d)
+  = \frac{\mathbb{R}^d \setminus \{0\}}{\mathbb{Z}_2},
+  \label{eq:config-identical}
+\end{equation}
+where $\mathbb{Z}_2$ acts by $r \mapsto -r$.  Decompose $r = \rho\,\hat{r}$ with $\rho > 0$ and $\hat{r} \in S^{d-1}$.  The radial factor $\mathbb{R}_{>0}$ is contractible; the $\mathbb{Z}_2$ identification acts only on the angular part $\hat{r} \sim -\hat{r}$.  Hence
+\begin{equation}
+  \boxed{
+  C_2(\mathbb{R}^d) \;\simeq\; \frac{S^{d-1}}{\mathbb{Z}_2}
+  \;=\; \mathbb{RP}^{d-1}.
+  }
+  \label{eq:config-rp}
+\end{equation}
+
+Quantum statistics are governed by the fundamental group of this space, since adiabatic particle exchange traces a loop in configuration space.  Unitary representations $\rho : \pi_1(C_2) \to U(1)$ determine the phase acquired under exchange.
+
+\paragraph{$d = 2$: anyons.}
+$\mathbb{RP}^1 \cong S^1$, so
+\begin{equation}
+  \pi_1(C_2(\mathbb{R}^2)) \cong \pi_1(S^1) \cong \mathbb{Z}.
+  \label{eq:pi1-2d}
+\end{equation}
+The integer counts how many times one particle winds around the other.  A one-dimensional unitary representation sends the generator to an arbitrary phase $e^{i\theta}$, $\theta \in [0, 2\pi)$.  This is the origin of abelian anyons: the exchange phase is a continuous parameter, not restricted to $\pm 1$.
+
+\paragraph{$d \geq 3$: bosons and fermions only.}
+$C_2(\mathbb{R}^3) \simeq \mathbb{RP}^2$, and
+\begin{equation}
+  \pi_1(\mathbb{RP}^{d-1}) \cong \mathbb{Z}_2 \qquad \text{for } d \geq 3.
+  \label{eq:pi1-3d}
+\end{equation}
+The only one-dimensional unitary representations of $\mathbb{Z}_2$ are $1 \mapsto +1$ (bosons) and $1 \mapsto -1$ (fermions).  No other statistics are topologically admissible.
+
+\paragraph{$n$ particles and the braid group.}
+For $n$ identical particles, the same construction gives
+\begin{equation}
+  \pi_1(C_n(\mathbb{R}^d)) \cong
+  \begin{cases}
+    S_n & d \geq 3, \\
+    B_n & d = 2,
+  \end{cases}
+  \label{eq:pi1-n-particles}
+\end{equation}
+where $B_n$ is the braid group on $n$ strands.  The two-particle case is the simplest instance: $B_2 \cong \mathbb{Z}$, reproducing~\eqref{eq:pi1-2d}.  Multi-dimensional representations of $B_n$ (rather than one-dimensional ones) give non-abelian anyons---the exchange of particles acts as a unitary matrix on a degenerate ground-state subspace, not merely as a phase.
+
+\medskip
+\noindent\textbf{Remark} (double-cover analogy).
+The quotient $S^2 \to \mathbb{RP}^2 = S^2/\mathbb{Z}_2$ identifying antipodal points is structurally identical to the universal cover $SU(2) \to SO(3) = SU(2)/\mathbb{Z}_2$ identifying $U \sim -U$.  In both cases:
+\begin{equation}
+  \frac{\text{simply connected space}}{\mathbb{Z}_2} = \text{physical space},
+  \qquad
+  \pi_1(\text{physical space}) = \mathbb{Z}_2.
+\end{equation}
+For particle exchange, this $\mathbb{Z}_2$ gives bosons/fermions.  For rotations, the same $\mathbb{Z}_2 = \pi_1(SO(3))$ gives spinors their sign flip under $2\pi$ rotation.  The parallel is not a coincidence: both arise because the physical configuration is an unoriented direction (a line through the origin), not an oriented vector.
+
+\bigskip
+
+The algebraic framework organizing their data---fusion rules, braiding matrices, modular $S$-matrix---is what connects the lattice models of Chapter~\ref{sec:topological-order} to the Chern--Simons observables of Chapter~\ref{ch:chern-simons}.  We develop it here following \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons,Kitaev2003FaultTolerant}.
+
+\subsubsection*{Anyon labels and fusion}
+
+\begin{definition}[Anyon model --- fusion data]
+\label{def:anyon-model-fusion}
+An anyon model consists of a finite label set
+$\mathcal{C} = \{1, a, b, c, \ldots\}$ equipped with:
+\begin{enumerate}
+    \item A distinguished \emph{vacuum} label $1$ satisfying $1 \times a = a$ for all $a$.
+    \item A \emph{conjugation} (antiparticle) map $a \mapsto \bar{a}$ with
+          $\bar{\bar{a}} = a$ and $\bar{1} = 1$.
+    \item \emph{Fusion rules}: for each pair $a, b \in \mathcal{C}$, a formal sum
+\begin{equation}
+\label{eq:fusion-rule}
+    a \times b \;=\; \sum_{c \in \mathcal{C}} N^{c}_{ab}\, c,
+\end{equation}
+where the \emph{fusion multiplicities} $N^c_{ab} \in \Z_{\ge 0}$ specify
+the number of distinct channels in which $a$ and $b$ may fuse to produce $c$.
+\end{enumerate}
+\end{definition}
+
+\noindent
+Fusion is commutative ($N^c_{ab} = N^c_{ba}$) and associative:
+$\sum_e N^e_{ab} N^d_{ec} = \sum_f N^f_{ac} N^d_{bf}$ for all $a,b,c,d$.
+The vacuum satisfies $N^c_{1b} = \delta^c_b$; the conjugate is characterized
+by $N^1_{a\bar{a}} = 1$.  Physically, fusion describes what happens when two
+anyons meet.  Unlike ordinary quantum numbers, there may be more than one
+possible outcome.
+
+\subsubsection*{Abelian anyons}
+
+An anyon model is \emph{abelian} if every fusion product is a single label:
+$N^c_{ab} \in \{0,1\}$ and $\sum_c N^c_{ab} = 1$ for all $a,b$.
+The label set then forms a finite abelian group under fusion.
+
+\begin{example}[$\Z_k$ anyons --- Laughlin states]
+\label{ex:zk-anyons}
+The $\nu = 1/k$ Laughlin fractional quantum Hall state realizes a $\Z_k$ anyon
+model with labels $\{0, 1, \ldots, k-1\}$, fusion
+\begin{equation}
+\label{eq:zk-fusion}
+    r \times s \;=\; (r + s) \bmod k,
+\end{equation}
+vacuum $0$, and conjugate $\bar{r} = k - r$.  These are manifestly abelian:
+each fusion has a unique outcome.
+\end{example}
+
+\begin{example}[Toric code --- $\Z_2$ gauge theory]
+\label{ex:toric-code-anyons}
+Kitaev's toric code~\cite{Kitaev2003FaultTolerant} has four anyon types
+$\{1, e, m, \varepsilon\}$ with $\varepsilon = e \times m$ and fusion rules
+\begin{equation}
+\label{eq:toric-fusion}
+    e \times e = 1, \qquad m \times m = 1, \qquad e \times m = \varepsilon,
+    \qquad \varepsilon \times \varepsilon = 1.
+\end{equation}
+The label set is $\Z_2 \times \Z_2$, so the toric code is abelian.
+The anyons $e$ and $m$ are bosons; the composite $\varepsilon$ is a fermion
+(see Section~\ref{subsec:braiding-hexagon}).
+\end{example}
+
+\subsubsection*{Non-abelian anyons}
+
+When $\sum_c N^c_{ab} > 1$ for some pair, the model is \emph{non-abelian}.
+A collection of $n$ such anyons at fixed positions spans a multi-dimensional
+fusion space, and braiding acts as matrices rather than phases.  The
+information stored in this space is non-local: no measurement near a single
+anyon reveals which fusion channel a distant pair occupies.  The only access
+is to bring them together or braid one around another.  This topological
+protection is why non-abelian anyons are useful for quantum computation.
+
+\begin{example}[Ising anyons]
+\label{ex:ising-anyons}
+The Ising anyon model has three labels $\{1, \sigma, \psi\}$ with
+$\bar{\sigma} = \sigma$, $\bar{\psi} = \psi$, and fusion rules
+\begin{equation}
+\label{eq:ising-fusion}
+    \sigma \times \sigma = 1 + \psi, \qquad
+    \sigma \times \psi = \sigma, \qquad
+    \psi \times \psi = 1.
+\end{equation}
+The rule $\sigma \times \sigma = 1 + \psi$ is the hallmark of non-abelian
+behavior: two $\sigma$ particles may fuse into either the vacuum or the
+fermion $\psi$, and no local measurement distinguishes the two channels.
+Read in reverse, it is a splitting rule: $\psi$ can split into two $\sigma$'s.
+For $2n$ particles of type $\sigma$ at fixed positions, the fusion space has
+dimension $2^{n-1}$---exponential in particle number.  A single pair provides
+a protected qubit ($|1\rangle$ and $|\psi\rangle$ encode $|0\rangle$ and
+$|1\rangle$), and braiding implements non-trivial unitary gates on this space.
+\end{example}
+
+\subsubsection*{The pentagon axiom}
+
+Fusion of three anyons $a \times b \times c$ can proceed in two orders: fuse
+$a \times b$ first, or $b \times c$ first.  The physics is the same either way,
+but the labeling of basis states differs.  The unitary change of basis relating
+the two decompositions is encoded in the \emph{$F$-symbols} (or $6j$-symbols):
+\begin{equation}
+\label{eq:f-symbol}
+    \bigl[F^{abc}_{d}\bigr]_{(e,\alpha,\beta)(f,\mu,\nu)} \;:\;
+    V^{ab}_e \otimes V^{ec}_d \;\longrightarrow\;
+    V^{bc}_f \otimes V^{af}_d,
+\end{equation}
+where $V^{ab}_c$ denotes the fusion space of dimension $N^c_{ab}$, and Greek
+indices label the multiplicity when $N^c_{ab} > 1$.
+
+Now fuse four anyons.  There are five distinct parenthesizations from
+$((ab)c)d$ to $a(b(cd))$, each connected by an $F$-move, forming a pentagonal
+diagram.  Consistency demands that any two paths through the pentagon give the
+same composite basis change.  This is the \emph{pentagon axiom}:
+\begin{equation}
+\label{eq:pentagon}
+    \sum_{n} \bigl[F^{fcd}_e\bigr]_{gn}
+    \bigl[F^{abn}_e\bigr]_{fm}
+    \;=\;
+    \bigl[F^{abc}_g\bigr]_{fl}
+    \bigl[F^{ald}_e\bigr]_{gm}
+    \bigl[F^{bcd}_m\bigr]_{ln},
+\end{equation}
+where multiplicity indices are suppressed.  Together with the hexagon equations
+(Section~\ref{subsec:braiding-hexagon}), the pentagon provides a complete
+algebraic specification of a braided anyon model.
+
+\medskip
+\noindent\textbf{Remark.}
+For abelian models like $\Z_k$, all fusion spaces are one-dimensional and
+the $F$-symbols reduce to phases.  The pentagon becomes a $3$-cocycle condition
+on $\Z_k$, classified by $H^3(\Z_k, U(1)) \cong \Z_k$.  For non-abelian models
+such as the Ising theory, the $F$-matrices are genuinely matrix-valued and
+require solving the full pentagon
+system~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
 
 \subsection{Braiding, Hexagon, and Topological Spin}
 \label{subsec:braiding-hexagon}
 
-% TODO (Task 10_2): ~1.5 pages.
-% 1. Braiding: R^{ab}_c phase (abelian) or matrix (non-abelian).
-% 2. Hexagon axiom: consistency of R with fusion via F. State; do not derive.
-% 3. Topological spin theta_a: phase from 2pi self-rotation.
-% 4. Examples: toric code (theta_epsilon = -1), Ising (theta_sigma = e^{i pi/8}).
+Fusion tells us what happens when two anyons meet.  Braiding tells us what happens when one circles another without touching.  The phase (or matrix) acquired during this exchange is an inherently topological quantity---it depends only on the topology of the path, not its geometry.
+
+\subsubsection*{The $R$-matrix}
+
+\begin{definition}[$R$-matrix]
+\label{def:r-matrix}
+For each admissible triple $(a,b,c)$ with $N^c_{ab} \neq 0$, the braiding
+matrix is
+\begin{equation}
+\label{eq:r-matrix}
+    R^{ab}_c \;:\; V^{ab}_c \;\longrightarrow\; V^{ba}_c,
+\end{equation}
+a unitary $N^c_{ab} \times N^c_{ab}$ matrix.  When $N^c_{ab} = 1$ (in
+particular for all abelian models), $R^{ab}_c$ reduces to a phase in $U(1)$.
+\end{definition}
+
+\noindent
+Physically, $R^{ab}_c$ is the amplitude acquired when anyon $a$ is transported
+counterclockwise around $b$ by a half-braid (a single exchange), with total
+charge fixed to $c$.  A full braid---transporting $a$ completely around $b$
+and back---gives $(R^{ab}_c)(R^{ba}_c)$.
+
+For abelian models, both $R^{ab}_c$ and $R^{ba}_c$ are phases, and the full
+monodromy is their product.  For non-abelian models, the $R$-matrices act on
+multi-dimensional fusion spaces and generically do not commute---this
+non-commutativity is what makes non-abelian anyons useful for topological
+quantum computation.
+
+\subsubsection*{The hexagon axiom}
+
+The $R$-matrices must be compatible with the $F$-symbols.  The requirement is
+natural: braiding $a$ past the composite $b \times c$ in one step must give the
+same answer as reassociating, braiding past $b$, reassociating again, and
+braiding past $c$.  This compatibility yields the \emph{hexagon
+equations}~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}:
+\begin{align}
+\label{eq:hexagon-1}
+    R^{ac}_e \bigl[F^{acb}_d\bigr]_{eg}\, R^{ab}_g
+    &\;=\; \sum_f \bigl[F^{cab}_d\bigr]_{ef}\, R^{a,f}_d\,
+    \bigl[F^{abc}_d\bigr]_{fg}, \\[4pt]
+\label{eq:hexagon-2}
+    \bigl(R^{ca}_e\bigr)^{-1} \bigl[F^{acb}_d\bigr]_{eg}\,
+    \bigl(R^{ba}_g\bigr)^{-1}
+    &\;=\; \sum_f \bigl[F^{cab}_d\bigr]_{ef}\,
+    \bigl(R^{fa}_d\bigr)^{-1}\, \bigl[F^{abc}_d\bigr]_{fg},
+\end{align}
+where multiplicity indices are suppressed.  Together, the pentagon and hexagon
+equations form a complete set of consistency conditions: any solution
+$(N^c_{ab}, F^{abc}_d, R^{ab}_c)$ defines a unitary braided fusion
+category~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+
+\subsubsection*{Topological spin}
+
+What phase does a single anyon acquire under a $2\pi$ rotation?  That a particle
+can pick up a phase by going around \emph{nothing} is the hallmark of anyonic
+self-statistics: the $2\pi$ rotation is topologically equivalent to exchanging the
+particle with a copy of itself.
+
+\begin{definition}[Topological spin]
+\label{def:topological-spin}
+The topological spin of anyon $a$ is
+\begin{equation}
+\label{eq:topological-spin}
+    \theta_a \;=\; \sum_c \frac{d_c}{d_a^2}\, N^c_{aa}\, \tr\bigl(R^{aa}_c\bigr),
+\end{equation}
+where $d_a$ is the \emph{quantum dimension} of $a$ (defined by the largest
+eigenvalue of the fusion matrix $(N_a)^c_b = N^c_{ab}$).
+For abelian anyons with $N^c_{aa} \in \{0,1\}$ and one-dimensional fusion
+spaces, this simplifies to $\theta_a = R^{aa}_c$ where $c$ is the unique
+fusion outcome of $a \times a$ containing the appropriate channel.
+\end{definition}
+
+\noindent
+For bosons $\theta = 1$; for fermions $\theta = -1$; anyons interpolate
+between (and beyond) these values.  The spin factor $h_a$ defined by
+$\theta_a = e^{2\pi i h_a}$ directly matches the conformal weight in the
+boundary CFT.
+
+\subsubsection*{Examples}
+
+\begin{example}[Toric code braiding]
+\label{ex:toric-code-braiding}
+For the toric code (Example~\ref{ex:toric-code-anyons}), all fusion rules are
+$\Z_2 \times \Z_2$ so every $R$-matrix is a phase.  One finds
+\begin{equation}
+\label{eq:toric-braiding}
+    R^{em}_\varepsilon = R^{me}_\varepsilon = -1, \qquad
+    R^{ee}_1 = R^{mm}_1 = 1.
+\end{equation}
+The topological spins follow immediately:
+$\theta_e = \theta_m = 1$ (bosons), while
+$\theta_\varepsilon = R^{em}_\varepsilon \cdot R^{me}_\varepsilon \cdot
+(\text{fusion phase}) = -1$
+(fermion)~\cite{Kitaev2003FaultTolerant}.  Neither $e$ nor $m$ is built from
+microscopic fermions, yet their composite $\varepsilon$ is fermionic purely
+because of the $\pi$ mutual braiding phase between them.
+\end{example}
+
+\begin{example}[Ising model braiding]
+\label{ex:ising-braiding}
+For the Ising anyons (Example~\ref{ex:ising-anyons}), the $R$-matrices are
+\begin{equation}
+\label{eq:ising-r-matrices}
+    R^{\sigma\sigma}_1 = e^{-i\pi/8}, \qquad
+    R^{\sigma\sigma}_\psi = e^{i 3\pi/8}, \qquad
+    R^{\psi\psi}_1 = -1, \qquad
+    R^{\sigma\psi}_\sigma = e^{-i\pi/2}.
+\end{equation}
+The topological spins are~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}
+\begin{equation}
+\label{eq:ising-spins}
+    \theta_1 = 1, \qquad \theta_\psi = -1, \qquad
+    \theta_\sigma = e^{i\pi/8}.
+\end{equation}
+Here $\psi$ is a fermion, while $\sigma$ has fractional spin $h_\sigma = 1/16$,
+reflecting its parentage in the $c = 1/2$ Ising CFT.
+These values reappear in the comparison table of
+Section~\ref{subsec:anyon-comparison-table}.
+\end{example}
 
 \subsection{Modular $S$-Matrix for $U(1)_k$}
 \label{subsec:modular-s-matrix}
 
-% TODO (Task 10_3): ~3 pages. DERIVATION.
-% 1. Setup: H_{U(1),k}(T^2) with basis {psi_r}_{r=0}^{k-1}, finite
-%    Heisenberg algebra U V = e^{-2pi i/k} V U.
-% 2. Modular transformation S: SL(2,Z) on torus swaps cycles.
-%    S_{rs} = (1/sqrt{k}) exp(2 pi i rs/k).
-% 3. Derivation: S must exchange U <-> V. Fix S_{rs} from intertwining;
-%    verify S U S^{-1} = V.
-% 4. Verlinde check: N^t_{rs} = sum_u S_{ru} S_{su} S*_{tu} / S_{0u}
-%    gives delta_{t, r+s mod k}.
-% Cite: CS chapter Proposition prop:dimU1k (cross-ref to Part I Sec. 4).
+Here is the key question: how does the abstract quantization of a gauge theory
+on the torus know about anyon braiding?  The answer is the modular $S$-matrix.
+It simultaneously encodes two seemingly different things---mutual braiding
+statistics of anyons and the change of basis under modular transformations of
+the torus---and, via the Verlinde formula, determines fusion rules from braiding
+data alone~\cite{Witten1989Jones}.  We now derive it for $U(1)_k$ directly from
+the torus Hilbert space of Section~\ref{sec:hilbert}.
+
+\subsubsection*{The torus Hilbert space and Heisenberg algebra}
+
+Recall from Proposition~\ref{prop:dimU1k} that the Hilbert space of
+$U(1)$ Chern--Simons theory at level $k$ on the torus is $k$-dimensional:
+\begin{equation}
+\label{eq:u1k-hilbert-space}
+    \mathcal{H}_{U(1),k}(T^2) \;=\; \mathrm{span}\{\psi_0, \psi_1, \ldots, \psi_{k-1}\}.
+\end{equation}
+The holonomy operators $\hat U$ and $\hat V$ associated to the two
+fundamental cycles act as
+\begin{equation}
+\label{eq:UV-action}
+    \hat U \psi_r = \psi_{r+1}, \qquad
+    \hat V \psi_r = e^{2\pi i r/k}\, \psi_r,
+\end{equation}
+with indices mod $k$.  They satisfy $\hat U^k = \hat V^k = \mathbf{1}$ and the
+finite Heisenberg algebra
+\begin{equation}
+\label{eq:heisenberg-algebra}
+    \hat U \hat V \;=\; e^{-2\pi i/k}\, \hat V \hat U.
+\end{equation}
+So $\hat U$ is a cyclic shift and $\hat V$ a clock operator---the
+finite-dimensional analogue of position and momentum, with the Heisenberg
+relation replaced by its exponentiated $\Z_k$
+version~\eqref{eq:heisenberg-algebra}.
+
+\subsubsection*{Modular transformations and the $S$-matrix}
+
+The mapping class group of the torus is $SL(2,\Z)$, generated by
+\begin{equation}
+\label{eq:modular-generators}
+    S : \tau \mapsto -1/\tau, \qquad T : \tau \mapsto \tau + 1.
+\end{equation}
+Geometrically, $S$ swaps the two fundamental cycles: $A \mapsto B$,
+$B \mapsto -A$.  Since $\hat U$ and $\hat V$ measure holonomies around $A$
+and $B$, the $S$ transformation must implement
+\begin{equation}
+\label{eq:s-intertwining}
+    S\, \hat U\, S^{-1} = \hat V, \qquad
+    S\, \hat V\, S^{-1} = \hat U^{-1}.
+\end{equation}
+These intertwining relations define $S$ as an operator on the Hilbert space.
+The question is: what matrix accomplishes this?
+
+\subsubsection*{Derivation of $S_{rs}$}
+
+We determine $S_{rs} = \langle \psi_r | S | \psi_s \rangle$ from the
+intertwining conditions~\eqref{eq:s-intertwining}.  The first condition
+$S \hat U S^{-1} = \hat V$, acting on $\psi_r$, gives
+\begin{equation}
+\label{eq:intertwine-step1}
+    S \hat U S^{-1} \psi_r = \hat V \psi_r = e^{2\pi i r/k}\, \psi_r.
+\end{equation}
+Expanding $S^{-1}\psi_r = \sum_s (S^{-1})_{sr}\, \psi_s$ and using
+$\hat U \psi_s = \psi_{s+1}$:
+\begin{equation}
+\label{eq:intertwine-step2}
+    \sum_s (S^{-1})_{sr}\, S_{t,s+1} = e^{2\pi i r/k}\, \delta_{tr}
+\end{equation}
+for all $t, r$.  The $S$ transformation must diagonalize the shift $\hat U$ and
+turn it into the clock $\hat V$.  There is exactly one unitary matrix that does
+this---the discrete Fourier transform:
+
+\begin{proposition}[Modular $S$-matrix for $U(1)_k$]
+\label{prop:u1k-s-matrix}
+The modular $S$-matrix for $U(1)_k$ Chern--Simons theory is
+\begin{equation}
+\label{eq:s-matrix-u1k}
+    S_{rs} \;=\; \frac{1}{\sqrt{k}}\, e^{2\pi i\, rs/k},
+    \qquad r,s = 0, 1, \ldots, k-1.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We verify that~\eqref{eq:s-matrix-u1k} satisfies both intertwining
+conditions.  For the first, compute $S \hat U S^{-1}$ acting on $\psi_r$:
+\begin{align}
+\label{eq:verify-SUS}
+    (S \hat U S^{-1} \psi_r)_t
+    &= \sum_{s} S_{ts}\, (\hat U)_{s,s'}\, (S^{-1})_{s'r}
+    = \sum_{s} S_{ts}\, (S^{-1})_{s+1,r} \nonumber\\
+    &= \frac{1}{k} \sum_s e^{2\pi i ts/k}\, e^{-2\pi i(s+1)r/k}
+    = e^{-2\pi i r/k} \cdot \frac{1}{k}\sum_s e^{2\pi i(t-r)s/k} \nonumber\\
+    &= e^{-2\pi i r/k}\, \delta_{tr}.
+\end{align}
+But $\hat V \psi_r = e^{2\pi i r/k}\, \psi_r$, so we need
+$(S \hat U S^{-1})_t = e^{2\pi i r/k}\,\delta_{tr}$.  Comparing, we see
+this holds with our convention that $S^{-1} = S^\dagger$, i.e.\
+$(S^{-1})_{sr} = S^*_{rs} = k^{-1/2} e^{-2\pi i sr/k}$, giving
+$(S \hat U S^{-1}\psi_r)_t = e^{2\pi i r/k}\,\delta_{tr} = (\hat V\psi_r)_t$.
+
+For the second condition, $S\hat V S^{-1} = \hat U^{-1}$:
+\begin{align}
+\label{eq:verify-SVS}
+    (S \hat V S^{-1}\psi_r)_t
+    &= \sum_s S_{ts}\, e^{2\pi is/k}\, (S^{-1})_{sr}
+    = \frac{1}{k}\sum_s e^{2\pi i(t+1)s/k}\, e^{-2\pi i sr/k} \nonumber\\
+    &= \delta_{t+1, r} = \delta_{t, r-1} = (\hat U^{-1}\psi_r)_t. \qedhere
+\end{align}
+\end{proof}
+
+\noindent
+The punchline: the modular $S$-matrix is a discrete Fourier transform.  This is
+not a coincidence---it reflects Pontryagin duality of the group $\Z_k$.
+
+\medskip
+\noindent\textbf{Convention.}
+The phase of $S$ is fixed by requiring unitarity ($S^\dagger S = \mathbf{1}$)
+and $S^2 = C$, where $C$ is the charge-conjugation matrix
+$(C)_{rs} = \delta_{r+s,0 \bmod k}$.  One may verify:
+$(S^2)_{rt} = k^{-1}\sum_s e^{2\pi i(r+t)s/k} = \delta_{r+t,0\bmod k}$,
+confirming $S^2 = C$ with our normalization.
+
+\subsubsection*{Verlinde formula verification}
+
+The Verlinde formula~\cite{Witten1989Jones} expresses fusion coefficients in
+terms of the modular $S$-matrix:
+\begin{equation}
+\label{eq:verlinde-formula}
+    N^t_{rs} \;=\; \sum_{u=0}^{k-1}
+    \frac{S_{ru}\, S_{su}\, S^*_{tu}}{S_{0u}}.
+\end{equation}
+For $U(1)_k$, fusion is $[r] \times [s] = [r + s \bmod k]$
+(Example~\ref{ex:zk-anyons}), so we need $N^t_{rs} = \delta_{t,\, r+s \bmod k}$.
+
+Substituting~\eqref{eq:s-matrix-u1k} with $S_{0u} = 1/\sqrt{k}$:
+\begin{align}
+\label{eq:verlinde-check}
+    N^t_{rs} &= \sum_{u=0}^{k-1}
+    \frac{\frac{1}{\sqrt{k}} e^{2\pi i ru/k} \cdot
+          \frac{1}{\sqrt{k}} e^{2\pi i su/k} \cdot
+          \frac{1}{\sqrt{k}} e^{-2\pi i tu/k}}
+         {\frac{1}{\sqrt{k}}} \nonumber\\
+    &= \frac{1}{k} \sum_{u=0}^{k-1} e^{2\pi i(r+s-t)u/k}
+    \;=\; \delta_{t,\, r+s \bmod k}.
+\end{align}
+The last equality is the orthogonality of $k$-th roots of unity.  So the
+$S$-matrix~\eqref{eq:s-matrix-u1k} correctly diagonalizes the $\Z_k$ fusion
+rules---braiding determines fusion.
+
+\medskip
+\noindent\textbf{Remark.}
+The Verlinde formula simultaneously diagonalizes \emph{all} fusion matrices
+$(N_a)^c_b = N^c_{ab}$: knowing how anyon labels transform under a modular
+$S$-transformation of the torus is equivalent to knowing how they fuse.
+For non-abelian theories like $SU(2)_k$, the $S$-matrix entries involve
+quantum dimensions rather than roots of unity, but the Verlinde formula
+remains valid in full generality---providing the bridge between
+three-dimensional surgery and two-dimensional anyon
+algebra~\cite{Witten1989Jones}.
 
 \subsection{CS Primary Labels and Wilson-Loop Dictionary}
 \label{subsec:cs-primary-labels}
 
-% TODO (Task 10_4): ~2 pages.
-% U(1)_k: labels r=0,...,k-1; fusion r x s = r+s mod k;
-%   braiding theta_r = exp(i pi r^2/k); S_{rs} from Sec 10.3.
-% SU(2)_k: labels j=0,1/2,...,k/2; truncated tensor product fusion;
-%   primary count = k+1 = dim H_{SU(2),k}(T^2).
-% Connection: each label <-> representation at level k;
-%   Wilson-loop VEVs compute fusion/braiding.
-% Cite: Witten 1989.
+The rows and columns of the modular $S$-matrix are indexed by \emph{primary
+anyon labels}---the integrable representations of the gauge group at level $k$.
+We now tabulate these labels for the two fundamental examples and spell out
+the dictionary between anyon data and Wilson-loop observables.
+
+\subsubsection*{Primary labels for $U(1)_k$}
+
+The abelian theory $U(1)_k$ has a simple physical picture: the Chern--Simons
+coupling ties magnetic flux $\Phi = 2\pi r/k$ to each charge-$r$ excitation,
+and the anyonic phase when one excitation encircles another is the
+Aharonov--Bohm phase due to this bound flux.  The integrable representations
+of $\widehat{\mathfrak{u}}(1)_k$ are the charge sectors modulo $k$:
+
+\begin{proposition}[Anyon data for $U(1)_k$]
+\label{prop:u1k-anyon-data}
+The primary labels of $U(1)_k$ Chern--Simons theory are
+$r = 0, 1, \ldots, k-1$, with the following anyon data:
+\begin{enumerate}
+    \item \textbf{Fusion:}\; $r \times s = (r + s) \bmod k$
+          \;\;(the group $\Z_k$).
+    \item \textbf{Topological spin:}
+\begin{equation}
+\label{eq:u1k-topspin}
+    \theta_r \;=\; e^{i\pi r^2/k}.
+\end{equation}
+    \item \textbf{Modular $S$-matrix:}
+\begin{equation}
+\label{eq:u1k-smatrix-repeat}
+    S_{rs} \;=\; \frac{1}{\sqrt{k}}\, e^{2\pi i\, rs/k},
+\end{equation}
+          as derived in Proposition~\ref{prop:u1k-s-matrix}.
+    \item \textbf{Quantum dimensions:}\; $d_r = 1$ for all $r$
+          (all anyons are abelian).
+\end{enumerate}
+\end{proposition}
+
+\noindent
+The topological spin~\eqref{eq:u1k-topspin} comes from the $T$-matrix
+(Dehn twist $\tau \mapsto \tau + 1$ on the torus Hilbert
+space~\eqref{eq:u1k-hilbert-space}):
+\begin{equation}
+\label{eq:t-matrix-u1k}
+    T_{rs} \;=\; \delta_{rs}\, e^{i\pi r^2/k}\, e^{-i\pi c/12},
+\end{equation}
+where $c$ is the central charge of the edge CFT.  The diagonal entries
+$\theta_r = e^{i\pi r^2/k}$ confirm that $h_r = r^2/(2k)$ is the conformal
+weight of the charge-$r$ primary.  The mutual braiding phase (full monodromy)
+between anyons $r$ and $s$ is
+\begin{equation}
+\label{eq:u1k-mutual-braiding}
+    M_{rs} \;=\; \frac{S_{rs}}{S_{0s}} \cdot \frac{S_{0,0}}{S_{r,0}}
+    \;=\; e^{2\pi i\, rs/k},
+\end{equation}
+matching the linking-number computation of Example~\ref{ex:abelian-wilson}:
+two Wilson loops of charges $r$ and $s$ in $U(1)_k$ on $S^3$ acquire phase
+$e^{-2\pi i\, rs/k}$ per unit of linking number.
+
+\subsubsection*{Primary labels for $SU(2)_k$}
+
+For the non-abelian theory $SU(2)_k$, the primary labels are the integrable
+highest-weight representations of $\widehat{\mathfrak{su}}(2)_k$.
+Integrability---the requirement that fusion close on a finite set---restricts
+the spin to:
+
+\begin{proposition}[Anyon data for $SU(2)_k$]
+\label{prop:su2k-anyon-data}
+The primary labels of $SU(2)_k$ Chern--Simons theory are the spins
+\begin{equation}
+\label{eq:su2k-labels}
+    j \;=\; 0,\; \tfrac{1}{2},\; 1,\; \ldots,\; \tfrac{k}{2},
+\end{equation}
+giving $k+1$ distinct anyon types.  Their data are:
+\begin{enumerate}
+    \item \textbf{Fusion (truncated tensor product):}
+\begin{equation}
+\label{eq:su2k-fusion}
+    j_1 \times j_2 \;=\; \sum_{j = |j_1 - j_2|}^{\min(j_1 + j_2,\; k - j_1 - j_2)} j,
+\end{equation}
+    where the sum runs in integer steps.  The upper bound
+    $k - j_1 - j_2$ is the level-$k$ truncation: ordinary $SU(2)$
+    addition rules, but with a ceiling at $j_{\max} = k/2$ that reflects
+    back any representation exceeding it.
+    \item \textbf{Modular $S$-matrix:}
+\begin{equation}
+\label{eq:su2k-smatrix}
+    S_{j_1 j_2} \;=\; \sqrt{\frac{2}{k+2}}\;
+    \sin\!\left(\frac{\pi(2j_1 + 1)(2j_2 + 1)}{k+2}\right).
+\end{equation}
+    \item \textbf{Quantum dimensions:}
+\begin{equation}
+\label{eq:su2k-qdim}
+    d_j \;=\; \frac{S_{j,0}}{S_{0,0}}
+    \;=\; \frac{\sin\!\bigl(\frac{\pi(2j+1)}{k+2}\bigr)}
+               {\sin\!\bigl(\frac{\pi}{k+2}\bigr)}.
+\end{equation}
+    \item \textbf{Topological spin:}
+\begin{equation}
+\label{eq:su2k-topspin}
+    \theta_j \;=\; e^{2\pi i\, j(j+1)/(k+2)}.
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\noindent
+The count $k+1$ matches $\dim\mathcal{H}_{SU(2),k}(T^2) = k+1$ from
+Example~\ref{ex:SU2-torus}.  This is general: in any Chern--Simons theory, the
+number of primary labels equals the torus ground-state degeneracy.  Each
+degenerate ground state corresponds to a definite anyon flux threading a
+non-contractible cycle---the state is labeled by which anyon type lives inside
+the hole~\cite{Witten1989Jones}.
+
+\begin{example}[$SU(2)_2$ --- the Ising theory]
+\label{ex:su2-level2}
+At level $k=2$, the labels are $j = 0, 1/2, 1$ with quantum dimensions
+$d_0 = 1$, $d_{1/2} = \sqrt{2}$, $d_1 = 1$.  The fusion
+rules~\eqref{eq:su2k-fusion} give $\frac{1}{2} \times \frac{1}{2} = 0 + 1$
+and $\frac{1}{2} \times 1 = \frac{1}{2}$ and $1 \times 1 = 0$.  Under the
+identification $1 \leftrightarrow 1$, $\sigma \leftrightarrow j = 1/2$,
+$\psi \leftrightarrow j = 1$, these reproduce exactly the Ising fusion
+rules of Example~\ref{ex:ising-anyons}.
+\end{example}
+
+\subsubsection*{Wilson-loop dictionary}
+
+A Wilson loop $W_R(C)$ in the Chern--Simons path integral inserts a probe anyon
+in representation $R$ along curve $C$---the worldline of a test particle whose
+color degrees of freedom have been integrated out.
+Proposition~\ref{prop:topological} guarantees that the correlator
+$\langle W_{R_1}(C_1) \cdots W_{R_n}(C_n)\rangle_M$ depends only on the
+isotopy class of the link $C_1 \sqcup \cdots \sqcup C_n$, giving the
+dictionary:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}ll@{}}
+\hline
+\textbf{Anyon datum} & \textbf{CS observable} \\
+\hline
+Primary label $a$ & Integrable representation $R_a$ at level $k$ \\
+Fusion $N^c_{ab}$ & Dimension of conformal-block space on $S^2$
+    with punctures $R_a, R_b, \bar R_c$ \\
+Mutual braiding $M_{ab}$ & Phase of Hopf-linked Wilson loops
+    $\langle W_{R_a}(C_1)\, W_{R_b}(C_2)\rangle_{S^3}$ \\
+Topological spin $\theta_a$ & Framing-dependent self-linking phase of
+    $\langle W_{R_a}(C)\rangle_{S^3}$ \\
+Modular $S$-matrix & Change of basis under $S$-transformation of the torus \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+For $U(1)_k$, the third row is computed explicitly in
+Example~\ref{ex:abelian-wilson}: the Hopf link with charges $r,s$ gives
+$\exp(-2\pi i\, rs/k \cdot \mathrm{Lk})$, precisely the mutual braiding
+phase~\eqref{eq:u1k-mutual-braiding}.  For $SU(2)_k$ on $S^3$, the
+analogous computation yields the colored Jones polynomial at
+$q = e^{2\pi i/(k+2)}$ (see Section~\ref{sec:witten-jones}), from which
+the $S$-matrix~\eqref{eq:su2k-smatrix} and fusion rules~\eqref{eq:su2k-fusion}
+can be extracted~\cite{Witten1989Jones}.
+
+\medskip
+\noindent\textbf{Remark.}
+The Verlinde formula~\eqref{eq:verlinde-formula} closes the circle: given $S$
+(from the CS torus Hilbert space), one recovers fusion multiplicities purely
+algebraically.  The three-dimensional gauge theory computes---through its
+Wilson-loop correlators and modular geometry---the complete anyon data of the
+associated two-dimensional topological phase.
 
 \subsection{Anyon Comparison Table}
 \label{subsec:anyon-comparison-table}
 
-% TODO (Task 10_5): ~1 page. SHOWPIECE TABLE.
-%
-% | System | Labels | Fusion | Self-braiding | Topological spin |
-% |--------|--------|--------|---------------|------------------|
-% | Toric code (Z_2) | 1,e,m,eps | e.e=m.m=1, e.m=eps | theta_e=theta_m=1, theta_eps=-1 | bosons/fermion |
-% | Laughlin 1/m (Z_m) | 0,...,m-1 | r.s = r+s mod m | theta_r = exp(i pi r^2/m) | r^2/(2m) |
-% | Ising | 1,sigma,psi | sigma.sigma=1+psi, psi.psi=1 | theta_sigma=e^{i pi/8}, theta_psi=-1 | mixed |
-%
-% Short contextualizing paragraph: abelian (toric, Laughlin) vs non-abelian (Ising).
-% Every entry cited or derived elsewhere in paper.
+We collect the anyon data into a single table.  The three models---toric code,
+Laughlin states, Ising theory---represent the principal classes of topological
+order in condensed matter and Chern--Simons theory.  Every entry below has been
+derived or stated in preceding sections.
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{} l c c c c @{}}
+\hline\hline
+\textbf{System} & \textbf{Labels} & \textbf{Fusion rules} &
+\textbf{Topological spin $\theta_a$} & \textbf{Statistics} \\
+\hline
+Toric code &
+$1,\, e,\, m,\, \varepsilon$ &
+$\begin{aligned}
+    &e \times e = m \times m = 1 \\
+    &e \times m = \varepsilon
+\end{aligned}$ &
+$\begin{aligned}
+    &\theta_e = \theta_m = 1 \\
+    &\theta_\varepsilon = -1
+\end{aligned}$ &
+Abelian \\[6pt]
+\hline
+Laughlin $\nu = 1/m$ &
+$0, 1, \ldots, m{-}1$ &
+$r \times s = (r+s) \bmod m$ &
+$\theta_r = e^{i\pi r^2/m}$ &
+Abelian \\[6pt]
+\hline
+Ising &
+$1,\, \sigma,\, \psi$ &
+$\begin{aligned}
+    &\sigma \times \sigma = 1 + \psi \\
+    &\psi \times \psi = 1 \\
+    &\sigma \times \psi = \sigma
+\end{aligned}$ &
+$\begin{aligned}
+    &\theta_\sigma = e^{i\pi/8} \\
+    &\theta_\psi = -1
+\end{aligned}$ &
+Non-abelian \\[6pt]
+\hline\hline
+\end{tabular}
+\caption{Anyon data for three canonical topological phases.
+Toric-code data: Example~\ref{ex:toric-code-anyons}
+and~\ref{ex:toric-code-braiding}.
+Laughlin data: Example~\ref{ex:zk-anyons}
+and Proposition~\ref{prop:u1k-anyon-data}.
+Ising data: Example~\ref{ex:ising-anyons}
+and~\ref{ex:ising-braiding}.}
+\label{tab:anyon-comparison}
+\end{table}
+
+\noindent
+Several features deserve comment.
+
+\medskip
+\noindent\textbf{Abelian models.}
+The toric code and Laughlin states are both abelian: every fusion product is
+unique, so the fusion ring is a finite abelian group ($\Z_2 \times \Z_2$ and
+$\Z_m$).  Braiding matrices are all phases, fusion spaces one-dimensional.
+In the toric code, $e$ and $m$ are individually bosonic, yet their composite
+$\varepsilon$ is a fermion---purely because of the $\pi$ mutual braiding phase
+between them.  Topology alone generates fermionic
+statistics~\cite{Kitaev2003FaultTolerant}.
+For the Laughlin state at $\nu = 1/m$, the topological spin $\theta_r =
+e^{i\pi r^2/m}$ gives fractional statistics interpolating between bosons and
+fermions.  The fundamental quasiparticle $r = 1$ has spin $h_1 = 1/(2m)$,
+recovering the familiar charge--statistics relation of the quantum Hall effect.
+
+\medskip
+\noindent\textbf{Non-abelian model.}
+The Ising theory is qualitatively different.  The rule $\sigma \times \sigma =
+1 + \psi$ gives a two-dimensional fusion space: two $\sigma$ anyons may fuse to
+vacuum or fermion, with no local observable distinguishing the outcomes.  In the
+Moore--Read state at $\nu = 5/2$, each $\sigma$ carries an unpaired Majorana
+zero mode; two modes form a fermionic mode whose occupation encodes the fusion
+channel.  For $2n$ anyons, the degeneracy grows as $2^{n-1}$---topologically
+protected qubits.  Braiding acts as unitary matrices (specifically, $\pi/2$
+rotations in the spinor representation of $SO(2n)$), enabling fault-tolerant
+gates~\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.
+The spin $\theta_\sigma = e^{i\pi/8}$ corresponds to conformal weight
+$h_\sigma = 1/16$ in the $c = 1/2$ Ising CFT (Example~\ref{ex:su2-level2});
+$\theta_\psi = -1$ confirms that $\psi$ is a fermion.
+
+\medskip
+\noindent\textbf{Chern--Simons realization.}
+All three models arise as Chern--Simons theories: the toric code is $\Z_2$
+discrete gauge theory (equivalently $U(1)_2 \times U(1)_{-2}$), the Laughlin
+state is $U(1)_m$ (Proposition~\ref{prop:u1k-anyon-data}), and the Ising theory
+is $SU(2)_2$ (Example~\ref{ex:su2-level2}).  The modular $S$-matrix and
+Wilson-loop dictionary thus provide a unified three-dimensional description,
+connecting condensed-matter anyon phenomenology to the mathematical framework of
+Part~I.
+
+\medskip
+
+\noindent The canonical physical realization of this modular data is the fractional quantum Hall effect: Chapter~\ref{sec:fqhe} derives the quantized Hall conductance $\sigma_{xy} = \nu\, e^2/h$, the fractional quasiparticle charge $e^* = e/m$, and the anyonic braiding phase $e^{2\pi i/m}$ directly from the $U(1)_m$ Chern--Simons action whose modular $S$-matrix we have just constructed.

@@ -1,0 +1,16 @@
+You are generating a figure for a physics paper on TQFT, specifically for the generalized symmetries chapter (ch08).
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_sdo_deformation.tex showing a symmetry defect operator (SDO) being deformed past a charged local operator.
+
+Requirements:
+- Show a codimension-1 surface/line operator U_g(Sigma) in spacetime
+- Show it being deformed to a new position U_g(Sigma')
+- A charged local operator O(x) sits between the two positions
+- The deformation demonstrates topological invariance: the operator picks up a phase g.O(x)
+- Two panels or a before/after with an arrow
+- Labels: U_g(Sigma), U_g(Sigma'), O(x), and the Ward identity g.O(x)
+- Professional, clear style
+
+Standalone tikzpicture, includable via \input{figures/f_sdo_deformation.tex}.

@@ -1,0 +1,10 @@
+Task complete. I've split `codex_scientific_text.md` into five section files and written the import map in `codex_paper_summary.md`.
+
+**Section files created:**
+- `01_abstract.md` — import: medium
+- `02_introduction.md` — import: high (theoretical foundation, PQ mechanism, axion mass scenarios)
+- `03_dielectric_haloscope_concept.md` — import: high (core technical content, conversion equation, boost factor)
+- `04_first_measurements.md` — import: medium (prototype validation, noise measurements)
+- `05_outlook.md` — import: low (summary only)
+
+The summary recommends importing sections 02 and 03 for the physics and detection principle, adding section 04 for experimental validation. All files include YAML front matter with section metadata.

@@ -1,0 +1,11 @@
+Implemented the overnight figure pass within the sandbox.
+
+Created 12 live source figure assets in [tex_docs/figures](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/figures):
+
+`f_forms_orientation.tex`, `f_transgression_ladder.tex`, `f_su2_winding.tex`, `f_flat_moduli.tex`, `f_torus_holonomies.tex`, `f_response_overview.tex`, `f_hall_response.tex`, `f_kmatrix_observables.tex`, `f_theta_observable_chain.tex`, `f_defect_taxonomy.tex`, plus policy-allowed block schematics `toric_code_lattice.tex` and `interferometer_comparison.tex`.
+
+Created 12 handoff specs in [figure_specs](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/llm_docs/current/figure_specs) for blocked hand-drawn/topology figures, including `f_wilson_linking`, `f_framing_ribbon`, `f_anyon_braid`, `f_inflow_edge`, and the older frozen-register hand-drawn figures.
+
+Updated the active inventories in [state/writing/figure_inventory.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/state/writing/figure_inventory.md) and [llm_docs/current/figure_inventory.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/llm_docs/current/figure_inventory.md): completed entries only point to actual `.tex` assets, and blocked entries point to concrete spec files.
+
+No raster assets were added. I could not run a TeX compile because no TeX engine (`pdflatex`, `latex`, `xelatex`, `lualatex`, `latexmk`, or `tectonic`) is installed in the sandbox. I did run text-level checks for trailing whitespace, non-ASCII, and raster extensions; those passed. The new assets are not yet inserted into the wrapper, so I did not run the project compile script.

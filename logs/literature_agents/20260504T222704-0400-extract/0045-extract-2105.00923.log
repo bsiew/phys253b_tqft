@@ -1,0 +1,18 @@
+Done. I've extracted the scientific content from the TeX paper into `codex_scientific_text.md`. The extraction preserves:
+
+- **Scientific core**: all derivations, equations, definitions, theorems, assumptions, results, and interpretations
+- **Reasoning**: arguments justifying key choices (e.g., why $V_a(z)=e^{-v_q(z)^2}$, the motivation for the Stückelberg mechanism)
+- **Methods**: detailed equations of motion, boundary conditions, solution techniques
+- **Findings**: numerical results, comparisons to lattice data, agreement with phenomenological predictions
+- **Related physics**: the strong CP problem, Peccei-Quinn mechanism, references to prior work without citations
+
+**Removed from original**:
+- TeX preamble (documentclass, usepackage, geometry)
+- Author/affiliation formatting
+- Bibliographic commands (\bibitem entries)
+- Bibliography references in footnote form
+- Figure environments and captions (kept content references in text)
+- Comments and TeX directives
+- Purely presentational line breaks
+
+The YAML front matter from the original is preserved with updated timestamp.

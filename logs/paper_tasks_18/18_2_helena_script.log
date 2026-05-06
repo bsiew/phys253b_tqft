@@ -1,0 +1,9 @@
+Done. The script is at `plan/presentation/helena_script.md`. It includes:
+
+1. **Board-layout diagram** showing what stays from Brian's talk (CS action, k in Z) vs. what you erase and add
+2. **Minute-by-minute breakdown** with exact dialogue, board actions, and LaTeX equations pulled directly from your paper (ch11 effective action, EOM, Hall conductance derivation, fractional charge, braiding phase, and all three experiment results)
+3. **Five sections** matching your requested structure: pickup (0-3), Hall conductance (3-10), anyons (10-17), experiments (17-23), closing (23-25)
+4. **Three anticipated Q&A** — Coulomb vs. topological, non-abelian status, K-matrix generalization
+5. **Coordination notes** covering board inheritance, vocabulary alignment, transition wording, pacing contingencies, and chalk color suggestions
+
+The mathematical spine is: one action, one EOM, one substitution, one conductance, one charge formula, one braiding phase — then three experimental numbers confirming the same integer m = 3.

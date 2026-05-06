@@ -1,0 +1,24 @@
+Done. I've extracted and cleaned the scientific text from the TeX source. The workflow preserved:
+
+**Scientific content retained:**
+- Formal definitions and theorems with full statements
+- Proofs (full proof and sketch versions)
+- Mathematical derivations and key propositions
+- Caveats, assumptions, and interpretations
+- Named results (Ochiai-Takahashi, Baues-Globke-Zeghib, Zhu-Chen-Liang theorems)
+- Examples and counter-examples
+- Research questions and open problems
+
+**TeX plumbing removed:**
+- Package declarations (`\usepackage`, `\documentclass`)
+- Macro definitions and formatting commands
+- Author/title metadata from document headers
+- Hyperlink setup and color definitions
+- Presentational scaffolding (geometry settings, counter setup)
+- Comments and commented code blocks
+- Bibliography commands (converted to standard references)
+- Cross-reference commands
+
+**Front matter preserved** with updated `updated_at` timestamp (2026-05-04T23:12:00-04:00).
+
+The output is readable pedagogical prose suitable for the QFT literature vault. All mathematical notation, structural organization, and scientific arguments remain intact.

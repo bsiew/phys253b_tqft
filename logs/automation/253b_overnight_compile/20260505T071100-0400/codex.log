@@ -1,0 +1,2519 @@
+warning: `--full-auto` is deprecated; use `--sandbox workspace-write` instead.
+OpenAI Codex v0.128.0-alpha.1 (research preview)
+--------
+workdir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/helenabrittain/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019df7d5-90b9-7b80-8ccd-e0b1d554bdb8
+--------
+user
+You are the overnight compile agent for the QFT project.
+
+Working directory: `PROJECTS/QFT`
+Constraint: stay fully sandboxed in `workspace-write` mode and do not attempt any action that would trigger a permission prompt or require network access.
+
+Primary task:
+1. Compile `253b_final_paper/tex_docs/tex_docs_main_wrapper_20260501.tex`.
+2. Use `PROJECTS/QFT/scripts/compile_253b_tex_to_artifacts.sh` so the output lands under `PROJECTS/QFT/artifacts/tex_compile/`.
+3. If the compile fails, inspect the generated log, make only small auditable fixes inside `PROJECTS/QFT/`, and rerun.
+4. Preserve existing user changes and do not revert unrelated work.
+
+Output expectations:
+- End with a short summary naming the built PDF path or the blocking error.
+- If you make code or TeX edits, keep them minimal and explain them in the final summary.
+
+codex
+I’ll run this fully locally. First I’m reading the workspace instructions and QFT state files so the compile work follows the project conventions.
+exec
+/bin/zsh -lc "pwd && rg --files -g 'AGENTS.md' -g 'state/project_state.yaml' -g 'state/current_stage.yaml' -g 'state/weights.yaml'" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 127 in 0ms:
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+zsh:1: command not found: rg
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 128 in 0ms:
+fatal: not a git repository (or any of the parent directories): .git
+
+codex
+`rg` is not installed in this environment, so I’m falling back to `find`/`sed`. This directory also is not itself a git repository, so I’ll use filesystem checks and avoid touching unrelated files.
+exec
+/bin/zsh -lc "find .. -maxdepth 2 \\( -name AGENTS.md -o -path './state/project_state.yaml' -o -path './state/current_stage.yaml' -o -path './state/weights.yaml' \\) -print" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+exec
+/bin/zsh -lc 'ls -la scripts 253b_final_paper/tex_docs artifacts 2>/dev/null' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+exec
+/bin/zsh -lc 'find state -maxdepth 1 -type f -print' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+state/evaluation_plan.md
+state/uncertainty_log.md
+state/current_stage.yaml
+state/.DS_Store
+state/project_state.yaml
+state/stage_review.md
+state/writing_context.yaml
+state/weights.yaml
+state/writing_pipeline.md
+state/methods_considered.md
+state/decision_log.md
+state/working_memory.md
+state/literature_map.md
+state/workspace_bloat_audit_2026-05-02.md
+state/workspace_audit_2026-04-28.md
+state/next_actions.md
+state/transition_history.jsonl
+state/gap_statement.md
+
+ succeeded in 104ms:
+../_TEMPLATE/AGENTS.md
+../QFT/AGENTS.md
+
+ succeeded in 253ms:
+253b_final_paper/tex_docs:
+total 1392
+drwxr-xr-x@ 29 helenabrittain  staff    928 May  5 03:32 .
+drwxr-xr-x@ 13 helenabrittain  staff    416 May  5 02:27 ..
+-rw-r--r--@  1 helenabrittain  staff   6148 May  5 02:42 .DS_Store
+-rw-r--r--@  1 helenabrittain  staff   7902 May  5 03:01 app_e_tee.tex
+-rw-r--r--@  1 helenabrittain  staff  66896 May  5 02:11 ch02_forms.tex
+-rw-r--r--@  1 helenabrittain  staff  31837 May  5 02:11 ch03_axiomatic.tex
+-rw-r--r--@  1 helenabrittain  staff  42836 May  5 02:11 ch04_frobenius.tex
+-rw-r--r--@  1 helenabrittain  staff    654 May  5 02:11 ch05_chern_simons.tex
+-rw-r--r--@  1 helenabrittain  staff  33125 May  5 02:11 ch06_bf.tex
+-rw-r--r--@  1 helenabrittain  staff  32090 May  5 02:11 ch07_dw.tex
+-rw-r--r--@  1 helenabrittain  staff  49845 May  5 02:11 ch08_gensym.tex
+-rw-r--r--@  1 helenabrittain  staff  33361 May  5 03:19 ch09_topological_order.tex
+-rw-r--r--@  1 helenabrittain  staff  37668 May  5 03:21 ch10_anyons.tex
+-rw-r--r--@  1 helenabrittain  staff  51246 May  5 03:26 ch11_fqhe.tex
+-rw-r--r--@  1 helenabrittain  staff  41272 May  5 03:26 ch12_experiments.tex
+-rw-r--r--@  1 helenabrittain  staff  27420 May  5 03:32 ch13_tqc.tex
+-rw-r--r--@  1 helenabrittain  staff   6475 May  4 18:02 ch14_sectors_3plus1d.tex
+-rw-r--r--@  1 helenabrittain  staff   6594 May  4 18:03 ch15_defects_synthesis.tex
+-rw-r--r--@  1 helenabrittain  staff   3961 May  4 18:03 ch16_outlook.tex
+-rw-r--r--@  1 helenabrittain  staff  94672 May  5 02:11 chern_simons_body.tex
+-rw-r--r--@  1 helenabrittain  staff   3039 May  2 15:34 part1_01_introduction.tex
+-rw-r--r--@  1 helenabrittain  staff   5328 May  2 15:34 part1_02_mathematical_toolkit.tex
+-rw-r--r--@  1 helenabrittain  staff   5463 May  2 15:34 part1_03_ordinary_to_chern_simons.tex
+-rw-r--r--@  1 helenabrittain  staff   5714 May  2 15:34 part1_04_tqft_and_observables.tex
+-rw-r--r--@  1 helenabrittain  staff  25094 May  2 15:38 part2_05_response_2plus1d.tex
+-rw-r--r--@  1 helenabrittain  staff   6122 May  2 15:35 part2_06_sectors_3plus1d.tex
+-rw-r--r--@  1 helenabrittain  staff   7624 May  2 15:36 part2_07_defects_caveats_outlook.tex
+-rw-r--r--@  1 helenabrittain  staff   2869 May  5 03:01 tex_docs_main_wrapper_20260501.tex
+-rw-r--r--@  1 helenabrittain  staff  17176 May  5 03:01 tqft_observables_unresolved_refs.bib
+
+artifacts:
+total 24
+drwxr-xr-x@  8 helenabrittain  staff    256 May  5 02:31 .
+drwxr-xr-x@ 19 helenabrittain  staff    608 May  5 02:41 ..
+-rw-r--r--@  1 helenabrittain  staff  10244 May  5 03:01 .DS_Store
+drwxr-xr-x@  3 helenabrittain  staff     96 May  1 22:22 citation_exports
+drwxr-xr-x@  3 helenabrittain  staff     96 May  2 01:42 math_derivations
+drwxr-xr-x@  6 helenabrittain  staff    192 May  4 20:11 reading_list_intake
+drwxr-xr-x@  8 helenabrittain  staff    256 May  4 20:01 research_reports
+drwxr-xr-x@ 10 helenabrittain  staff    320 May  4 20:17 tex_compile
+
+scripts:
+total 224
+drwxr-xr-x@ 23 helenabrittain  staff    736 May  5 03:12 .
+drwxr-xr-x@ 19 helenabrittain  staff    608 May  5 02:41 ..
+-rw-r--r--@  1 helenabrittain  staff   6148 May  5 02:57 .DS_Store
+drwxr-xr-x@  4 helenabrittain  staff    128 May  4 20:21 __pycache__
+-rwxr-xr-x@  1 helenabrittain  staff    838 May  5 02:59 compile_253b_tex_to_artifacts.sh
+-rwxr-xr-x@  1 helenabrittain  staff    367 Apr 29 01:54 cost
+-rwxr-xr-x@  1 helenabrittain  staff    471 May  4 20:18 extract_literature_scientific_text.py
+-rw-r--r--@  1 helenabrittain  staff   4049 Apr  8 18:17 generate_pset3_figures.py
+-rw-r--r--@  1 helenabrittain  staff    247 Apr  7 03:04 gpt_agent_helpers.py
+-rw-r--r--@  1 helenabrittain  staff  24099 Apr  7 03:04 import_schwartz_qft.py
+drwxr-xr-x@  4 helenabrittain  staff    128 May  5 02:57 launchd
+-rwxr-xr-x@  1 helenabrittain  staff   8903 May  5 03:12 literature_pedagogy_pass.sh
+-rw-r--r--@  1 helenabrittain  staff    257 Apr  7 03:04 mathematica_helpers.py
+-rw-r--r--@  1 helenabrittain  staff    243 Apr  7 03:04 obsidian_helpers.py
+drwxr-xr-x@  4 helenabrittain  staff    128 May  5 02:57 prompts
+-rw-r--r--@  1 helenabrittain  staff   1445 Apr  8 18:17 pset3_problem1_rg_flow.wl
+-rwxr-xr-x@  1 helenabrittain  staff   2126 May  1 23:25 record_remaining_limit.zsh
+-rw-r--r--@  1 helenabrittain  staff    263 Apr  7 03:04 research_pipeline.py
+-rw-r--r--@  1 helenabrittain  staff   1016 May  5 02:57 run_253b_overnight_compile.py
+-rw-r--r--@  1 helenabrittain  staff   1026 May  5 02:57 run_253b_overnight_figures.py
+-rwxr-xr-x@  1 helenabrittain  staff  10706 May  5 02:48 run_paper_tasks_09_13.sh
+-rwxr-xr-x@  1 helenabrittain  staff    468 May  4 20:18 summarize_literature_extracts.py
+-rwxr-xr-x@  1 helenabrittain  staff    176 Apr  2 23:54 wl
+
+exec
+/bin/zsh -lc "sed -n '1,220p' state/current_stage.yaml" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+stage: conceptual_and_formal_modeling
+node_description: >
+  The project is theory-dominant and needs explicit formal assumptions,
+  approximation regimes, and synthesis targets.
+entry_conditions:
+  - local literature and writing material already exist
+  - theory direction is active but not fully captured in state
+active_questions:
+  - What formal object or derivation is currently central?
+  - Which assumptions must be surfaced?
+  - What writing artifact should externalize the next step?
+blockers:
+  - formal target is not yet explicit in project state
+  - writing priority is not yet selected
+exit_conditions:
+  - assumptions and formal target are documented
+  - next writing or derivation artifact is selected
+  - evaluation criteria for internal consistency are stated
+valid_next_nodes:
+  - interpretation_and_synthesis
+  - communication_and_externalization
+  - project_steering_and_replanning
+last_stage_update: "2026-04-27"
+
+exec
+/bin/zsh -lc "sed -n '1,220p' scripts/compile_253b_tex_to_artifacts.sh" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+exec
+/bin/zsh -lc "sed -n '1,220p' AGENTS.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+# AGENTS.md
+
+Follow the root workspace instructions in `../AGENTS.md`.
+
+QFT-specific defaults:
+
+- Treat `PROJECTS/QFT` as the active project unless the user explicitly redirects you.
+- Before substantial QFT recommendations or edits, read `state/project_state.yaml`, `state/current_stage.yaml`, and `state/weights.yaml`.
+- Use the shared workspace agent stack rather than project-private copies: shared implementation belongs in `research_tools/`, workspace entrypoints in `scripts/` or `./research`, and QFT-only wrappers in `PROJECTS/QFT/scripts/`.
+- Read and write vault notes through the shared global folders `research_vault/Papers/`, `research_vault/Concepts/`, `research_vault/Maps/`, `research_vault/Books/`, and `research_vault/_Index/`. Keep project ownership in front matter or metadata such as `project: QFT`, not in a project-specific vault folder.
+- Put local PDFs and source material in `PROJECTS/QFT/literature/`.
+- Keep generated outputs worth inspecting in `PROJECTS/QFT/artifacts/`; keep generated assistant/session logs in `PROJECTS/QFT/logs/sessions/`.
+- When adding reusable automation, implement it in `research_tools/`, add a workspace command only if useful beyond QFT, keep QFT-local wrappers thin, document QFT-specific usage in `PROJECTS/QFT/docs/TOOLING.md`, and move experiments or abandoned attempts into `_holding/`.
+- Generated QFT session logs belong first in `PROJECTS/QFT/logs/sessions/` and must use filename format `yyyy-mm-dd-model-log-brief-descriptor.md`. For 253b final-paper sessions, mirror the same log into `PROJECTS/QFT/253b_final_paper/llm_docs/logs/`.
+- When compiling  TeX into `PROJECTS/QFT/artifacts/tex_compile/`, never dump aux or log files at the top level.
+- Build each TeX target into its own subdirectory named after the compiled TeX basename, for example `artifacts/tex_compile/tex_docs_main_wrapper_20260501/`.
+- Prefer `PROJECTS/QFT/scripts/compile_253b_tex_to_artifacts.sh` for these builds so the output layout stays consistent across Codex runs.
+
+ succeeded in 0ms:
+#!/bin/zsh
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 path/to/file.tex" >&2
+  exit 1
+fi
+
+source_tex="$1"
+
+if [[ ! -f "$source_tex" ]]; then
+  echo "TeX source not found: $source_tex" >&2
+  exit 1
+fi
+
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+project_root="$(cd "$script_dir/.." && pwd)"
+artifact_root="$project_root/artifacts/tex_compile"
+source_abs="$(cd "$(dirname "$source_tex")" && pwd)/$(basename "$source_tex")"
+source_dir="$(cd "$(dirname "$source_abs")" && pwd)"
+source_file="$(basename "$source_abs")"
+build_name="${${source_tex:t}%.*}"
+build_dir="$artifact_root/$build_name"
+
+mkdir -p "$build_dir"
+
+(
+  cd "$source_dir"
+  latexmk \
+    -pdf \
+    -interaction=nonstopmode \
+    -halt-on-error \
+    -file-line-error \
+    -outdir="$build_dir" \
+    "$source_file"
+)
+
+echo "Built $build_dir/$build_name.pdf"
+
+exec
+/bin/zsh -lc "sed -n '1,220p' state/weights.yaml" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+theory_weight: 0.80
+simulation_weight: 0.05
+data_weight: 0.00
+ml_weight: 0.00
+interpretability_weight: 0.10
+uncertainty_weight: 0.05
+infrastructure_weight: 0.05
+writing_weight: 0.35
+
+notes: "Initial profile from the unified stage-aware architecture pass; QFT is treated as theory-dominant with meaningful writing and synthesis weight."
+last_weight_update: "2026-04-27"
+
+exec
+/bin/zsh -lc "sed -n '1,220p' state/project_state.yaml" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+project_id: "QFT"
+project_title: "QFT theory and writing project"
+status: "active"
+created_at: "2026-04-27"
+last_updated: "2026-05-04"
+owner: "user"
+project_summary: "Theory-heavy QFT project with literature, docs, external references, scripts, Mathematica support, and writings."
+research_question: "What formal structure or writing target should guide the next QFT work cycle?"
+secondary_questions:
+  - "Which assumptions and approximation regimes need to be made explicit?"
+  - "Which literature and notes are central to the current formalization?"
+  - "What artifact should count as progress: derivation, note, proof outline, or prose?"
+working_hypotheses:
+  - id: "H1"
+    statement: "The project is most bottlenecked by formalization and synthesis rather than data or implementation."
+    status: "tentative"
+assumptions_and_constraints:
+  - "Preserve the existing QFT docs, external references, scripts, and writings."
+  - "Keep project-control state in PROJECTS/QFT/state rather than the vault."
+current_stage: "conceptual_and_formal_modeling"
+current_bottleneck: "Content migration from the archived source modules into the simplified 7-section Part I / Part II final-paper structure; Section 5 is partially populated while Sections 2, 3, 4, 6, and 7 still need extraction, migration, or new writing."
+project_profile:
+  theory_weight: 0.80
+  simulation_weight: 0.05
+  data_weight: 0.00
+  ml_weight: 0.00
+  interpretability_weight: 0.10
+  uncertainty_weight: 0.05
+  infrastructure_weight: 0.05
+  writing_weight: 0.35
+priority_level: "medium"
+linked_projects: []
+key_artifacts:
+  - path: "literature/"
+    purpose: "Local source material."
+  - path: "docs/"
+    purpose: "Project-specific notes and documentation."
+  - path: "writings/"
+    purpose: "Long-form synthesis and writing outputs."
+  - path: "253b_final_paper/tex_docs/"
+    purpose: "Modular TeX outputs for the 253b final paper."
+  - path: "253b_final_paper/llm_docs/"
+    purpose: "Final-paper LLM collaboration docs organized into current guidance, reference notes, and generated logs."
+  - path: "logs/limits/"
+    purpose: "Runtime quota history and archived provenance for merged remaining-limit records."
+  - path: "logs/sessions/"
+    purpose: "Canonical generated assistant/session logs, mirrored into nested deliverable repositories when relevant."
+  - path: "scripts/extract_literature_scientific_text.py"
+    purpose: "QFT wrapper for per-paper Codex extraction of cleaned scientific TeX content into markdown."
+  - path: "scripts/summarize_literature_extracts.py"
+    purpose: "QFT wrapper for per-paper Codex summaries used to triage full TeX imports."
+next_actions:
+  - "Run a small dry-run and then limited batch of the per-paper Codex literature extraction and summary wrappers before scaling to all TeX-backed literature directories."
+  - "Finish Section 5: write the Maxwell-Chern-Simons contrast and QHE caveats subsections."
+  - "Migrate Section 2 from `archive_2026-05-01/topology_review.tex` and `differential_forms_csimons_foundations_v2.tex` into `part1_02_mathematical_toolkit.tex`."
+  - "Migrate Section 3 anomaly-descent and level-quantization material into `part1_03_ordinary_to_chern_simons.tex`."
+  - "Write Section 4 by combining functorial TQFT, Wilson/linking/framing, Hilbert-space, and observable-taxonomy material."
+  - "Draft Sections 6 and 7 from the source map and replace placeholder BibTeX entries before final compile."
+decision_log_refs:
+  - "state/decision_log.md#2026-04-27-initial-state-layer"
+  - "state/decision_log.md#2026-04-29-chern-simons-review-selected-as-active-writing-target"
+  - "state/decision_log.md#2026-04-29-final-paper-modular-tex-and-llm-doc-routing"
+  - "state/decision_log.md#2026-04-29-source-expansion-stage-and-dense-derivation-module"
+  - "state/decision_log.md#2026-04-29-pedagogical-rewrite-stage-and-figure-flags"
+  - "state/decision_log.md#2026-04-29-v2-final-paper-compile-artifact"
+  - "state/decision_log.md#2026-04-30-v3-wrapper-build-with-topology-review"
+  - "state/decision_log.md#2026-05-01-combined-main-tex-wrapper-and-clean-artifact-builds"
+  - "state/decision_log.md#2026-05-02-llm-doc-and-limit-log-normalization"
+  - "state/decision_log.md#2026-05-02-generated-session-log-routing-standard"
+  - "state/decision_log.md#2026-05-02-qft-docs-and-final-paper-git-local-copies"
+  - "state/decision_log.md#2026-05-02-qft-documentation-surface-consolidation"
+  - "state/decision_log.md#2026-05-02-final-paper-duplicate-and-quarantine-cleanup"
+  - "state/decision_log.md#2026-05-02-seven-section-content-map-for-final-paper"
+  - "state/decision_log.md#2026-05-04-per-paper-codex-literature-extraction-and-summary-agents"
+  - "state/decision_log.md#2026-05-04-literature-agent-sandbox-and-prompt-audit"
+  - "state/decision_log.md#2026-05-04-section-level-literature-summary-triage"
+open_risks:
+  - "The project may accumulate references without a clear formal or writing target."
+success_criteria:
+  - "A clear formal target and next writing artifact are named."
+  - "Writing passes are separated into outline, drafting, verification, notation/cross-reference audit, and style review."
+termination_conditions: []
+
+exec
+/bin/zsh -lc 'find /Users/helenabrittain/Documents/Research/Playground/RESEARCH -maxdepth 4 -name AGENTS.md -print' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/_TEMPLATE/AGENTS.md
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/AGENTS.md
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/AGENTS.md
+
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/helenabrittain/Documents/Research/Playground/RESEARCH/AGENTS.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+# AGENTS.md
+
+You are operating inside a multi-project research workspace.
+
+This workspace has four distinct layers:
+
+1. `PROJECTS/` for project-local work.
+2. `PROJECTS/<PROJECT>/state/` for durable project semantic state.
+3. `research_tools/` for shared automation and runtime code.
+4. `research_vault/` for shared cross-project knowledge notes.
+
+Top-level responsibilities:
+
+1. Preserve strict separation between projects.
+2. Read project state before making substantial recommendations.
+3. Update project state after substantive progress.
+4. Reason in terms of the unified research graph rather than separate disciplinary pipelines.
+5. Invoke specialist overlays only when their perspective is useful.
+6. Prefer small, auditable edits to project files over large uncontrolled rewrites.
+
+Global rules:
+
+- Never mix notes or sources from one project into another project unless explicitly linking them.
+- Always identify the active project directory before editing files.
+- Always read `PROJECTS/<PROJECT>/state/project_state.yaml`, `current_stage.yaml`, and `weights.yaml` before planning when they exist.
+- If the current stage is unclear, write a short stage assessment before acting.
+- Use `research stage-review --project <PROJECT>` when a project needs an explicit graph-node assessment and specialist council pass.
+- Every substantive recommendation must include current stage, bottleneck, evidence, and next actions.
+- Any change to project scope, weights, success criteria, or current stage must be logged in `PROJECTS/<PROJECT>/state/decision_log.md`.
+- Keep rich narrative in markdown files and concise machine-readable summaries in YAML.
+- Do not silently overwrite hypotheses, assumptions, or decisions.
+- Root `state/` is for runtime and operational state only, not project-semantic memory.
+- The vault is a knowledge graph, not the source of truth for project control state.
+
+codex
+The wrapper already builds into a basename-specific subdirectory under `artifacts/tex_compile`, which matches the QFT compile convention. I’m going to run it on the requested wrapper now and then inspect the log if it stops.
+exec
+/bin/zsh -lc './scripts/compile_253b_tex_to_artifacts.sh 253b_final_paper/tex_docs/tex_docs_main_wrapper_20260501.tex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 127 in 0ms:
+./scripts/compile_253b_tex_to_artifacts.sh:30: command not found: latexmk
+
+codex
+The run stopped before TeX started because `latexmk` is not available in the sandboxed PATH, so no TeX log was generated yet. I’m checking which local TeX tools are installed before deciding whether a tiny wrapper fallback is appropriate.
+exec
+/bin/zsh -lc 'command -v xelatex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'command -v bibtex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'command -v lualatex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'command -v pdflatex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'command -v latexmk' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+codex
+None of the standard TeX commands are on PATH. I’m checking the usual local TeX install locations directly; this stays within local filesystem reads and does not require network or elevated permissions.
+exec
+/bin/zsh -lc 'ls -la /opt/homebrew/bin/latexmk /usr/local/bin/latexmk /Library/TeX/texbin/latexmk /Library/TeX/texbin/pdflatex /Library/TeX/texbin/bibtex 2>/dev/null' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ exited 1 in 0ms:
+-rwxr-xr-x  1 root  wheel  594368 Feb 17 18:36 /Library/TeX/texbin/bibtex
+lrwxrwxrwx  1 root  wheel      43 Mar 20 15:43 /Library/TeX/texbin/latexmk -> ../../texmf-dist/scripts/latexmk/latexmk.pl
+lrwxrwxrwx  1 root  wheel       6 Mar 20 15:43 /Library/TeX/texbin/pdflatex -> pdftex
+
+exec
+/bin/zsh -lc "ls -la /Library/TeX/texbin 2>/dev/null | sed -n '1,80p'" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+lrwxr-xr-x  1 root  wheel  29 Mar 20 15:45 /Library/TeX/texbin -> Distributions/Programs/texbin
+
+exec
+/bin/zsh -lc "ls -la /usr/local/texlive 2>/dev/null | sed -n '1,80p'" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+total 0
+drwxr-xr-x   5 root  wheel  160 Mar 20 15:45 .
+drwxr-xr-x   7 root  wheel  224 Jun 21  2025 ..
+drwxr-xr-x  20 root  wheel  640 Mar 25  2021 2021
+drwxr-xr-x  20 root  wheel  640 Mar  1 19:03 2026
+drwxr-xr-x   9 root  wheel  288 Mar 20 15:45 texmf-local
+
+codex
+A local TeX Live install is present at `/Library/TeX/texbin`; the compile wrapper failed only because that directory is missing from PATH. I’ll rerun the same project wrapper with a PATH prefix so the script itself still controls the artifact layout.
+exec
+/bin/zsh -lc 'PATH="/Library/TeX/texbin:$PATH" ./scripts/compile_253b_tex_to_artifacts.sh 253b_final_paper/tex_docs/tex_docs_main_wrapper_20260501.tex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 4022ms:
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 15 June 2025. Version 4.87.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  ch09_topological_order.tex
+  ch10_anyons.tex
+  ch11_fqhe.tex
+  ch12_experiments.tex
+  ch13_tqc.tex
+  tex_docs_main_wrapper_20260501.tex
+Category 'changed_user':
+  ch09_topological_order.tex
+  ch10_anyons.tex
+  ch11_fqhe.tex
+  ch12_experiments.tex
+  ch13_tqc.tex
+  tex_docs_main_wrapper_20260501.tex
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501"  "tex_docs_main_wrapper_20260501.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./tex_docs_main_wrapper_20260501.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.toc [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/
+usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+[2]) [3] (./part1_01_introduction.tex) (./part1_02_mathematical_toolkit.tex)
+(./part1_03_ordinary_to_chern_simons.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\intop' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ilimits@' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\wedge' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+) (./part1_04_tqft_and_observables.tex) (./ch09_topological_order.tex [4]
+Overfull \vbox (269.23148pt too high) has occurred while \output is active
+[5]
+
+LaTeX Warning: Citation `Wen1990TopologicalOrders' on page 6 undefined on input
+ line 58.
+
+[6]
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 7 undefined on input li
+ne 90.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 90.
+
+
+LaTeX Warning: Reference `app:tee' on page 7 undefined on input line 98.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 101.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 7 undefined on input 
+line 114.
+
+[7] [8] [9]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 10 undefined on input
+ line 217.
+
+[10] [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+[12{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 13 undefined on input
+ line 357.
+
+[13]) (./ch10_anyons.tex
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 14 undefined on input line 64.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 14 undefined on input line 66.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 14 undefined on input
+ line 66.
+
+[14]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 15 undefined on input
+ line 117.
+
+[15]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 16 undefined on input line 211.
+
+[16]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 17 undefined on input line 271.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 17 undefined on input line 288.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 17 undefined on input
+ line 337.
+
+[17]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 18 undefined on input line 353.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+LaTeX Warning: Reference `sec:hilbert' on page 18 undefined on input line 371.
+
+
+LaTeX Warning: Citation `Witten1989Jones' on page 18 undefined on input line 37
+6.
+
+
+LaTeX Warning: Reference `prop:dimU1k' on page 18 undefined on input line 380.
+
+[18]
+
+LaTeX Warning: Citation `Witten1989Jones' on page 19 undefined on input line 49
+4.
+
+[19]
+
+LaTeX Warning: Citation `Witten1989Jones' on page 20 undefined on input line 53
+4.
+
+
+LaTeX Warning: Reference `sec:hilbert' on page 20 undefined on input line 545.
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-euf.cfg) [20]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 21 undefined on input line
+ 599.
+
+[21]
+
+LaTeX Warning: Reference `ex:SU2-torus' on page 22 undefined on input line 656.
+
+
+
+LaTeX Warning: Citation `Witten1989Jones' on page 22 undefined on input line 66
+1.
+
+
+LaTeX Warning: Reference `prop:topological' on page 22 undefined on input line 
+682.
+
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 22 undefined on input line
+ 707.
+
+
+LaTeX Warning: Reference `sec:witten-jones' on page 22 undefined on input line 
+711.
+
+
+LaTeX Warning: Citation `Witten1989Jones' on page 22 undefined on input line 71
+4.
+
+[22]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 23 undefined on input
+ line 802.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 23 undefined on input line 824.
+
+[23]) (./ch11_fqhe.tex [24]
+
+LaTeX Warning: Citation `TongQuantumHallLectures' on page 25 undefined on input
+ line 116.
+
+
+LaTeX Warning: Citation `TsuiStormerGossard1982FQHEDiscovery' on page 25 undefi
+ned on input line 118.
+
+
+LaTeX Warning: Citation `TsuiStormerGossard1982FQHEDiscovery' on page 25 undefi
+ned on input line 129.
+
+
+LaTeX Warning: Citation `Laughlin1983AnomalousQHE' on page 25 undefined on inpu
+t line 130.
+
+
+LaTeX Warning: Citation `ZhangHanssonKivelson1989FQHE' on page 25 undefined on 
+input line 132.
+
+
+LaTeX Warning: Citation `ArovasSchriefferWilczek1984FractionalStatistics' on pa
+ge 25 undefined on input line 132.
+
+
+LaTeX Warning: Citation `Wen1990TopologicalOrders' on page 25 undefined on inpu
+t line 132.
+
+
+LaTeX Warning: Citation `WenNiu1990GroundStateDegeneracy' on page 25 undefined 
+on input line 132.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 25 un
+defined on input line 132.
+
+
+LaTeX Warning: Citation `Stern2008AnyonsQHEReview' on page 25 undefined on inpu
+t line 132.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 25 undefined on input line 132.
+
+
+LaTeX Warning: Citation `HalperinSternNederRosenow2011FractionalCharge' on page
+ 25 undefined on input line 132.
+
+
+LaTeX Warning: Citation `TongQuantumHallLectures' on page 25 undefined on input
+ line 132.
+
+
+LaTeX Warning: Citation `HalperinJain2020FQHENewDevelopments' on page 25 undefi
+ned on input line 132.
+
+[25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+
+LaTeX Warning: Citation `Laughlin1983AnomalousQHE' on page 26 undefined on inpu
+t line 144.
+
+
+LaTeX Warning: Citation `Laughlin1983AnomalousQHE' on page 26 undefined on inpu
+t line 152.
+
+
+LaTeX Warning: Citation `TongQuantumHallLectures' on page 26 undefined on input
+ line 152.
+
+
+LaTeX Warning: Citation `ZhangHanssonKivelson1989FQHE' on page 26 undefined on 
+input line 157.
+
+
+LaTeX Warning: Citation `Stern2008AnyonsQHEReview' on page 26 undefined on inpu
+t line 165.
+
+[26]
+
+LaTeX Warning: Reference `eq:flux-attachment-constraint' on page 27 undefined o
+n input line 187.
+
+
+LaTeX Warning: Citation `ZhangHanssonKivelson1989FQHE' on page 27 undefined on 
+input line 187.
+
+
+LaTeX Warning: Reference `ex:U1-action' on page 27 undefined on input line 198.
+
+
+[27]
+
+LaTeX Warning: Citation `Wen1990TopologicalOrders' on page 28 undefined on inpu
+t line 231.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 28 un
+defined on input line 231.
+
+
+LaTeX Warning: Citation `Dunne1999AspectsCS' on page 28 undefined on input line
+ 234.
+
+
+LaTeX Warning: Citation `TongQuantumHallLectures' on page 28 undefined on input
+ line 234.
+
+[28]
+
+LaTeX Warning: Citation `Stern2008AnyonsQHEReview' on page 29 undefined on inpu
+t line 266.
+
+
+LaTeX Warning: Citation `Saminadayar1997FractionalCharge' on page 29 undefined 
+on input line 266.
+
+
+LaTeX Warning: Citation `dePicciotto1997FractionalCharge' on page 29 undefined 
+on input line 266.
+
+
+LaTeX Warning: Citation `CaminoZhouGoldman2005ABSuperperiod' on page 29 undefin
+ed on input line 266.
+
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 29 undefined on input line
+ 269.
+
+
+LaTeX Warning: Citation `Stern2008AnyonsQHEReview' on page 29 undefined on inpu
+t line 281.
+
+
+LaTeX Warning: Citation `Saminadayar1997FractionalCharge' on page 29 undefined 
+on input line 293.
+
+
+LaTeX Warning: Citation `dePicciotto1997FractionalCharge' on page 29 undefined 
+on input line 293.
+
+
+LaTeX Warning: Citation `Nakamura2020AnyonicBraiding' on page 29 undefined on i
+nput line 293.
+
+[29]
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 30 un
+defined on input line 302.
+
+
+LaTeX Warning: Citation `WenNiu1990GroundStateDegeneracy' on page 30 undefined 
+on input line 302.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 30 un
+defined on input line 313.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 30 un
+defined on input line 339.
+
+
+LaTeX Warning: Citation `Witten2016ThreeLecturesTopologicalPhases' on page 30 u
+ndefined on input line 339.
+
+
+LaTeX Warning: Reference `sec:anomaly-inflow-general' on page 30 undefined on i
+nput line 339.
+
+[30]
+
+LaTeX Warning: Reference `eq:fqhe-edge-anomaly' on page 31 undefined on input l
+ine 344.
+
+
+LaTeX Warning: Reference `sec:hep-inflow' on page 31 undefined on input line 34
+4.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 31 un
+defined on input line 346.
+
+
+LaTeX Warning: Citation `Witten2016ThreeLecturesTopologicalPhases' on page 31 u
+ndefined on input line 346.
+
+
+LaTeX Warning: Citation `WenNiu1990GroundStateDegeneracy' on page 31 undefined 
+on input line 348.
+
+
+LaTeX Warning: Citation `ElitzurMooreSchwimmerSeiberg1989CanonicalCS' on page 3
+1 undefined on input line 355.
+
+
+LaTeX Warning: Citation `WenNiu1990GroundStateDegeneracy' on page 31 undefined 
+on input line 360.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+LaTeX Warning: Citation `WenZee1992AbelianQHClassification' on page 31 undefine
+d on input line 369.
+
+[31]
+
+LaTeX Warning: Citation `WenZee1992AbelianQHClassification' on page 32 undefine
+d on input line 403.
+
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 32 un
+defined on input line 403.
+
+
+LaTeX Warning: Citation `HalperinJain2020FQHENewDevelopments' on page 32 undefi
+ned on input line 403.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 32 undefined on input line 405.
+
+
+LaTeX Warning: Citation `Stern2008AnyonsQHEReview' on page 32 undefined on inpu
+t line 405.
+
+
+LaTeX Warning: Citation `Witten1989Jones' on page 32 undefined on input line 40
+5.
+
+
+LaTeX Warning: Citation `Dunne1999AspectsCS' on page 32 undefined on input line
+ 405.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 32 undefined on input line 405.
+
+[32]
+
+LaTeX Warning: Reference `eq:maxwell-cs-action' on page 33 undefined on input l
+ine 427.
+
+
+LaTeX Warning: Citation `BirminghamBlauRakowskiThompson1991TopologicalFieldTheo
+ry' on page 33 undefined on input line 427.
+
+
+LaTeX Warning: Reference `eq:maxwell-cs-action' on page 33 undefined on input l
+ine 430.
+
+
+LaTeX Warning: Citation `Dunne1999AspectsCS' on page 33 undefined on input line
+ 443.
+
+[33]
+
+LaTeX Warning: Reference `eq:topological-mass' on page 34 undefined on input li
+ne 462.
+
+
+Overfull \hbox (27.55719pt too wide) detected at line 470
+[][][][]  [] []  [] []\OML/cmm/m/it/10.95 :
+
+LaTeX Warning: Citation `Wen1995TopologicalOrdersEdgeExcitations' on page 34 un
+defined on input line 474.
+
+
+LaTeX Warning: Citation `Dunne1999AspectsCS' on page 34 undefined on input line
+ 474.
+
+
+LaTeX Warning: Reference `sec:atiyah-axioms' on page 34 undefined on input line
+ 482.
+
+[34]
+
+LaTeX Warning: Citation `Nakamura2020AnyonicBraiding' on page 35 undefined on i
+nput line 497.
+
+
+LaTeX Warning: Citation `Bartolomei2020AnyonCollisions' on page 35 undefined on
+ input line 497.
+
+
+LaTeX Warning: Citation `Saminadayar1997FractionalCharge' on page 35 undefined 
+on input line 497.
+
+
+LaTeX Warning: Citation `dePicciotto1997FractionalCharge' on page 35 undefined 
+on input line 497.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 35 undefined on input line 501.
+
+) (./ch12_experiments.tex [35]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+LaTeX Warning: Citation `Saminadayar1997FractionalCharge' on page 36 undefined 
+on input line 63.
+
+
+LaTeX Warning: Citation `dePicciotto1997FractionalCharge' on page 36 undefined 
+on input line 63.
+
+
+LaTeX Warning: Citation `CaminoZhouGoldman2005ABSuperperiod' on page 36 undefin
+ed on input line 63.
+
+
+LaTeX Warning: Citation `Nakamura2020AnyonicBraiding' on page 36 undefined on i
+nput line 63.
+
+
+LaTeX Warning: Citation `RosenowHalperinInterferometryPlaceholder' on page 36 u
+ndefined on input line 69.
+
+[36]
+
+LaTeX Warning: Reference `eq:nakamura-phase-jump' on page 37 undefined on input
+ line 89.
+
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 37 undefined on input line
+ 89.
+
+[37]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 38 undefined on input line 122.
+
+
+LaTeX Warning: Citation `Werkmeister2024GrapheneInterferometer' on page 38 unde
+fined on input line 127.
+
+[38]
+
+LaTeX Warning: Reference `eq:nakamura-conductance' on page 39 undefined on inpu
+t line 141.
+
+
+LaTeX Warning: Reference `eq:nakamura-result' on page 39 undefined on input lin
+e 159.
+
+[39]
+
+LaTeX Warning: Citation `RosenowHalperinInterferometryPlaceholder' on page 40 u
+ndefined on input line 176.
+
+
+LaTeX Warning: Citation `Andersen2023NonAbelianBraiding' on page 40 undefined o
+n input line 185.
+
+[40] [41] [42]
+
+LaTeX Warning: Reference `eq:andersen-ising-fusion' on page 43 undefined on inp
+ut line 266.
+
+
+LaTeX Warning: Reference `eq:andersen-braid-gate' on page 43 undefined on input
+ line 266.
+
+[43]
+
+LaTeX Warning: Citation `Saminadayar1997FractionalCharge' on page 44 undefined 
+on input line 279.
+
+
+LaTeX Warning: Citation `dePicciotto1997FractionalCharge' on page 44 undefined 
+on input line 279.
+
+
+LaTeX Warning: Reference `eq:shot-noise-poisson' on page 44 undefined on input 
+line 295.
+
+
+LaTeX Warning: Citation `Bartolomei2020AnyonCollisions' on page 44 undefined on
+ input line 299.
+
+[44]
+
+LaTeX Warning: Reference `eq:nakamura-wilson-link' on page 45 undefined on inpu
+t line 335.
+
+[45]) (./ch13_tqc.tex
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 46 undefined on input
+ line 47.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 46 undefined on input line 84.
+
+[46]
+
+LaTeX Warning: Reference `eq:topo-protection' on page 47 undefined on input lin
+e 101.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 113.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 139.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 47 undefined on input line 139.
+
+[47]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sigma' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+LaTeX Warning: Reference `eq:topo-degeneracy' on page 48 undefined on input lin
+e 167.
+
+
+LaTeX Warning: Reference `eq:ising-fusion-rules' on page 48 undefined on input 
+line 191.
+
+
+LaTeX Warning: Reference `eq:one-qubit-space' on page 48 undefined on input lin
+e 214.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 48 undefined on input line 217.
+
+[48]
+
+LaTeX Warning: Reference `eq:one-qubit-space' on page 49 undefined on input lin
+e 240.
+
+
+LaTeX Warning: Reference `eq:braid-sigma1' on page 49 undefined on input line 2
+75.
+
+
+LaTeX Warning: Reference `eq:braid-sigma2' on page 49 undefined on input line 2
+76.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 49 undefined on input line 288.
+
+[49]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 50 undefined on input line 322.
+
+
+Overfull \hbox (1.8395pt too wide) in paragraph at lines 352--358
+[]\T1/cmr/m/n/10.95 (-20) It is worth noting that a complete computation---from
+ initialization through braiding to measurement---
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 50 undefined on input line 380.
+
+[50]
+
+LaTeX Warning: Reference `subsec:photonic-braiding' on page 51 undefined on inp
+ut line 393.
+
+
+LaTeX Warning: Reference `eq:topo-protection' on page 51 undefined on input lin
+e 409.
+
+[51]
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 52 undefined on input line 467.
+
+
+LaTeX Warning: Citation `NayakSimonSternFreedmanDasSarma2008NonabelianAnyons' o
+n page 52 undefined on input line 483.
+
+
+LaTeX Warning: Reference `eq:topo-protection' on page 52 undefined on input lin
+e 492.
+
+[52]) (./ch14_sectors_3plus1d.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\eta' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+) (./ch15_defects_synthesis.tex) (./ch16_outlook.tex) (./app_e_tee.tex
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 53 undefined on input l
+ine 17.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 53 undefined on input
+ line 17.
+
+[53]
+
+LaTeX Warning: Reference `eq:tee-expansion' on page 54 undefined on input line 
+36.
+
+[54]
+
+LaTeX Warning: Reference `eq:kp-combination' on page 55 undefined on input line
+ 42.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 55 undefined on input
+ line 54.
+
+[55]
+
+LaTeX Warning: Reference `eq:tee-expansion' on page 56 undefined on input line 
+88.
+
+)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.bbl [56]) [57]
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `tex_docs_main_wrapper_20260501.out' has c
+hanged.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2026/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/
+type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/cm-super/sfbx2074.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public
+/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/c
+m-super/sfrm1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-
+super/sfti1095.pfb>
+Output written on /Users/helenabrittain/Documents/Research/Playground/RESEARCH/
+PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main
+_wrapper_20260501.pdf (57 pages, 706087 bytes).
+Transcript written on /Users/helenabrittain/Documents/Research/Playground/RESEA
+RCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_
+main_wrapper_20260501.log.
+Latexmk: Getting log file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.fls'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Found input bbl file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl'
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./tqft_observables_unresolved_refs.bib
+Latexmk: applying rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501'...
+Rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501':  Reasons for rerun
+Changed files or newly in use/created:
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.aux
+
+------------
+Run number 1 of rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501'
+------------
+Latexmk: Change directory to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs:/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501:'
+  BSTINPUTS='/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs:'.
+------------
+Running 'bibtex  "tex_docs_main_wrapper_20260501.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: tex_docs_main_wrapper_20260501.aux
+The style file: unsrt.bst
+Database file #1: tqft_observables_unresolved_refs.bib
+Warning--I didn't find a database entry for "KitaevPreskill2006TEE"
+Warning--I didn't find a database entry for "LevinWen2006DetectingTO"
+Warning--I didn't find a database entry for "Kitaev2003FaultTolerant"
+Warning--I didn't find a database entry for "Werkmeister2024GrapheneInterferometer"
+Warning--I didn't find a database entry for "Andersen2023NonAbelianBraiding"
+Warning--empty journal in Dunne1999AspectsCS
+(There were 6 warnings)
+Latexmk: Change directory back to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.aux
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.out
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.toc
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501"  "tex_docs_main_wrapper_20260501.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./tex_docs_main_wrapper_20260501.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.toc [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/
+usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+[2]) [3] (./part1_01_introduction.tex) (./part1_02_mathematical_toolkit.tex)
+(./part1_03_ordinary_to_chern_simons.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\intop' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ilimits@' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\wedge' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+) (./part1_04_tqft_and_observables.tex) (./ch09_topological_order.tex [4]
+Overfull \vbox (269.23148pt too high) has occurred while \output is active
+[5] [6]
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 7 undefined on input li
+ne 90.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 90.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 101.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 7 undefined on input 
+line 114.
+
+[7] [8] [9]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 10 undefined on input
+ line 217.
+
+[10] [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+[12{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 13 undefined on input
+ line 357.
+
+[13]) (./ch10_anyons.tex
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 14 undefined on input
+ line 66.
+
+[14]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 15 undefined on input
+ line 117.
+
+[15] [16]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 17 undefined on input
+ line 337.
+
+[17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+LaTeX Warning: Reference `sec:hilbert' on page 18 undefined on input line 371.
+
+
+LaTeX Warning: Reference `prop:dimU1k' on page 18 undefined on input line 380.
+
+[18] [19]
+
+LaTeX Warning: Reference `sec:hilbert' on page 20 undefined on input line 545.
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-euf.cfg) [20]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 21 undefined on input line
+ 599.
+
+[21]
+
+LaTeX Warning: Reference `ex:SU2-torus' on page 22 undefined on input line 656.
+
+
+
+LaTeX Warning: Reference `prop:topological' on page 22 undefined on input line 
+682.
+
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 22 undefined on input line
+ 707.
+
+
+LaTeX Warning: Reference `sec:witten-jones' on page 22 undefined on input line 
+711.
+
+[22]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 23 undefined on input
+ line 802.
+
+[23]) (./ch11_fqhe.tex [24] [25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+[26]
+
+LaTeX Warning: Reference `ex:U1-action' on page 27 undefined on input line 198.
+
+
+[27] [28]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 29 undefined on input line
+ 269.
+
+[29]
+
+LaTeX Warning: Reference `sec:anomaly-inflow-general' on page 30 undefined on i
+nput line 339.
+
+[30]
+
+LaTeX Warning: Reference `sec:hep-inflow' on page 31 undefined on input line 34
+4.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+[31] [32]
+
+LaTeX Warning: Citation `BirminghamBlauRakowskiThompson1991TopologicalFieldTheo
+ry' on page 33 undefined on input line 427.
+
+[33]
+Overfull \hbox (27.55719pt too wide) detected at line 470
+[][][][]  [] []  [] []\OML/cmm/m/it/10.95 :
+
+LaTeX Warning: Reference `sec:atiyah-axioms' on page 34 undefined on input line
+ 482.
+
+[34]) (./ch12_experiments.tex [35]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+LaTeX Warning: Reference `eq:fqhe-full-winding' on page 36 undefined on input l
+ine 58.
+
+
+LaTeX Warning: Citation `RosenowHalperinInterferometryPlaceholder' on page 36 u
+ndefined on input line 69.
+
+[36]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 37 undefined on input line
+ 89.
+
+
+LaTeX Warning: Reference `eq:fqhe-full-winding' on page 37 undefined on input l
+ine 95.
+
+[37]
+
+LaTeX Warning: Citation `Werkmeister2024GrapheneInterferometer' on page 38 unde
+fined on input line 127.
+
+[38] [39]
+
+LaTeX Warning: Citation `RosenowHalperinInterferometryPlaceholder' on page 40 u
+ndefined on input line 176.
+
+
+LaTeX Warning: Citation `Andersen2023NonAbelianBraiding' on page 40 undefined o
+n input line 185.
+
+[40] [41] [42] [43] [44] [45]) (./ch13_tqc.tex
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 46 undefined on input
+ line 47.
+
+[46]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 113.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 139.
+
+[47]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sigma' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+[48] [49]
+Overfull \hbox (1.8395pt too wide) in paragraph at lines 352--358
+[]\T1/cmr/m/n/10.95 (-20) It is worth noting that a complete computation---from
+ initialization through braiding to measurement---
+[50]
+
+LaTeX Warning: Reference `subsec:photonic-braiding' on page 51 undefined on inp
+ut line 393.
+
+[51] [52]) (./ch14_sectors_3plus1d.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\eta' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+) (./ch15_defects_synthesis.tex) (./ch16_outlook.tex) (./app_e_tee.tex
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 53 undefined on input l
+ine 17.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 53 undefined on input
+ line 17.
+
+[53] [54]
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 55 undefined on input
+ line 54.
+
+[55])
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.bbl [56]) [57]
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2026/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/
+type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/cm-super/sfbx2074.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public
+/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/c
+m-super/sfrm1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-
+super/sfti1095.pfb>
+Output written on /Users/helenabrittain/Documents/Research/Playground/RESEARCH/
+PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main
+_wrapper_20260501.pdf (57 pages, 711614 bytes).
+Transcript written on /Users/helenabrittain/Documents/Research/Playground/RESEA
+RCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_
+main_wrapper_20260501.log.
+Latexmk: Getting log file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.fls'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Found input bbl file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf'
+  ===Source file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl' for 'pdflatex'
+Latexmk: Using bibtex to make bibliography file(s).
+Latexmk: Found bibliography file(s):
+  ./tqft_observables_unresolved_refs.bib
+Latexmk: applying rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501'...
+Rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501':  Reasons for rerun
+Changed files or newly in use/created:
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.aux
+
+------------
+Run number 2 of rule 'bibtex /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501'
+------------
+Latexmk: Change directory to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs:/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501:'
+  BSTINPUTS='/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs:'.
+------------
+Running 'bibtex  "tex_docs_main_wrapper_20260501.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: tex_docs_main_wrapper_20260501.aux
+The style file: unsrt.bst
+Database file #1: tqft_observables_unresolved_refs.bib
+Warning--I didn't find a database entry for "KitaevPreskill2006TEE"
+Warning--I didn't find a database entry for "LevinWen2006DetectingTO"
+Warning--I didn't find a database entry for "Kitaev2003FaultTolerant"
+Warning--I didn't find a database entry for "Werkmeister2024GrapheneInterferometer"
+Warning--I didn't find a database entry for "Andersen2023NonAbelianBraiding"
+Warning--empty journal in Dunne1999AspectsCS
+(There were 6 warnings)
+Latexmk: Change directory back to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.aux
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501"  "tex_docs_main_wrapper_20260501.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./tex_docs_main_wrapper_20260501.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2026/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.out) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.toc [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/
+usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+[2]) [3] (./part1_01_introduction.tex) (./part1_02_mathematical_toolkit.tex)
+(./part1_03_ordinary_to_chern_simons.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\intop' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ilimits@' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\wedge' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 70.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 70.
+
+) (./part1_04_tqft_and_observables.tex) (./ch09_topological_order.tex [4]
+Overfull \vbox (269.23148pt too high) has occurred while \output is active
+[5] [6]
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 7 undefined on input li
+ne 90.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 90.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 7 undefined on input 
+line 101.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 7 undefined on input 
+line 114.
+
+[7] [8] [9]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 10 undefined on input
+ line 217.
+
+[10] [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 294.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 294.
+
+[12{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 13 undefined on input
+ line 357.
+
+[13]) (./ch10_anyons.tex
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 14 undefined on input
+ line 66.
+
+[14]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 15 undefined on input
+ line 117.
+
+[15] [16]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 17 undefined on input
+ line 337.
+
+[17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+LaTeX Warning: Reference `sec:hilbert' on page 18 undefined on input line 371.
+
+
+LaTeX Warning: Reference `prop:dimU1k' on page 18 undefined on input line 380.
+
+[18] [19]
+
+LaTeX Warning: Reference `sec:hilbert' on page 20 undefined on input line 545.
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-euf.cfg) [20]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 21 undefined on input line
+ 599.
+
+[21]
+
+LaTeX Warning: Reference `ex:SU2-torus' on page 22 undefined on input line 656.
+
+
+
+LaTeX Warning: Reference `prop:topological' on page 22 undefined on input line 
+682.
+
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 22 undefined on input line
+ 707.
+
+
+LaTeX Warning: Reference `sec:witten-jones' on page 22 undefined on input line 
+711.
+
+[22]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 23 undefined on input
+ line 802.
+
+[23]) (./ch11_fqhe.tex [24] [25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 138.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 138.
+
+[26]
+
+LaTeX Warning: Reference `ex:U1-action' on page 27 undefined on input line 198.
+
+
+[27] [28]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 29 undefined on input line
+ 269.
+
+[29]
+
+LaTeX Warning: Reference `sec:anomaly-inflow-general' on page 30 undefined on i
+nput line 339.
+
+[30]
+
+LaTeX Warning: Reference `sec:hep-inflow' on page 31 undefined on input line 34
+4.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 366.
+
+[31] [32] [33]
+Overfull \hbox (27.55719pt too wide) detected at line 470
+[][][][]  [] []  [] []\OML/cmm/m/it/10.95 :
+
+LaTeX Warning: Reference `sec:atiyah-axioms' on page 34 undefined on input line
+ 482.
+
+[34]) (./ch12_experiments.tex [35]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\nu' on input line 55.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 55.
+
+
+LaTeX Warning: Reference `eq:fqhe-full-winding' on page 36 undefined on input l
+ine 58.
+
+[36]
+
+LaTeX Warning: Reference `ex:abelian-wilson' on page 37 undefined on input line
+ 89.
+
+
+LaTeX Warning: Reference `eq:fqhe-full-winding' on page 37 undefined on input l
+ine 95.
+
+[37]
+
+LaTeX Warning: Citation `Werkmeister2024GrapheneInterferometer' on page 38 unde
+fined on input line 127.
+
+[38] [39]
+
+LaTeX Warning: Citation `Andersen2023NonAbelianBraiding' on page 40 undefined o
+n input line 185.
+
+[40] [41] [42] [43] [44] [45]) (./ch13_tqc.tex
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 46 undefined on input
+ line 47.
+
+[46]
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 113.
+
+
+LaTeX Warning: Citation `Kitaev2003FaultTolerant' on page 47 undefined on input
+ line 139.
+
+[47]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sigma' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 152.
+
+[48] [49]
+Overfull \hbox (1.8395pt too wide) in paragraph at lines 352--358
+[]\T1/cmr/m/n/10.95 (-20) It is worth noting that a complete computation---from
+ initialization through braiding to measurement---
+[50]
+
+LaTeX Warning: Reference `subsec:photonic-braiding' on page 51 undefined on inp
+ut line 393.
+
+[51] [52]) (./ch14_sectors_3plus1d.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\eta' on input line 87.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 87.
+
+) (./ch15_defects_synthesis.tex) (./ch16_outlook.tex) (./app_e_tee.tex
+
+LaTeX Warning: Citation `KitaevPreskill2006TEE' on page 53 undefined on input l
+ine 17.
+
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 53 undefined on input
+ line 17.
+
+[53] [54]
+
+LaTeX Warning: Citation `LevinWen2006DetectingTO' on page 55 undefined on input
+ line 54.
+
+[55])
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.bbl [56]) [57]
+(/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/arti
+facts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501
+.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
+(see the transcript file for additional information)</usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2026/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2026/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eufm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/font
+s/type1/public/cm-super/sfbi1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/
+type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type
+1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/
+public/cm-super/sfbx2074.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public
+/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/c
+m-super/sfrm1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-
+super/sfti1095.pfb>
+Output written on /Users/helenabrittain/Documents/Research/Playground/RESEARCH/
+PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main
+_wrapper_20260501.pdf (57 pages, 711797 bytes).
+Transcript written on /Users/helenabrittain/Documents/Research/Playground/RESEA
+RCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_
+main_wrapper_20260501.log.
+Latexmk: Getting log file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.fls'
+Latexmk: Examining '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Found input bbl file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl'
+Latexmk: Log file says output to '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./tqft_observables_unresolved_refs.bib
+Latexmk: ====Undefined refs and citations with line #s in .tex file:
+  Citation `KitaevPreskill2006TEE' on page 7 undefined on input line 90
+  Citation `LevinWen2006DetectingTO' on page 7 undefined on input line 90
+  Citation `LevinWen2006DetectingTO' on page 7 undefined on input line 101
+  Citation `Kitaev2003FaultTolerant' on page 7 undefined on input line 114
+  Citation `Kitaev2003FaultTolerant' on page 10 undefined on input line 217
+  Citation `Kitaev2003FaultTolerant' on page 13 undefined on input line 357
+  Citation `Kitaev2003FaultTolerant' on page 14 undefined on input line 66
+ And 30 more --- see log file '/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log'
+Latexmk: Summary of warnings from last run of *latex:
+  Latex failed to resolve 19 reference(s)
+  Latex failed to resolve 18 citation(s)
+Latexmk: All targets (/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf) are up-to-date
+
+Built /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf
+
+codex
+The compile completed and produced a 57-page PDF. I’m doing one final filesystem check on the artifact path and log so the summary can name the exact output.
+exec
+/bin/zsh -lc 'ls -lh artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+exec
+/bin/zsh -lc 'ls -lh artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT
+ succeeded in 0ms:
+-rw-r--r--@ 1 helenabrittain  staff    33K May  5 07:12 artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.log
+
+ succeeded in 0ms:
+-rw-r--r--@ 1 helenabrittain  staff   695K May  5 07:12 artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf
+
+codex
+Compiled successfully with the project wrapper.
+
+PDF: [tex_docs_main_wrapper_20260501.pdf](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf)
+
+No TeX or code edits were made. The first run failed because `latexmk` was not on PATH; I reran the same wrapper with local TeX Live added via `/Library/TeX/texbin`. The build completed with warnings about unresolved references/citations, but it produced the 57-page PDF.
+tokens used
+55,712
+Compiled successfully with the project wrapper.
+
+PDF: [tex_docs_main_wrapper_20260501.pdf](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf)
+
+No TeX or code edits were made. The first run failed because `latexmk` was not on PATH; I reran the same wrapper with local TeX Live added via `/Library/TeX/texbin`. The build completed with warnings about unresolved references/citations, but it produced the 57-page PDF.

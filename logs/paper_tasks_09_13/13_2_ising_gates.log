@@ -1,0 +1,8 @@
+Done. I've replaced the TODO block under `\label{subsec:ising-gates}` with ~130 lines of LaTeX covering:
+
+1. **Ising fusion rules** and the derivation that 4 σ-anyons give a 2-qubit space (with the pairwise fusion tree made explicit).
+2. **Braid group representation** — the explicit R-matrix entries \eqref{eq:ising-R-matrix} and the matrix forms of the B₄ generators \eqref{eq:braid-sigma1}, \eqref{eq:braid-sigma2} including the F-matrix basis change.
+3. **Clifford group identification** — showing that H and S arise as squares of braid generators, and citing the Gottesman–Knill theorem for why this isn't universal.
+4. **T gate and magic-state distillation** — the hybrid architecture for achieving universality with polynomial overhead.
+
+All equations are numbered/labeled, cross-references use existing `\ref{}`/`\eqref{}` targets, and citations use the established `\cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}` key.

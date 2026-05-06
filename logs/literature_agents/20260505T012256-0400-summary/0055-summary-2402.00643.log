@@ -1,0 +1,14 @@
+Task complete. I've successfully:
+
+1. **Created 10 section markdown files** in `codex_section_extracts/` (section_01 through section_10), each with proper YAML frontmatter and LaTeX content extracted from the source paper.
+
+2. **Written comprehensive paper summary** in `codex_paper_summary.md` with:
+   - **Whole-paper snapshot**: Overview of this pedagogical review on Majorana zero modes as zero-energy surface Andreev bound states, covering BdG formalism, topological properties, and experimental signatures
+   - **Section-by-section summaries**: Scaled appropriately (50–150 words for short sections, longer for dense technical content)
+   - **Import recommendations**: 
+     - **High priority**: Sections 1, 2, 3, 5 (foundation, BdG theory, topological phases, ZBCP signatures)
+     - **Medium-high**: Sections 6, 7 (anomalous proximity effect, Josephson effect)
+     - **Medium**: Section 4 (detailed Green's functions—import selectively)
+     - **Low/skip**: Sections 8–10 (summary, acknowledgments, appendix)
+
+The paper is a substantial technical review (~4,579 lines) connecting historical work on unconventional superconductors to modern topological physics, with extensive analytical derivations and experimental signature analysis.

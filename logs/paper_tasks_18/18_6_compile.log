@@ -1,0 +1,36 @@
+---
+
+## Results
+
+The full paper compiles cleanly. Here's the summary:
+
+**PDF:** `artifacts/253b_final_paper_compile/main/main.pdf` — **241 pages** total
+
+### Compile health
+- 0 errors, 0 undefined references, 0 undefined citations
+- Only cosmetic warnings (hyperref bookmark tokens, empty bib journal fields)
+
+### Page count
+- **Front matter (TOC):** 6 pages
+- **Main text (Ch 1–16):** 198 pages
+- **Appendices (A–E):** ~36 pages
+- **Bibliography:** included in total
+
+### Over the 120-page limit
+Main text is **198 pages** — 78 pages over 120. The longest chapters:
+
+| Ch | Title | Pages |
+|----|-------|-------|
+| 5 | Chern--Simons Theory | **28** |
+| 2 | Differential Forms | 18 |
+| 8 | Generalized Symmetries | 17 |
+| 4 | Frobenius Algebras | 16 |
+| 14 | 3+1d Sectors | 16 |
+
+**Suggested cuts:** Ch 5 derivations to appendix (−8–10 pp), trim Ch 2 toolkit (−8–10 pp), compress Ch 8 and 14 examples (−8–10 pp each), tighten FQHE overlap in Ch 11/12 (−5 pp). Realistic ceiling is ~150 pp without dropping entire chapters; reaching 120 would require structural decisions about scope.
+
+### Fixes made
+- Created `main.tex` wrapper (all 16 chapters + 5 appendices)
+- Fixed bibtex parse error in `.bib` file
+- Added 4 missing bibliography entries (`Cerf1970`, `Dehn1938`, `Lickorish1962`, `Mednykh1978`)
+- Resolved 2 duplicate-label conflicts

@@ -1,0 +1,19 @@
+Done. I've extracted the scientific content from the TeX source and created a cleaned markdown file. Here's what was done:
+
+**Process:**
+- Copied the single substantive TeX file (05axdw3.tex) using a Python script that removes TeX plumbing: document class, packages, author/affiliation blocks, bibliography commands, figure/table environments, and citation commands
+- Preserved all scientific prose: definitions, equations, derivations, named results, and observational constraints
+- Kept TeX math mode notation (`\begin{equation}`, `$...$`, etc.) intact for technical precision
+- Updated the YAML front matter with metadata about the extraction
+
+**Key content preserved:**
+- Title and abstract (scientific summary)
+- Complete Introduction through Conclusion sections
+- Detailed derivations: domain wall models, topological defects, domain wall number formula
+- Numerical simulation methodology and results
+- Observational constraints: axion abundance, NEDM bounds, astrophysical limits
+- Appendices covering numerical schemes, defect identification, and spectral analysis (in TeX for technical reference)
+
+**Output file:** `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/1207.3166/codex_scientific_text.md`
+
+The file is now ready for use in your research workflow.

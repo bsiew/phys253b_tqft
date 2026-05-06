@@ -10,7 +10,7 @@
 %
 % Status: ~80% DRAFTED. Core migrated from archive_2026-05-04_pre_bsiew_integration/
 %   part2_05_response_2plus1d.tex. TODO: expand 11.1 (Hall setup), write 11.6
-%   (Maxwell-CS), write 11.7 (honesty box).
+%   (Maxwell-CS), write 11.7 (scope/limitations).
 %
 % Length target: ~12 pages
 %
@@ -21,7 +21,7 @@
 %   11.4  Edge chiral boson, anomaly inflow, GSD (= old Sec 5.3)
 %   11.5  K-matrix theory and nonabelian states (= old Sec 5.4)
 %   11.6  Maxwell-Chern-Simons: when a CS term is not a TQFT (= old Sec 5.5)
-%   11.7  Honesty box: what is clean, what is mesoscopic (= old Sec 5.6 + task 11_5)
+%   11.7  Scope and limitations: what is clean, what is mesoscopic (= old Sec 5.6 + task 11_5)
 %
 % Owner: Helena
 % Stage: IV
@@ -77,14 +77,43 @@
 \subsection{Quantum Hall Setup}
 \label{subsec:hall-setup}
 
-% TODO (Task 11_1): Expand from the opening paragraphs below to ~2 pages.
-% Add: Hall bar geometry, MOSFET vs GaAs/AlGaAs, Landau levels E_n,
-% filling fraction nu, integer vs fractional plateaus.
-% The current opening (migrated below) jumps straight to the FQHE;
-% add the experimental context first.
-% Cite: Tong QHE, Laughlin 1983, Tsui-Stormer-Gossard 1982.
+What happens when you confine electrons to two dimensions, turn on a strong magnetic field, and cool them to a kelvin? A semiconductor heterostructure---typically GaAs/AlGaAs---pins the electrons to a $\sim 10\,\text{nm}$ interface, producing a two-dimensional electron gas (2DEG) with density $n_e \sim 10^{11}\,\text{cm}^{-2}$. Apply a perpendicular field $B \sim 1\text{--}30\,\text{T}$, cool below $1\,\text{K}$, and measure transport. A current $I$ runs down a Hall bar; one reads off the longitudinal and transverse voltages to construct
+\begin{equation}
+  R_{xx} = \frac{V_{xx}}{I}, \qquad R_{xy} = \frac{V_{xy}}{I}.
+  \label{eq:hall-resistances}
+\end{equation}
+Classically, Drude gives $R_{xy} = B/(n_e e)$---linear in $B$, featureless. Quantum mechanics has other plans.
 
-Take a two-dimensional electron gas, place it in a strong perpendicular magnetic field, and cool it to around $T\approx 1\,\text{K}$. Measured across the sample, the Hall conductivity shows the expected integer plateaus at $\nu=1,2,3,\ldots$, but also a staircase of fractional plateaus,
+In a uniform field $\mathbf{B} = B\hat{z}$, the single-particle Hamiltonian is
+\begin{equation}
+  H = \frac{1}{2m^*}(\mathbf{p} - e\mathbf{A})^2,
+  \label{eq:landau-hamiltonian}
+\end{equation}
+which is a harmonic oscillator in disguise. Its spectrum collapses into Landau levels,
+\begin{equation}
+  E_n = \hbar\omega_c\!\left(n + \tfrac{1}{2}\right), \qquad n = 0,1,2,\ldots,
+  \label{eq:landau-levels}
+\end{equation}
+with cyclotron frequency $\omega_c = eB/m^*$. Each level holds exactly as many states as there are flux quanta $\Phi_0 = h/e$ threading the sample:
+\begin{equation}
+  N_\phi = \frac{BA}{\Phi_0} = \frac{eBA}{h},
+  \label{eq:flux-quanta}
+\end{equation}
+so at $10\,\text{T}$ in a $1\,\text{cm}^2$ sample, $N_\phi \sim 10^{11}$---on the order of the electron number. The filling fraction
+\begin{equation}
+  \nu = \frac{N_e}{N_\phi} = \frac{n_e h}{eB}
+  \label{eq:filling-fraction}
+\end{equation}
+counts how many levels are full.
+
+At integer $\nu = n$, exactly $n$ levels are filled, the cyclotron gap protects the ground state, and the Hall resistance locks to
+\begin{equation}
+  R_{xy} = \frac{h}{\nu e^2} = \frac{h}{n e^2}, \qquad R_{xx} = 0,
+  \label{eq:iqhe-plateaus}
+\end{equation}
+with $R_{xx}$ vanishing simultaneously. This is von Klitzing's integer quantum Hall effect (1980), exact to parts in $10^{9}$. The explanation is single-particle physics: localized bulk states carry no current, extended states at each Landau-level center carry one unit of Hall conductance, and disorder widens the plateaus without shifting them \cite{TongQuantumHallLectures}.
+
+The fractional effect is a different animal entirely. In 1982, Tsui, Stormer, and Gossard \cite{TsuiStormerGossard1982FQHEDiscovery} found that ultra-clean samples show plateaus at rational fillings---first $\nu = 1/3$, then $\nu = 2/5, 3/7, 2/3, 5/2$, and dozens more:
 \begin{equation}
   \sigma_{xy}
   =
@@ -93,10 +122,18 @@ Take a two-dimensional electron gas, place it in a strong perpendicular magnetic
   \nu = \frac{1}{3},\,\frac{2}{5},\,\frac{5}{2},\,\ldots
   \label{eq:fqhe-conductance}
 \end{equation}
-first seen in \cite{TsuiStormerGossard1982FQHEDiscovery}.
-The integer case is already understood: at $\nu=n$ one fills $n$ Landau levels, and single-particle quantum mechanics is enough. The fractional plateaus are the harder story. Laughlin's variational wavefunction at $\nu=1/m$ has remarkable numerical overlap with the true ground state \cite{Laughlin1983AnomalousQHE}, but on its own it does not explain why transport is quantized to such extraordinary precision, why the quasihole excitations carry charge $e/m$, or why exchanging two such quasiholes gives a phase $e^{i\pi/m}$ intermediate between bosons and fermions. Each of these is a universal number, and each is observed experimentally. The question is what structure is rigid enough to produce them.
+No single-particle picture can explain these. At $\nu = 1/3$ the lowest Landau level is one-third full, and its $N_\phi$-fold degeneracy makes the problem intrinsically many-body. The key point: the magnetic field has quenched the kinetic energy. All states in a Landau level are exactly degenerate, so Coulomb repulsion is not a perturbation on a kinetic-energy scale---it is the \emph{only} energy scale. (In the integer effect, kinetic energy does all the work. Here, interactions do.) The repulsion lifts the degeneracy and selects a gapped ground state, but perturbation theory is hopeless because there is no small parameter.
 
-The answer, developed through the late 1980s by Zhang, Hansson, Kivelson, Wen, Niu, Arovas, Schrieffer, Wilczek, and others \cite{ZhangHanssonKivelson1989FQHE,ArovasSchriefferWilczek1984FractionalStatistics,Wen1990TopologicalOrders,WenNiu1990GroundStateDegeneracy}, is that the low-energy physics at $\nu=1/m$ is a Chern--Simons topological field theory. Once that effective theory is written down, the three universal numbers---conductivity, quasihole charge, and anyonic exchange phase---are controlled by a single integer coefficient, and the mathematical structures developed in Part I (differential forms, fiber bundles, linking, functorial quantization, anomaly inflow) are the tools that make the derivation transparent. The rest of this section carries out that derivation in four passes: write the effective action and read off the Hall response, insert quasihole sources and read off the charge and statistics, turn on global topology and read off edge modes and ground-state degeneracy, and finally sketch how the Laughlin case sits inside a broader family. Review treatments that follow the same logic include \cite{Wen1995TopologicalOrdersEdgeExcitations,Stern2008AnyonsQHEReview,NayakSimonSternFreedmanDasSarma2008NonabelianAnyons,HalperinSternNederRosenow2011FractionalCharge,TongQuantumHallLectures,HalperinJain2020FQHENewDevelopments}.
+Laughlin's variational wavefunction \cite{Laughlin1983AnomalousQHE} has $>0.99$ overlap with the true ground state at $\nu = 1/m$, but on its own it does not explain why transport is quantized to such precision, why quasiholes carry charge $e/m$, or why exchanging two quasiholes yields the phase $e^{i\pi/m}$. Each of these is a universal number; each is measured. What structure is rigid enough to produce them?
+
+The answer, developed through the late 1980s by Zhang, Hansson, Kivelson, Wen, Niu, Arovas, Schrieffer, Wilczek, and others \cite{ZhangHanssonKivelson1989FQHE,ArovasSchriefferWilczek1984FractionalStatistics,Wen1990TopologicalOrders,WenNiu1990GroundStateDegeneracy}, is Chern--Simons topological field theory. Once the effective theory is written down, all three universal numbers are controlled by a single integer, and the mathematics of Part I---differential forms, bundles, linking, functorial quantization, anomaly inflow---makes the derivation transparent. The rest of this chapter carries it out: write the effective action and read off the Hall response, insert sources and read off charge and statistics, turn on topology and read off edges and degeneracy, then see how the Laughlin case embeds in the broader family. Reviews following the same logic include \cite{Wen1995TopologicalOrdersEdgeExcitations,Stern2008AnyonsQHEReview,NayakSimonSternFreedmanDasSarma2008NonabelianAnyons,HalperinSternNederRosenow2011FractionalCharge,TongQuantumHallLectures,HalperinJain2020FQHENewDevelopments}.
+
+\begin{figure}[h]
+    \centering
+    \input{figures/f_response_overview.tex}
+    \caption{Response roadmap for the Laughlin effective theory: the same bulk Chern--Simons data control Hall transport, quasiparticle charge and braiding, edge anomaly inflow, and torus-sector counting.}
+    \label{fig:fqhe-response-overview}
+\end{figure}
 
 % ----------------------------------------------------------------------------
 % 11.2 Laughlin State and Effective U(1)_m Chern-Simons
@@ -105,9 +142,53 @@ The answer, developed through the late 1980s by Zhang, Hansson, Kivelson, Wen, N
 \subsection{Laughlin State and Effective $U(1)_m$ Chern--Simons}
 \label{subsec:laughlin-to-cs}
 
-We cannot solve the microscopic problem---$\sim 10^{11}$ electrons in a wildly degenerate Landau level with Coulomb interactions---and we do not need to. The FQHE state is gapped, so at energies below the gap the correct description is a low-energy effective theory. As usual, we write down the most general action consistent with the symmetries and allowed topology and let experiment fix the coefficients.
+We cannot solve $10^{11}$ electrons in a degenerate Landau level with Coulomb interactions, and we do not need to. The state is gapped; below the gap, a topological effective theory suffices. The route from wavefunction to effective theory passes through flux attachment.
 
-For the Laughlin $\nu=1/m$ state, that action \cite{ZhangHanssonKivelson1989FQHE} is
+\paragraph{The Laughlin wavefunction.}
+At $\nu = 1/m$ with $m$ odd, Laughlin's ansatz \cite{Laughlin1983AnomalousQHE} is
+\begin{equation}
+  \Psi_{1/m}(z_1,\ldots,z_N)
+  =
+  \prod_{i<j}(z_i - z_j)^m\,
+  \exp\!\Bigl(-\frac{1}{4\ell_B^2}\sum_k |z_k|^2\Bigr),
+  \label{eq:laughlin-wavefunction}
+\end{equation}
+where $z_k = x_k + iy_k$ in the symmetric gauge $\mathbf{A} = \frac{B}{2}(-y,x,0)$ and $\ell_B = \sqrt{\hbar/(eB)}$ is the magnetic length. The Gaussian projects onto the lowest Landau level; the Jastrow factor $\prod(z_i-z_j)^m$ keeps electrons apart with an $m$-fold zero at each pair---far more aggressively than the single zero Fermi statistics demands. Exact diagonalization gives overlap $>0.99$ with the Coulomb ground state \cite{Laughlin1983AnomalousQHE,TongQuantumHallLectures}, and the gap is of order $e^2/(\epsilon\ell_B)$.
+
+The wavefunction, however, is not a theory. It says \emph{what} the ground state looks like, not \emph{why} transport is quantized, nor does it expose the topological structure that protects quantization. For that, we need the effective field theory.
+
+\paragraph{Flux attachment and composite fermions.}
+The Jastrow factor decomposes as \cite{ZhangHanssonKivelson1989FQHE}
+\begin{equation}
+  \prod_{i<j}(z_i - z_j)^m
+  =
+  \prod_{i<j}|z_i - z_j|^m\;
+  \exp\!\Bigl(im\!\sum_{i<j}\arg(z_i - z_j)\Bigr).
+  \label{eq:jastrow-decomposition}
+\end{equation}
+The phase is exactly the Aharonov--Bohm phase a charge at $z_i$ accumulates if every other electron at $z_j$ carries $m$ flux quanta. Physical picture: each electron sees its neighbours as tiny solenoids. This motivates flux attachment---regard each electron as a composite fermion bound to $m$ fictitious flux quanta.
+
+In field theory, introduce an emergent $U(1)$ gauge field $a_\mu$ whose Chern--Simons term enforces the constraint
+\begin{equation}
+  \frac{1}{2\pi}\,\epsilon^{\mu\nu\rho}\del_\nu a_\rho
+  =
+  m\,j^\mu_e.
+  \label{eq:flux-attachment-constraint}
+\end{equation}
+At mean field, the emergent magnetic field partially cancels the external one:
+\begin{equation}
+  B_{\mathrm{eff}} = B - m\,\bar{n}_e\,\Phi_0,
+  \label{eq:effective-field}
+\end{equation}
+and at $\nu = 1/m$ this gives
+\begin{equation}
+  B_{\mathrm{eff}} = B - m\cdot\frac{B}{m\Phi_0}\cdot\Phi_0 = 0.
+  \label{eq:beff-zero}
+\end{equation}
+The composite fermions see zero net field and fill exactly one effective Landau level. The strongly correlated fractional problem has been transmuted into a gapped integer problem that we can integrate out.
+
+\paragraph{Effective Chern--Simons action.}
+Integrating out the gapped composites produces \cite{ZhangHanssonKivelson1989FQHE}
 \begin{equation}
   S[a;A]
   =
@@ -118,16 +199,17 @@ For the Laughlin $\nu=1/m$ state, that action \cite{ZhangHanssonKivelson1989FQHE
   \right].
   \label{eq:fqhe-action}
 \end{equation}
-Here $A$ is the electromagnetic gauge field, treated as a fixed background probe, and $a$ is an \emph{emergent} $U(1)$ gauge field: a low-energy collective mode that packages the correlations of the underlying electrons, in roughly the same sense that a phonon packages the correlations of a crystal lattice. There is no elementary matter field coupled to $a$, and there is no Maxwell term $\int F\wedge\star F$: the bulk theory is purely topological, with no metric and no propagating modes. The mixed term $\frac{1}{2\pi}A\wedge\dd a$ couples the emergent gauge field to electromagnetism, and the pure Chern--Simons term $-\frac{m}{4\pi}a\wedge\dd a$ supplies the dynamics. The integer $m$ is the one parameter the effective theory exposes to us; all three universal numbers follow from it.
+Here $A$ is the background electromagnetic field, $a$ is the emergent gauge field. The mixed term couples electromagnetism to the emergent sector; the pure Chern--Simons term supplies the dynamics. There is no Maxwell kinetic term---no $\int F\wedge\star F$, no Hodge star, no metric. The action is purely topological: it cannot know about the geometry of the sample. This is precisely the $U(1)$ Chern--Simons theory at level $k=m$ from Example~\ref{ex:U1-action}, now derived from microscopic physics. The integer $m$ is the only parameter; everything universal follows from it.
 
-The Hall response falls out almost immediately. Treating $a$ as dynamical and varying the action gives the equation of motion
+\paragraph{Integrating out $a$ and the Hall conductance.}
+Varying \eqref{eq:fqhe-action} with respect to $a$ gives
 \begin{equation}
   \frac{1}{2\pi}\,\dd A - \frac{m}{2\pi}\,\dd a = 0
   \quad\Longrightarrow\quad
   \dd a = \tfrac{1}{m}\,\dd A,
   \label{eq:fqhe-eom}
 \end{equation}
-so on any simply connected patch we can take $a = A/m$. Substituting back, the action reduces to
+so on a simply connected patch, $a = A/m$. Substituting back:
 \begin{equation}
   S_{\mathrm{eff}}[A]
   =
@@ -148,9 +230,19 @@ giving
   \sigma_{xy} = \frac{1}{2\pi m} = \frac{e^2}{h}\,\frac{1}{m}
   \label{eq:fqhe-conductance-derived}
 \end{equation}
-in natural units (restoring $e,\hbar$ in the last step). The fact that the effective action is metric-free is what makes this conductivity a sharp prediction: smooth deformations of the sample geometry, disorder, and local perturbations cannot change a topological invariant continuously. Any change in $\sigma_{xy}$ requires either closing the bulk gap or changing the underlying topological order---i.e.\ a phase transition \cite{Wen1990TopologicalOrders,Wen1995TopologicalOrdersEdgeExcitations}.
+in natural units. That is the quantized Hall conductance, derived from a single integer.
 
-We have so far treated the coefficient $m$ in \eqref{eq:fqhe-action} as a continuous parameter. In fact gauge invariance forces it to be an integer, by a large-gauge-transformation argument that is standard by now (see e.g.\ \cite{Dunne1999AspectsCS,TongQuantumHallLectures}). Place the theory on $S^{2}\times S^{1}$, with a unit background monopole flux $\frac{1}{2\pi}\int_{S^{2}}F=1$ through the spatial sphere and Euclidean time compactified on $S^{1}$ of length $\beta$. A large gauge transformation winding once around $S^{1}$ shifts the constant temporal component by $A_0\to A_0+2\pi/\beta$; evaluated on this configuration, the Chern--Simons action shifts by $\Delta S = 2\pi m$. Requiring $\exp(iS)$ to be invariant then forces $m\in\mathbb{Z}$. For electrons, Fermi statistics additionally restrict $m$ to be odd, recovering the observed Laughlin filling fractions $\nu=1,1/3,1/5,\ldots$. The quantization of $\sigma_{xy}$ is therefore built into the effective theory at the level of consistency, not fitted after the fact.
+\begin{figure}[h]
+    \centering
+    \input{figures/f_hall_response.tex}
+    \caption{The Hall-response chain for a Laughlin state: the effective Chern--Simons term turns a probe electric field into a transverse current with coefficient fixed by the same integer that sets quasihole charge and statistics.}
+    \label{fig:fqhe-hall-response}
+\end{figure}
+
+Because \eqref{eq:fqhe-effective-action} is metric-free, no smooth deformation of the sample, no disorder, and no local perturbation can shift $\sigma_{xy}$ continuously. Changing it requires closing the gap---a phase transition \cite{Wen1990TopologicalOrders,Wen1995TopologicalOrdersEdgeExcitations}.
+
+\paragraph{Level quantization.}
+Gauge invariance forces $m$ to be an integer. Place the theory on $S^{2}\times S^{1}$ with a unit monopole flux through the sphere. A large gauge transformation winding once around $S^{1}$ shifts the action by $\Delta S = 2\pi m$; requiring $e^{iS}$ to be single-valued forces $m\in\mathbb{Z}$. Fermi statistics additionally requires $m$ odd, recovering the Laughlin fractions $\nu=1,1/3,1/5,\ldots$ (see \cite{Dunne1999AspectsCS,TongQuantumHallLectures}). If $m$ were not quantized, different gauge descriptions of the same configuration would give different amplitudes---the theory would be inconsistent, not merely inaccurate.
 
 % ----------------------------------------------------------------------------
 % 11.3 Quasiparticles as Wilson-Line Endpoints
@@ -159,44 +251,59 @@ We have so far treated the coefficient $m$ in \eqref{eq:fqhe-action} as a contin
 \subsection{Quasiparticles as Wilson-Line Endpoints}
 \label{subsec:quasiparticles}
 
-The same action determines the excitations. A quasihole worldline is represented by a point source for the emergent gauge field,
+The action \eqref{eq:fqhe-action} fixes more than the ground-state response---it determines the excitation spectrum. The natural observables of Chern--Simons theory are Wilson lines (Sec.~\ref{sec:observables}), and in the FQHE the elementary quasiparticle is the endpoint of an open Wilson line.
+
+\paragraph{Wilson lines and quasiparticle creation.}
+Given a path $C$ ending at $\mathbf{x}_0$, define
 \begin{equation}
-  S_{\mathrm{source}} = \int a\wedge J,
-  \qquad
-  J = 2\pi\,\delta^{(2)}(\mathbf{x})\,\dd t
-  \label{eq:fqhe-source}
+  W_q(C) = \exp\!\Bigl(iq\int_C a\Bigr),
+  \label{eq:fqhe-wilson-line}
 \end{equation}
-for a static quasihole at the origin. With this source turned on, the equation of motion \eqref{eq:fqhe-eom} picks up a delta function on its right-hand side, and the emergent magnetic flux through the plane satisfies
+with $q\in\mathbb{Z}$ the emergent charge. Inserting this into the path integral modifies the equation of motion by a delta-function source:
 \begin{equation}
-  m\,f_{12}(\mathbf{x}) = 2\pi\,\delta^{(2)}(\mathbf{x}),
+  \frac{m}{2\pi}\,\epsilon^{\mu\nu\rho}\del_\nu a_\rho(\mathbf{x})
+  =
+  q\,\delta^{(2)}(\mathbf{x} - \mathbf{x}_0)\,\dd x^\mu,
   \label{eq:fqhe-flux-attachment}
 \end{equation}
-so each unit source drags along $2\pi/m$ units of emergent flux. This is flux attachment. The mixed term in \eqref{eq:fqhe-action} then converts that emergent flux into electric charge density: reading $j^0 = f_{12}/(2\pi)$ from varying with respect to $A_0$, and integrating over space, the quasihole carries
+so the endpoint binds $2\pi q/m$ units of emergent flux. A quasiparticle is a charge-flux composite, created by threading flux through the incompressible liquid.
+
+\paragraph{Fractional electric charge.}
+The mixed coupling $\frac{1}{2\pi}A\wedge\dd a$ converts emergent flux into electromagnetic charge. Varying with respect to $A_0$ gives induced density $j^0 = \frac{1}{2\pi}f_{12}$; integrating over the quasiparticle and using \eqref{eq:fqhe-flux-attachment}:
 \begin{equation}
-  Q_{\mathrm{qh}} = \frac{e}{m}.
+  Q = e\int\dd^2x\;j^0 = \frac{e}{2\pi}\int\dd^2x\;f_{12} = \frac{q}{m}\,e.
   \label{eq:fqhe-fractional-charge}
 \end{equation}
-The electron has not split into pieces. The Chern--Simons term implements a duality in which the source couples to $a$ via its worldline and then emerges in the electromagnetic current through the mixed term; the ratio, $1/m$, is the same integer that sets the Hall conductivity. One coefficient, two observables. The operational meaning of this fractional charge, and how it has been extracted from shot-noise \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge} and interferometry \cite{CaminoZhouGoldman2005ABSuperperiod} measurements, is surveyed in \cite{HalperinSternNederRosenow2011FractionalCharge,Stern2008AnyonsQHEReview}.
+For the elementary excitation $q=1$, the quasiparticle carries charge $e/m$. The electron has not split; the topological coupling redistributes charge among the $m$ flux quanta dressing each source.
 
-The third universal number is the exchange phase of two quasiholes, first derived in \cite{ArovasSchriefferWilczek1984FractionalStatistics}, and it is computed by the same machinery. Two separated quasiholes define two Wilson loops in the emergent gauge field. One quasihole carries unit $a$-charge; the other carries $2\pi/m$ units of emergent flux by \eqref{eq:fqhe-flux-attachment}. The Aharonov--Bohm phase accumulated by one quasihole traversing a closed loop around the other is therefore
-\begin{equation}
-  \exp\!\Big(\frac{2\pi i}{m}\Big).
-  \label{eq:fqhe-full-winding}
-\end{equation}
-A full winding is two exchanges, so the statistical angle picked up in a single exchange is
-\begin{equation}
-  \theta = \frac{\pi}{m}.
-  \label{eq:fqhe-statistical-angle}
-\end{equation}
-For $m=1$ this is $\theta=\pi$ (fermions), recovering the integer quantum Hall case; for $m=3$ it is $\theta=\pi/3$. Laughlin quasiholes obey the braid group rather than the permutation group, and the Chern--Simons description ties this exchange phase to the same $m$ that controls $\sigma_{xy}$ and $Q_{\mathrm{qh}}$. Shot-noise, tunnelling, and interferometry measurements all see these fractional quantum numbers in the laboratory \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge,CaminoZhouGoldman2005ABSuperperiod,Nakamura2020AnyonicBraiding,Bartolomei2020AnyonCollisions}, which is what makes \eqref{eq:fqhe-action} a physical theory rather than a formal construction. The Nakamura measurement is discussed in detail in Sec.~\ref{sec:experiments}.
+One can reach the same answer without field theory: thread one flux quantum through a hole in an annular $\nu = 1/m$ sample. The Hall response drives exactly $e/m$ of charge from one edge to the other, creating a localized excitation whose fractional charge is sharp by the adiabatic theorem \cite{Stern2008AnyonsQHEReview}. Shot-noise measurements \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge} and Fabry--P\'{e}rot interferometry \cite{CaminoZhouGoldman2005ABSuperperiod} confirm this directly.
 
-Both of these computations are special cases of the general Chern--Simons observable theory developed in Sec.~\ref{sec:tqft-observables}. The quasihole charge came from the Gaussian path integral with an external source; the exchange phase came from evaluating a product of Wilson loops, whose expectation value in abelian Chern--Simons is a linking-number phase. The linking-number identity,
+\paragraph{Braiding phase from the linking number.}
+Two quasiparticles of charge $q=1$ trace worldlines $\gamma_1,\gamma_2$ in $(2{+}1)$-dimensional spacetime. From Example~\ref{ex:abelian-wilson}:
 \begin{equation}
-  \bigl\langle W_{\gamma_1}W_{\gamma_2}\bigr\rangle_{U(1)_m}
+  \bigl\langle W_1(\gamma_1)\,W_1(\gamma_2)\bigr\rangle_{U(1)_m}
   =
-  \exp\!\Big(\frac{2\pi i}{m}\,\mathrm{Lk}(\gamma_1,\gamma_2)\Big),
+  \exp\!\Bigl(\frac{2\pi i}{m}\,\mathrm{Lk}(\gamma_1,\gamma_2)\Bigr),
+  \label{eq:fqhe-linking-phase}
 \end{equation}
-derived in the earlier observable-theoretic section \cite{Witten1989Jones,Dunne1999AspectsCS}, is exactly what the quasihole braid computes when the two loops are linked once.
+where $\mathrm{Lk}(\gamma_1,\gamma_2)$ is the linking number. One full winding gives $\mathrm{Lk}=1$ and phase
+\begin{equation}
+  \phi_{\mathrm{braid}} = \frac{2\pi}{m}.
+  \label{eq:fqhe-braiding-phase}
+\end{equation}
+A single exchange is half a winding, so the statistical angle is $\theta = \pi/m$. For $m=1$: fermions. For $m>1$: anyons---particles obeying the braid group $B_n$ rather than the symmetric group $S_n$. The origin is simple: each quasiparticle is simultaneously a charge $e/m$ and a source of $2\pi/m$ flux, so encircling one around another accumulates an Aharonov--Bohm phase that is neither $0$ nor $\pi$ \cite{Stern2008AnyonsQHEReview}.
+
+\paragraph{The $\nu=1/3$ state.}
+Setting $m=3$ fixes the three universal numbers:
+\begin{equation}
+  \sigma_{xy} = \frac{e^2}{3h},
+  \qquad
+  Q_{\mathrm{qp}} = \frac{e}{3},
+  \qquad
+  \phi_{\mathrm{braid}} = e^{2\pi i/3}.
+  \label{eq:fqhe-one-third}
+\end{equation}
+All three are measured. Fractional charge was confirmed via shot-noise \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge}; the braiding phase was directly observed by Nakamura et al.\ \cite{Nakamura2020AnyonicBraiding} in Fabry--P\'{e}rot interferometry (Sec.~\ref{sec:experiments}). One integer, three predictions, three confirmations---this is the sharpest evidence that topological field theory governs real condensed matter.
 
 % ----------------------------------------------------------------------------
 % 11.4 Edge Chiral Boson, Anomaly Inflow, and Ground-State Degeneracy
@@ -205,9 +312,9 @@ derived in the earlier observable-theoretic section \cite{Witten1989Jones,Dunne1
 \subsection{Edge Modes, Anomaly Inflow, and Ground-State Degeneracy}
 \label{subsec:edges-degeneracy}
 
-So far we have worked locally. Two of the most striking features of the FQHE appear only once we ask about the global topology of spacetime: the chiral edge modes on a manifold with boundary, and the topology-dependent ground-state degeneracy on a closed spatial surface \cite{Wen1995TopologicalOrdersEdgeExcitations,WenNiu1990GroundStateDegeneracy}.
+Everything so far has been local. Two of the most striking features of the FQHE appear only when we ask about global topology: chiral edge modes on manifolds with boundary, and ground-state degeneracy on closed surfaces \cite{Wen1995TopologicalOrdersEdgeExcitations,WenNiu1990GroundStateDegeneracy}.
 
-The edge story is the Chern--Simons incarnation of anomaly inflow. On a manifold $M$ with boundary $\partial M$, varying the bulk Chern--Simons action produces
+On a manifold $M$ with boundary, varying the bulk Chern--Simons action produces
 \begin{equation}
   \delta S_{\mathrm{CS}}
   =
@@ -216,7 +323,7 @@ The edge story is the Chern--Simons incarnation of anomaly inflow. On a manifold
   \frac{m}{4\pi}\int_{\partial M}A\wedge\delta A.
   \label{eq:fqhe-boundary-variation}
 \end{equation}
-The bulk term vanishes on solutions of the equations of motion, but the boundary piece survives, and a gauge transformation $A\to A+\dd\lambda$ shifts the action by a boundary integral proportional to $\int_{\partial M}\lambda\,\dd A$. The combined bulk-plus-boundary system can only be gauge invariant if the boundary itself carries a theory whose anomalous variation cancels this inflow. For abelian $U(1)_m$ Chern--Simons the required boundary theory is a chiral boson \cite{Wen1995TopologicalOrdersEdgeExcitations}: solving the bulk flatness condition near $\partial M$ by $A_i = \partial_i\phi$ and substituting back leaves
+The bulk term vanishes on-shell, but the boundary piece survives. Under a gauge transformation $A\to A+\dd\lambda$, the action shifts by $\int_{\partial M}\lambda\,\dd A$. Gauge invariance of the combined system requires the boundary to carry a theory whose anomalous variation cancels this inflow. For $U(1)_m$, that theory is a chiral boson \cite{Wen1995TopologicalOrdersEdgeExcitations}: solving bulk flatness near $\partial M$ by $A_i = \partial_i\phi$ and substituting back gives
 \begin{equation}
   S_{\partial}
   =
@@ -227,21 +334,43 @@ The bulk term vanishes on solutions of the equations of motion, but the boundary
   (\partial_t + v\partial_x)\phi = 0,
   \label{eq:fqhe-chiral-boson}
 \end{equation}
-with $v$ a nonuniversal edge velocity. The boundary field propagates in only one direction, so the edge theory is chiral; its universal features, including the chiral central charge, are fixed by the bulk topological data. For the Laughlin $\nu=1/m$ states this is a single chiral boson with $c=1$, so the quantized thermal Hall conductance is $\kappa_{xy} = c\,\pi^{2}k_{B}^{2}T/(3h) = \pi^{2}k_{B}^{2}T/(3h)$, independent of $m$. Thermal transport, shot-noise, and tunnelling experiments on fractional edges all see behaviour of this form, and the detailed spectrum of the edge agrees with what \eqref{eq:fqhe-chiral-boson} predicts \cite{Wen1995TopologicalOrdersEdgeExcitations,Witten2016ThreeLecturesTopologicalPhases}. From this viewpoint the edge mode is not an additional phenomenological boundary ingredient; it is the degree of freedom required to restore gauge invariance of the combined bulk-boundary system, which in turn is what anomaly inflow already told us to expect.
+with $v$ a nonuniversal velocity set by the confining potential. The field is compact:
+\begin{equation}
+  \phi \sim \phi + 2\pi.
+  \label{eq:fqhe-compactification}
+\end{equation}
+This compactification radius, fixed by the bulk level $m$, determines the vertex-operator spectrum on the edge: $e^{i\phi}$ creates a quasiparticle, $e^{im\phi}$ creates an electron.
 
-The second global consequence is the ground-state degeneracy \cite{WenNiu1990GroundStateDegeneracy}. For a closed spatial surface $\Sigma$, the equations of motion set $F=0$, so we are quantizing the moduli space of flat $U(1)$ connections as in Sec.~\ref{subsec:hilbert-surfaces-gsd}. On a torus this space is parameterized by the two holonomies $u=\oint_\alpha A$, $v=\oint_\beta A$ with $u,v\sim u+2\pi,v+2\pi$, and the Chern--Simons action reduces to a symplectic quantum-mechanics problem on this $T^{2}_{\mathrm{hol}}$ with symplectic form
+The edge propagates in one direction only---physically, the $\mathbf{E}\times\mathbf{B}$ drift along the boundary. A purely $(1{+}1)$-dimensional chiral boson is anomalous: under $A\to A+\dd\lambda$, the edge partition function shifts by
+\begin{equation}
+  \delta S_{\partial} = \frac{m}{4\pi}\int_{\partial M}\lambda\,F,
+  \label{eq:fqhe-edge-anomaly}
+\end{equation}
+which no local $(1{+}1)$-dimensional counterterm can cancel. In isolation, the edge theory is inconsistent.
+
+\paragraph{Anomaly inflow.}
+But the edge does not exist in isolation. Under the same gauge transformation, the bulk action on the manifold-with-boundary shifts by
+\begin{equation}
+  \delta S_{\mathrm{bulk}} = -\frac{m}{4\pi}\int_{\partial M}\lambda\,F,
+  \label{eq:fqhe-bulk-anomaly}
+\end{equation}
+exactly cancelling \eqref{eq:fqhe-edge-anomaly}. This is the Callan--Harvey mechanism \cite{CallanHarvey1985,Wen1995TopologicalOrdersEdgeExcitations,Witten2016ThreeLecturesTopologicalPhases}---the abelian version of the inflow from Sec.~\ref{sec:anomaly-inflow-general}. Neither $Z_{\mathrm{bulk}}$ nor $Z_{\partial}$ is gauge-invariant alone, but their product is. The universal edge data---chiral central charge, compactification radius, anomaly coefficient---are all fixed by the bulk.
+
+For Laughlin states the edge carries a single chiral boson with $c=1$, giving thermal Hall conductance $\kappa_{xy} = \pi^{2}k_{B}^{2}T/(3h)$, independent of $m$. Tunnelling and shot-noise experiments confirm this \cite{Wen1995TopologicalOrdersEdgeExcitations,Witten2016ThreeLecturesTopologicalPhases}. The edge mode is not a phenomenological add-on; it is the degree of freedom \emph{required} by gauge invariance of the combined system. The gapped bulk cannot absorb the anomaly by itself---it must leak its gauge non-invariance to the boundary, which has no choice but to support a gapless chiral mode.
+
+The second global consequence is ground-state degeneracy \cite{WenNiu1990GroundStateDegeneracy}. On a closed surface $\Sigma$, the equations of motion set $F=0$, and we quantize the moduli space of flat connections (Sec.~\ref{subsec:U1-torus}). On the torus, two holonomies $u=\oint_\alpha A$, $v=\oint_\beta A$ parameterize a $T^{2}_{\mathrm{hol}}$ with symplectic form
 \begin{equation}
   \Omega = \frac{m}{2\pi}\,\dd u\wedge\dd v,
   \qquad
   \int_{T^{2}_{\mathrm{hol}}}\Omega = 2\pi m.
   \label{eq:fqhe-symplectic}
 \end{equation}
-Geometric quantization assigns one quantum state per $2\pi\hbar$ unit of phase-space volume \cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS}, giving
+Geometric quantization gives one state per $2\pi\hbar$ of phase-space volume \cite{ElitzurMooreSchwimmerSeiberg1989CanonicalCS}:
 \begin{equation}
   \dim\mathcal{H}_{U(1)_m}(T^{2}) = m.
   \label{eq:fqhe-torus-degeneracy}
 \end{equation}
-For $\nu=1/3$, the torus ground-state manifold is three-dimensional, and threading external flux through one of the cycles rotates the system through those three sectors with period $h/e$; that period is the experimental signature that the degeneracy is topological rather than an accidental consequence of a symmetry. The torus result extends naturally to higher-genus surfaces, where the Hilbert-space dimension becomes $m^{g}$ on genus $g$ \cite{WenNiu1990GroundStateDegeneracy}. This is the abelian $U(1)_m$ specialization of the Verlinde formula, which the functorial-quantization discussion in Sec.~\ref{subsec:hilbert-surfaces-gsd} assembled from a pair-of-pants decomposition and which reappears in WZW conformal blocks, theta functions on abelian varieties, and integrable representations of affine Lie algebras at level $m$. The same integer that fixes $\sigma_{xy}$ and $\theta$ in the bulk fixes how many ground states the topology admits. The toric code's $\mathrm{GSD} = 4$ on the torus (Sec.~\ref{subsec:toric-code-gsd}) is the $m=2$ specialization of this formula, seen from the lattice side rather than the continuum.
+For $\nu=1/3$, three ground states---distinguished by holonomy sector---are permuted by threading external flux with period $h/e$. That period is the experimental signature: the degeneracy is topological, not accidental. On genus $g$ the dimension is $m^{g}$ \cite{WenNiu1990GroundStateDegeneracy}, the abelian specialization of the Verlinde formula assembled from pair-of-pants decomposition in Sec.~\ref{subsec:U1-torus}. The same integer fixing $\sigma_{xy}$ and $\theta$ fixes how many ground states topology admits. (The toric code's $\mathrm{GSD} = 4$ on $T^2$ (Sec.~\ref{subsec:toric-code-gsd}) is the $m=2$ case, seen from the lattice side.)
 
 % ----------------------------------------------------------------------------
 % 11.5 K-Matrix Theory and Nonabelian States
@@ -250,7 +379,7 @@ For $\nu=1/3$, the torus ground-state manifold is three-dimensional, and threadi
 \subsection{$K$-Matrix Theory and Nonabelian States}
 \label{subsec:k-matrix-nonabelian}
 
-Most observed filling fractions are not Laughlin. States like $\nu=2/5$ and $\nu=5/2$ require more than a single emergent gauge field, and the natural generalization is the $K$-matrix framework \cite{WenZee1992AbelianQHClassification}. Introduce $N$ emergent $U(1)$ gauge fields $a^I$ and a charge vector $\mathbf{t}\in\mathbb{Z}^N$, and take the action
+Most observed fractions are not Laughlin. States like $\nu=2/5$ and $\nu=5/2$ need more than one emergent gauge field, and the generalization is straightforward \cite{WenZee1992AbelianQHClassification}: just as one Laughlin state uses one $U(1)$ with level $m$, a multi-condensate state (hierarchy, multi-layer) uses $N$ gauge fields $a^I$ with couplings collected into a matrix. Introduce a charge vector $\mathbf{t}\in\mathbb{Z}^N$ and write
 \begin{equation}
   S_{K}[a^I;A]
   =
@@ -261,7 +390,7 @@ Most observed filling fractions are not Laughlin. States like $\nu=2/5$ and $\nu
   \right],
   \label{eq:fqhe-k-matrix-action}
 \end{equation}
-with $K$ an integer symmetric matrix; the Laughlin action \eqref{eq:fqhe-action} is the $1\times 1$ case $K=(m)$, $\mathbf{t}=(1)$. Integrating out the $a^I$ gives
+with $K$ an integer symmetric matrix; the Laughlin action is $K=(m)$, $\mathbf{t}=(1)$. Integrating out the $a^I$:
 \begin{equation}
   S_{\mathrm{eff}}[A]
   =
@@ -270,13 +399,13 @@ with $K$ an integer symmetric matrix; the Laughlin action \eqref{eq:fqhe-action}
   \sigma_{xy} = \frac{e^2}{h}\,\mathbf{t}^{\mathsf{T}}K^{-1}\mathbf{t},
   \label{eq:fqhe-k-hall}
 \end{equation}
-while quasiparticles, labelled by integer vectors $\boldsymbol{\ell}\in\mathbb{Z}^N$, carry charges and mutual statistics
+while quasiparticles $\boldsymbol{\ell}\in\mathbb{Z}^N$ carry
 \begin{equation}
   Q_{\boldsymbol{\ell}} = e\,\mathbf{t}^{\mathsf{T}}K^{-1}\boldsymbol{\ell},
   \qquad
   \theta_{\boldsymbol{\ell},\boldsymbol{\ell}'} = 2\pi\,\boldsymbol{\ell}^{\mathsf{T}}K^{-1}\boldsymbol{\ell}',
 \end{equation}
-and the genus-$g$ ground-state degeneracy is $|\det K|^{g}$. The Halperin $(3,3,1)$ state is a minimal illustration:
+and genus-$g$ degeneracy is $|\det K|^{g}$. A minimal illustration---the Halperin $(3,3,1)$ state:
 \begin{equation}
   K = \begin{pmatrix} 3 & 1 \\ 1 & 3\end{pmatrix},
   \qquad
@@ -284,9 +413,18 @@ and the genus-$g$ ground-state degeneracy is $|\det K|^{g}$. The Halperin $(3,3,
   \qquad
   K^{-1} = \frac{1}{8}\begin{pmatrix} 3 & -1 \\ -1 & 3\end{pmatrix},
 \end{equation}
-from which $\sigma_{xy} = (e^{2}/h)\cdot 2/5$, the elementary quasiparticles $(1,0)$ and $(0,1)$ each carry charge $e/4$, and their mutual statistical angle is $2\pi\cdot 1/8 = \pi/4$. Every abelian FQHE state fits into this framework \cite{WenZee1992AbelianQHClassification,Wen1995TopologicalOrdersEdgeExcitations,HalperinJain2020FQHENewDevelopments}.
+giving $\sigma_{xy} = (e^{2}/h)\cdot 1/2$, quasiparticle charges $e/4$, and mutual statistical angle $\pi/4$. Every abelian FQHE state fits this framework \cite{WenZee1992AbelianQHClassification,Wen1995TopologicalOrdersEdgeExcitations,HalperinJain2020FQHENewDevelopments}.
 
-The abelian story does not exhaust the phenomenology. The $\nu=5/2$ plateau, observed in ultra-clean samples in the second Landau level, is the most striking example that does not: it is widely believed to be described by the Moore--Read (Pfaffian) state, which is a \emph{nonabelian} Chern--Simons theory, specifically $SU(2)_{2}$ \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. The elementary quasiparticle is a spinor $\sigma$ with fusion rule $\sigma\times\sigma = 1 + \psi$, so a collection of $n$ such quasiparticles spans a Hilbert space of dimension $\sim 2^{(n-2)/2}$; exchanging them executes unitary transformations on this space rather than multiplying it by a phase. We will not pursue the nonabelian construction here. For present purposes it is enough to note that the Laughlin states are not isolated examples but the simplest, abelian cases of a much larger structure: for every compact Lie group $G$ and level $k$, Chern--Simons theory $G_k$ assigns Hilbert spaces to surfaces, Wilson-loop expectation values to knots, and boundary conformal field theories to edges \cite{Witten1989Jones,Dunne1999AspectsCS}, and the FQHE realizes several of these theories in the laboratory. If the $\nu=5/2$ identification is confirmed, nonabelian braiding in such a system would furnish the first fault-tolerant topological qubit in a solid-state platform \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. The anyon data for this and other key systems is collected in the comparison table of Sec.~\ref{subsec:anyon-comparison-table}.
+\begin{figure}[h]
+    \centering
+    \input{figures/f_kmatrix_observables.tex}
+    \caption{The $K$-matrix bookkeeping dictionary: once $K$, the charge vector, and the quasiparticle labels are specified, transport, charge, braiding, and topology-dependent degeneracy follow algebraically.}
+    \label{fig:fqhe-kmatrix-observables}
+\end{figure}
+
+The abelian story does not exhaust the phenomenology. The $\nu=5/2$ plateau, observed in ultra-clean second-Landau-level samples, is widely believed to be the Moore--Read (Pfaffian) state---a \emph{nonabelian} Chern--Simons theory, specifically $SU(2)_{2}$ \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. Its elementary quasiparticle $\sigma$ has fusion rule $\sigma\times\sigma = 1 + \psi$, so $n$ quasiparticles span a Hilbert space of dimension $\sim 2^{(n-2)/2}$; braiding them executes unitary matrices, not phases. The mechanism: the Moore--Read state is a $p_x + ip_y$ superconductor of composite fermions, each vortex binds a Majorana zero mode, and quantum information is stored nonlocally in pairs of separated vortices---invisible to any local probe \cite{Stern2008AnyonsQHEReview}.
+
+We will not pursue the nonabelian construction here. The point is structural: for every compact $G$ and level $k$, Chern--Simons theory $G_k$ assigns Hilbert spaces to surfaces, Wilson-loop values to knots, and CFTs to edges \cite{Witten1989Jones,Dunne1999AspectsCS}, and the FQHE realizes several of these theories in nature. If the $\nu=5/2$ identification is confirmed, nonabelian braiding would furnish the first fault-tolerant topological qubit in a solid-state platform \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. Anyon data for the key systems is collected in Sec.~\ref{subsec:anyon-comparison-table}.
 
 % ----------------------------------------------------------------------------
 % 11.6 Maxwell-Chern-Simons: When a CS Term Is Not a TQFT
@@ -294,53 +432,90 @@ The abelian story does not exhaust the phenomenology. The $\nu=5/2$ plateau, obs
 \subsection{Maxwell--Chern--Simons: When a CS Term Is Not a TQFT}
 \label{subsec:maxwell-cs}
 
-% TODO: Write this subsection.
-% Source material: archive_2026-05-01/anomalies_boundaries_topological_response.tex
-% lines ~500-600 (to be recovered from the archive via a migration pass).
-%
-% Content outline:
-%   - Action S = -(1/4 e^2) int F wedge *F + (k/4pi) int A wedge dA.
-%   - The Hodge star *F reintroduces metric; propagator has a topologically
-%     massive pole m_CS = k e^2 / (2 pi). See \cite{Dunne1999AspectsCS}.
-%   - Even though the theory has a CS term, it is NOT a TQFT: observables
-%     depend on the metric, and there are local propagating modes.
-%   - Useful as an effective theory: finite-thickness edges, finite-
-%     temperature regularization of the pure-CS limit.
-%   - Lesson: the purity of the CS action matters. Adding a CS term to an
-%     otherwise dynamical gauge theory gives a topologically massive gauge
-%     theory, not a topological one.
-% Cite: \cite{Dunne1999AspectsCS}, \cite{Wen1995TopologicalOrdersEdgeExcitations},
-%       \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}
+Everything in Secs.~\ref{subsec:laughlin-to-cs}--\ref{subsec:k-matrix-nonabelian} relied on the absence of the Hodge star. What happens when we put it back? Add a Maxwell kinetic term:
+\begin{equation}
+  S_{\mathrm{MCS}}[A]
+  =
+  \int_{M}\left[
+  -\frac{1}{4e^{2}}\,F\wedge\star F
+  \;+\;
+  \frac{k}{4\pi}\,A\wedge\dd A
+  \right],
+  \label{eq:maxwell-cs-action}
+\end{equation}
+with $F = \dd A$, coupling $e$ of dimension $[\text{mass}]^{1/2}$ in $(2{+}1)$d, and $k\in\mathbb{Z}$. The Chern--Simons three-form never touches the metric. The Maxwell term requires $\star$, built from $g_{\mu\nu}$. Once $\star$ appears, the partition function depends on geometry, and the theory fails the defining criterion of a TQFT \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}.
+
+\paragraph{Topologically massive propagator.}
+The equation of motion in Lorenz gauge reads
+\begin{equation}
+  \frac{1}{e^{2}}\,\del^{2}A_\mu
+  \;+\;
+  \frac{k}{2\pi}\,\epsilon_{\mu\nu\rho}\,\del^{\nu}A^{\rho}
+  = 0.
+  \label{eq:mcs-eom}
+\end{equation}
+Decomposing into helicity eigenstates gives a single propagating mode with mass
+\begin{equation}
+  m_{\mathrm{CS}} = \frac{k\,e^{2}}{2\pi}.
+  \label{eq:topological-mass}
+\end{equation}
+The gauge boson acquires a gap without a Higgs field and without breaking gauge invariance---a mechanism with no $(3{+}1)$-dimensional analog \cite{Dunne1999AspectsCS}. The single mode is a massive spin-1 excitation with definite helicity fixed by the sign of $k$.
+
+\paragraph{Contrast with pure Chern--Simons.}
+Setting $e^{2}\to\infty$ drops the Maxwell term and recovers the TQFT. The difference is sharp:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcc}
+  & \textbf{Pure CS} & \textbf{Maxwell--CS} \\
+\hline
+Metric dependence & None & Yes ($\star$ in action) \\
+Local degrees of freedom & 0 & 1 massive mode \\
+On-shell field strength & $F = 0$ & $F\neq 0$ generically \\
+Observables & Topological invariants & Distance-dependent \\
+Energy--momentum tensor & $T_{\mu\nu}=0$ & $T_{\mu\nu}\neq 0$
+\end{tabular}
+\end{center}
+In pure Chern--Simons, $F=0$ on-shell, there are no propagating modes, and Wilson loops depend only on topology. In Maxwell--Chern--Simons, the massive propagator gives Wilson loops an exponential area-law decay at short distances, approaching a topological limit only for $r \gg 1/m_{\mathrm{CS}}$.
+
+\paragraph{Two regimes.}
+The topological mass defines a crossover scale $\ell_{\mathrm{CS}} = 2\pi/(ke^{2})$:
+\begin{equation}
+  \text{Maxwell--CS}
+  \;\xrightarrow{\;r \ll \ell_{\mathrm{CS}}\;}
+  \text{$(2{+}1)$-d electrodynamics (massless photon)}
+  \;\xrightarrow{\;r \gg \ell_{\mathrm{CS}}\;}
+  \text{pure Chern--Simons (TQFT)}.
+  \label{eq:mcs-crossover}
+\end{equation}
+Short distances: Maxwell dominates, the CS term is a small parity-breaking perturbation. Long distances: the massive mode is integrated out, and the infrared theory is the pure topological sector. The TQFT emerges as the deep-IR limit of a non-topological UV theory---but at any finite $e^{2}$, the full theory is not topological.
+
+\paragraph{Physical applications.}
+Maxwell--Chern--Simons appears in several condensed-matter contexts \cite{Wen1995TopologicalOrdersEdgeExcitations,Dunne1999AspectsCS}:
+\begin{itemize}
+  \item \emph{Finite-thickness edges.} A real Hall edge has width $w$ over which density interpolates to zero. Integrating out gapless edge electrons at finite momentum generates a Maxwell term, giving a Maxwell--CS description of the edge strip.
+  \item \emph{Finite-temperature corrections.} At $T\neq 0$ the bulk gap $\Delta$ no longer perfectly suppresses fluctuations; the leading correction is a Maxwell term with $1/e^{2}\sim e^{-\Delta/T}$, controlling finite-$T$ deviations from quantization.
+  \item \emph{Half-filled Landau level.} In Halperin--Lee--Read theory at $\nu=1/2$, composite fermions coupled to a fluctuating gauge field see exactly Maxwell--Chern--Simons, with the Maxwell term generated by integrating out the Fermi sea.
+\end{itemize}
+
+The lesson: the Hodge star's absence is what makes Chern--Simons observables topological. Adding a CS term to a dynamical gauge theory produces a topologically massive theory---well-defined, physically important, but with local degrees of freedom, metric-dependent correlators, and no claim to TQFT status in the sense of Sec.~\ref{sec:atiyah-segal-axioms}.
 
 % ----------------------------------------------------------------------------
-% 11.7 Honesty Box
+% 11.7 Scope and Limitations
 % ----------------------------------------------------------------------------
 \subsection{When the Observables Are Clean, and When They Are Only Effective}
 \label{subsec:qhe-caveats}
 
-% TODO: Write this subsection. Merges BSIEW task 11_5 (honesty box on platform
-% status) with the current Sec 5.6 caveat outline.
-%
-% Part A: Platform honesty box (task 11_5, required by rubric).
-%   1. Abelian anyons (Laughlin, Jain): braiding stats directly measured
-%      (Nakamura 2020, Werkmeister 2024; see Ch 12).
-%   2. Non-abelian anyons (nu=5/2 Moore-Read, Majorana heterostructures,
-%      twisted bilayer graphene): not unambiguously confirmed.
-%   3. Quantum processor emulations (Andersen 2023): synthetic, not natural
-%      phase. See Ch 12 Sec 12.3.
-%
-% Part B: Mesoscopic caveats (from tqft_observables_literature_review Sec 4.5).
-%   - Interferometry: Coulomb-dominated regimes, area fluctuations, slow
-%     quasiparticle dynamics, edge reconstruction.
-%   - Edge-mode counting: chirality and anomaly coefficient topological;
-%     velocities, equilibration, tunneling exponents not.
-%   - K-matrix does not encode gravitational response (Wen-Zee term).
-%
-% Cite: \cite{VenkatachalamHartPfeifferWestYacobyGrapheneInterferometers},
-%       \cite{RosenowHalperinInterferometryPlaceholder},
-%       \cite{Wen1995TopologicalOrdersEdgeExcitations},
-%       \cite{Stern2008AnyonsQHEReview}
+The preceding sections derive sharp predictions from Chern--Simons theory. How well does nature cooperate? The answer depends on the platform.
+
+\paragraph{Abelian anyons.}
+For the Laughlin fractions in GaAs/AlGaAs, the story is as clean as condensed-matter physics gets. Nakamura et al.\ \cite{Nakamura2020AnyonicBraiding} measured the braiding phase $e^{2\pi i/3}$ at $\nu = 1/3$ via Fabry--P\'{e}rot interferometry. Bartolomei et al.\ \cite{Bartolomei2020AnyonCollisions} confirmed fractional statistics through Hong--Ou--Mandel-type anyon collisions. Fractional charge $e/3$ was established earlier via shot-noise \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge}. These experiments (Sec.~\ref{sec:experiments}) constitute the most direct evidence that topological field theory governs real matter.
+
+\paragraph{Non-abelian anyons.}
+The situation is qualitatively different. The $\nu = 5/2$ plateau exists, and thermal Hall measurements are consistent with Moore--Read \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}, but no experiment has demonstrated non-abelian braiding. Claimed Majorana observations in semiconductor--superconductor heterostructures have been retracted or remain contested. This is not a gap that better statistics will close; it is a qualitative absence: non-abelian braiding has not been observed in any naturally occurring phase.
+
+\paragraph{Synthetic realizations.}
+Quantum processor experiments (notably Google Quantum AI, 2023 \cite{Andersen2023NonAbelianBraiding}) have implemented braid-group operations on hardware, verifying fusion rules and braiding matrices of $SU(2)_2$. These are genuine implementations of the algebra, but they are engineered gate sequences---not observations of a spontaneously occurring topological phase. A superconducting qubit array executing a prescribed braid circuit demonstrates that the mathematics is consistent; it does not demonstrate that nature organizes matter this way on its own. (Further discussion in Sec.~\ref{sec:experiments}.)
 
 \medskip
 
-Looked at from far enough away, the FQHE story is simple. Once the low-energy effective theory is fixed by the symmetries of the problem to be a Chern--Simons theory, a single integer controls the quantized transport, the fractionalization of quasiparticle charge, the braiding phase, the chiral edge, and the topology-dependent ground-state degeneracy---and gauge invariance forces that integer to exist. The mathematics developed earlier---differential forms, bundles, topological actions, functorial quantization, and anomaly inflow---is the language in which that rigidity becomes transparent. In that sense the fractional quantum Hall effect is not only an application of topological field theory, but the experimental evidence that topological field theory governs real macroscopic matter.
+Seen from the right distance, the FQHE story is simple. Symmetries fix the low-energy theory to be Chern--Simons; a single integer controls transport, fractionalization, braiding, edge chirality, and ground-state degeneracy; gauge invariance forces that integer to exist. The mathematics of Part I---differential forms, bundles, topological actions, functorial quantization, anomaly inflow---is the language in which that rigidity becomes visible. The fractional quantum Hall effect is not merely an application of topological field theory. It is the experimental proof that topological field theory governs macroscopic matter.

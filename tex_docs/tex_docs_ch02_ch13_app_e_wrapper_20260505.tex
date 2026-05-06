@@ -1,0 +1,54 @@
+\documentclass[11pt]{report}
+
+\input{../source_tex/preamble.tex}
+
+\title{253b Final Paper Draft: Full Current TeX Docs}
+\author{}
+\date{May 5, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input{ch01_introduction.tex}
+\input{ch02_forms.tex}
+\input{ch03_axiomatic.tex}
+\input{ch04_frobenius.tex}
+\input{ch05_chern_simons.tex}
+\input{ch06_bf.tex}
+\input{ch07_dw.tex}
+\input{ch08_gensym.tex}
+
+\chapter{Topological Order and the Toric Code}\label{ch:topological-order}
+\input{ch09_topological_order.tex}
+\chapter{Anyons, Braiding, Fusion, and Modular Data}\label{ch:anyons}
+\input{ch10_anyons.tex}
+\chapter{Fractional Quantum Hall Effect}\label{ch:fqhe}
+\input{ch11_fqhe.tex}
+\chapter{Experiments on Anyonic Braiding}\label{ch:experiments}
+\input{ch12_experiments.tex}
+\chapter{Topological Quantum Computation}\label{ch:tqc}
+\input{ch13_tqc.tex}
+\chapter{Topological Sectors in 3+1 Dimensions}\label{ch:sectors-3plus1d}
+\input{ch14_sectors_3plus1d.tex}
+\chapter{Defects, Global Structure, and Synthesis}\label{ch:defects-synthesis}
+\input{ch15_defects_synthesis.tex}
+\chapter{Outlook and Synthesis}\label{ch:outlook}
+\input{ch16_outlook.tex}
+
+\appendix
+
+\chapter{Frobenius Algebra --- Deferred Proofs}
+\input{app_frobenius.tex}
+
+\chapter{BF Theory and $\Z_N$ Gauge Theory --- Deferred Computations}
+\input{app_bf_zn.tex}
+
+\setcounter{chapter}{4}
+\chapter{Topological Entanglement Entropy --- Derivation}
+\input{app_e_tee.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{tqft_observables_unresolved_refs}
+
+\end{document}

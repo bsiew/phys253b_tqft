@@ -1,0 +1,33 @@
+Everything reads cleanly. Here's a summary of the pedagogical improvements made:
+
+---
+
+**Summary of edits to ch09_topological_order.tex** (12 surgical improvements):
+
+1. **Opening paragraph** — Added a sentence explaining *why* Landau theory is incomplete: it ignores long-range entanglement invisible to local measurements.
+
+2. **After Definition (LRE)** — Added a physical gloss: the definition is about computational complexity—no local circuit can "untangle" the state in bounded time.
+
+3. **TEE coefficient α** — Clarified that α is UV-divergent from boundary modes, while γ survives at arbitrarily long distances (insight from Kitaev-Preskill).
+
+4. **TEE physical picture** — Added a paragraph explaining the Levin-Wen string picture: closed-loop constraints enforce a parity rule that reduces entropy, and the deficit is γ.
+
+5. **Toric code introduction** — Added a sentence about its virtue: everything is derivable by explicit Pauli algebra, no approximations needed.
+
+6. **Stabilizer code remark** — After the commutation proof, noted that this makes the toric code an exactly solvable stabilizer code.
+
+7. **GSD robustness** — Added intuition for why the degeneracy is robust: no local operator can distinguish ground states that differ only by non-contractible string eigenvalues.
+
+8. **Topological qubits** — Added a sentence connecting to quantum error correction: information in these nonlocal degrees of freedom is immune to geometrically bounded errors.
+
+9. **Anyon section opening** — Added physical picture: gapped quasiparticles can't interact locally, but *can* interact topologically via braiding through the entanglement pattern.
+
+10. **Fusion algebra** — Noted the $\Z_2 \times \Z_2$ structure, foreshadowing its reappearance as flat connections on the torus.
+
+11. **Emergent fermion ε** — Added intuitive explanation: two bosons become a fermion because the topological braiding phase mimics fermionic exchange.
+
+12. **BF theory section** — Multiple improvements:
+    - Added EFT philosophy sentence (identify unique topological theory from universal data)
+    - Explained $N$ physically as charge-lattice granularity
+    - Connected flatness equations directly back to lattice constraints
+    - Explained holonomy ground states as continuum avatars of logical-qubit eigenvalues

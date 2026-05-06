@@ -1,0 +1,17 @@
+Pass 2 style rewrite complete. All 9 chapters rewritten, summary logged.
+
+**What changed across the board:**
+- Every section now opens with a physical question, not formalism or history
+- Passive-voice hedging killed throughout; prose tightened 20-30%
+- Punchlines added after derivations
+- Signpost phrases ("The logical chain:", "What makes this remarkable:") replaced with prose that demonstrates its own logic
+- `\medskip\noindent` clutter reduced by ~50%
+
+**Highlights:**
+- **ch01** opens with "Here is a fact that ought to disturb you"
+- **ch13** triple structure flows as one argument; experimental status compressed 25%
+- **ch14** eta-prime opening preserved; numerical evaluation now lands ("You weigh pions and kaons, and the answer tells you how much the gluon vacuum fluctuates between topological sectors")
+- **ch15** opens with "Which bundles can exist?"; four-category taxonomy made authoritative
+- **ch16** closes: "Topology is not a decoration on quantum field theory. It is the load-bearing structure."
+
+Summary written to `logs/paper_tasks_19/pass2_part2_style.md`.

@@ -1,0 +1,23 @@
+Complete. I've extracted the scientific content from `axion_preprint.tex` into `codex_scientific_text.md` with:
+
+**Preserved:**
+- Title and author information
+- Abstract
+- All scientific definitions and assumptions (axion electrodynamics, topological magneto-electric effect, $\theta$ parameter)
+- Complete derivations and key equations (Hamiltonian, order parameters, dispersion relations)
+- Physical interpretations (polariton gaps, experimental signatures)
+- Caveats and assumptions (mean-field approximation, RPA treatment)
+- Named results (axionic polariton dispersion, cantilever frequency shifts)
+- Material proposals and numerical estimates
+- YAML front matter with metadata
+
+**Removed:**
+- LaTeX document class, packages, and macros
+- Bibliography entries and citation commands
+- Author/affiliation formatting
+- All comments and style setup
+- Figure captions (purely presentational scaffolding)
+- Acknowledgments section
+- Abstract preamble formatting
+
+The document preserves all physics content while presenting it cleanly in markdown with properly formatted equations.

@@ -1,0 +1,12 @@
+Task complete. I've split the 334KB scientific paper on anyons and honeycomb lattice models into 19 section-level Markdown files under `codex_section_extracts/` and created `codex_paper_summary.md` as the import map.
+
+**Key outputs:**
+- **19 section files** with preserved YAML front matter and section-specific metadata
+- **codex_paper_summary.md** containing a whole-paper overview, section-by-section summaries with import recommendations, and reading priority guidance
+
+**Import priorities:**
+- **High**: Abstract, intro, model definition, Majorana transformation, phase diagram, Abelian/non-Abelian phases (7 core sections)
+- **Medium-high**: Quadratic Hamiltonians formalism, edge transport, 16-fold classification, quasidiagonal matrices appendix
+- **Lower**: Numerical checks, speculative appendices
+
+The paper presents an exact solution of a spin-1/2 honeycomb lattice model via Majorana fermions, revealing two phases with Abelian and non-Abelian anyonic excitations characterized by spectral Chern numbers.

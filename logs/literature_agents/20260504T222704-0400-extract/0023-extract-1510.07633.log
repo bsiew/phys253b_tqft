@@ -1,0 +1,12 @@
+Perfect. The extraction is complete and scientifically intact. The file ends with substantive content (the Sheth-Tormen Halo Mass Function appendix section with equations and definitions).
+
+**Task complete.** I've extracted and cleaned the scientific TeX content from `physics_reports_v2.tex` into `codex_scientific_text.md`. 
+
+The output file:
+- Preserves the YAML front matter with metadata
+- Contains 2,191 lines of scientific content extracted from the original 2,397-line TeX source
+- Retains abstracts, sections, equations, definitions, derivations, and substantive prose
+- Removes all TeX plumbing (document class, packages, macros, style commands, bibliography, author formatting)
+- Ends with meaningful scientific content (appendix on halo mass functions)
+
+The cleaned text is ready for literature extraction and note-taking.

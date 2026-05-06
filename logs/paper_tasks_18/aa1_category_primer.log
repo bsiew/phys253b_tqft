@@ -1,0 +1,11 @@
+The appendix is complete. Here's what was produced:
+
+**`253b_final_paper/tex_docs/app_category.tex`** — a new file with 5 subsections:
+
+1. **Categories** — definition with associativity/identity axioms; examples: Vect, Set, Hilb, Cob_d (cross-refs to ch03 definitions)
+2. **Functors** — covariant/contravariant definitions; explicit comparison of functor axioms with TQFT axioms \eqref{eq:axiom-functoriality}–\eqref{eq:axiom-identity}; de Rham cohomology example (back-ref to ch02's `\ref{sec:deRham}`)
+3. **Natural transformations** — definition with naturality condition; forward pointer to the monoidal isomorphisms of a TQFT
+4. **Symmetric monoidal categories** — monoidal category, braiding, symmetric monoidal functor; examples (Vect,⊗) and (Cob_d,⊔); culminates in the one-line slogan \eqref{eq:TQFT-as-smf} that a TQFT *is* a symmetric monoidal functor
+5. **Dualizable objects** — evaluation/coevaluation, snake identities (cross-ref to \eqref{eq:snake-V}–\eqref{eq:snake-W}); the argument that dualizability + monoidal functor ⟹ dim Z(Σ) < ∞ (linking back to Corollary~\ref{cor:finite-dimensionality})
+
+I also added `MacLane1998` to the bibliography file. The file uses `\section`/`\subsection` (matching ch03/ch04 when included under an `\appendix` `\chapter` heading) and avoids tikz-cd to stay compatible with the existing preamble.

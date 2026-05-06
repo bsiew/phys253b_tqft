@@ -1,0 +1,20 @@
+Done. I've created a cleaned mechanical extraction of the scientific content from the TeX source into `codex_scientific_text.md`. The output:
+
+**Preserved:**
+- All mathematical definitions, theorems, and propositions with precise statements
+- Key lemmas and corollaries with their full content
+- Main results and equivariant versions
+- Derivations, equations, and formal identifications
+- Assumptions, conventions, and notation setup
+- Interpretations and key relationships (e.g., geometric Satake isomorphism)
+- Regular nilpotent elements and centralizer constructions
+- Proof structure and method outlines
+
+**Removed:**
+- TeX document class, packages, and macro definitions
+- Bibliography commands and author/affiliation formatting
+- Purely presentational environments (\begin{document}, \maketitle)
+- Non-scientific comments and TeX-specific directives
+- Figure/table scaffolding (none present in this paper)
+
+The YAML front matter is preserved with updated timestamps, and the scientific prose follows the pedagogical style suitable for a QFT project literature extraction.

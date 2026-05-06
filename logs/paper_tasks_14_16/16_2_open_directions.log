@@ -1,0 +1,9 @@
+The section is complete. I've written five paragraphs for §16.2 "Open Directions," each addressing one forward-looking direction:
+
+1. **Non-invertible symmetries** — introduces the quiche/sandwich framework of Freed–Moore–Teleman, cites their paper and GKSW, connects back to Ch. 8 (generalized symmetries).
+2. **Gapped phase classification beyond group cohomology** — introduces the cobordism hypothesis and Freed–Hopkins program, connects back to Ch. 7 (Dijkgraaf–Witten).
+3. **Fault-tolerant architectures** — connects to Ch. 13's honesty box and the Ising-anyon gate-set limitations, cites Nayak et al.
+4. **Lattice and holographic checks of χ_t** — connects to Ch. 14's Witten–Veneziano discussion, cites both Cichy et al. and Arean et al.
+5. **SymTFT perspective on anomalies** — introduces the symmetry TFT sandwich construction, cites Bhardwaj et al. 2023, connects back to Chs. 5 and 8.
+
+Each paragraph cites at least one paper and cross-references a chapter of the paper. The total length (~70 lines with `\medskip` separators) corresponds to roughly 1.5 pages of typeset LaTeX.

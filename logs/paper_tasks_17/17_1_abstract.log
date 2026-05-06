@@ -1,0 +1,11 @@
+The abstract is already written in the file — it looks like this task has already been completed. The content at lines 42–67 matches all the acceptance criteria:
+
+- Under 250 words (I count ~180)
+- Through-line present: ordinary gauge QFT → Chern–Simons → TQFT → observables
+- Experimental anchor: Nakamura et al. (2020) at ν = 1/3 plus graphene measurements
+- Pedagogical stance stated (final sentence)
+- No AI-tell phrasing
+
+The TODO comment mentioned in your prompt ("Status: TO BE WRITTEN") is in the header comment block (line 21) and refers to the full introduction chapter, not the abstract. The abstract block itself is already in place after `\chapter{Introduction}\label{ch:introduction}`.
+
+Would you like me to update the header comment to reflect that the abstract is done, or is there something you'd like revised in the existing abstract text?

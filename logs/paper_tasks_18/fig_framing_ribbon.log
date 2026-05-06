@@ -1,0 +1,9 @@
+The figure is done. Here's what it contains:
+
+- **Central curve K** (blue, thick): an unknot drawn as an elongated racetrack/oval shape
+- **Push-off K_f** (red): traces both ribbon edges, forming a closed curve that runs parallel to K but with one crossing at the twist — drawn with proper over/under crossing convention (white gap on the under-strand)
+- **Ribbon shading**: light blue fill between the edges, with a darker region at the twist to highlight the geometry
+- **Twist annotation**: a labeled `2π twist` bracket below the crossing, plus a side annotation showing the self-linking formula `sl(K, K_f) = ±1` with an arrow pointing to the twist region
+- **Labels**: K on the core curve, K_f on the push-off
+
+The file is at `253b_final_paper/tex_docs/figures/f_framing_ribbon.tex` and is includable via `\input{figures/f_framing_ribbon.tex}`.

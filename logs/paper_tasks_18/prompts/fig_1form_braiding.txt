@@ -1,0 +1,15 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_1form_braiding.tex showing a 1-form symmetry defect braiding with a Wilson line.
+
+Requirements:
+- In 3+1d spacetime (or a clear 3d slice): show a surface operator U(Sigma) (the 1-form symmetry defect, codimension-2)
+- A Wilson line W_R(C) threading through the surface
+- The linking between the surface and the line produces a phase
+- Label: U(Sigma), W_R(C), linking phase exp(2pi i q/N) or similar
+- Make clear that the surface operator is 2-dimensional and the line is 1-dimensional
+- They link in the ambient space
+
+This visualizes how higher-form symmetries act on line operators. Standalone tikzpicture.

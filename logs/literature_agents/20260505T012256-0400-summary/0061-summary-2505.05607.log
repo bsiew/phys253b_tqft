@@ -1,0 +1,8 @@
+Task complete. I've split the paper into eight section-level files under `codex_section_extracts/` and created the comprehensive paper summary in `codex_paper_summary.md`. Each section file preserves YAML front matter with metadata, and the summary provides:
+
+- Whole-paper snapshot capturing the main scope and contributions
+- Section-by-section summaries scaled to source length (50-100 words for shorter sections, more for dense technical sections)
+- Import recommendations (high/medium/low) tailored for the 253b final paper context
+- Full-source recommendation explaining which sections are most critical for instantons/sphalerons work
+
+The high-priority imports are the abstract, introduction, and the three main technical sections (I, II, IV) covering field equations, numerical solutions, and stability analysis.

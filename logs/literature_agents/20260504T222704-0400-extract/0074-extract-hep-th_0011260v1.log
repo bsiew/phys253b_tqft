@@ -1,0 +1,19 @@
+Done. I've created a cleaned scientific text extraction from the TeX source. The cleaned file preserves the existing YAML front matter (updating the timestamp) and contains:
+
+**What was kept:**
+- All scientific definitions, theorems, and proofs
+- Mathematical equations and derivations in their full detail
+- Key results and named theorems (Ray-Singer torsion, Chern-Simons action, BRST formalism, Batalin-Vilkovisky formalism, quantum master equation)
+- Interpretations, caveats, and conceptual discussions
+- Historical context and key citations woven into the prose
+- All eight major sections with logical flow
+
+**What was removed:**
+- TeX plumbing: `\documentclass`, `\usepackage`, `\newtheorem` declarations, `\input{tcilatex}`
+- TCIDATA metadata and comments
+- Author/contact formatting commands
+- Presentational macros (`\bigskip`, `\textbf`, LaTeX formatting)
+- Bibliography environment and entry structure (kept author references in prose)
+- `\maketitle`, `\begin{abstract}...\end{abstract}` tags
+
+The text is now readable as clean markdown while maintaining all scientific content, mathematical rigor, and the paper's conceptual architecture.

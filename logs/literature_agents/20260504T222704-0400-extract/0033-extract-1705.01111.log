@@ -1,0 +1,22 @@
+Excellent. The extraction is complete and successful. Let me create a brief summary of what was done:
+
+**Task complete.** I've extracted the scientific content from the TeX source for paper 1705.01111 into `codex_scientific_text.md`.
+
+**What was preserved:**
+- YAML front matter with metadata (created_at, updated_at, project, source location, output type)
+- All substantive TeX sections: Introduction, Weyl Semimetals, Dirac Semimetals, Materials, Experiments, Related Phenomena, Conclusion
+- Scientific prose, definitions, assumptions, derivations, equations, and named results
+- 132 instances of scientific terms (equation, theorem, proof, definition, Hamiltonian, Berry)
+- TeX math mode ($...$, \begin{equation}...\end{equation})
+
+**What was removed:**
+- Document class and package declarations (\documentclass, \usepackage)
+- Author/affiliation/date formatting
+- Bibliography commands (\bibliography, \bibliographystyle)
+- Comment-only lines (except those containing scientific content)
+- Pure TeX formatting (\newcommand, \setlength, \vspace, etc.)
+- \input and \include directives (content already concatenated)
+- Table/figure scaffolding markers (\begin{figure}, \caption, \label)
+- Citation/reference commands (\cite, \ref, \url)
+
+**Output:** 868-line markdown file with section structure, mathematical notation preserved, and front matter updated with current timestamp.

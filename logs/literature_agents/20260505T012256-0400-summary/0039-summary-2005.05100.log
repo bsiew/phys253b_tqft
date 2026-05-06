@@ -1,0 +1,11 @@
+Task completed. I've split the scientific text into 8 section-level files under `codex_section_extracts/` and created a comprehensive paper summary in `codex_paper_summary.md` with:
+
+**Deliverables:**
+- 8 section files (01_introduction.md through 08_summary_outlook.md) with preserved YAML frontmatter
+- Paper summary with whole-paper snapshot, section-by-section summaries scaled to source length, and import recommendations (high/medium/low/skip)
+
+**Import Recommendations:**
+- **High priority:** Sections 1, 2, 4, 6 (framework, Dirac quantization derivation, TeV-scale models, experimental constraints)
+- **Medium priority:** Sections 3, 5 (GUT monopoles, EFT formalism)
+- **Low priority:** Section 7 (speculative future prospects)
+- **Skip:** Section 8 (pure recap)

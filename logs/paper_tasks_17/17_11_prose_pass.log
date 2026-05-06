@@ -1,0 +1,9 @@
+Done. The paper is very clean — earlier tasks (17.12, 17.13) evidently did the heavy lifting. Results:
+
+- **Zero** instances of any of the ten banned phrases
+- **Zero** `\begin{upshot/note/slogan/motivation}` environments
+- **One edit made:** `ch14_sectors_3plus1d.tex:548` — "The upshot is" → "This gives"
+- All Part 1 chapter endings already have specific Part-2 payoff pointers (naming equations, observables, experiments)
+- All "shall" / "crucially" / "key point" uses assessed as natural mathematical English
+
+Summary written to `logs/paper_tasks_17/17_11_prose_fixes.md`.

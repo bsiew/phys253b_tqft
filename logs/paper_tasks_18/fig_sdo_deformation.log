@@ -1,0 +1,7 @@
+The figure is complete and compiles cleanly. The layout shows:
+
+- **Left panel**: the SDO $U_g(\Sigma)$ (solid blue) with the charged operator $\mathcal{O}(x)$ to its right
+- **Right panel**: after deformation, the swept region is shaded, the original position is ghosted, $U_g(\Sigma')$ (dashed) sits past the operator, and the label reads $g \cdot \mathcal{O}(x)$
+- **Below**: the Ward identity equation
+
+Include it with `\input{figures/f_sdo_deformation.tex}` inside a `figure` environment in ch08.

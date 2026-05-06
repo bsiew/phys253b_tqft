@@ -1,0 +1,3 @@
+Done. I've successfully extracted and cleaned the scientific content from the arXiv paper 2307.07547 (Bhardwaj et al., "Lectures on Generalized Symmetries") into `codex_scientific_text.md`.
+
+The extraction preserves all scientific substance—definitions, derivations, equations, interpretations, caveats, and named results—while removing only TeX plumbing: document structure commands, macro setup, figure/table scaffolding, and formatting cruft. The output is 4603 lines with YAML front matter intact and ready for downstream literature ingestion, citation extraction, and concept mapping workflows.

@@ -1,0 +1,13 @@
+Done. I've extracted the scientific content from the TeX source and created a clean markdown file at `codex_scientific_text.md`.
+
+**Changes made:**
+- Preserved all scientific definitions, derivations, equations, boundary conditions, ansätze, numerical results, and interpretations
+- Removed TeX plumbing: `\documentclass`, `\usepackage`, macro definitions (`\newcommand`, `\def`), document environment markers
+- Removed author formatting, date fields, acknowledgments, and bibliography commands
+- Removed figure/table scaffolding (captions and cross-references to figures are descriptive rather than pure metadata)
+- Removed section comment markers but kept section structure via headers
+- Converted inline math to markdown `$...$` format for readability
+- Maintained equation environments as display math with `$$...$$`
+- Kept YAML front matter with updated timestamp
+
+The file now contains the complete scientific narrative: the full electroweak Lagrangian derivation, field equations, spherically symmetric ansatz, sphaleron solution with current Standard Model parameters ($m_H = 125.1$ GeV, $m_W = 80.4$ GeV), stability analysis with eigenvalue $\omega_-^2 = -2.7m_W^2$, topological charge structure via Chern-Simons numbers, constrained minimization method for the minimum-energy path, and the effective one-dimensional potential barrier model.

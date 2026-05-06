@@ -1,0 +1,19 @@
+You are editing a physics review paper on TQFT. Your job is to resolve a structural redundancy between three chapters that all derive BF theory independently.
+
+## Context
+
+The critical evaluation identifies a "BF/Toric-Code Triple-Derivation" problem:
+- ch06_bf.tex derives BF theory in full generality
+- ch07_dw.tex section 7.3 identifies untwisted Z_2 DW theory with the toric code
+- ch09_topological_order.tex section 9.4 (label: sec:bf-self-contained) re-derives BF from scratch
+
+The fix is "Option A (modular chapters)": keep all three derivations but add explicit cross-references at each occurrence so the reader knows these are the same physics approached differently.
+
+## Your task
+
+1. Read ch06_bf.tex, ch07_dw.tex, and ch09_topological_order.tex.
+2. At the END of the BF derivation in ch06, add 1-2 sentences: "The abelian case at level $N=2$ is untwisted $\mathbb{Z}_2$ gauge theory -- equivalently, the continuum limit of Kitaev's toric code (Chapter~\ref{ch:toporder}, \S\ref{sec:bf-self-contained}). The same lattice model emerges from a different direction as untwisted Dijkgraaf--Witten theory in Chapter~\ref{ch:dw}."
+3. At the END of the toric-code identification in ch07 section 7.3, add: "The reader arriving from Chapter~\ref{ch:bf} will recognize this as untwisted $\mathbb{Z}_2$ BF theory; the lattice Hamiltonian formulation appears in Chapter~\ref{ch:toporder}."
+4. At the BEGINNING of ch09 section 9.4 (the self-contained BF section), add a "Reader's note" remark: "This section derives BF theory from scratch for readers beginning with Part II. Readers who have already seen the full continuum treatment in Chapter~\ref{ch:bf} may skip to the dictionary at the end of this section."
+5. Use appropriate \ref{} labels. Check the files for the correct label names.
+6. Do NOT rewrite or delete any existing content. Only ADD cross-reference sentences/paragraphs.

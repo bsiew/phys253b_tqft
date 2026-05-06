@@ -1,0 +1,7 @@
+Done. The appendix `app_bf_zn.tex` is now 284 lines (~5 pages when typeset), replacing the 15-line stub. It contains:
+
+**Section D.1** — Full lattice derivation: cell-complex setup with explicit incidence signs, the compact BF partition function, $B$-integration producing the $\delta$-function constraint $(dA)_p \in \frac{2\pi}{N}\mathbb{Z}$, reduction to a $\mathbb{Z}_N$ sum, and identification with the untwisted DW partition function (Proposition D.1, matching the forward reference in Remark 6.4/`rem:bf-zn-scope`).
+
+**Section D.2** — Bar resolution: the bar complex $B_n = \mathbb{Z}[G^{n+1}]$ with explicit boundary operator, dualization to $U(1)$-cochains, the full 3-cocycle condition, the canonical representative $\omega_p(a,b,c) = \exp(2\pi i p \,\tilde{a}\,\lfloor(\tilde{b}+\tilde{c})/N\rfloor / N)$, direct verification via Lemma 7.5 (carry associativity), proof that $\omega_p \sim \omega_q$ iff $p \equiv q \pmod{N}$, and sanity checks for $N=2$ (toric code vs. double semion). Cites Brown *Cohomology of Groups* for sign conventions as requested.
+
+All existing labels (`\label{app:bf-zn}`, `\label{sec:appD-bf-lattice}`, `\label{sec:appD-bar-resolution}`) are preserved, and forward references from ch06 and ch07 resolve correctly.

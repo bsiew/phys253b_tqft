@@ -1,0 +1,16 @@
+Task complete. I've split `codex_scientific_text.md` into 6 section files under `codex_section_extracts/` and created the import map summary in `codex_paper_summary.md`.
+
+**Structure created:**
+- `01_header.md` — title, authors, affiliations
+- `02_main_text.md` — full theoretical and experimental content (largest section)
+- `03_methods.md` — metamaterial design and spectral measurements
+- `04_acknowledgments.md` — funding
+- `05_author_contributions.md` — author roles
+- `06_data_availability.md` — data access statement
+
+**Summary highlights:**
+- **Overall import recommendation:** low (condensed matter/metamaterial focus, minimal direct QFT relevance)
+- **Main text import:** medium (only if interested in topology/condensed matter-QFT connections)
+- **All other sections:** skip
+
+The paper demonstrates partial dislocations as bulk probes of higher-order topology in circuit metamaterials—relevant to condensed matter topology but peripheral to canonical QFT.

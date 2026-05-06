@@ -1,0 +1,18 @@
+Extraction complete. I've created a clean scientific extract from Rajantie's QFT monopole paper, preserving:
+
+**Retained:**
+- All pedagogical prose, physical explanations, and theoretical development
+- All equations: Maxwell equations with magnetic charges, electromagnetic duality, Dirac monopole configuration, Dirac charge quantization condition, Schwinger pair production rate, and worldline instanton cross section
+- Named results: Dirac monopole, Cho-Maison monopoles, 't Hooft-Polyakov monopoles, Hung monopoles, Callan-Rubakov effect, Montonen-Olive duality
+- Key assumptions and caveats (e.g., strong coupling $g_D\gg 1$, exponential suppression in semiclassical production, convergence issues in perturbation theory)
+- Physical interpretations and experimental constraints
+- Direct quotes from Maxwell and Dirac establishing historical context
+
+**Removed:**
+- TeX document setup (`\documentclass{vietnam}`, `\usepackage`, `\begin{document}`)
+- Macro definitions (journal shortcuts, `\def\al{\alpha}`, etc.)
+- Bibliography commands (`\input{Rajantie.bbl}`, `\cite` callouts in the text)
+- Presentational scaffolding (`\vspace`, `\maketitle`)
+- Author/address formatting
+
+The YAML frontmatter now correctly reflects the source extraction with updated timestamp and source file reference.

@@ -57,76 +57,182 @@
 %   Wen 1995 (\cite{Wen1995TopologicalOrdersEdgeExcitations})
 %
 % Writing notes
-%   - 7.1 covers the defect family in one place: why monopole sectors are
+%   - 15.1 covers the defect family in one place: why monopole sectors are
 %     topological, why the underlying theory is not, and how line operators
 %     probe the global form of the gauge group.
-%   - 7.2 is the final, unified version of the "iffiness" theme: four
+%   - 15.2 is the final, unified version of the "iffiness" theme: four
 %     categories of observables --- strict TQFT, IR response, theory-side
 %     topological, model-dependent --- per
 %     tqft_observables_literature_review.md Sec. 9.
-%   - 7.3 is a short guide-du-routard pointing the reader to the appropriate
-%     next references depending on their interest.
+%   - Guide du routard has been moved to Ch 16 §16.3.
 
 \section{Defects, Global Structure, and Synthesis}
 \label{sec:defects-synthesis}
 
-% TODO: Short preamble stating that the remaining observable families
-% (defects, global structure) and the "how real is this observable" question
-% live here.
+Which bundles can exist? The observables of the previous chapters---Hall conductance, braiding phases, the $\eta'$ mass---all live on a fixed bundle. A complementary family asks a more primitive question: not ``what is the topology of this bundle?'' but ``which bundles does the theory allow at all?'' The answer depends on the \emph{global form} of the gauge group---$SU(N)$ versus $SU(N)/\Z_N$ versus $PSU(N)$---and it shows up physically as the spectrum of line operators (Wilson and 't~Hooft lines) and point defects (monopoles).
 
 \subsection{Monopoles, Line Operators, and Global Structure}
 \label{subsec:monopoles-line-operators}
 
-% TODO: Dirac monopoles and charge quantization as a topological consistency
-% condition; 't Hooft-Polyakov monopoles as finite-energy solitons with
-% maps S^2_infty -> G/H (use pi_2(G/H) from Sec. 2.5). Contrast singular
-% Dirac vs smooth 't Hooft-Polyakov. Magnetic charge sector != topological
-% theory. Finally: Wilson / 't Hooft lines as probes of the global form of
-% the gauge group (e.g. SU(2) vs SO(3)) and preview of generalized
-% global symmetries.
-% Cite: \cite{Dirac1931QuantisedSingularities}, \cite{tHooft1974MagneticMonopoles},
-%       \cite{Polyakov1974ParticleSpectrum},
-%       \cite{MantonSutcliffeTopologicalSolitons},
-%       \cite{ShnirMagneticMonopoles}, \cite{WeinbergClassicalSolutionsQFT},
-%       \cite{Rajantie2024MonopoleTheoryOverview},
-%       \cite{FairbairnMonopolesRevisited},
-%       \cite{PDGMagneticMonopolesPlaceholder},
-%       \cite{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries},
-%       \cite{KapustinSaulinaLineOperatorsPlaceholder}
+\paragraph{Dirac monopoles and charge quantization.}
+Place a magnetic point charge $g$ at the origin of $\R^3$ \cite{Dirac1931QuantisedSingularities}. The field $\mathbf{B} = g\,\hat{r}/(4\pi r^2)$ has nonzero flux through any enclosing sphere,
+\begin{equation}
+  \oint_{S^2} \mathbf{B}\cdot d\mathbf{S} = g,
+  \label{eq:monopole-flux}
+\end{equation}
+so no globally defined vector potential exists on $\R^3\setminus\{0\}$. The fix (introduced in Part~I Sec.~2) is to cover the sphere by two patches---north and south---each carrying a well-defined $A_N$ or $A_S$, related on the equatorial overlap by a $U(1)$ gauge transformation,
+\begin{equation}
+  A_N - A_S = \frac{g}{2\pi}\,d\varphi,
+  \label{eq:dirac-patching}
+\end{equation}
+where $\varphi$ is the azimuthal angle. Single-valuedness of the charged-particle wavefunction around the equator demands that $e^{ieg\varphi/2\pi}$ return to itself after $\varphi\to\varphi+2\pi$:
+\begin{equation}
+  eg = 2\pi n, \qquad n\in\Z.
+  \label{eq:dirac-quantization}
+\end{equation}
+This is Dirac's quantization condition. The integer $n$ is the first Chern number $c_1$ of the $U(1)$ bundle over $S^2$, and \eqref{eq:dirac-quantization} restates the classification $\pi_1(U(1))\cong\Z$. The punchline: a single monopole anywhere in the universe forces every electric charge to be an integer multiple of $2\pi/g$.
+
+The construction is necessarily singular---the gauge potential diverges along a semi-infinite Dirac string stretching to infinity. The string is unphysical (gauge-invariant observables ignore its location), but its presence reminds us that we are describing a nontrivial bundle using one-patch coordinates. No smooth configuration of pure $U(1)$ carries magnetic charge.
+
+\paragraph{The 't~Hooft--Polyakov monopole.}
+The Dirac string disappears when the $U(1)$ descends from a spontaneously broken non-Abelian group \cite{tHooft1974MagneticMonopoles,Polyakov1974ParticleSpectrum}. Take $SU(2)$ Yang--Mills--Higgs with an adjoint scalar $\Phi$ and potential $V(\Phi) = \lambda(|\Phi|^2 - v^2)^2$. The vacuum manifold is
+\begin{equation}
+  \mathcal{M}_{\text{vac}} = \{\Phi : |\Phi| = v\}/\text{gauge} \;\cong\; SU(2)/U(1) \cong S^2.
+  \label{eq:vacuum-manifold-su2}
+\end{equation}
+Finite energy requires $\Phi \to v\,\hat{n}(\theta,\varphi)$ at spatial infinity, defining a map
+\begin{equation}
+  \hat{n}: S^2_\infty \longrightarrow S^2 \cong SU(2)/U(1),
+  \label{eq:hedgehog-map}
+\end{equation}
+classified by $\pi_2(SU(2)/U(1)) \cong \pi_2(S^2) \cong \Z$. The winding number is the magnetic charge in units of $4\pi/e$.
+
+The hedgehog ansatz $\hat{n}(\hat{r}) = \hat{r}$ gives the minimal monopole: winding number one, everywhere smooth, with a non-Abelian core of size $R\sim 1/(ev)$ and an asymptotic Coulomb tail. Its mass is
+\begin{equation}
+  M_{\text{mon}} = \frac{4\pi v}{e}\,f(\lambda/e^2),
+  \label{eq:thooft-polyakov-mass}
+\end{equation}
+where $f$ increases monotonically from $f(0) = 1$ (the BPS limit \cite{MantonSutcliffeTopologicalSolitons}) to $f(\infty) \approx 1.787$. At $\lambda= 0$ the Bogomolny equation $B_i^a = D_i\Phi^a$ is first-order, and the $k$-monopole moduli space has dimension $4k$ with a natural hyper-K\"ahler metric \cite{MantonSutcliffeTopologicalSolitons,ShnirMagneticMonopoles}.
+
+\begin{remark}[Dirac vs.~'t~Hooft--Polyakov]\label{rem:dirac-vs-thooft}
+These are different beasts. The Dirac monopole is a kinematic consistency condition for an unbroken $U(1)$: it constrains the charge spectrum without providing a finite-energy soliton. The 't~Hooft--Polyakov monopole is a dynamical object---definite mass, definite size, definite scattering cross-section. The topological classifications differ ($\pi_1(U(1))$ vs.~$\pi_2(G/H)$) because they probe different spaces, but both produce the same long-range Coulomb field.
+\end{remark}
+
+\paragraph{More general gauge groups.}
+The construction generalizes to any compact simple $G$ broken to $H$ by an adjoint Higgs. The relevant homotopy group is $\pi_2(G/H)$. When $G$ is simply connected, the exact sequence
+\begin{equation}
+  \cdots \to \pi_2(G) \to \pi_2(G/H) \to \pi_1(H) \to \pi_1(G) \to \cdots
+  \label{eq:exact-sequence-monopole}
+\end{equation}
+together with $\pi_2(G)=0$ for any compact Lie group gives $\pi_2(G/H)\cong\pi_1(H)$. For $G=SU(N)$ broken to the maximal torus $H=U(1)^{N-1}$, this yields $\pi_2(G/H)\cong\Z^{N-1}$: one fundamental monopole species for each simple root \cite{WeinbergClassicalSolutionsQFT,Rajantie2024MonopoleTheoryOverview}.
+
+\paragraph{Magnetic charge is topological; the theory is not.}
+Here is a distinction worth being precise about. The magnetic charge $n\in\pi_2(G/H)$ cannot change under smooth field deformations---it is conserved, quantized, and insensitive to the form of $V(\Phi)$. In this limited sense it is a ``topological observable.'' But the host theory---Yang--Mills--Higgs on Minkowski space---is not a topological field theory. It has a metric-dependent action, propagating degrees of freedom, and observables (monopole mass, cross-sections, form factors) that depend on continuous couplings. The situation parallels the instanton number of Chapter~\ref{sec:sectors-3plus1d}: the topological charge $\nu = (1/8\pi^2)\int\tr(F\wedge F)$ is robust, but the instanton amplitude $e^{-8\pi^2/g^2}$ depends on $g$. A topological sector label does not promote the full theory to a TQFT.
+
+We sharpen this in Sec.~\ref{subsec:when-topological}, where we sort observables into four categories by how much of their content is genuinely metric-independent.
+
+\paragraph{Wilson lines.}
+The extended operators that probe global structure are Wilson and 't~Hooft lines. Given a connection $A$ valued in $\mathfrak{g}$ and a representation $R$ of the gauge group $G$, the Wilson loop along a closed curve $\gamma$ is
+\begin{equation}
+  W_R(\gamma) = \tr_R\,\mathcal{P}\exp\!\oint_\gamma A,
+  \label{eq:wilson-loop}
+\end{equation}
+the trace of the holonomy in $R$. On the lattice this is the fundamental observable; in the continuum it diagnoses confinement (area law vs.~perimeter law) and serves as an order parameter for center symmetry \cite{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries}.
+
+The key point: the set of allowed representations $R$ depends on the global form of the gauge group, not just its Lie algebra. The algebras of $SU(N)$ and $SU(N)/\Z_N$ are identical, but $SU(N)$ admits all representations while $SU(N)/\Z_N$ admits only those with $N$-ality zero. The Wilson-line spectrum distinguishes the two theories.
+
+\paragraph{'t~Hooft lines.}
+The magnetic dual of the Wilson line is the 't~Hooft line \cite{tHooft1974MagneticMonopoles}. Where the Wilson line couples a heavy electric test charge to $A$, the 't~Hooft line prescribes a Dirac-monopole singularity along a worldline $\gamma$: the gauge field satisfies equations of motion away from $\gamma$, but on any small $S^2$ linking $\gamma$ the magnetic flux takes a prescribed value in the cocharacter lattice $\Lambda_{\text{cochar}}(G)$.
+
+For simply connected $G$, the cocharacter lattice is the coroot lattice $\Lambda_{\text{cr}}$, and 't~Hooft lines are labeled by $\Lambda_{\text{cr}}/W$. For the adjoint form $G/Z(G)$, it is the coweight lattice $\Lambda_{\text{cw}}\supset\Lambda_{\text{cr}}$, admitting additional 't~Hooft lines. The spectrum of 't~Hooft lines also depends on the global form---but in the opposite direction to Wilson lines.
+
+\paragraph{Mutual locality and the global form.}
+A Wilson line with electric weight $\mu\in\Lambda_w$ and an 't~Hooft line with magnetic coweight $\nu\in\Lambda_{\text{cw}}$ coexist in the same theory only if they satisfy Dirac--Schwinger--Zwanziger quantization,
+\begin{equation}
+  \langle \mu,\,\nu\rangle \in \Z,
+  \label{eq:mutual-locality}
+\end{equation}
+where $\langle\cdot,\cdot\rangle$ pairs the weight and coweight lattices \cite{KapustinSaulinaLineOperatorsPlaceholder,GaiottoKapustinSeibergWillett2015GeneralizedSymmetries}. The mutually local line operators form a maximal isotropic sublattice $L\subset \Lambda_w\oplus\Lambda_{\text{cw}}$ with respect to this pairing. Different choices of $L$ are different global forms of the gauge group.
+
+\begin{example}[$SU(2)$ vs.~$SO(3)$]\label{ex:su2-vs-so3}
+For gauge algebra $\mathfrak{su}(2)$: the weight lattice is $\Z$ (labeling spin-$j$ representations by $2j$) and the coweight lattice is $\tfrac{1}{2}\Z$. The coroot lattice is $\Z\subset\tfrac{1}{2}\Z$.
+\begin{itemize}
+  \item \textbf{$SU(2)$ theory:} All representations are allowed, so Wilson lines carry any $\mu\in\Z$. Mutual locality \eqref{eq:mutual-locality} then restricts 't~Hooft lines to the coroot lattice $\nu\in\Z$. The fundamental Wilson line (spin-$\tfrac{1}{2}$, $\mu=1$) exists; the minimal 't~Hooft line has $\nu=1$.
+  \item \textbf{$SO(3)$ theory:} Only integer-spin representations ($\mu\in 2\Z$) appear as Wilson lines. The mutual locality condition now permits 't~Hooft lines with $\nu\in\tfrac{1}{2}\Z$---the minimal 't~Hooft line has half the magnetic charge of the $SU(2)$ case.
+\end{itemize}
+Same Lagrangian, same local dynamics, different global data: which line operators are present. This distinction has physical consequences for vacuum structure, confining string tension, and response to center-symmetry backgrounds.
+\end{example}
+
+\paragraph{Preview: line operators and generalized symmetries.}
+The operators $U_g(M^2) = \exp\bigl(\frac{2\pi i}{N}\oint_{M^2} {*F}\bigr)$, supported on closed codimension-two surfaces $M^2$, commute with the Hamiltonian, multiply Wilson lines by a center element, and satisfy a $\Z_N$ group law. In the language of \cite{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries}, this is a 1-form global symmetry: a symmetry whose charged objects are lines rather than local operators. Whether this symmetry is present, spontaneously broken (deconfinement), or gauged (selecting the global form of $G$) organizes the modern understanding of gauge-theory phases. We will not develop the full higher-form formalism here---it belongs to Part~I Chapter~8---but the line-operator spectrum of this section is exactly the data on which 1-form symmetries act.
 
 \subsection{When the Observables Are Really Topological, and When They Are Only Effective}
 \label{subsec:when-topological}
 
-% From tqft_observables_literature_review.md Sec. 9: four-way organizing
-% table for the observables discussed throughout Part II.
-%
-%   (a) Strict TQFT observables
-%         Wilson-line linking, knot data, Hilbert spaces on closed surfaces.
-%         Metric-independent in the exact theory.
-%         Examples in this paper: Sec. 4.4--4.5.
-%
-%   (b) IR topological response observables
-%         Hall conductance, edge anomaly coefficient, GSD on topology.
-%         Universal only below the gap and after decoupling assumptions.
-%         Examples: Sec. 5.1--5.3.
-%
-%   (c) Topology-controlled but not directly measurable theory observables
-%         Instanton number, chi_t.
-%         Defined cleanly in Euclidean QFT / lattice QCD; enter observables
-%         indirectly (eta', axion mass, theta-dependence of E).
-%         Examples: Sec. 6.1--6.2.
-%
-%   (d) Topology-inspired but model-dependent observables
-%         Axion couplings in specific UV completions, monopole production
-%         rates, interferometric signatures in mesoscopic devices.
-%         Examples: Sec. 5.6, 6.3, 7.1.
-%
-% This subsection is where the lecture-flavor "iffiness" lives in its most
-% structural form, after the local caveat subsections in Secs. 5 and 6.
-% Cite: \cite{Witten2016ThreeLecturesTopologicalPhases}, \cite{Stern2008AnyonsQHEReview},
-%       \cite{Wen1995TopologicalOrdersEdgeExcitations},
-%       \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}
+What, precisely, does it mean to call an observable ``topological''? Part~I built the machinery---differential forms, Chern--Simons theory, Atiyah--Segal axioms, BF theory---and Part~II applied it to real systems: fractional quantum Hall states, QCD topology, monopoles. Each application came with caveats (Secs.~\ref{subsec:qhe-caveats} and~\ref{subsec:qcd-caveats}). Here we unify those local assessments into one taxonomy that answers, for every observable in this paper: \emph{how much is genuinely protected by topology, and where does non-topological physics enter?}
 
-% NOTE: The guide du routard (old Sec 7.3) has been moved to Ch 16 (Outlook).
-% The closing paragraph ("TQFT reorganizes gauge theory around global data...")
-% can serve as the final paragraph of 15.2 or the opening of Ch 16.
+The question matters because ``topological'' has meant several different things in these pages. Wilson-loop expectation values in Chern--Simons theory on $S^3$ (Sec.~\ref{sec:observables}) are exactly metric-independent---computed by a TQFT, depending only on knot topology. The Hall conductance (Sec.~\ref{subsec:laughlin-to-cs}) is topological in a weaker sense: quantized and universal below the gap, but resting on a gap assumption and the neglect of Landau-level mixing. The instanton number (Sec.~\ref{subsec:theta-chi-u1a}) is topologically exact as a mathematical object, yet the observables it controls---the $\eta'$ mass, the neutron EDM---require hadronic matrix elements that are not topological at all. And monopole production cross-sections (Sec.~\ref{subsec:monopoles-line-operators}) are merely \emph{inspired} by the topological classification: the sector label is robust, but the rates depend on energy scales, form factors, and the UV completion.
+
+\paragraph{The four-category taxonomy.}
+We sort observables into four categories by decreasing robustness. Table~\ref{tab:observable-taxonomy} summarizes; the paragraphs below sharpen each one.
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{c p{5.8cm} p{5.5cm}}
+\hline\hline
+\textbf{Category} & \textbf{Definition} & \textbf{Examples in this paper} \\
+\hline
+(a) Strict TQFT &
+Metric-independent in the exact, non-perturbative theory; computed from the partition function or correlators of a topological field theory. &
+Wilson-loop linking numbers (Sec.~\ref{sec:observables}), Hilbert-space dimension on $\Sigma_g$ (Sec.~\ref{sec:hilbert}), Jones polynomial (Sec.~\ref{sec:witten-jones}). \\[4pt]
+(b) IR topological response &
+Universal below the gap and after decoupling high-energy modes; computed from a Chern--Simons effective action that emerges in the IR. &
+Hall conductance $\sigma_{xy}$ (Sec.~\ref{subsec:laughlin-to-cs}), quasiparticle braiding phase (Sec.~\ref{subsec:quasiparticles}), GSD on $\Sigma_g$ (Sec.~\ref{subsec:edges-degeneracy}). \\[4pt]
+(c) Theory-side topological &
+Defined cleanly in Euclidean QFT or on the lattice; topologically quantized as a mathematical object, but enters physical observables only through hadronization, analytic continuation, or matching. &
+Instanton number $\nu$ (Sec.~\ref{subsec:theta-chi-u1a}), topological susceptibility $\chi_t$ (Sec.~\ref{subsec:eta-prime-wv}). \\[4pt]
+(d) Topology-inspired, model-dependent &
+The underlying topological sector is real and classifiable, but the observable that couples to it depends on the UV completion, mesoscopic details, or uncontrolled approximations. &
+Axion--photon coupling (Sec.~\ref{subsec:strong-cp-axion}), monopole production rates (Sec.~\ref{subsec:monopoles-line-operators}), interferometric anyon signatures (Sec.~\ref{subsec:qhe-caveats}). \\[4pt]
+\hline\hline
+\end{tabular}
+\caption{Four categories of ``topological observable,'' ordered by decreasing robustness. Moving down the table, additional assumptions or model-dependent inputs are required to connect the topological structure to a measurable quantity.}
+\label{tab:observable-taxonomy}
+\end{table}
+
+\paragraph{Category (a): strict TQFT observables.}
+An observable is category (a) if it is computed entirely within a theory whose correlation functions are independent of any metric \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}. The paradigm: Chern--Simons at level $k$, where the partition function $Z_k(M)$ and Wilson-loop expectation values $\langle W_R(L)\rangle$ depend only on the diffeomorphism type of $(M,L)$. What makes this clean is not merely that answers happen to be integers or roots of unity, but that the \emph{theory itself} has no metric in its action---no approximation, no integrated-out degrees of freedom. The price: strict TQFT observables have no direct laboratory realization. They supply the algebraic backbone (fusion rules, modular matrices, linking numbers) on which the more physical categories draw.
+
+\paragraph{Category (b): IR topological response.}
+These are the workhorses of topological condensed matter \cite{Wen1995TopologicalOrdersEdgeExcitations,Stern2008AnyonsQHEReview}. The logic: find a gapped phase, integrate out everything above the gap, recognize the effective action as Chern--Simons or BF theory, read off the topological data. The result---quantized Hall conductance, fractional statistics, ground-state degeneracy---is universal: independent of interaction strength, lattice geometry, or disorder realization, as long as the gap stays open.
+
+The caveat is that conditional. The derivation in Sec.~\ref{subsec:laughlin-to-cs} required a clean spectral gap, negligible Landau-level mixing, and a system large compared to $\ell_B$. Under those assumptions the Chern--Simons level $k$ is exactly quantized. But at a quantum phase transition, a plateau edge, or in a mesoscopic sample with edge-bulk coupling, the assumptions fail. An observable is ``category (b) topological'' precisely when the gap assumptions hold and the effective theory is reliably derived. (In practice, ``is this phase really gapped?'' is often less crisp than the subsequent TQFT analysis suggests.)
+
+What would upgrade (b) to (a)? A lattice Hamiltonian whose exact ground-state space \emph{is} the TQFT Hilbert space---the toric code, Levin--Wen string nets---at the cost of fine-tuning: the Hamiltonian is chosen so the continuum limit is already topological. In nature, the quantum Hall state is category (b): the Chern--Simons description is emergent, not exact.
+
+\paragraph{Category (c): theory-side topological observables.}
+Here the topological quantity is mathematically well-defined and computable---on the lattice, in Euclidean field theory---but does not directly correspond to any single measurement. The instanton number $\nu\in\Z$ is insensitive to smooth deformations, exactly quantized, accessible by Monte Carlo. The topological susceptibility $\chi_t = \langle\nu^2\rangle/V$ is likewise clean. But the physical quantities they control---the $\eta'$ mass via Witten--Veneziano (Sec.~\ref{subsec:eta-prime-wv}), the vacuum energy $\mathcal{E}(\theta)$, the axion mass---require analytic continuation to Minkowski signature, matching to chiral perturbation theory, or hadronic matrix elements.
+
+The topological sector label is exact; the map from that label to a number in a detector is not. The topology lives on the theory side of the theory/experiment interface. The instanton number classifies gauge-field configurations with mathematical precision, but a physical observable like CP violation in $\eta\to\pi\pi$ requires non-topological QCD dynamics to evaluate.
+
+\paragraph{Category (d): topology-inspired but model-dependent.}
+A genuine topological structure exists---magnetic charge in $\pi_2(G/H)$, the Pontryagin index coupling to the axion, the anyon charge of a quasiparticle---but the measurable quantity depends on details the classification does not fix \cite{Witten2016ThreeLecturesTopologicalPhases}. Three examples:
+\begin{itemize}
+  \item \textit{Axion couplings} (Sec.~\ref{subsec:strong-cp-axion}). The axion mass $m_a^2 = \chi_t/f_a^2$ is category~(c) robust. But the axion--photon coupling $g_{a\gamma\gamma}$ depends on PQ-charge assignments of Standard Model fermions---the UV completion (KSVZ vs.\ DFSZ vs.\ exotica). Two models with identical $f_a$ can differ by an order of magnitude in their photon coupling. Same topological sector, different observable.
+
+  \item \textit{Monopole production rates} (Sec.~\ref{subsec:monopoles-line-operators}). The charge $n\in\pi_2(G/H)$ is exact, and the long-range Coulomb field depends on $n$ alone. But production cross-sections depend on the monopole mass \eqref{eq:thooft-polyakov-mass}, set by $v$ and $e$---parameters that vary across GUT models. Topology guarantees monopoles \emph{exist}; it does not predict how many you produce.
+
+  \item \textit{Interferometric anyon signatures} (Sec.~\ref{subsec:qhe-caveats}). The braiding phase $e^{2\pi i/m}$ is category~(b) robust. But extracting it from a Fabry--P\'erot interferometer requires modeling edge equilibration, Coulomb charging, and finite-temperature decoherence. The ``topological'' signal sits atop a non-universal background, and separating the two is mesoscopic physics, not TQFT.
+\end{itemize}
+The common thread: a separation between the exact, model-independent topological classification and the non-topological physics required to couple that classification to a specific observable.
+
+\paragraph{Upgrading and downgrading.}
+The taxonomy is not permanent---observables migrate between categories as understanding advances. A category~(d) observable upgrades to (c) when model-dependent inputs are measured or calculated from first principles (lattice determination of hadronic matrix elements can turn an axion coupling prediction from model-dependent to numerically controlled). A category~(b) observable upgrades to (a) when the microscopic Hamiltonian is identified as an exact fixed point. Conversely, a putative category~(b) observable downgrades to (d) if its gap assumption fails---at a quantum critical point, or when gapless edge reconstruction invalidates the bulk effective theory. The taxonomy is a snapshot of current knowledge.
+
+\paragraph{What the taxonomy reveals.}
+The four categories organize the relationship between three things: the mathematical structure (a TQFT or topological invariant), the physical theory (QCD, the quantum Hall system, a GUT), and the experimental observable (a transport coefficient, a mass, a cross-section). Category~(a) involves no physical theory---it is a property of the mathematics itself. Category~(b) has a controlled map from mathematics to physics, mediated by the gap. Category~(c) has a controlled definition but an uncontrolled map to experiment. Category~(d) has both an uncontrolled map and model-dependent inputs.
+
+The through-line of this paper: ordinary gauge quantum field theory already contains topological sectors---instanton numbers, monopole charges, Chern--Simons terms in the effective action, anyon statistics---and TQFT (axioms, cobordisms, modular categories) provides the language in which the universal content of those sectors becomes transparent. The four-category table is the honest accounting of how far that universality extends. For strict TQFT observables, protection is absolute. For IR response, conditional on a gap. For theory-side quantities, exact in Euclidean space but requiring non-topological input to reach experiment. For topology-inspired observables, the classification provides the skeleton---allowed quantum numbers, selection rules, robust sector labels---but the flesh is ordinary, metric-dependent physics.
+
+That is the structural content behind every caveat in this paper. It is also the reason TQFT is useful far beyond strict TQFTs: even at category~(d), the topological classification constrains the space of possibilities, forbids transitions, and organizes what would otherwise be an unstructured collection of dynamical questions. The outlook of Chapter~\ref{sec:outlook} takes this as its starting point.

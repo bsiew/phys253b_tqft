@@ -1,0 +1,18 @@
+You are helping prepare cheat cards for a 50-minute joint chalk-talk on TQFT (Physics 253b final project, Brian Siew + Helena Brittain).
+
+## Task
+
+Create two one-page cheat cards in plan/presentation/cheat_card_brian.md and plan/presentation/cheat_card_helena.md.
+
+Each card should contain (formatted for easy reading at arm's length):
+
+1. **Board layout sketch** — ASCII diagram of where equations go
+2. **Minute checkpoints** — "by minute X, be at Y"
+3. **3 hardest anticipated questions + prepared 2-sentence answers:**
+   For Brian: level quantization subtleties, Jones polynomial relation, spin-structure issues
+   For Helena: fault-tolerance feasibility, experimental caveats, why CS and not microscopic theory
+4. **Safety phrases** for when stuck
+
+Read plan/presentation/brian_script.md and plan/presentation/helena_script.md to base these on the actual scripts. If those files do not exist yet, read the task files at 253b_final_paper/plan/tasks/18_1_brian_board_script.md and 18_2_helena_board_script.md for the planned structure, and base your cards on that.
+
+Keep each card to roughly one printed page (under 60 lines of markdown).

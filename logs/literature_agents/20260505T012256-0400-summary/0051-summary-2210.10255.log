@@ -1,0 +1,18 @@
+Task complete. I've successfully split the paper "Non-Abelian braiding of graph vertices in a superconducting processor" (arXiv:2210.10255) into eight section-level Markdown files under `codex_section_extracts/` and created a comprehensive paper summary in `codex_paper_summary.md`.
+
+**Section files created:**
+1. `01_abstract.md` — paper abstract and key contributions
+2. `02_introduction.md` — theoretical foundations and experimental requirements
+3. `03_stabilizer_codes_graph_framework.md` — technical framework for anyon realization
+4. `04_fusion_rules_demonstration.md` — experimental fusion rule verification
+5. `05_braiding_demonstration.md` — central non-Abelian braiding results
+6. `06_entangled_logical_qubits.md` — GHZ state creation demonstration
+7. `07_conclusion.md` — summary and outlook
+8. `08_methods.md` — experimental details and validation
+
+**Import recommendations:**
+- **High priority:** Sections 1-5 (core physics and main results)
+- **Medium priority:** Sections 6, 8 (applications and methods)
+- **Low priority:** Section 7 (standard conclusions)
+
+Each section file preserves YAML front matter with metadata, and summaries are scaled to source content density as requested.

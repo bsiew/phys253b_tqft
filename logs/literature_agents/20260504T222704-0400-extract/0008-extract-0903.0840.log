@@ -1,0 +1,10 @@
+Mechanical extraction and cleaning complete. I've created `codex_scientific_text.md` by:
+
+1. **Preserving YAML front matter** with metadata about the extraction.
+2. **Removing all TeX plumbing**: documentclass declarations, package imports, macro/command definitions, page setup commands, acknowledgments, and all presentational formatting.
+3. **Keeping scientific content**: All theorems, definitions, lemmas, proofs, equations, remarks, and interpretations. Organized the paper's logical structure with clear section headings.
+4. **Converting TeX markup to markdown**: Changed `$...$` to inline math, equation environments to display math, citations retained as prose references.
+5. **Handling the example table**: Converted the tabular structure for classical Lie groups into markdown list format with mathematical content preserved.
+6. **Removing bibliography scaffolding**: Deleted the `\begin{thebibliography}` block but preserved citations as inline references.
+
+The extracted file is now 700+ lines of clean scientific prose ready for analysis. All key mathematical content—convexity theorems, cohomology rings, isoparametric submanifolds, Bruhat cells, and the counterexamples—is preserved with full technical detail.

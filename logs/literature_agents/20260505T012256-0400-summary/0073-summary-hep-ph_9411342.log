@@ -1,0 +1,18 @@
+Completed the task. I have:
+
+1. Split `codex_scientific_text.md` into 7 section files under `codex_section_extracts/`:
+   - `01_introduction.md` (678 lines)
+   - `02_strings_in_field_theories.md` (1077 lines)
+   - `03_string_dynamics.md` (768 lines)
+   - `04_string_interactions.md` (653 lines)
+   - `05_strings_in_early_universe.md` (1074 lines)
+   - `06_observational_consequences.md` (892 lines)
+   - `07_conclusions.md` (916 lines)
+
+2. Created `codex_paper_summary.md` with:
+   - **Whole-paper snapshot** summarizing the review's scope, technical content, and relevance
+   - **Section-by-section summaries** scaled to content density (50-150 words each), listing file paths and import recommendations
+   - **Import triage:** Sections 1-6 rated **high** (foundational theory, dynamics, interactions, cosmology, observations), Section 7 rated **medium** (historical assessment, now dated)
+   - **Full-source recommendation:** Overall **high** — this is a canonical review covering field-theoretic foundations, homotopy classification, Nambu-Goto dynamics, gravitational effects, and cosmological evolution of cosmic strings
+
+Each section extract preserves the YAML front matter from the original document.

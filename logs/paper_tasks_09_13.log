@@ -1,0 +1,75 @@
+============================================================
+ Paper Tasks 09–13: Starting at Tue May  5 02:54:22 EDT 2026
+ Max parallel: 2
+ Log dir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_09_13
+============================================================
+
+[02:54:22] >>>>>> WAVE 1: Chapters 9 + 10 <<<<<<
+[02:54:22] === Starting Chapter 9 ===
+[02:54:22] === Starting Chapter 10 ===
+[02:54:22] Starting task: 09_1_long_range_entanglement
+[02:54:22] Starting task: 10_1_fusion_pentagon
+[02:55:14] Completed task: 09_1_long_range_entanglement
+[02:55:14] Starting task: 09_2_toric_code_gsd
+[02:55:16] Completed task: 10_1_fusion_pentagon
+[02:55:16] Starting task: 10_2_braiding_hexagon
+[02:56:32] Completed task: 10_2_braiding_hexagon
+[02:56:32] Starting task: 10_3_modular_S_U1k
+[02:56:32] Completed task: 09_2_toric_code_gsd
+[02:56:32] Starting task: 09_3_emergent_anyons
+[02:57:33] Completed task: 09_3_emergent_anyons
+[02:57:33] Starting task: 09_4_ir_bf_roundtrip
+[02:58:00] Completed task: 10_3_modular_S_U1k
+[02:58:00] Starting task: 10_4_cs_primary_labels
+[02:58:34] Completed task: 09_4_ir_bf_roundtrip
+[02:58:34] Starting task: 09_5_tee_appendix_handoff
+[02:59:47] Completed task: 10_4_cs_primary_labels
+[02:59:47] Starting task: 10_5_anyon_comparison_table
+[03:00:34] Completed task: 10_5_anyon_comparison_table
+[03:00:34] === Completed Chapter 10 ===
+[03:01:48] Completed task: 09_5_tee_appendix_handoff
+[03:01:48] === Completed Chapter 9 ===
+[03:01:48] >>>>>> WAVE 1 COMPLETE <<<<<<
+
+[03:01:48] >>>>>> WAVE 2: Chapters 11 + 12 <<<<<<
+[03:01:48] === Starting Chapter 12 ===
+[03:01:48] === Starting Chapter 11 ===
+[03:01:49] Starting task: 12_1_nakamura_2020
+[03:01:49] Starting task: 11_1_hall_setup
+[03:03:21] Completed task: 11_1_hall_setup
+[03:03:21] Starting task: 11_2_laughlin_to_cs
+[03:03:35] Completed task: 12_1_nakamura_2020
+[03:03:35] Starting task: 12_2_werkmeister_2025
+[03:04:35] Completed task: 12_2_werkmeister_2025
+[03:04:35] Starting task: 12_3_andersen_2023
+[03:06:01] Completed task: 12_3_andersen_2023
+[03:06:01] Starting task: 12_4b_bartolomei_shot_noise
+[03:06:06] Completed task: 11_2_laughlin_to_cs
+[03:06:06] Starting task: 11_3_quasiparticles
+[03:07:03] Completed task: 12_4b_bartolomei_shot_noise
+[03:07:03] === Completed Chapter 12 ===
+[03:07:53] Completed task: 11_3_quasiparticles
+[03:07:53] Starting task: 11_4_edge_chiral_boson
+[03:09:52] Completed task: 11_4_edge_chiral_boson
+[03:09:52] Starting task: 11_5_honesty_box
+[03:10:33] Completed task: 11_5_honesty_box
+[03:10:33] Starting task: 11_6_maxwell_cs
+[03:11:37] Completed task: 11_6_maxwell_cs
+[03:11:37] === Completed Chapter 11 ===
+[03:11:37] >>>>>> WAVE 2 COMPLETE <<<<<<
+
+[03:11:37] >>>>>> WAVE 3: Chapter 13 <<<<<<
+[03:11:37] === Starting Chapter 13 ===
+[03:11:37] Starting task: 13_1_non_abelian_kitaev
+[03:12:28] Completed task: 13_1_non_abelian_kitaev
+[03:12:28] Starting task: 13_2_ising_gates
+[03:13:33] Completed task: 13_2_ising_gates
+[03:13:33] Starting task: 13_3_honesty_box
+[03:14:11] Completed task: 13_3_honesty_box
+[03:14:11] Starting task: 13_4_tqc_outlook
+[03:14:57] Completed task: 13_4_tqc_outlook
+[03:14:57] === Completed Chapter 13 ===
+
+============================================================
+ ALL TASKS COMPLETE at Tue May  5 03:14:57 EDT 2026
+============================================================

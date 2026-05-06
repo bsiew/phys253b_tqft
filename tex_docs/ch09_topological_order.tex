@@ -53,68 +53,276 @@
 \subsection{Long-Range Entanglement vs Symmetry Breaking}
 \label{subsec:lre-vs-symmetry-breaking}
 
-% TODO (Task 09_1): ~2 pages.
-% 1. Symmetry-breaking paradigm: order parameter <phi> != 0, local probes
-%    distinguish phases. Brief.
-% 2. What fails: gapped phases with no local order parameter, distinct from
-%    trivial phase. These are topologically ordered.
-% 3. Long-range entanglement: ground state cannot be deformed to product state
-%    by finite-depth local unitary. Contrast with symmetry-broken states.
-% 4. Three experimental signatures: GSD on nontrivial manifolds, anyonic
-%    excitations, topological entanglement entropy gamma = log D.
-% 5. Foreshadow: rest of Ch 9 makes signatures precise via toric code;
-%    Ch 10 develops anyon language; Ch 11 connects to FQH.
-% Cite: Wen 1990, Kitaev-Preskill 2006, Levin-Wen 2006.
+What do you call a phase of matter with no broken symmetry and no local order parameter?  Before 1989, you called it trivial.  The Landau paradigm classifies phases by their patterns of symmetry breaking---ferromagnets, superfluids, crystals, the Higgs mechanism---and a symmetric gapped state is, in that framework, featureless.
+
+Then there are the fractional quantum Hall states.  They are gapped, break no symmetry, admit no local order parameter, and yet the $\nu = 1/3$ state is manifestly \emph{different} from $\nu = 1/5$: different Hall conductance, different quasiparticle charge, different braiding statistics.  Landau has nothing to say about them.  Beginning with Wen's work on chiral spin liquids \cite{Wen1990TopologicalOrders}, the missing ingredient was identified: gapped quantum systems can realize phases that
+\begin{enumerate}
+    \item have no local order parameter distinguishing them from the trivial (product-state) phase,
+    \item are nonetheless \emph{distinct} from the trivial phase and from each other by any adiabatic path that does not close the gap.
+\end{enumerate}
+Such phases possess \textbf{topological order}.  The fractional quantum Hall states furnish the canonical experimental family; the toric code (Section~\ref{subsec:toric-code-gsd}) provides the cleanest theoretical laboratory.
+
+The modern characterization uses the language of quantum information.  Take a gapped ground state $\ket{\Psi}$ on a lattice.  We call $\ket{\Psi}$ \emph{short-range entangled} (SRE) if there exists a finite-depth local unitary circuit $U$ such that
+\begin{equation}\label{eq:sre-def}
+    U \ket{\Psi} = \ket{0}^{\otimes N},
+\end{equation}
+where $\ket{0}^{\otimes N}$ is a product state.  ``Finite-depth'' means the circuit depth is bounded independently of system size; ``local'' means each gate acts on a geometrically bounded region.
+
+\begin{definition}[Topological order via LRE]\label{def:lre}
+A gapped ground state is \textbf{topologically ordered} if it is \emph{long-range entangled} (LRE): it cannot be connected to any product state by a finite-depth local unitary circuit.
+\end{definition}
+
+\noindent The point is one of complexity: no matter how cleverly you arrange local gates, you cannot untangle a topologically ordered state in bounded time.  The entanglement is not localized anywhere---it pervades the system and resists all local probes.
+
+This cleanly separates topological order from symmetry breaking.  A ferromagnetic state $\ket{\uparrow \uparrow \cdots \uparrow}$ is already a product state---trivially SRE.  Even a GHZ cat state $(\ket{\uparrow\cdots\uparrow} + \ket{\downarrow\cdots\downarrow})/\sqrt{2}$ disentangles with a depth-one circuit of Hadamard and CNOT gates.  Topologically ordered states, by contrast, have entanglement robust against \emph{any} local perturbation---far stronger than robustness against merely symmetric perturbations.
+
+Since topological order evades local probes, how do we detect it?  Three signatures serve as diagnostics:
+
+\begin{enumerate}
+    \item \textbf{Ground-state degeneracy on nontrivial manifolds.}  A topologically ordered system on a surface of genus $g$ exhibits a ground-state degeneracy that depends on the topology of the manifold but is insensitive to local perturbations.  For the $\Z_2$ toric code, the degeneracy on the torus is $4 = 2^{2g}$ (derived in Section~\ref{subsec:toric-code-gsd}).
+
+    \item \textbf{Anyonic excitations.}  The elementary excitations of a topologically ordered phase carry fractional or non-abelian statistics: exchanging two quasiparticles yields a phase that is neither $+1$ (bosons) nor $-1$ (fermions), but a root of unity or a unitary matrix.  Section~\ref{subsec:emergent-anyons} demonstrates this explicitly for the toric code.
+
+    \item \textbf{Topological entanglement entropy.}  For a region $A$ of a topologically ordered ground state, the von Neumann entropy obeys an area law with a universal subleading correction \cite{KitaevPreskill2006TEE, LevinWen2006DetectingTO}:
+    \begin{equation}\label{eq:tee}
+        S(A) \;=\; \alpha \, |\del A| \;-\; \gamma \;+\; \cdots
+    \end{equation}
+    The coefficient $\alpha$ is non-universal and UV-divergent, but the \textbf{topological entanglement entropy} $\gamma$ is a universal constant of the phase:
+    \begin{equation}\label{eq:total-quantum-dimension}
+        \gamma \;=\; \log \mathcal{D}, \qquad \mathcal{D} = \sqrt{\sum_a d_a^2},
+    \end{equation}
+    where the sum runs over anyon species $a$ with quantum dimensions $d_a$, and $\mathcal{D}$ is the \emph{total quantum dimension}.  For the toric code, $\mathcal{D} = 2$ (four anyons, each with $d_a = 1$), giving $\gamma = \log 2$.  The derivation via the Kitaev--Preskill subtraction scheme appears in Appendix~\ref{app:tee}.
+\end{enumerate}
+
+The physical origin of $\gamma$ is transparent in the string picture of Levin and Wen \cite{LevinWen2006DetectingTO}: a $\Z_2$ topologically ordered ground state assigns amplitude one to all closed-loop configurations and zero to open strings.  This enforces a nonlocal parity constraint---the number of strings crossing any cut is always even---which reduces the entropy below what local correlations predict.  The deficit is exactly $\gamma$.
+
+A nonzero $\gamma$ directly witnesses long-range entanglement.  A symmetry-broken state is a product state (or finite superposition thereof) with $\gamma = 0$.  Through \eqref{eq:total-quantum-dimension}, $\gamma$ encodes intrinsically topological data---the quantum dimensions $\{d_a\}$ specifying the anyon content---the same data that fixes the TQFT in the infrared (Section~\ref{sec:bf-self-contained}).
+
+These three signatures---topology-dependent degeneracy, anyonic statistics, topological entanglement entropy---all flow from the underlying long-range entanglement.  The total quantum dimension $\mathcal{D}$ ties them together: it simultaneously determines the degeneracy on higher-genus surfaces and the universal correction to entanglement entropy.  We now make each signature explicit.
 
 \subsection{Toric Code Hamiltonian and the Four-Fold Torus Degeneracy}
 \label{subsec:toric-code-gsd}
 
-% TODO (Task 09_2): ~2.5 pages.
-% 1. Lattice: qubits on edges of square lattice on T^2.
-% 2. Hamiltonian: H = -J_v sum_v A_v - J_p sum_p B_p
-%    A_v = prod_{e in v} X_e (star), B_p = prod_{e in p} Z_e (plaquette).
-% 3. Commutation: [A_v, B_p] = 0 for all v,p. Prove: any A_v and B_p share
-%    0 or 2 edges.
-% 4. Ground-state condition: A_v |psi> = B_p |psi> = |psi> for all v,p.
-% 5. Constraints: prod_v A_v = prod_p B_p = 1, so V-1 independent A_v and
-%    P-1 independent B_p. Total constraints = E-2. GS dim = 2^{E-(E-2)} = 4.
-% 6. String operators: W_1 = prod Z_e along non-contractible loop, W_2 other
-%    direction. Commute with all A_v, B_p. Distinguish 4 ground states.
-% Cite: Kitaev 2003.
+Kitaev's toric code \cite{Kitaev2003FaultTolerant} is the simplest exactly solvable model with topological order.  Every feature---degeneracy, anyons, braiding---follows from explicit Pauli algebra, with no approximations.
+
+Consider a square lattice $\Lambda$ on the torus $T^2$.  Write $V$ for vertices, $E$ for edges, $P$ for plaquettes.  The Euler relation gives
+\begin{equation}\label{eq:euler-torus}
+    |V| - |E| + |P| = \chi(T^2) = 0, \qquad \text{i.e.} \quad |V| + |P| = |E|.
+\end{equation}
+Place a qubit on every edge $e \in E$.  The total Hilbert space is $\mathcal{H} = (\C^2)^{\otimes |E|}$, of dimension $2^{|E|}$.  Let $X_e$, $Z_e$ denote the Pauli operators on edge $e$.
+
+For each vertex $v$, the \emph{star operator} is the product of $X$ on the four incident edges:
+\begin{equation}\label{eq:star-op}
+    A_v \;=\; \prod_{e \,\ni\, v} X_e.
+\end{equation}
+For each plaquette $p$, the \emph{plaquette operator} is the product of $Z$ around the boundary:
+\begin{equation}\label{eq:plaquette-op}
+    B_p \;=\; \prod_{e \,\in\, \del p} Z_e.
+\end{equation}
+Each $A_v$ and $B_p$ is Hermitian and squares to $I$, so its eigenvalues are $\pm 1$.
+
+\begin{definition}[Toric code Hamiltonian]\label{def:toric-code-ham}
+The toric code Hamiltonian is
+\begin{equation}\label{eq:toric-code-ham}
+    H \;=\; -J_v \sum_{v \in V} A_v \;-\; J_p \sum_{p \in P} B_p,
+\end{equation}
+with $J_v, J_p > 0$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \input{figures/toric_code_lattice.tex}
+    \caption{Square-lattice toric-code geometry on a torus, showing edge qubits, vertex and plaquette stabilizers, and a non-contractible Wilson string that distinguishes topological sectors.}
+    \label{fig:toric-code-lattice}
+\end{figure}
+
+The model is exactly solvable because all stabilizers commute:
+
+\begin{proposition}\label{prop:stabilizer-commute}
+$[A_v, B_p] = 0$ for every vertex $v$ and plaquette $p$.
+\end{proposition}
+\begin{proof}
+Fix a vertex $v$ and a plaquette $p$.  The operator $A_v$ is a product of Pauli-$X$ operators and $B_p$ is a product of Pauli-$Z$ operators; on a single edge $e$, we have $X_e Z_e = -Z_e X_e$.  Hence each shared edge contributes a sign of $(-1)$.  Geometrically, a vertex $v$ borders a plaquette $p$ along either $0$ or $2$ edges (the vertex lies either outside the plaquette, or at a corner where exactly two boundary edges meet).  In both cases the total sign is $(-1)^0 = 1$ or $(-1)^2 = 1$, so $A_v$ and $B_p$ commute.
+\end{proof}
+
+\noindent All $A_v$ commute among themselves (products of $X$ on potentially overlapping edges, but $X_e X_e = I$), and likewise for the $B_p$.  The Hamiltonian~\eqref{eq:toric-code-ham} is a sum of commuting projectors, and its eigenstates are simultaneous eigenstates of all stabilizers.  This is an exactly solvable \emph{stabilizer code}: the ground space is the simultaneous $+1$ eigenspace, and the full spectrum is labeled by eigenvalue patterns.
+
+Energy is minimized when every stabilizer has eigenvalue $+1$:
+\begin{equation}\label{eq:gs-condition}
+    A_v \ket{\psi} = +\ket{\psi} \quad \forall\, v, \qquad B_p \ket{\psi} = +\ket{\psi} \quad \forall\, p.
+\end{equation}
+How many independent constraints does this impose?  The stabilizers are not all independent.  On the torus, every edge belongs to exactly two vertices and exactly two plaquettes, giving the global relations
+\begin{equation}\label{eq:global-constraints}
+    \prod_{v \in V} A_v \;=\; I, \qquad \prod_{p \in P} B_p \;=\; I.
+\end{equation}
+(Each $X_e$ appears in $A_v$ for both vertices adjacent to $e$, so $\prod_v A_v = \prod_e X_e^2 = I$; identically for plaquettes.)  Only $|V| - 1$ star operators and $|P| - 1$ plaquette operators are independent.  The count:
+\begin{equation}\label{eq:constraint-count}
+    (|V| - 1) + (|P| - 1) \;=\; |V| + |P| - 2 \;=\; |E| - 2,
+\end{equation}
+using \eqref{eq:euler-torus}.  Each constraint halves the Hilbert space, so
+\begin{equation}\label{eq:gsd-toric}
+    \dim \mathcal{H}_{\mathrm{GS}} \;=\; \frac{2^{|E|}}{2^{|E|-2}} \;=\; 2^2 \;=\; 4.
+\end{equation}
+Four ground states, depending only on the topology of the torus, robust against all local perturbations.  To split this degeneracy, a perturbation would need to distinguish states that differ only by non-contractible string operators wrapping the entire torus---no local operator can do this.
+
+What distinguishes the four ground states?  Operators that commute with all stabilizers yet act nontrivially within $\mathcal{H}_{\mathrm{GS}}$.  Let $\gamma_1$, $\gamma_2$ be the two independent non-contractible cycles of the torus.  Define \emph{$Z$-string operators}
+\begin{equation}\label{eq:z-strings}
+    \bar{Z}_1 \;=\; \prod_{e \in \gamma_1} Z_e, \qquad \bar{Z}_2 \;=\; \prod_{e \in \gamma_2} Z_e,
+\end{equation}
+and dual \emph{$X$-string operators} along the dual-lattice cycles $\gamma_1^*$, $\gamma_2^*$:
+\begin{equation}\label{eq:x-strings}
+    \bar{X}_1 \;=\; \prod_{e \in \gamma_2^*} X_e, \qquad \bar{X}_2 \;=\; \prod_{e \in \gamma_1^*} X_e.
+\end{equation}
+
+Each $\bar{Z}_i$ commutes with all stabilizers (it is a product of $Z$'s, and a non-contractible loop crosses each vertex zero or two times).  Likewise for $\bar{X}_i$.  But between themselves they satisfy
+\begin{equation}\label{eq:string-algebra}
+    \bar{Z}_i \,\bar{X}_j \;=\; (-1)^{\delta_{ij}}\, \bar{X}_j \,\bar{Z}_i.
+\end{equation}
+The cycle $\gamma_i$ and dual cycle $\gamma_j^*$ have intersection number $\delta_{ij}$ on the torus: for $i = j$ they cross at exactly one edge, giving a single anticommutation; for $i \neq j$ they miss.
+
+This algebra~\eqref{eq:string-algebra} is precisely two independent pairs of Pauli operators, each generating a qubit:
+\begin{equation}\label{eq:gs-qubit-decomp}
+    \mathcal{H}_{\mathrm{GS}} \;\cong\; \C^2 \otimes \C^2,
+\end{equation}
+with $\bar{Z}_i$, $\bar{X}_i$ acting as logical Pauli operators on the $i$-th encoded qubit.  These ``topological qubits'' are protected because no local operator can replicate a string winding around the full torus.  This is the physical basis of topological quantum error correction: information stored in nonlocal degrees of freedom is immune to any error acting on a region smaller than the system's circumference.
+
+\begin{remark}\label{rmk:genus-g}
+On a surface of genus $g$, there are $2g$ independent non-contractible cycles, giving $2g$ logical qubits and a ground-state degeneracy of $2^{2g}$.  For $g = 1$ (the torus) this recovers $4$.
+\end{remark}
+
+The ground-state constraint $A_v \ket{\psi} = \ket{\psi}$ is a $\Z_2$ Gauss law: gauge invariance at every vertex.  The plaquette constraint $B_p \ket{\psi} = \ket{\psi}$ enforces zero flux---flatness of the gauge connection.  The degeneracy counts flat $\Z_2$ connections modulo gauge, which on the torus is $|\mathrm{Hom}(\pi_1(T^2), \Z_2)| = |\Z_2|^2 = 4$.  This gauge-theoretic perspective connects directly to the continuum description in Section~\ref{sec:bf-self-contained}.
 
 \subsection{Emergent Anyons}
 \label{subsec:emergent-anyons}
 
-% TODO (Task 09_3): ~1.5 pages.
-% 1. Anyon types: 1 (vacuum), e (electric: endpoint of open Z-string,
-%    violates A_v), m (magnetic: endpoint of open X-string, violates B_p),
-%    epsilon = e x m (fermion).
-% 2. Fusion rules: e x e = 1, m x m = 1, e x m = epsilon.
-% 3. Statistics: e and m are bosons (self-braiding trivial), epsilon is fermion.
-%    Mutual braiding: winding e around m gives -1 phase. Verify via string
-%    operator algebra.
-% 4. Bridge to continuum: e-string = Wilson line of Z_2 gauge field;
-%    m-string = 't Hooft surface; mutual braiding = BF linking phase (Sec 9.4).
-% Cite: Kitaev 2003.
+The ground states have $A_v = +1$ and $B_p = +1$ everywhere---no excitations.  We now classify the excitations (violations of these constraints) and show they carry anyonic statistics \cite{Kitaev2003FaultTolerant}.  The key physics: in a gapped phase, spatially separated quasiparticles cannot interact via any local process---correlations die exponentially---yet they \emph{can} interact topologically when one braids around the other.  This interaction is mediated by the pattern of long-range entanglement, not by any force.
+
+Consider an open path $\ell$ on the lattice (not winding around the torus).  The $Z$-string operator
+\begin{equation}\label{eq:open-z-string}
+    S_Z(\ell) \;=\; \prod_{e \in \ell} Z_e
+\end{equation}
+commutes with all $B_p$ and with all $A_v$ except at the two endpoints of $\ell$: there, the string shares an odd number of edges with the star, so $A_v S_Z(\ell) = -S_Z(\ell) A_v$.  Applying $S_Z(\ell)$ to a ground state creates $A_v = -1$ at each endpoint.  These violations are the \textbf{electric charges}, denoted $e$.
+
+Dually, an open path $\ell^*$ on the dual lattice defines
+\begin{equation}\label{eq:open-x-string}
+    S_X(\ell^*) \;=\; \prod_{e \in \ell^*} X_e,
+\end{equation}
+where the product runs over edges crossed by $\ell^*$.  This commutes with all $A_v$ and anticommutes with $B_p$ only at the two terminal plaquettes.  The resulting $B_p = -1$ violations are \textbf{magnetic fluxes}, denoted $m$.
+
+The full anyon content:
+\begin{equation}\label{eq:anyon-types}
+    \{1,\; e,\; m,\; \epsilon = e \times m\},
+\end{equation}
+where $1$ is the vacuum and $\epsilon$ is the composite of $e$ and $m$ at the same location.
+
+Since $Z_e^2 = I$, applying a $Z$-string twice annihilates the $e$-pair; likewise $X_e^2 = I$ kills $m$-pairs.  The fusion algebra:
+\begin{equation}\label{eq:fusion-rules}
+    e \times e = 1, \qquad m \times m = 1, \qquad e \times m = \epsilon, \qquad \epsilon \times \epsilon = 1.
+\end{equation}
+All fusions are abelian and every particle is its own antiparticle.  This algebra is $\Z_2 \times \Z_2$, reappearing in Section~\ref{sec:bf-self-contained} as the group of flat $\Z_2$ connections on the torus.  The total quantum dimension is $\mathcal{D} = \sqrt{1^2 + 1^2 + 1^2 + 1^2} = 2$, consistent with $\gamma = \log 2$.
+
+The topological spin of $e$ follows from transporting it around a contractible loop: the resulting closed $Z$-string equals a product of enclosed plaquette operators, giving $+1$ in the ground-state sector.  So $e$ is a boson.  The same argument with $X$-strings shows $m$ is a boson.
+
+The nontrivial physics is in the \emph{mutual} statistics.
+
+\begin{proposition}\label{prop:mutual-braiding}
+Transporting an $e$-particle around an $m$-particle produces a phase of $-1$.
+\end{proposition}
+\begin{proof}
+Create an $e$-pair at vertices $v_1, v_2$ via $S_Z(\ell)$ and an $m$-pair at plaquettes $p_1, p_2$ via $S_X(\ell^*)$.  Now transport the $e$-particle at $v_1$ around a closed loop $\mathcal{C}$ that encloses $p_1$ but not $p_2$.  This operation is implemented by the closed $Z$-string operator
+\begin{equation}\label{eq:closed-z-loop}
+    W_Z(\mathcal{C}) \;=\; \prod_{e \in \mathcal{C}} Z_e.
+\end{equation}
+Since $\mathcal{C}$ is contractible, $W_Z(\mathcal{C}) = \prod_{p\, \text{inside}\, \mathcal{C}} B_p$ in the stabilizer algebra.  However, we are evaluating this in a state where $B_{p_1} = -1$ (the $m$-excitation is present) while all other enclosed plaquettes satisfy $B_p = +1$.  Therefore
+\begin{equation}\label{eq:braiding-phase}
+    W_Z(\mathcal{C}) \;=\; \prod_{p\, \text{inside}\, \mathcal{C}} B_p \;=\; (-1) \cdot (+1)^{(\text{others})} \;=\; -1.
+\end{equation}
+The $e$-particle acquires a phase $-1$ upon encircling the $m$-particle.
+\end{proof}
+
+\noindent At the operator level: a closed $Z$-loop $W_Z(\mathcal{C})$ and an $X$-string $S_X(\ell^*)$ crossing $\mathcal{C}$ once share exactly one edge, giving
+\begin{equation}\label{eq:operator-anticommute}
+    W_Z(\mathcal{C})\, S_X(\ell^*) \;=\; -\, S_X(\ell^*)\, W_Z(\mathcal{C}).
+\end{equation}
+Same sign, same origin as the non-contractible algebra~\eqref{eq:string-algebra}.
+
+The composite $\epsilon = e \times m$ is individually more interesting.  Two bosons bound together become a fermion---not from any kinematic effect, but because the topological braiding phase does the work.  Exchanging two $\epsilon$-particles forces each $e$ constituent past each $m$ constituent, picking up the mutual phase.  The topological spin:
+\begin{equation}\label{eq:epsilon-spin}
+    \theta_\epsilon \;=\; \theta_e \cdot \theta_m \cdot B_{em} \;=\; (+1)(+1)(-1) \;=\; -1,
+\end{equation}
+where $B_{em} = -1$ is the mutual braiding phase.  So $\epsilon$ is a fermion---an emergent fermion arising purely from topological order, with no microscopic fermionic constituent.
+
+The lattice anyon content maps directly onto the $\Z_2$ gauge theory of Section~\ref{sec:bf-self-contained}:
+\begin{itemize}
+    \item The $Z$-string operator $S_Z(\ell)$ is the lattice \textbf{Wilson line} $\exp\bigl(i \oint_\ell A\bigr)$ of the $\Z_2$ gauge field.  Its endpoints---the $e$-particles---are gauge charges.
+    \item The $X$-string operator $S_X(\ell^*)$ is the lattice \textbf{'t~Hooft line} $\exp\bigl(i \oint_{\ell^*} B\bigr)$.  Its endpoints---the $m$-particles---are magnetic vortices.
+    \item The mutual braiding phase~\eqref{eq:braiding-phase} is the \textbf{BF linking phase}: in $\Z_2$ BF theory with action $S = \frac{2}{2\pi}\int B \wedge dA$, a Wilson loop linked with a 't~Hooft loop gives $\exp(2\pi i \cdot \mathrm{Lk}/2) = (-1)^{\mathrm{Lk}}$, reproducing $-1$ for linking number one.
+\end{itemize}
+The toric code flows to $\Z_2$ BF theory in the infrared.  We now make this precise.
 
 \subsection{Continuum Limit: $\mathbb{Z}_2$ BF Theory}
 \label{sec:bf-self-contained}
 
-% TODO (Task 09_4, adapted): ~2 pages. SELF-CONTAINED BF insert.
-%
-% This subsection derives the Z_2 BF action, its linking phase, and its GSD
-% from scratch, without assuming Part I has a dedicated BF chapter. The label
-% sec:bf-self-contained is designed for Part I to cross-reference later.
-%
-% 1. State the BF action: S = (N/2pi) int B wedge dA, with A,B compact U(1)
-%    gauge fields and N=2 for Z_2.
-% 2. Equations of motion: dA = 0, dB = 0 (both flat).
-% 3. Observables: Wilson line exp(i oint_gamma A) and 't Hooft surface
-%    exp(i oint_gamma' B). Their linking phase:
-%    <W_A(gamma) W_B(gamma')> = exp(2 pi i Lk(gamma,gamma')/N).
-%    For N=2: phase = (-1)^{Lk}. This is the -1 mutual braiding of Sec 9.3.
-% 4. GSD: on T^2, quantizing flat connections gives N^{2g} = 4 on torus.
-%    Matches Sec 9.2.
-% 5. Explicit statement: all three matches (linking = mutual braiding, GSD = 4,
-%    anyons = Wilson/'t Hooft endpoints) confirm toric code = Z_2 BF in the IR.
-% Cite: Kitaev 2003. (For full BF theory treatment, see Part I if available.)
+\begin{remark}[Reader's note]
+This section derives BF theory from scratch.  If you have already seen the full treatment in Chapter~\ref{ch:bf}, skip to the dictionary at the end.
+\end{remark}
+
+We want the continuum effective theory of the toric code.  The requirements are strict: it must be topological (no propagating modes below the gap), encode the correct degeneracy, and reproduce the braiding data.  We do not need to \emph{derive} the continuum action from the lattice---we identify the unique topological theory consistent with the universal data.  That theory is $\Z_2$ BF theory.
+
+Let $A$ and $B$ be compact $\mathrm{U}(1)$ one-form gauge fields on a closed oriented 3-manifold $M$.  The level-$N$ abelian BF action is
+\begin{equation}\label{eq:bf-action-ch9}
+    S_{\mathrm{BF}} \;=\; \frac{N}{2\pi} \int_M B \wedge dA.
+\end{equation}
+The integer $N$ enforces $\Z_N$-valued gauge invariance: under large gauge transformations $A \to A + d\lambda$ with $\oint \dd\lambda \in 2\pi\Z$, the action shifts by $N$ times an integer, and $e^{iS}$ remains invariant only with the corresponding identification for $B$.  For the toric code, $N = 2$.
+
+Varying \eqref{eq:bf-action-ch9} with respect to $A$ and $B$:
+\begin{equation}\label{eq:bf-eom-ch9}
+    dB = 0, \qquad dA = 0.
+\end{equation}
+Both fields are flat on-shell.  No local propagating degrees of freedom---pure topology, as required.  This is the continuum expression of the lattice flatness constraints: $B_p = +1$ (zero flux) and $A_v = +1$ (gauge invariance) both enforce flatness, and a flat connection has no local content.
+
+The gauge-invariant observables are Wilson and 't~Hooft loops along closed curves $\gamma$, $\gamma'$:
+\begin{equation}\label{eq:bf-wilson-thooft}
+    W_A(\gamma) \;=\; \exp\!\Bigl(i\oint_\gamma A\Bigr), \qquad W_B(\gamma') \;=\; \exp\!\Bigl(i\oint_{\gamma'} B\Bigr).
+\end{equation}
+These are the continuum counterparts of the lattice $Z$-strings and $X$-strings.  The BF path integral determines their correlation function exactly:
+\begin{equation}\label{eq:bf-linking}
+    \bigl\langle W_A(\gamma)\, W_B(\gamma') \bigr\rangle \;=\; \exp\!\Bigl(-\frac{2\pi i}{N}\,\mathrm{Lk}(\gamma, \gamma')\Bigr),
+\end{equation}
+where $\mathrm{Lk}(\gamma, \gamma') \in \Z$ is the linking number.  For $N = 2$ and linking number one:
+\begin{equation}\label{eq:bf-minus-one}
+    \bigl\langle W_A(\gamma)\, W_B(\gamma') \bigr\rangle \;=\; e^{i\pi} \;=\; -1.
+\end{equation}
+Exactly the mutual braiding phase of Proposition~\ref{prop:mutual-braiding}.
+
+On a spatial surface $\Sigma_g$ of genus $g$, canonical quantization reduces to quantizing flat $\Z_N$ connections.  A flat $\Z_N$ connection on $\Sigma_g$ is specified by holonomies around $2g$ independent cycles, each valued in $\Z_N$:
+\begin{equation}\label{eq:bf-gsd-ch9}
+    \dim \mathcal{H} \;=\; N^{2g}.
+\end{equation}
+For $N = 2$ on the torus ($g = 1$): $2^2 = 4$.  Exact agreement with \eqref{eq:gsd-toric}.  The four ground states correspond to the four choices of $\Z_2$ holonomy---one bit per cycle---which are the continuum avatars of the logical-qubit eigenvalues $\bar{Z}_i = \pm 1$.
+
+We can now state the complete lattice--continuum dictionary:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\hline
+\textbf{Lattice (toric code)} & \textbf{Continuum ($\Z_2$ BF)} & \textbf{Match} \\
+\hline
+$Z$-string $S_Z(\ell)$ & Wilson line $W_A(\gamma)$ & $e$-particle = gauge charge \\
+$X$-string $S_X(\ell^*)$ & 't~Hooft line $W_B(\gamma')$ & $m$-particle = magnetic vortex \\
+Mutual braiding $= -1$ \eqref{eq:braiding-phase} & Linking phase $= -1$ \eqref{eq:bf-minus-one} & $(-1)^{\mathrm{Lk}}$ \\
+GSD $= 4$ \eqref{eq:gsd-toric} & $N^{2g} = 4$ \eqref{eq:bf-gsd-ch9} & flat connection counting \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent Every topological datum---anyon types, braiding statistics, topology-dependent degeneracy---is reproduced by the two-line action~\eqref{eq:bf-action-ch9} with $N = 2$.  The toric code \emph{is} $\Z_2$ BF theory in the infrared \cite{Kitaev2003FaultTolerant}.
+
+\begin{remark}\label{rmk:bf-roundtrip}
+This closes the loop between Parts~I and~II.  Part~I developed BF theory as a topological gauge theory defined by algebraic data (gauge group, level).  Here we arrived at the same theory from the opposite direction: starting with a lattice Hamiltonian, extracting its universal content, and recovering the abstract field theory as effective description.  The agreement is universality---all gapped lattice models in the same topological phase flow to the same TQFT.
+\end{remark}
+
+\medskip
+
+\noindent To compute anyon statistics systematically---beyond the single mutual phase $(-1)$ of the toric code---we need the full modular-tensor-category machinery: fusion rules, $F$-matrices, and the modular $S$-matrix that encodes all braiding data.  Chapter~\ref{sec:anyons} introduces this framework, whose central output is the set of topological spins $\theta_a = e^{2\pi i h_a}$ that Chapter~\ref{sec:experiments} will compare directly against the Nakamura interferometry measurement of $e^{2\pi i/3}$ at $\nu = 1/3$.

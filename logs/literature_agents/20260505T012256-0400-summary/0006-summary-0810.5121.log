@@ -1,0 +1,14 @@
+Task complete. I've split the paper into 10 section files under `codex_section_extracts/` and created `codex_paper_summary.md` as the import map.
+
+**Summary structure:**
+- **Whole-Paper Snapshot:** Describes the main result (B⃗·M⃗_ν = π condition for helical modes on dislocations), the analytical approach (Dirac mass domain walls), and the broader significance (disorder-protected quantum wires in bulk solids).
+
+- **Section summaries:** Each of the 10 sections receives a 50-100 word summary scaled to its technical density, with import recommendations:
+  - **High priority** (04, 06, 07): main result statement, analytical mechanism, general proof
+  - **Medium priority** (01, 02, 05, 08): abstract, TI background, diamond lattice numerics, disorder discussion
+  - **Low priority** (09, 10): STM predictions, transport estimates
+  - **Skip** (03): standard dislocation definitions
+
+- **Full-Source Import Recommendation:** Consolidates the triage and suggests that for understanding the topological physics, sections 04, 06, and 07 contain the essential ideas (topological condition, Dirac domain-wall mechanism, general proof).
+
+All generated markdown files preserve YAML front matter with timestamps and project metadata.

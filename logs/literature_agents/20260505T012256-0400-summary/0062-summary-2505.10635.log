@@ -1,0 +1,11 @@
+Task complete. I've split the paper into 8 section files under `codex_section_extracts/` and created the import map in `codex_paper_summary.md`.
+
+**Structure:**
+- **Whole-Paper Snapshot:** Survey on left-invariant semi-Riemannian metrics on compact Lie groups, covering four fundamental questions about geodesic completeness, isometry groups, and conformal structure. Main results: compact simple groups always have compact isometry groups; only SU(2) cases admit essential conformal groups; non-simple groups can have non-compact isometry groups.
+
+**Import recommendations:**
+- **High priority** (3 sections): Introduction (02), Conformal Group (04), Non-Riemannian case (05) — core theorems and technical machinery
+- **Medium priority** (2 sections): Riemannian case (03), Non-simple examples (06) — background methods and counterexamples
+- **Low/skip** (3 sections): Abstract (01), Open questions (07), References (08)
+
+All files preserve YAML front matter and section summaries are scaled to source density (50-150 words).

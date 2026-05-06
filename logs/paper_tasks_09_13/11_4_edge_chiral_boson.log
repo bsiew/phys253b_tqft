@@ -1,0 +1,8 @@
+The edit is in place and reads well. The section now has all required elements:
+
+1. **Edge action derived** — the chiral boson action \eqref{eq:fqhe-chiral-boson} with its equation of motion
+2. **Compactification** — $\phi \sim \phi + 2\pi$ stated explicitly with physical interpretation (vertex operators, quasiparticle/electron creation)
+3. **Anomaly stated** — the $U(1)$ anomaly \eqref{eq:fqhe-edge-anomaly} with an explanation that no local 1+1d counterterm can cancel it
+4. **Inflow explained** — the bulk variation \eqref{eq:fqhe-bulk-anomaly} cancels the edge anomaly exactly, with cross-references to both `Sec.~\ref{sec:anomaly-inflow-general}` (the general inflow statement) and `Sec.~\ref{sec:hep-inflow}` (the 5d chiral anomaly example from Chapter 8)
+
+The new material adds ~20 lines of prose and 3 labeled equations, fitting within the existing section without overrunning the page budget.

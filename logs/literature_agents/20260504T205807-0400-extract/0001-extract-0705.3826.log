@@ -1,0 +1,964 @@
+OpenAI Codex v0.128.0-alpha.1 (research preview)
+--------
+workdir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/helenabrittain/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019df5a4-711a-7ab1-bf4b-cfd4c04c249f
+--------
+user
+You are the QFT literature extraction agent for project QFT.
+
+Working directory: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+Output file: codex_scientific_text.md
+
+Task:
+Use bash to make a mechanical starting copy from the TeX source. For a single substantive file, a starting move like
+`cp main.tex codex_scientific_text.md` is fine; for multi-file papers, concatenate the
+substantive TeX files with source-file headings. Then clean the copied text.
+
+Keep scientific prose, definitions, assumptions, derivations, equations,
+interpretations, caveats, and named results. Remove only non-scientific TeX
+plumbing: classes/packages, macro/style setup, comments, bibliography commands,
+author formatting, and purely presentational table/figure scaffolding.
+
+Preserve YAML front matter in codex_scientific_text.md. Use only files in this paper
+directory as scientific sources.
+
+codex
+I’m identifying the substantive TeX sources in this paper directory first, then I’ll make the mechanical copy into `codex_scientific_text.md` and clean only the TeX plumbing.
+exec
+/bin/zsh -lc pwd in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+
+exec
+/bin/zsh -lc 'rg --files' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+codex_scientific_text.md
+0705.3826.tex
+
+codex
+There’s a single substantive source, `0705.3826.tex`. I’m checking the existing Markdown file for YAML front matter and scanning the TeX structure before copying.
+exec
+/bin/zsh -lc "sed -n '1,120p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+
+exec
+/bin/zsh -lc "sed -n '1,220p' 0705.3826.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amsfonts}
+
+%\addtolength{\topmargin}{-.3in}
+%\addtolength{\textheight}{.6in}
+
+\newcommand{\sh}[1]{{#1}}
+\newcommand{\rmop}[1]{\mathrm{#1}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathbb{P}}
+\renewcommand{\tt}{\mathfrak{t}}
+\renewcommand{\i}{{\mathbf{i}}}
+\newcommand{\www}{{\mathbf{w}}}
+\renewcommand{\ddot}[1]{{\stackrel{\circ}{#1}}}
+\newcommand{\hhat}[1]{\widehat{#1}}
+\newcommand{\olam}{\overline{\lam}}
+\newcommand{\I}{\mathfrak{I}}
+\newcommand{\J}{\mathfrak{J}}
+\newcommand{\D}{\mathcal{D}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\PP}{\mathfrak{P}}
+
+\newcommand{\aarrow}{{\,\to\hspace{-.7em}\to\,}}
+\newcommand{\leftmapsto}{{\,\longleftarrow\hspace{-.52em}|\,}}
+
+\newcommand{\Om}{{\Omega}}
+\newcommand{\om}{{\varpi}}
+\newcommand{\lam}{{\lambda}}
+\newcommand{\ep}{{\epsilon}}
+
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\Stab}{\mathrm{Stab}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\ad}{{\mathrm{ad}}}
+\newcommand{\Lie}{{\mathrm{Lie}}}
+\newcommand{\Ker}{{\mathrm{Ker}}}
+\newcommand{\Hom}{{\mathrm{Hom}}}
+\newcommand{\Out}{{\mathrm{Out}}}
+\newcommand{\Dyn}{{\mathrm{Dyn}}}
+\newcommand{\Aut}{{\mathrm{Aut}}}
+\newcommand{\id}{{\mathrm{id}}}
+\renewcommand{\mod}{\,\mathop{\rm mod}\,}
+\newcommand{\Schub}{{\mathfrak{S}}}
+\newcommand{\Shat}{\widehat{\Schub}}
+\newcommand{\Stil}{\widetilde{\Schub}}
+\newcommand{\mult}{\mathrm{mult}}
+\newcommand{\incl}{\mathrm{incl}}
+\newcommand{\cont}{\mathrm{cont}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\eend}{\mathrm{end}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\pt}{\mathrm{pt}}
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\ind}{\mathrm{ind}}
+\newcommand{\fib}{\mathrm{fib}}
+\newcommand{\codim}{\mathrm{codim}}
+\newcommand{\eet}{{\perp}}
+
+\newcommand{\What}{\widehat{W}}
+\newcommand{\Wtil}{\widetilde{W}}
+\newcommand{\Xtil}{\widetilde{X}}
+\newcommand{\Ytil}{\widetilde{Y}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\Grhat}{\widehat{\Gr}}
+\newcommand{\Bhat}{\widehat{B}}
+\newcommand{\Phat}{\widehat{P}}
+\newcommand{\Ghat}{\widehat{G}}
+\newcommand{\lamhat}{\widehat{\lam}}
+\renewcommand{\t}{(\!(t)\!)}
+\newcommand{\w}{{{}^w\!}}
+\newcommand{\ww}[1]{{ {}^ {w_{#1}} \! }}
+\newcommand{\onehat}{{\,\widehat1}}
+\newcommand{\xtil}{{\tilde x}}
+
+\begin{document}
+
+\title{Schubert classes of a loop group}
+\date{September 2005.  Revised March 2007}
+\author[Magyar]{Peter Magyar}
+
+\maketitle
+\noindent
+In these notes, we
+survey the homology of the loop group $\Om K$ of a compact group $K$, also known as the affine Grassmannian $\Grhat$ of a complex loop group
+$G[\C\t]$\,.   Using the Bott picture \cite{B} of $H_*(\Om K)$, the homology algebra or Pontryagin ring, we obtain two new results:
+\\[-.5em]
+\begin{enumerate} \item[A.] 
+Factorization of affine Schubert homology classes.
+\\[-.5em]
+\item[B.] Definition of affine Schubert polynomials representing the affine Schubert homology classes in all types, in terms similar to ordinary Schubert polynomials (Demazure operators on the Borel picture of the cohomology of the flag variety $H^*(K/\,T)$).
+\end{enumerate}
+\bigskip
+
+The philosophy is that working in the topological category (with compact rather than algebraic groups) gives extra flexibility which simplifies the constructions.  For example, homology factorization happens because the Bott-Samelson variety is topologically a direct product, even though algebraically it is a non-trivial fiber bundle.   Bott and Samelson exploit this flexibility to construct the Pontryagin ring $H_*(\Om K)$ as the symmetric algebra of the homology $H_*(K/\,T)$.  Once this construction is made, the computation of the Schubert classes becomes 
+a standard exercise in the theory of Schubert polynomials in
+the equivariant cohomology $H^*_T(K/\,T)$.
+Thus, one may think of singular homology as a flabby version of equivariant K-theory and representation theory (Demazure modules). 
+We work with rational (co)homology throughout this note, but with some care over denominators the results could be refined to integer coefficients.
+
+In this note, 
+for concreteness we work with $G=\SL_n\C$,
+but unless otherwise noted everything generalizes to a simple, simply connected linear algebraic group of arbitrary type.  In \S1, we survey the relevant background.
+We give self-contained statements of Theorem A in \S2.5 and Theorem B 
+for $G=\SL_n$ in \S3.6.
+In an appendix \S4, we discuss weak order and factorization in the affine Weyl group.
+
+
+Our formulas are ``global," analogous
+to the Schubert polynomials in $H^*(G/B)$ and $H^*_T(G/B)$.  
+Let us also mention the unpublished work of Dale Peterson
+[P], which contains a different and very powerful point of view on these topics based on the local picture of equivariant cohomology at $T$-fixed points (the nil-Hecke ring of Kostant-Kumar).
+Peterson shows that the structure coefficients for $H_*(\Om K)$ are certain Gromov-Witten invariants for the flag variety $G/B$, structure coefficients of the quantum cohomology ring $qH^*(G/B)$.
+An alternative proof of Peterson's theorem might
+well be possible by combining Bott's realization
+of $H_*(\Om K)$ with the known structure of $qH^*(G/B)$.
+
+Using Peterson's picture, Thomas Lam \cite{L} has shown that one version of Lapointe \& Morse's restricted Schur polynomials represent the Schubert classes of $H_*(\Om K)$, so that these polynomials are identical to our Schubert polynomials for $G=\SL_n$\,.  It should be possible to extend this theorem using the computation of affine Schubert polynomials in Theorem B. 
+
+We wish to thank Mark Shimozono, who suggested the questions we examine here.
+
+
+\section{Background on topology and combinatorics}
+
+\subsection{Loop group and affine Grassmannian}
+Let $G\t:=\SL_n\C\t$ be the group of determinant-one matrices with entries in the field of formal Laurent series $\C\t$. 
+Then $G\t$ naturally includes the analytic functions 
+$f:\C^\times\to G$, 
+by identifying a function with its Laurent series.
+Let $G[[t]]:=\SL_n\C[[t]]$ be the subgroup of determinant-one matrices with entries in the formal Taylor series $\C[[t]]$.  We may regard $G[[t]]$ as a maximal parabolic subgroup of $G\t$. 
+The affine Grassmannian is the quotient space
+$
+\Grhat:=G\t/\,G[[t]]\,,
+$
+which we can also realize as the $\C[[t]]$-lattices 
+with a fixed virtual dimension in the $\C\t$-vector space $\C\t^n$.
+
+Let $K$ be a maximal compact subgroup of $G$\,, namely  $K=\SU_n=\{A\in M_n(\C)\mid A\bar A^t=I\}$, the group of matrices whose column vectors form an oriented orthonomal basis for $\C^n$ under the Hermitian inner product $\langle (a_1,\ldots,a_n),(b_1,\ldots,b_n)\rangle:=
+\sum_i a_i \bar b_i$.  Recall that $K\subset G$ is a maximal compact subgroup, a real Lie group which is not complex algebraic. 
+
+Let $LK$ denote the group of real analytic loops\footnote{
+More precisely, we mean the maps which extend to meromorphic functions $f:D\to K$ on the
+closed unit disk $D\subset \C$, with poles only allowed at $t=0$.} in $K$, the maps
+$f:S^1\to K$, with multiplication performed pointwise: $(f\cdot g)(t):= f(t)\cdot g(t)\in K$. 
+Considering $t\in S^1\subset \C^\times$ as a complex parameter, any analytic loop $f(t)\in LK$ has a Laurent series, and we can consider $LK\subset G\t$.
+ 
+Let $\Om K:=\{f(t)\in LK\mid f(1)=1_K\}$ be the normal subgroup of basepoint preserving loops.
+We can realize the affine Grassmannian as:
+$
+\Grhat
+\cong \Om K
+$\,.
+This holds
+because Gram-Schmidt orthogonalization allows us to
+write any $f(t)\in G\t$ uniquely as $f(t) = f_K(t)\cdot f_P(t)$, where 
+$f_K(t)\in \Om K$ and $f_P(t)\in G[[t]]$, so 
+$G\t=\Om K\cdot G[[t]]$, a product of transverse subgroups.
+%\footnote{
+%In fancier language, $G$ is topologically a real vector bundle over its core subgroup $K$, so a loop in $G$ can be retracted to a (based) loop in $K$.
+%Analogously in $G$, the compact subgroup $K$ intersects the %Borel subgroup $B$ in the maximal torus $T$, a small subgroup.
+%Hence the flag variety $G/B\cong K\!/T$.
+%}
+Thus the semi-infinite group $\Om K$ provides a canonical slice (set of representatives) for the doubly infinite quotient $\Grhat=G\t/G[[t]]$.
+This is what makes the topological theory (using compact groups) simpler than the algebraic theory (using algebraic groups).
+
+It will sometimes be convenient to identify a basepoint-preserving loop in $\Om K$ with the class of its translates by $K$. 
+This leads to the realization of the affine Grassmannian as:
+$$
+\Grhat
+\cong 
+LK\,/\,(LK\cap G[[t]])=LK/K 
+\cong \Om K\,.
+$$
+where $K\subset LK$ is the group of constant loops $f(t)=k\in K$.
+Indeed, we can write any loop in $LK$ as:  
+$f(t)=f(t)f(1)^{-1}\cdot f(1)\in\Om K\cdot K$,
+and this gives a natural homeomorphism $LK/K\cong\Om K$.
+(This is not a group morphism, however.)
+
+\subsection{Pontryagin ring} 
+
+Let us consider the singular homology of $\Grhat=\Om K$.
+Although $\Om K$ is infinite-dimensional, 
+it is tamely infinite, meaning we can find 
+an increasing union of finite-dimensional 
+compact Hausdorff subspaces $\Om_1\subset\Om_2\subset
+\cdots\subset\Om K$ with $\Om K=\bigcup_{j}\Om_j$.  (We can choose $\Om_j$ from among the Schubert subvarieties we will define below.) \ Thus  $H_*(\Om K)=\displaystyle\lim_\to H_*(\Om_j)$, a direct limit.\footnote{Indeed, we can thicken each $\Om_j$ into a normal neighborhood $U_j\subset\Om K$ which is retractable to $\Om_j$.
+Since a singular cycle has compact support, it must live in a sufficiently large $U_j$, so that it is homologous to a cycle in $\Om_j$.}
+
+We have seen that $\Grhat=\Om K$ is topologically a loop group with a continuous (not complex algebraic) multiplication $\mult:\Om K\times \Om K\to\Om K$.
+This induces on the singular homology $H_*(\Om K):=H_*(\Om K,\Q)$ a multiplication $\mult_*:H_*(\Om K)\otimes H_*(\Om K)\to H_*(\Om K)$, which together with the usual addition defines the so-called Pontryagin ring.  
+
+It is a basic fact that the Pontryagin multiplication is commutative.  Furthermore, let us consider a different multiplication $\mathrm{conc}:\Om K\times\Om K\to \Om K$ defined by concatenating loops:
+$$(f\,\tilde\cdot\,g)(e^{2\pi i x}) := 
+\left\{\begin{array}{cl}
+f(e^{4\pi i x}) & ,\ \ 0\leq x\leq \frac12\\
+g(e^{4\pi i x}) & ,\ \ \frac12\leq x\leq 1\ .
+\end{array}\right.
+$$
+Then the new induced multiplication $\mathrm{conc}_*$ on $H_*(\Om K)$ is the {\it same} as $\mult_*$\,.  
+\vspace{-.7em}
+
+{\it Proof:} We construct a homotopy of loops $f\,\tilde\cdot\,g\approx f\cdot g\approx g\,\tilde\cdot\,f$.  For each $-1\leq \epsilon\leq 1$, let $p_\epsilon:[0,1]\to [0,1]\times[0,1]$ be a path in the unit square starting at $(0,0)$ and ending at $(1,1)$, such that $p_{-1}$ goes along the left and top boundaries, $p_0$ goes along the diagonal, and $p_1$ goes along the bottom and right boundaries.  Define $H:[0,1]\times[0,1]\to K$ by $H(x_1,x_2):=f(e^{2\pi ix_1})\,g(e^{2\pi ix_2})$.  Then defining $h_\epsilon:S^1\to K$ by $h_\epsilon(e^{2\pi ix}):=H(p_\epsilon(x))$ gives a continuous family of loops with $h_{-1}=f\,\tilde\cdot\,g$, \ $h_0=f\cdot g$, and
+$h_1=g\,\tilde\cdot\,f$. \hfill $\square$
+\vspace{-.7em}
+
+As a corollary, the fundamental group of $K$ (or of any Lie group) is abelian, since multiplying in $\pi_1(K)$ means concatenating loops.
+Of course, in our case $G=\SL_n\C$ and $K=\SU_n$ are simply connected, so the fundamental group is trivial (and the loop group $\Om K$ is connected).  On the other hand, if we take the quotient of $K$ by the center 
+$$
+Z=Z(G)=Z(K)=\left\{e^{\frac{2\pi i}{n}j}\, I\ \mid\
+ j=0,1,\ldots,n\sh-1\right\}\,,
+$$
+
+codex
+I’ve confirmed the output file only contains YAML plus a heading. Next I’m locating the document body boundaries and the bibliography tail so I can preserve the front matter and strip just the TeX scaffolding.
+exec
+/bin/zsh -lc 'wc -l 0705.3826.tex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "rg -n '\\\\begin\\{document\\}|\\\\end\\{document\\}|\\\\bibliograph|\\\\begin\\{thebibliography\\}|\\\\section\\{|\\\\subsection\\{|\\\\appendix|\\\\title\\{|\\\\author|\\\\maketitle' 0705.3826.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+    2276 0705.3826.tex
+
+ succeeded in 0ms:
+84:\begin{document}
+86:\title{Schubert classes of a loop group}
+88:\author[Magyar]{Peter Magyar}
+90:\maketitle
+131:\section{Background on topology and combinatorics}
+133:\subsection{Loop group and affine Grassmannian}
+188:\subsection{Pontryagin ring} 
+223:\subsection{Coweight lattice and adjoint group}  The subgroup of diagonal matrices $T\subset K$ is a maximal torus: $T\cong (S_1)^{n-1}$.
+285:\subsection{Affine Weyl group}
+320:\subsection{Extended affine Weyl group.}
+354:\subsection{Geometry of the center}
+393:\subsection{Flag varieties}  Let $B\subset G$, the Borel subgroup of upper-triangular matrices in $G$.  
+452:\subsection{Classifying spaces}
+518:\subsection{Cohomology of the flag variety}
+576:\subsection{Cohomology generators and relations}
+634:\subsection{Poincare duality}
+674:\subsection{Demazure operations}
+795:\subsection{Schubert polynomials}
+934:\subsection{Weyl group actions on cohomology}
+988:\section{Affine Schubert varieties and factorization}
+991:\subsection{Minimal parabolic subgroups}  
+1048:\subsection{Schubert varieties in $\Om K$}
+1110:\subsection{Schubert varieties in $\Om K^\ad$}
+1131:\subsection{Bott-Samelson varieties}
+1165:\subsection{Factorization}  
+1267:\section{Affine Schubert polynomials}
+1269:\subsection{Homology symmetric algebra}
+1292:\subsection{Bott's isomorphism $\Psi$}
+1328:\subsection{Bott's map $\Phi$}
+1382:\subsection{Schubert varieties pulled back to $X^m$}  
+1464:\subsection{Demazure operations on multi-projective space}  
+1617:\subsection{Combinatorics of Schubert classes}
+1754:\subsection{Affine Schubert polynomials for $\SL_3$\,}
+1861:\subsection{Affine Schubert polynomials for $\SL_4$\,}
+1901:\subsection{Calculations for higher $\SL_n$\,}
+1963:\section{Appendix: Weak order on an affine Weyl group}
+1985:\subsection{Question}  Given an affine Weyl group element $x\in\hW$, minimal in its coset $xW$ with respect to the finite Weyl group $W$, find the maximal dominant coweight $\lam$ such that there exists a factorization $x=y\cdot t_{-\lam}$ with $\ell(x)=\ell(y)+\ell(t_{-\lam})$, where $y\in \tW$, the extended affine Weyl group, and $t_{-\lam}\in\tW$ is an anti-dominant translation.
+1987:\subsection{Answer}  
+1998:\subsection{Examples}
+2022:\subsection{Root systems and alcoves.}  
+2082:\subsection{Strong and weak orders.}
+2164:\subsection{Factorization and weak order.}
+2195:\subsection{Question reformulated:}  Given $x^{-1}\in\hW$, minimal in its coset $Wx^{-1}$, find the $\stackrel P\leq$-maximal coweight $\lam\in P\v_+$ such that $\hatt_{\lam}\leqR x^{-1}$.
+2243:\begin{thebibliography}{BS}
+2275:\end{document}
+
+codex
+I have the document boundaries now. I’m checking for footnotes, figures, tables, and other non-prose environments so the cleanup stays mechanical and doesn’t discard substantive content.
+exec
+/bin/zsh -lc "rg -n '"'^%'"' 0705.3826.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "rg -n '\\\\footnote|\\\\begin\\{figure\\}|\\\\end\\{figure\\}|\\\\begin\\{table\\}|\\\\end\\{table\\}|\\\\includegraphics|\\\\begin\\{enumerate\\}|\\\\end\\{enumerate\\}|\\\\begin\\{itemize\\}|\\\\end\\{itemize\\}|\\\\begin\\{align\\}|\\\\begin\\{equation\\}|\\\\begin\\{theorem\\}|\\\\begin\\{lemma\\}|\\\\begin\\{proof\\}' 0705.3826.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+4:%\addtolength{\topmargin}{-.3in}
+5:%\addtolength{\textheight}{.6in}
+166:%\footnote{
+167:%In fancier language, $G$ is topologically a real vector bundle over its core subgroup $K$, so a loop in $G$ can be retracted to a (based) loop in $K$.
+168:%Analogously in $G$, the compact subgroup $K$ intersects the %Borel subgroup $B$ in the maximal torus $T$, a small subgroup.
+169:%Hence the flag variety $G/B\cong K\!/T$.
+170:%}
+246:%=\left\{\lam=(\lam_1,\ldots,\lam_n)\in \textstyle\Q^n\left|
+247:%\begin{array}{c}
+248:%\lam_1\sh+\cdots\sh+\lam_n = 0\\
+249:%\lam_i-\lam_{i+1}\in\Z
+250:%\end{array}\right.\right\}
+1209:%(\,f_1(t)\,k\,,\,k^{-1}\,f_2(t)\,k'\,)&\mapsto& (\,f_1(t)\,,\, f_1(0)\,kk^{-1}\,f_2(t)\,k'\,)\\
+1212:%\\[1em]
+1213:%(\,f_1(t)\,k\,,\,k^{-1}\,f_1(0)^{-1}\,f_2(t)\,k'\,)&\leftarrow&
+1214:%(\,f_1(t)\,k\,,\,f_2(t)\,k'\,)
+2064:%Indeed, $\lhat x=\sigma\,\rhat x\,\sigma^{-1}$.
+
+ succeeded in 0ms:
+96:\begin{enumerate} \item[A.] 
+100:\end{enumerate}
+149:Let $LK$ denote the group of real analytic loops\footnote{
+166:%\footnote{
+195:\cdots\subset\Om K$ with $\Om K=\bigcup_{j}\Om_j$.  (We can choose $\Om_j$ from among the Schubert subvarieties we will define below.) \ Thus  $H_*(\Om K)=\displaystyle\lim_\to H_*(\Om_j)$, a direct limit.\footnote{Indeed, we can thicken each $\Om_j$ into a normal neighborhood $U_j\subset\Om K$ which is retractable to $\Om_j$.
+305:$\theta=x_1\sh-x_n$ is the highest root and $\theta^\vee=e_1\sh-e_n$ its coroot.\footnote{Warning: For $G$ not simply laced, $\theta^\vee$ is not the highest root of the dual root system.} 
+340:minuscule\footnote{
+411:where we consider $S^{2n-1}\subset\R^{2n}\cong\C^n$\,.\,\footnote{
+479:a non-zero volume form\footnote{
+687:the push-forward map\,\footnote{The so-called
+1098:We have a homeomorphism:\footnote{Indeed, the obvious map $LK_\lam/T\to (LK_\lam\cdot K)/K$
+1294:Bott defines\footnote{Our mappings $\Psi,\Phi$ are in Bott's notation $g_s,f_s$ respectively.} the mapping:
+1631:\begin{enumerate}
+1752:\end{enumerate}
+1782:\begin{itemize}
+1785:\begin{itemize}
+1796:\end{itemize}
+1801:\begin{itemize}
+1818:\end{itemize}
+1823:\begin{itemize}
+1835:\end{itemize}
+1841:\begin{itemize}
+1856:\end{itemize}
+1859:\end{itemize}
+1867:\begin{itemize}
+1897:\end{itemize}
+1999:\begin{itemize}
+2020:\end{itemize}
+2111:Warning:  The converse of the last implication does \emph{not} hold.\footnote{
+
+codex
+I’m making the starting copy now and applying a conservative mechanical cleanup: document body only, title/sections converted to Markdown, bibliography removed, and presentational TeX stripped without touching the mathematical content.
+exec
+/bin/zsh -lc 'tmp_yaml=$(mktemp)
+awk '"'BEGIN{d=0} {print; if("'$0=="---") d++; if(d==2) exit}'"' codex_scientific_text.md > \""'$tmp_yaml"
+cp 0705.3826.tex codex_scientific_text.md
+perl -0pi -e '"'
+s/\\r\\n/\\n/g;
+s/"'^.*?'"\\\\begin\\{document\\}\\s*//s;
+s/\\\\begin\\{thebibliography\\}.*"'$//s;
+s/'"\\\\end\\{document\\}//g;
+s/"'^[ '"\\t]*%.*\\n//mg;
+s/(?<"'!'"\\\\)%["'^'"\\n]*//g;
+s/\\\\title\\{(["'^}]*)'"\\}/## "'$1'"\\n\\n/g;
+s/\\\\date\\{["'^}]*'"\\}\\s*//g;
+s/\\\\author(?:\\[["'^'"\\]]*\\])?\\{["'^}]*'"\\}\\s*//g;
+s/\\\\maketitle\\s*//g;
+s/\\\\noindent\\s*//g;
+s/\\\\bigskip\\s*//g;
+s/\\\\medskip\\s*//g;
+s/\\\\smallskip\\s*//g;
+s/\\\\vspace\\*?\\{["'^}]*'"\\}//g;
+s/\\\\hfill\\s*\\\\square/ QED/g;
+s/\\\\hfill//g;
+s/\\\\begin\\{enumerate\\}\\s*//g;
+s/\\\\end\\{enumerate\\}\\s*//g;
+s/\\\\begin\\{itemize\\}\\s*//g;
+s/\\\\end\\{itemize\\}\\s*//g;
+s/\\\\item\\[(["'^'"\\]]+)\\]\\s*/- "'$1 /g;
+s/'"\\\\item\\s+/- /g;
+s/\\\\\\\\\\[["'^'"\\]]*\\]/\\n/g;
+s/\\\\\\\\/\\n/g;
+s/\\\\cite\\{(["'^}]*)'"\\}/["'$1]/g;
+s/'"\\\\section\\{(["'^}]*)'"\\}/\\n## "'$1'"\\n\\n/g;
+s/\\\\subsection\\{(["'^}]*)'"\\}/\\n### "'$1'"\\n\\n/g;
+s/\\\\subsubsection\\{(["'^}]*)'"\\}/\\n#### "'$1'"\\n\\n/g;
+s/\\n{3,}/\\n\\n/g;
+s/[ \\t]+\\n/\\n/g;
+' codex_scientific_text.md
+{
+  cat \""'$tmp_yaml"
+  printf '"'\\n# Scientific TeX Extract\\n\\n'
+  cat codex_scientific_text.md
+} > codex_scientific_text.md.new
+mv codex_scientific_text.md.new codex_scientific_text.md
+rm -f \""'$tmp_yaml"
+' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 490ms:
+exec
+/bin/zsh -lc "sed -n '1,180p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826"
+output_type: "scientific_tex_extract"
+---
+
+# Scientific TeX Extract
+
+## Schubert classes of a loop group
+
+In these notes, we
+survey the homology of the loop group $\Om K$ of a compact group $K$, also known as the affine Grassmannian $\Grhat$ of a complex loop group
+$G[\C\t]$\,.   Using the Bott picture [B] of $H_*(\Om K)$, the homology algebra or Pontryagin ring, we obtain two new results:
+
+- A. Factorization of affine Schubert homology classes.
+
+- B. Definition of affine Schubert polynomials representing the affine Schubert homology classes in all types, in terms similar to ordinary Schubert polynomials (Demazure operators on the Borel picture of the cohomology of the flag variety $H^*(K/\,T)$).
+The philosophy is that working in the topological category (with compact rather than algebraic groups) gives extra flexibility which simplifies the constructions.  For example, homology factorization happens because the Bott-Samelson variety is topologically a direct product, even though algebraically it is a non-trivial fiber bundle.   Bott and Samelson exploit this flexibility to construct the Pontryagin ring $H_*(\Om K)$ as the symmetric algebra of the homology $H_*(K/\,T)$.  Once this construction is made, the computation of the Schubert classes becomes
+a standard exercise in the theory of Schubert polynomials in
+the equivariant cohomology $H^*_T(K/\,T)$.
+Thus, one may think of singular homology as a flabby version of equivariant K-theory and representation theory (Demazure modules).
+We work with rational (co)homology throughout this note, but with some care over denominators the results could be refined to integer coefficients.
+
+In this note,
+for concreteness we work with $G=\SL_n\C$,
+but unless otherwise noted everything generalizes to a simple, simply connected linear algebraic group of arbitrary type.  In \S1, we survey the relevant background.
+We give self-contained statements of Theorem A in \S2.5 and Theorem B
+for $G=\SL_n$ in \S3.6.
+In an appendix \S4, we discuss weak order and factorization in the affine Weyl group.
+
+Our formulas are ``global," analogous
+to the Schubert polynomials in $H^*(G/B)$ and $H^*_T(G/B)$.
+Let us also mention the unpublished work of Dale Peterson
+[P], which contains a different and very powerful point of view on these topics based on the local picture of equivariant cohomology at $T$-fixed points (the nil-Hecke ring of Kostant-Kumar).
+Peterson shows that the structure coefficients for $H_*(\Om K)$ are certain Gromov-Witten invariants for the flag variety $G/B$, structure coefficients of the quantum cohomology ring $qH^*(G/B)$.
+An alternative proof of Peterson's theorem might
+well be possible by combining Bott's realization
+of $H_*(\Om K)$ with the known structure of $qH^*(G/B)$.
+
+Using Peterson's picture, Thomas Lam [L] has shown that one version of Lapointe \& Morse's restricted Schur polynomials represent the Schubert classes of $H_*(\Om K)$, so that these polynomials are identical to our Schubert polynomials for $G=\SL_n$\,.  It should be possible to extend this theorem using the computation of affine Schubert polynomials in Theorem B.
+
+We wish to thank Mark Shimozono, who suggested the questions we examine here.
+
+## Background on topology and combinatorics
+
+### Loop group and affine Grassmannian
+
+Let $G\t:=\SL_n\C\t$ be the group of determinant-one matrices with entries in the field of formal Laurent series $\C\t$.
+Then $G\t$ naturally includes the analytic functions
+$f:\C^\times\to G$,
+by identifying a function with its Laurent series.
+Let $G[[t]]:=\SL_n\C[[t]]$ be the subgroup of determinant-one matrices with entries in the formal Taylor series $\C[[t]]$.  We may regard $G[[t]]$ as a maximal parabolic subgroup of $G\t$.
+The affine Grassmannian is the quotient space
+$
+\Grhat:=G\t/\,G[[t]]\,,
+$
+which we can also realize as the $\C[[t]]$-lattices
+with a fixed virtual dimension in the $\C\t$-vector space $\C\t^n$.
+
+Let $K$ be a maximal compact subgroup of $G$\,, namely  $K=\SU_n=\{A\in M_n(\C)\mid A\bar A^t=I\}$, the group of matrices whose column vectors form an oriented orthonomal basis for $\C^n$ under the Hermitian inner product $\langle (a_1,\ldots,a_n),(b_1,\ldots,b_n)\rangle:=
+\sum_i a_i \bar b_i$.  Recall that $K\subset G$ is a maximal compact subgroup, a real Lie group which is not complex algebraic.
+
+Let $LK$ denote the group of real analytic loops\footnote{
+More precisely, we mean the maps which extend to meromorphic functions $f:D\to K$ on the
+closed unit disk $D\subset \C$, with poles only allowed at $t=0$.} in $K$, the maps
+$f:S^1\to K$, with multiplication performed pointwise: $(f\cdot g)(t):= f(t)\cdot g(t)\in K$.
+Considering $t\in S^1\subset \C^\times$ as a complex parameter, any analytic loop $f(t)\in LK$ has a Laurent series, and we can consider $LK\subset G\t$.
+
+Let $\Om K:=\{f(t)\in LK\mid f(1)=1_K\}$ be the normal subgroup of basepoint preserving loops.
+We can realize the affine Grassmannian as:
+$
+\Grhat
+\cong \Om K
+$\,.
+This holds
+because Gram-Schmidt orthogonalization allows us to
+write any $f(t)\in G\t$ uniquely as $f(t) = f_K(t)\cdot f_P(t)$, where
+$f_K(t)\in \Om K$ and $f_P(t)\in G[[t]]$, so
+$G\t=\Om K\cdot G[[t]]$, a product of transverse subgroups.
+Thus the semi-infinite group $\Om K$ provides a canonical slice (set of representatives) for the doubly infinite quotient $\Grhat=G\t/G[[t]]$.
+This is what makes the topological theory (using compact groups) simpler than the algebraic theory (using algebraic groups).
+
+It will sometimes be convenient to identify a basepoint-preserving loop in $\Om K$ with the class of its translates by $K$.
+This leads to the realization of the affine Grassmannian as:
+$$
+\Grhat
+\cong
+LK\,/\,(LK\cap G[[t]])=LK/K
+\cong \Om K\,.
+$$
+where $K\subset LK$ is the group of constant loops $f(t)=k\in K$.
+Indeed, we can write any loop in $LK$ as:
+$f(t)=f(t)f(1)^{-1}\cdot f(1)\in\Om K\cdot K$,
+and this gives a natural homeomorphism $LK/K\cong\Om K$.
+(This is not a group morphism, however.)
+
+### Pontryagin ring
+
+
+
+Let us consider the singular homology of $\Grhat=\Om K$.
+Although $\Om K$ is infinite-dimensional,
+it is tamely infinite, meaning we can find
+an increasing union of finite-dimensional
+compact Hausdorff subspaces $\Om_1\subset\Om_2\subset
+\cdots\subset\Om K$ with $\Om K=\bigcup_{j}\Om_j$.  (We can choose $\Om_j$ from among the Schubert subvarieties we will define below.) \ Thus  $H_*(\Om K)=\displaystyle\lim_\to H_*(\Om_j)$, a direct limit.\footnote{Indeed, we can thicken each $\Om_j$ into a normal neighborhood $U_j\subset\Om K$ which is retractable to $\Om_j$.
+Since a singular cycle has compact support, it must live in a sufficiently large $U_j$, so that it is homologous to a cycle in $\Om_j$.}
+
+We have seen that $\Grhat=\Om K$ is topologically a loop group with a continuous (not complex algebraic) multiplication $\mult:\Om K\times \Om K\to\Om K$.
+This induces on the singular homology $H_*(\Om K):=H_*(\Om K,\Q)$ a multiplication $\mult_*:H_*(\Om K)\otimes H_*(\Om K)\to H_*(\Om K)$, which together with the usual addition defines the so-called Pontryagin ring.
+
+It is a basic fact that the Pontryagin multiplication is commutative.  Furthermore, let us consider a different multiplication $\mathrm{conc}:\Om K\times\Om K\to \Om K$ defined by concatenating loops:
+$$(f\,\tilde\cdot\,g)(e^{2\pi i x}) :=
+\left\{\begin{array}{cl}
+f(e^{4\pi i x}) & ,\ \ 0\leq x\leq \frac12
+
+g(e^{4\pi i x}) & ,\ \ \frac12\leq x\leq 1\ .
+\end{array}\right.
+$$
+Then the new induced multiplication $\mathrm{conc}_*$ on $H_*(\Om K)$ is the {\it same} as $\mult_*$\,.
+
+{\it Proof:} We construct a homotopy of loops $f\,\tilde\cdot\,g\approx f\cdot g\approx g\,\tilde\cdot\,f$.  For each $-1\leq \epsilon\leq 1$, let $p_\epsilon:[0,1]\to [0,1]\times[0,1]$ be a path in the unit square starting at $(0,0)$ and ending at $(1,1)$, such that $p_{-1}$ goes along the left and top boundaries, $p_0$ goes along the diagonal, and $p_1$ goes along the bottom and right boundaries.  Define $H:[0,1]\times[0,1]\to K$ by $H(x_1,x_2):=f(e^{2\pi ix_1})\,g(e^{2\pi ix_2})$.  Then defining $h_\epsilon:S^1\to K$ by $h_\epsilon(e^{2\pi ix}):=H(p_\epsilon(x))$ gives a continuous family of loops with $h_{-1}=f\,\tilde\cdot\,g$, \ $h_0=f\cdot g$, and
+$h_1=g\,\tilde\cdot\,f$.  $\square$
+
+As a corollary, the fundamental group of $K$ (or of any Lie group) is abelian, since multiplying in $\pi_1(K)$ means concatenating loops.
+Of course, in our case $G=\SL_n\C$ and $K=\SU_n$ are simply connected, so the fundamental group is trivial (and the loop group $\Om K$ is connected).  On the other hand, if we take the quotient of $K$ by the center
+$$
+Z=Z(G)=Z(K)=\left\{e^{\frac{2\pi i}{n}j}\, I\ \mid\
+ j=0,1,\ldots,n\sh-1\right\}\,,
+$$
+we get the adjoint groups $G^\ad=G/Z$ and $K^\ad=K/Z$.  Since $G\to G^\ad$ and $K\to K^\ad$ are universal covering maps with fiber $Z$, we have $\pi_1(G^\ad)\cong\pi_1(K^\ad)\cong Z\cong\Z/n\Z$, a cyclic group of order $n$.
+
+### Coweight lattice and adjoint group
+
+  The subgroup of diagonal matrices $T\subset K$ is a maximal torus: $T\cong (S_1)^{n-1}$.
+Letting $\R^n=\R e_1\oplus\cdots\oplus\R e_n$, we may realize
+the Lie algebra $\tt=\Lie(T)$ as:
+$$
+\tt\cong\{(x_1,\ldots,x_n)\in\R^n\mid
+x_1+\cdots+x_n=0\}\,.
+$$
+The exponential map is a group morphism and universal covering map: $\exp:\tt\to T$, \ $(x_1,\ldots,x_n)\mapsto
+\diag(e^{2\pi i x_1},\ldots,e^{2\pi ix_n})$.
+Its kernel is the coroot lattice:
+\begin{eqnarray*}
+Q^\vee &:=& \Ker(\exp:\tt\to T)
+
+&=&\{\lam\in\Z^n\,
+\mid\,
+\lam_1\sh+\cdots\sh+\lam_n=0\}
+\ =\ \bigoplus_{i=0}^{n-1}\Z\alpha_i^\vee\,,
+\end{eqnarray*}
+where $\alpha_i^\vee:=e_i-e_{i+1}$ are the simple coroots.
+If we lift the center $Z=Z(G)=Z(K)\subset T$ up to $\tt$, we
+get the coweight lattice:
+\begin{eqnarray*}
+P^\vee &:=& \exp^{-1}(Z)
+\ =\
+\{ \overline\lam\,\mid\,
+\lam\in\Z^n\}
+\ =\ \bigoplus_{i=1}^{n-1}\Z\om_i^\vee\,,
+\end{eqnarray*}
+where we use the projection $\stackrel{-}{\mbox{\ }}\,: \R^n\to\tt$\,, \,
+$\overline\lam:=
+\lam-\frac{\lam_1+\cdots+\lam_n}{n}(e_1\sh+\cdots\sh+e_n)$\,,
+and $\om_i:=\overline{e_1\sh+\cdots+e_i}\in\frac1n\Z^n$ are the fundamental coweights.
+Exponentiating $P^\vee$ back into $T$, we see that $Z\cong P^\vee\!/\,Q^\vee$.
+
+Let us identify each vector $\lam\in Q^\vee$ with the straight-line path
+$[0,1]\to\tt$, \ $x\mapsto x\lam$ and then exponentiate both sides.  This makes $\lam\in Q^\vee$ correspond to the loop $S^1\to T$, \
+$t\mapsto t^\lam:=\diag(t^{\lam_1},\ldots,t^{\lam_n})$, and
+in fact $Q^\vee\cong\mathrm{Hom}(S^1,T)$, the homomorphisms from the circle group to the torus.   Similarly, $P^\vee\cong\mathrm{Hom}(S^1,T^\ad)$, where $T^\ad:=T/Z$ is the maximal torus of $K^\ad=K/Z$.
+
+Consider $\Om K^\ad$, the loops in the adjoint group.
+The connected components of $\Om K^\ad$ are by definition the elements of the fundamental group $\pi_1(K^\ad)$.
+Also, the identity component $\Om K^\ad_\circ$ (consisting of homotopically trivial loops) is normal, and the
+
+exec
+/bin/zsh -lc "rg -n '"'^'"\\\\documentclass|"'^'"\\\\usepackage|"'^'"\\\\newcommand|"'^'"\\\\renewcommand|"'^'"\\\\begin\\{thebibliography\\}|"'^'"\\\\bibliograph|"'^'"\\\\author|"'^'"\\\\date|"'^'"\\\\maketitle|"'^'"\\\\title\\{|\\\\begin\\{figure\\}|\\\\begin\\{table\\}' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+1921:\newcommand{\hW}{\widehat{W}}
+1922:\newcommand{\tW}{\widetilde{W}}
+1923:\newcommand{\hatt}{{ {}^\wedge\hspace{-.1em} t }}
+1924:\renewcommand{\v}{^\vee}
+1925:\newcommand{\omv}{\om\v}
+1926:\newcommand{\al}{\alpha}
+1927:\newcommand{\alv}{\al\v}
+1928:\newcommand{\sig}{\sigma}
+1929:\newcommand{\Desc}{\mathrm{Desc}}
+1930:\newcommand{\Inv}{\mathrm{Inv}}
+1932:\newcommand{\leqB}{\stackrel{\mathrm B}{\leq}}
+1933:\newcommand{\leqL}{\stackrel{\mathrm L}{\leq}}
+1934:\newcommand{\leqR}{\stackrel{\mathrm R}{\leq}}
+1936:\newcommand{\lhat}[1]{{ {}^\wedge\!#1 }}
+1937:\newcommand{\rhat}[1]{{ #1^{\!\wedge} }}
+
+codex
+The first cleanup worked, but the appendix still carries a local macro block that belongs to TeX setup rather than scientific prose. I’m removing that block and tightening a few residual formatting artifacts without altering the derivations.
+exec
+/bin/zsh -lc "sed -n '1938,1975p' 0705.3826.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "sed -n '1908,1950p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+as described in the Appendix.
+The fundamental box has maximal alcove 
+$$
+m^\rho=\ t^\rho w_0\in\Wtil\,,
+$$
+where $\rho=\sum_{i=1}^{n-1}\om_i$\,, which is also the half-sum of the positive coroots. 
+This element is an involution: 
+$$
+(m^\rho)^{-1}=w_0t^\rho=t^{-w_0(\rho)}w_0 =m^\rho\,.
+$$
+We can decompose this as $m^\rho=\iota\,\hat m^\rho$,
+where $\hat m^\rho\in\What$ and:
+$$
+\iota = \left\{\begin{array}{c@{\,}l}
+1 & \text{ for $n$ odd}\\
+\sigma^{n/2} &\text{ for $n$ even\,.}
+\end{array}\right.
+$$
+The alcoves in the fundamental box are the right weak order interval $[1,\hat m]_R$\,, and the corresponding prime classes are: 
+$$
+[1,\hat m^{-1}]_L=[1,\iota\,\hat m\,\iota]_L
+=\left\{w\in\What\mid \,\iota\,\hat m\,\iota = u\circ w\text{ for some } u
+\right\}\,.
+$$
+
+\section{Appendix: Weak order on an affine Weyl group}
+
+\newcommand{\hW}{\widehat{W}}
+\newcommand{\tW}{\widetilde{W}}
+\newcommand{\hatt}{{ {}^\wedge\hspace{-.1em} t }}
+\renewcommand{\v}{^\vee}
+\newcommand{\omv}{\om\v}
+\newcommand{\al}{\alpha}
+\newcommand{\alv}{\al\v}
+\newcommand{\sig}{\sigma}
+\newcommand{\Desc}{\mathrm{Desc}}
+\newcommand{\Inv}{\mathrm{Inv}}
+
+
+ succeeded in 0ms:
+
+\sigma^{n/2} &\text{ for $n$ even\,.}
+\end{array}\right.
+$$
+The alcoves in the fundamental box are the right weak order interval $[1,\hat m]_R$\,, and the corresponding prime classes are:
+$$
+[1,\hat m^{-1}]_L=[1,\iota\,\hat m\,\iota]_L
+=\left\{w\in\What\mid \,\iota\,\hat m\,\iota = u\circ w\text{ for some } u
+\right\}\,.
+$$
+
+## Appendix: Weak order on an affine Weyl group
+
+\newcommand{\hW}{\widehat{W}}
+\newcommand{\tW}{\widetilde{W}}
+\newcommand{\hatt}{{ {}^\wedge\hspace{-.1em} t }}
+\renewcommand{\v}{^\vee}
+\newcommand{\omv}{\om\v}
+\newcommand{\al}{\alpha}
+\newcommand{\alv}{\al\v}
+\newcommand{\sig}{\sigma}
+\newcommand{\Desc}{\mathrm{Desc}}
+\newcommand{\Inv}{\mathrm{Inv}}
+
+\newcommand{\leqB}{\stackrel{\mathrm B}{\leq}}
+\newcommand{\leqL}{\stackrel{\mathrm L}{\leq}}
+\newcommand{\leqR}{\stackrel{\mathrm R}{\leq}}
+
+\newcommand{\lhat}[1]{{ {}^\wedge\!#1 }}
+\newcommand{\rhat}[1]{{ #1^{\!\wedge} }}
+
+This note addresses the following question concerning optimal factorization in an affine Weyl group.
+
+### Question
+
+  Given an affine Weyl group element $x\in\hW$, minimal in its coset $xW$ with respect to the finite Weyl group $W$, find the maximal dominant coweight $\lam$ such that there exists a factorization $x=y\cdot t_{-\lam}$ with $\ell(x)=\ell(y)+\ell(t_{-\lam})$, where $y\in \tW$, the extended affine Weyl group, and $t_{-\lam}\in\tW$ is an anti-dominant translation.
+
+### Answer
+
+
+Let $\omv_1,\ldots,\omv_n$ be the fundamental coweights of $W$.  For a vector $\gamma = c_1\omv_1+\cdots c_n\omv_n$ with $c_i\in\R$, define its floor as the integral coweight:
+$$
+\lfloor\gamma\rfloor:=\lfloor c_1\rfloor\omv_1+\cdots+\lfloor c_n\rfloor\omv_n\,,
+
+exec
+/bin/zsh -lc "rg -n '"'^'"\\\\(newcommand|renewcommand|documentclass|usepackage|begin\\{thebibliography\\}|end\\{thebibliography\\}|bibliograph|author|date|maketitle)' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "rg -n '\\\\footnote\\{|\\\\label\\{|\\\\ref\\{|\\\\pageref\\{|\\\\vspace|\\\\hfill|\\\\bigskip|\\\\medskip|\\\\smallskip|\\\\begin\\{enumerate\\}|\\\\begin\\{itemize\\}|"'^'"\\\\"'$'"' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+1921:\newcommand{\hW}{\widehat{W}}
+1922:\newcommand{\tW}{\widetilde{W}}
+1923:\newcommand{\hatt}{{ {}^\wedge\hspace{-.1em} t }}
+1924:\renewcommand{\v}{^\vee}
+1925:\newcommand{\omv}{\om\v}
+1926:\newcommand{\al}{\alpha}
+1927:\newcommand{\alv}{\al\v}
+1928:\newcommand{\sig}{\sigma}
+1929:\newcommand{\Desc}{\mathrm{Desc}}
+1930:\newcommand{\Inv}{\mathrm{Inv}}
+1932:\newcommand{\leqB}{\stackrel{\mathrm B}{\leq}}
+1933:\newcommand{\leqL}{\stackrel{\mathrm L}{\leq}}
+1934:\newcommand{\leqR}{\stackrel{\mathrm R}{\leq}}
+1936:\newcommand{\lhat}[1]{{ {}^\wedge\!#1 }}
+1937:\newcommand{\rhat}[1]{{ #1^{\!\wedge} }}
+
+ succeeded in 0ms:
+67:Let $LK$ denote the group of real analytic loops\footnote{
+110:\cdots\subset\Om K$ with $\Om K=\bigcup_{j}\Om_j$.  (We can choose $\Om_j$ from among the Schubert subvarieties we will define below.) \ Thus  $H_*(\Om K)=\displaystyle\lim_\to H_*(\Om_j)$, a direct limit.\footnote{Indeed, we can thicken each $\Om_j$ into a normal neighborhood $U_j\subset\Om K$ which is retractable to $\Om_j$.
+218:$\theta=x_1\sh-x_n$ is the highest root and $\theta^\vee=e_1\sh-e_n$ its coroot.\footnote{Warning: For $G$ not simply laced, $\theta^\vee$ is not the highest root of the dual root system.}
+256:minuscule\footnote{
+333:where we consider $S^{2n-1}\subset\R^{2n}\cong\C^n$\,.\,\footnote{
+410:a non-zero volume form\footnote{
+622:the push-forward map\,\footnote{The so-called
+1051:We have a homeomorphism:\footnote{Indeed, the obvious map $LK_\lam/T\to (LK_\lam\cdot K)/K$
+1250:Bott defines\footnote{Our mappings $\Psi,\Phi$ are in Bott's notation $g_s,f_s$ respectively.} the mapping:
+2069:Warning:  The converse of the last implication does \emph{not} hold.\footnote{
+
+codex
+I’m doing a final pass for leftover TeX setup lines and a couple of obvious line-break artifacts. I’m leaving inline math notation and footnote content in place, since those are part of the scientific source rather than presentation scaffolding.
+exec
+/bin/zsh -lc "perl -0pi -e '
+s/"'^'"\\\\(?:newcommand|renewcommand)\\{["'^'"\\n]*\\n//mg;
+s/\\) \\\\ Thus/\\) Thus/g;
+s/\\n{3,}/\\n\\n/g;
+' codex_scientific_text.md
+" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 114ms:
+exec
+/bin/zsh -lc "sed -n '1914,1945p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "sed -n '1,80p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+exec
+/bin/zsh -lc "rg -n '"'^'"\\\\(newcommand|renewcommand|documentclass|usepackage|begin\\{thebibliography\\}|end\\{thebibliography\\}|bibliograph|author|date|maketitle)' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+
+  Given an affine Weyl group element $x\in\hW$, minimal in its coset $xW$ with respect to the finite Weyl group $W$, find the maximal dominant coweight $\lam$ such that there exists a factorization $x=y\cdot t_{-\lam}$ with $\ell(x)=\ell(y)+\ell(t_{-\lam})$, where $y\in \tW$, the extended affine Weyl group, and $t_{-\lam}\in\tW$ is an anti-dominant translation.
+
+### Answer
+
+Let $\omv_1,\ldots,\omv_n$ be the fundamental coweights of $W$.  For a vector $\gamma = c_1\omv_1+\cdots c_n\omv_n$ with $c_i\in\R$, define its floor as the integral coweight:
+$$
+\lfloor\gamma\rfloor:=\lfloor c_1\rfloor\omv_1+\cdots+\lfloor c_n\rfloor\omv_n\,,
+$$
+where $\lfloor c\rfloor$ denotes the integer floor of a real number.
+
+Choose a tiny positive vector $\ep:=\ep_1\omv_1+\cdots+\ep_n\omv_n$, where $\ep_i>0$ are sufficiently small positive real numbers.
+Then the dominant coweight asked for is:
+$\lam=\lfloor x^{-1}(\ep)\rfloor$, which is independent of the choice of $\ep$.
+
+### Examples
+
+- a. For $x=w t_\mu$, where $w\in W$ and $\mu$ is a dominant coweight, this gives:
+$$
+\lam=\mu-\!\!\!\!\sum_{i\in D(w^{-1})}\!\! \omv_i\,,
+$$
+where $D(w^{-1}):=\{ i\in[1,n]\ \mid\, w^{-1}(\al_i)<0\}$, the descent set of $w^{-1}$.
+
+- b. Let $\hW$ be of type $A_2^{(1)}$ and $x=s_1s_0$.  We have $s_1(\omv_1)=-\omv_1+\omv_2$, \ $s_2(\omv_2)=\omv_1-\omv_2$, and $s_i(\omv_j)=\omv_j$ for $1\leq i\neq j\leq n$.   Also, $s_0=t_{\theta\v}r_{\theta}$, where $\theta\v=\omv_1+\omv_2$ and $r_{\theta}(\omv_1)=-\omv_2$, \ $r_{\theta}(\omv_2)=-\omv_1$.
+Then $\ep=\ep_1\omv_1+\ep_2\omv_2$, and $x^{-1}(\ep)=(1\sh-\ep_1\sh-\ep_2)\omv_1+(1\sh+\ep_2)\omv_2$, so
+$\lam=0\,\omv_1+1\,\omv_2=\omv_2$.
+
+- c. Let $\hW$ be of type $C_2^{(1)}$ with Dynkin diagram
+$0\sh\Rightarrow1\sh\Leftarrow\, 2$, and $x=s_0s_1s_0$.
+We have $s_1(\omv_1)=-\omv_1+2\omv_2$, \ $s_2(\omv_2)=\omv_1-\omv_2$, and $s_i(\omv_j)=\omv_j$ for $1\leq i\neq j\leq n$.   Also, $s_0=t_{\theta\v}r_{\theta}$, where $\theta\v=\omv_1$ and $r_{\theta}(\omv_1)=-\omv_1$, \ $r_{\theta}(\omv_2)=-\omv_1+\omv_2$.
+Then $\ep=\ep_1\omv_1+\ep_2\omv_2$, and $x^{-1}(\ep)=\ep_1\omv_1+(2\sh-2\ep_1\sh-\ep_2)\omv_2$, so
+$\lam=0\,\omv_1+1\,\omv_2=\omv_2$.
+
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826"
+output_type: "scientific_tex_extract"
+---
+
+# Scientific TeX Extract
+
+## Schubert classes of a loop group
+
+In these notes, we
+survey the homology of the loop group $\Om K$ of a compact group $K$, also known as the affine Grassmannian $\Grhat$ of a complex loop group
+$G[\C\t]$\,.   Using the Bott picture [B] of $H_*(\Om K)$, the homology algebra or Pontryagin ring, we obtain two new results:
+
+- A. Factorization of affine Schubert homology classes.
+
+- B. Definition of affine Schubert polynomials representing the affine Schubert homology classes in all types, in terms similar to ordinary Schubert polynomials (Demazure operators on the Borel picture of the cohomology of the flag variety $H^*(K/\,T)$).
+The philosophy is that working in the topological category (with compact rather than algebraic groups) gives extra flexibility which simplifies the constructions.  For example, homology factorization happens because the Bott-Samelson variety is topologically a direct product, even though algebraically it is a non-trivial fiber bundle.   Bott and Samelson exploit this flexibility to construct the Pontryagin ring $H_*(\Om K)$ as the symmetric algebra of the homology $H_*(K/\,T)$.  Once this construction is made, the computation of the Schubert classes becomes
+a standard exercise in the theory of Schubert polynomials in
+the equivariant cohomology $H^*_T(K/\,T)$.
+Thus, one may think of singular homology as a flabby version of equivariant K-theory and representation theory (Demazure modules).
+We work with rational (co)homology throughout this note, but with some care over denominators the results could be refined to integer coefficients.
+
+In this note,
+for concreteness we work with $G=\SL_n\C$,
+but unless otherwise noted everything generalizes to a simple, simply connected linear algebraic group of arbitrary type.  In \S1, we survey the relevant background.
+We give self-contained statements of Theorem A in \S2.5 and Theorem B
+for $G=\SL_n$ in \S3.6.
+In an appendix \S4, we discuss weak order and factorization in the affine Weyl group.
+
+Our formulas are ``global," analogous
+to the Schubert polynomials in $H^*(G/B)$ and $H^*_T(G/B)$.
+Let us also mention the unpublished work of Dale Peterson
+[P], which contains a different and very powerful point of view on these topics based on the local picture of equivariant cohomology at $T$-fixed points (the nil-Hecke ring of Kostant-Kumar).
+Peterson shows that the structure coefficients for $H_*(\Om K)$ are certain Gromov-Witten invariants for the flag variety $G/B$, structure coefficients of the quantum cohomology ring $qH^*(G/B)$.
+An alternative proof of Peterson's theorem might
+well be possible by combining Bott's realization
+of $H_*(\Om K)$ with the known structure of $qH^*(G/B)$.
+
+Using Peterson's picture, Thomas Lam [L] has shown that one version of Lapointe \& Morse's restricted Schur polynomials represent the Schubert classes of $H_*(\Om K)$, so that these polynomials are identical to our Schubert polynomials for $G=\SL_n$\,.  It should be possible to extend this theorem using the computation of affine Schubert polynomials in Theorem B.
+
+We wish to thank Mark Shimozono, who suggested the questions we examine here.
+
+## Background on topology and combinatorics
+
+### Loop group and affine Grassmannian
+
+Let $G\t:=\SL_n\C\t$ be the group of determinant-one matrices with entries in the field of formal Laurent series $\C\t$.
+Then $G\t$ naturally includes the analytic functions
+$f:\C^\times\to G$,
+by identifying a function with its Laurent series.
+Let $G[[t]]:=\SL_n\C[[t]]$ be the subgroup of determinant-one matrices with entries in the formal Taylor series $\C[[t]]$.  We may regard $G[[t]]$ as a maximal parabolic subgroup of $G\t$.
+The affine Grassmannian is the quotient space
+$
+\Grhat:=G\t/\,G[[t]]\,,
+$
+which we can also realize as the $\C[[t]]$-lattices
+with a fixed virtual dimension in the $\C\t$-vector space $\C\t^n$.
+
+Let $K$ be a maximal compact subgroup of $G$\,, namely  $K=\SU_n=\{A\in M_n(\C)\mid A\bar A^t=I\}$, the group of matrices whose column vectors form an oriented orthonomal basis for $\C^n$ under the Hermitian inner product $\langle (a_1,\ldots,a_n),(b_1,\ldots,b_n)\rangle:=
+\sum_i a_i \bar b_i$.  Recall that $K\subset G$ is a maximal compact subgroup, a real Lie group which is not complex algebraic.
+
+Let $LK$ denote the group of real analytic loops\footnote{
+More precisely, we mean the maps which extend to meromorphic functions $f:D\to K$ on the
+closed unit disk $D\subset \C$, with poles only allowed at $t=0$.} in $K$, the maps
+$f:S^1\to K$, with multiplication performed pointwise: $(f\cdot g)(t):= f(t)\cdot g(t)\in K$.
+Considering $t\in S^1\subset \C^\times$ as a complex parameter, any analytic loop $f(t)\in LK$ has a Laurent series, and we can consider $LK\subset G\t$.
+
+Let $\Om K:=\{f(t)\in LK\mid f(1)=1_K\}$ be the normal subgroup of basepoint preserving loops.
+We can realize the affine Grassmannian as:
+$
+\Grhat
+\cong \Om K
+$\,.
+This holds
+because Gram-Schmidt orthogonalization allows us to
+
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc "rg -n '\\\\begin\\{thebibliography\\}|\\\\end\\{document\\}|"'^References$|''^Bibliography$'"' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'tail -n 40 codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826
+ succeeded in 0ms:
+$$
+We call $B_0$ the {\it fundamental box}, and its translates
+$B_\lam:=t_\lam B_0$ cover $\R^n=\bigcup_{\lam\in P\v} B_\lam$.
+Each box is a union of $N$ alcoves, where
+$N = |W|\, /\, [\tW:\hW] = \mbox{$|W|\,/\, [P\v\!:Q\v]$}$.
+Furthermore, the fundamamental chamber is the union of the dominant boxes: \
+$C_0=\bigcup_{\lam\in P\v_+} B_\lam$.
+
+Now we have: $\hatt_\lam\leqR y$ iff $y A_0\subset B_\lam$.
+(The $\Rightarrow$ is easy. The $\Leftarrow$ is because \ldots) \
+Hence, given $y=x^{-1}\in\hW$
+we have:
+$$
+\max\{ \mu \mid \hatt_{\mu}\leqR y\}=\lam\quad\text{where}\quad
+yA_0\subset B_\lam\,.
+$$
+Now, if we take any point
+$
+\ep=\ep_1\omv_1+\cdots+\ep_n\omv_n
+$
+in the interior of $A_0$,
+we have:
+$$
+yA_0\subset B_\lam
+\quad\Longleftrightarrow\quad
+y(\ep)\in B_\lam
+\quad\Longleftrightarrow\quad
+\forall\, i :
+\langle\al_i,\lam\rangle<
+\langle\al_i,y(\ep)\rangle<
+\langle\al_i,\lam\rangle+1\,.
+$$
+Therefore, the answer to our question is exactly:
+$$
+\lam:=
+\lfloor\langle\al_1, y(\ep)\rangle\rfloor\,\omv_1+\cdots
++\lfloor\langle\al_n, y(\ep)\rangle\rfloor\,\omv_n\,,
+$$
+which was to be shown.
+
+
+codex
+Created [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826/codex_scientific_text.md) from `0705.3826.tex`, preserving the existing YAML front matter.
+
+The cleanup removed TeX plumbing and presentation setup: preamble, package/class/macro definitions, title-page commands, bibliography, comments, and list scaffolding. It kept the scientific body, section structure, equations, derivations, caveats, and appendix content, with sections converted to Markdown headings.
+
+Verification: I checked that `\documentclass`, `\usepackage`, `\newcommand`/`\renewcommand`, `\maketitle`, and bibliography blocks are no longer present in the output. Inline math/notation and some `\footnote{...}` syntax remain intentionally as part of the scientific source text.
+tokens used
+52,173
+Created [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0705.3826/codex_scientific_text.md) from `0705.3826.tex`, preserving the existing YAML front matter.
+
+The cleanup removed TeX plumbing and presentation setup: preamble, package/class/macro definitions, title-page commands, bibliography, comments, and list scaffolding. It kept the scientific body, section structure, equations, derivations, caveats, and appendix content, with sections converted to Markdown headings.
+
+Verification: I checked that `\documentclass`, `\usepackage`, `\newcommand`/`\renewcommand`, `\maketitle`, and bibliography blocks are no longer present in the output. Inline math/notation and some `\footnote{...}` syntax remain intentionally as part of the scientific source text.

@@ -1,0 +1,11 @@
+Done. Here's the summary:
+
+**Task 17.12 complete.** All LLM tells eliminated from the paper:
+
+- **"Honesty Box" framing** — killed everywhere. Ch13's subsection is now "Experimental Status," ch12's is "Caveat: emulation versus discovery," ch11's header comments use "scope/limitations." Zero instances remain in `tex_docs/`.
+- **Throat-clearing** — "Before proceeding... we pause to state clearly," "It is worth noting that" — all removed. Content preserved, framing cut.
+- **"Three pillars" branding** — replaced with "three ingredients."
+- **"Four-category taxonomy" in running prose** — replaced with direct phrasing ("asks, for each observable: how topological is it really?"). Kept as a `\paragraph{}` title where it's functional.
+- **"We now turn to"** — replaced in ch15 with a direct statement.
+
+All `plan/tasks/`, `llm_docs/`, and ancillary `.md` files updated to match. The content of every caveats section is unchanged — only the contrived framing died.

@@ -1,0 +1,10 @@
+Perfect! The extraction preserves:
+- YAML frontmatter with metadata
+- Scientific prose and definitions
+- Equations with proper formatting ($$, \eqno)
+- Derivations and mathematical expressions
+- References with \refto and \ref commands
+- All section headers
+- Author citations and acknowledgments
+
+The task is complete. I've created a mechanical starting copy from the single TeX source file (`toprevE.tex`), removed non-scientific TeX plumbing (macro definitions, font setup, style commands, purely presentational scaffolding), and preserved all scientific content—definitions, equations, derivations, interpretations, and references. The output file maintains the YAML frontmatter and contains approximately 206 KB of clean scientific content.

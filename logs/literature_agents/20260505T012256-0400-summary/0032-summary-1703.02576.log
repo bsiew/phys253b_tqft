@@ -1,0 +1,25 @@
+Perfect! Task completed successfully. 
+
+**Summary:**
+
+I've successfully split `codex_scientific_text.md` (1701 lines, 101K) into 7 section-level files in `codex_section_extracts/` and created the comprehensive import map `codex_paper_summary.md` (15K).
+
+**Deliverables:**
+
+1. **Section files** (all with preserved YAML frontmatter):
+   - `01_introduction.md` (69 lines, 5.3K) 
+   - `02_domain_walls_and_cosmology.md` (308 lines, 24K) — *longest, most technical*
+   - `03_estimation_of_gravitational_waves_from_domain_walls.md` (178 lines, 15K) 
+   - `04_particle_physics_models.md` (217 lines, 22K)
+   - `05_implications_for_present_and_future_observations.md` (109 lines, 9.4K)
+   - `06_conclusion.md` (42 lines, 2.9K)
+   - `07_acknowledgments.md` (837 lines, 26K) — *includes full bibliography*
+
+2. **Summary document** `codex_paper_summary.md` with:
+   - **Whole-paper snapshot:** Key physics (quasi-degenerate vacua → unstable domain walls → GWs), distinguishing features vs phase-transition GWs, parameter ranges probed by experiments
+   - **Section-by-section summaries:** Scaled appropriately (50–100 words for short sections, longer for technically dense ones like Sec. 2 with 3 subsections)
+   - **Import recommendations:** high (Secs 2–3: core theory), medium (Secs 1, 4–5: framing/models/observations), low (Sec 6: recap), skip (Sec 7: bibliography)
+   - **Context-loading strategies:** Minimal (80 lines) → Compact (290) → Standard (490) → Comprehensive (810) → Full (960 lines)
+   - **Key equation bookmarks** with line numbers for quick reference
+
+The import map is ready for future context loading in subsequent research conversations.

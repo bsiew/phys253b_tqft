@@ -1,0 +1,11 @@
+Done. The subsection `\label{subsec:maxwell-cs}` now contains ~90 lines of LaTeX prose covering:
+
+1. The Maxwell–Chern–Simons action with both terms written explicitly.
+2. Why the Hodge star reintroduces metric dependence.
+3. The topologically massive pole $m_{\mathrm{CS}} = ke^2/(2\pi)$, stated and cited to Dunne rather than derived from scratch.
+4. A comparison table contrasting pure CS (TQFT) with Maxwell–CS (not a TQFT).
+5. The crossover between short-distance electrodynamics and long-distance topological behavior.
+6. Physical applications: finite-thickness edges, finite-temperature regularization, composite-fermion theory.
+7. A closing paragraph distilling the conceptual lesson: metric independence is what makes CS observables topological, and any kinetic term destroys that.
+
+Equations are numbered and labeled (`eq:maxwell-cs-action`, `eq:mcs-eom`, `eq:topological-mass`, `eq:mcs-crossover`), and cross-references point back to the relevant earlier sections.

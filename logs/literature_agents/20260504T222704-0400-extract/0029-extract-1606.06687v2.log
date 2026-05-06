@@ -1,0 +1,10 @@
+Complete. The extraction successfully:
+
+✓ **Preserved YAML front matter** with created_at, updated_at, and metadata  
+✓ **Extracted all 6 major sections** from the lecture notes (The Basics, Integer QHE, Fractional QHE, Non-Abelian states, Chern-Simons Theories, Edge Modes)  
+✓ **Kept scientific content**: equations (eqnarray, align), definitions, theorems, derivations, interpretations  
+✓ **Removed TeX plumbing**: document class, usepackage declarations, author/title formatting, bibliography commands, pure-comment lines  
+✓ **Preserved notation macros**: \newcommand lines that define scientific ket/bra and vector notation used in the paper  
+✓ **Cleaned structure**: removed excessive blank lines and sectional markers  
+
+The file `codex_scientific_text.md` at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/1606.06687v2/codex_scientific_text.md` now contains 4423 lines of scientific content extracted from the 6753-line TeX source, with all pedagogical explanations, equations, and formal results intact.

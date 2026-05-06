@@ -1,1 +1,10 @@
 .DS_Store
+
+# Large or generated PDFs
+Anderson2023.pdf
+Nakamura2020.pdf
+Werkmeister2025.pdf
+literature/textbook/*.pdf
+
+brians_dumping_ground
+EOF

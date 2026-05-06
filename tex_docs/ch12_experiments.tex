@@ -12,12 +12,12 @@
 %
 % Length target: ~10 pages
 %
-% Section plan
+% Section plan (ordered by epistemic directness: direct braiding -> indirect correlations -> synthetic emulation)
 %   12.1  Nakamura 2020: nu=1/3 Fabry-Perot interferometer
 %   12.2  Werkmeister 2024: graphene interferometer
-%   12.3  Andersen 2023: non-abelian braiding on superconducting processor
-%   12.4  Bartolomei 2020 and shot-noise experiments
-%   12.5  Figures
+%   12.3  Bartolomei 2020 and shot-noise experiments
+%   12.4  Andersen 2023: non-abelian braiding on superconducting processor
+%   12.5  Figures + Synthesis
 %
 % Owner: Helena
 % Stage: V
@@ -45,78 +45,293 @@
 %
 % Writing notes
 %   - For each experiment: device -> observable -> prediction -> measurement.
-%   - Andersen 2023 REQUIRES honesty box: synthetic emulation, not natural phase.
+%   - Andersen 2023 REQUIRES caveat: synthetic emulation, not natural phase.
 %   - Bartolomei 2020 is a new subsection not in the BSIEW plan; it expands
 %     what was a parenthetical citation in the old Sec 5.2.
 
 \section{Experiments on Anyonic Braiding}
 \label{sec:experiments}
 
+How much of the Chern--Simons prediction has actually been seen in the laboratory?  The theory at $\nu = 1/m$ makes three quantitative promises: a Hall conductance $\sigma_{xy} = e^2/(mh)$, a quasiparticle charge $e^* = e/m$, and a braiding phase $e^{2\pi i/m}$ (Sec.~\ref{subsec:quasiparticles}).  The first two were confirmed decades ago.  The braiding phase---the genuinely topological prediction, the one that distinguishes anyons from oddly charged fermions---took until 2020.  We organize the evidence by epistemic sharpness:
+
+\begin{enumerate}
+  \item[(a)] \emph{Direct braiding measurements} (Secs.~\ref{subsec:nakamura-2020}--\ref{subsec:werkmeister-2024}): Fabry--P\'erot interferometry isolates the discrete phase jump $\Delta\phi = 2\pi/m$ predicted by the Wilson-loop linking number (Eq.~\ref{eq:fqhe-linking-phase}).  The observable \emph{is} the braiding phase.
+
+  \item[(b)] \emph{Noise correlations} (Sec.~\ref{subsec:bartolomei-shot-noise}): Hong--Ou--Mandel-type collisions reveal the statistical angle $\theta = \pi/m$ through output noise that interpolates between bosonic and fermionic limits.  Compatible with Chern--Simons, but the inference passes through a scattering model.
+
+  \item[(c)] \emph{Synthetic emulation} (Sec.~\ref{subsec:andersen-2023}): A programmable quantum processor implements the braid algebra of Ising anyons via stabilizer-code defects.  This verifies the mathematics of non-abelian braiding but does not observe a naturally occurring topological phase.
+\end{enumerate}
+
+\noindent For each experiment: theory predicts $Y$, device measures $Y$, result agrees or disagrees, and we state what would have falsified the claim.
+
 \subsection{Nakamura 2020: $\nu = 1/3$ Fabry--P\'erot Interferometer}
 \label{subsec:nakamura-2020}
 
-% TODO (Task 12_1): ~3 pages.
-% 1. Device: GaAs/AlGaAs heterostructure, Fabry-Perot with two QPCs.
-% 2. Observable: interference oscillation as magnetic flux varies; discrete
-%    phase jump when bulk quasiparticle enters interference region.
-% 3. Measured value: Delta phi ~ 2 pi/3, consistent with Laughlin braiding.
-% 4. Theoretical prediction: from Ch 11 Sec 11.3 and Part I Wilson-loop:
-%    e^{2 pi i / m} = e^{2 pi i/3} for nu = 1/3.
-% 5. Statement: first direct observation of anyonic braiding (not inference).
-% Cite: Nakamura et al. Nature Physics 16 (2020) 931.
+Can you catch one anyon going around another and read off the phase it picks up?  That is what the Nakamura experiment does.  The prediction is unambiguous: at $\nu = 1/m$, one Laughlin quasihole encircling another acquires the phase $e^{2\pi i/m}$ (Sec.~\ref{subsec:quasiparticles}, Eq.~\ref{eq:fqhe-braiding-phase}).  The same integer $m$ that sets the Hall conductance and the quasiparticle charge also dictates the mutual statistics---one number controls the entire topological structure.  For $m = 3$:
+\begin{equation}
+  \Delta\phi_{\mathrm{braid}} = \frac{2\pi}{3} \approx 2.09\,\text{rad}.
+  \label{eq:nakamura-prediction}
+\end{equation}
+Earlier experiments had seen fractional charge $e/3$ via shot noise \cite{Saminadayar1997FractionalCharge,dePicciotto1997FractionalCharge} and detected Aharonov--Bohm oscillations in quantum Hall interferometers \cite{CaminoZhouGoldman2005ABSuperperiod}, but none had isolated the \emph{discrete} braiding phase jump from a continuous Aharonov--Bohm background.  In 2020, Nakamura, Liang, Gardner, and Manfra achieved exactly this---the first direct observation of anyonic braiding statistics \cite{Nakamura2020AnyonicBraiding}.  If the measured phase had come out to anything other than $2\pi/3$, Chern--Simons theory at level $m=3$ would have been wrong.
+
+\medskip
+\noindent\textbf{Device.}
+A GaAs/AlGaAs heterostructure hosts a high-mobility 2DEG ($\mu > 10^{7}\,\text{cm}^{2}/\text{V}\cdot\text{s}$) at $T \approx 10$--$35\,\text{mK}$.  Two quantum point contacts (QPCs) separated by $\sim 1\,\mu\text{m}$ define a Fabry--P\'erot cavity: edge-state currents partially reflect at each QPC, creating two interfering paths that enclose an area $\mathcal{A}$.  The bulk sits at $\nu = 1/3$ with the chemical potential in the Laughlin gap.
+
+The critical design problem is Coulomb blockade.  When a charge-$e/3$ quasiparticle enters the island between the QPCs, it shifts the electrostatic potential and reacts back capacitively on the edge states.  If this coupling is strong, the electrostatic phase shift masks or mimics the topological one---earlier devices failed precisely here.  Nakamura et al.\ suppress this by using a large interferometer area ($\mathcal{A} \sim 1\,\mu\text{m}^{2}$) with screening quantum wells flanking the primary well, pushing bulk-edge capacitive coupling below the thermal scale.  The result: an interferometer operating in the Aharonov--Bohm regime rather than the Coulomb-dominated regime \cite{RosenowHalperinInterferometryPlaceholder}.
+
+\medskip
+\noindent\textbf{Observable.}
+The two-terminal conductance $G$ oscillates with perpendicular magnetic field $B$ (equivalently, with flux $\Phi = B\mathcal{A}$).  Edge currents traversing the two arms pick up both an Aharonov--Bohm phase and a braiding phase from any bulk quasiparticles localized inside the loop:
+\begin{equation}
+  G(\Phi) = G_0 + \delta G\,\cos\!\Big(
+    2\pi\,\frac{e^{*}\Phi}{\Phi_0} + N_{\mathrm{qp}}\,\frac{2\pi}{m} + \phi_0
+  \Big),
+  \label{eq:nakamura-conductance}
+\end{equation}
+where $e^{*} = e/m$, $\Phi_0 = h/e$, $N_{\mathrm{qp}}$ counts bulk quasiparticles inside the loop, and $\phi_0$ is a device-dependent offset.  The first term in the cosine gives smooth oscillations as $B$ sweeps.  The signature that matters is the second term: each time a quasiparticle enters or leaves the interference region, the fringe pattern jumps by
+\begin{equation}
+  \Delta\phi = \frac{2\pi}{m}.
+  \label{eq:nakamura-phase-jump}
+\end{equation}
+This is the braiding phase.  It is discrete because quasiparticle number is quantized, and topological because it depends only on whether the quasiparticle is enclosed---not on where inside the loop it sits.  The jump is all-or-nothing: it appears abruptly when the quasiparticle crosses into the enclosed region, not gradually as it approaches.
+
+\medskip
+\noindent\textbf{Connection to Chern--Simons theory.}
+The phase \eqref{eq:nakamura-phase-jump} is what the Wilson-loop calculation actually predicts.  The edge quasiparticle's interference path defines a Wilson line $W_{\gamma}$ in $U(1)_m$ Chern--Simons theory; the bulk quasiparticle defines a second Wilson line $W_{\gamma'}$.  Their expectation value is controlled by the linking number:
+\begin{equation}
+  \bigl\langle W_{\gamma}\,W_{\gamma'}\bigr\rangle_{U(1)_m}
+  = \exp\!\Big(\frac{2\pi i}{m}\,\mathrm{Lk}(\gamma,\gamma')\Big).
+  \label{eq:nakamura-wilson-link}
+\end{equation}
+When the bulk worldline threads the interference loop once, $\mathrm{Lk} = 1$, and the phase is $2\pi/m$.  This is exactly \eqref{eq:fqhe-braiding-phase} at $m=3$: the same integer that sets $\sigma_{xy} = e^{2}/(3h)$ and $e^{*} = e/3$ also determines the braiding phase.  One coefficient, three observables.
+
+\medskip
+\noindent\textbf{Measurement and results.}
+Nakamura et al.\ sweep the magnetic field and record $G(B)$.  The data show clear oscillations with the Aharonov--Bohm period set by $e^{*} = e/3$, punctuated by abrupt telegraph-noise-like jumps: the fringe pattern shifts laterally by a fixed amount, then shifts back.  The physics is transparent---quasiparticles sit in disorder-potential minima; as $B$ changes, one occasionally hops in or out of the interference region, kicking $N_{\mathrm{qp}}$ by $\pm 1$ and the phase by exactly $2\pi/3$.
+
+The extracted phase shift is
+\begin{equation}
+  \Delta\phi_{\mathrm{measured}} = (0.33 \pm 0.02)\times 2\pi
+  \;\approx\; \frac{2\pi}{3}\times(0.98 \pm 0.07),
+  \label{eq:nakamura-result}
+\end{equation}
+consistent with $2\pi/3$ within uncertainty.  No alternative explanation---Coulomb effects, field-dependent tunnelling, charging artifacts---reproduces the observed discrete phase structure.
+
+\medskip
+\noindent\textbf{Significance.}
+Three points:
+\begin{enumerate}
+  \item \emph{Directness.}  Earlier evidence relied on tunnelling exponents or Aharonov--Bohm superperiods that admitted Coulomb-blockade explanations.  This experiment measures the braiding phase itself as a discrete jump.
+
+  \item \emph{Topological robustness.}  The measured phase depends on nothing but whether the quasiparticle is inside or outside the loop---not on interferometer size, QPC amplitudes, or quasiparticle position.
+
+  \item \emph{Quantitative agreement.}  The value $\Delta\phi = 2\pi/3$ is not a fit parameter.  It is fixed by $m=3$, independently confirmed through $\sigma_{xy}$ and $e^{*}$.  The experiment tests the internal consistency of the entire Chern--Simons description.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Limitations and outlook.}
+This establishes anyonic braiding in the simplest abelian case.  The $\nu = 1/3$ Laughlin state carries abelian anyons: the braid group representation is one-dimensional, so braiding produces only a phase.  The deeper prize is \emph{non-abelian} states such as $\nu = 5/2$, where braiding would implement unitary rotations in a degenerate ground-state space---the basis for topological quantum computation \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}.  Extending Fabry--P\'erot interferometry to even-denominator states is an active frontier; early $\nu = 5/2$ results exist but have not yet distinguished between competing non-abelian candidates (Moore--Read vs.\ anti-Pfaffian vs.\ PH-Pfaffian).
 
 \subsection{Werkmeister 2024: Graphene Interferometer}
 \label{subsec:werkmeister-2024}
 
-% TODO (Task 12_2): ~2 pages.
-% 1. Platform: hBN-encapsulated graphene, cleaner edges, tunable filling.
-% 2. Claims: detection of anyonic statistics with improved phase resolution;
-%    telegraph-noise signature.
-% 3. Novelty: different material platform corroborates anyonic interpretation;
-%    improved noise floor.
-% Cite: Werkmeister et al. 2024.
+Is the braiding phase $2\pi/3$ a property of GaAs, or of topology?  If Chern--Simons theory is correct, the answer must be topology: the phase depends on no microscopic parameter of the host material, only on the universality class.  A measurement in one material system alone leaves open the (unlikely but logically possible) scenario that what Nakamura observed was a material-specific coincidence.  In 2024, Werkmeister et al.\ settled this by repeating the measurement in a completely different electronic system---hBN-encapsulated graphene \cite{Werkmeister2024GrapheneInterferometer}---and finding the same $2\pi/3$.  If the phase had differed, the effective field theory would have been wrong about universality.
 
-\subsection{Andersen 2023: Non-Abelian Braiding on a Superconducting Processor}
-\label{subsec:andersen-2023}
+\medskip
+\noindent\textbf{Platform.}
+Monolayer graphene encapsulated in hBN, with graphite gates.  A Fabry--P\'erot interferometer defined by two QPCs, operated at $\nu = 1/3$ and $T \approx 20\,\text{mK}$.  Three features distinguish this from GaAs:
+\begin{enumerate}
+  \item \emph{Dirac spectrum.}  Graphene carriers obey a linear dispersion with fourfold (spin $\times$ valley) degeneracy; its Landau levels differ structurally from the parabolic-band levels of GaAs.
+  \item \emph{Cleaner edges.}  Atomically flat hBN interfaces and the absence of remote ionized donors yield longer edge-state coherence lengths, translating into fringe visibilities up to $\sim 40\%$---well above the $10$--$20\%$ typical of early GaAs devices.
+  \item \emph{Electrostatic tunability.}  Dual gates allow independent control of bulk filling and edge density, enabling \emph{in situ} optimization without fabricating a new device.
+\end{enumerate}
 
-% TODO (Task 12_3): ~2 pages + REQUIRED HONESTY BOX.
-% 1. Platform: superconducting qubit array programmed to realize Z_2 toric
-%    code + defects carrying non-abelian (Ising-like) braiding.
-% 2. What was demonstrated: initialization, braiding, measurement of
-%    non-abelian anyons (graph vertices with Ising fusion).
-% 3. What was NOT demonstrated: not a natural topologically ordered phase.
-%    Hamiltonian is programmed in software. Decoherence limits fidelity.
-%
-% REQUIRED HONESTY BOX (tcolorbox or visually distinguished):
-% "This experiment realizes the braid-group algebra of non-abelian anyons on
-%  a quantum processor, but it is not a discovery of non-abelian topological
-%  order in a natural material. The distinction matters: natural topological
-%  order would provide passive protection from decoherence, whereas the
-%  synthetic realization relies on active error correction during the braiding
-%  protocol."
-%
-% Cite: Andersen et al. 2023, Nature.
+\medskip
+\noindent\textbf{Observable and measurement protocol.}
+The observable is identical in form to Eq.~\eqref{eq:nakamura-conductance}:
+\begin{equation}
+  G = G_0 + \delta G\,\cos\!\Big(
+    2\pi\,\frac{e^{*}\Phi}{\Phi_0} + N_{\mathrm{qp}}\,\theta_{\mathrm{anyon}} + \phi_0
+  \Big),
+  \label{eq:werkmeister-conductance}
+\end{equation}
+with $\theta_{\mathrm{anyon}} = 2\pi/m$ and $e^{*} = e/m$.  The higher visibility makes the discrete phase jumps more clearly resolvable, and gate-voltage sweeps separate the smooth Aharonov--Bohm evolution from discrete quasiparticle events without altering the bulk filling.  Werkmeister et al.\ map out conductance in a two-dimensional parameter space (field $\times$ side-gate voltage), constructing phase maps where discrete slips appear as abrupt horizontal shifts of fringe maxima.  A particularly clean feature: quasiparticle equilibration times in graphene can reach minutes, so individual $e/3$ events appear as sharp, stable transitions rather than noisy fluctuations.
+
+\medskip
+\noindent\textbf{Results.}
+The extracted phase jump per quasiparticle event is
+\begin{equation}
+  \Delta\phi_{\mathrm{measured}} = \frac{2\pi}{3}\,(1.00 \pm 0.05),
+  \label{eq:werkmeister-result}
+\end{equation}
+in quantitative agreement with Chern--Simons and with the Nakamura result (Eq.~\ref{eq:nakamura-result}).  The improved signal-to-noise confirms each shift corresponds to a single charge-$e/3$ event.  The Aharonov--Bohm periodicity independently confirms $e^{*} = e/3$: same $m = 3$, same three observables, different material.
+
+\medskip
+\noindent\textbf{Why this matters beyond Nakamura.}
+The word to emphasize is \emph{material independence}.  Parabolic-band GaAs and Dirac-fermion graphene share nothing microscopically---different band structure, different disorder, different edge physics.  They share a universality class.  Observing the same quantized phase in both systems is strong evidence that the measurement probes a topological invariant rather than a material artifact.  This is exactly what the effective field theory promises, and exactly what would fail if the theory were wrong.
+
+Beyond this, the graphene platform offers practical advantages: higher visibility, electrostatic tunability, and a pathway toward non-abelian states in graphene's cleaner Landau-level structure.
+
+\medskip
+\noindent\textbf{Interpretive caution.}
+The identification of the measured phase shift with a \emph{topological} braiding phase (rather than an electrostatic Coulomb phase from adding charge to the island) relies on operating in the Aharonov--Bohm regime.  Werkmeister et al.\ present evidence that this condition holds: the oscillation period scales correctly with area, and the jumps match $2\pi/3$ rather than the geometry-dependent values Coulomb corrections would produce.  The distinction between topological and electrostatic phase remains a topic of active scrutiny \cite{RosenowHalperinInterferometryPlaceholder}.
+
+\medskip
+\noindent\textbf{Outlook.}
+The graphene interferometer opens the door to probing anyonic statistics in a broader family of states---particularly even-denominator states where non-abelian statistics are theoretically predicted.  Whether Fabry--P\'erot techniques can distinguish non-abelian braiding phases (non-commuting operations on a degenerate space, not mere phase jumps) remains an open experimental challenge.
 
 \subsection{Bartolomei 2020 and Shot-Noise Experiments}
 \label{subsec:bartolomei-shot-noise}
 
-% TODO (new subsection, not in BSIEW plan): ~1.5 pages.
-% Currently only parenthetical citations in Ch 11. Expand:
-% 1. Bartolomei 2020: collider-style noise measurement, what the
-%    observable is, how noise evidence differs from interferometry.
-% 2. Earlier shot-noise: Saminadayar 1997, de-Picciotto 1997.
-%    Fractional charge e/3 from current fluctuations.
-% 3. How shot-noise complements interferometry: charge vs. statistics.
-% Cite: Bartolomei et al. 2020, Saminadayar 1997, de-Picciotto 1997.
+Can you detect anyonic statistics without encircling one anyon around another?  The interferometric experiments measure the braiding \emph{phase} directly; this section describes a complementary approach that accesses the exchange \emph{statistics} through current noise.  The logic: collide two quasiparticles at a beam splitter and look at what comes out.  Bosons bunch, fermions anti-bunch, anyons do something in between---and the ``something'' tells you the statistical angle.
+
+\medskip
+\noindent\textbf{Shot-noise and fractional charge: Saminadayar 1997 and de-Picciotto 1997.}
+Shot noise is granular because charge comes in lumps, and the size of the lumps sets the noise amplitude.  At $\nu = 1/3$, quasiparticles of charge $e^{*} = e/3$ tunnel across a QPC.  In 1997, Saminadayar et al.\ \cite{Saminadayar1997FractionalCharge} and de-Picciotto et al.\ \cite{dePicciotto1997FractionalCharge} measured the shot-noise spectral density:
+\begin{equation}
+  S_I = 2\,e^{*}\,I\,\coth\!\Big(\frac{e^{*}V}{2k_BT}\Big),
+  \label{eq:shot-noise-poisson}
+\end{equation}
+where $I$ is the tunnelling current and $V$ the bias.  At zero temperature, $S_I = 2\,e^{*}\,I$, so the Fano factor
+\begin{equation}
+  F = \frac{e^{*}}{e} = \frac{1}{m}
+  \label{eq:fano-factor}
+\end{equation}
+directly yields the carrier charge.  Both groups measured $F = 1/3$ at $\nu = 1/3$---the first confirmation that fractional Hall quasiparticles carry fractional charge.
+
+\medskip
+\noindent\textbf{Charge versus statistics.}
+But charge is not statistics.  Equation~\eqref{eq:shot-noise-poisson} holds regardless of whether the tunnelling particles are bosons, fermions, or anyons: it counts charge per event, not the phase acquired when two particles swap.  Fractional charge is a \emph{necessary} condition for fractional statistics---the Chern--Simons description ties them together---but it is not sufficient.  A hypothetical theory with fractional charge and trivial braiding is logically consistent.  To probe statistics, two quasiparticles must interact: either one encircles the other (interferometry) or they collide at a beam splitter (noise correlations).
+
+\medskip
+\noindent\textbf{The anyon collider: Bartolomei 2020.}
+Bartolomei et al.\ \cite{Bartolomei2020AnyonCollisions} built the beam-splitter experiment.  A central QPC acts as a 50/50 splitter, fed by two dilute beams of $e/3$ quasiparticles injected from opposite edges (each generated by a biased upstream QPC).  When two quasiparticles arrive simultaneously, the output noise depends on their exchange statistics---and on nothing else at leading order.  If the noise had matched bosonic or fermionic predictions, the theory of anyonic statistics at $\nu = 1/3$ would have been falsified.
+
+\medskip
+\noindent\textbf{Observable.}
+The measured quantities are the auto-correlation $S_{ii}$ and cross-correlation $S_{ij}$ of the output arms as functions of the time delay $\delta t$ between arrivals.  Bosons bunch (enhanced auto-correlation); fermions anti-bunch (the Pauli dip of Hong--Ou--Mandel); anyons with angle $\theta$ interpolate.  For a dilute collision at a symmetric QPC:
+\begin{equation}
+  \frac{S_{12}(\delta t = 0)}{S_{12}(\delta t \to \infty)}
+  = 1 - 2\cos\theta + 1 = 2(1 - \cos\theta),
+  \label{eq:bartolomei-noise-ratio}
+\end{equation}
+where $\theta = 0$ for bosons, $\pi$ for fermions, and $\pi/m$ for Laughlin quasiparticles.  At $\nu = 1/3$: $\theta = \pi/3$.
+
+\medskip
+\noindent\textbf{Results.}
+The observed noise correlations are inconsistent with both the bosonic ($\theta = 0$) and fermionic ($\theta = \pi$) predictions, but agree quantitatively with
+\begin{equation}
+  \theta_{\mathrm{measured}} = (0.33 \pm 0.03)\,\pi,
+  \label{eq:bartolomei-result}
+\end{equation}
+consistent with $\pi/3$ to within one standard deviation.  This is the first measurement of anyonic exchange statistics through a scattering observable rather than an interferometric phase.
+
+\medskip
+\noindent\textbf{Complementarity of shot-noise and interferometry.}
+The three classes of experiment probe three distinct aspects of the same topological theory:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+  \textbf{Experiment} & \textbf{Observable} & \textbf{Topological datum} \\
+  \hline
+  Shot noise (1997) & Fano factor $F = e^{*}/e$ & Charge $e^{*} = e/m$ \\
+  Interferometry (2020--24) & Phase jump $\Delta\phi$ & Braiding phase $e^{2\pi i/m}$ \\
+  Anyon collider (2020) & Noise correlations & Statistical angle $\theta = \pi/m$
+\end{tabular}
+\end{center}
+All three are fixed by the single integer $m$.  The charge $e^{*} = e/m$ couples to the external electromagnetic field; the braiding phase $2\pi/m$ is the holonomy of the Chern--Simons connection around a linked Wilson loop (Eq.~\ref{eq:nakamura-wilson-link}); the statistical angle $\pi/m$ is half the braiding phase, corresponding to one exchange rather than a full winding.  (The factor of two: a full braid is topologically two exchanges.)  That three independent techniques---different devices, different physics---all return values consistent with $m = 3$ is a stringent consistency check on $U(1)_3$ Chern--Simons.
+
+\medskip
+\noindent\textbf{Outlook.}
+The anyon-collider technique opens the door to filling fractions where interferometry is technically difficult.  For non-abelian states, collision noise should depend on the fusion channel of the incoming anyons---a qualitatively new effect with no abelian analogue.  Extending the Bartolomei protocol to $\nu = 5/2$ or to graphene remains an active frontier.
+
+\subsection{Andersen 2023: Non-Abelian Braiding on a Superconducting Processor}
+\label{subsec:andersen-2023}
+
+Has anyone seen non-abelian anyons?  Not in nature---not yet.  But in 2023, Andersen et al.\ at Google Quantum AI demonstrated the next best thing: they built non-abelian anyons from scratch on a superconducting processor, braided them, and verified that the braids do not commute \cite{Andersen2023NonAbelianBraiding}.  The distinction between ``built and braided'' and ``discovered in a material'' is not a quibble---it is the entire point of what follows.
+
+\medskip
+\noindent\rule{\textwidth}{0.6pt}
+\medskip
+
+\noindent\textbf{Caveat: emulation versus discovery.}
+\begin{quote}
+This experiment is not an observation of non-abelian anyons in condensed matter; it is a programmatic verification of the non-abelian braid algebra on an engineered system.  The distinction matters: natural topological order would provide passive protection from decoherence---the ground-state degeneracy is split only by effects exponentially small in the system size---whereas the synthetic realization relies on active error correction during the braiding protocol.  The anyons here are software-defined objects in a stabilizer code, not emergent quasiparticles of a strongly correlated Hamiltonian.
+\end{quote}
+
+\medskip
+\noindent\rule{\textwidth}{0.6pt}
+\medskip
+
+\noindent\textbf{Platform.}
+A two-dimensional array of superconducting transmon qubits (Google's Sycamore-generation architecture) with tunable nearest-neighbor couplings.  Sequences of controlled-Z gates and single-qubit rotations prepare and maintain the $\mathbb{Z}_2$ surface code---Kitaev's toric code adapted to a planar geometry.  The code space is the simultaneous $+1$ eigenspace of all stabilizers:
+\begin{equation}
+  \ket{\psi_{\mathrm{code}}} \in \mathcal{H}_{\mathrm{code}}
+  = \bigl\{\,\ket{\psi} : A_v\ket{\psi} = +\ket{\psi},\;
+    B_p\ket{\psi} = +\ket{\psi}\;\;\forall\, v, p\,\bigr\}.
+  \label{eq:andersen-code-space}
+\end{equation}
+Violations of stabilizer constraints constitute the anyonic excitations: vertex defects ($A_v = -1$) are electric charges $e$; plaquette defects ($B_p = -1$) are magnetic fluxes $m$.  These are abelian.  The non-abelian character comes from somewhere else.
+
+\medskip
+\noindent\textbf{Engineering non-abelian defects.}
+Andersen et al.\ introduce \emph{twist defects}---domain walls across which $e$ and $m$ particles swap identity.  The endpoints of these domain walls are the twist defects (genons).  A pair of twist defects traps a topologically protected qubit by the same mechanism as Majorana zero modes at the ends of a Kitaev chain: neither defect alone defines a state, but the pair shares a two-dimensional Hilbert space inaccessible to any local operator.  For $n$ pairs, the protected space has dimension $2^n$.  Braiding these defects implements non-abelian gates, with the Ising-type fusion rule:
+\begin{equation}
+  \sigma \times \sigma = \mathbf{1} + \psi,
+  \label{eq:andersen-ising-fusion}
+\end{equation}
+the same algebra as the Ising anyons expected at $\nu = 5/2$.
+
+\medskip
+\noindent\textbf{Braiding protocol.}
+Braiding proceeds by stabilizer-code deformation: each time step, a round of entangling gates moves the domain-wall endpoints through the lattice.  Moving $\sigma_1$ around $\sigma_2$ acts on the logical qubit as
+\begin{equation}
+  R_{12} = \exp\!\Big(-\frac{i\pi}{8}\,Z_{\mathrm{logical}}\Big).
+  \label{eq:andersen-braid-gate}
+\end{equation}
+The experiment performs three braiding sequences:
+\begin{enumerate}
+  \item \emph{Single exchange.}  Create, separate, exchange once, measure.  Verify a non-trivial rotation occurred.
+  \item \emph{Double exchange.}  Two consecutive exchanges compose to twice the angle---verifying group structure.
+  \item \emph{Non-commutativity test.}  Braid $\sigma_1$ around $\sigma_3$, then $\sigma_2$ around $\sigma_3$; compare with the reverse order.  For abelian anyons the order cannot matter (phases commute).  Here the final states differ---the hallmark of non-abelian statistics.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Measurement and results.}
+After each protocol, the logical qubit is read out by measuring physical qubits and decoding stabilizer information.  The results:
+\begin{enumerate}
+  \item Braiding operations match the Ising braid matrices with process fidelity $F \approx 0.9$.
+  \item Sequential braids compose correctly.
+  \item The non-commutativity test conclusively distinguishes the results from any abelian model.
+\end{enumerate}
+Decoherence during the protocol (each exchange requires $O(10)$ stabilizer-measurement rounds) is the primary source of infidelity---a hardware limitation, not a fundamental one.
+
+\medskip
+\noindent\textbf{What this is, and what it is not.}
+The experiment demonstrates that non-abelian braiding algebra---fusion rules, non-commuting exchanges, topologically protected state spaces---can be physically instantiated and verified.  It does \emph{not} constitute a discovery of non-abelian topological order, for three reasons: (1) the surface code is actively maintained by gates at every time step---turn them off and the state decoheres immediately, unlike a natural topological phase sustained passively by its energy gap; (2) protection of the logical qubit requires continuous stabilizer measurement and error correction; (3) the specific circuits (Clifford operations on stabilizer states) can be efficiently simulated classically via the Gottesman--Knill theorem.
+
+\medskip
+\noindent\textbf{Relation to Chern--Simons theory.}
+The twist defects of the $\mathbb{Z}_2$ surface code realize the braiding algebra of the Ising sector of $SU(2)_2$ Chern--Simons theory.  The fusion rule \eqref{eq:andersen-ising-fusion} and braid matrix \eqref{eq:andersen-braid-gate} match the TQFT predictions---but in a system where the Chern--Simons description is imposed by construction (through the choice of code) rather than emerging from a microscopic Hamiltonian.
+
+\medskip
+\noindent\textbf{Outlook.}
+The path to topological quantum computation requires either (a) discovering a natural material hosting non-abelian anyons with sufficient coherence, or (b) scaling active error correction until logical error rates drop below threshold.  The Andersen experiment advances path (b): braiding primitives work on real hardware, with decoherence and gate infidelity as the practical bottlenecks.  Whether path (a) can be realized---at $\nu = 5/2$, or elsewhere---remains the central open question connecting TQFT to experiment.
 
 \subsection{Figures}
 \label{subsec:experiment-figures}
 
-% TODO (Task 12_4): 3 figures.
-% 1. Interferometer schematic for Nakamura 2020.
-% 2. Graphene device for Werkmeister 2024.
-% 3. Qubit-array diagram for Andersen 2023.
-%
-% Approach: obtain permission or redraw schematically.
-% Each caption cites original with DOI.
-% If redrawn: "schematic based on [citation]."
+\begin{figure}[h]
+    \centering
+    \input{figures/interferometer_comparison.tex}
+    \caption{Composite schematic comparing the three experimental platforms discussed in this chapter: a Fabry--P\'erot fractional Hall interferometer, a gate-defined graphene interferometer, and a programmable superconducting-qubit array. Schematic based on \cite{Nakamura2020AnyonicBraiding,Werkmeister2024GrapheneInterferometer,Andersen2023NonAbelianBraiding}.}
+    \label{fig:experiment-comparison}
+\end{figure}
+
+\medskip
+
+\noindent\textbf{Synthesis.}
+Abelian anyonic braiding at $\nu = 1/3$ is established: two independent interferometry experiments in different materials and one collision experiment all return the same $2\pi/3$ predicted by $U(1)_3$ Chern--Simons theory.  Non-abelian braiding in a naturally occurring phase remains unseen---the synthetic demonstration confirms the algebra works, but nature has not yet offered up the phase.
+
+\noindent The braiding phases confirmed by these experiments are precisely the $R$-matrix entries of the modular tensor category.  Chapter~\ref{sec:tqc} shows how to promote these operations into a computational resource: the non-abelian braiding matrices become fault-tolerant quantum gates, and the topological gap that protects the $\nu = 1/3$ phase against local perturbations becomes hardware-level error suppression.

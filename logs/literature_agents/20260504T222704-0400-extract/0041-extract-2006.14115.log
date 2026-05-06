@@ -1,0 +1,20 @@
+Excellent. The extraction is complete. Let me create a summary of what was accomplished:
+
+**Extraction complete.** I've created a cleaned scientific text extract from the TeX sources (main.tex and suppMaterial.tex) and written it to `codex_scientific_text.md`.
+
+**What was preserved:**
+- Abstract, background, theoretical foundations, and definitions
+- All key equations and derivations (Aharonov-Bohm phase, anyonic phase contribution, thermal averages)
+- Device design specifications and experimental methods
+- All scientific findings: discrete phase jumps, temperature dependence analysis, lever arm measurements
+- Four supplementary discussions with detailed analysis (periods/lever arms, simulations, velocity measurements, bulk-edge effects)
+- Quantitative results (θ_anyon = 2π × (0.31 ± 0.04) vs theoretical 2π/3)
+- Interpretations of experimental observations and topological phenomena
+
+**What was removed:**
+- TeX class/package declarations and bibliographic scaffolding
+- Author formatting macros, affiliation markup, comment lines
+- Figure/table presentation commands (while caption descriptions were preserved for context)
+- Style commands and purely presentational formatting
+
+The file preserves the YAML front matter with metadata, maintains logical flow through the paper's main sections and supplementary discussions, and keeps all scientific prose in a readable markdown format suitable for literature analysis and citation tracking.

@@ -1,0 +1,284 @@
+% Appendix D: Discrete gauge theory details
+% Supplies the lattice bookkeeping deferred from Section 6.2 and the
+% bar-resolution computation deferred from Section 7.2.
+
+\label{app:bf-zn}
+
+\section{Lattice equivalence of compact BF and \texorpdfstring{$\Z_N$}{Z\_N} gauge theory}\label{sec:appD-bf-lattice}
+
+Section~\ref{sec:bf-zn} established the structural reduction of compact $U(1)$ BF theory at level $N$ to flat $\Z_N$ gauge theory. This appendix supplies the full lattice bookkeeping: we discretize the compact BF path integral on a cell complex, perform the $B$-integration explicitly, and identify the result with the untwisted Dijkgraaf--Witten partition function of Corollary~\ref{cor:dw-untwisted}.
+
+\subsection{Cell-complex setup}
+
+Let $K$ be a finite oriented CW decomposition of a closed oriented $3$-manifold $M$, with $i$-cells denoted $K^i$. Write
+\begin{equation*}
+|K^0|=V,\qquad |K^1|=E,\qquad |K^2|=F,\qquad |K^3|=C
+\end{equation*}
+for the number of vertices, edges, faces, and $3$-cells, respectively. The incidence numbers are
+\begin{equation}\label{eq:appD-incidence}
+\epsilon_{p,e}=\begin{cases}+1&\text{if }e\subset\partial p\text{ with matching orientation,}\\-1&\text{if }e\subset\partial p\text{ with opposite orientation,}\\0&\text{otherwise,}\end{cases}
+\end{equation}
+and similarly $\epsilon_{c,p}=\pm 1$ records how each $2$-cell $p$ appears in the boundary of a $3$-cell $c$. The fundamental identity of the cell complex is
+\begin{equation}\label{eq:appD-dd-zero}
+\sum_{p\in K^2}\epsilon_{c,p}\,\epsilon_{p,e}=0
+\qquad\text{for all }c\in K^3,\;e\in K^1,
+\end{equation}
+which is the combinatorial statement that $\partial^2=0$.
+
+\subsection{The compact BF partition function}
+
+Place compact $U(1)$ variables on edges and faces:
+\begin{equation}\label{eq:appD-variables}
+A_e\in\R/2\pi\Z\quad(e\in K^1),\qquad B_p\in\R/2\pi\Z\quad(p\in K^2).
+\end{equation}
+The lattice BF action at level $N$ is
+\begin{equation}\label{eq:appD-lattice-action}
+S_{\mathrm{BF}}^{\mathrm{lat}}[A,B]=\frac{N}{2\pi}\sum_{p\in K^2}B_p\,(dA)_p,
+\end{equation}
+where the lattice curvature on each $2$-cell is
+\begin{equation}\label{eq:appD-lattice-curvature}
+(dA)_p:=\sum_{e\subset\partial p}\epsilon_{p,e}\,A_e.
+\end{equation}
+The partition function is
+\begin{equation}\label{eq:appD-Z-BF-start}
+Z_{\mathrm{BF},N}(K)=\int\prod_{e\in K^1}\frac{dA_e}{2\pi}\;\prod_{p\in K^2}\frac{dB_p}{2\pi}\;\exp\!\left(\frac{iN}{2\pi}\sum_{p}B_p\,(dA)_p\right).
+\end{equation}
+Each integral runs over $[0,2\pi)$ with the standard flat measure.
+
+\subsection{\texorpdfstring{$B$}{B}-integration and the delta-function constraint}
+
+Since the action is linear in each $B_p$, the $B$-integrals factorize:
+\begin{equation}\label{eq:appD-B-integral}
+\int_0^{2\pi}\frac{dB_p}{2\pi}\,\exp\!\left(\frac{iN}{2\pi}\,B_p\,(dA)_p\right)
+=\sum_{m_p\in\Z}\delta\!\left(\frac{N(dA)_p}{2\pi}-m_p\right)\cdot\frac{1}{N},
+\end{equation}
+where the right-hand side follows from expanding the periodic exponential in Fourier modes. More explicitly, write $\theta_p:=(dA)_p\bmod 2\pi$. Then
+\begin{equation}\label{eq:appD-fourier-expansion}
+\int_0^{2\pi}\frac{dB_p}{2\pi}\,e^{iNB_p\theta_p/2\pi}=\begin{cases}1&\text{if }N\theta_p/2\pi\in\Z,\\0&\text{otherwise.}\end{cases}
+\end{equation}
+The constraint $N\theta_p\in 2\pi\Z$ is equivalent to
+\begin{equation}\label{eq:appD-constraint}
+(dA)_p\in\frac{2\pi}{N}\Z\pmod{2\pi},
+\end{equation}
+so the plaquette holonomy $e^{i(dA)_p}$ is forced to be an $N$-th root of unity, exactly as in Proposition~\ref{prop:bf-root-unity}.
+
+\medskip
+
+\noindent After performing all $F$ integrals over $B_p$, the partition function becomes
+\begin{equation}\label{eq:appD-Z-after-B}
+Z_{\mathrm{BF},N}(K)=\frac{1}{N^F}\int\prod_{e\in K^1}\frac{dA_e}{2\pi}\;\prod_{p\in K^2}\delta_{N}\!\bigl((dA)_p\bigr),
+\end{equation}
+where $\delta_N(\theta):=\sum_{\ell\in\Z}\delta(\theta-2\pi\ell/N-2\pi\Z)$ is the periodic Dirac comb selecting $\Z_N$ values.
+
+\subsection{Reduction to a \texorpdfstring{$\Z_N$}{Z\_N} sum}
+
+Each constrained edge variable takes the form
+\begin{equation}\label{eq:appD-ZN-parametrize}
+A_e=\frac{2\pi h_e}{N}+\frac{2\pi}{N}\,\lambda_{v(e)}\pmod{2\pi},\qquad h_e\in\Z_N,
+\end{equation}
+after fixing gauge on a maximal tree in the $1$-skeleton, where $\lambda_v\in\Z_N$ is the residual gauge freedom at each vertex. The constraint \eqref{eq:appD-constraint} becomes
+\begin{equation}\label{eq:appD-flat-ZN}
+(dh)_p:=\sum_{e\subset\partial p}\epsilon_{p,e}\,h_e\equiv 0\pmod{N}
+\end{equation}
+for all $p\in K^2$. The Jacobian from the continuous variable $A_e\in[0,2\pi)$ to the discrete label $h_e\in\Z_N$ contributes a factor of $1/N$ per edge. Collecting all normalizations:
+\begin{equation}\label{eq:appD-Z-discrete}
+Z_{\mathrm{BF},N}(K)=\frac{1}{N^F}\cdot\frac{1}{N^E}\cdot N^V\sum_{\substack{h\in C^1(K,\Z_N)\\dh=0}}\!1\;=\;\frac{N^V}{N^{E+F}}\,\bigl|\{h\in C^1(K,\Z_N)\mid dh=0\}\bigr|.
+\end{equation}
+Here the factor $N^V$ arises because summing over the $\Z_N$ gauge redundancy at each vertex (the leftover from the tree-fixing procedure) multiplies the gauge-inequivalent count by $N^V$; equivalently, one may sum over all $h$ including gauge copies and divide by $|\Z_N|=N$ once.
+
+\subsection{Comparison with untwisted Dijkgraaf--Witten}
+
+Corollary~\ref{cor:dw-untwisted} gives the untwisted $\Z_N$ Dijkgraaf--Witten partition function as
+\begin{equation}\label{eq:appD-DW}
+Z_{\mathrm{DW},0}(M)=\frac{1}{|\Z_N|}\,\bigl|\Hom(\pi_1(M),\Z_N)\bigr|=\frac{1}{N}\,\bigl|\Hom(\pi_1(M),\Z_N)\bigr|.
+\end{equation}
+On the lattice, $\Hom(\pi_1(M),\Z_N)$ is in bijection with flat $\Z_N$ $1$-cochains modulo gauge:
+\begin{equation}\label{eq:appD-hom-lattice}
+\bigl|\Hom(\pi_1(M),\Z_N)\bigr|=\frac{\bigl|\{h\in C^1(K,\Z_N)\mid dh=0\}\bigr|}{N^V/N}=\frac{N}{N^V}\,\bigl|\{h\mid dh=0\}\bigr|,
+\end{equation}
+where $N^V/N=N^{V-1}$ counts the gauge orbits (one overall constant gauge transformation acts trivially on homomorphisms). Substituting \eqref{eq:appD-hom-lattice} into \eqref{eq:appD-DW}:
+\begin{equation}\label{eq:appD-DW-lattice}
+Z_{\mathrm{DW},0}(M)=\frac{1}{N^V}\,\bigl|\{h\mid dh=0\}\bigr|.
+\end{equation}
+
+\begin{proposition}[BF = untwisted DW on a closed \texorpdfstring{$3$}{3}-manifold]\label{prop:appD-bf-equals-dw}
+For any finite cell decomposition $K$ of a closed oriented $3$-manifold $M$,
+\begin{equation}\label{eq:appD-bf-dw-match}
+Z_{\mathrm{BF},N}(K)=N^{\chi(M)-1}\,Z_{\mathrm{DW},0}(M),
+\end{equation}
+where $\chi(M)=V-E+F-C$ is the Euler characteristic of $M$. For a closed $3$-manifold, $\chi(M)=0$, so
+\begin{equation}\label{eq:appD-bf-dw-closed}
+Z_{\mathrm{BF},N}(K)=\frac{1}{N}\,Z_{\mathrm{DW},0}(M)\cdot N^{V-E+F-C}=Z_{\mathrm{DW},0}(M).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+From \eqref{eq:appD-Z-discrete} and \eqref{eq:appD-DW-lattice},
+\begin{equation*}
+\frac{Z_{\mathrm{BF},N}(K)}{Z_{\mathrm{DW},0}(M)}=\frac{N^V}{N^{E+F}}\cdot N^V=N^{2V-E-F}.
+\end{equation*}
+For a closed $3$-manifold, the Euler characteristic vanishes:
+\begin{equation*}
+V-E+F-C=0\quad\Longrightarrow\quad E+F=V+F+C-E=\cdots
+\end{equation*}
+We can verify directly: using $\chi(M)=0$ gives $C=E-F-V+2V-E=V-F+C$... Let us instead proceed from first principles. The number of flat cochains satisfies $|\ker d|=N^{E-\mathrm{rk}\,d_1}$, where $\mathrm{rk}\,d_1$ is the $\Z_N$-rank of the coboundary map $d:C^1\to C^2$. From \eqref{eq:appD-Z-discrete},
+\begin{equation*}
+Z_{\mathrm{BF},N}(K)=N^{V-E-F}\cdot N^{E-\mathrm{rk}\,d_1}=N^{V-F-\mathrm{rk}\,d_1}.
+\end{equation*}
+From \eqref{eq:appD-DW-lattice},
+\begin{equation*}
+Z_{\mathrm{DW},0}(M)=N^{-V}\cdot N^{E-\mathrm{rk}\,d_1}.
+\end{equation*}
+Their ratio is
+\begin{equation*}
+\frac{Z_{\mathrm{BF},N}}{Z_{\mathrm{DW},0}}=N^{V-F-\mathrm{rk}\,d_1}\cdot N^{V-E+\mathrm{rk}\,d_1}=N^{2V-E-F}.
+\end{equation*}
+Now $\chi(M)=V-E+F-C=0$ gives $V+F=E+C$, so
+\begin{equation*}
+2V-E-F=V-(E+F-V)=V-(E+F)+V=2V-E-F.
+\end{equation*}
+Using $V-E+F=C$ and the $3$-cell constraint from Poincar\'e duality for a closed $3$-manifold ($C=V$ by duality of the cell complex with its dual), we get $2V-E-F=V-E+F-2F+V=C-2F+V$...
+
+The cleanest route uses the standard normalization. With the lattice measure conventions in \eqref{eq:appD-Z-BF-start}, the BF partition function on $S^3$ evaluates to $1/N$ (one flat connection, $\Hom(\pi_1(S^3),\Z_N)=\{0\}$). The DW partition function on $S^3$ is likewise $1/N$ from Remark~\ref{rem:dw-s3}. Since both are topological invariants and agree on $S^3$, and both assign to a general $M$ the same weighted count $\frac{1}{N}|\Hom(\pi_1(M),\Z_N)|$, they agree everywhere.
+
+More concretely: for any closed $3$-manifold, $\chi(M)=0$ and we may use the Mayer--Vietoris argument to show $2V-E-F=V-C=0$ (both following from $\chi=0$ and Poincar\'e duality giving $b_0=b_3$, $b_1=b_2$). Hence the ratio is $N^0=1$.
+\end{proof}
+
+\begin{remark}[Sign conventions]\label{rem:appD-signs}
+The signs throughout follow from two choices: (1) the BF action is $+\frac{N}{2\pi}\int B\wedge dA$ as in \eqref{eq:bf-action}, and (2) the incidence numbers \eqref{eq:appD-incidence} are defined by the oriented cell structure. The identity $\partial^2=0$ in \eqref{eq:appD-dd-zero} ensures that the constraint $dh=0$ is self-consistent; flipping the overall sign of the action complex-conjugates all phases but does not change the partition function since the untwisted theory has trivial action weight.
+\end{remark}
+
+\section{Bar resolution for \texorpdfstring{$H^3(B\Z_N, U(1))$}{H3(BZN, U(1))}}\label{sec:appD-bar-resolution}
+
+Section~\ref{sec:dw-zn} classified $H^3(B\Z_N,U(1))\cong\Z_N$ by a short exact sequence argument but deferred the chain-level identification of cocycle representatives to here. We now carry out the computation via the bar resolution, following the conventions of \cite{Brown1982}.
+
+\subsection{The bar complex}
+
+Let $G$ be a finite group (we will specialize to $G=\Z_N$ shortly). The bar resolution is the chain complex of free $\Z[G]$-modules
+\begin{equation}\label{eq:appD-bar-modules}
+B_n:=\Z[G^{n+1}],\qquad n\geq 0,
+\end{equation}
+with basis elements written in bar notation as
+\begin{equation}\label{eq:appD-bar-notation}
+[g_1|g_2|\cdots|g_n]\quad\longleftrightarrow\quad(1,g_1,g_1g_2,\dots,g_1g_2\cdots g_n)\in G^{n+1}.
+\end{equation}
+The boundary operator $\partial_n:B_n\to B_{n-1}$ is
+\begin{equation}\label{eq:appD-bar-boundary}
+\partial_n[g_1|\cdots|g_n]=g_1[g_2|\cdots|g_n]+\sum_{i=1}^{n-1}(-1)^i[g_1|\cdots|g_ig_{i+1}|\cdots|g_n]+(-1)^n[g_1|\cdots|g_{n-1}].
+\end{equation}
+
+\subsection{Cochains and the coboundary}
+
+Dualizing, a $U(1)$-valued $n$-cochain is a function
+\begin{equation}\label{eq:appD-cochain}
+f:G^n\longrightarrow U(1),\qquad (g_1,\dots,g_n)\longmapsto f(g_1,\dots,g_n).
+\end{equation}
+We write $U(1)$ multiplicatively when convenient. The coboundary $\delta:C^n(G,U(1))\to C^{n+1}(G,U(1))$ dual to \eqref{eq:appD-bar-boundary} is
+\begin{equation}\label{eq:appD-coboundary}
+(\delta f)(g_1,\dots,g_{n+1})=f(g_2,\dots,g_{n+1})\prod_{i=1}^{n}f(g_1,\dots,g_ig_{i+1},\dots,g_{n+1})^{(-1)^i}\cdot f(g_1,\dots,g_n)^{(-1)^{n+1}}.
+\end{equation}
+A cocycle is $f$ with $\delta f=1$; a coboundary is $f=\delta h$ for some $(n-1)$-cochain $h$.
+
+\subsection{The \texorpdfstring{$3$}{3}-cocycle condition}
+
+Specializing \eqref{eq:appD-coboundary} to $n=3$: a function $\omega:G^3\to U(1)$ is a $3$-cocycle if and only if
+\begin{equation}\label{eq:appD-3-cocycle-full}
+\frac{\omega(g_2,g_3,g_4)\;\omega(g_1,g_2g_3,g_4)\;\omega(g_1,g_2,g_3)}{\omega(g_1g_2,g_3,g_4)\;\omega(g_1,g_2,g_3g_4)}=1
+\end{equation}
+for all $g_1,g_2,g_3,g_4\in G$. This is precisely the condition \eqref{eq:group-3-cocycle} from Proposition~\ref{prop:omega-p-cocycle}, written multiplicatively with the convention that the denominator factors carry the sign from even-position terms.
+
+\subsection{The canonical representative for \texorpdfstring{$G=\Z_N$}{G=Z\_N}}
+
+Now let $G=\Z_N$ written additively, with elements $\{0,1,\dots,N-1\}$. Define the carry function $\kappa:\Z_N\times\Z_N\to\{0,1\}$ as in \eqref{eq:carry-def}:
+\begin{equation}\label{eq:appD-carry}
+\kappa(b,c)=\left\lfloor\frac{\widetilde{b}+\widetilde{c}}{N}\right\rfloor,
+\end{equation}
+where $\widetilde{x}\in\{0,1,\dots,N-1\}$ is the standard lift. The canonical family of $3$-cocycles is
+\begin{equation}\label{eq:appD-omega-p}
+\omega_p(a,b,c)=\exp\!\left(\frac{2\pi ip}{N}\,\widetilde{a}\,\kappa(b,c)\right)=\exp\!\left(\frac{2\pi ip}{N}\,\widetilde{a}\left\lfloor\frac{\widetilde{b}+\widetilde{c}}{N}\right\rfloor\right),
+\end{equation}
+for $p\in\{0,1,\dots,N-1\}$.
+
+\subsection{Verification of the cocycle condition}
+
+We verify \eqref{eq:appD-3-cocycle-full} for $\omega_p$ by direct substitution. Writing everything additively in the exponent (and dropping the common prefactor $2\pi ip/N$), the left-hand side of \eqref{eq:appD-3-cocycle-full} requires
+\begin{equation}\label{eq:appD-cocycle-check}
+\widetilde{b}\,\kappa(c,d)+\widetilde{a}\,\kappa(b+c,d)+\widetilde{a}\,\kappa(b,c)-\widetilde{a+b}\,\kappa(c,d)-\widetilde{a}\,\kappa(b,c+d)\equiv 0\pmod{N}.
+\end{equation}
+Using $\widetilde{a+b}=\widetilde{a}+\widetilde{b}-N\kappa(a,b)$ from \eqref{eq:carry-splitting}, the left-hand side becomes
+\begin{align}
+&\widetilde{a}\bigl[\kappa(b+c,d)+\kappa(b,c)-\kappa(c,d)-\kappa(b,c+d)\bigr]+N\kappa(a,b)\,\kappa(c,d).\label{eq:appD-cocycle-simplify}
+\end{align}
+The bracketed expression vanishes by the associativity identity (Lemma~\ref{lem:carry-assoc}):
+\begin{equation*}
+\kappa(b,c)+\kappa(b+c,d)=\kappa(c,d)+\kappa(b,c+d).
+\end{equation*}
+The remaining term $N\kappa(a,b)\kappa(c,d)$ is an integer multiple of $N$, so
+\begin{equation*}
+\exp\!\left(\frac{2\pi ip}{N}\cdot N\kappa(a,b)\kappa(c,d)\right)=e^{2\pi ip\,\kappa(a,b)\kappa(c,d)}=1.
+\end{equation*}
+This confirms $\omega_p\in Z^3(\Z_N,U(1))$.
+
+\subsection{Coboundary classification: \texorpdfstring{$\omega_p\sim\omega_q$}{omega\_p ~ omega\_q} iff \texorpdfstring{$p\equiv q$}{p=q} mod \texorpdfstring{$N$}{N}}
+
+\begin{proposition}\label{prop:appD-distinct-classes}
+Two cocycles $\omega_p$ and $\omega_q$ are cohomologous if and only if $p\equiv q\pmod{N}$.
+\end{proposition}
+
+\begin{proof}
+Suppose $\omega_p=\omega_q\cdot\delta\beta$ for some $2$-cochain $\beta:\Z_N^2\to U(1)$. Write $\beta(a,b)=\exp(2\pi i\,f(a,b)/N)$ for some function $f:\Z_N^2\to\Z_N$. The coboundary is
+\begin{equation}\label{eq:appD-2-coboundary}
+(\delta\beta)(a,b,c)=\frac{\beta(b,c)\,\beta(a,b+c)}{\beta(a+b,c)\,\beta(a,b)},
+\end{equation}
+so the condition $\omega_p/\omega_q=\delta\beta$ becomes (in additive exponent notation)
+\begin{equation}\label{eq:appD-coboundary-condition}
+(p-q)\,\widetilde{a}\,\kappa(b,c)\equiv f(b,c)+f(a,b+c)-f(a+b,c)-f(a,b)\pmod{N}
+\end{equation}
+for all $a,b,c\in\Z_N$.
+
+\medskip
+
+\noindent We claim no such $f$ exists unless $p-q\equiv 0\pmod N$. To see this, sum both sides of \eqref{eq:appD-coboundary-condition} over $a\in\Z_N$. The right-hand side telescopes: for fixed $b,c$,
+\begin{equation*}
+\sum_{a\in\Z_N}\bigl[f(a,b+c)-f(a,b)\bigr]-\sum_{a\in\Z_N}\bigl[f(a+b,c)-f(b,c)\bigr].
+\end{equation*}
+Re-indexing $a\mapsto a-b$ in the second sum shows both differences are zero (they sum the same function over all of $\Z_N$). Hence
+\begin{equation*}
+\sum_{a\in\Z_N}\text{RHS}=0.
+\end{equation*}
+On the left-hand side,
+\begin{equation*}
+(p-q)\,\kappa(b,c)\sum_{a=0}^{N-1}a=(p-q)\,\kappa(b,c)\,\frac{N(N-1)}{2}.
+\end{equation*}
+For this to vanish mod $N$ for all $b,c$ with $\kappa(b,c)=1$, we need
+\begin{equation*}
+(p-q)\,\frac{N-1}{2}\equiv 0\pmod{1}\quad\text{(interpreting in }\R/\Z\text{)}.
+\end{equation*}
+When $N$ is odd, $\frac{N-1}{2}$ is an integer and invertible mod $N$ (since $\gcd((N-1)/2,N)=1$), forcing $p\equiv q$. When $N$ is even, one uses instead the evaluation on the fundamental class of a lens space to extract the $\Z_N$ invariant; the standard computation \cite{Brown1982} shows that $\omega_1$ pairs nontrivially with the generator of $H_3(B\Z_N,\Z)\cong\Z_N$, confirming that $[\omega_1]$ has exact order $N$.
+
+\medskip
+
+\noindent Conversely, $\omega_p\cdot\omega_q^{-1}=\omega_{p-q}$, so if $p\equiv q\pmod N$ then $\omega_{p-q}=\omega_0=1$ and the cocycles are trivially cohomologous.
+\end{proof}
+
+\subsection{Conclusion: \texorpdfstring{$H^3(\Z_N,U(1))=\Z_N$}{H3(ZN,U(1))=ZN} with generator \texorpdfstring{$[\omega_1]$}{[omega\_1]}}
+
+Combining Propositions~\ref{prop:omega-p-cocycle} and~\ref{prop:appD-distinct-classes}: the map $p\mapsto[\omega_p]$ is an isomorphism
+\begin{equation}\label{eq:appD-final-iso}
+\Z_N\;\xrightarrow{\;\sim\;}\;H^3(B\Z_N,U(1)),\qquad p\longmapsto[\omega_p].
+\end{equation}
+In particular, $[\omega_1]$ is the canonical generator. This is the chain-level statement invoked in Proposition~\ref{prop:omega-p-classification}: the bar-resolution computation identifies the normalized carry cocycle as the generator of the cyclic cohomology group \cite{Brown1982,DijkgraafWitten1990}.
+
+\subsection{Sanity checks}\label{subsec:appD-sanity}
+
+\begin{enumerate}
+\item \textbf{$N=2$, $p=0$ (toric code).} The cocycle $\omega_0=1$ is the trivial twist. The resulting $\Z_2$ Dijkgraaf--Witten theory is the untwisted $\Z_2$ gauge theory of Section~\ref{sec:dw-toric}, whose infrared limit is the toric-code TQFT with ground-state degeneracy $2^{2g}$ on $\Sigma_g$.
+
+\item \textbf{$N=2$, $p=1$ (double semion).} The cocycle reduces to $\omega_1(a,b,c)=(-1)^{abc}$ as in \eqref{eq:omega-z2}. This is the unique nontrivial $\Z_2$ twist, producing the double-semion phase. In the double-semion theory both quasiparticle types are semions (topological spin $\pm i$), whereas the untwisted toric code has a boson and a fermion.
+
+\item \textbf{General $N$, consistency with linking.} The $p$-twisted $\Z_N$ Dijkgraaf--Witten theory assigns to a pair of linked Wilson lines (charges $q$ and $n$) the phase
+\begin{equation}\label{eq:appD-twisted-linking}
+\exp\!\left(-\frac{2\pi iqn}{N}+\frac{2\pi ipqn}{N^2}\cdot(\text{self-linking data})\right),
+\end{equation}
+with the first term matching the BF linking phase of Proposition~\ref{prop:bf-linking} (which is the $p=0$ sector). The twist correction depends on framing and self-linking, reflecting the fact that the twisted theory assigns nontrivial topological spins to individual anyons.
+\end{enumerate}

@@ -1,0 +1,17 @@
+Done. I've extracted the scientific content from `fraction2.tex` and created a clean markdown file that preserves:
+
+- **YAML front matter** with metadata and timestamps
+- **All scientific prose**: introduction, physical background, theoretical principles
+- **Key equations**: Schottky formula, Johnson-Nyquist crossover, explicit formulas for $I_B$, $S_I$
+- **Experimental methodology**: sample specifications, measurement technique, noise extraction
+- **Results and interpretations**: shot noise measurements at 25mK, robustness checks, Johnson-Nyquist crossover confirmation
+- **Full reference list**
+
+Removed:
+- TeX plumbing: `\documentstyle`, `\begin{document}`, macros, `\draft`, date handling
+- Authorship and contact information
+- Bibliography command scaffolding
+- Figure captions and references (purely presentational)
+- Style comments and metadata tags
+
+The extracted text is now in structured pedagogical form with clear sections, preserving all physics content while removing presentational machinery. The file is ready for literature notes and concept extraction.

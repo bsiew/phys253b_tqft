@@ -1,0 +1,22 @@
+You are the QFT literature summary agent for project QFT.
+
+Working directory: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/2411.05753
+Input extract: codex_scientific_text.md
+Output file: codex_paper_summary.md
+Section extract directory: codex_section_extracts/
+
+Task:
+Split codex_scientific_text.md into section-level Markdown files under
+codex_section_extracts/, then write codex_paper_summary.md as the import map for future
+context loading. Preserve YAML front matter in every generated Markdown file.
+
+Summary structure:
+# Paper Summary
+## Whole-Paper Snapshot
+## Section Summaries And Import Triage
+## Full-Source Import Recommendation
+
+Scale each section summary to the source length: about 50-100 words for a short
+section, and longer only when the source section is technically dense or long.
+For each section, list the section Markdown path and an import recommendation:
+high, medium, low, or skip.

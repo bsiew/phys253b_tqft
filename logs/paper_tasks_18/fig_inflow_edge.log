@@ -1,0 +1,9 @@
+Figure compiles successfully. Created `f_inflow_edge.tex` — a disk-geometry schematic showing:
+
+- Blue shaded 2+1d bulk disk labeled with Chern–Simons and `δS_bulk`
+- Red boundary circle with counterclockwise chiral edge mode arrows (single propagation direction)
+- Orange radial inflow arrows from bulk to boundary
+- Edge labeled as 1+1d chiral CFT with `δS_edge`
+- Cancellation equation `δS_bulk + δS_edge = 0` below
+
+Include via `\input{figures/f_inflow_edge.tex}`. It complements the existing `f_anomaly_inflow.tex` (which uses a rectangular geometry with the explicit CS action).

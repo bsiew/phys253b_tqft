@@ -1,0 +1,22 @@
+You are writing Appendix A (Category Theory Minimum) for a physics review paper on Topological Quantum Field Theory.
+
+## Context
+
+The paper is at 253b_final_paper/tex_docs/. Chapters 3 (ch03_axiomatic.tex) and 4 (ch04_frobenius.tex) use category-theoretic language (category, functor, natural transformation, symmetric monoidal category, dualizable objects) without defining them. This appendix provides the escape hatch.
+
+## Task
+
+Write the full appendix in 253b_final_paper/tex_docs/app_category.tex (new file). Target: 4-6 pages of content.
+
+Structure:
+1. Definition of a category. Objects, morphisms, composition, identity. Physics example (Hilbert spaces) and math example (sets).
+2. Functors — covariant and contravariant. Example: de Rham cohomology.
+3. Natural transformations — definition; defer main example to "we will see one when defining a TQFT."
+4. Symmetric monoidal categories — tensor product, unit, braiding. Examples: (Vect, tensor) and (Cob_d, disjoint union).
+5. Dualizable objects — V* and evaluation/coevaluation maps. Why dim Z(Sigma) < infinity.
+
+Leave OUT: higher categories, 2-functors, cobordism hypothesis, limits/colimits, adjoints, abelian categories, derived functors.
+
+Style: physicist-friendly, minimal but precise. Include the label \label{app:category} at the top. Cross-reference equations in ch03 and ch04 where relevant (read those files first to find the labels). Cite Mac Lane and Kock 2004.
+
+Begin with a comment header matching the style of the other appendices (see app_e_tee.tex for style).

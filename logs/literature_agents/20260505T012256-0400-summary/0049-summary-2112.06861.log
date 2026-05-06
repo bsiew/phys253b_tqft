@@ -1,0 +1,21 @@
+Task completed. I've split the source document into 10 section-level files under `codex_section_extracts/` and created a comprehensive import map in `codex_paper_summary.md`.
+
+## Summary Structure
+
+**Whole-Paper Snapshot:** Single paragraph covering the O3b gravitational-wave tests of GR—15 events, 10 test types, all results consistent with GR, key bounds on QNM frequency deviations and other parameters, methodological updates, and GW191109A data quality caveats.
+
+**Section Summaries (10 sections):**
+- **Abstract** (medium): Overview of results
+- **Introduction** (high): Essential test taxonomy and theoretical framework
+- **Events** (medium): Dataset description and data quality
+- **Inference** (high): Waveform models and statistical methods
+- **Ringdown pyRing** (high): Time-domain QNM analysis
+- **Ringdown pSEOB** (high): IMR-based QNM analysis with damping-time tension
+- **Echoes** (medium): Morphology-independent null result
+- **Conclusions** (high): Synthesis with quantitative bounds
+- **Appendix IMR** (low): Methodological bookkeeping
+- **Appendix Systematics** (high): Critical discussion of GW191109A anomalies
+
+**Full-Source Recommendation:** Prioritized list identifying 6 high-priority sections (conceptual framework, methods, ringdown results, systematics), 3 medium-priority (context), and 1 low-priority (reproducibility bookkeeping). Includes overall assessment recommending the high-priority sections for graduate students learning GR tests, with medium-priority additions for research requiring precise bounds.
+
+Each summary is scaled appropriately: 50-100 words for descriptive sections, longer technical summaries for dense content like the ringdown analyses and systematics discussion.

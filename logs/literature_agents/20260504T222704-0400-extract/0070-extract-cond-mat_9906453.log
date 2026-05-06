@@ -1,0 +1,22 @@
+Perfect. The extraction is complete. Here's what was accomplished:
+
+**Extraction Summary:**
+- **Source**: `pairing.tex` (3,553 lines)
+- **Output**: `codex_scientific_text.md` (3,216 lines including YAML frontmatter)
+- **Retention**: ~89% of content preserved
+
+**Content Cleaned:**
+- Removed: TeX document class, package/macro setup, author/title/date metadata, abstract, PACS codes
+- Removed: All citations, bibliography entries, bibliography commands
+- Removed: TeX formatting directives (labels, vspace, hspace, pagebreaks, centerline)
+- Removed: Comment lines, twocolumn/narrowtext/widetext formatting
+
+**Content Preserved:**
+- All scientific prose (Introduction through Conclusion)
+- 13 sections with proper hierarchy
+- Mathematical equations and LaTeX math notation
+- Definitions, derivations, theoretical framework
+- Results, interpretations, and discussion
+- YAML frontmatter with extraction metadata (created_at, updated_at, project context)
+
+The file is now ready for literature analysis and concept extraction in the QFT project.

@@ -1,0 +1,23 @@
+Task complete. I've split the paper into 11 section-level markdown files under `codex_section_extracts/` and created the summary document `codex_paper_summary.md`.
+
+**Section files created:**
+- abstract.md
+- introduction.md
+- main_theorem.md
+- conventions.md
+- section_1_equivariant_cohomology.md
+- section_2_langlands_dual.md
+- section_3_line_bundles.md
+- section_4_regular_element.md
+- section_5_proof.md
+- cohomology_description.md
+- g_equivariant_homology.md
+
+**Summary structure:**
+- **Whole-Paper Snapshot:** Identifies the paper's main result connecting integral homology of loop groups to Langlands dual groups via the isomorphism $\text{Spec} H_*(\Omega K,\mathbb{Z}[1/\ell_G])\simeq B^\vee_e[1/\ell_G]$, explaining the geometric Satake/Tannakian approach and prime inversion requirements.
+
+- **Section Summaries:** Each section has a 50-150 word summary scaled to its technical density, with import recommendations ranging from high (core narrative: Introduction, Main Theorem, Sections 1, 2, 4, 5) to medium (reference material: Abstract, Conventions, Section 3, and the two description sections).
+
+- **Full-Source Import Recommendation:** Suggests importing the six high-priority sections for a self-contained understanding of the paper's motivation, main result, and proof strategy.
+
+All files preserve YAML front matter with proper timestamps and metadata.

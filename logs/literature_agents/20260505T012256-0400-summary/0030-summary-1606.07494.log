@@ -1,0 +1,14 @@
+Task complete. I've split `codex_scientific_text.md` into 30 section-level files under `codex_section_extracts/` and written `codex_paper_summary.md` as the import map.
+
+**Summary structure:**
+
+- **Whole-paper snapshot**: 250-word overview covering the dual objectives (QCD equation of state + topological susceptibility for axion cosmology), the two algorithmic breakthroughs (eigenvalue reweighting reducing O(1000%) cutoff effects to O(10%), and fixed-sector integration achieving T⁰ cost scaling), and the main results (m_A = 50-1500 μeV for post-inflation axions, χ(T) spanning 8 orders of magnitude from 100 MeV to 3 GeV).
+
+- **Section summaries**: 30 entries with import recommendations:
+  - **High priority (9 sections)**: Introduction, vacuum χ demonstrating cutoff problem, EoS methodology, eigenvalue reweighting, fixed-sector integration (pure gauge and staggered), high-T χ(T) results, final assembly, and axion application
+  - **Medium priority (12 sections)**: Simulation setups, flavor thresholds, Standard Model, overlap methods, validation tests
+  - **Low priority (9 sections)**: Organizational headers and brief summaries
+
+- **Loading strategy**: Recommended path through ~60% of content capturing ~90% of key physics: 01→04→17→06→19→21→26→28→29, supplemented by medium-priority sections based on specific interests.
+
+All section files preserve YAML front matter and use descriptive snake_case filenames (01_introduction.md through 30_experimental_searches.md).

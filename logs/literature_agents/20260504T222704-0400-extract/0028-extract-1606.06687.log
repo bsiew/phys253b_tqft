@@ -1,0 +1,12 @@
+Excellent. The extraction has successfully preserved all key scientific concepts, equations, derivations, and interpretations. The file is now ready.
+
+Scientific content extraction complete. The codex_scientific_text.md file at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/1606.06687/codex_scientific_text.md` now contains:
+
+- **YAML front matter** with creation timestamp, source metadata, and project context
+- **Full scientific prose** from the Tong Quantum Hall Effect lecture notes (2016)
+- **All key definitions**: Landau levels, cyclotron frequency, flux quantum, Hall resistivity, anyons, Chern-Simons theory, WZW models, etc.
+- **Complete derivations and equations** (kept in original TeX notation for precision)
+- **Section structure** converted to markdown headers
+- **Removed**: LaTeX plumbing (packages, macros, preamble), author/affiliation metadata, bibliography commands, acknowledgments, purely presentational table/figure scaffolding
+
+The extract spans 1,443 lines and preserves ~375KB of substantive scientific material from the original 581KB source, removing ~206KB of non-scientific TeX machinery.

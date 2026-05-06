@@ -1,0 +1,11 @@
+Task complete. I've split the scientific text into 10 section-level files under `codex_section_extracts/` and created the paper summary with import recommendations in `codex_paper_summary.md`.
+
+**Section files created:**
+- 01_abstract.md through 10_conclusions.md, each with YAML front matter
+
+**Import recommendations:**
+- **High priority** (4 sections): Abstract, Introduction, $4+1$-d field theory, magneto-electric effect
+- **Medium priority** (6 sections): Dimensional reductions, surface/edge states, classification, conclusions  
+- **Low priority** (1 section): Experimental signatures
+
+The whole-paper snapshot identifies the paper's core contribution: establishing $4+1$-d TRI insulators as fundamental, with dimensional reduction deriving lower-dimensional theories and the $Z_2$ classification. The topological magneto-electric effect (electric field inducing magnetization with quantized $\alpha$ coupling) is flagged as the most striking experimental prediction.

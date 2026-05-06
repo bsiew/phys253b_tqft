@@ -1,0 +1,1 @@
+Task complete. I've split `codex_scientific_text.md` into 8 section-level files in `codex_section_extracts/` and created `codex_paper_summary.md` with a whole-paper snapshot, detailed section summaries (scaled to source length), import recommendations (high/medium/low/skip), and full-source import guidance organized by use case.

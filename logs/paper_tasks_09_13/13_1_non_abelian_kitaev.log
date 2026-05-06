@@ -1,0 +1,7 @@
+Done. Section 13.1 is now filled in with ~90 lines of LaTeX prose covering the three key ideas:
+
+1. **Topological degeneracy** — fusion space dimension scaling as $d_\sigma^{2n}$, with the Ising example.
+2. **Topological protection** — the $P_0 \mathcal{O} P_0 = c P_0 + O(e^{-L/\xi})$ statement showing local operators act trivially on the ground space.
+3. **Braiding as unitary gates** — braid group representation on the fusion space, with forward reference to the Ising worked example in §13.2.
+
+Citations to Kitaev 2003 and Nayak et al. 2008 are included throughout. Four labeled equations are provided, and the section ends with a bridge to the next subsection on Ising anyons.

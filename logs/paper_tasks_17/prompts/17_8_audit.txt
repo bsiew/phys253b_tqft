@@ -1,0 +1,75 @@
+You are performing a core-deliverables audit on a physics review paper on TQFT.
+
+## Task specification
+
+---
+created_at: "2026-05-05T19:00:32-04:00"
+updated_at: "2026-05-05T19:00:32-04:00"
+generated_by: "claude-code"
+updated_by: "claude-code"
+timestamp_source: hook
+---
+# Task 17.8 — Core Deliverables Audit
+
+- **Status:** pending
+- **Owner:** Brian + Helena
+- **Duration:** 40 min (expanded scope)
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+- **Reference:** [`llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md`](../../llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md)
+
+## Goal
+
+Confirm that every core deliverable of the paper is present in the final draft.
+Expanded per the 2026-05-05 critical evaluation to include the "must-do" items.
+
+## Checklist — Original Deliverables
+
+- [ ] **Ch 3 §3.3: concrete gluing example** (two disks → sphere). Task 3.3.
+- [ ] **Ch 3 pair-of-pants figure** (TikZ or hand-drawn). Priority 10 in evaluation.
+- [ ] **Ch 4 Figure (POP)**: pair-of-pants diagram. Task 4.1.
+- [ ] **Ch 5 forms rehash REMOVED**: §5.2 replaced with 5-line convention recall. Priority 1 in evaluation.
+- [ ] **Ch 5 FQH tie-in**: already satisfied (Example `ex:U1-action` and forward-references).
+- [ ] **Ch 5 Wilson-loop linking discussion**: already satisfied (Example `ex:abelian-wilson`).
+- [ ] **Ch 8 §8.2 dictionary table**: generalized-symmetry dictionary. Task 8.2.
+- [ ] **Ch 8 §8.6 & §8.7 anomaly inflow examples**: one HEP + one CM. Tasks 8.6, 8.7. CRITICAL: the CM inflow example is the Part 1 → Part 2 bridge.
+- [ ] **Ch 10 §10.5 anyon comparison table**. Task 10.5.
+- [ ] **Ch 11 §11.5 honesty box**. Task 11.5.
+- [ ] **Ch 12 experimental honesty / synthetic-vs-natural framing**. Task 12.3.
+- [ ] **Ch 13 §13.3 honesty box on fault tolerance**. Task 13.3.
+
+## Checklist — New "Must-Do" Items (from Critical Evaluation)
+
+- [ ] **Ch 11 §11.6: Maxwell-Chern-Simons** (3-5 pages). "CS term ≠ TQFT" argument.
+- [ ] **Ch 11 §11.7: FQHE honesty box** (2-3 pages). Universal vs non-universal edges.
+- [ ] **Ch 14 §14.2: Witten-Veneziano** (3-5 pages). Quantitative payoff of §14.1.
+- [ ] **Ch 14 §14.3: Strong CP / axion** (5-8 pages). Phenomenological chain.
+- [ ] **Ch 14 §14.4: 3+1D iffiness** (2-3 pages). Four-category classification applied.
+- [ ] **Ch 15 §15.2: Four-category observable taxonomy** (5-8 pages). THE unique contribution. Priority #1.
+- [ ] **Ch 16: Outlook written** (4 pages). §16.1 (1 para), §16.2 (4-5 para), §16.3 (bullet list).
+- [ ] **Ch 01: Introduction written** (3-5 pages). Do LAST.
+- [ ] **BF/toric-code triple-derivation resolved** (option A or B chosen and implemented).
+
+## Steps
+
+1. Compile `paper/main.tex`.
+2. For each item above, open the relevant chapter and confirm the content is present with adequate prominence.
+3. If missing, go back to the relevant task and fix. This is a gating audit — Stage VI cannot close until all are checked.
+
+## Acceptance criteria
+
+- Every checkbox checked.
+- Evidence (page or section ref) recorded for each.
+
+## Risks
+
+- **Honesty boxes get softened in later edits.** Verify they read as strongly as intended.
+
+## Instructions
+
+1. Read each tex file and check off every item on the checklist.
+2. For items that are MISSING, note them clearly.
+3. For the ch05 forms rehash: verify it has been replaced (a prior task should have done this). If NOT yet done, flag it.
+4. Write a full audit report to /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_17/17_8_audit_report.md with:
+   - Each checklist item: PASS / FAIL / PARTIAL
+   - For FAIL items: what is missing and where it should go
+5. Do NOT write new content -- just audit and report.

@@ -1,0 +1,20 @@
+Done. I've successfully created `codex_scientific_text.md` as a cleaned, scientific extract from the TeX source. The extraction:
+
+**Removed (TeX plumbing):**
+- Document class and package declarations
+- All macro definitions (newcommand declarations)
+- Author formatting and metadata 
+- Bibliography/citation commands
+- Purely presentational TeX scaffolding
+
+**Preserved (scientific content):**
+- Title, author, date
+- All definitions and theorems with careful statements
+- Derivations and key equations (e.g., Demazure operations, Schubert polynomial formulas)
+- Proofs and proof sketches (especially Theorem A with the key topological argument)
+- Mathematical interpretations and caveats (e.g., the discussion of why the topological approach succeeds where algebra fails)
+- Named results and their consequences
+- Assumptions about working with Q coefficients and SL_n
+- The full appendix on weak order with practical examples
+
+The output preserves YAML front matter and uses markdown formatting appropriate for mathematical prose. The ~2300-line TeX file is condensed to essential scientific content organized by logical structure.

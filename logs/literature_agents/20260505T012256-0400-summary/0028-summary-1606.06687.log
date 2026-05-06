@@ -1,0 +1,9 @@
+Task complete. I've split `codex_scientific_text.md` into 24 section-level files under `codex_section_extracts/` and updated `codex_paper_summary.md` with:
+
+**Whole-paper snapshot:** Tong's comprehensive QFT treatment covering Landau levels, Laughlin states, Berry phases/Chern numbers, fractional charge/anyonic statistics, composite fermions, Chern-Simons field theory, non-Abelian states (Moore-Read, Read-Rezayi), and edge CFT. Graduate-level, balances pedagogy with technical depth.
+
+**Section summaries:** All 24 sections summarized with import triage (high/medium/low). High-priority sections include core Laughlin theory (07), fractional statistics (09), Chern-Simons dynamics (16), non-Abelian theories (18-20), and edge physics (21-22). Medium-priority covers classical foundations, dualities, and supplementary techniques. Low-priority are brief transitions or asides.
+
+**Import strategy:** Start with sections 01, 04-07 (phenomenology + Laughlin), then 14, 16 (Chern-Simons basics), then 18-20 (non-Abelian extensions). Add medium-priority sections as needed for specific calculations.
+
+All section files include proper YAML frontmatter with timestamps, source attribution, and indexing.

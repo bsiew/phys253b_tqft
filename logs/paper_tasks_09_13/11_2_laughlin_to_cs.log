@@ -1,0 +1,9 @@
+The section is complete. Let me count the approximate length — the new content runs from line 141 to line 234, which is about 94 lines of LaTeX prose and equations, corresponding to roughly 2–3 pages as requested.
+
+Done. Section 11.2 now contains the full derivation:
+
+1. **Laughlin wavefunction** — stated with all conventions, context on numerical overlap and the gap scale.
+2. **Flux attachment** — Jastrow decomposition into amplitude and phase, Aharonov–Bohm interpretation, field-theory implementation via the CS constraint, mean-field cancellation showing $B_\text{eff}=0$ at $\nu=1/m$.
+3. **Effective action** — integrating out composite fermions yields the $U(1)_m$ CS action, with explicit cross-reference to `Example~\ref{ex:U1-action}` in the CS chapter.
+4. **Integrating out $a$** — equation of motion, substitution, effective electromagnetic CS term, and extraction of $\sigma_{xy} = e^2/(mh)$.
+5. **Level quantization** — large gauge transformation argument forcing $m\in\mathbb{Z}$, Fermi statistics restricting to odd $m$.

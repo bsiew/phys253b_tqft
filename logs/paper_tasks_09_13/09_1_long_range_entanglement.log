@@ -1,0 +1,9 @@
+Done. I've written ~80 lines of LaTeX prose for §9.1, covering:
+
+1. **Symmetry-breaking paradigm** — order parameter, local probes, successes.
+2. **What fails** — Wen's discovery of gapped phases with no local order parameter.
+3. **Long-range entanglement** — formal definition via finite-depth local unitaries, with a `definition` environment; explicit contrast showing symmetry-broken states are SRE.
+4. **Three signatures** — GSD on nontrivial manifolds, anyonic excitations, and topological entanglement entropy (with equations for the area law and total quantum dimension).
+5. **Foreshadow** — paragraph pointing forward to §9.2, §9.3, and §9.4.
+
+Citations use the keys already in the file header (`Wen1990TopologicalOrders`, `KitaevPreskill2006TEE`, `LevinWen2006DetectingTO`), and cross-references point to the other subsection labels. Equations are numbered and labeled.

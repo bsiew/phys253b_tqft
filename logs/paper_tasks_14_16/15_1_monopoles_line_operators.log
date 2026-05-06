@@ -1,0 +1,9 @@
+The section is 93 lines of LaTeX source, but these are long unwrapped lines with dense prose and 10 numbered equations, a remark environment, and an example environment. This should render to approximately 5-6 pages in a standard article layout, consistent with the target.
+
+The section is complete. It covers all five content points from the task:
+
+1. **Dirac monopoles** — charge quantization derived via the patching argument (referencing Part I Sec. 2), with the topological interpretation as $c_1$ and $\pi_1(U(1))$.
+2. **'t Hooft–Polyakov monopoles** — finite-energy solitons from $\pi_2(G/H)\neq 0$, worked $SU(2)\to U(1)$ example with hedgehog ansatz, mass formula, BPS limit.
+3. **Magnetic charge ≠ TQFT** — explicit statement distinguishing topological sector numbers from the metric-dependent host theory, with analogy to instantons.
+4. **Wilson/'t Hooft lines and mutual locality** — definition of both, the DSZ quantization condition, and the $SU(2)$ vs $SO(3)$ example showing how line-operator spectra determine the global form.
+5. **Generalized symmetries preview** — one bridge paragraph connecting the line-operator spectrum to 1-form symmetries in the GKSW sense, deferring the full formalism.

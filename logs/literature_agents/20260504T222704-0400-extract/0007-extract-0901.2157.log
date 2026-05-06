@@ -1,0 +1,21 @@
+Done. I've extracted the scientific content from the TeX source and created a clean markdown file. The extraction:
+
+**Preserved:**
+- All theorems, lemmas, propositions, and their proofs
+- Mathematical definitions and notation sections
+- Key equations and conjectures
+- Discussion of classical Lie groups ($\operatorname{SU}(n+1)$, $\operatorname{Sp}(n)$, $\operatorname{Spin}(2n+1)$, $\operatorname{Spin}(2n)$)
+- The main result on Lusternik-Schnirelmann category bounds
+- Interpretations of orbits and Grassmannians
+- Caveats about unknowns (contractibility in $\operatorname{SL}(n,\mathbb{H})$, relative categories)
+
+**Removed:**
+- TeX documentclass, packages, and macro setup
+- Bibliography commands
+- Author/affiliation formatting commands
+- Presentation scaffolding (custom section commands, spacing commands)
+- Table and figure environments (kept the conceptual alcove/cell descriptions as text)
+- All TeX comments and commented-out code
+- Notes macro definitions
+
+The YAML front matter preserves metadata with timestamps; the content flows as linear academic prose suitable for integration into your QFT literature notes.

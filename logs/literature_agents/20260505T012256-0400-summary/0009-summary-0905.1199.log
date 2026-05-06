@@ -1,0 +1,16 @@
+Task complete. I've processed paper 0905.1199 "String Topology for Lie Groups" by Richard Hepworth:
+
+**Created 6 section extract files** in `codex_section_extracts/`:
+- `01_abstract.md` — paper overview
+- `02_introduction.md` — definitions, main theorem, conceptual framework
+- `03_applications_SO_n.md` — explicit BV-algebra computations for SO(n)
+- `04_homology_suspension.md` — technical properties of the suspension map
+- `05_examples.md` — worked examples for S¹, S³, ℝP³
+- `06_proof_main_theorem.md` — proof of the main splitting theorem
+
+**Wrote `codex_paper_summary.md`** with:
+- Whole-paper snapshot explaining the main result (explicit BV-algebra formula for loop spaces of compact Lie groups using the splitting LG ≅ ΩG × G)
+- Section summaries with import priorities (high/medium) scaled to technical density
+- Import recommendation suggesting sections 2, 6, 3 for core understanding; sections 4, 5 for supporting material
+
+All files include proper YAML front matter. The paper reduces string topology calculations to classical Lie group homology via Bott's theorem and the homology suspension.

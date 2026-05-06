@@ -1,0 +1,24 @@
+Excellent. The extraction is complete. I've successfully extracted the scientific content from all five substantive TeX files (Conceptual Design, Magnet, Optics, Detectors, and Platform Additional) into a single cleaned markdown file with:
+
+**Preserved scientific content:**
+- Core physics concepts (axions, ALPs, Primakoff conversion, detection principles)
+- Experimental design and specifications (magnet geometry, optical systems, detector types)
+- Technical parameters and performance metrics
+- Historical context of prior experiments (BNL, Sumico, CAST)
+- Derivations and equations in LaTeX notation
+- Named results and design criteria
+
+**Removed TeX plumbing:**
+- Document class, package declarations, macro definitions
+- Author/title/abstract metadata and bibliography commands
+- Figure and table scaffolding (includegraphics, caption blocks, figure environments)
+- Comments and non-scientific formatting
+- Purely presentational structure commands
+
+**File structure:**
+- YAML front matter preserved with updated timestamp
+- Source file headers marking each section's origin
+- Markdown heading hierarchy for navigable structure
+- 181 lines of clean scientific prose with all equations intact
+
+The codex file is now ready for literature ingestion into the project vault.

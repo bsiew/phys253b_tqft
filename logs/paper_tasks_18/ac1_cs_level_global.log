@@ -1,0 +1,13 @@
+Done. Here's what was created:
+
+**`253b_final_paper/tex_docs/app_cs_global.tex`** — Appendix C with label `\label{app:cs-global}`, containing four sections:
+
+1. **Level quantization for general $G$** (Section C.1): States Theorem C.1 ($H^3(G,\Z)$ generator via the basic inner product), proves it by reducing to the $SU(2)$ Euler-angle result via the longest-root $SU(2)$ subgroup, then gives the corollary for general level quantization. Includes remarks on trace conventions (Dynkin index) and non-simply-connected groups.
+
+2. **Abelian $U(1)_k$ and spin-structure dependence** (Section C.2): States the three quantization regimes ($k\in 2\Z$ bosonic, $k\in\Z$ spin, $k\in\Z+\frac{1}{2}$ Spin$^c$) with proof sketch via lens-space Chern–Simons invariants, citing Seiberg–Witten 2016.
+
+3. **Framing anomaly** (Section C.3): Derives the phase $e^{2\pi i h_R}$ per unit framing change from the self-linking integral and the CS propagator. Includes the $SU(2)$ fundamental example and the manifold-level gravitational framing anomaly ($e^{2\pi ic/24}$).
+
+4. **Shifted level $k\to k+h^\vee$** (Section C.4): Derives the one-loop shift from background-field expansion + ghost determinant, explains where it appears in observables, notes the absence of higher-loop corrections, and provides a reference table of $h^\vee$, $\dim G$, $c$, $h_{\mathrm{fund}}$ for common groups.
+
+Three new bib entries were added (`Bott1956Application`, `Atiyah1990Geometry`, `BarNatan1995Perturbative`).

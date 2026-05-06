@@ -1,0 +1,13 @@
+Task complete. I've split the paper into 8 section files under `codex_section_extracts/` and written the import map in `codex_paper_summary.md`.
+
+**Section files created:**
+- 01_abstract.md (high priority)
+- 02_introduction.md (high priority) 
+- 03_experimental_setup.md (medium priority)
+- 04_event_selection.md (low priority)
+- 05_cross_section_extraction.md (low priority)
+- 06_theoretical_analysis.md (high priority)
+- 07_results.md (high priority)
+- 08_conclusions.md (medium priority)
+
+The summary document provides a whole-paper snapshot describing this as a precision Primakoff measurement of the π⁰ → γγ decay width (7.82 ± 0.21 eV total), confirming the QCD chiral anomaly at 2.8% precision. High-priority sections focus on the theoretical motivation (chiral anomaly, ChPT corrections), the Primakoff extraction method with nuclear corrections, and the numerical results. Low-priority sections cover experimental details like event selection and cross-section extraction that are relevant only for detailed systematic error analysis.

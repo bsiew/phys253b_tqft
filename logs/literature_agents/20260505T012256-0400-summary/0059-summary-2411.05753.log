@@ -1,0 +1,12 @@
+Task complete. I've split `codex_scientific_text.md` into 7 section-level files under `codex_section_extracts/` and written the import map to `codex_paper_summary.md`.
+
+**Section files created:**
+- 01_abstract.md (skip)
+- 02_introduction.md (medium) — Electromagnetic duality, generalized Maxwell equations
+- 03_dirac_monopole.md (high) — Dirac quantization condition, $g_D \approx 20.7$, Callan-Rubakov effect
+- 04_monopoles_in_qft.md (high) — 't Hooft-Polyakov construction, mass scales, elementary vs. semiclassical
+- 05_monopole_searches.md (high) — Experimental bounds, $\exp(-4/\alpha) \sim 10^{-238}$ suppression
+- 06_dual_schwinger_process.md (high) — Instanton formalism, worldline calculations, collider reach
+- 07_acknowledgments.md (skip)
+
+The summary document provides a whole-paper snapshot emphasizing the key technical results (charge quantization, exponential suppression in perturbative production, dual Schwinger mechanism) and mass scales ($80$-$120$ GeV current bounds up to $10^{17}$ GeV for GUT monopoles), with section-scaled summaries and import triage for context loading.

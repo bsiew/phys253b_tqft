@@ -1,0 +1,9 @@
+Done. Five structural edits across Part I:
+
+1. **ch05 Maurer–Cartan** — full re-proof → 4-line cite to ch02
+2. **ch05 §5.8** — 8-line axiom re-statement → 1-sentence recall citing ch03's Definition
+3. **ch04 opening** — added physical motivation paragraph (Frobenius → $N^{2g}$ degeneracy)
+4. **ch07 §7.3** — replaced one-liner with explicit "three routes to the same phase" block resolving the triple-derivation issue
+5. **ch06 ending** — consolidated two overlapping forward-pointer paragraphs into one, with explicit reference to ch07's resolution
+
+No dangling `\ref` or `\label` issues. Changes summary written to `logs/paper_tasks_19/pass1_part1_changes.md`.

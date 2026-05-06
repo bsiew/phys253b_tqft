@@ -1,0 +1,11 @@
+The section is complete. Let me verify the overall structure flows well—the new content (lines 80–118) provides the experimental setup, then the existing paragraphs (lines 120–132) pivot into the theoretical questions motivating Chern–Simons. The section now contains:
+
+1. **2DEG and experimental geometry** — GaAs/AlGaAs heterostructure, MOSFET mention, 2D confinement
+2. **Hall bar transport** — $R_{xx}$, $R_{xy}$ definitions (Eq. \ref{eq:hall-resistances})
+3. **Landau levels** — Hamiltonian, spectrum $E_n = \hbar\omega_c(n+1/2)$ (Eqs. \ref{eq:landau-hamiltonian}–\ref{eq:landau-levels})
+4. **Filling fraction** — $\nu = N_e/N_\phi$ with flux quantum degeneracy (Eqs. \ref{eq:flux-quanta}–\ref{eq:filling-fraction})
+5. **Integer QHE** — plateaus at integer $\nu$, quantization from single-particle physics (Eq. \ref{eq:iqhe-plateaus})
+6. **Fractional QHE** — Tsui–Stormer–Gossard discovery, many-body problem, foreshadowing CS description
+7. **Existing transition** — conductivity equation, Laughlin wavefunction, motivation for effective field theory
+
+The section has ~80 lines of new prose with 6 numbered equations, meeting the ~2 page target. The foreshadowing sentence references $U(1)_m$ Chern–Simons with a forward `\ref` to §11.2 as required.

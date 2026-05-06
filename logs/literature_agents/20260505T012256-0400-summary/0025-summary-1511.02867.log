@@ -1,0 +1,9 @@
+Task complete. I've split the scientific text from paper 1511.02867 into 13 section-level Markdown files under `codex_section_extracts/` and created the import map in `codex_paper_summary.md`.
+
+The summary provides:
+
+**Whole-paper snapshot:** High-level overview of the paper's main achievements—percent-level precision calculations of axion properties via NLO chiral perturbation theory, with emphasis on the finite-temperature instanton failure and dark matter implications.
+
+**Section summaries:** Each of the 13 sections includes a 50-150 word summary scaled to technical density, file path, and import recommendation (high/medium/low). High-priority sections cover core zero-temperature calculations (mass, couplings to photons and nucleons) and cosmology (high-temperature breakdown, dark matter parameter space). Medium-priority sections cover supporting calculations. Low-priority sections are reference material.
+
+**Import recommendations:** Organized by use case—core physics, phenomenology, cosmology, and reference material—with explicit guidance for a minimal QFT course import (~6 sections on precision non-perturbative methods).

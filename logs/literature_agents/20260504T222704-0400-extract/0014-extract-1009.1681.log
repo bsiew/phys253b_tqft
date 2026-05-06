@@ -1,0 +1,10 @@
+Perfect. The extraction and cleaning is complete. I've successfully:
+
+1. **Copied the single substantive TeX file** to `codex_scientific_text.md`
+2. **Preserved all scientific content**: abstract, methodology, theoretical framework (chiral anomaly, ChPT corrections), experimental setup (PrimEx collaboration, detectors, targets), event selection criteria, analysis procedures, and results
+3. **Removed TeX plumbing**: document class declarations, package imports, macro definitions, author/affiliation formatting, bibliography commands, figure/table LaTeX scaffolding, and comments
+4. **Kept all equations and derivations**: both the cross-section decomposition and the Primakoff amplitude formula with full parameter definitions
+5. **Added YAML front matter** with creation/update timestamps and metadata
+6. **Organized with semantic sections** matching the paper's logical flow
+
+The codex now contains the complete scientific narrative from raw measurement precision (2.8% uncertainty) through theoretical interpretation (chiral anomaly validation in QCD) while removing all formatting cruft.

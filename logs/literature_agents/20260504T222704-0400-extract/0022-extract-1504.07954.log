@@ -1,0 +1,27 @@
+Perfect! The extraction is complete and clean. Let me create a summary:
+
+**Task completed: Scientific TeX extraction from paper 1504.07954**
+
+The file `codex_scientific_text.md` has been created with:
+
+**Preserved scientific content:**
+- 7 sections (Introduction, Lattice Actions, Topological Susceptibility, Fermionic Contributions, Discussion, Summary, Appendix)
+- 36 equations with mathematical expressions and derivations
+- 56 citation references preserving the paper's literature context
+- All technical definitions, assumptions, decay constants, and named results
+- Data tables with ensemble parameters and numerical results
+- Theoretical framework (chiral perturbation theory, twisted mass fermions, spectral projector method)
+- Physical interpretations and comparisons between quenched and dynamical computations
+
+**Removed TeX plumbing:**
+- Document structure commands (`\documentclass`, `\usepackage`, `\begin{document}`, etc.)
+- Author/affiliation formatting
+- Bibliography commands
+- Pure formatting commands (`\clearpage`, `\hline`, etc.)
+- Non-scientific figure scaffolding (kept captions with physics content)
+- Comments and macro definitions
+
+**Metadata preserved:**
+- YAML front matter with creation/update timestamps, project attribution, and paper reference (arxiv:1504.07954)
+
+The extraction enables literature analysis while maintaining the core scientific content in an accessible format.

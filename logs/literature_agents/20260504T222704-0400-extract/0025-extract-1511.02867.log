@@ -1,0 +1,22 @@
+Perfect. The extraction is complete. The `codex_scientific_text.md` file now contains:
+
+- **YAML front matter** preserved with updated timestamp
+- **Source file heading** for reference
+- **Scientific content** including:
+  - Full introduction and motivation for QCD axion physics
+  - Definitions and standard equations (θ, $f_a$, axion mass relationships)
+  - Derivations and theoretical framework (chiral perturbation theory, NLO computations)
+  - Named results and numerical values (mass formulas, couplings, domain wall tension)
+  - Physical interpretations and constraints
+  - Finite temperature dependence analysis
+  - Quantum field theory renormalization group running
+
+- **Removed** non-scientific plumbing:
+  - LaTeX document class and package declarations
+  - Bibliography environment and citation metadata
+  - Author/affiliation formatting
+  - Presentational spacing commands (`\vspace`, `\hspace`, etc.)
+  - Macro definitions and style setup
+  - Pure formatting directives
+
+The file is now ready for secondary analysis—extracting specific concepts, definitions, equations, and building concept hierarchies from the cleaned scientific text.

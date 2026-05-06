@@ -1,0 +1,89 @@
+---
+created_at: "2026-05-05T19:12:55-04:00"
+updated_at: "2026-05-05T19:12:55-04:00"
+generated_by: "claude-code"
+updated_by: "claude-code"
+timestamp_source: hook
+---
+# Task 17.12 — LLM Decontamination Pass
+
+- **Status:** pending
+- **Owner:** Helena + Brian
+- **Duration:** 3 hours
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+- **Reference:** [`llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md`](../../llm_docs/CRITICAL_EVALUATION_AND_IMPROVEMENT_DIRECTIVES.md)
+
+## Goal
+
+Purge all language, structural patterns, and framing devices that read as LLM-generated. This goes beyond the banned-phrase list in Task 17.11 — it targets *structural* AI tells that survive a simple find-and-replace.
+
+## Structural AI Tells to Eliminate
+
+### 1. "Honesty Box" framing — KILL THIS ENTIRELY
+
+The phrase "honesty box" is contrived, cutesy, and reads as an AI-invented branding exercise. No physicist writes "Required Honesty Box" as a subsection title. The *content* is essential; the *name* is poison.
+
+**Replacements (choose per context):**
+
+| Current phrasing | Better alternatives |
+|---|---|
+| "Required Honesty Box" (ch13 §13.3) | "Experimental status" or "Current state of the art" or just make it a paragraph within the section — no special framing needed |
+| "Honesty box" (ch11 §11.7) | "Limitations and non-universal corrections" or "What the effective theory does not control" |
+| "Honesty box" (ch12 Andersen) | Fold into the experiment's caveats paragraph — it doesn't need a separate box, it needs a blunt final paragraph |
+| "Honesty box" (ch14 §14.4) | "Epistemic status of the observables" or simply "Caveats" |
+
+The idea — clearly distinguishing what is established from what is speculative — is the paper's best pedagogical contribution. But calling it an "honesty box" implies the rest of the paper is *dishonest*. Instead: integrate the critical assessment as normal scientific prose. If you want visual distinction, use a `\begin{remark}` environment titled "Experimental status" or "Scope of the derivation" — something that a working physicist might actually write.
+
+**Action items:**
+- [ ] Rename `\subsection{Required Honesty Box}` in ch13 to `\subsection{Experimental Status}`
+- [ ] Rename `\label{subsec:tqc-honesty-box}` to `\label{subsec:tqc-experimental-status}`
+- [ ] In ch11 header comments: replace "honesty box" with "scope/limitations subsection"
+- [ ] In ch12 header comments: replace "honesty box" with "caveats" or "epistemic framing"
+- [ ] In ch14 §14.4: the title "When the Observables Are Clean, and When They Are Only Effective" is already fine — keep it, don't call it a box
+- [ ] Grep all `plan/tasks/*.md` for "honesty box" and replace with the appropriate neutral term
+- [ ] Grep all `llm_docs/` for "honesty box" and update
+
+### 2. Numbered-list-as-argument structure
+
+AI loves to write "There are three key points: (1)... (2)... (3)..." as a substitute for an actual argument. Real physics prose connects ideas with causal transitions, not numbered inventories. Spots to check:
+
+- Ch13 §13.3 uses `\textbf{1.\ ...}` through `\textbf{4.\ ...}` as the body of the "honesty box." This is fine for a list of facts, but the framing around it ("Before proceeding to the outlook, we pause to state clearly the gap...") is pure AI throat-clearing. Cut the throat-clearing; let the facts speak.
+- Any section that opens with "We now pause to..." or "Before proceeding, we note..." — these are AI stalling patterns. Either the content belongs where it is (in which case just write it) or it doesn't (in which case move it).
+
+### 3. Throat-clearing and meta-commentary
+
+Kill on sight:
+- "We pause to state clearly..."
+- "Before proceeding to the outlook..."
+- "The preceding sections developed X as a theoretical framework..."
+- "It is worth noting that..."
+- "We emphasize that..."
+- "A few comments are in order..."
+- "It is important to stress..."
+- "Let us make a few remarks..."
+
+Replace with: the content itself. If a remark is important enough to make, make it. Don't announce that you're making it.
+
+### 4. The "pillar" / "three pillars" / "four categories" branding
+
+AI loves to brand its organizational schemes. "The three pillars of this scheme" (ch13), "the four-category taxonomy" (ch15) — this is PowerPoint energy, not physics prose. The organizational structure should be evident from the section headings and the logic of the exposition, not from a labeling system.
+
+- Keep the *content* of the four-category classification (ch15 §15.2). It's the paper's most original contribution.
+- Kill the *branding*. Don't call it "the four-category taxonomy" in prose. Just present the four cases with clear examples and let the reader see the pattern.
+
+### 5. Self-congratulatory scope statements
+
+"This is the paper's most original contribution" / "This is what distinguishes this paper from..." — these belong in a cover letter to a referee, not in the paper itself. Check ch15 and ch16 for anything that sounds like the paper is selling itself.
+
+## Process
+
+1. Read each chapter sequentially. For each paragraph, ask: "Would David Tong write this sentence?" If no, rewrite or cut.
+2. In particular, focus on section openings and closings — these are where AI tells concentrate.
+3. After the pass, do a grep for every term in the "kill on sight" list above.
+
+## Acceptance criteria
+
+- Zero instances of "honesty box" anywhere in `tex_docs/` or `plan/tasks/`.
+- Zero instances of "we pause to" / "before proceeding" / "it is worth noting" in the paper body.
+- All critical-assessment subsections have neutral, professional titles.
+- The content formerly called "honesty boxes" is still present and still blunt — only the framing has changed.

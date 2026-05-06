@@ -1,0 +1,19 @@
+Done. I've created a clean scientific extract from `main.tex` into `codex_scientific_text.md` with the following structure:
+
+**Preserved:**
+- All scientific prose: abstract, introduction, theoretical framework
+- Complete experimental setup descriptions: resonator geometry, magnetic field configuration, receiver chain specifications
+- Key equations and derivations: axion power formula, system noise temperature definitions, confidence level calculation
+- Data acquisition methodology and noise characterization procedures
+- Complete results section: candidate veto procedures, systematic uncertainties, limit-setting methodology
+- Assumptions and named results (KSVZ/DFSZ models, Maxwell-Boltzmann distributions, etc.)
+
+**Removed:**
+- TeX document class and package declarations
+- Author affiliations and formatting
+- Bibliography commands and referee comments (`\gr{}` notes)
+- Figure and table scaffolding (kept scientific descriptions, removed `\includegraphics` and `\caption` boilerplate)
+- Hyperref setup, line numbering, and style macros
+- Acknowledgments and funding details (non-scientific metadata)
+
+The YAML front matter has been preserved with updated timestamp. The extraction maintains the linear logic and technical depth of the original while converting TeX markup to readable markdown.

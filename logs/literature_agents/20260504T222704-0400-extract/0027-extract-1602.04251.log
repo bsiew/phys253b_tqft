@@ -1,0 +1,6 @@
+Perfect. The codex file has been successfully created from the single TeX source. I extracted 4921 lines of scientific content—all sections, definitions, equations, derivations, and citations—while removing the preamble (documentclass, usepackage, macro setup, style definitions). The YAML front matter is preserved with an updated timestamp.
+
+**Summary of extraction:**
+- Removed TeX plumbing: `\documentclass`, `\usepackage`, layout commands, font declarations, comment blocks
+- Preserved all scientific content: 9 major sections (Introduction through Appendix on Chern-Simons Gauge Theories), equations, theorems, citations, and bibliography
+- Output: `codex_scientific_text.md` (4930 lines including front matter)

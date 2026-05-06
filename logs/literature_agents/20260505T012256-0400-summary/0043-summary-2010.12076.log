@@ -1,0 +1,8 @@
+Task complete. The agent successfully split `codex_scientific_text.md` into 24 section-level files under `codex_section_extracts/` and produced `codex_paper_summary.md` as the import map.
+
+**Structure:**
+- 24 section files with YAML front matter (introduction through data acquisition)
+- Import recommendations: 6 high-priority (physics case, magnet design, optics, detector baseline), 7 medium, 7 low, 4 skip (auxiliary infrastructure)
+- Summaries scaled to technical density: 50-100 words for standard sections, longer for dense technical content
+
+The summary file provides selective loading guidance for future context management.

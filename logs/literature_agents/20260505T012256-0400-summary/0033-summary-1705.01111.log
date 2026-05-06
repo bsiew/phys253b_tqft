@@ -1,0 +1,18 @@
+Task completed successfully. I have:
+
+1. **Split the paper** into 7 section-level files under `codex_section_extracts/`:
+   - introduction.md (~1,800 words)
+   - weyl_semimetals.md (~8,900 words)
+   - dirac_semimetals.md (~6,900 words)
+   - materials.md (~5,300 words)
+   - experiments.md (~9,500 words)
+   - related_phenomena.md (~4,600 words)
+   - conclusion.md (~900 words)
+
+2. **Created comprehensive summary** at `codex_paper_summary.md` with:
+   - Whole-paper snapshot (topic, physics, depth, QFT relevance)
+   - Section-by-section summaries scaled to source length (50-100 words for short sections, proportionally more for dense/long sections)
+   - Import recommendations for each section: **High** (Introduction, Weyl Semimetals, Dirac Semimetals), **Medium** (Materials, Experiments), **Medium-Low** (Related Phenomena), **Low** (Conclusion)
+   - Overall import strategy with prioritization
+
+All files preserve original YAML front matter for provenance tracking.

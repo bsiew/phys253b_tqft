@@ -1,0 +1,8 @@
+Task complete. Split codex_scientific_text.md into 19 section-level files under codex_section_extracts/ and created codex_paper_summary.md with import triage recommendations.
+
+**Summary:**
+- 19 section files created with preserved YAML frontmatter
+- Each section includes metadata (section name, project, source paper, section type)
+- Import map provides whole-paper snapshot, detailed section summaries (50-150 words scaled to source density), and prioritized import recommendations
+- Primary high-value sections: core theory (Landau quantization, symmetry protection), critical experimental methods (current jetting artifacts, squeeze test), best evidence (Na₃Bi, GdPtBi), and QFT foundations (chiral symmetry, ABJ anomaly, topological origins)
+- Medium/low sections: complex materials with unresolved issues, alternate probes, transitional text

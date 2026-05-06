@@ -1,0 +1,11 @@
+Done. I've replaced the TODO block under `\label{subsec:toric-code-gsd}` with ~100 lines of LaTeX covering:
+
+1. Lattice setup with Euler relation on $T^2$
+2. Star/plaquette operator definitions and the Hamiltonian
+3. Proof that $[A_v, B_p] = 0$ via the edge-sharing parity argument
+4. Ground-state conditions and constraint counting yielding GSD = 4
+5. Non-contractible $Z$-string and $X$-string operators with their anticommutation algebra
+6. Decomposition of the ground-state subspace as two logical qubits
+7. Forward pointer to the BF theory section (§9.4) via the gauge-theoretic interpretation
+
+The section uses the established citation key `\cite{Kitaev2003FaultTolerant}`, cross-references `\ref{subsec:lre-vs-symmetry-breaking}` and `\ref{sec:bf-self-contained}`, and matches the prose style of the existing §9.1.

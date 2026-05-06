@@ -1,0 +1,10 @@
+Done. I replaced the TODO block with ~75 lines of LaTeX prose covering:
+
+1. The $\Z_N$ BF action with $N=2$
+2. Equations of motion (flatness, no propagating modes)
+3. Wilson/'t Hooft loop observables and the linking phase formula, identifying the $-1$ with the lattice mutual braiding from Proposition 9.3
+4. GSD via flat connection counting: $N^{2g} = 4$, matching §9.2
+5. A summary table with explicit cross-references to equations in both earlier sections
+6. A closing remark on the Part I ↔ Part II roundtrip
+
+All equations are numbered/labeled, cross-references use `\ref{}` to existing labels, and the only citation is `\cite{Kitaev2003FaultTolerant}` as specified.

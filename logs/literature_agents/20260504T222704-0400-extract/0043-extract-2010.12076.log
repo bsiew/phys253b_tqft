@@ -1,0 +1,9 @@
+Excellent. The extraction is complete. The file now contains:
+
+- **YAML front matter** with metadata (created_at, updated_at, arxiv_id, title)
+- **All scientific content**: physics definitions (PQ mechanism, axions, ALPs), experimental methodologies (helioscopes, IAXO design), technical specifications (magnet parameters, detector sensitivities), and results
+- **Cleaned TeX**: removed all package declarations, class declarations, author/affiliation formatting, bibliography commands, and purely presentational scaffolding
+- **Preserved mathematical notation**: equations with $...$ delimiters, \cite{} references, LaTeX macros for physics symbols (\gagamma, \pqsym, etc.)
+- **Preserved tables and data**: all parameter tables, sensitivity comparisons, and structured content
+
+The codex at `/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/2010.12076/codex_scientific_text.md` is ready for further processing.

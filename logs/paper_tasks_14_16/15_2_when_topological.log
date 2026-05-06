@@ -1,0 +1,12 @@
+69 lines of source, but many of those are long paragraphs that will wrap to multiple lines in PDF. The table alone will take about a page. With standard article formatting, the two introductory paragraphs (~1 page), the table (~1 page), the four category paragraphs (~2 pages), and the closing paragraphs (~1 page) should render to approximately 5 pages — well within the 4–6 page target.
+
+Section §15.2 is now written. It contains:
+
+- **Opening paragraphs** motivating the taxonomy by pointing back to the per-chapter caveats (Sec. 11.7 and 14.4).
+- **Four-category table** (Table 1) with definitions and cross-referenced examples.
+- **One paragraph per category** (a–d) explaining what makes each "clean" or "iffy" and when an observable would upgrade/downgrade.
+- **Three concrete category (d) examples** (axion couplings, monopole production, interferometric signatures) in an itemized list.
+- **Upgrading/downgrading paragraph** explaining mobility between categories.
+- **Closing paragraph** connecting the taxonomy to the paper's through-line and pointing forward to Ch 16 (outlook).
+
+All cross-references use `\ref{}` to existing labels, and citations use the four keys specified in the task (Witten 2016, Stern 2008, Wen 1995, Birmingham et al. 1991).

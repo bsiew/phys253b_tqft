@@ -1,0 +1,12 @@
+Task complete. I've split the paper into 6 section-level extracts under `codex_section_extracts/` and populated `codex_paper_summary.md` with structured import guidance.
+
+**Section files created:**
+- `00_abstract.md` (high priority)
+- `01_introduction.md` (high priority) — main theorems and setup
+- `02_moment_map_image.md` (medium priority) — convexity proof via isoparametric submanifolds
+- `03_equivariant_cohomology.md` (high priority) — cohomology proof via spherical conjugation complexes
+- `04_loop_spaces_symmetric.md` (medium priority) — connection to symmetric spaces
+- `05_examples_counterexamples.md` (low priority) — explicit examples showing necessity of maximal-rank hypothesis
+
+**Summary structure:**
+The whole-paper snapshot identifies the two main results (Duistermaat convexity and strengthened Bott-Samelson) and key proof techniques (Terng's theorem, Hausmann-Holm-Puppe machinery). Each section summary scales to source length: 50–100 words for shorter or less technical sections, longer for dense proof sections. Import recommendations prioritize abstract, introduction, and the cohomology proof for first reading.

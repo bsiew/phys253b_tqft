@@ -1,0 +1,15 @@
+Task completed. I have:
+
+1. Split `codex_scientific_text.md` into five section-level files under `codex_section_extracts/`:
+   - `01_introduction.md`
+   - `02_axion_cosmology_topological_defects.md`
+   - `03_numerical_simulations.md`
+   - `04_observational_constraints.md`
+   - `05_summary_discussions.md`
+
+2. Written `codex_paper_summary.md` as the import map, containing:
+   - **Whole-Paper Snapshot**: 160-word overview of the paper's main findings and significance
+   - **Section Summaries And Import Triage**: For each section, a summary scaled to its technical density (105–175 words) plus an import recommendation (high/medium/skip)
+   - **Full-Source Import Recommendation**: Guidance on which sections to load for different research needs
+
+All files preserve YAML front matter with proper timestamps and metadata.

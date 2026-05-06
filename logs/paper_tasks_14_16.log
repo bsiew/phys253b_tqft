@@ -1,0 +1,38 @@
+============================================================
+ Paper Tasks 14–16: Starting at Tue May  5 18:51:32 EDT 2026
+ Max parallel: 2
+ Log dir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/paper_tasks_14_16
+============================================================
+
+[18:51:32] >>>>>> WAVE 1: Chapters 14 + 15 <<<<<<
+[18:51:32] === Starting Chapter 15 ===
+[18:51:32] === Starting Chapter 14 ===
+[18:51:33] Starting task: 15_1_monopoles_line_operators
+[18:51:33] Starting task: 14_1_theta_chi_u1a
+[18:53:48] Completed task: 14_1_theta_chi_u1a
+[18:53:48] Starting task: 14_2_eta_prime_wv
+[18:54:24] Completed task: 15_1_monopoles_line_operators
+[18:54:24] Starting task: 15_2_when_topological
+[18:56:06] Completed task: 14_2_eta_prime_wv
+[18:56:06] Starting task: 14_3_strong_cp_axion
+[18:57:11] Completed task: 15_2_when_topological
+[18:57:11] === Completed Chapter 15 ===
+[18:58:28] Completed task: 14_3_strong_cp_axion
+[18:58:28] Starting task: 14_4_qcd_caveats
+[19:00:59] Completed task: 14_4_qcd_caveats
+[19:00:59] === Completed Chapter 14 ===
+[19:00:59] >>>>>> WAVE 1 COMPLETE <<<<<<
+
+[19:00:59] >>>>>> WAVE 2: Chapter 16 <<<<<<
+[19:00:59] === Starting Chapter 16 ===
+[19:00:59] Starting task: 16_1_demonstrated
+[19:02:05] Completed task: 16_1_demonstrated
+[19:02:05] Starting task: 16_2_open_directions
+[19:04:41] Completed task: 16_2_open_directions
+[19:04:41] Starting task: 16_3_guide_du_routard
+[19:08:25] Completed task: 16_3_guide_du_routard
+[19:08:25] === Completed Chapter 16 ===
+
+============================================================
+ ALL TASKS 14–16 COMPLETE at Tue May  5 19:08:25 EDT 2026
+============================================================

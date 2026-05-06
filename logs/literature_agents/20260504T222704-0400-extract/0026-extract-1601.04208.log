@@ -1,0 +1,22 @@
+Done. I've extracted the scientific content from the TeX source file into `codex_scientific_text.md`. The extraction includes:
+
+**Preserved scientific content:**
+- Title, authors, and abstract
+- Complete Introduction with physical principles and definitions
+- All Results sections: ARPES band structure, quantum oscillations, longitudinal magnetoresistance, origins analysis, and chiral anomaly discussion
+- Key equations and derivations (formulas for conductivity, chiral coefficient, axial charge relaxation time, etc.)
+- Named results and physical quantities (e.g., Weyl nodes W1/W2, Berry curvature, chiral charge calculations)
+- Discussion section with logical analysis and interpretations
+- Methods section with experimental and computational techniques
+- Caveats about quantum vs. semiclassical regimes and possible alternative explanations
+
+**Removed non-scientific plumbing:**
+- LaTeX document class and package declarations
+- Macro/style setup (`\def` commands for figure widths)
+- Bibliography environment and references (kept concepts, removed `\cite` commands)
+- Author formatting and affiliation plumbing
+- Figure/table scaffolding commands and captions (though figure content descriptions remain)
+- Supplementary material references (converted to brief citations)
+- Appendix sections and navigation commands
+
+The YAML front matter is preserved with updated timestamps, and the scientific prose maintains its pedagogical clarity and rigor.

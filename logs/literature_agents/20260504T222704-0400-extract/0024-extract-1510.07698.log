@@ -1,0 +1,10 @@
+Perfect. I've successfully extracted and cleaned the TeX source into a scientific codex. The extraction:
+
+- Removed all TeX plumbing: document class, packages, macro definitions, style setup, bibliography commands, author/title formatting, and purely presentational scaffolding.
+- Preserved all scientific prose, definitions, assumptions, derivations, and equations.
+- Kept mathematical notation intact within dollar signs.
+- Converted section commands to markdown headers for readability.
+- Maintained the YAML front matter with proper timestamps and metadata.
+- Contains ~1,770 lines of cleaned scientific content from Witten's "Three Lectures On Topological Phases Of Matter."
+
+The codex now provides a clean, readable scientific text extract suitable for literature review and concept extraction work.

@@ -1,0 +1,15 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_wilson_linking.tex showing two Wilson loops with a linking number illustration.
+
+Requirements:
+- Two closed loops K and L in 3D perspective (use TikZ 3d or clever 2D tricks)
+- One loop (K) bounds a shaded/hatched Seifert surface S_K
+- The second loop (L) pierces that surface once
+- Labels: K, L, S_K, and the intersection point marked
+- Caption-ready (standalone TikZ file using \begingroup...\endgroup or just the tikzpicture environment)
+- Include a comment at the top noting this illustrates Lk(K,L) for the Wilson loop expectation
+
+Make it look professional. Use crossing conventions (over/under) to show the 3D structure. The file should be includable via \input{figures/f_wilson_linking.tex} in the main document.

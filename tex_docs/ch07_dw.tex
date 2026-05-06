@@ -1,0 +1,698 @@
+\chapter{Dijkgraaf--Witten theory}\label{ch:dw}
+
+What happens to gauge theory when the gauge group is finite?  There is no Lie algebra, no connection one-form, no curvature---the only data is a flat bundle, which is to say a homomorphism $\pi_1(M) \to G$ up to conjugation.  The topological action is not a differential-form integral but a cohomological phase: a class $\alpha \in H^d(BG, U(1))$ pulled back to the spacetime manifold and evaluated on its fundamental cycle.  The partition function is a finite sum.  This is Dijkgraaf--Witten theory \cite{DijkgraafWitten1990}---the cleanest laboratory for topological response, twisted sectors, and anomaly inflow, precisely because there are no continuous degrees of freedom to complicate the picture.
+
+\section{The Dijkgraaf--Witten action and path integral}\label{sec:dw-action}
+
+\begin{assumption}[Standing assumptions for Section~\ref{sec:dw-action}]\label{ass:dw-standing}
+Let $M$ be a connected closed oriented smooth $d$-manifold, let $G$ be a finite group, and let
+\begin{equation*}
+\alpha \in H^d(BG,U(1))
+\end{equation*}
+be a cohomology class. In the applications later in this chapter we will specialize to $d=3$, but the definition of the theory works in arbitrary dimension.
+\end{assumption}
+
+\subsection{Classical fields}
+
+\begin{definition}[Finite-group gauge field]\label{def:dw-field}
+Under Assumption~\ref{ass:dw-standing}, a classical field of Dijkgraaf--Witten theory is any one of the following equivalent pieces of data:
+\begin{enumerate}
+\item a principal $G$-bundle over $M$;
+\item a homotopy class of maps
+\begin{equation*}
+\phi:M\to BG;
+\end{equation*}
+\item since $M$ is connected, a homomorphism
+\begin{equation*}
+\rho:\pi_1(M)\to G
+\end{equation*}
+up to conjugation in $G$.
+\end{enumerate}
+\end{definition}
+
+\begin{proof}
+The equivalence between (1) and (2) is the defining property of the classifying space $BG$: isomorphism classes of principal $G$-bundles over $M$ are in bijection with homotopy classes of maps $M\to BG$. Since $G$ is finite, hence discrete, every principal $G$-bundle carries a canonical flat structure; there are no continuous local connection variables to choose.
+
+\medskip
+
+\noindent For connected $M$, a flat principal $G$-bundle is determined by its holonomy representation
+\begin{equation*}
+\rho:\pi_1(M)\to G.
+\end{equation*}
+Changing the trivialization at a basepoint conjugates $\rho$ by an element of $G$, so isomorphism classes of fields are classified by conjugacy classes of such homomorphisms.
+\end{proof}
+
+\begin{remark}[Why this is different from BF and Chern--Simons]\label{rem:dw-no-local-connection}
+In Chern--Simons and BF theory, the fundamental fields were differential forms, and the topological character of the theory emerged after imposing flatness or quotienting by gauge symmetry. In Dijkgraaf--Witten theory the gauge group is already discrete, so there is no infinitesimal gauge potential and no local curvature two-form. The field is topological from the outset.
+\end{remark}
+
+\subsection{The topological action}
+
+\begin{definition}[Dijkgraaf--Witten action phase]\label{def:dw-action}
+Choose a cocycle representative
+\begin{equation*}
+\omega \in Z^d(BG,U(1))
+\end{equation*}
+for the class $\alpha$. For a field represented by a classifying map $\phi:M\to BG$, define the exponentiated action by
+\begin{equation}\label{eq:dw-action-phase}
+\exp\!\bigl(iS_\alpha[\phi]\bigr)
+:=
+\left\langle \phi^*\omega,[M]\right\rangle
+\in U(1),
+\end{equation}
+where $[M]\in H_d(M,\Z)$ is the fundamental class of the oriented manifold $M$.
+\end{definition}
+
+\noindent Since $\phi^*\omega$ is a $U(1)$-valued cocycle on $M$, the pairing in \eqref{eq:dw-action-phase} is a phase. This is the finite-group analogue of the classical topological terms encountered earlier: the action depends only on the global topology of the bundle and on the cohomology class $\alpha$.
+
+\begin{proposition}[Well-definedness of the action phase]\label{prop:dw-welldefined}
+The quantity \eqref{eq:dw-action-phase} depends only on the homotopy class of $\phi$ and on the cohomology class $\alpha$, not on the chosen representative cocycle $\omega$.
+\end{proposition}
+
+\begin{proof}
+If $\phi_0$ and $\phi_1$ are homotopic maps $M\to BG$, then homotopy invariance of singular cohomology gives
+\begin{equation*}
+\phi_0^*[\omega]=\phi_1^*[\omega]\in H^d(M,U(1)),
+\end{equation*}
+so their pairings with $[M]$ agree. Thus \eqref{eq:dw-action-phase} depends only on the homotopy class $[\phi]$.
+
+\medskip
+
+\noindent Now replace $\omega$ by a cohomologous cocycle
+\begin{equation*}
+\omega'=\omega\,\delta \eta,
+\end{equation*}
+where $\eta$ is a $(d-1)$-cochain and we write the $U(1)$-valued cochains multiplicatively. Then
+\begin{equation*}
+\phi^*\omega'=\phi^*\omega\,\delta(\phi^*\eta).
+\end{equation*}
+Evaluating on the fundamental cycle $[M]$ gives
+\begin{equation*}
+\left\langle \phi^*\omega',[M]\right\rangle
+=
+\left\langle \phi^*\omega,[M]\right\rangle
+\left\langle \delta(\phi^*\eta),[M]\right\rangle.
+\end{equation*}
+Because $M$ is closed, the fundamental cycle has no boundary, so the last factor is $1$. Hence
+\begin{equation*}
+\left\langle \phi^*\omega',[M]\right\rangle
+=
+\left\langle \phi^*\omega,[M]\right\rangle.
+\end{equation*}
+Therefore the phase depends only on the cohomology class $\alpha=[\omega]$.
+\end{proof}
+
+\subsection{The partition function}
+
+\begin{definition}[Dijkgraaf--Witten partition function]\label{def:dw-partition}
+The partition function of Dijkgraaf--Witten theory on a connected closed oriented manifold $M$ is
+\begin{equation}\label{eq:dw-partition-iso}
+Z_\alpha(M)
+:=
+\sum_{[\phi]:\,M\to BG}
+\frac{1}{|\Aut(\phi)|}\,
+\exp\!\bigl(iS_\alpha[\phi]\bigr),
+\end{equation}
+where the sum runs over homotopy classes of classifying maps, equivalently over isomorphism classes of principal $G$-bundles, and $\Aut(\phi)$ denotes the automorphism group of the corresponding bundle.
+\end{definition}
+
+\noindent The factor $|\Aut(\phi)|^{-1}$ is the finite-group analogue of dividing by the gauge-group volume in an ordinary path integral. For a connected manifold described by a homomorphism $\rho:\pi_1(M)\to G$, the automorphism group is the stabilizer of $\rho$ under conjugation:
+\begin{equation}\label{eq:dw-aut-centralizer}
+\Aut(\rho)\cong C_G(\rho):=\{g\in G\mid g\rho(\gamma)g^{-1}=\rho(\gamma)\text{ for all }\gamma\in\pi_1(M)\}.
+\end{equation}
+
+\begin{proposition}[Equivalent formulas for the partition function]\label{prop:dw-equivalent-sums}
+For connected $M$, the partition function \eqref{eq:dw-partition-iso} may be written equivalently as
+\begin{equation}\label{eq:dw-partition-conj}
+Z_\alpha(M)
+=
+\sum_{[\rho]\in \Hom(\pi_1(M),G)/G}
+\frac{1}{|C_G(\rho)|}\,
+\exp\!\bigl(iS_\alpha[\rho]\bigr)
+\end{equation}
+or as
+\begin{equation}\label{eq:dw-partition-allhom}
+Z_\alpha(M)
+=
+\frac{1}{|G|}
+\sum_{\rho\in \Hom(\pi_1(M),G)}
+\exp\!\bigl(iS_\alpha[\rho]\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:dw-partition-conj} is just \eqref{eq:dw-partition-iso} rewritten using Definition~\ref{def:dw-field} and the identification \eqref{eq:dw-aut-centralizer}. To pass from \eqref{eq:dw-partition-conj} to \eqref{eq:dw-partition-allhom}, decompose the full set $\Hom(\pi_1(M),G)$ into conjugacy orbits. If $[\rho]$ is one such orbit, then orbit-stabilizer gives
+\begin{equation*}
+|[\rho]|=\frac{|G|}{|C_G(\rho)|}.
+\end{equation*}
+The action phase is constant on each conjugacy orbit, because conjugating $\rho$ does not change the isomorphism class of the corresponding bundle. Therefore
+\begin{align*}
+\frac{1}{|G|}
+\sum_{\rho\in \Hom(\pi_1(M),G)}
+\exp\!\bigl(iS_\alpha[\rho]\bigr)
+&=
+\frac{1}{|G|}
+\sum_{[\rho]\in \Hom(\pi_1(M),G)/G}
+|[\rho]|\,
+\exp\!\bigl(iS_\alpha[\rho]\bigr) \\
+&=
+\sum_{[\rho]\in \Hom(\pi_1(M),G)/G}
+\frac{1}{|C_G(\rho)|}\,
+\exp\!\bigl(iS_\alpha[\rho]\bigr),
+\end{align*}
+which is \eqref{eq:dw-partition-conj}.
+\end{proof}
+
+\begin{corollary}[Untwisted finite-group gauge theory]\label{cor:dw-untwisted}
+If $\alpha=0$, equivalently if the cocycle representative is the constant cocycle $\omega=1$, then every field contributes phase $1$ and
+\begin{equation}\label{eq:dw-untwisted}
+Z_0(M)
+=
+\sum_{[\rho]\in \Hom(\pi_1(M),G)/G}
+\frac{1}{|C_G(\rho)|}
+=
+\frac{1}{|G|}\,\bigl|\Hom(\pi_1(M),G)\bigr|.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+If $\omega=1$, then
+\begin{equation*}
+\exp\!\bigl(iS_0[\rho]\bigr)=1
+\end{equation*}
+for every field. Substituting this into Proposition~\ref{prop:dw-equivalent-sums} gives \eqref{eq:dw-untwisted}.
+\end{proof}
+
+\begin{remark}[Normalization and the case \texorpdfstring{$S^3$}{S3}]\label{rem:dw-s3}
+For $M=S^3$, we have $\pi_1(S^3)=0$, so there is only one homomorphism $\pi_1(S^3)\to G$, namely the trivial one. Equation \eqref{eq:dw-untwisted} therefore gives
+\begin{equation*}
+Z_0(S^3)=\frac{1}{|G|}.
+\end{equation*}
+This is not a mistake. It reflects the standard Dijkgraaf--Witten convention in which the finite gauge-group volume is divided out exactly as in \eqref{eq:dw-partition-allhom}. One could absorb such constants into a different normalization convention, but the orbit-weighted formula \eqref{eq:dw-partition-iso} is the cleanest one for later comparison with discrete gauge theory.
+\end{remark}
+
+\begin{remark}[Forward pointers]\label{rem:dw-forward}
+Section~\ref{sec:dw-action} gives the general definition of the theory. The next steps in this chapter specialize that definition to the cases we actually need later in the paper:
+\begin{itemize}
+\item Section~7.2 will unpack the cohomology class $\alpha$ explicitly for $G=\Z_N$.
+\item Section~7.3 will identify untwisted $\Z_2$ Dijkgraaf--Witten theory with the toric-code phase.
+\item Section~7.4 will explain how nontrivial twists modify the topological response and provide a simple arena for anomaly inflow.
+\end{itemize}
+Together with Chapter~\ref{ch:bf}, this gives two complementary routes to finite gauge theory: one descending from a continuum BF action, the other starting directly from a finite gauge group and a class in group cohomology.
+\end{remark}
+
+\section{The cyclic case \texorpdfstring{$G=\Z_N$}{G=Z\_N}}\label{sec:dw-zn}
+
+The cyclic group $\Z_N$ is the case that connects back to Chapter~\ref{ch:bf}: compact abelian BF at level $N$ reduced to exactly this gauge theory.  Two concrete facts drive the rest of the paper:
+\begin{enumerate}
+\item the classification
+\begin{equation*}
+H^3(B\Z_N,U(1))\cong \Z_N,
+\end{equation*}
+\item an explicit family of normalized $3$-cocycles representing those $N$ classes.
+\end{enumerate}
+The full bar-resolution derivation is longer than we want in the main text, so we isolate the structural classification here and defer the chain-level resolution computation to Appendix~\ref{app:bf-zn}, especially Section~\ref{sec:appD-bar-resolution} \cite{DijkgraafWitten1990,Brown1982}.
+
+\subsection{Classification of \texorpdfstring{$H^3(B\Z_N,U(1))$}{H3(BZ\_N,U(1))}}
+
+\begin{proposition}\label{prop:H3ZN-classification}
+For the cyclic group $\Z_N$ with trivial action on $U(1)$,
+\begin{equation}\label{eq:H3ZN}
+H^3(B\Z_N,U(1))\cong \Z_N.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Consider the short exact sequence of coefficient groups
+\begin{equation*}
+0\longrightarrow \Z \longrightarrow \R \longrightarrow U(1)\longrightarrow 0,
+\end{equation*}
+where $\R\to U(1)$ is $x\mapsto e^{2\pi i x}$. Since $\Z_N$ is finite, standard transfer averaging implies
+\begin{equation*}
+H^q(B\Z_N,\R)=0
+\qquad
+\text{for every }q>0.
+\end{equation*}
+The associated long exact sequence in cohomology therefore gives an isomorphism
+\begin{equation}\label{eq:connecting-U1-Z}
+H^3(B\Z_N,U(1))\cong H^4(B\Z_N,\Z).
+\end{equation}
+
+\medskip
+
+\noindent It remains to compute $H^4(B\Z_N,\Z)$. The integral cohomology ring of $B\Z_N$ is
+\begin{equation}\label{eq:cohomology-ring-BZN}
+H^*(B\Z_N,\Z)\cong \Z[\beta]/(N\beta),
+\qquad
+|\beta|=2.
+\end{equation}
+In particular,
+\begin{equation*}
+H^4(B\Z_N,\Z)\cong \Z_N\,\beta^2\cong \Z_N.
+\end{equation*}
+Combining this with \eqref{eq:connecting-U1-Z} proves \eqref{eq:H3ZN}.
+\end{proof}
+
+\begin{remark}[What this proof does and does not do]\label{rem:H3ZN-main-vs-app}
+Proposition~\ref{prop:H3ZN-classification} gives the classification with minimal overhead, but it does not yet identify a concrete cocycle representative. That chain-level step is where the bar resolution becomes useful. In the main text we now write down the explicit representatives and verify directly that they satisfy the cocycle condition. The fuller resolution computation, including why the representative below is a generator, is deferred to Appendix~\ref{app:bf-zn}, especially Section~\ref{sec:appD-bar-resolution}.
+\end{remark}
+
+\subsection{The carry cocycle}
+
+From now on, write the group $\Z_N$ additively. For each class $x\in \Z_N$, let
+\begin{equation*}
+\widetilde{x}\in \{0,1,\dots,N-1\}
+\end{equation*}
+denote its standard lift. Define the carry function
+\begin{equation}\label{eq:carry-def}
+\kappa(x,y)
+:=
+\left\lfloor \frac{\widetilde{x}+\widetilde{y}}{N}\right\rfloor
+\in \{0,1\}.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:carry-splitting}
+\widetilde{x}+\widetilde{y}
+=
+\widetilde{x+y}+N\kappa(x,y).
+\end{equation}
+
+\begin{definition}[The \texorpdfstring{$\omega_p$}{omega\_p} family]\label{def:omega-p}
+For each
+\begin{equation*}
+p\in \{0,1,\dots,N-1\},
+\end{equation*}
+define
+\begin{equation}\label{eq:omega-p}
+\omega_p(a,b,c)
+:=
+\exp\!\left(\frac{2\pi i p}{N}\,\widetilde{a}\,\kappa(b,c)\right)
+=
+\exp\!\left(\frac{2\pi i p}{N}\,\widetilde{a}\left\lfloor \frac{\widetilde{b}+\widetilde{c}}{N}\right\rfloor\right).
+\end{equation}
+\end{definition}
+
+\noindent Because $\kappa(b,c)=0$ whenever $b=0$ or $c=0$, and because $\widetilde{a}=0$ when $a=0$, each $\omega_p$ is normalized:
+\begin{equation*}
+\omega_p(a,b,c)=1
+\qquad
+\text{if }0\in \{a,b,c\}.
+\end{equation*}
+
+\begin{lemma}[Associativity identity for the carry]\label{lem:carry-assoc}
+For all $b,c,d\in \Z_N$,
+\begin{equation}\label{eq:carry-assoc}
+\kappa(b,c)+\kappa(b+c,d)=\kappa(c,d)+\kappa(b,c+d).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Compute the integer $\widetilde{b}+\widetilde{c}+\widetilde{d}$ in two ways. First,
+\begin{align*}
+\widetilde{b}+\widetilde{c}+\widetilde{d}
+&=
+\bigl(\widetilde{b}+\widetilde{c}\bigr)+\widetilde{d} \\
+&=
+\widetilde{b+c}+N\kappa(b,c)+\widetilde{d} \\
+&=
+\widetilde{b+c+d}+N\kappa(b+c,d)+N\kappa(b,c).
+\end{align*}
+Second,
+\begin{align*}
+\widetilde{b}+\widetilde{c}+\widetilde{d}
+&=
+\widetilde{b}+\bigl(\widetilde{c}+\widetilde{d}\bigr) \\
+&=
+\widetilde{b}+\widetilde{c+d}+N\kappa(c,d) \\
+&=
+\widetilde{b+c+d}+N\kappa(b,c+d)+N\kappa(c,d).
+\end{align*}
+Subtracting the two expressions and dividing by $N$ gives \eqref{eq:carry-assoc}.
+\end{proof}
+
+\begin{proposition}[The carry functions are \texorpdfstring{$3$}{3}-cocycles]\label{prop:omega-p-cocycle}
+Each function $\omega_p$ of \eqref{eq:omega-p} satisfies the normalized group-$3$-cocycle condition
+\begin{equation}\label{eq:group-3-cocycle}
+\omega_p(b,c,d)\,
+\omega_p(a,b+c,d)\,
+\omega_p(a,b,c)
+=
+\omega_p(a+b,c,d)\,
+\omega_p(a,b,c+d)
+\end{equation}
+for all $a,b,c,d\in \Z_N$.
+\end{proposition}
+
+\begin{proof}
+Substitute \eqref{eq:omega-p} into the left-hand side of \eqref{eq:group-3-cocycle}. The total exponent is
+\begin{equation*}
+\frac{2\pi i p}{N}
+\left(
+\widetilde{b}\,\kappa(c,d)
++
+\widetilde{a}\,\kappa(b+c,d)
++
+\widetilde{a}\,\kappa(b,c)
+\right).
+\end{equation*}
+The total exponent on the right-hand side is
+\begin{equation*}
+\frac{2\pi i p}{N}
+\left(
+\widetilde{a+b}\,\kappa(c,d)
++
+\widetilde{a}\,\kappa(b,c+d)
+\right).
+\end{equation*}
+Therefore the difference between the exponents is
+\begin{align*}
+\frac{2\pi i p}{N}
+\Bigl(
+\widetilde{b}\,\kappa(c,d)
++
+\widetilde{a}\,\kappa(b+c,d)
++
+\widetilde{a}\,\kappa(b,c)
+-\widetilde{a+b}\,\kappa(c,d)
+-\widetilde{a}\,\kappa(b,c+d)
+\Bigr).
+\end{align*}
+Using \eqref{eq:carry-splitting} for $a+b$,
+\begin{equation*}
+\widetilde{a+b}=\widetilde{a}+\widetilde{b}-N\kappa(a,b),
+\end{equation*}
+this becomes
+\begin{align*}
+\frac{2\pi i p}{N}
+\Bigl(
+\widetilde{a}\bigl[\kappa(b+c,d)+\kappa(b,c)-\kappa(c,d)-\kappa(b,c+d)\bigr]
++
+N\kappa(a,b)\kappa(c,d)
+\Bigr).
+\end{align*}
+By Lemma~\ref{lem:carry-assoc}, the bracketed term vanishes. The remaining term is
+\begin{equation*}
+2\pi i p\,\kappa(a,b)\kappa(c,d),
+\end{equation*}
+which is an integer multiple of $2\pi i$. Therefore the two sides of \eqref{eq:group-3-cocycle} are equal.
+\end{proof}
+
+\subsection{Why the \texorpdfstring{$\omega_p$}{omega\_p} are the \texorpdfstring{$N$}{N} distinct classes}
+
+\begin{proposition}\label{prop:omega-p-classification}
+The cohomology classes
+\begin{equation*}
+[\omega_p]\in H^3(B\Z_N,U(1)),
+\qquad
+p=0,1,\dots,N-1,
+\end{equation*}
+are pairwise distinct and exhaust all elements of $H^3(B\Z_N,U(1))$.
+\end{proposition}
+
+\begin{proof}
+First note that pointwise multiplication gives
+\begin{equation}\label{eq:omega-product}
+\omega_p\,\omega_q=\omega_{p+q\!\!\!\pmod N}.
+\end{equation}
+Hence
+\begin{equation*}
+[\omega_p]=p[\omega_1]
+\end{equation*}
+in the abelian group $H^3(B\Z_N,U(1))$.
+
+\medskip
+
+\noindent Proposition~\ref{prop:H3ZN-classification} shows that this cohomology group has exactly $N$ elements. Therefore it is enough to know that $[\omega_1]$ is a generator. That is precisely what the bar-resolution computation in Appendix~\ref{app:bf-zn}, Section~\ref{sec:appD-bar-resolution}, establishes: the normalized carry cocycle $\omega_1$ represents the canonical generator of $H^3(B\Z_N,U(1))\cong \Z_N$ \cite{DijkgraafWitten1990,Brown1982}. Once that is known, \eqref{eq:omega-product} implies that the $N$ cocycles $\omega_p$ represent all $N$ classes and that
+\begin{equation*}
+[\omega_p]=[\omega_q]
+\qquad\Longleftrightarrow\qquad
+p\equiv q \pmod N.
+\end{equation*}
+\end{proof}
+
+\begin{remark}[Sanity checks]\label{rem:omega-p-checks}
+Two quick checks are worth recording.
+\begin{enumerate}
+\item For $N=2$, Proposition~\ref{prop:H3ZN-classification} gives
+\begin{equation*}
+H^3(B\Z_2,U(1))\cong \Z_2.
+\end{equation*}
+There are therefore exactly two classes: the trivial one and a single nontrivial twist. In the $2+1$-dimensional language used later in this chapter, that nontrivial $\Z_2$ twist is the one that leads to the double-semion theory rather than the untwisted toric-code theory.
+\item The representative \eqref{eq:omega-p} agrees with the standard cyclic-group cocycle family used in the Dijkgraaf--Witten literature: the floor function records the carry in addition mod $N$, and that carry is exactly the discrete datum from which the twist is built.
+\end{enumerate}
+\end{remark}
+
+\section{Untwisted \texorpdfstring{$\Z_2$}{Z\_2} Dijkgraaf--Witten theory and the toric code}\label{sec:dw-toric}
+
+The most important case for the rest of this paper is also the simplest.  When
+\begin{equation*}
+G=\Z_2,
+\qquad
+\alpha=0,
+\end{equation*}
+Dijkgraaf--Witten theory is just untwisted $\Z_2$ gauge theory---the same theory that Chapter~\ref{ch:bf} obtained as compact abelian BF theory at level $2$.  The natural question is whether there is a lattice model whose long-wavelength limit reproduces it.  There is: Kitaev's toric code \cite{Kitaev2003}.
+
+\subsection{The lattice Hamiltonian}
+
+\begin{definition}[Toric-code Hamiltonian]\label{def:toric-code}
+Let $\Lambda$ be a square lattice embedded in a closed oriented surface $\Sigma$, and place a qubit on each edge $e$ of $\Lambda$. The toric-code Hamiltonian is
+\begin{equation}\label{eq:toric-hamiltonian}
+H_{\mathrm{TC}}
+:=
+-\sum_v A_v-\sum_p B_p,
+\end{equation}
+where
+\begin{equation}\label{eq:toric-stabilizers}
+A_v:=\prod_{e\ni v}\sigma_e^x,
+\qquad
+B_p:=\prod_{e\subset \partial p}\sigma_e^z.
+\end{equation}
+Here $v$ runs over vertices, $p$ over plaquettes, and the products are over the edges incident on $v$ and the edges in the boundary of $p$, respectively.
+\end{definition}
+
+\noindent The operators $A_v$ and $B_p$ commute with one another, and each squares to the identity. Consequently, the ground space is the simultaneous $+1$ eigenspace of all star and plaquette stabilizers.
+
+\begin{proposition}[The toric-code ground space is a \texorpdfstring{$\Z_2$}{Z\_2} gauge theory]\label{prop:toric-z2}
+In the $\sigma^z$ basis, the toric-code ground states are gauge-invariant superpositions of flat $\Z_2$ lattice gauge fields on $\Sigma$.
+\end{proposition}
+
+\begin{proof}
+Label a basis vector by a $\Z_2$-valued edge assignment
+\begin{equation*}
+h\in C^1(\Lambda,\Z_2),
+\qquad
+h_e\in \{0,1\},
+\end{equation*}
+through
+\begin{equation*}
+\sigma_e^z\ket{h}=(-1)^{h_e}\ket{h}.
+\end{equation*}
+In this basis,
+\begin{equation*}
+B_p\ket{h}
+=
+\prod_{e\subset \partial p}(-1)^{h_e}\ket{h}
+=
+(-1)^{(dh)_p}\ket{h},
+\end{equation*}
+where $d:C^1(\Lambda,\Z_2)\to C^2(\Lambda,\Z_2)$ is the lattice coboundary map. Therefore the plaquette constraint
+\begin{equation*}
+B_p\ket{\psi}=\ket{\psi}
+\qquad
+\text{for all }p
+\end{equation*}
+forces
+\begin{equation}\label{eq:toric-flatness}
+dh=0.
+\end{equation}
+Thus only flat $\Z_2$ gauge fields survive.
+
+\medskip
+
+\noindent Next consider the star operator. Acting on an edge configuration, $A_v$ flips the value of $h_e$ on each edge incident on $v$. If $\lambda_v\in C^0(\Lambda,\Z_2)$ is the $0$-cochain that equals $1$ at $v$ and $0$ elsewhere, then
+\begin{equation*}
+A_v:\; h\longmapsto h+d\lambda_v.
+\end{equation*}
+This is exactly a local $\Z_2$ gauge transformation. Consequently, the condition
+\begin{equation*}
+A_v\ket{\psi}=\ket{\psi}
+\qquad
+\text{for all }v
+\end{equation*}
+means that physical states are invariant under lattice gauge transformations.
+
+\medskip
+
+\noindent Combining the two constraints, the toric-code ground space is the space of gauge-invariant states built from flat $\Z_2$ edge configurations. That is precisely the Hilbert-space description of untwisted $\Z_2$ lattice gauge theory.
+\end{proof}
+
+\subsection{From the lattice gauge theory to untwisted Dijkgraaf--Witten}
+
+\begin{remark}[The role of the untwisted partition function]\label{rem:dw-z2-untwisted}
+For $\alpha=0$, Corollary~\ref{cor:dw-untwisted} showed that Dijkgraaf--Witten theory weights every flat $\Z_2$ bundle equally. There is no extra phase attached to a flat configuration. This is the discrete topological-field-theory version of the toric-code fact that all closed-loop configurations appear with equal amplitude in the ground state once the gauge constraints are imposed.
+\end{remark}
+
+\begin{proposition}[Formal infrared equivalence]\label{prop:toric-dw}
+The topological sector of the toric code on a closed surface $\Sigma$ is the Hilbert space of untwisted Dijkgraaf--Witten theory with gauge group $\Z_2$. Equivalently, the long-wavelength effective TQFT of the toric code is untwisted $\Z_2$ gauge theory.
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:toric-z2}, the toric-code ground space is obtained by imposing
+\begin{equation*}
+dh=0
+\end{equation*}
+and then quotienting by gauge transformations
+\begin{equation*}
+h\sim h+d\lambda.
+\end{equation*}
+The resulting topological sectors are therefore classified by
+\begin{equation}\label{eq:toric-H1}
+H^1(\Sigma,\Z_2).
+\end{equation}
+
+\medskip
+
+\noindent On the Dijkgraaf--Witten side, untwisted $\Z_2$ gauge theory assigns to a spatial slice $\Sigma$ the Hilbert space of flat $\Z_2$ bundles modulo gauge equivalence. Since $\Z_2$ is abelian, these are classified by
+\begin{equation}\label{eq:dw-H1}
+\Hom(\pi_1(\Sigma),\Z_2)\cong H^1(\Sigma,\Z_2).
+\end{equation}
+The right-hand sides of \eqref{eq:toric-H1} and \eqref{eq:dw-H1} are the same set, so the topological sectors coincide.
+
+\medskip
+
+\noindent The same conclusion follows from Chapter~\ref{ch:bf}: Section~\ref{sec:bf-zn} identified compact $U(1)$ BF theory at level $2$ with $\Z_2$ gauge theory, and Proposition~\ref{prop:bf-gsd} gave
+\begin{equation*}
+\dim \mathcal{H}_{\mathrm{BF},2}(\Sigma_g)=2^{2g}.
+\end{equation*}
+For the torus this yields
+\begin{equation*}
+\dim \mathcal{H}_{\mathrm{BF},2}(T^2)=4,
+\end{equation*}
+which is exactly the fourfold toric-code ground-state degeneracy. Thus the continuum BF description, the untwisted $\Z_2$ Dijkgraaf--Witten theory, and the infrared topological sector of the toric code all agree.
+\end{proof}
+
+\begin{remark}[Scope and division of labor with Chapter~\ref{sec:topological-order}]\label{rem:dw-toric-scope}
+Section~\ref{sec:dw-toric} proves only the formal equivalence at the level of topological sectors. Chapter~\ref{sec:topological-order} will do the condensed-matter work that we intentionally avoid here: it will study the toric-code Hamiltonian as a physical many-body system, derive its quasiparticle excitations and string operators, and interpret the resulting braiding data. The present chapter needs only the topological statement that the untwisted $\Z_2$ Dijkgraaf--Witten theory is the effective TQFT capturing that infrared sector.
+\end{remark}
+
+\medskip
+
+\noindent\textbf{Three routes to the same phase.}  The topological sector of the toric code has now been derived three times, each illuminating a different layer of the same physics:
+\begin{enumerate}
+\item \emph{Continuum gauge theory} (Chapter~\ref{ch:bf}): compact $U(1)$ BF theory at level $N{=}2$ yields $\Z_2$ gauge theory; Proposition~\ref{prop:bf-gsd} gives $\dim\mathcal{H}=2^{2g}$.
+\item \emph{Finite-group path integral} (this chapter): untwisted Dijkgraaf--Witten theory with $G{=}\Z_2$ reproduces the same Hilbert space by counting flat bundles.
+\item \emph{Lattice Hamiltonian} (Chapter~\ref{sec:topological-order}): the toric-code Hamiltonian is solved directly; the topological ground-state degeneracy agrees.
+\end{enumerate}
+That all three approaches agree is the content of Proposition~\ref{prop:toric-dw}. The continuum derivation explains \emph{why} the answer is $2^{2g}$; the finite-group path integral explains \emph{what} data (a class in $H^d(BG,U(1))$) distinguishes different phases; the lattice model explains \emph{how} the phase is realized microscopically.
+
+\section{Twisted Dijkgraaf--Witten theory as an inflow laboratory}\label{sec:dw-inflow}
+
+The untwisted theory is completely gauge-invariant on its own.  A nontrivial cocycle, by contrast, obstructs gauge invariance on manifolds with boundary: the bulk partition function is perfectly well defined on a closed manifold, but cutting it open reveals that any boundary completion must transform by a local phase.  That is anomaly inflow in its purest, finite-group form---and it is the cleanest setting to see the mechanism before tackling the continuum version in Chapter~\ref{ch:gensym}.
+
+\subsection{General mechanism}
+
+\begin{assumption}[Boundary setup]\label{ass:dw-boundary}
+Let $M$ be a compact oriented $3$-manifold with nonempty boundary, let $G$ be a finite group, and let
+\begin{equation*}
+\alpha=[\omega]\in H^3(BG,U(1))
+\end{equation*}
+be a Dijkgraaf--Witten twist. We work at the level of cochains on a triangulation, so a ``local boundary counterterm'' means a phase constructed from a $U(1)$-valued $2$-cochain on the boundary gauge field.
+\end{assumption}
+
+\noindent On a closed manifold, the bulk phase is the gauge-invariant number
+\begin{equation*}
+\left\langle \phi^*\omega,[M]\right\rangle.
+\end{equation*}
+On a manifold with boundary, the same cochain-level expression is still meaningful once one chooses boundary data, but the key new point is that there is no longer any reason for a local primitive of $\omega$ to exist on the boundary theory itself. This is the discrete analogue of the familiar fact that Chern--Simons terms become boundary-anomalous in the presence of $\partial M$.
+
+\begin{proposition}[Boundary obstruction from a nontrivial bulk cocycle]\label{prop:dw-boundary-obstruction}
+Suppose there existed a purely two-dimensional local counterterm, depending only on the boundary $G$ gauge field, that rendered the boundary theory of a $3$-dimensional Dijkgraaf--Witten bulk with twist $\alpha=[\omega]$ gauge-invariant for all boundary backgrounds. Then the class $\alpha$ would have to vanish in $H^3(BG,U(1))$.
+\end{proposition}
+
+\begin{proof}
+A purely boundary local counterterm is specified by a $U(1)$-valued $2$-cochain
+\begin{equation*}
+\beta \in C^2(BG,U(1)).
+\end{equation*}
+If it cancelled the boundary dependence of the bulk theory for every boundary gauge background, then its coboundary would have to reproduce the bulk twist:
+\begin{equation}\label{eq:dw-beta-trivialization}
+\delta \beta = \omega.
+\end{equation}
+But \eqref{eq:dw-beta-trivialization} says exactly that $\omega$ is a coboundary. Therefore
+\begin{equation*}
+[\omega]=0\in H^3(BG,U(1)).
+\end{equation*}
+Contrapositively, if $[\omega]\neq 0$, then no purely boundary local counterterm can make the boundary theory gauge-invariant by itself.
+\end{proof}
+
+\noindent Proposition~\ref{prop:dw-boundary-obstruction} is the inflow statement in its cleanest finite-group form. The bulk is gauge-invariant on a closed manifold, but once a boundary is present, nontrivial bulk topology obstructs an independent gauge-invariant boundary completion. Any consistent boundary theory must transform in precisely the way needed to cancel the bulk defect. Chapter~8, especially Sections~8.5--8.7, will rephrase the same logic in the broader language of generalized symmetries and anomaly inflow \cite{FreedMooreTeleman2024,Bhardwaj2023Lectures}.
+
+\subsection{Worked example: the nontrivial \texorpdfstring{$\Z_2$}{Z\_2} twist}
+
+We now apply Proposition~\ref{prop:dw-boundary-obstruction} to the explicit cocycle already identified in Section~\ref{sec:dw-zn}. For $G=\Z_2$, write the group additively with elements $0,1$. Then
+\begin{equation}\label{eq:omega-z2}
+\omega_1(a,b,c)
+=
+\exp\!\left(\pi i\,abc\right)
+=
+(-1)^{abc},
+\qquad
+a,b,c\in \Z_2,
+\end{equation}
+because for $\Z_2$ the carry function is simply
+\begin{equation*}
+\kappa(b,c)=bc.
+\end{equation*}
+This is the unique nontrivial element of
+\begin{equation*}
+H^3(B\Z_2,U(1))\cong \Z_2
+\end{equation*}
+from Proposition~\ref{prop:H3ZN-classification}.
+
+\begin{proposition}[The nontrivial \texorpdfstring{$\Z_2$}{Z\_2} twist is anomalous on the boundary]\label{prop:z2-twist-anomaly}
+There is no purely two-dimensional local $\Z_2$ counterterm whose coboundary equals the cocycle $\omega_1(a,b,c)=(-1)^{abc}$. Equivalently, a boundary theory coupled to the nontrivial $3$-dimensional $\Z_2$ Dijkgraaf--Witten bulk necessarily carries a $\Z_2$ 't~Hooft anomaly.
+\end{proposition}
+
+\begin{proof}
+Suppose, for contradiction, that there existed a $2$-cochain
+\begin{equation*}
+\beta\in C^2(B\Z_2,U(1))
+\end{equation*}
+such that
+\begin{equation*}
+\delta\beta=\omega_1.
+\end{equation*}
+Then $\omega_1$ would represent the trivial class in cohomology:
+\begin{equation*}
+[\omega_1]=0\in H^3(B\Z_2,U(1)).
+\end{equation*}
+But Section~\ref{sec:dw-zn} proved that $H^3(B\Z_2,U(1))\cong \Z_2$ and that $[\omega_1]$ is the nontrivial element. This contradiction shows that no such $\beta$ exists.
+\end{proof}
+
+\begin{remark}[Physical interpretation]\label{rem:z2-anomaly-physical}
+Proposition~\ref{prop:z2-twist-anomaly} says that the nontrivial $\Z_2$ bulk cannot terminate on a completely ordinary two-dimensional boundary with an on-site, anomaly-free $\Z_2$ symmetry. Something nontrivial must happen at the boundary:
+\begin{itemize}
+\item either the symmetry is realized anomalously,
+\item or additional boundary degrees of freedom appear,
+\item or the boundary develops its own topological order.
+\end{itemize}
+This is the discrete-group counterpart of the Callan--Harvey story discussed later in Chapter~8: the bulk exists precisely so that the anomalous boundary variation is cancelled by inflow.
+\end{remark}
+
+\begin{remark}[Relation to the untwisted and twisted \texorpdfstring{$\Z_2$}{Z\_2} phases]\label{rem:dw-z2-phases}
+The contrast with Section~\ref{sec:dw-toric} is the main lesson. Untwisted $\Z_2$ Dijkgraaf--Witten theory is the toric-code TQFT. Turning on the nontrivial class $[\omega_1]$ changes the topological response and produces the twisted $\Z_2$ theory, whose long-distance realization is the double-semion phase rather than the toric code. We will not derive that lattice model here; the point for the present chapter is simply that the same cocycle that distinguishes the two bulks is also the cocycle that obstructs a symmetry-preserving trivial boundary.
+\end{remark}
+
+\begin{remark}[Where later chapters use Chapter~\ref{ch:dw}]\label{rem:dw-downstream-map}
+The present chapter supplies finite-group input for several later parts of the paper.
+\begin{itemize}
+\item Chapter~\ref{ch:gensym} will use Section~\ref{sec:dw-zn} as its concrete group-cohomology example and Section~\ref{sec:dw-inflow} as its clean discrete model of anomaly inflow.
+\item Chapter~\ref{sec:topological-order} will use Section~\ref{sec:dw-toric} as the formal TQFT statement behind the toric-code phase before returning to the lattice Hamiltonian and emergent quasiparticles.
+\item Chapter~\ref{sec:anyons} will use Section~\ref{sec:dw-action} for the finite-gauge-theory viewpoint on topological sectors, Section~\ref{sec:dw-zn} for the cyclic twists, and Section~\ref{sec:dw-inflow} for the untwisted-versus-twisted $\Z_2$ contrast.
+\item Chapter~\ref{sec:outlook} will return to Chapter~\ref{ch:dw} as the baseline group-cohomology classification scheme before discussing gapped phases and anomalies that lie beyond that framework.
+\end{itemize}
+\end{remark}
+
+\medskip
+
+\noindent The nontrivial cocycle of Proposition~\ref{prop:z2-twist-anomaly} is the simplest example of a bulk topological term that forces anomalous boundary physics.  The next chapter develops this anomaly-inflow mechanism in the continuum language of generalized symmetries, then applies it to the fractional quantum Hall edge (Chapter~\ref{sec:fqhe}), where the bulk Chern--Simons response cancels the chiral anomaly of the edge modes.

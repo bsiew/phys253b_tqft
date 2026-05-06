@@ -1,0 +1,19 @@
+Task completed. I've split `codex_scientific_text.md` into 17 section-level files and written a comprehensive import map in `codex_paper_summary.md`.
+
+**Summary of work:**
+
+1. **Section extraction:** Created 17 markdown files in `codex_section_extracts/`, ranging from 31 lines (Friedmann Equations appendix) to 617 lines (The Cosmological Axion Field), each with proper YAML frontmatter.
+
+2. **Paper summary document:** Wrote detailed analysis covering:
+   - Whole-paper snapshot positioning this as the definitive 2015 review of ultralight axion cosmology, spanning particle theory through observational constraints
+   - Section-by-section summaries scaled to content density (50-150 words per section)
+   - Import recommendations: **high** for core sections 1-6, 9 (~1300 lines); **medium** for sections 7-8; **low/skip** for appendices
+   - Targeted loading strategies for specific research questions (vacuum realignment, CMB isocurvature, structure formation, direct detection)
+
+**Key findings:**
+- Sections 2-6 form the essential theoretical→observational arc
+- Section 4 (617 lines) contains the technical machinery for axion field dynamics
+- Mass bounds: $m_a > 10^{-24}$ eV (linear), $m_a \gtrsim 10^{-22}$ eV (non-linear)
+- Section 9 provides comprehensive detection strategy survey
+
+The import map enables selective context loading based on research focus while preserving the paper's pedagogical structure.

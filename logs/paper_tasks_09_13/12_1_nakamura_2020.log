@@ -1,0 +1,10 @@
+The section is written and properly placed. Here's a summary of what I wrote (~65 lines of LaTeX prose with 5 labeled equations):
+
+**Structure:**
+1. **Opening** — States the theoretical prediction ($e^{2\pi i/3}$) with back-reference to Ch 11 §11.3 (Eq. \ref{eq:fqhe-full-winding}), contextualizes prior experiments, and identifies this as the first direct observation of anyonic braiding.
+2. **Device** — GaAs/AlGaAs heterostructure, Fabry-Pérot with two QPCs, Coulomb-blockade suppression via screening gates.
+3. **Observable** — Conductance oscillation formula (Eq. \ref{eq:nakamura-conductance}), discrete phase jump $2\pi/m$ when bulk quasiparticle number changes.
+4. **Connection to Chern-Simons theory** — Links the measured phase to the Wilson-loop linking-number formula from Example \ref{ex:abelian-wilson}.
+5. **Measurement and results** — Reports $\Delta\phi \approx 2\pi/3$ with uncertainty, telegraph-noise signature.
+6. **Significance** — Three-point enumeration: directness, topological robustness, quantitative agreement.
+7. **Limitations and outlook** — Abelian only; non-abelian $\nu=5/2$ is the frontier; forward reference to Werkmeister (§12.2).

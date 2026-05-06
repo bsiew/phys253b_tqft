@@ -1,0 +1,11 @@
+Task complete. I've split the paper into 6 section files under `codex_section_extracts/` and written the import map to `codex_paper_summary.md`.
+
+**Section files created:**
+- `abstract.md` (medium priority)
+- `introduction.md` (high priority — states main results)
+- `free_and_based_coproduct.md` (high priority — foundational definitions)
+- `splitting_coproduct_lie_groups.md` (high priority — core theorem)
+- `triviality_even_dimensional.md` (medium priority — degree-parity argument)
+- `triviality_simply_connected.md` (high priority — Bott-Samelson cycles, most technical)
+
+The summary includes a whole-paper snapshot highlighting the splitting theorem and triviality results, section-by-section summaries scaled to source density, and import triage guidance. All files preserve YAML frontmatter.

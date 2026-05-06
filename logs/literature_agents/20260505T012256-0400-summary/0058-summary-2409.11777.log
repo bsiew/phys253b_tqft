@@ -1,0 +1,15 @@
+Task complete. I've split the paper into 14 section-level markdown files under `codex_section_extracts/` and written the comprehensive paper summary to `codex_paper_summary.md`.
+
+**Summary structure:**
+
+- **Whole-Paper Snapshot**: The paper reports the first axion dark matter search using a dielectric haloscope (MADMAX prototype), targeting heavy axion masses (76.56–79.53 μeV). No signal detected; set coupling limits |g_{aγ}| ~ 2 × 10^{-11} GeV^{-1}. Primarily experimental with minimal QFT content—only the axion-photon coupling mechanism is field-theoretic.
+
+- **Section-by-section import triage**: Each of 14 sections receives a summary scaled to its length/density plus an import recommendation:
+  - **High priority**: introduction.md (motivation, physics, sensitivity), supplemental_overlap_formalism.md (mode coupling formalism)
+  - **Medium priority**: abstract, experimental_setup, boost_factor_determination, analysis
+  - **Low priority**: systematic_uncertainties, conclusion, most supplemental material
+  - **Skip**: purely procedural sections (booster mode verification, data taking details, frequency bands)
+
+- **Full-source recommendation**: For QFT coursework, this is context-building rather than technique-building. Load introduction.md and overlap formalism; skip the rest unless studying axion phenomenology specifically.
+
+All section files preserve the original YAML front matter with added `section` fields.

@@ -1,0 +1,10 @@
+The section is complete and transitions cleanly into the next subsection. The content:
+
+1. **Recalls the setup** from the CS chapter (Proposition `prop:dimU1k`, the $\{\psi_r\}$ basis, the Heisenberg algebra).
+2. **Derives** the $S$-matrix from the intertwining property $S\hat U S^{-1} = \hat V$, arriving at the discrete Fourier transform $S_{rs} = k^{-1/2} e^{2\pi i rs/k}$.
+3. **Verifies** both intertwining conditions explicitly in the proof.
+4. **Notes the phase convention** ($S^2 = C$, unitarity).
+5. **Checks the Verlinde formula** reproduces the $\Z_k$ fusion rules $N^t_{rs} = \delta_{t, r+s \bmod k}$.
+6. **Closes** with a remark on Pontryagin duality and the generalization to non-abelian theories.
+
+All acceptance criteria are met: $S_{rs}$ is derived (not stated), the Verlinde check succeeds, and Proposition `prop:dimU1k` is cross-referenced.

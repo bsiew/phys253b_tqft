@@ -1,0 +1,13 @@
+Perfect. I've successfully extracted the scientific content from the TeX source into a clean, well-organized markdown file. Here's what I did:
+
+**Extraction process:**
+- Preserved the YAML front matter with metadata, updating the `updated_at` timestamp
+- Removed all TeX plumbing: `\documentclass`, `\usepackage`, macro definitions, `\newtheorem` declarations
+- Converted structural elements to markdown: `\section` → `#`, `\subsection` → `##`
+- Kept scientific content: definitions, theorems, proofs (in prose form), equations, interpretations, and derivations
+- Cleaned up formatting: converted `\emph{}` to markdown emphasis, handled citations as `[ref]`, removed comment lines
+- Preserved all mathematical notation in LaTeX form (equations in `$$...$$` for display, `$...$` for inline)
+- Removed bibliography commands, author/title metadata, and presentational TeX scaffolding
+- Added a structured "Key References and Concepts" section summarizing the main results and techniques
+
+The output file contains the complete scientific narrative of the paper on integral Pontrjagin homology of based loop spaces on flag manifolds, organized by topic with clear hierarchical sections.

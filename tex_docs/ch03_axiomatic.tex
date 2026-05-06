@@ -1,0 +1,489 @@
+\chapter{Axiomatic TQFT: cobordisms and the Atiyah--Segal framework}\label{ch:axiomatic}
+
+What does it mean for a quantum field theory to be topological?  One answer---the one we developed in Chapter~\ref{ch:forms}---is that the action contains no metric.  But there is a sharper answer that makes no reference to a Lagrangian at all: a topological theory is one whose amplitudes depend only on how spacetimes glue together, not on any geometry internal to them.  Cut a spacetime along a spatial slice, compute an amplitude on each piece, sum over the shared boundary data, and recover the amplitude of the whole.  A TQFT is a theory in which that composition law is the \emph{entire} content---nothing else survives.
+
+Atiyah's formalization \cite{Atiyah1988TQFT} makes this precise: assign vector spaces to spatial slices, linear maps to the spacetimes interpolating between them, and demand that geometric gluing becomes algebraic composition.  The geometric input is a \emph{cobordism}---a compact spacetime whose boundary splits into an incoming and an outgoing part.  We set up that geometry first, state the axioms, then compute with them.  (Readers who want category-theory vocabulary can consult Appendix~A; nothing here requires it.)
+
+\section{Cobordisms as spacetimes with boundary}\label{sec:cobordism-category}
+
+In ordinary quantum mechanics, a time interval $[t_0, t_1]$ determines a unitary map from initial states to final states.  What replaces ``time interval'' when the theory has no background metric?  A spacetime manifold whose boundary splits into an initial slice and a final slice.  Two such spacetimes glue end-to-end along a shared slice, and the resulting amplitudes compose---this is the structure the cobordism category formalizes \cite{Atiyah1988TQFT,Kock2004Frobenius}.
+
+\subsection{Cobordisms}
+
+\begin{definition}[Oriented cobordism]\label{def:oriented-cobordism}
+Let $\Sigma_0$ and $\Sigma_1$ be closed oriented $(d-1)$-manifolds. An \emph{oriented $d$-dimensional cobordism} from $\Sigma_0$ to $\Sigma_1$ is a compact oriented $d$-manifold $M$ with boundary together with an identification
+\begin{equation}\label{eq:cobordism-boundary}
+\partial M \cong \overline{\Sigma_0} \sqcup \Sigma_1,
+\end{equation}
+where $\overline{\Sigma_0}$ denotes $\Sigma_0$ with the opposite orientation.
+\end{definition}
+
+\begin{remark}[Why the incoming boundary is orientation-reversed]\label{rem:incoming-orientation}
+The bar on $\Sigma_0$ is not decorative. The boundary of an oriented manifold carries the \emph{outward-normal-first} orientation convention: a basis $(n,v_1,\ldots,v_{d-1})$ of $TM$ is positively oriented if and only if $(v_1,\ldots,v_{d-1})$ is positively oriented on $\partial M$, where $n$ is the outward normal. On the ``initial'' boundary component of a spacetime slab, this induced boundary orientation is opposite to the orientation one wants on the incoming spatial slice itself. Hence the incoming boundary appears as $\overline{\Sigma_0}$ while the outgoing boundary appears as $\Sigma_1$.
+\end{remark}
+
+\noindent Two cobordisms from $\Sigma_0$ to $\Sigma_1$ are regarded as the same morphism if they are related by an orientation-preserving diffeomorphism compatible with the boundary identifications. In other words, the geometry that matters is the smooth topology of the interpolating spacetime, not the particular coordinate realization.
+
+\begin{definition}[The cobordism category]\label{def:Cobd}
+The category $\mathrm{Cob}_d$ is defined as follows.
+\begin{itemize}
+\item Its objects are closed oriented $(d-1)$-manifolds.
+\item Its morphisms $\Sigma_0 \to \Sigma_1$ are equivalence classes of oriented $d$-dimensional cobordisms from $\Sigma_0$ to $\Sigma_1$, in the sense of Definition~\ref{def:oriented-cobordism}.
+\end{itemize}
+\end{definition}
+
+\medskip
+
+\noindent Physically: objects of $\mathrm{Cob}_d$ are spatial slices that carry Hilbert spaces, and morphisms are spacetime evolutions between them. The Atiyah--Segal axioms turn this into a concrete assignment $\Sigma \mapsto Z(\Sigma)$, $M \mapsto Z(M)$.
+
+\subsection{Composition by gluing}
+
+The defining operation on cobordisms is composition. If one spacetime ends on $\Sigma_1$ and another begins on $\Sigma_1$, they can be glued to produce a new spacetime from $\Sigma_0$ to $\Sigma_2$.
+
+\begin{definition}[Composition of cobordisms]\label{def:cobordism-composition}
+Let
+\begin{equation*}
+M_{01} : \Sigma_0 \to \Sigma_1,
+\qquad
+M_{12} : \Sigma_1 \to \Sigma_2
+\end{equation*}
+be cobordisms. Their composition is the glued manifold
+\begin{equation}\label{eq:cobordism-composition}
+M_{12} \circ M_{01} := M_{01} \cup_{\Sigma_1} M_{12},
+\end{equation}
+obtained by identifying the outgoing boundary component $\Sigma_1 \subset \partial M_{01}$ with the incoming boundary component $\overline{\Sigma_1} \subset \partial M_{12}$ through the fixed boundary identification.
+\end{definition}
+
+\begin{remark}[Why the gluing is smooth]\label{rem:collar-neighborhood}
+The smooth structure on the glued manifold is well-defined because manifolds with boundary admit collar neighborhoods. Concretely, near the common boundary $\Sigma_1$ one can choose coordinates in which $M_{01}$ looks like $\Sigma_1 \times [0,\varepsilon)$ and $M_{12}$ looks like $\Sigma_1 \times (-\varepsilon,0]$. Gluing along $\Sigma_1 \times \{0\}$ then produces a smooth manifold with no corner. This is the geometric reason the composition law of $\mathrm{Cob}_d$ is well-defined on equivalence classes.
+\end{remark}
+
+\noindent Physically, \eqref{eq:cobordism-composition} is the geometric counterpart of path-integral composition. One computes an amplitude on $M_{01}$, an amplitude on $M_{12}$, and then sums over the shared boundary data on $\Sigma_1$. The axioms in the next section will state that a TQFT turns this gluing operation into ordinary composition of linear maps.
+
+\begin{example}[The cylinder]\label{ex:cylinder-cobordism}
+For any closed oriented $(d-1)$-manifold $\Sigma$, the cylinder
+\begin{equation}\label{eq:cylinder}
+\Sigma \times [0,1]
+\end{equation}
+is a cobordism from $\Sigma$ to itself. Its boundary is
+\begin{equation*}
+\partial(\Sigma \times [0,1]) \cong \overline{\Sigma \times \{0\}} \sqcup (\Sigma \times \{1\}),
+\end{equation*}
+so it has the right incoming/outgoing orientation pattern. In $\mathrm{Cob}_d$ this cylinder is the identity morphism on $\Sigma$: gluing it to either end of any other cobordism produces a diffeomorphic cobordism.
+\end{example}
+
+\begin{proposition}[Identity morphisms]\label{prop:cylinder-identity}
+The cylinder $\Sigma \times [0,1]$ is an identity for the composition law of Definition~\ref{def:cobordism-composition}.
+\end{proposition}
+
+\begin{proof}
+Let $M : \Sigma_0 \to \Sigma_1$ be any cobordism. Gluing the cylinder $\Sigma_1 \times [0,1]$ to the outgoing boundary of $M$ amounts to attaching a collar neighborhood to that boundary component. But a collar is already part of the smooth structure of a manifold with boundary, so removing or reattaching such a collar does not change the diffeomorphism class of the underlying cobordism. Hence
+\begin{equation*}
+(\Sigma_1 \times [0,1]) \circ M \cong M.
+\end{equation*}
+The same argument on the incoming side shows
+\begin{equation*}
+M \circ (\Sigma_0 \times [0,1]) \cong M.
+\end{equation*}
+Thus the cylinder acts as the identity morphism on $\Sigma$ in $\mathrm{Cob}_d$.
+\end{proof}
+
+\subsection{A first nontrivial example: the pair of pants}
+
+In two dimensions the most important cobordism is the \emph{pair of pants}. Topologically it is a sphere with three open disks removed. If two of its boundary circles are declared incoming and the remaining one outgoing, it becomes a cobordism
+\begin{equation}\label{eq:pair-of-pants-type}
+P : S^1 \sqcup S^1 \longrightarrow S^1.
+\end{equation}
+This is the geometric prototype of multiplication in a 2D TQFT, and Chapter~\ref{ch:frobenius} will show that it becomes the product map of a commutative Frobenius algebra \cite{Kock2004Frobenius}.
+
+\begin{figure}[h]
+    \centering
+    \IfFileExists{figures/cobordism_generators.pdf}{%
+        \includegraphics[width=0.48\linewidth]{figures/cobordism_generators}
+    }{%
+        \fbox{%
+            \parbox{0.72\linewidth}{%
+                \centering
+                \textbf{Pair-of-pants cobordism schematic}\\[2mm]
+                Two incoming circles at the top and one outgoing circle at the bottom,\\
+                regarded as a cobordism $S^1 \sqcup S^1 \to S^1$.\\[2mm]
+                \small Final hand-drawn scan scheduled in the figure task for Chapter~4.%
+            }%
+        }%
+    }
+    \caption{The pair of pants is the basic 2-dimensional cobordism from $S^1 \sqcup S^1$ to $S^1$. In Chapter~\ref{ch:frobenius} it becomes the multiplication map of a Frobenius algebra.}
+    \label{fig:pair-of-pants-cobordism}
+\end{figure}
+
+\begin{example}[Two ways to read the same surface]\label{ex:pair-of-pants}
+The same underlying pair-of-pants surface can be read in more than one way depending on which boundary circles are declared incoming and which outgoing.
+\begin{itemize}
+\item As in \eqref{eq:pair-of-pants-type}, it is a cobordism $S^1 \sqcup S^1 \to S^1$, which later becomes multiplication.
+\item With the orientation reversed, it is a cobordism $S^1 \to S^1 \sqcup S^1$, which later becomes comultiplication.
+\end{itemize}
+This simple observation is the seed of the Frobenius structure in Chapter~\ref{ch:frobenius}: the same topology, read with opposite boundary orientation, gives the algebra and coalgebra operations of a 2D TQFT.
+\end{example}
+
+\subsection{Disjoint union and the symmetric monoidal structure}
+
+Besides composition, $\mathrm{Cob}_d$ carries a second natural operation: disjoint union. Physically, it corresponds to placing two non-interacting systems side by side. Geometrically, one simply takes the union of manifolds with no identification between them.
+
+\begin{proposition}[Symmetric monoidal structure]\label{prop:Cobd-monoidal}
+The category $\mathrm{Cob}_d$ is symmetric monoidal under disjoint union.
+\begin{itemize}
+\item On objects, the monoidal product is
+\begin{equation*}
+(\Sigma_1,\Sigma_2) \longmapsto \Sigma_1 \sqcup \Sigma_2.
+\end{equation*}
+\item On morphisms, the monoidal product is disjoint union of cobordisms:
+\begin{equation*}
+(M_1 : \Sigma_0 \to \Sigma_1,\; M_2 : \Sigma_0' \to \Sigma_1')
+\longmapsto
+M_1 \sqcup M_2 : \Sigma_0 \sqcup \Sigma_0' \to \Sigma_1 \sqcup \Sigma_1'.
+\end{equation*}
+\item The unit object is the empty oriented $(d-1)$-manifold $\emptyset$.
+\item The symmetry isomorphism is the obvious swap
+\begin{equation*}
+\Sigma_1 \sqcup \Sigma_2 \cong \Sigma_2 \sqcup \Sigma_1,
+\end{equation*}
+and similarly for morphisms.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Each statement is immediate from the corresponding topological operation on manifolds. Disjoint union is associative up to canonical diffeomorphism, the empty manifold is a unit for it, and swapping the components gives the symmetry. Since the boundary of a disjoint union is the disjoint union of the boundaries, the operation is compatible with morphisms as well as with objects.
+\end{proof}
+
+\begin{remark}[Why disjoint union matters physically]\label{rem:disjoint-union-physics}
+The monoidal structure is what will later force a TQFT to satisfy
+\begin{equation*}
+Z(\Sigma_1 \sqcup \Sigma_2) \cong Z(\Sigma_1) \otimes Z(\Sigma_2),
+\end{equation*}
+and similarly for cobordisms. In words: a disconnected spatial slice carries the tensor product of the state spaces of its connected components, exactly as one expects for decoupled systems. This is the topological counterpart of the familiar factorization of Hilbert spaces in ordinary quantum mechanics.
+\end{remark}
+
+\medskip
+
+\noindent That is the entire geometric input.  Now we turn $\mathrm{Cob}_d$ into physics: assign vector spaces to objects, linear maps to cobordisms, and numbers to closed manifolds, with composition and disjoint union mirrored algebraically.
+
+\section{The Atiyah--Segal axioms}\label{sec:atiyah-segal-axioms}
+
+A TQFT converts geometric composition into algebraic composition.  Atiyah's formulation \cite{Atiyah1988TQFT} makes this precise: one asks for a rule
+\begin{equation}\label{eq:TQFT-functor}
+Z : \mathrm{Cob}_d \longrightarrow \mathrm{Vect}_{\C}
+\end{equation}
+that sends spatial slices to complex vector spaces and cobordisms to linear maps, while respecting the two operations built into $\mathrm{Cob}_d$: gluing and disjoint union. One often packages this by saying that a TQFT is a \emph{symmetric monoidal functor}. For the present paper, it is enough to unpack the statement directly.
+
+\begin{definition}[Atiyah--Segal TQFT]\label{def:Atiyah-Segal}
+An oriented $d$-dimensional topological quantum field theory consists of the following assignments.
+\begin{itemize}
+\item To each closed oriented $(d-1)$-manifold $\Sigma$, a complex vector space $Z(\Sigma)$.
+\item To each cobordism $M : \Sigma_0 \to \Sigma_1$, a linear map
+\begin{equation}\label{eq:Z-of-cobordism}
+Z(M) : Z(\Sigma_0) \longrightarrow Z(\Sigma_1).
+\end{equation}
+\end{itemize}
+These assignments are required to satisfy the three axioms below.
+\end{definition}
+
+\subsection{Axiom 1: functoriality under gluing}
+
+If two cobordisms are composable, the algebraic maps assigned to them must compose in the same order as the geometric gluing.
+
+\begin{equation}\label{eq:axiom-functoriality}
+Z(M_{12} \circ M_{01}) \;=\; Z(M_{12}) \circ Z(M_{01}).
+\end{equation}
+
+\noindent In particular, the identity cobordism of Proposition~\ref{prop:cylinder-identity} is sent to the identity linear map:
+\begin{equation}\label{eq:axiom-identity}
+Z(\Sigma \times [0,1]) \;=\; \id_{Z(\Sigma)}.
+\end{equation}
+
+\noindent This is the abstract version of the path-integral statement that amplitudes glue by summing over intermediate boundary data. A TQFT forgets the analytic details of that sum and remembers only the functorial law \eqref{eq:axiom-functoriality}.
+
+\subsection{Axiom 2: monoidality under disjoint union}
+
+Disconnected systems factorize. Geometrically this was the symmetric monoidal structure of Proposition~\ref{prop:Cobd-monoidal}; algebraically it becomes tensor product:
+\begin{align}
+Z(\Sigma_1 \sqcup \Sigma_2) &\;\cong\; Z(\Sigma_1)\otimes Z(\Sigma_2), \label{eq:axiom-monoidal-objects} \\[1mm]
+Z(M_1 \sqcup M_2) &\;\cong\; Z(M_1)\otimes Z(M_2), \label{eq:axiom-monoidal-morphisms} \\[1mm]
+Z(\emptyset) &\;\cong\; \C. \label{eq:axiom-empty}
+\end{align}
+
+\noindent Equation~\eqref{eq:axiom-empty} is the statement that the state space of ``no boundary at all'' is the one-dimensional vacuum space. It is what later turns a closed $d$-manifold into a complex number rather than an endomorphism of some larger space.
+
+\subsection{Axiom 3: orientation reversal and duality}
+
+Reversing the orientation of a spatial slice reverses the role of bras and kets. In Atiyah's formulation this is encoded by a duality isomorphism
+\begin{equation}\label{eq:axiom-duality}
+Z(\overline{\Sigma}) \;\cong\; Z(\Sigma)^*.
+\end{equation}
+
+\noindent Physically, this says that if $\Sigma$ carries states, then the same manifold with opposite orientation carries linear functionals on those states. This is exactly what one expects from the rule that the incoming boundary of a cobordism enters with the opposite orientation.
+
+\begin{remark}[What the axioms do and do not determine]\label{rem:axioms-not-enough}
+The Atiyah--Segal axioms specify the \emph{kind} of object a TQFT is; they do not identify a specific theory. To obtain a concrete example one needs additional input: a path integral, a state-sum model, a lattice Hamiltonian, or some other construction. Chern--Simons theory, BF theory, and Dijkgraaf--Witten theory are all examples of theories that satisfy these axioms, but the axioms alone do not tell us which one we have.
+\end{remark}
+
+\subsection{Immediate consequences}
+
+The axioms already imply several facts that will be used throughout the paper.
+
+\begin{proposition}[Closed manifolds give numbers]\label{prop:closed-manifolds-number}
+If $M$ is a closed oriented $d$-manifold, then $Z(M)$ is a complex number.
+\end{proposition}
+
+\begin{proof}
+A closed $d$-manifold is a cobordism $\emptyset \to \emptyset$. Hence
+\begin{equation*}
+Z(M) \in \Hom_{\C}(Z(\emptyset), Z(\emptyset)).
+\end{equation*}
+By \eqref{eq:axiom-empty}, $Z(\emptyset) \cong \C$, so
+\begin{equation*}
+\Hom_{\C}(Z(\emptyset), Z(\emptyset)) \cong \Hom_{\C}(\C,\C) \cong \C.
+\end{equation*}
+Thus a closed $d$-manifold is assigned a number, usually called its partition function.
+\end{proof}
+
+\begin{remark}[Manifolds with one boundary component]\label{rem:one-boundary-component}
+If $M$ is a cobordism $\emptyset \to \Sigma$, then $Z(M)$ is not a number but a vector in $Z(\Sigma)$:
+\begin{equation*}
+Z(M) \in \Hom_{\C}(\C, Z(\Sigma)) \cong Z(\Sigma).
+\end{equation*}
+Similarly, if $M$ is a cobordism $\Sigma \to \emptyset$, then
+\begin{equation*}
+Z(M) \in \Hom_{\C}(Z(\Sigma), \C) \cong Z(\Sigma)^* \cong Z(\overline{\Sigma}).
+\end{equation*}
+So manifolds with boundary prepare states or dual states, depending on whether the boundary is outgoing or incoming.
+\end{remark}
+
+\begin{proposition}[Cylinder evaluation and coevaluation]\label{prop:evaluation-coevaluation}
+Let $\Sigma$ be a closed oriented $(d-1)$-manifold and set
+\begin{equation*}
+V := Z(\Sigma),
+\qquad
+W := Z(\overline{\Sigma}).
+\end{equation*}
+The cylinder $\Sigma \times [0,1]$ determines:
+\begin{enumerate}
+\item a coevaluation map
+\begin{equation}\label{eq:coev}
+\operatorname{coev}_{\Sigma} : \C \longrightarrow V \otimes W,
+\end{equation}
+\item an evaluation map
+\begin{equation}\label{eq:ev}
+\operatorname{ev}_{\Sigma} : W \otimes V \longrightarrow \C,
+\end{equation}
+\end{enumerate}
+and these satisfy the snake identities of duality.
+\end{proposition}
+
+\begin{proof}
+The boundary of the cylinder is $\overline{\Sigma} \sqcup \Sigma$. We may interpret the same manifold in two ways.
+
+\medskip
+
+\noindent First, regard it as a cobordism $\emptyset \to \Sigma \sqcup \overline{\Sigma}$. Then Axiom~2 gives
+\begin{equation*}
+Z(\Sigma \times [0,1]) \in Z(\Sigma \sqcup \overline{\Sigma})
+\cong
+Z(\Sigma)\otimes Z(\overline{\Sigma})
+\\
+=
+V \otimes W,
+\end{equation*}
+which is the coevaluation map \eqref{eq:coev} after identifying $\Hom_{\C}(\C, V\otimes W)$ with $V\otimes W$.
+
+\medskip
+
+\noindent Second, regard the same cylinder as a cobordism $\overline{\Sigma} \sqcup \Sigma \to \emptyset$. Then
+\begin{equation*}
+Z(\Sigma \times [0,1]) \in \Hom_{\C}(W \otimes V, \C),
+\end{equation*}
+which is the evaluation map \eqref{eq:ev}.
+
+\medskip
+
+\noindent Gluing a cylinder used as coevaluation to a cylinder used as evaluation produces, geometrically, an ordinary cylinder again. By Axiom~1, the corresponding linear maps therefore compose to the identity. Concretely, after using the symmetry isomorphisms of tensor product to place the factors in the standard order, one obtains
+\begin{align}
+(\id_V \otimes \operatorname{ev}_{\Sigma}) \circ (\operatorname{coev}_{\Sigma} \otimes \id_V) &= \id_V, \label{eq:snake-V} \\[1mm]
+(\operatorname{ev}_{\Sigma} \otimes \id_W) \circ (\id_W \otimes \operatorname{coev}_{\Sigma}) &= \id_W. \label{eq:snake-W}
+\end{align}
+These are precisely the snake identities.
+\end{proof}
+
+\begin{corollary}[Finite-dimensionality and canonical duals]\label{cor:finite-dimensionality}
+For every closed oriented $(d-1)$-manifold $\Sigma$, the vector space $Z(\Sigma)$ is finite-dimensional, and $Z(\overline{\Sigma})$ is canonically dual to it.
+\end{corollary}
+
+\begin{proof}
+The duality statement is exactly Axiom~3 together with Proposition~\ref{prop:evaluation-coevaluation}. It remains to prove finite-dimensionality.
+
+\medskip
+
+\noindent Let $V = Z(\Sigma)$ and $W = Z(\overline{\Sigma})$. Write
+\begin{equation*}
+\operatorname{coev}_{\Sigma}(1) = \sum_{i=1}^N v_i \otimes w_i
+\qquad
+(\text{a finite sum in } V \otimes W).
+\end{equation*}
+Such an expansion exists because an element of a tensor product is, by definition, a finite linear combination of simple tensors. Now let $v \in V$. Using the snake identity \eqref{eq:snake-V},
+\begin{align*}
+v
+&=
+\bigl((\id_V \otimes \operatorname{ev}_{\Sigma}) \circ (\operatorname{coev}_{\Sigma} \otimes \id_V)\bigr)(v) \\
+&=
+(\id_V \otimes \operatorname{ev}_{\Sigma})\!\left(\sum_{i=1}^N v_i \otimes w_i \otimes v\right) \\
+&=
+\sum_{i=1}^N v_i\, \operatorname{ev}_{\Sigma}(w_i \otimes v).
+\end{align*}
+So every $v \in V$ is a linear combination of the finitely many vectors $v_1,\ldots,v_N$. Hence $V$ is finite-dimensional. The same argument with \eqref{eq:snake-W} shows that $W$ is finite-dimensional as well.
+\end{proof}
+
+\begin{remark}[Why finite-dimensionality matters]\label{rem:fd-physics}
+Finite-dimensionality is not just a formal convenience---it is the algebraic signature that a theory has no local propagating degrees of freedom. The Hilbert space may still depend nontrivially on the topology of $\Sigma$ (this is exactly what happens in Chern--Simons theory on higher-genus surfaces), but for fixed $\Sigma$ it is finite-dimensional. A theory with infinitely many states on a fixed spatial slice necessarily has local excitations; a TQFT does not.
+\end{remark}
+
+\medskip
+
+\noindent So a TQFT is a rule from cobordisms to vector spaces and linear maps, respecting gluing, disjoint union, and orientation reversal.  The quickest way to see this machinery in action: glue two disks along their boundary to form a sphere.
+
+\section{A worked gluing example: two disks make a sphere}\label{sec:two-disks-sphere}
+
+Glue a disk to an oppositely oriented disk along their common boundary circle.  Geometrically the result is $S^2$.  Algebraically---applying the axioms one step at a time---the result is a pairing between a vector and a covector, and that pairing \emph{is} the sphere partition function.
+
+\subsection{Geometry of the decomposition}
+
+Let $D^2$ denote the unit disk with its standard orientation. Its boundary inherits the counterclockwise orientation, so $D^2$ is naturally a cobordism
+\begin{equation}\label{eq:disk-outgoing}
+D^2 : \emptyset \longrightarrow S^1.
+\end{equation}
+If we reverse the orientation on the same underlying manifold, we obtain the oppositely oriented disk $\overline{D^2}$. Its boundary orientation is then reversed as well, so it is a cobordism
+\begin{equation}\label{eq:disk-incoming}
+\overline{D^2} : S^1 \longrightarrow \emptyset.
+\end{equation}
+Gluing the outgoing boundary of $D^2$ to the incoming boundary of $\overline{D^2}$ along the common circle $S^1$ produces a closed oriented surface:
+\begin{equation}\label{eq:sphere-from-disks}
+\overline{D^2} \circ D^2 \cong S^2.
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+    \IfFileExists{figures/disk_gluing_sphere.pdf}{%
+        \includegraphics[width=0.8\linewidth]{figures/disk_gluing_sphere}
+    }{%
+        \fbox{%
+            \parbox{0.88\linewidth}{%
+                \centering
+                \textbf{Disk gluing schematic}\\[2mm]
+                Left panel: $D^2$ viewed as a cobordism $\emptyset \to S^1$.\\
+                Middle panel: $\overline{D^2}$ viewed as a cobordism $S^1 \to \emptyset$.\\
+                Right panel: gluing the common boundary circle produces $S^2$.\\[2mm]
+                \small Final hand-drawn figure can replace this placeholder later without changing the text.%
+            }%
+        }%
+    }
+    \caption{The simplest nontrivial gluing in a 2-dimensional TQFT: a disk and an oppositely oriented disk glued along their common boundary circle.}
+    \label{fig:disk-gluing-sphere}
+\end{figure}
+
+\subsection{The Atiyah--Segal computation}
+
+We now apply the axioms one step at a time. Set
+\begin{equation}\label{eq:V-ZS1}
+V := Z(S^1).
+\end{equation}
+Since $D^2$ is a cobordism $\emptyset \to S^1$, the TQFT assigns a linear map
+\begin{equation}\label{eq:Z-disk-map}
+Z(D^2) : Z(\emptyset) \longrightarrow Z(S^1).
+\end{equation}
+By Axiom~2, $Z(\emptyset) \cong \C$, so \eqref{eq:Z-disk-map} is equivalently a vector in $V$. We denote that vector by
+\begin{equation}\label{eq:psi-disk}
+\psi_{D} := Z(D^2)(1) \in V.
+\end{equation}
+
+\noindent Similarly, $\overline{D^2}$ is a cobordism $S^1 \to \emptyset$, so the TQFT assigns a linear map
+\begin{equation}\label{eq:Z-opposite-disk-map}
+Z(\overline{D^2}) : Z(S^1) \longrightarrow Z(\emptyset).
+\end{equation}
+Again using $Z(\emptyset) \cong \C$, we may regard this map as a covector on $V$:
+\begin{equation}\label{eq:phi-opposite-disk}
+\phi_{D} := Z(\overline{D^2}) \in V^*.
+\end{equation}
+
+\begin{proposition}[Sphere partition function from gluing two disks]\label{prop:sphere-from-disk-gluing}
+For any 2-dimensional oriented TQFT, the map assigned to the closed sphere satisfies
+\begin{equation}\label{eq:ZS2-pairing}
+Z(S^2) = \phi_D(\psi_D).
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:ZS2-composition}
+Z(S^2) = Z(\overline{D^2}) \circ Z(D^2).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:sphere-from-disks}, the sphere is the glued cobordism $\overline{D^2} \circ D^2$. Applying Axiom~1 gives
+\begin{equation}\label{eq:ZS2-first-step}
+Z(S^2) = Z(\overline{D^2} \circ D^2) = Z(\overline{D^2}) \circ Z(D^2).
+\end{equation}
+The left-hand side is, a priori, a linear map $Z(\emptyset)\to Z(\emptyset)$. Because $S^2$ is closed, Proposition~\ref{prop:closed-manifolds-number} says that this map lies in
+\begin{equation}\label{eq:ZS2-homCC}
+Z(S^2) \in \Hom_{\C}(Z(\emptyset), Z(\emptyset)) \cong \Hom_{\C}(\C,\C) \cong \C.
+\end{equation}
+Under this identification, the scalar corresponding to $Z(S^2)$ is obtained by evaluating the map in \eqref{eq:ZS2-first-step} on $1 \in \C$:
+\begin{align}
+Z(S^2)
+&= \bigl(Z(\overline{D^2}) \circ Z(D^2)\bigr)(1) \label{eq:ZS2-evaluate-1} \\
+&= Z(\overline{D^2})\bigl(Z(D^2)(1)\bigr) \nonumber \\
+&= \phi_D(\psi_D). \nonumber
+\end{align}
+This is exactly \eqref{eq:ZS2-pairing}.
+\end{proof}
+
+\begin{remark}[Which axioms were used]\label{rem:which-axioms-disk-gluing}
+Only two inputs entered the computation. First, Axiom~2 identified $Z(\emptyset)$ with $\C$, allowing us to regard $Z(D^2)$ as a vector and $Z(\overline{D^2})$ as a covector. Second, Axiom~1 converted geometric gluing into composition of linear maps. No classification theorem has been used.
+\end{remark}
+
+\subsection{Preview of the Frobenius-algebra picture}
+
+Chapter~\ref{ch:frobenius} will show that a 2-dimensional oriented TQFT is equivalent to a commutative Frobenius algebra \cite{Kock2004Frobenius}:
+\begin{equation}\label{eq:frobenius-preview-algebra}
+A := Z(S^1).
+\end{equation}
+In that description, the outgoing disk is the unit map
+\begin{equation}\label{eq:unit-map-preview}
+\eta : \C \longrightarrow A,
+\qquad
+\eta(1) = 1_A,
+\end{equation}
+and the oppositely oriented disk is the counit
+\begin{equation}\label{eq:counit-map-preview}
+\epsilon : A \longrightarrow \C.
+\end{equation}
+Therefore Proposition~\ref{prop:sphere-from-disk-gluing} becomes
+\begin{equation}\label{eq:ZS2-epsilon1}
+Z(S^2) = \epsilon(1_A).
+\end{equation}
+This is the first place where the geometric gluing rules of cobordisms turn directly into the algebraic structure of a Frobenius algebra: the disk supplies the unit, the reversed disk supplies the trace functional, and the sphere partition function is obtained by pairing the two. We postpone the proof of this dictionary until Chapter~\ref{ch:frobenius}; here it serves only as a preview of how the axioms acquire calculational content.
+
+\medskip
+
+\noindent The axioms tell us what a TQFT \emph{does}.  Three distinct mechanisms produce theories satisfying them, and all three appear in this paper.
+
+\section{Three broad families of TQFTs}\label{sec:tqft-taxonomy}
+
+The axioms say what a TQFT \emph{does}, not how one is built.  Three distinct construction mechanisms appear in this paper; distinguishing them now saves confusion later.  (The division is not exhaustive, and in more sophisticated settings the families overlap, but it suffices to orient the chapters that follow.)
+
+\paragraph{Schwarz-type TQFTs.}
+By a \emph{Schwarz-type} TQFT we mean a theory presented directly by a metric-independent action functional. The action is written without choosing a background metric, and the classical equations of motion are typically nontrivial constraints such as flatness of a connection. This is the class most relevant to the core of the present paper: Chern--Simons theory in Chapter~\ref{ch:chern-simons}, BF theory in Chapter~\ref{ch:bf}, and the continuum viewpoint behind Dijkgraaf--Witten theory in Chapter~\ref{ch:dw} all belong to this camp. The payoff of the metric-free action is that topological features such as linking, braiding, and topology-dependent ground-state degeneracy emerge directly from the path integral or Hamiltonian analysis.
+
+\paragraph{Witten-type or cohomological TQFTs.}
+By a \emph{Witten-type} or \emph{cohomological} TQFT we mean a theory obtained by topologically twisting a supersymmetric quantum field theory and then retaining only the observables that survive in the cohomology of a distinguished nilpotent operator $Q$. Witten's topological sigma model is the prototype \cite{Witten1988Sigma}. In such theories, topological invariance is not usually obvious from the bare form of the action; rather, it emerges because metric dependence is organized into $Q$-exact terms that do not affect correlation functions of $Q$-closed observables. These theories are important conceptually because they show that not every TQFT arises from a manifestly metric-free classical action. We will not develop this branch in detail, but it is useful to know it exists so that the reader does not identify ``topological field theory'' too narrowly with the Chern--Simons and BF examples.
+
+\paragraph{Invertible TQFTs.}
+Finally, we will call a TQFT \emph{invertible} if for every closed spatial slice $\Sigma$ the state space $Z(\Sigma)$ is one-dimensional and for every closed spacetime $M$ the partition function $Z(M)$ is a nonzero complex number. Such theories have no nontrivial topological sectors in the same sense as Chern--Simons or BF theory; instead, they encode topological response phases and anomaly data. This is the language most relevant to the anomaly-inflow material of Chapter~\ref{ch:gensym}: the bulk theory that cancels a boundary anomaly is typically invertible, even when the boundary physics is not. In the present review, invertible theories therefore appear not as isolated curiosities but as the cleanest way to organize topological response and inflow, in line with the modern defect-based viewpoint reviewed by Freed, Moore, and Teleman \cite{FreedMooreTeleman2024}.
+
+\medskip
+
+\noindent This paper focuses on Schwarz-type theories because they provide the most concrete bridge between axioms and experiment---anyon braiding, Hall response, ground-state degeneracy.  The cohomological viewpoint broadens one's sense of what counts as a TQFT; the invertible viewpoint becomes essential for anomaly inflow in Chapter~\ref{ch:gensym}.  But the natural next question is the sharpest one: can one \emph{classify} all TQFTs in a given dimension?  In two dimensions the answer is yes, and it is surprisingly algebraic.  A 2D oriented TQFT is equivalent to a commutative Frobenius algebra---the subject of Chapter~\ref{ch:frobenius}.  The specific algebra $\C[\Z_N]$ will resurface as the state-counting structure behind the $N$-fold toric-code ground-state degeneracy on the torus (Chapter~\ref{sec:topological-order}).

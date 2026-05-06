@@ -1,0 +1,25 @@
+Perfect! I've completed the task successfully.
+
+## Summary
+
+**Split the source document into 14 section files:**
+- `00_front_matter.md` (21KB) - References and LaTeX macros
+- `01_introduction.md` through `07_applications.md` (main sections)
+- `A_dijkgraaf_witten.md` through `F_non_commuting.md` (appendices)
+
+Each file includes the original YAML front matter and appropriate section headings.
+
+**Created comprehensive import map:** `codex_paper_summary.md`
+
+The summary provides:
+
+1. **Whole-paper snapshot** (~250 words) covering the theory of higher-form global symmetries, key results on Ward identities, spontaneous breaking, gauging with discrete theta parameters, 't Hooft anomalies, and applications to phase classification and SPT phases.
+
+2. **Section-by-section summaries** scaled to source length:
+   - **High priority** (5 sections): Introduction, preliminaries, kinematics, examples, applications — core conceptual and technical content
+   - **Medium priority** (4 sections): Spontaneous breaking, S/T transformations, Dijkgraaf-Witten appendix, SU(N)/Z_k construction
+   - **Low priority** (5 sections): Front matter, topological gauge theory, SUSY application, non-spin manifolds, noncommuting fluxes
+
+3. **Import recommendations** with rationale: High-priority sections establish definitions and major applications; medium-priority provide technical details on SSB and discrete theta parameters; low-priority cover specialized topics or typesetting infrastructure.
+
+All files are ready for future context loading based on the import triage guidance.

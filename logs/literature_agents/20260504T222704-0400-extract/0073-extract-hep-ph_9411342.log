@@ -1,0 +1,9 @@
+Perfect. The file is now cleaned with YAML front matter. It has 6038 lines of scientific content—preserved equations, definitions, derivations, interpretations, and named results while removing TeX plumbing, class/package declarations, macros, figure/table scaffolding, and maintenance comments. The figure captions at the end appear to be fragmentary references that were embedded in the text; these are acceptable as they provide context for figures referenced in the narrative.
+
+Done. I've extracted and cleaned the TeX source into `codex_scientific_text.md`:
+
+- **Mechanical copy**: Started from 9411342.tex (7104 lines) and extracted into the output file
+- **TeX plumbing removed**: Classes, packages, font/macro definitions, dimension settings, pure formatting comments, character checks, and author/title scaffolding
+- **Scientific content preserved**: All equations, definitions, derivations, field theory, symmetry breaking, topological defects, cosmic string dynamics, cosmological implications, and named results remain intact
+- **YAML front matter added**: Proper front matter with metadata and timestamps
+- **Final size**: 6038 lines of scientific text and structure

@@ -1,0 +1,2190 @@
+OpenAI Codex v0.128.0-alpha.1 (research preview)
+--------
+workdir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/helenabrittain/.codex/memories]
+reasoning effort: high
+reasoning summaries: none
+session id: 019df5a6-cc28-7500-ba86-3b1742620f74
+--------
+user
+You are the QFT literature extraction agent for project QFT.
+
+Working directory: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+Output file: codex_scientific_text.md
+
+Task:
+Use bash to make a mechanical starting copy from the TeX source. For a single substantive file, a starting move like
+`cp main.tex codex_scientific_text.md` is fine; for multi-file papers, concatenate the
+substantive TeX files with source-file headings. Then clean the copied text.
+
+Keep scientific prose, definitions, assumptions, derivations, equations,
+interpretations, caveats, and named results. Remove only non-scientific TeX
+plumbing: classes/packages, macro/style setup, comments, bibliography commands,
+author formatting, and purely presentational table/figure scaffolding.
+
+Preserve YAML front matter in codex_scientific_text.md. Use only files in this paper
+directory as scientific sources.
+
+codex
+I’m checking the paper directory to find the substantive TeX sources and the current state of `codex_scientific_text.md`, then I’ll make the mechanical copy and clean it in place.
+exec
+/bin/zsh -lc pwd in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'rg --files' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '1,120p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 671ms:
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+
+ succeeded in 627ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+
+ succeeded in 693ms:
+codex_scientific_text.md
+revised2.tex
+
+codex
+The directory is a single-file paper: `revised2.tex` plus the existing output scaffold. I’m reading the TeX structure now so I can preserve the YAML header and strip only the non-scientific LaTeX around the scientific content.
+exec
+/bin/zsh -lc "sed -n '1,220p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+
+\documentclass[twocolumn,showpacs,floatfix,prl]{revtex4}
+
+\usepackage[dvips]{epsfig}
+
+\usepackage{float}
+
+
+\begin{document}
+
+\title{Superconducting proximity effect and Majorana fermions
+at the surface of a topological insulator
+}
+
+\author{Liang Fu and C.L. Kane}
+\affiliation{Dept. of Physics and Astronomy, University of Pennsylvania,
+Philadelphia, PA 19104}
+
+\begin{abstract}
+We study the proximity effect between an $s$-wave superconductor and the
+surface states of a strong topological insulator.  The resulting two
+dimensional state resembles a spinless $p_x+ip_y$ superconductor, but
+does not break time reversal symmetry.  This state supports Majorana
+bound states at vortices.  We show that linear junctions between
+superconductors mediated by the topological insulator form a non chiral 1
+dimensional wire for Majorana fermions, and that circuits formed from
+these junctions provide a method for creating, manipulating and
+fusing Majorana bound states.
+\end{abstract}
+
+\pacs{71.10.Pm, 74.45.+c, 03.67.Lx, 74.90.+n}
+\maketitle
+
+Excitations with non-Abelian statistics\cite{mooreread} are the basis for the
+intriguing proposal of topological quantum computation\cite{kitaev}.  The simplest
+non-Abelian excitation is the zero energy Majorana bound state (MBS)
+associated with a vortex in a spinless $p_x+ip_y$
+superconductor\cite{readgreen,ivanov,stern,stone}.  The presence of $2N$ vortices
+leads to a $2^N$ fold
+ground state degeneracy.  Braiding processes, in which the
+vortices are adiabatically rearranged, perform non trivial operations
+in that degenerate space.  Though MBSs do not have the structure necessary
+to construct
+a universal quantum computer\cite{friedman}, the quantum information encoded in
+their degenerate states is topologically protected from local sources of
+decoherence\cite{kitaev3}.
+
+MBSs have been proposed to exist as quasiparticle
+excitations of the $\nu=5/2$ quantum Hall effect\cite{mooreread,readgreen},
+ in the cores of
+$h/4e$ vortices in the $p$-wave superconductor Sr$_2$RuO$_4$\cite{dassarma}
+and in cold atoms\cite{gurarie,tewari}.  In this
+paper we show that the proximity effect between an ordinary $s$-wave
+superconductor and the surface of a strong topological
+insulator (TI)\cite{fkm,moore,roy,fukane}
+leads to a state which hosts MBSs at vortices.  We then
+show that a linear superconductor - TI - superconductor
+(STIS) junction forms a non chiral 1D wire for Majorana fermions.
+Such junctions can be combined into circuits, which allow for
+the creation, manipulation and fusion of MBSs.
+
+A strong TI is a material with an insulating
+time reversal invariant
+bandstructure for which strong spin orbit interactions lead to an
+inversion of the band gap at an odd number of time reversed pairs of
+points in the Brillouin zone.
+Candidate materials include the semiconducting alloy
+Bi$_{1-x}$Sb$_x$, as well as HgTe and $\alpha$-Sn under uniaxial
+strain\cite{fukane}.  Strong TIs are distinguished from ordinary insulators
+by the presence of surface states, whose Fermi arc encloses an odd number of
+Dirac points and is associated with a Berry's phase of $\pi$.  In the
+simplest case, there is a single non degenerate Fermi arc
+described by the time reversal invariant Hamiltonian
+\begin{equation}
+H_0 = \psi^\dagger (-i v\vec\sigma\cdot \nabla -\mu)\psi.
+\label{h0}
+\end{equation}
+Here $\psi = (\psi_\uparrow, \psi_\downarrow)^T$ are electron field
+operators, $\vec \sigma =
+(\sigma^x,\sigma^y)$ are Pauli spin matrices and $\mu$ is the
+chemical potential.
+$H_0$ can only exist on a surface because it violates the fermion
+doubling theorem\cite{nielson}.  The topological metal is essentially {\it half}
+of an ordinary 2D electron gas.
+
+Suppose that an s-wave superconductor is deposited on the surface.
+Due to the proximity effect, Cooper pairs can tunnel into the surface
+states.  This can be described by adding
+$V = \Delta \psi_\uparrow^\dagger \psi_\downarrow^\dagger + h.c.$ to
+$H_0$, where $\Delta = \Delta_0 e^{i\phi}$ depends on the phase
+$\phi$ of the superconductor and the nature of the interface\cite{volkov}.
+The states of the surface can then be described by
+$H = \Psi^\dagger {\cal H} \Psi/2$, where in the Nambu
+notation $\Psi = ((\psi_\uparrow,
+\psi_\downarrow),(\psi_\downarrow^\dagger,-\psi_\uparrow^\dagger))^T$ and
+\begin{equation}
+{\cal H} = - i v \tau^z \sigma\cdot\nabla - \mu \tau^z + \Delta_0
+(\tau^x \cos\phi + \tau^y\sin\phi).
+\label{hbdg}
+\end{equation}
+$\vec\tau$ are Pauli matrices that mix the $\psi$ and $\psi^\dagger$ blocks of $\Psi$.
+Time reversal invariance follows from $[\Theta,{\cal
+H}]=0$, where $\Theta = i \sigma^y K$
+and $K$ is complex conjugation.  Particle hole symmetry
+is expressed by $\Xi = \sigma^y \tau^y K$, which satisfies $\{\Xi,{\cal H}\}=0$.
+When $\Delta$ is spatially homogeneous, the excitation spectrum is
+$E_{\bf k} = \pm \sqrt{(\pm v|{\bf k}| - \mu)^2 + \Delta_0^2}$.  For
+$\mu \gg \Delta_0$, the low energy
+spectrum resembles that of a spinless $p_x+i p_y$ superconductor.
+This analogy can be made precise by defining $c_{\bf k} =
+(\psi_{\uparrow {\bf k}} + e^{i\theta_{\bf k}} \psi_{\downarrow {\bf
+k}})/\sqrt{2}$ for ${\bf k} = k_0(\cos \theta_{\bf k},\sin\theta_{\bf
+k})$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+$\sum_{\bf k} (v|{\bf k}|-\mu)  c_{\bf k}^\dagger c_{\bf k} +
+(\Delta e^{i\theta_{\bf k}} c_{\bf k}^\dagger c_{-{\bf k}}^\dagger +
+h.c.)/2$.  Though this is formally equivalant to a
+spinless $p_x + i p_y$ superconductor there is an important
+difference: ${\cal
+H}$ respects time reversal symmetry, while the $p_x+i p_y$
+superconductor does not.
+%Unlike for spinless fermions, $\Theta$ is not
+%simply $K$.
+
+
+It is well known that a $h/2e$ vortex in a $p_x+i p_y$ superconductor
+leads to a MBS\cite{readgreen}.  This suggests that for
+$\mu \gg \Delta_0$ a
+similar bound state
+should exist for (\ref{hbdg}).  The bound states at a
+vortex are determined by solving the Bogoliubov de Gennes (BdG) equation
+${\cal H} \xi = E \xi$ in polar coordinates
+with $\Delta(r,\theta) =
+\Delta_0(r) e^{\pm i\theta}$.  A zero energy solution exists
+for any $\mu$.  The algebra is simplest for $\mu = 0$, where the zero
+mode has the form
+\begin{equation}
+\xi^\pm_0(r,\theta) = \chi^\pm e^{-\int_0^r dr' \Delta_0(r')/v},
+\label{vortex}
+\end{equation}
+with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+
+Another feature of $p_x + i p_y$ superconductors is the
+presence of chiral edge states
+\cite{readgreen,buchholtz,sigrist}.
+With time reversal symmetry,
+chiral edge states can {\it not} occur in our system.  The
+surface - which itself is the boundary of a three dimensional crystal
+- can not have a boundary.  By breaking time reversal symmetry,
+however, a Zeeman field can introduce a mass term $M\sigma^z$ into
+(\ref{h0},\ref{hbdg})
+which can open an insulating
+gap in the surface state spectrum.  By solving (\ref{hbdg})
+we find that the interface between this
+insulating state and the superconducting state has chiral
+Majorana edge states.  This could possibly be
+realized by depositing superconducting and insulating magnetic materials
+on the surface to form a superconductor-TI-magnet (STIM) junction.  It is interesting to note that
+for spinless electrons the $p_x+ip_y$ superconductor violates
+time reversal, while the vacuum does not.  For our surface states it is
+the {\it insulator} which violates time reversal.
+A related effect could also occur at the
+edge of a {\it two dimensional} TI\cite{km,murakami,bhz},
+which is described by (\ref{h0},\ref{hbdg}) restricted to one spatial dimension.
+At the boundary between a region with superconducting gap $\Delta \tau^x$
+and a region with insulating gap $M \sigma^z$ we find a
+MBS, analogous to the end states
+discussed in Refs. \onlinecite{kitaev2,semenoff}.
+%Further discussion of STIM junctions will be deferred to elsewhere.
+In the following we will focus on STIS junctions, which
+can lead to {\it non chiral} one dimensional Majorana fermions, as well
+as MBSs.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig1.eps,width=3.0in} }
+ \caption{(a) A STIS line junction.  (b) Spectrum of a line junction
+ for $W=\mu=0$ as a function of
+ momentum for various $\phi$.  The solid line shows the Andreev bound
+ states for $\phi=\pi$.  The dashed lines are for $\phi = 3\pi/4$,
+ $\pi/2$ and $\pi/4$.  The bound states for $\phi=0$ merge with the
+ continuum, indicated by the shaded region.
+   (c) A tri-junction between three superconductors.  (d)
+ Phase diagram for the tri-junction.  In
+ the shaded regions there is a  $\pm$ MBS at the junction.
+ }
+\end{figure}
+
+Consider a line junction of width $W$
+and length $L\rightarrow \infty$
+between two superconductors with phases $0$ and $\phi$ in contact with
+TI surface states.
+We analyze the Andreev bound states in the surface state channel
+between the superconductors by solving the BdG
+equation with $\Delta(x,y) = \Delta_0 e^{i\phi}$ for
+$y>W/2$, $\Delta_0$ for $y<-W/2$ and $0$ otherwise.
+The calculation is similar to Titov, Ossipov and
+Beenakker's\cite{beenakker} analysis of graphene SNS junctions,
+except for the
+important difference that graphene has four independent Dirac points,
+while we only have one.
+For $W \ll v/\Delta_0$ there are two branches
+of bound states, which disperse with the momentum
+$q$ in the $x$ direction.  For  $W=\mu=0$
+we find
+\begin{equation}
+E_\pm(q) = \pm \left[v^2 q^2 + \Delta_0^2 \cos^2 (\phi/2)\right]^{1/2}.
+\end{equation}
+
+For $\phi=\pi$ the spectrum is gapless. It is useful to construct a
+low energy theory, for $q \sim 0$ and $\phi = \pi - \epsilon$. Finite
+$W$ and $\mu$ can then easily be included. We first solve the BdG
+equation for the two $E=0$ modes $\zeta_{a=1,2}(y)$ at $q=0$
+and $\phi=\pi$.  It is useful to choose them to satisfy $\Xi \zeta_a
+= \zeta_a$. Up to a normalization they may be written
+\begin{equation} \zeta_1 \pm i
+\zeta_2 =  ((1,\pm i),(\pm i,-1))^T
+ e^{\pm i \mu y/ v -\int_0^{|y|}d\tilde y\Delta_0(\tilde y)/v}.
+ \label{zeta}
+\end{equation}
+We next evaluate $\langle\zeta_a| q \sigma^x\tau^z|\zeta_b\rangle$ and
+$\langle\zeta_a|\epsilon\Delta_0 \theta(y-W) \tau^y|\zeta_b\rangle$
+
+exec
+/bin/zsh -lc 'rg -n "''^('"\\\\documentclass|\\\\usepackage|\\\\newcommand|\\\\def|\\\\begin\\{document\\}|\\\\end\\{document\\}|\\\\title|\\\\author|\\\\date|\\\\maketitle|\\\\bibliograph|\\\\bibliography|\\\\input|\\\\include)\" revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 2 in 0ms:
+rg: regex parse error:
+    (?:^(\documentclass|\usepackage|\newcommand|\def|\begin\{document\}|\end\{document\}|\title|\author|\date|\maketitle|\bibliograph|\bibliography|\input|\include))
+                          ^
+error: invalid hexadecimal digit
+
+codex
+The source is a straightforward single-file `revtex` paper with the scientific body in `revised2.tex`. I’ve confirmed the preamble and abstract structure; next I’m reading the remainder so I can strip figure scaffolding, comments, and bibliography commands without dropping equations or derivations.
+exec
+/bin/zsh -lc "rg -n -F '\\documentclass' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+2:\documentclass[twocolumn,showpacs,floatfix,prl]{revtex4}
+
+exec
+/bin/zsh -lc "sed -n '221,440p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+to obtain the ``$k\cdot p$" Hamiltonian,
+\begin{equation}
+\tilde{\cal  H} = -i \tilde v \tau^x \partial_x + \delta \tau^y,
+\label{h1d}
+\end{equation}
+where
+$\tilde v = v[\cos\mu W +
+(\Delta_0/\mu)\sin\mu W]\Delta_0^2/(\mu^2+\Delta_0^2)$ and
+$\delta = \Delta_0 \cos(\phi/2)$.
+The Pauli matrices $\tau^{x,y}_{ab}$ act on $\zeta_a$ and are different from
+those in (\ref{hbdg}).  In this basis $\Theta = i\tau^y K$ and $\Xi = K$.
+%The effect of finite $\mu$ is to reduce $\tilde v$.
+$\tilde{\cal H}$ resembles the Su Schrieffer Heeger (SSH)
+model\cite{ssh}.
+% for polyacetalene,
+%where $\delta$ plays the role of the phonon displacement.
+However, unlike that model, the $E_\pm(q)$
+states are not independent, and
+the corresponding Bogoliubov quasiparticle operators
+satisfy $\gamma_+(q) = \gamma_-(-q)^\dagger$.
+The system is thus {\it half} a regular 1D Fermi gas,
+or a non chiral ``Majorana quantum wire".
+
+Below it will be useful to consider
+junctions that bend and close.  When a line junction makes an angle
+$\theta$ with the $x$ axis the basis vectors (\ref{zeta}) are
+modified according to $\zeta_a\rightarrow e^{i \sigma_z
+\theta/2} \zeta_a$.  $\tilde{\cal H}$, however, is
+unchanged even when $\theta(x)$ varies.  On a circle,
+$\zeta_a$ changes sign when
+$\theta$ advances by $2\pi$.  Therefore,
+eigenstates of $\tilde{\cal H}$ must obey {\it antiperiodic} boundary
+conditions, $\varphi(0) = -\varphi(2\pi)$.
+
+Next consider a tri-junction, where three superconductors
+separated by line junctions meet at a point, as in Fig. 1c.
+When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+exists at the junction.  Though the general BdG
+equation cannot be solved analytically, this phase
+diagram can be deduced by solving
+special limits.  When $\phi_k = 0$ there is
+no bound state.  Another solvable limit
+is when three line junctions with $W=0$
+are oriented at 120$^\circ$, and $\phi_k =\pm k (2\pi/3)$.  This is
+a discrete analog of a $\pm$ vortex with $C_3$ symmetry, and is
+indicated by the circles in Fig. 1d.  For $\mu = 0$ we find a MBS
+identical to (\ref{vortex})
+with the exponent replaced by $-\Delta_0 \hat n\cdot {\bf r}/v$.  Here
+$\hat n$ is a constant unit vector in each superconductor
+that bisects the angle between neighboring junctions.
+The MBS can not disappear
+when $\phi_k$ are changed continuously
+unless the energy gap closes. The phase boundaries indicated in Fig.
+1d therefore follow from the solution of the
+line junction, and occur when the phase difference between
+neighboring superconductors is $\pi$.
+
+It is instructive to consider the limit where two of the lines
+entering the tri-junction are nearly gapless.  For
+$\phi_1=\pi-\epsilon_1$ and $\phi_2 =
+\pi-\epsilon_2$ Fig. 1d predicts
+a MBS when $\epsilon_1\epsilon_2<0$.
+This can be understood with Eq. \ref{h1d}, which describes the lower two
+line junctions, which have masses
+$\delta_{1,2} = \Delta_0 \epsilon_{1,2}/2$.  When $\epsilon_1\epsilon_2<0$
+$\delta$ changes sign, leading
+to the well known midgap
+state of the SSH model\cite{ssh,jackiw},
+which in the present context is a MBS.
+
+A line junction terminated by two tri-junctions
+allows MBSs to be created, manipulated and fused.  When $\phi$
+passes through $\pi$ MBSs appear or disappear at both ends.
+To model this we assume the phases of the superconductors
+on either side of the line junction are $0$ and
+$\pi - \epsilon$, and that
+the superconductors at the left (right) ends have phases
+$\phi_{L(R)}$, which are not close to $0$ or $\pi$.  This allows us to
+model the ends using a hard wall boundary condition
+$\delta \rightarrow \pm \infty$, where the sign at each end is
+$s_{L,R} = {\rm sgn}\sin\phi_{L,R}$.  It is straightforward to solve (\ref{h1d})
+to determine the spectrum as a function of $\delta = \Delta_0 \epsilon/2$
+for a line of length $L$ using this boundary condition.  There are two
+cases depending on the sign of $s_L s_R$.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig2.eps,width=3.2in} }
+ \caption{Energy levels in units of $\Delta E = \tilde v/L$ for a STIS line junction terminated by two tri-junctions as a
+ function of $\delta = \Delta_0 \cos \phi/2$ for $\phi\sim \pi$.  In (a) two MBSs are created
+ or fused when $\phi$ passes through $\pi$.  In (b) a single MBS is transported from one
+ end to the other.  The insets depict the MBSs. }
+\end{figure}
+
+For
+$s_L=s_R=1$ either zero or a $\pm$ pair of MBSs are expected.  The
+spectrum, shown in Fig. 2a, may be written
+$E_n^\pm(\delta) = \pm \sqrt{\delta^2 + \tilde v^2 k_n^2}$, where $k_n$ are
+solutions to $\tan k_n L = - \tilde v k_n/\delta$.
+Midgap states are present for $\delta  < 0$.  For
+$L\rightarrow\infty$ a pair
+of zero energy states $\xi_{1,2}(x,y)$
+are localized at each end with wavefunctions
+\begin{equation}
+\xi_1 = \zeta_1  e^{-|\delta|
+x/\tilde v},  \quad \xi_2  = \zeta_2  e^{-|\delta|
+(L-x)/\tilde v},
+\end{equation}
+where $\zeta_a(y)$ are given in (\ref{zeta}).
+For finite $-\delta L/\tilde v\gg 1$ the eigenstates are
+$\varphi_\pm = \xi_1 \pm i \xi_2$, with energies
+$E_0^\pm(\delta) \sim \pm 2|\delta| e^{-|\delta| L/\tilde v}$.
+These define Bogoliubov quasiparticle operators,
+$\Gamma_\pm = (\varphi_\pm)^\dagger \Psi$.  Since $\varphi_\pm = \Xi \varphi_\mp$
+it follows that $\Gamma_+ = \Gamma_-^\dagger \equiv (\gamma_1-i\gamma_2)/2$
+where $\gamma_a = (\xi_a)^\dagger \Psi$ are Majorana operators.
+The pair $\gamma_{1,2}$ thus define a two state Hilbert space
+indexed by $n_{12} = \Gamma_+^\dagger \Gamma_+$.
+The splitting
+between $\varphi_\pm$ then characterizes the interaction between
+the MBSs,
+\begin{equation}
+H = E_0^+(\delta) ( \Gamma_+^\dagger\Gamma_+-1/2) = i E_0^+(\delta) \gamma_2 \gamma_1/2.
+\label{splitting}
+\end{equation}
+The $s_L=s_R=-1$ case is similar.  Eq. \ref{splitting}
+applies to both cases, provided $\gamma_2$ is associated with the $+$
+vortex.
+
+This provides a method for both creating and fusing pairs of
+MBSs.  Suppose we begin in the ground state at $\delta >
+0$ with no MBSs present.  Upon adiabatically decreasing
+$\delta$ through $0$ MBSs appear in
+the state $|0_{12}\rangle$.   Next suppose that initially $\delta<0$, and
+ a pair of MBSs are present in the state $|n_{12}\rangle$.
+When $\delta$ is
+adiabatically increased through $0$ the system will remain in
+$|n_{12}\rangle$, which will either evolve to
+the ground state or to a state with one extra
+fermion.  The difference between the two states can be probed by
+measuring the {\it current} flowing across the linear junction,
+which depends on whether the Andreev bound state $\varphi_+$ is occupied.
+The measured current will be $I = \bar I \pm \Delta I/2$, where
+the current carried by $\varphi_+$ is
+$\Delta I = (e/\hbar)dE_0^+/d\phi \sim e \Delta_0/2\hbar$
+for $\delta L/\tilde v \gtrsim 1$.  For $\Delta_0 \sim .1$ meV
+$\Delta I \sim 10$ nA.
+
+
+Finally, consider the case
+$s_L = -s_R = 1$, in which a $-$ MBS is at one end or the other, as in
+Fig. 2b.  There are plane wave solutions with energy
+$E^\pm_n = \pm \sqrt{\delta^2 + (n \pi \tilde v/L)^2}$ for
+$n=1, 2, ...$, along with a single $E_0=0$ state
+with wavefunction
+\begin{equation}
+\xi(x,y) \propto
+\zeta_1(y) e^{\delta x/\tilde v}
+\end{equation}
+Depending on the sign of $\delta$,
+$\xi$ is exponentially localized at one end or the other.
+When $\delta$ changes sign, the MBS
+smoothly switches sides.  This provides a method for transporting
+a MBS from one node to another.
+
+
+
+We now discuss simple circuits built from
+STIS junctions.  First, consider Fig. 3a and a
+process in which the phase of the central island is
+adiabatically advanced from $0$ to $2\pi$.  For $\phi=0$ there
+are no MBSs.  At $\phi = 2\pi/3$ two pairs of
+MBSs are created at the top and bottom line junctions.
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find\cite{kitaev3}
+\begin{equation}
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+\label{entangle}
+\end{equation}
+Thus, after the cycle, the left and right segments are in an
+entangled state.  The currents measured across the left and
+right junctions will be $\bar I \pm \Delta I/2$ with 50\% probability and will be
+perfectly correlated.
+
+\begin{figure}
+ \centerline{ \epsfig{figure=fig3.eps,width=2.5
+in} }
+ \caption{Simple circuits made from STIS junctions.  When
+ $\phi$ is advanced from $0$ to $2\pi$ (a)
+ produces an entangled state and
+ (b) interchanges MBSs 1 and 2.}
+\end{figure}
+
+Eq. \ref{entangle} can be understood in two ways.  First, the cycle
+effectively creates two pairs of MBS's, interchanges a pair (say 2
+and 4) and brings the pairs back together.  As shown by Ivanov
+\cite{ivanov}, this corresponds to the operator
+$P_{24} = (1+\gamma_2\gamma_4)/\sqrt{2}$, which leads directly to
+(\ref{entangle}).  Alternatively, this result can be derived from
+(\ref{h1d},\ref{splitting}).  From (\ref{splitting}),
+the Hamiltonian for $\phi \lesssim 2\pi/3$ is
+$H_1 \propto i(\gamma_1\gamma_2+\gamma_3\gamma_4)$.  For $\phi \gtrsim 4\pi/3$
+it becomes $H_2 \propto i(\gamma_1\gamma_4 - \gamma_3\gamma_2)$.
+Here the minus sign arises because, as explained after Eq.
+\ref{h1d}, the closed 1D circuit must have antiperiodic boundary
+conditions.  Thus, one of the line junctions must have a cut where
+the wavefunction changes sign.  We chose the cut to be on the
+junction between 2 and 3.  It is then straightforward to
+express the groundstate of $H_1$ in terms of the eigenstates of
+$H_2$, which leads directly to (\ref{entangle}).
+
+Fig. 3b gives a geometry for interchanging MBSs without fusing them.
+For $\phi = 0$ MBSs are located as shown.  When $\phi$
+advances by $2\pi$ the MBSs hop counterclockwise three
+times and are interchanged.  Ivanov's rules\cite{ivanov} predict
+$\gamma_2 \rightarrow \gamma_1$, $\gamma_1 \rightarrow -\gamma_2$.
+Again the minus sign can be understood in terms of the cut due to
+antiperiodic boundary conditions.  One can imagine larger arrays,
+
+exec
+/bin/zsh -lc "rg -n -F '\\bibliography' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 1 in 0ms:
+codex
+I have enough context to clean this mechanically rather than hand-retyping. Plan:
+1. Preserve the existing YAML front matter and heading from `codex_scientific_text.md`.
+2. Use a bash pipeline to append a starting copy of the scientific body from `revised2.tex`.
+3. Strip LaTeX plumbing: preamble, `\maketitle`, PACS, bibliography commands, comments, and figure environments/captions.
+4. Keep prose and display equations intact, then do a quick pass for obvious leftover scaffolding.
+exec
+/bin/zsh -lc "sed -n '441,520p' revised2.tex" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+where this process performs elementary braiding operations.
+
+
+The experimental implementation of this proposal will require
+progress on many fronts.  The first is to find a strong TI
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV \cite{fukane}. The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths\cite{volkov}.  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor \cite{chrestin}.
+%The phases of the different superconducting islands must be controlled using a
+%sequence of Josephson junctions.
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+be similar to a graphene SNS junction\cite{beenakker}.
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+tri-junctions as in Fig. 2 the presence of
+MBSs can be controlled.  It would then
+be interesting to perform tests of the non locality of
+MBSs envisioned in Refs. \onlinecite{semenoff,demler}.
+
+Manipulating and fusing MBSs places more
+stringent requirements on the energy gaps.  The junctions should
+be sufficiently short that
+$\Delta E = \tilde v/L > k_B T$, but sufficiently long
+that the MBSs are well localized.  The good news is that
+$\Delta E$ varies as a power of $L$, while the MBS overlap
+is exponential, so at low temperature both criteria can
+be achieved.
+
+%It is desirable to choose a topological
+%insulator with $\mu \sim 0$ to maximize $\tilde v$.
+If the process of varying $\delta$ to manipulate the MBSs
+is non adiabatic or $\Delta E < k_B T$ then
+additional quasiparticles could be excited.
+If those quasiparticles escape and interact with
+other MBSs, then the state of the MBSs will
+be disturbed.  However, if $\delta \ll \Delta_0$ the excited
+quasiparticles will be confined to the segment in which they were
+created.  If $\delta$ is turned up so that
+$k_B T \ll \delta \ll \Delta_0$, and
+the system relaxes back to its ground state, then the state of
+the MBSs will remain intact.  Thus, if there is
+sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+can tolerate these excitations.
+
+%To conclude, this paper proposes a new venue for non-Abelian
+%excitations.  We hope that this will motivate the search for
+%TIs.
+
+We thank Sankar das Sarma and Steve Simon for
+helpful discussions.   This work was supported by NSF grant
+DMR-0605066, and by ACS PRF grant 44776-AC10.
+
+
+
+
+
+\begin{thebibliography}{10}
+
+
+\bibitem{mooreread} G. Moore and N. Read, Nucl. Phys. B {\bf 360},
+362 (1991).
+
+\bibitem{kitaev} A. Kitaev, Ann. Phys. {\bf 303}, 2 (2003).
+
+\bibitem{readgreen} N. Read and D. Green, Phys. Rev. B {\bf 61},
+10267 (2000).
+
+\bibitem{ivanov} D.A. Ivanov, Phys. Rev. Lett. {\bf 86}, 268 (2001).
+
+exec
+/bin/zsh -lc 'tail -n 80 revised2.tex' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+70}, 205338 (2004).
+
+\bibitem{stone} M. Stone and S.B. Chung, Phys. Rev. B {\bf 73},
+014505 (2006).
+
+\bibitem{friedman} M.H. Freedman, M. Larsen and Z. Wang,
+Commun. Math. Phys. {\bf 227}, 605 (2002).
+
+\bibitem{kitaev3} A. Kitaev, Ann. Phys. {\bf 321}, 2 (2006).
+
+\bibitem{dassarma} S. Das Sarma, C. Nayak, S. Tewari, Phys. Rev. B
+{\bf 73}, 220502(R) (2006).
+
+\bibitem{gurarie} V. Gurarie, L. Radzihovsky and A.V. Andreev, Phys.
+Rev. Lett. {\bf 94}, 230403 (2005).
+
+\bibitem{tewari} S. Tewari, et al., Phys. Rev. Lett. {\bf 98}, 010506
+(2007).
+
+\bibitem{fkm} L. Fu, C.L. Kane and E.J. Mele, Phys. Rev. Lett. {\bf
+98}, 106803 (2007).
+
+\bibitem{moore} J.E. Moore and L. Balents, Phys. Rev. B {\bf 75},
+121306(R) (2007).
+
+\bibitem{roy} R. Roy, arXiv:cond-mat/0607531 (unpublished).
+
+\bibitem{fukane} L. Fu and C.L. Kane, Phys. Rev. B {\bf 76}, 045302
+(2007).
+
+\bibitem{nielson}  H. Nielssen and N. Ninomiya, Phys. Lett. {\bf
+130B}, 389 (1983).
+
+\bibitem{volkov} A.F. Volkov et al., Physica C {\bf 242}, 261 (1995).
+
+\bibitem{buchholtz} L.J. Buchholtz and G. Zwicknagl, Phys. Rev. B {\bf
+23}, 5788 (1981).
+
+\bibitem{sigrist} M. Matsumoto and M. Sigrist, J. Phys. Soc. Jpn.
+{\bf 68}, 994 (1999).
+
+\bibitem{km} C.L. Kane and E.J. Mele Phys. Rev. Lett. {\bf 95}
+226801 (2005); ibid {\bf 95} 146802 (2005).
+
+
+\bibitem{murakami} S. Murakami, Phys. Rev. Lett. {\bf 97}, 236805
+(2006).
+
+\bibitem{bhz} A. Bernevig, T. Hughes and S.C. Zhang, Science
+{\bf 314}, 1757 (2006).
+
+\bibitem{kitaev2} A. Kitaev, ArXiv:cond-mat/0010440 (unpublished).
+
+\bibitem{semenoff} G. W. Semenoff and P. Sodano, ArXiv:cond-mat/0601261
+(unpublished).
+
+\bibitem{beenakker} M. Titov and C.W.J. Beenakker, Phys. Rev. B {\bf
+74}, 041401(R) (2006); M. Titov, A. Ossipov and C.W.J. Beenakker, Phys.
+Rev. B {\bf 75}, 045417 (2007).
+
+\bibitem{ssh} W.P. Su, J.R. Schrieffer and A.J. Heeger, Phys. Rev.
+B {\bf 22}, 2099 (1980).
+
+\bibitem{jackiw} R. Jackiw and C. Rebbi, Phys Rev. D {\bf 13}, 3398
+(1976).
+
+\bibitem{chrestin} A. Chrestin, T. Matsuyama and U. Merkt, Phys. Rev.
+B {\bf 55}, 8457 (1997).
+
+\bibitem{demler} C. J. Bolech and E. Demler,
+Phys. Rev. Lett. {\bf 98}, 237002 (2007).
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+codex
+I’m about to rewrite `codex_scientific_text.md` with a bash-built extraction: keep the current YAML/header block, append a cleaned body from `revised2.tex`, and normalize the most common LaTeX inline commands so the scientific text reads as plain markdown.
+codex
+The extraction pass is ready. I’m applying it now, then I’ll inspect the markdown for leftover TeX scaffolding and patch any small issues by hand.
+exec
+/bin/zsh -lc 'tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+{
+  sed -n '"'1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n'
+  perl -0pe '
+    s/.*?\\\\begin\\{document\\}\\s*//s;
+    s/\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}//sg;
+    s/\\\\end\\{document\\}.*//s;
+    s/(?<"'!'"\\\\)%.*"'$//mg;
+    s/'"\\\\title\\{(.*?)\\}\\s*/do { my "'$t = $1; $t =~ s/'"\\s+/ /g; \"## "'$t'"\\\\n\\\\n\" }/seg;
+    s/\\\\author\\{.*?\\}\\s*//sg;
+    s/\\\\affiliation\\{.*?\\}\\s*//sg;
+    s/\\\\pacs\\{.*?\\}\\s*//sg;
+    s/\\\\maketitle\\s*//g;
+    s/\\\\begin\\{abstract\\}\\s*/**Abstract.** /g;
+    s/\\s*\\\\end\\{abstract\\}\\s*/\\\\n\\\\n/g;
+    s/\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*//sg;
+    s/\\\\begin\\{equation\\}/\\\\n"'$$'"\\\\n/g;
+    s/\\\\end\\{equation\\}/\\\\n"'$$'"\\\\n/g;
+    s/\\\\label\\{["'^}]+'"\\}//g;
+    s/\\\\onlinecite\\{(["'^}]*)'"\\}/[Ref: "'$1]/g;
+    s/'"\\\\cite\\{(["'^}]*)'"\\}/[Refs: "'$1]/g;
+    s/'"\\\\eqref\\{(["'^}]*)'"\\}/("'$1)/g;
+    s/'"\\\\ref\\{(["'^}]*)'"\\}/"'$1/g;
+    s/'"\\{\\\\it\\s+(["'^}]*)'"\\}/*"'$1*/g;
+    s/'"\\\\emph\\{(["'^}]*)'"\\}/*"'$1*/g;
+    s/We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*//s;
+    s/[ \\t]+\\n/\\n/g;
+    s/\\n{3,}/\\n\\n/g;
+    s/"'^'"\\s+//;
+    s/\\s+"'$//;
+  '"' revised2.tex
+} > \""'$tmpfile"
+mv "$tmpfile" codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 842ms:
+Backslash found where operator expected at -e line 6, near "s/\\title\{(.*?)\}\s*/do { my $t = $1; $t =~ s/\"
+Backslash found where operator expected at -e line 6, near ")\"
+	(Missing operator before \?)
+syntax error at -e line 6, near "s/\\title\{(.*?)\}\s*/do { my $t = $1; $t =~ s/\"
+Unmatched right curly bracket at -e line 6, at end of line
+Unmatched right curly bracket at -e line 13, at end of line
+syntax error at -e line 13, near ";}"
+Execution of -e aborted due to compilation errors.
+
+codex
+The first pass tripped over the inline Perl replacement for the multiline title. I’m rerunning the extraction with the same logic in a more stable form, then I’ll inspect the result.
+exec
+/bin/zsh -lc 'tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+{
+  sed -n '"'1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n'
+  perl -0ne '
+    s{.*?\\\\begin\\{document\\}\\s*}{}s;
+    s{\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}}{}sg;
+    s{\\\\end\\{document\\}.*}{}s;
+    s{(?<"'!'"\\\\)%.*"'$}{}mg;
+    s{'"\\\\title\\{(.*?)\\}\\s*}{my "'$t = $1; $t =~ s/'"\\s+/ /g; \"## "'$t'"\\n\\n\"}seg;
+    s{\\\\author\\{.*?\\}\\s*}{}sg;
+    s{\\\\affiliation\\{.*?\\}\\s*}{}sg;
+    s{\\\\pacs\\{.*?\\}\\s*}{}sg;
+    s{\\\\maketitle\\s*}{}g;
+    s{\\\\begin\\{abstract\\}\\s*}{**Abstract.** }g;
+    s{\\s*\\\\end\\{abstract\\}\\s*}{\\n\\n}g;
+    s{\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*}{}sg;
+    s{\\\\begin\\{equation\\}}{\\n"'$$'"\\n}g;
+    s{\\\\end\\{equation\\}}{\\n"'$$'"\\n}g;
+    s{\\\\label\\{["'^}]+'"\\}}{}g;
+    s{\\\\onlinecite\\{(["'^}]*)'"\\}}{[Ref: "'$1]}g;
+    s{'"\\\\cite\\{(["'^}]*)'"\\}}{[Refs: "'$1]}g;
+    s{'"\\\\eqref\\{(["'^}]*)'"\\}}{("'$1)}g;
+    s{'"\\\\ref\\{(["'^}]*)'"\\}}{"'$1}g;
+    s{'"\\{\\\\it\\s+(["'^}]*)'"\\}}{*"'$1*}g;
+    s{'"\\\\emph\\{(["'^}]*)'"\\}}{*"'$1*}g;
+    s{We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*}{}s;
+    s{[ \\t]+\\n}{\\n}g;
+    s{\\n{3,}}{\\n\\n}g;
+    s{"'^'"\\s+}{};
+    s{\\s+"'$}{};
+    print;
+  '"' revised2.tex
+} > \""'$tmpfile"
+mv "$tmpfile" codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 167ms:
+Unmatched [ in regex; marked by <-- HERE in m/\\label\{[ <-- HERE ^/ at -e line 17.
+
+codex
+The regex issue is from brace-delimited substitutions against LaTeX braces. I’m switching those patterns to a safer delimiter and rerunning the same extraction.
+exec
+/bin/zsh -lc 'tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+{
+  sed -n '"'1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n'
+  perl -0ne '
+    s"'!.*?'"\\\\begin\\{document\\}\\s*"'!!s;
+    s!'"\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}"'!!sg;
+    s!'"\\\\end\\{document\\}.*"'!!s;
+    s!(?<!'"\\\\)%.*"'$!!mg;
+    s!'"\\\\title\\{(.*?)\\}\\s*"'!my $t = $1; $t =~ s/'"\\s+/ /g; \"## "'$t'"\\n\\n\""'!seg;
+    s!'"\\\\author\\{.*?\\}\\s*"'!!sg;
+    s!'"\\\\affiliation\\{.*?\\}\\s*"'!!sg;
+    s!'"\\\\pacs\\{.*?\\}\\s*"'!!sg;
+    s!'"\\\\maketitle\\s*"'!!g;
+    s!'"\\\\begin\\{abstract\\}\\s*"'!**Abstract.** !g;
+    s!'"\\s*\\\\end\\{abstract\\}\\s*"'!'"\\n\\n"'!g;
+    s!'"\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*"'!!sg;
+    s!'"\\\\begin\\{equation\\}"'!'"\\n"'$$'"\\n"'!g;
+    s!'"\\\\end\\{equation\\}"'!'"\\n"'$$'"\\n"'!g;
+    s!'"\\\\label\\{["'^}]+'"\\}"'!!g;
+    s!'"\\\\onlinecite\\{(["'^}]*)'"\\}"'![Ref: $1]!g;
+    s!'"\\\\cite\\{(["'^}]*)'"\\}"'![Refs: $1]!g;
+    s!'"\\\\eqref\\{(["'^}]*)'"\\}"'!($1)!g;
+    s!'"\\\\ref\\{(["'^}]*)'"\\}"'!$1!g;
+    s!'"\\{\\\\it\\s+(["'^}]*)'"\\}"'!*${1}*!g;
+    s!'"\\\\emph\\{(["'^}]*)'"\\}"'!*${1}*!g;
+    s!We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*"'!!s;
+    s![ '"\\t]+\\n"'!'"\\n"'!g;
+    s!'"\\n{3,}"'!'"\\n\\n"'!g;
+    s!''^'"\\s+"'!!;
+    s!'"\\s+"'$!!;
+    print;
+  '"' revised2.tex
+} > \""'$tmpfile"
+mv "$tmpfile" codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 164ms:
+Final $ should be \$ or $name at -e line 5, within string
+syntax error at -e line 5, near "s!(?<!\\)%.*$!"
+Execution of -e aborted due to compilation errors.
+
+codex
+I’ve simplified the extraction path: pull the title separately, start the body at the abstract, and then clean the remaining LaTeX. That avoids the multiline title parsing edge case while keeping the output mechanical.
+exec
+/bin/zsh -lc 'tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+title=$(perl -0ne '"'if (/\\\\title\\{(.*?)\\}/s) { "'$t = $1; $t =~ s/'"\\s+/ /g; print "'$t; }'"' revised2.tex)
+{
+  sed -n '1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n## %s\\n\\n' \""'$title"
+  perl -0ne '"'
+    s"'!.*?'"\\\\begin\\{abstract\\}\\s*"'!**Abstract.** !s;
+    s!'"\\s*\\\\end\\{abstract\\}\\s*"'!'"\\n\\n"'!s;
+    s!'"\\\\pacs\\{.*?\\}\\s*\\\\maketitle\\s*"'!!s;
+    s!'"\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}"'!!sg;
+    s!'"\\\\end\\{document\\}.*"'!!s;
+    s!(?<!'"\\\\)%.*"'$!!mg;
+    s!'"\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*"'!!sg;
+    s!'"\\\\begin\\{equation\\}"'!'"\\n"'$$'"\\n"'!g;
+    s!'"\\\\end\\{equation\\}"'!'"\\n"'$$'"\\n"'!g;
+    s!'"\\\\label\\{["'^}]+'"\\}"'!!g;
+    s!'"\\\\onlinecite\\{(["'^}]*)'"\\}"'![Ref: $1]!g;
+    s!'"\\\\cite\\{(["'^}]*)'"\\}"'![Refs: $1]!g;
+    s!'"\\\\eqref\\{(["'^}]*)'"\\}"'!($1)!g;
+    s!'"\\\\ref\\{(["'^}]*)'"\\}"'!$1!g;
+    s!'"\\{\\\\it\\s+(["'^}]*)'"\\}"'!*${1}*!g;
+    s!'"\\\\emph\\{(["'^}]*)'"\\}"'!*${1}*!g;
+    s!We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*"'!!s;
+    s![ '"\\t]+\\n"'!'"\\n"'!g;
+    s!'"\\n{3,}"'!'"\\n\\n"'!g;
+    s!''^'"\\s+"'!!;
+    s!'"\\s+"'$!!;
+    print;
+  '"' revised2.tex
+} > \""'$tmpfile"
+mv "$tmpfile" codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 174ms:
+Final $ should be \$ or $name at -e line 7, within string
+syntax error at -e line 7, near "s!(?<!\\)%.*$!"
+Execution of -e aborted due to compilation errors.
+
+codex
+The repeated Perl parse failure is just quoting noise from cramming the script into one line. I’m switching to a here-doc Perl script inside bash so the extraction logic is explicit and stable.
+exec
+/bin/zsh -lc 'tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+title=$(perl -0ne '"'if (/\\\\title\\{(.*?)\\}/s) { "'$t = $1; $t =~ s/'"\\s+/ /g; print "'$t; }'"' revised2.tex)
+{
+  sed -n '1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n## %s\\n\\n' \""'$title"
+  perl -0 revised2.tex <<'"'PERL'
+local "'$/;
+$_ = <>;
+s/.*?'"\\\\begin\\{abstract\\}\\s*/**Abstract.** /s;
+s/\\s*\\\\end\\{abstract\\}\\s*/\\n\\n/s;
+s/\\\\pacs\\{.*?\\}\\s*\\\\maketitle\\s*//s;
+s/\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}//sg;
+s/\\\\end\\{document\\}.*/ /s;
+s/(?<"'!'"\\\\)%.*"'$//mg;
+s/'"\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*//sg;
+s/\\\\begin\\{equation\\}/\\n"'$$'"\\n/g;
+s/\\\\end\\{equation\\}/\\n"'$$'"\\n/g;
+s/\\\\label\\{["'^}]+'"\\}//g;
+s/\\\\onlinecite\\{(["'^}]*)'"\\}/[Ref: "'$1]/g;
+s/'"\\\\cite\\{(["'^}]*)'"\\}/[Refs: "'$1]/g;
+s/'"\\\\eqref\\{(["'^}]*)'"\\}/("'$1)/g;
+s/'"\\\\ref\\{(["'^}]*)'"\\}/"'$1/g;
+s/'"\\{\\\\it\\s+(["'^}]*)'"\\}/*"'$1*/g;
+s/'"\\\\emph\\{(["'^}]*)'"\\}/*"'$1*/g;
+s/We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*//s;
+s/[ \\t]+\\n/\\n/g;
+s/\\n{3,}/\\n\\n/g;
+s/"'^'"\\s+//;
+s/\\s+"'$//;
+print;
+PERL
+} > "$tmpfile"
+mv "$tmpfile" codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 1350ms:
+Backslash found where operator expected at revised2.tex line 4, near "\"
+	(Missing semicolon on previous line?)
+Backslash found where operator expected at revised2.tex line 6, near "\"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 17, near "PA 19104"
+	(Do you need to predeclare PA?)
+Scalar found where operator expected at revised2.tex line 20, near "$s$-"
+	(Missing operator before $-?)
+Bareword found where operator expected at revised2.tex line 20, near "$-wave"
+	(Missing operator before wave?)
+Bareword found where operator expected at revised2.tex line 23, near "time reversal"
+	(Do you need to predeclare time?)
+Semicolon seems to be missing at revised2.tex line 25.
+Bareword found where operator expected at revised2.tex line 31, near "67.Lx"
+	(Missing operator before Lx?)
+Backslash found where operator expected at revised2.tex line 35, near "computation\"
+Semicolon seems to be missing at revised2.tex line 36.
+Backslash found where operator expected at revised2.tex line 38, near "$
+superconductor\"
+	(Missing operator before \?)
+Bareword found where operator expected at revised2.tex line 38, near "$2N"
+	(Missing operator before N?)
+Backslash found where operator expected at revised2.tex line 46, near "decoherence\"
+Bareword found where operator expected at revised2.tex line 49, near "$\nu"
+	(Missing operator before nu?)
+Scalar found where operator expected at revised2.tex line 49, near "2$ quantum"
+	(Missing operator before $ quantum?)
+Bareword found where operator expected at revised2.tex line 49, near "$ quantum Hall"
+	(Missing operator before Hall?)
+Bareword found where operator expected at revised2.tex line 51, near "4e"
+	(Missing operator before e?)
+Scalar found where operator expected at revised2.tex line 51, near "$p$-"
+	(Missing operator before $-?)
+Bareword found where operator expected at revised2.tex line 51, near "$-wave"
+	(Missing operator before wave?)
+Scalar found where operator expected at revised2.tex line 51, near "$_2$RuO"
+	(Missing operator before $RuO?)
+Scalar found where operator expected at revised2.tex line 51, near "$RuO$_4"
+	(Missing operator before $_4?)
+Scalar found where operator expected at revised2.tex line 51, near "$_4$\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 51, near "$\cite"
+	(Missing operator before cite?)
+Backslash found where operator expected at revised2.tex line 52, near "atoms\"
+Scalar found where operator expected at revised2.tex line 53, near "$s$-"
+	(Missing operator before $-?)
+Bareword found where operator expected at revised2.tex line 53, near "$-wave"
+	(Missing operator before wave?)
+Backslash found where operator expected at revised2.tex line 55, near ")\"
+	(Missing operator before \?)
+Bareword found where operator expected at revised2.tex line 58, near ") junction"
+	(Missing operator before junction?)
+Number found where operator expected at revised2.tex line 58, near "chiral 1"
+	(Do you need to predeclare chiral?)
+Bareword found where operator expected at revised2.tex line 58, near "1D"
+	(Missing operator before D?)
+Bareword found where operator expected at revised2.tex line 63, near "time reversal"
+	(Do you need to predeclare time?)
+Bareword found where operator expected at revised2.tex line 65, near "time reversed"
+	(Do you need to predeclare time?)
+Scalar found where operator expected at revised2.tex line 68, near "}$Sb"
+	(Missing operator before $Sb?)
+Scalar found where operator expected at revised2.tex line 68, near "$Sb$_x"
+	(Missing operator before $_x?)
+Scalar found where operator expected at revised2.tex line 68, near "$_x$,"
+	(Missing operator before $,?)
+Bareword found where operator expected at revised2.tex line 68, near "$, as"
+	(Missing operator before as?)
+Bareword found where operator expected at revised2.tex line 68, near "$\alpha"
+	(Missing operator before alpha?)
+Bareword found where operator expected at revised2.tex line 68, near "$-Sn"
+	(Missing operator before Sn?)
+Bareword found where operator expected at revised2.tex line 71, near "$\pi"
+	(Missing operator before pi?)
+Bareword found where operator expected at revised2.tex line 73, near "time reversal"
+	(Do you need to predeclare time?)
+Backslash found where operator expected at revised2.tex line 74, near "Hamiltonian
+\"
+	(Missing semicolon on previous line?)
+Backslash found where operator expected at revised2.tex line 75, near "sigma\"
+Backslash found where operator expected at revised2.tex line 75, near "cdot \"
+	(Do you need to predeclare cdot?)
+Backslash found where operator expected at revised2.tex line 75, near ")\"
+	(Missing operator before \?)
+Bareword found where operator expected at revised2.tex line 78, near "$\psi"
+	(Missing operator before psi?)
+Backslash found where operator expected at revised2.tex line 78, near "psi_\"
+Backslash found where operator expected at revised2.tex line 78, near "psi_\"
+Backslash found where operator expected at revised2.tex line 81, near "$ and
+\"
+	(Missing semicolon on previous line?)
+Backslash found where operator expected at revised2.tex line 82, near "z \"
+	(Do you need to predeclare z?)
+Backslash found where operator expected at revised2.tex line 82, near "sigma\"
+Backslash found where operator expected at revised2.tex line 82, near "cdot\"
+Backslash found where operator expected at revised2.tex line 82, near "mu \"
+	(Do you need to predeclare mu?)
+Backslash found where operator expected at revised2.tex line 83, near "x \"
+	(Do you need to predeclare x?)
+Bareword found where operator expected at revised2.tex line 85, near "$\psi"
+  (Might be a runaway multi-line \\ string starting on line 83)
+	(Missing operator before psi?)
+Bareword found where operator expected at revised2.tex line 85, near "$\psi"
+	(Missing operator before psi?)
+Bareword found where operator expected at revised2.tex line 85, near "$\Psi"
+	(Missing operator before Psi?)
+Backslash found where operator expected at revised2.tex line 86, near "$[\"
+	(Missing operator before \?)
+Scalar found where operator expected at revised2.tex line 87, near "0$,"
+	(Missing operator before $,?)
+Bareword found where operator expected at revised2.tex line 87, near "$, where"
+	(Missing operator before where?)
+Bareword found where operator expected at revised2.tex line 87, near "$\Theta"
+	(Missing operator before Theta?)
+Backslash found where operator expected at revised2.tex line 87, near "i \"
+	(Do you need to predeclare i?)
+Bareword found where operator expected at revised2.tex line 87, near "$, which"
+	(Missing operator before which?)
+Backslash found where operator expected at revised2.tex line 87, near "}\"
+	(Missing operator before \?)
+Scalar found where operator expected at revised2.tex line 87, near "0$."
+	(Missing operator before $.?)
+Semicolon seems to be missing at revised2.tex line 87.
+Bareword found where operator expected at revised2.tex line 88, near "$\Delta"
+  (Might be a runaway multi-line KK string starting on line 87)
+	(Missing operator before Delta?)
+Backslash found where operator expected at revised2.tex line 89, near "pm \"
+	(Do you need to predeclare pm?)
+Scalar found where operator expected at revised2.tex line 89, near "}$."
+	(Missing operator before $.?)
+Bareword found where operator expected at revised2.tex line 89, near "$.  For"
+	(Missing operator before For?)
+Bareword found where operator expected at revised2.tex line 90, near "$\mu"
+	(Missing operator before mu?)
+Backslash found where operator expected at revised2.tex line 90, near "mu \"
+	(Do you need to predeclare mu?)
+Backslash found where operator expected at revised2.tex line 90, near "gg \"
+	(Do you need to predeclare gg?)
+Backslash found where operator expected at revised2.tex line 93, near "i\"
+Backslash found where operator expected at revised2.tex line 93, near "} \"
+	(Missing operator before  \?)
+Scalar found where operator expected at revised2.tex line 94, near "}$ for"
+	(Missing operator before $ for?)
+Scalar found where operator expected at revised2.tex line 94, near "$ for $"
+	(Missing operator before $?)
+Scalar found where operator expected at revised2.tex line 95, near ")$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 95, near "$ and $v"
+	(Missing operator before $v?)
+Bareword found where operator expected at revised2.tex line 95, near "$v k_0"
+	(Missing operator before k_0?)
+Backslash found where operator expected at revised2.tex line 95, near "k_0 \"
+	(Do you need to predeclare k_0?)
+Backslash found where operator expected at revised2.tex line 95, near "sim \"
+	(Do you need to predeclare sim?)
+Bareword found where operator expected at revised2.tex line 96, near "$\sum_"
+	(Missing operator before sum_?)
+Bareword found where operator expected at revised2.tex line 96, near ")  c_"
+	(Missing operator before c_?)
+Backslash found where operator expected at revised2.tex line 97, near "i\"
+Bareword found where operator expected at revised2.tex line 97, near "} c_"
+	(Missing operator before c_?)
+Scalar found where operator expected at revised2.tex line 98, near "2$."
+	(Missing operator before $.?)
+Bareword found where operator expected at revised2.tex line 98, near "$.  Though"
+	(Missing operator before Though?)
+Bareword found where operator expected at revised2.tex line 99, near "$ superconductor there"
+	(Missing operator before there?)
+Scalar found where operator expected at revised2.tex line 101, near "}$ respects"
+	(Missing operator before $ respects?)
+Bareword found where operator expected at revised2.tex line 101, near "time reversal"
+	(Do you need to predeclare time?)
+Bareword found where operator expected at revised2.tex line 102, near "$
+superconductor does"
+	(Missing operator before does?)
+Bareword found where operator expected at revised2.tex line 103, near "$\Theta"
+	(Missing operator before Theta?)
+Scalar found where operator expected at revised2.tex line 104, near "%simply $K"
+	(Missing operator before  $K?)
+Scalar found where operator expected at revised2.tex line 104, near "$K$."
+	(Missing operator before $.?)
+Semicolon seems to be missing at revised2.tex line 106.
+Bareword found where operator expected at revised2.tex line 107, near "2e"
+	(Missing operator before e?)
+Semicolon seems to be missing at revised2.tex line 107.
+Bareword found where operator expected at revised2.tex line 109, near "$\mu"
+	(Missing operator before mu?)
+Backslash found where operator expected at revised2.tex line 109, near "mu \"
+	(Do you need to predeclare mu?)
+Backslash found where operator expected at revised2.tex line 109, near "gg \"
+	(Do you need to predeclare gg?)
+Bareword found where operator expected at revised2.tex line 112, near ") equation"
+	(Missing operator before equation?)
+Backslash found where operator expected at revised2.tex line 113, near "} \"
+	(Missing operator before  \?)
+Backslash found where operator expected at revised2.tex line 113, near "E \"
+	(Do you need to predeclare E?)
+Bareword found where operator expected at revised2.tex line 114, near "$\Delta"
+	(Missing operator before Delta?)
+Bareword found where operator expected at revised2.tex line 115, near ") e"
+	(Missing operator before e?)
+Scalar found where operator expected at revised2.tex line 115, near "}$."
+	(Missing operator before $.?)
+Bareword found where operator expected at revised2.tex line 115, near "$.  A"
+	(Missing operator before A?)
+Bareword found where operator expected at revised2.tex line 116, near "$\mu"
+	(Missing operator before mu?)
+Bareword found where operator expected at revised2.tex line 116, near "$\mu"
+	(Missing operator before mu?)
+Scalar found where operator expected at revised2.tex line 116, near "0$,"
+	(Missing operator before $,?)
+Bareword found where operator expected at revised2.tex line 116, near "$, where"
+	(Missing operator before where?)
+Backslash found where operator expected at revised2.tex line 118, near "form
+\"
+	(Missing semicolon on previous line?)
+Bareword found where operator expected at revised2.tex line 122, near "$\chi"
+	(Missing operator before chi?)
+Bareword found where operator expected at revised2.tex line 122, near "$\chi"
+	(Missing operator before chi?)
+Bareword found where operator expected at revised2.tex line 124, near "$ superconductors is"
+	(Missing operator before is?)
+Backslash found where operator expected at revised2.tex line 126, near "states
+\"
+	(Missing semicolon on previous line?)
+Bareword found where operator expected at revised2.tex line 127, near "time reversal"
+	(Do you need to predeclare time?)
+Bareword found where operator expected at revised2.tex line 128, near "} occur"
+	(Missing operator before occur?)
+Bareword found where operator expected at revised2.tex line 130, near "time reversal"
+	(Do you need to predeclare time?)
+Backslash found where operator expected at revised2.tex line 131, near "$M\"
+	(Missing operator before \?)
+Semicolon seems to be missing at revised2.tex line 132.
+Semicolon seems to be missing at revised2.tex line 134.
+Bareword found where operator expected at revised2.tex line 139, near ") junction"
+	(Missing operator before junction?)
+Bareword found where operator expected at revised2.tex line 141, near "time reversal"
+	(Do you need to predeclare time?)
+Bareword found where operator expected at revised2.tex line 142, near "} which"
+	(Missing operator before which?)
+Bareword found where operator expected at revised2.tex line 142, near "time reversal"
+	(Do you need to predeclare time?)
+Backslash found where operator expected at revised2.tex line 144, near "TI\"
+Bareword found where operator expected at revised2.tex line 145, near ") restricted"
+	(Missing operator before restricted?)
+Bareword found where operator expected at revised2.tex line 146, near "$\Delta"
+	(Missing operator before Delta?)
+Backslash found where operator expected at revised2.tex line 146, near "Delta \"
+	(Do you need to predeclare Delta?)
+Backslash found where operator expected at revised2.tex line 147, near "$M \"
+	(Missing operator before \?)
+Bareword found where operator expected at revised2.tex line 150, near "%Further discussion"
+	(Missing operator before discussion?)
+Bareword found where operator expected at revised2.tex line 152, near "} one"
+	(Missing operator before one?)
+Bareword found where operator expected at revised2.tex line 156, near "3.0in"
+	(Missing operator before in?)
+Bareword found where operator expected at revised2.tex line 157, near ") A"
+	(Missing operator before A?)
+Bareword found where operator expected at revised2.tex line 157, near ") Spectrum"
+	(Missing operator before Spectrum?)
+Scalar found where operator expected at revised2.tex line 158, near "0$ as"
+	(Missing operator before $ as?)
+Bareword found where operator expected at revised2.tex line 158, near "$ as a"
+	(Missing operator before a?)
+Bareword found where operator expected at revised2.tex line 159, near "$\phi"
+	(Missing operator before phi?)
+Bareword found where operator expected at revised2.tex line 160, near "$\phi"
+	(Missing operator before phi?)
+Bareword found where operator expected at revised2.tex line 160, near "$\phi"
+	(Missing operator before phi?)
+Backslash found where operator expected at revised2.tex line 160, near "3\"
+	(Missing operator before \?)
+Scalar found where operator expected at revised2.tex line 160, near "4$,"
+	(Missing operator before $,?)
+Scalar found where operator expected at revised2.tex line 161, near "$,
+ $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 161, near "$\pi"
+	(Missing operator before pi?)
+Scalar found where operator expected at revised2.tex line 161, near "2$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 161, near "$ and $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 161, near "$\pi"
+	(Missing operator before pi?)
+Scalar found where operator expected at revised2.tex line 161, near "4$."
+	(Missing operator before $.?)
+Bareword found where operator expected at revised2.tex line 161, near "$.  The"
+	(Missing operator before The?)
+Bareword found where operator expected at revised2.tex line 161, near "$\phi"
+	(Missing operator before phi?)
+Scalar found where operator expected at revised2.tex line 161, near "0$ merge"
+	(Missing operator before $ merge?)
+Bareword found where operator expected at revised2.tex line 161, near "$ merge with"
+	(Missing operator before with?)
+Bareword found where operator expected at revised2.tex line 163, near ") A"
+	(Missing operator before A?)
+Bareword found where operator expected at revised2.tex line 164, near ")
+ Phase"
+	(Missing operator before Phase?)
+Bareword found where operator expected at revised2.tex line 165, near "$\pm"
+	(Missing operator before pm?)
+Scalar found where operator expected at revised2.tex line 170, near "$W$
+and"
+	(Missing operator before and?)
+Backslash found where operator expected at revised2.tex line 170, near "$L\"
+	(Missing operator before \?)
+Backslash found where operator expected at revised2.tex line 170, near "rightarrow \"
+	(Do you need to predeclare rightarrow?)
+Scalar found where operator expected at revised2.tex line 171, near "$0$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 171, near "$ and $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 171, near "$\phi"
+	(Missing operator before phi?)
+Bareword found where operator expected at revised2.tex line 175, near "$\Delta"
+	(Missing operator before Delta?)
+Bareword found where operator expected at revised2.tex line 178, near "$\phi"
+	(Missing operator before phi?)
+Backslash found where operator expected at revised2.tex line 179, near "$q \"
+	(Missing operator before \?)
+Number found where operator expected at revised2.tex line 179, near "sim 0"
+	(Do you need to predeclare sim?)
+Scalar found where operator expected at revised2.tex line 179, near "0$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 179, near "$ and $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 179, near "$\phi"
+	(Missing operator before phi?)
+Scalar found where operator expected at revised2.tex line 180, near "$W$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 180, near "$ and $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 180, near "$\mu"
+	(Missing operator before mu?)
+Scalar found where operator expected at revised2.tex line 181, near "0$ modes"
+	(Missing operator before $ modes?)
+Scalar found where operator expected at revised2.tex line 181, near "$ modes $\"
+	(Missing operator before $\?)
+Bareword found where operator expected at revised2.tex line 181, near "$\zeta_"
+	(Missing operator before zeta_?)
+Backslash found where operator expected at revised2.tex line 182, near ")\"
+	(Missing operator before \?)
+Backslash found where operator expected at revised2.tex line 182, near "]\"
+	(Missing operator before \?)
+Scalar found where operator expected at revised2.tex line 182, near ")$ and"
+	(Missing operator before $ and?)
+Scalar found where operator expected at revised2.tex line 183, near "$ and
+$\"
+	(Missing semicolon on previous line?)
+Bareword found where operator expected at revised2.tex line 183, near "$\delta"
+	(Missing operator before delta?)
+Backslash found where operator expected at revised2.tex line 183, near "Delta_0 \"
+	(Do you need to predeclare Delta_0?)
+Scalar found where operator expected at revised2.tex line 183, near ")$."
+	(Missing operator before $.?)
+Semicolon seems to be missing at revised2.tex line 183.
+Bareword found where operator expected at revised2.tex line 184, near "$\tau"
+	(Missing operator before tau?)
+Bareword found where operator expected at revised2.tex line 184, near "$\Theta"
+	(Missing operator before Theta?)
+Backslash found where operator expected at revised2.tex line 184, near "i\"
+Number found where operator expected at revised2.tex line 184, near "bf 303"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 186, near "bf 61"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 189, near "bf 86"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 192, near "bf
+70"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 194, near "bf 73"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 198, near "bf 227"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 200, near "bf 321"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 203, near "bf 73"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 206, near "bf 94"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 208, near "bf 98"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 212, near "bf
+98"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 214, near "bf 75"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 219, near "bf 76"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 223, near "bf
+130"
+	(Missing semicolon on previous line?)
+Bareword found where operator expected at revised2.tex line 223, near "130B"
+	(Missing operator before B?)
+Number found where operator expected at revised2.tex line 225, near "bf 242"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 228, near "bf
+23"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 231, near "bf 68"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 233, near "bf 95"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 234, near "226801"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 234, near "bf 95"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 237, near "bf 97"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 241, near "bf 314"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 249, near "bf
+74"
+	(Missing semicolon on previous line?)
+Number found where operator expected at revised2.tex line 250, near "bf 75"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 253, near "bf 22"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 255, near "bf 13"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 259, near "bf 55"
+	(Do you need to predeclare bf?)
+Number found where operator expected at revised2.tex line 262, near "bf 98"
+	(Do you need to predeclare bf?)
+syntax error at revised2.tex line 2, near "documentclass["
+Unmatched right square bracket at revised2.tex line 87, at end of line
+No such class system at revised2.tex line 128, near "occur in our system"
+No such class surface at revised2.tex line 141, near "For our surface"
+Unmatched right square bracket at revised2.tex line 175, at end of line
+syntax error at revised2.tex line 234, near "bf 95"
+syntax error at revised2.tex line 234, near "146802 ("
+syntax error at revised2.tex line 250, near "bf 75"
+syntax error at revised2.tex line 250, near "045417 ("
+Missing right curly or square bracket at revised2.tex line 271, at end of line
+revised2.tex has too many errors.
+
+codex
+The previous command accidentally invoked `revised2.tex` as Perl source. I’m fixing that and checking the output file immediately afterward to make sure it didn’t retain any of the failure output.
+exec
+/bin/zsh -lc 'wc -l codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '1,80p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
+
+
+ succeeded in 224ms:
+      13 codex_scientific_text.md
+
+codex
+I’ve got the extraction logic stable now. I’m running it from a temporary Perl script so the quoting doesn’t interfere with the actual cleaning pass.
+exec
+/bin/zsh -lc 'script=$(mktemp /private/tmp/qft_extract.XXXXXX.pl)
+body=$(mktemp /private/tmp/qft_body.XXXXXX.md)
+tmpfile=$(mktemp /private/tmp/qft_extract.XXXXXX.md)
+cat > "$script" <<'"'PERL'
+local "'$/;
+$_ = <>;
+s/.*?'"\\\\begin\\{abstract\\}\\s*/**Abstract.** /s;
+s/\\s*\\\\end\\{abstract\\}\\s*/\\n\\n/s;
+s/\\\\pacs\\{.*?\\}\\s*\\\\maketitle\\s*//s;
+s/\\\\begin\\{thebibliography\\}.*?\\\\end\\{thebibliography\\}//sg;
+s/\\\\end\\{document\\}.*/ /s;
+s/(?<"'!'"\\\\)%.*"'$//mg;
+s/'"\\\\begin\\{figure\\*?\\}.*?\\\\end\\{figure\\*?\\}\\s*//sg;
+s/\\\\begin\\{equation\\}/\\n\\"'$'"\\"'$'"\\n/g;
+s/\\\\end\\{equation\\}/\\n\\"'$'"\\"'$'"\\n/g;
+s/\\\\label\\{["'^}]+'"\\}//g;
+s/\\\\onlinecite\\{(["'^}]*)'"\\}/[Ref: "'$1]/g;
+s/'"\\\\cite\\{(["'^}]*)'"\\}/[Refs: "'$1]/g;
+s/'"\\\\eqref\\{(["'^}]*)'"\\}/("'$1)/g;
+s/'"\\\\ref\\{(["'^}]*)'"\\}/"'$1/g;
+s/'"\\{\\\\it\\s+(["'^}]*)'"\\}/*"'$1*/g;
+s/'"\\\\emph\\{(["'^}]*)'"\\}/*"'$1*/g;
+s/We thank Sankar das Sarma and Steve Simon for'"\\s+helpful discussions\\.\\s+This work was supported by NSF grant\\s+DMR-0605066, and by ACS PRF grant 44776-AC10\\.\\s*//s;
+s/[ \\t]+\\n/\\n/g;
+s/\\n{3,}/\\n\\n/g;
+s/"'^'"\\s+//;
+s/\\s+"'$//;
+print;
+PERL
+perl "$script" revised2.tex > "$body"
+title=$(perl -0ne '"'if (/\\\\title\\{(.*?)\\}/s) { "'$t = $1; $t =~ s/'"\\s+/ /g; print "'$t; }'"' revised2.tex)
+{
+  sed -n '1,/"'^# Scientific TeX Extract$/p'"' codex_scientific_text.md
+  printf '\\n## %s\\n\\n' \""'$title"
+  cat "$body"
+} > "$tmpfile"
+mv "$tmpfile" codex_scientific_text.md
+rm -f "$script" "$body"' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 497ms:
+exec
+/bin/zsh -lc "sed -n '221,440p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '1,220p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'rg -n "''^('"\\\\|%|\\{\\\\|\\\\begin\\{|\\\\end\\{|\\\\author|\\\\affiliation|\\\\pacs|\\\\maketitle|\\\\bibitem|\\\\documentclass|\\\\usepackage)\" codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 341ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
+
+**Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+surface states of a strong topological insulator.  The resulting two
+dimensional state resembles a spinless $p_x+ip_y$ superconductor, but
+does not break time reversal symmetry.  This state supports Majorana
+bound states at vortices.  We show that linear junctions between
+superconductors mediated by the topological insulator form a non chiral 1
+dimensional wire for Majorana fermions, and that circuits formed from
+these junctions provide a method for creating, manipulating and
+fusing Majorana bound states.
+
+Excitations with non-Abelian statistics[Refs: mooreread] are the basis for the
+intriguing proposal of topological quantum computation[Refs: kitaev].  The simplest
+non-Abelian excitation is the zero energy Majorana bound state (MBS)
+associated with a vortex in a spinless $p_x+ip_y$
+superconductor[Refs: readgreen,ivanov,stern,stone].  The presence of $2N$ vortices
+leads to a $2^N$ fold
+ground state degeneracy.  Braiding processes, in which the
+vortices are adiabatically rearranged, perform non trivial operations
+in that degenerate space.  Though MBSs do not have the structure necessary
+to construct
+a universal quantum computer[Refs: friedman], the quantum information encoded in
+their degenerate states is topologically protected from local sources of
+decoherence[Refs: kitaev3].
+
+MBSs have been proposed to exist as quasiparticle
+excitations of the $\nu=5/2$ quantum Hall effect[Refs: mooreread,readgreen],
+ in the cores of
+$h/4e$ vortices in the $p$-wave superconductor Sr$_2$RuO$_4$[Refs: dassarma]
+and in cold atoms[Refs: gurarie,tewari].  In this
+paper we show that the proximity effect between an ordinary $s$-wave
+superconductor and the surface of a strong topological
+insulator (TI)[Refs: fkm,moore,roy,fukane]
+leads to a state which hosts MBSs at vortices.  We then
+show that a linear superconductor - TI - superconductor
+(STIS) junction forms a non chiral 1D wire for Majorana fermions.
+Such junctions can be combined into circuits, which allow for
+the creation, manipulation and fusion of MBSs.
+
+A strong TI is a material with an insulating
+time reversal invariant
+bandstructure for which strong spin orbit interactions lead to an
+inversion of the band gap at an odd number of time reversed pairs of
+points in the Brillouin zone.
+Candidate materials include the semiconducting alloy
+Bi$_{1-x}$Sb$_x$, as well as HgTe and $\alpha$-Sn under uniaxial
+strain[Refs: fukane].  Strong TIs are distinguished from ordinary insulators
+by the presence of surface states, whose Fermi arc encloses an odd number of
+Dirac points and is associated with a Berry's phase of $\pi$.  In the
+simplest case, there is a single non degenerate Fermi arc
+described by the time reversal invariant Hamiltonian
+
+$$
+
+H_0 = \psi^\dagger (-i v\vec\sigma\cdot \nabla -\mu)\psi.
+
+$$
+
+Here $\psi = (\psi_\uparrow, \psi_\downarrow)^T$ are electron field
+operators, $\vec \sigma =
+(\sigma^x,\sigma^y)$ are Pauli spin matrices and $\mu$ is the
+chemical potential.
+$H_0$ can only exist on a surface because it violates the fermion
+doubling theorem[Refs: nielson].  The topological metal is essentially *half*
+of an ordinary 2D electron gas.
+
+Suppose that an s-wave superconductor is deposited on the surface.
+Due to the proximity effect, Cooper pairs can tunnel into the surface
+states.  This can be described by adding
+$V = \Delta \psi_\uparrow^\dagger \psi_\downarrow^\dagger + h.c.$ to
+$H_0$, where $\Delta = \Delta_0 e^{i\phi}$ depends on the phase
+$\phi$ of the superconductor and the nature of the interface[Refs: volkov].
+The states of the surface can then be described by
+$H = \Psi^\dagger {\cal H} \Psi/2$, where in the Nambu
+notation $\Psi = ((\psi_\uparrow,
+\psi_\downarrow),(\psi_\downarrow^\dagger,-\psi_\uparrow^\dagger))^T$ and
+
+$$
+
+{\cal H} = - i v \tau^z \sigma\cdot\nabla - \mu \tau^z + \Delta_0
+(\tau^x \cos\phi + \tau^y\sin\phi).
+
+$$
+
+$\vec\tau$ are Pauli matrices that mix the $\psi$ and $\psi^\dagger$ blocks of $\Psi$.
+Time reversal invariance follows from $[\Theta,{\cal
+H}]=0$, where $\Theta = i \sigma^y K$
+and $K$ is complex conjugation.  Particle hole symmetry
+is expressed by $\Xi = \sigma^y \tau^y K$, which satisfies $\{\Xi,{\cal H}\}=0$.
+When $\Delta$ is spatially homogeneous, the excitation spectrum is
+$E_{\bf k} = \pm \sqrt{(\pm v|{\bf k}| - \mu)^2 + \Delta_0^2}$.  For
+$\mu \gg \Delta_0$, the low energy
+spectrum resembles that of a spinless $p_x+i p_y$ superconductor.
+This analogy can be made precise by defining $c_{\bf k} =
+(\psi_{\uparrow {\bf k}} + e^{i\theta_{\bf k}} \psi_{\downarrow {\bf
+k}})/\sqrt{2}$ for ${\bf k} = k_0(\cos \theta_{\bf k},\sin\theta_{\bf
+k})$ and $v k_0 \sim \mu$.  The projected Hamiltonian is then
+$\sum_{\bf k} (v|{\bf k}|-\mu)  c_{\bf k}^\dagger c_{\bf k} +
+(\Delta e^{i\theta_{\bf k}} c_{\bf k}^\dagger c_{-{\bf k}}^\dagger +
+h.c.)/2$.  Though this is formally equivalant to a
+spinless $p_x + i p_y$ superconductor there is an important
+difference: ${\cal
+H}$ respects time reversal symmetry, while the $p_x+i p_y$
+superconductor does not.
+
+It is well known that a $h/2e$ vortex in a $p_x+i p_y$ superconductor
+leads to a MBS[Refs: readgreen].  This suggests that for
+$\mu \gg \Delta_0$ a
+similar bound state
+should exist for (hbdg).  The bound states at a
+vortex are determined by solving the Bogoliubov de Gennes (BdG) equation
+${\cal H} \xi = E \xi$ in polar coordinates
+with $\Delta(r,\theta) =
+\Delta_0(r) e^{\pm i\theta}$.  A zero energy solution exists
+for any $\mu$.  The algebra is simplest for $\mu = 0$, where the zero
+mode has the form
+
+$$
+
+\xi^\pm_0(r,\theta) = \chi^\pm e^{-\int_0^r dr' \Delta_0(r')/v},
+
+$$
+
+with $\chi^+ = ((0,i),(1,0))^T$ and $\chi^-=((1,0),(0,-i))^T$.
+
+Another feature of $p_x + i p_y$ superconductors is the
+presence of chiral edge states
+[Refs: readgreen,buchholtz,sigrist].
+With time reversal symmetry,
+chiral edge states can *not* occur in our system.  The
+surface - which itself is the boundary of a three dimensional crystal
+- can not have a boundary.  By breaking time reversal symmetry,
+however, a Zeeman field can introduce a mass term $M\sigma^z$ into
+(h0,hbdg)
+which can open an insulating
+gap in the surface state spectrum.  By solving (hbdg)
+we find that the interface between this
+insulating state and the superconducting state has chiral
+Majorana edge states.  This could possibly be
+realized by depositing superconducting and insulating magnetic materials
+on the surface to form a superconductor-TI-magnet (STIM) junction.  It is interesting to note that
+for spinless electrons the $p_x+ip_y$ superconductor violates
+time reversal, while the vacuum does not.  For our surface states it is
+the *insulator* which violates time reversal.
+A related effect could also occur at the
+edge of a *two dimensional* TI[Refs: km,murakami,bhz],
+which is described by (h0,hbdg) restricted to one spatial dimension.
+At the boundary between a region with superconducting gap $\Delta \tau^x$
+and a region with insulating gap $M \sigma^z$ we find a
+MBS, analogous to the end states
+discussed in Refs. [Ref: kitaev2,semenoff].
+
+In the following we will focus on STIS junctions, which
+can lead to *non chiral* one dimensional Majorana fermions, as well
+as MBSs.
+
+Consider a line junction of width $W$
+and length $L\rightarrow \infty$
+between two superconductors with phases $0$ and $\phi$ in contact with
+TI surface states.
+We analyze the Andreev bound states in the surface state channel
+between the superconductors by solving the BdG
+equation with $\Delta(x,y) = \Delta_0 e^{i\phi}$ for
+$y>W/2$, $\Delta_0$ for $y<-W/2$ and $0$ otherwise.
+The calculation is similar to Titov, Ossipov and
+Beenakker's[Refs: beenakker] analysis of graphene SNS junctions,
+except for the
+important difference that graphene has four independent Dirac points,
+while we only have one.
+For $W \ll v/\Delta_0$ there are two branches
+of bound states, which disperse with the momentum
+$q$ in the $x$ direction.  For  $W=\mu=0$
+we find
+
+$$
+
+E_\pm(q) = \pm \left[v^2 q^2 + \Delta_0^2 \cos^2 (\phi/2)\right]^{1/2}.
+
+$$
+
+For $\phi=\pi$ the spectrum is gapless. It is useful to construct a
+low energy theory, for $q \sim 0$ and $\phi = \pi - \epsilon$. Finite
+$W$ and $\mu$ can then easily be included. We first solve the BdG
+equation for the two $E=0$ modes $\zeta_{a=1,2}(y)$ at $q=0$
+and $\phi=\pi$.  It is useful to choose them to satisfy $\Xi \zeta_a
+= \zeta_a$. Up to a normalization they may be written
+
+$$
+ \zeta_1 \pm i
+\zeta_2 =  ((1,\pm i),(\pm i,-1))^T
+ e^{\pm i \mu y/ v -\int_0^{|y|}d\tilde y\Delta_0(\tilde y)/v}.
+
+$$
+
+We next evaluate $\langle\zeta_a| q \sigma^x\tau^z|\zeta_b\rangle$ and
+$\langle\zeta_a|\epsilon\Delta_0 \theta(y-W) \tau^y|\zeta_b\rangle$
+to obtain the ``$k\cdot p$" Hamiltonian,
+
+$$
+
+\tilde{\cal  H} = -i \tilde v \tau^x \partial_x + \delta \tau^y,
+
+$$
+
+where
+$\tilde v = v[\cos\mu W +
+(\Delta_0/\mu)\sin\mu W]\Delta_0^2/(\mu^2+\Delta_0^2)$ and
+$\delta = \Delta_0 \cos(\phi/2)$.
+
+ succeeded in 355ms:
+The Pauli matrices $\tau^{x,y}_{ab}$ act on $\zeta_a$ and are different from
+those in (hbdg).  In this basis $\Theta = i\tau^y K$ and $\Xi = K$.
+
+$\tilde{\cal H}$ resembles the Su Schrieffer Heeger (SSH)
+model[Refs: ssh].
+
+However, unlike that model, the $E_\pm(q)$
+states are not independent, and
+the corresponding Bogoliubov quasiparticle operators
+satisfy $\gamma_+(q) = \gamma_-(-q)^\dagger$.
+The system is thus *half* a regular 1D Fermi gas,
+or a non chiral ``Majorana quantum wire".
+
+Below it will be useful to consider
+junctions that bend and close.  When a line junction makes an angle
+$\theta$ with the $x$ axis the basis vectors (zeta) are
+modified according to $\zeta_a\rightarrow e^{i \sigma_z
+\theta/2} \zeta_a$.  $\tilde{\cal H}$, however, is
+unchanged even when $\theta(x)$ varies.  On a circle,
+$\zeta_a$ changes sign when
+$\theta$ advances by $2\pi$.  Therefore,
+eigenstates of $\tilde{\cal H}$ must obey *antiperiodic* boundary
+conditions, $\varphi(0) = -\varphi(2\pi)$.
+
+Next consider a tri-junction, where three superconductors
+separated by line junctions meet at a point, as in Fig. 1c.
+When $\phi_{k=1,2}$ is in the shaded region of Fig. 1d, a MBS
+exists at the junction.  Though the general BdG
+equation cannot be solved analytically, this phase
+diagram can be deduced by solving
+special limits.  When $\phi_k = 0$ there is
+no bound state.  Another solvable limit
+is when three line junctions with $W=0$
+are oriented at 120$^\circ$, and $\phi_k =\pm k (2\pi/3)$.  This is
+a discrete analog of a $\pm$ vortex with $C_3$ symmetry, and is
+indicated by the circles in Fig. 1d.  For $\mu = 0$ we find a MBS
+identical to (vortex)
+with the exponent replaced by $-\Delta_0 \hat n\cdot {\bf r}/v$.  Here
+$\hat n$ is a constant unit vector in each superconductor
+that bisects the angle between neighboring junctions.
+The MBS can not disappear
+when $\phi_k$ are changed continuously
+unless the energy gap closes. The phase boundaries indicated in Fig.
+1d therefore follow from the solution of the
+line junction, and occur when the phase difference between
+neighboring superconductors is $\pi$.
+
+It is instructive to consider the limit where two of the lines
+entering the tri-junction are nearly gapless.  For
+$\phi_1=\pi-\epsilon_1$ and $\phi_2 =
+\pi-\epsilon_2$ Fig. 1d predicts
+a MBS when $\epsilon_1\epsilon_2<0$.
+This can be understood with Eq. h1d, which describes the lower two
+line junctions, which have masses
+$\delta_{1,2} = \Delta_0 \epsilon_{1,2}/2$.  When $\epsilon_1\epsilon_2<0$
+$\delta$ changes sign, leading
+to the well known midgap
+state of the SSH model[Refs: ssh,jackiw],
+which in the present context is a MBS.
+
+A line junction terminated by two tri-junctions
+allows MBSs to be created, manipulated and fused.  When $\phi$
+passes through $\pi$ MBSs appear or disappear at both ends.
+To model this we assume the phases of the superconductors
+on either side of the line junction are $0$ and
+$\pi - \epsilon$, and that
+the superconductors at the left (right) ends have phases
+$\phi_{L(R)}$, which are not close to $0$ or $\pi$.  This allows us to
+model the ends using a hard wall boundary condition
+$\delta \rightarrow \pm \infty$, where the sign at each end is
+$s_{L,R} = {\rm sgn}\sin\phi_{L,R}$.  It is straightforward to solve (h1d)
+to determine the spectrum as a function of $\delta = \Delta_0 \epsilon/2$
+for a line of length $L$ using this boundary condition.  There are two
+cases depending on the sign of $s_L s_R$.
+
+For
+$s_L=s_R=1$ either zero or a $\pm$ pair of MBSs are expected.  The
+spectrum, shown in Fig. 2a, may be written
+$E_n^\pm(\delta) = \pm \sqrt{\delta^2 + \tilde v^2 k_n^2}$, where $k_n$ are
+solutions to $\tan k_n L = - \tilde v k_n/\delta$.
+Midgap states are present for $\delta  < 0$.  For
+$L\rightarrow\infty$ a pair
+of zero energy states $\xi_{1,2}(x,y)$
+are localized at each end with wavefunctions
+
+$$
+
+\xi_1 = \zeta_1  e^{-|\delta|
+x/\tilde v},  \quad \xi_2  = \zeta_2  e^{-|\delta|
+(L-x)/\tilde v},
+
+$$
+
+where $\zeta_a(y)$ are given in (zeta).
+For finite $-\delta L/\tilde v\gg 1$ the eigenstates are
+$\varphi_\pm = \xi_1 \pm i \xi_2$, with energies
+$E_0^\pm(\delta) \sim \pm 2|\delta| e^{-|\delta| L/\tilde v}$.
+These define Bogoliubov quasiparticle operators,
+$\Gamma_\pm = (\varphi_\pm)^\dagger \Psi$.  Since $\varphi_\pm = \Xi \varphi_\mp$
+it follows that $\Gamma_+ = \Gamma_-^\dagger \equiv (\gamma_1-i\gamma_2)/2$
+where $\gamma_a = (\xi_a)^\dagger \Psi$ are Majorana operators.
+The pair $\gamma_{1,2}$ thus define a two state Hilbert space
+indexed by $n_{12} = \Gamma_+^\dagger \Gamma_+$.
+The splitting
+between $\varphi_\pm$ then characterizes the interaction between
+the MBSs,
+
+$$
+
+H = E_0^+(\delta) ( \Gamma_+^\dagger\Gamma_+-1/2) = i E_0^+(\delta) \gamma_2 \gamma_1/2.
+
+$$
+
+The $s_L=s_R=-1$ case is similar.  Eq. splitting
+applies to both cases, provided $\gamma_2$ is associated with the $+$
+vortex.
+
+This provides a method for both creating and fusing pairs of
+MBSs.  Suppose we begin in the ground state at $\delta >
+0$ with no MBSs present.  Upon adiabatically decreasing
+$\delta$ through $0$ MBSs appear in
+the state $|0_{12}\rangle$.   Next suppose that initially $\delta<0$, and
+ a pair of MBSs are present in the state $|n_{12}\rangle$.
+When $\delta$ is
+adiabatically increased through $0$ the system will remain in
+$|n_{12}\rangle$, which will either evolve to
+the ground state or to a state with one extra
+fermion.  The difference between the two states can be probed by
+measuring the *current* flowing across the linear junction,
+which depends on whether the Andreev bound state $\varphi_+$ is occupied.
+The measured current will be $I = \bar I \pm \Delta I/2$, where
+the current carried by $\varphi_+$ is
+$\Delta I = (e/\hbar)dE_0^+/d\phi \sim e \Delta_0/2\hbar$
+for $\delta L/\tilde v \gtrsim 1$.  For $\Delta_0 \sim .1$ meV
+$\Delta I \sim 10$ nA.
+
+Finally, consider the case
+$s_L = -s_R = 1$, in which a $-$ MBS is at one end or the other, as in
+Fig. 2b.  There are plane wave solutions with energy
+$E^\pm_n = \pm \sqrt{\delta^2 + (n \pi \tilde v/L)^2}$ for
+$n=1, 2, ...$, along with a single $E_0=0$ state
+with wavefunction
+
+$$
+
+\xi(x,y) \propto
+\zeta_1(y) e^{\delta x/\tilde v}
+
+$$
+
+Depending on the sign of $\delta$,
+$\xi$ is exponentially localized at one end or the other.
+When $\delta$ changes sign, the MBS
+smoothly switches sides.  This provides a method for transporting
+a MBS from one node to another.
+
+We now discuss simple circuits built from
+STIS junctions.  First, consider Fig. 3a and a
+process in which the phase of the central island is
+adiabatically advanced from $0$ to $2\pi$.  For $\phi=0$ there
+are no MBSs.  At $\phi = 2\pi/3$ two pairs of
+MBSs are created at the top and bottom line junctions.
+At $\phi = 4\pi/3$ the
+MBSs are fused at the left and right line junctions.
+If the system begins in the ground state $\phi=0$, then when
+$\phi\rightarrow 2\pi$ we find[Refs: kitaev3]
+
+$$
+
+|0_{12}0_{34}\rangle \rightarrow (|0_{14}0_{32}\rangle +
+|1_{14}1_{32}\rangle)/\sqrt{2}.
+
+$$
+
+Thus, after the cycle, the left and right segments are in an
+entangled state.  The currents measured across the left and
+right junctions will be $\bar I \pm \Delta I/2$ with 50\% probability and will be
+perfectly correlated.
+
+Eq. entangle can be understood in two ways.  First, the cycle
+effectively creates two pairs of MBS's, interchanges a pair (say 2
+and 4) and brings the pairs back together.  As shown by Ivanov
+[Refs: ivanov], this corresponds to the operator
+$P_{24} = (1+\gamma_2\gamma_4)/\sqrt{2}$, which leads directly to
+(entangle).  Alternatively, this result can be derived from
+(h1d,splitting).  From (splitting),
+the Hamiltonian for $\phi \lesssim 2\pi/3$ is
+$H_1 \propto i(\gamma_1\gamma_2+\gamma_3\gamma_4)$.  For $\phi \gtrsim 4\pi/3$
+it becomes $H_2 \propto i(\gamma_1\gamma_4 - \gamma_3\gamma_2)$.
+Here the minus sign arises because, as explained after Eq.
+h1d, the closed 1D circuit must have antiperiodic boundary
+conditions.  Thus, one of the line junctions must have a cut where
+the wavefunction changes sign.  We chose the cut to be on the
+junction between 2 and 3.  It is then straightforward to
+express the groundstate of $H_1$ in terms of the eigenstates of
+$H_2$, which leads directly to (entangle).
+
+Fig. 3b gives a geometry for interchanging MBSs without fusing them.
+For $\phi = 0$ MBSs are located as shown.  When $\phi$
+advances by $2\pi$ the MBSs hop counterclockwise three
+times and are interchanged.  Ivanov's rules[Refs: ivanov] predict
+$\gamma_2 \rightarrow \gamma_1$, $\gamma_1 \rightarrow -\gamma_2$.
+Again the minus sign can be understood in terms of the cut due to
+antiperiodic boundary conditions.  One can imagine larger arrays,
+where this process performs elementary braiding operations.
+
+The experimental implementation of this proposal will require
+progress on many fronts.  The first is to find a strong TI
+with a robust gap.  Bi$_{1-x}$ Sb$_x$ and strained HgTe can
+have gaps of order 30 meV [Refs: fukane]. The next is to interface
+with an appropriate superconductor. $\Delta_0$ depends on the quality
+of the interface, Schottky barriers and the mismatch in the Fermi
+wavelengths[Refs: volkov].  If these can be optimized, $\Delta_0$ can
+be comparable to the gap of the bulk superconductor [Refs: chrestin].
+
+The simplest experimental geometry
+would be to consider a single line junction with $W \lesssim \hbar v/\Delta_0$.
+For $\Delta_0\sim$ .1 meV and $\hbar v\sim 1$ eV\AA\ this could be achieved
+with $W \lesssim 1 \mu$m.
+This should
+
+ exited 2 in 290ms:
+rg: regex parse error:
+    (?:^(\|%|\{\|\begin\{|\end\{|\author|\affiliation|\pacs|\maketitle|\bibitem|\documentclass|\usepackage))
+                          ^^
+error: unrecognized escape sequence
+
+exec
+/bin/zsh -lc "rg -n -F '\\begin{' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "sed -n '441,520p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n -F '\\author' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n -F '\\cite{' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 1 in 0ms:
+ exited 1 in 0ms:
+ exited 1 in 115ms:
+ succeeded in 111ms:
+be similar to a graphene SNS junction[Refs: beenakker].
+A signature of the Majorana character of the junction could be probed
+by measuring the thermal conductance along the channel for $k_BT < \Delta_0$.
+For $\phi=\pi$ the central charge $c=1/2$ of the
+gapless Majorana modes leads to a quantized Landauer
+thermal conductance $\kappa = c (\pi^2/3)(k_B^2/h)T$.
+By constructing a pair of
+tri-junctions as in Fig. 2 the presence of
+MBSs can be controlled.  It would then
+be interesting to perform tests of the non locality of
+MBSs envisioned in Refs. [Ref: semenoff,demler].
+
+Manipulating and fusing MBSs places more
+stringent requirements on the energy gaps.  The junctions should
+be sufficiently short that
+$\Delta E = \tilde v/L > k_B T$, but sufficiently long
+that the MBSs are well localized.  The good news is that
+$\Delta E$ varies as a power of $L$, while the MBS overlap
+is exponential, so at low temperature both criteria can
+be achieved.
+
+If the process of varying $\delta$ to manipulate the MBSs
+is non adiabatic or $\Delta E < k_B T$ then
+additional quasiparticles could be excited.
+If those quasiparticles escape and interact with
+other MBSs, then the state of the MBSs will
+be disturbed.  However, if $\delta \ll \Delta_0$ the excited
+quasiparticles will be confined to the segment in which they were
+created.  If $\delta$ is turned up so that
+$k_B T \ll \delta \ll \Delta_0$, and
+the system relaxes back to its ground state, then the state of
+the MBSs will remain intact.  Thus, if there is
+sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+can tolerate these excitations.
+codex
+The extraction is complete. I’m doing one last verification pass on the output shape and then I’ll report the result.
+exec
+/bin/zsh -lc "rg -n -F '\\begin{' codex_scientific_text.md && true" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc 'git diff -- codex_scientific_text.md' in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n -F '\\bibitem' codex_scientific_text.md && true" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+exec
+/bin/zsh -lc "rg -n -F '\\end{' codex_scientific_text.md && true" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ exited 1 in 0ms:
+ exited 1 in 0ms:
+ exited 1 in 111ms:
+ exited 129 in 997ms:
+warning: Not a git repository. Use --no-index to compare two paths outside a working tree
+usage: git diff --no-index [<options>] <path> <path>
+
+Diff output format options
+    -p, --patch           generate patch
+    -s, --no-patch        suppress diff output
+    -u                    generate patch
+    -U, --unified[=<n>]   generate diffs with <n> lines context
+    -W, --function-context
+                          generate diffs with <n> lines context
+    --raw                 generate the diff in raw format
+    --patch-with-raw      synonym for '-p --raw'
+    --patch-with-stat     synonym for '-p --stat'
+    --numstat             machine friendly --stat
+    --shortstat           output only the last line of --stat
+    -X, --dirstat[=<param1,param2>...]
+                          output the distribution of relative amount of changes for each sub-directory
+    --cumulative          synonym for --dirstat=cumulative
+    --dirstat-by-file[=<param1,param2>...]
+                          synonym for --dirstat=files,param1,param2...
+    --check               warn if changes introduce conflict markers or whitespace errors
+    --summary             condensed summary such as creations, renames and mode changes
+    --name-only           show only names of changed files
+    --name-status         show only names and status of changed files
+    --stat[=<width>[,<name-width>[,<count>]]]
+                          generate diffstat
+    --stat-width <width>  generate diffstat with a given width
+    --stat-name-width <width>
+                          generate diffstat with a given name width
+    --stat-graph-width <width>
+                          generate diffstat with a given graph width
+    --stat-count <count>  generate diffstat with limited lines
+    --compact-summary     generate compact summary in diffstat
+    --binary              output a binary diff that can be applied
+    --full-index          show full pre- and post-image object names on the "index" lines
+    --color[=<when>]      show colored diff
+    --ws-error-highlight <kind>
+                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+    --abbrev[=<n>]        use <n> digits to display object names
+    --src-prefix <prefix>
+                          show the given source prefix instead of "a/"
+    --dst-prefix <prefix>
+                          show the given destination prefix instead of "b/"
+    --line-prefix <prefix>
+                          prepend an additional prefix to every line of output
+    --no-prefix           do not show any source or destination prefix
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    --output-indicator-new <char>
+                          specify the character to indicate a new line instead of '+'
+    --output-indicator-old <char>
+                          specify the character to indicate an old line instead of '-'
+    --output-indicator-context <char>
+                          specify the character to indicate a context instead of ' '
+
+Diff rename options
+    -B, --break-rewrites[=<n>[/<m>]]
+                          break complete rewrite changes into pairs of delete and create
+    -M, --find-renames[=<n>]
+                          detect renames
+    -D, --irreversible-delete
+                          omit the preimage for deletes
+    -C, --find-copies[=<n>]
+                          detect copies
+    --find-copies-harder  use unmodified files as source to find copies
+    --no-renames          disable rename detection
+    --rename-empty        use empty blobs as rename source
+    --follow              continue listing the history of a file beyond renames
+    -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+
+Diff algorithm options
+    --minimal             produce the smallest possible diff
+    -w, --ignore-all-space
+                          ignore whitespace when comparing lines
+    -b, --ignore-space-change
+                          ignore changes in amount of whitespace
+    --ignore-space-at-eol
+                          ignore changes in whitespace at EOL
+    --ignore-cr-at-eol    ignore carrier-return at the end of line
+    --ignore-blank-lines  ignore changes whose lines are all blank
+    -I, --ignore-matching-lines <regex>
+                          ignore changes whose all lines match <regex>
+    --indent-heuristic    heuristic to shift diff hunk boundaries for easy reading
+    --patience            generate diff using the "patience diff" algorithm
+    --histogram           generate diff using the "histogram diff" algorithm
+    --diff-algorithm <algorithm>
+                          choose a diff algorithm
+    --anchored <text>     generate diff using the "anchored diff" algorithm
+    --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words
+    --word-diff-regex <regex>
+                          use <regex> to decide what a word is
+    --color-words[=<regex>]
+                          equivalent to --word-diff=color --word-diff-regex=<regex>
+    --color-moved[=<mode>]
+                          moved lines of code are colored differently
+    --color-moved-ws <mode>
+                          how white spaces are ignored in --color-moved
+
+Other diff options
+    --relative[=<prefix>]
+                          when run from subdir, exclude changes outside and show relative paths
+    -a, --text            treat all files as text
+    -R                    swap two inputs, reverse the diff
+    --exit-code           exit with 1 if there were differences, 0 otherwise
+    --quiet               disable all output of the program
+    --ext-diff            allow an external diff helper to be executed
+    --textconv            run external text conversion filters when comparing binary files
+    --ignore-submodules[=<when>]
+                          ignore changes to submodules in the diff generation
+    --submodule[=<format>]
+                          specify how differences in submodules are shown
+    --ita-invisible-in-index
+                          hide 'git add -N' entries from the index
+    --ita-visible-in-index
+                          treat 'git add -N' entries as real in the index
+    -S <string>           look for differences that change the number of occurrences of the specified string
+    -G <regex>            look for differences that change the number of occurrences of the specified regex
+    --pickaxe-all         show all changes in the changeset with -S or -G
+    --pickaxe-regex       treat <string> in -S as extended POSIX regular expression
+    -O <file>             control the order in which files appear in the output
+    --rotate-to <path>    show the change in the specified path first
+    --skip-to <path>      skip the output to the specified path
+    --find-object <object-id>
+                          look for differences that change the number of occurrences of the specified object
+    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+                          select files by diff type
+    --output <file>       output to a specific file
+
+
+codex
+I found one small formatting issue: the extracted title has a trailing space. I’m trimming that directly in the markdown and leaving the body as generated.
+apply patch
+patch: completed
+/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index d6e40452dcc9a9776e0ba82013258ee8b692bd3c..035c1964fc17defd4dec6260b5635a82054f62b6
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -9,7 +9,7 @@
+ ---
+ # Scientific TeX Extract
+ 
+-## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
++## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+ 
+ **Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+ surface states of a strong topological insulator.  The resulting two
+@@ -471,4 +471,4 @@
+ the system relaxes back to its ground state, then the state of
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+-can tolerate these excitations.
+\ No newline at end of file
++can tolerate these excitations.
+
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index d6e40452dcc9a9776e0ba82013258ee8b692bd3c..035c1964fc17defd4dec6260b5635a82054f62b6
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -9,7 +9,7 @@
+ ---
+ # Scientific TeX Extract
+ 
+-## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
++## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+ 
+ **Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+ surface states of a strong topological insulator.  The resulting two
+@@ -471,4 +471,4 @@
+ the system relaxes back to its ground state, then the state of
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+-can tolerate these excitations.
+\ No newline at end of file
++can tolerate these excitations.
+
+exec
+/bin/zsh -lc "sed -n '1,24p' codex_scientific_text.md" in /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692
+ succeeded in 0ms:
+---
+created_at: "2026-05-04T20:58:07-04:00"
+updated_at: "2026-05-04T20:58:07-04:00"
+generated_by: "codex-gpt-5.4-literature-extraction-agent"
+timestamp_source: "script_injected_agent_clock"
+project: "QFT"
+source_paper_dir: "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692"
+output_type: "scientific_tex_extract"
+---
+# Scientific TeX Extract
+
+## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+
+**Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+surface states of a strong topological insulator.  The resulting two
+dimensional state resembles a spinless $p_x+ip_y$ superconductor, but
+does not break time reversal symmetry.  This state supports Majorana
+bound states at vortices.  We show that linear junctions between
+superconductors mediated by the topological insulator form a non chiral 1
+dimensional wire for Majorana fermions, and that circuits formed from
+these junctions provide a method for creating, manipulating and
+fusing Majorana bound states.
+
+Excitations with non-Abelian statistics[Refs: mooreread] are the basis for the
+
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index d6e40452dcc9a9776e0ba82013258ee8b692bd3c..035c1964fc17defd4dec6260b5635a82054f62b6
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -9,7 +9,7 @@
+ ---
+ # Scientific TeX Extract
+ 
+-## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
++## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+ 
+ **Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+ surface states of a strong topological insulator.  The resulting two
+@@ -471,4 +471,4 @@
+ the system relaxes back to its ground state, then the state of
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+-can tolerate these excitations.
+\ No newline at end of file
++can tolerate these excitations.
+
+codex
+Updated [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md) from the local TeX source `revised2.tex` only.
+
+I preserved the YAML front matter and extracted the paper title, abstract, scientific prose, and equations, while removing LaTeX plumbing: preamble/setup, author metadata, PACS, figure environments/captions, comments, acknowledgements, and the bibliography block. Inline citations were mechanically normalized to `[Refs: ...]`, and display equations were kept as `$$ ... $$`.
+
+Verification: no `\begin{...}`, `\end{...}`, or `\bibitem` scaffolding remains in the output.
+diff --git a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+index d6e40452dcc9a9776e0ba82013258ee8b692bd3c..035c1964fc17defd4dec6260b5635a82054f62b6
+--- a//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
++++ b//Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md
+@@ -9,7 +9,7 @@
+ ---
+ # Scientific TeX Extract
+ 
+-## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator 
++## Superconducting proximity effect and Majorana fermions at the surface of a topological insulator
+ 
+ **Abstract.** We study the proximity effect between an $s$-wave superconductor and the
+ surface states of a strong topological insulator.  The resulting two
+@@ -471,4 +471,4 @@
+ the system relaxes back to its ground state, then the state of
+ the MBSs will remain intact.  Thus, if there is
+ sufficient dynamic range between $k_B T$ and $\Delta_0$, the system
+-can tolerate these excitations.
+\ No newline at end of file
++can tolerate these excitations.
+
+tokens used
+90,270
+Updated [codex_scientific_text.md](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/literature/0707.1692/codex_scientific_text.md) from the local TeX source `revised2.tex` only.
+
+I preserved the YAML front matter and extracted the paper title, abstract, scientific prose, and equations, while removing LaTeX plumbing: preamble/setup, author metadata, PACS, figure environments/captions, comments, acknowledgements, and the bibliography block. Inline citations were mechanically normalized to `[Refs: ...]`, and display equations were kept as `$$ ... $$`.
+
+Verification: no `\begin{...}`, `\end{...}`, or `\bibitem` scaffolding remains in the output.

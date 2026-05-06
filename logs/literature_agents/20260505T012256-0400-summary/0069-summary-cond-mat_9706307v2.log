@@ -1,0 +1,13 @@
+Section extraction complete. I've split the scientific text into 7 section files under `codex_section_extracts/` and written the comprehensive import map to `codex_paper_summary.md`.
+
+**Summary structure:**
+- **Whole-Paper Snapshot:** Overview of the landmark shot noise measurement demonstrating $e/3$ fractional charge
+- **Section Summaries:** Seven sections with 50-100 word summaries scaled to content density, each with import triage
+- **Full-Source Import Recommendation:** Context loading strategy and key equations
+
+**Import triage:**
+- **High priority** (sections 01, 02, 03, 04, 06): Core theory, experimental method, and decisive cross-over test
+- **Medium priority** (section 05): Robustness checks and correlation corrections  
+- **Low priority** (section 07): Redundant conclusion
+
+All files preserve YAML front matter with section metadata.

@@ -1,0 +1,233 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+
+\title{\textbf{Speaker Notes: The Fractional Quantum Hall Effect\\as a Topological Field Theory}}
+\author{}
+\date{Target: $\sim$12--15 minutes. Audience: anyone who's done a year of QFT.}
+
+\begin{document}
+\maketitle
+
+\section{[SLIDE 1] The Setup --- What You Measure \hfill \normalfont\textit{1 min}}
+
+Take a 2D electron gas --- GaAs/AlGaAs heterostructure, electrons confined to move in a plane. Apply a strong perpendicular magnetic field $B \sim 10\,\mathrm{T}$. Cool to $T \sim 50\,\mathrm{mK}$.
+
+Measure the Hall conductance: drive a current $I_x$ along the sample, measure the transverse voltage $V_y$. The Hall conductivity is $\sigma_{xy} = I_x / V_y$.
+
+\textbf{What you see:} Plateaux. Not a smooth function of $B$. The conductivity locks onto discrete values and refuses to move.
+
+For the \textbf{integer} quantum Hall effect (IQHE):
+\begin{equation}
+\sigma_{xy} = n \frac{e^2}{h}, \quad n = 1, 2, 3, \ldots
+\end{equation}
+
+For the \textbf{fractional} quantum Hall effect (FQHE), discovered by Tsui, St\"ormer, and Gossard in 1982:
+\begin{equation}
+\sigma_{xy} = \nu \frac{e^2}{h}, \quad \nu = \tfrac{1}{3},\, \tfrac{2}{5},\, \tfrac{5}{2},\, \ldots
+\end{equation}
+
+These numbers are measured to one part in $10^9$. They don't drift with temperature, disorder, sample shape, or impurity concentration. Something is protecting them.
+
+\section{[SLIDE 2] Integer QHE --- The Easy Case \hfill \normalfont\textit{2 min}}
+
+Single-particle physics. A charged particle in a magnetic field has discrete energy levels---Landau levels---spaced by the cyclotron energy $\hbar\omega_c = \hbar eB/m$. Each Landau level has degeneracy $N_\phi = BA/(h/e)$. The filling fraction is
+\begin{equation}
+\nu = N_e / N_\phi.
+\end{equation}
+
+At $\nu = n$ (integer), you fill exactly $n$ Landau levels. The gap to the next level is $\hbar\omega_c$. This is a band insulator---filled bands don't conduct longitudinally, but the Hall conductance is quantized because the Chern number of each filled band is 1.
+
+\textbf{Key point:} The integer QHE is single-particle, no interactions needed. The gap is the cyclotron gap. The quantization is topological (Chern number), but the mechanism is boring.
+
+\section{[SLIDE 3] The Fractional Problem --- Why It's Hard \hfill \normalfont\textit{2 min}}
+
+Set $\nu = 1/3$. One-third as many electrons as available states in the lowest Landau level. Single-particle energies are degenerate---kinetic energy is frozen---so Coulomb interactions dominate completely. No small parameter. Cannot do perturbation theory.
+
+And yet: $\sigma_{xy} = (1/3)(e^2/h)$, measured to extraordinary precision. Excitations carry charge $e/3$. Exchanging two excitations gives a phase $e^{i\pi/3}$---neither bosonic nor fermionic. These are anyons.
+
+\textbf{The question:} What structure is rigid enough to produce these universal numbers?
+
+\textbf{The answer:} The low-energy effective theory is a Chern--Simons topological field theory, and the universal numbers are controlled by a single integer.
+
+\section{[SLIDE 4] The Effective Action --- Writing It Down \hfill \normalfont\textit{2 min}}
+
+We do not solve the microscopic problem ($\sim 10^{11}$ interacting electrons). Below the gap, write whatever action is consistent with symmetries and topology. For $\nu = 1/m$:
+\begin{equation}\label{eq:action}
+S[a; A] = \int \left[ \frac{1}{2\pi} A \wedge da - \frac{m}{4\pi} a \wedge da \right]
+\end{equation}
+
+\begin{itemize}[nosep]
+\item $A$ = electromagnetic gauge field (external background probe).
+\item $a$ = emergent $U(1)$ gauge field (collective mode packaging electron correlations).
+\item $m$ = odd integer (odd because electrons are fermions).
+\end{itemize}
+
+There is no Maxwell term $\int F \wedge \star F$. No metric anywhere. The action is purely topological. This is a Chern--Simons theory.
+
+\textbf{Why no metric $=$ why the observable is protected:} If the action doesn't see the metric, then smooth deformations of the sample, impurities, gentle perturbations---anything that changes the local geometry without closing the gap---cannot change the answer.
+
+\section{[SLIDE 5] Derivation 1: Hall Conductance \hfill \normalfont\textit{2 min}}
+
+Vary with respect to $a$ (it's dynamical):
+\begin{equation}
+\frac{\delta S}{\delta a} = 0 \implies \frac{1}{2\pi} dA - \frac{m}{2\pi} da = 0 \implies da = \frac{1}{m}\,dA.
+\end{equation}
+
+On a simply-connected patch, $a = A/m$. Substitute back:
+\begin{equation}
+S_{\mathrm{eff}}[A] = \frac{1}{4\pi m} \int A \wedge dA.
+\end{equation}
+
+The induced current is:
+\begin{equation}
+j^\mu = \frac{\delta S_{\mathrm{eff}}}{\delta A_\mu} = \frac{1}{2\pi m}\,\varepsilon^{\mu\nu\rho}\partial_\nu A_\rho, \qquad j^i = \frac{1}{2\pi m}\,\varepsilon^{ij}E_j.
+\end{equation}
+
+This is a Hall current:
+\begin{equation}
+\boxed{\sigma_{xy} = \frac{1}{2\pi m} = \frac{e^2}{h}\cdot\frac{1}{m}}
+\end{equation}
+
+\textbf{Why $m$ must be an integer:} Put the theory on $S^2 \times S^1$ with one flux quantum through $S^2$. A large gauge transformation winding once around $S^1$ shifts the action by $\Delta S = 2\pi m$. Requiring $e^{iS}$ to be single-valued forces $m \in \mathbb{Z}$. The quantization of conductance is a consistency condition, not a fitting parameter.
+
+\section{[SLIDE 6] Derivation 2: Fractional Charge \hfill \normalfont\textit{2 min}}
+
+Insert a static quasihole at the origin---a point source for the emergent gauge field:
+\begin{equation}
+S_{\mathrm{source}} = \int a \wedge J, \qquad J = 2\pi\,\delta^{(2)}(\mathbf{x})\,dt.
+\end{equation}
+
+The equation of motion now picks up a delta function:
+\begin{equation}
+m\,f_{12}(\mathbf{x}) = 2\pi\,\delta^{(2)}(\mathbf{x}).
+\end{equation}
+
+Each quasihole carries emergent flux $2\pi/m$. The mixed term $A \wedge da$ converts emergent flux to electric charge. Reading $j^0 = f_{12}/(2\pi)$ from varying with respect to $A_0$:
+\begin{equation}
+\boxed{Q_{\mathrm{qh}} = \frac{e}{m}}
+\end{equation}
+
+For $m=3$: charge $e/3$. Measured via shot noise by Saminadayar et al.\ (1997) and de-Picciotto et al.\ (1997).
+
+\section{[SLIDE 7] Derivation 3: Anyonic Statistics \hfill \normalfont\textit{1.5 min}}
+
+Two quasiholes $=$ two Wilson loops. Quasihole 1 carries unit $a$-charge. Quasihole 2 carries emergent flux $2\pi/m$.
+
+Aharonov--Bohm: take quasihole 1 around quasihole 2:
+\begin{equation}
+\text{phase} = \text{charge} \times \text{flux} = 1 \times \frac{2\pi}{m} = \frac{2\pi}{m}.
+\end{equation}
+
+A full winding $=$ two exchanges. So a single exchange gives:
+\begin{equation}
+\boxed{\theta_{\mathrm{exchange}} = \frac{\pi}{m}}
+\end{equation}
+
+For $m=3$: $\theta = \pi/3$. Not 0 (bosons), not $\pi$ (fermions). Anyons.
+
+\textbf{Key point:} The same integer $m$ gives $\sigma_{xy} = e^2/(mh)$, $Q = e/m$, and $\theta = \pi/m$. One number controls everything.
+
+Measured in 2020 by Nakamura et al.\ using a Fabry--P\'erot interferometer at $\nu = 1/3$.
+
+\section{[SLIDE 8] Edge Modes and Anomaly Inflow \hfill \normalfont\textit{1.5 min}}
+
+On a manifold with boundary, the Chern--Simons action is NOT gauge-invariant:
+\begin{equation}
+\delta S_{\mathrm{CS}} \supset -\frac{m}{4\pi}\int_{\partial M} A \wedge \delta A.
+\end{equation}
+
+Gauge invariance requires a boundary degree of freedom whose anomaly cancels this. That boundary theory is a chiral boson:
+\begin{equation}
+S_{\mathrm{edge}} = \frac{m}{4\pi}\int_{\partial M}\bigl(\partial_t\phi\,\partial_x\phi - v\,(\partial_x\phi)^2\bigr)\,dt\,dx.
+\end{equation}
+
+The edge propagates in one direction only (chiral). This is anomaly inflow.
+
+\textbf{Universal:} chirality, anomaly coefficient ($c=1$ for all Laughlin states). \textbf{Not universal:} edge velocity $v$, equilibration lengths, tunneling exponents.
+
+\section{[SLIDE 9] Ground-State Degeneracy \hfill \normalfont\textit{1 min}}
+
+On a torus, $da = 0$ (flat connection). Flat $U(1)$ connections on $T^2$ parameterized by holonomies $u = \oint_\alpha a$, $v = \oint_\beta a$ with $u,v \sim u+2\pi$. The CS action gives symplectic form:
+\begin{equation}
+\Omega = \frac{m}{2\pi}\,du \wedge dv.
+\end{equation}
+
+Geometric quantization: one state per $2\pi$ of phase-space area:
+\begin{equation}
+\boxed{\dim\mathcal{H} = m}
+\end{equation}
+
+For $\nu = 1/3$ on a torus: three degenerate ground states. Topological---cannot be lifted by any local perturbation.
+
+\section{[SLIDE 10] What's Topological and What Isn't \hfill \normalfont\textit{1.5 min}}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Observable & Status \\
+\midrule
+$\sigma_{xy} = \nu\, e^2/h$ & Protected: changes only at phase transitions \\
+Quasihole charge $e/m$ & Protected: set by the level \\
+Exchange phase $\pi/m$ & Protected: topological (linking number) \\
+Edge chirality & Protected: anomaly coefficient \\
+GSD on torus & Protected: topological \\
+\midrule
+Edge velocity & NOT protected: depends on confining potential \\
+Tunneling exponents & NOT protected: depends on interactions \\
+Interferometer visibility & NOT protected: Coulomb effects, fluctuations \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The worst confusion in the experimental literature comes from conflating the two columns.
+
+\section{[SLIDE 11] The Experimental Score \hfill \normalfont\textit{1 min}}
+
+\begin{itemize}[nosep]
+\item \textbf{$\sigma_{xy}$ quantization:} Measured to 1 part in $10^9$. Unambiguous.
+\item \textbf{Fractional charge $e/3$:} Measured via shot noise (1997) and tunneling. Clean.
+\item \textbf{Anyonic phase $2\pi/3$:} Nakamura et al.\ (2020), Fabry--P\'erot interferometry at $\nu = 1/3$. Consistent with prediction.
+\item \textbf{Non-abelian braiding ($\nu = 5/2$):} NOT conclusively demonstrated in condensed matter. Andersen et al.\ (2023) is synthetic emulation, not a natural phase.
+\end{itemize}
+
+\section{[SLIDE 12] One Sentence Summary}
+
+The fractional quantum Hall effect is the proof of concept that topological field theory governs real macroscopic matter: a single integer in a metric-free action simultaneously predicts the quantized conductance, the fractionalized charge, the anyonic exchange statistics, the chiral edge mode, and the topological ground-state degeneracy---and experiment confirms all of them.
+
+\vfill
+
+\section*{Timing Summary}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Section & Time \\
+\midrule
+Setup / what you measure & 1 min \\
+Integer QHE & 2 min \\
+Why fractional is hard & 2 min \\
+The effective action & 2 min \\
+Hall conductance derivation & 2 min \\
+Fractional charge derivation & 2 min \\
+Anyonic statistics derivation & 1.5 min \\
+Edge modes / anomaly inflow & 1.5 min \\
+Ground-state degeneracy & 1 min \\
+What's topological and what isn't & 1.5 min \\
+Experimental score & 1 min \\
+\midrule
+\textbf{Total} & \textbf{$\sim$17.5 min} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textit{To trim to 12 min:} Cut Slide 2 to 30 seconds, compress Slide 8 to one sentence, skip Slide 9.
+
+\end{document}

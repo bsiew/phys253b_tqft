@@ -1,0 +1,8 @@
+The section is complete and reads well in context. It covers all the acceptance criteria:
+
+1. **4 anyon types identified** — $1$, $e$, $m$, $\epsilon = e \times m$, each constructed explicitly from string operators.
+2. **Fusion rules derived** — from $Z_e^2 = I$ and $X_e^2 = I$, not merely stated.
+3. **Braiding matrix derived** — the $-1$ mutual braiding phase is proven in Proposition~\ref{prop:mutual-braiding} via the string operator algebra, and $\epsilon$'s fermionic self-statistics follow from the topological spin formula.
+4. **Bridge to Part I** — Wilson line / 't Hooft line identification and the BF linking phase, with `\ref{sec:bf-self-contained}` cross-references.
+
+The section is approximately 75 lines of LaTeX (about 1.5 pages with equations), matching the length target in the TODO comment.

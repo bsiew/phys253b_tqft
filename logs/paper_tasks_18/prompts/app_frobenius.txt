@@ -1,0 +1,30 @@
+You are completing Appendix B (Frobenius Algebra Proofs) for a physics review paper on TQFT.
+
+## Context
+
+The existing stub is at 253b_final_paper/tex_docs/app_frobenius.tex (19 lines with [To be written] placeholders). Chapter 4 (ch04_frobenius.tex) defers the well-definedness proof, mapping-class invariance, and handle-operator spectra here.
+
+## Task
+
+OVERWRITE 253b_final_paper/tex_docs/app_frobenius.tex with the full appendix. Target: 4-5 pages.
+
+Content:
+Section B.1 — From Frobenius algebras to TQFTs: well-definedness:
+- The functor Z: Cob_2 -> Vect constructed from a commutative Frobenius algebra
+- Morse-theoretic argument: any two Morse functions on a cobordism differ by handle slides and births/deaths
+- Show these moves correspond to the Frobenius axioms (associativity, commutativity, unit, counit)
+- Conclude: Z is well-defined independent of Morse function choice
+
+Section B.2 — Mapping-class invariance:
+- For a closed surface Sigma_g, Z(Sigma_g) depends only on genus
+- The handle operator h = m circ Delta in the Frobenius algebra
+- Z(Sigma_g) = Tr(h^g) / dim(A) (or appropriate normalization)
+- Proof that Dehn twists act trivially in 2d TQFT
+
+Section B.3 — Handle-operator spectra for finite groups:
+- Group algebra C[G] as Frobenius algebra with trace = delta_e coefficient
+- Handle operator spectrum: eigenvalues |G|/|C_g| for conjugacy classes
+- Z(Sigma_g) = |Hom(pi_1(Sigma_g), G)| / |G|
+- Explicit computation for G = Z_N and G = S_3
+
+Read ch04_frobenius.tex first to match notation and find forward references. Keep existing labels (\label{app:frobenius}, etc.).

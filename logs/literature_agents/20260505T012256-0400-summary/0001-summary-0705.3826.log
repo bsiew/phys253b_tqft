@@ -1,0 +1,11 @@
+Task complete. I've split the scientific text into six section-level files under `codex_section_extracts/` and created `codex_paper_summary.md` with:
+
+- **Whole-paper snapshot** summarizing both main theorems (factorization of affine Schubert classes and explicit polynomial construction)
+- **Section summaries** scaled to content density:
+  - Survey (50 words): high priority—establishes the paper's contributions
+  - Background (100 words): high priority—defines all foundational structures (Weyl groups, Pontryagin ring, Demazure operators)
+  - Factorization (100 words): high priority—contains Theorem A and proof sketch
+  - Polynomials (150 words): high priority—contains Theorem B's six-step algorithm and examples
+  - Appendix (90 words): medium priority—technical machinery on weak order
+  - Bibliography (50 words): low priority—reference list only
+- **Import recommendations** advising to load sections 00-03 initially, section 04 when needed for factorization details, and skip section 05 unless tracking sources.

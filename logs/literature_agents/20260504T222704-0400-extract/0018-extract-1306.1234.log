@@ -1,0 +1,13 @@
+Done. I've extracted and cleaned the scientific text from the TeX source into `codex_scientific_text.md`. The file now contains:
+
+- **YAML front matter** preserved with updated `updated_at` timestamp
+- **Full scientific prose**: title, author affiliations, abstract, all sections
+- **Key definitions and equations**: Weyl semimetals, Dirac semimetals, chiral anomaly, transport equations, Landau levels, continuity equations, boundary conditions
+- **Central results**: the nonlocal response formula and its two limiting cases (weak field and quantum limits)
+- **Derivations and physical reasoning**: disorder model, charge vs. valley relaxation rates, isospin mixing in DSMs
+- **Material estimates**: WSM parameter scaling, detailed Na₃Bi and Cd₃As₂ calculations
+- **Alternative geometries and discussion**: H-geometry setup, experimental implications
+
+**Removed:** all TeX plumbing (\documentclass, \usepackage, \newcommand definitions, macro setup, \cite commands, purely presentational \includegraphics/\caption text, author formatting, \maketitle, \bibliography command, and document environment markup).
+
+**Preserved:** scientific nomenclature ($\mathbf{E}$, $\mathbf{B}$, $\mathcal{O}$ notation), all numbered equations in readable form, footnotes with scientific content, and the paper's logical flow.

@@ -1,0 +1,13 @@
+The section is cleanly inserted between the `\label{subsec:strong-cp-axion}` and the next `\subsection{When the Observables Are Clean...}` with no disruption to surrounding content.
+
+The section is complete. It covers all seven content points from the task specification:
+
+1. **Bar-theta** defined as $\theta + \arg\det \mathcal{M}_q$ with explanation of why it's physical
+2. **Neutron EDM** — chiral estimate and the Abel et al. 2020 bound yielding $|\bar\theta| \lesssim 10^{-10}$
+3. **The fine-tuning problem** — why no SM mechanism sets $\bar\theta$ to zero
+4. **PQ mechanism** — axion coupling, potential from $\chi_t$, and dynamic relaxation to CP conservation
+5. **Axion mass** — $m_a^2 f_a^2 = \chi_t$ with NLO numerical value and lattice verification
+6. **Experimental landscape** — four classes (haloscopes/helioscopes/CASPEr/MADMAX) with mass regions
+7. **KSVZ vs DFSZ** — two benchmarks with different $E/N$ and coupling patterns
+
+The section is approximately 5 pages of LaTeX, uses all the specified citations, cross-references §14.1 and §14.2, and matches the prose style of the existing sections.

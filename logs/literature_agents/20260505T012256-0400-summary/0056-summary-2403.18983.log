@@ -1,0 +1,7 @@
+Task complete. I've split the paper (extracted from main.tex and supplement.tex) into 12 section-level markdown files under `codex_section_extracts/` and created `codex_paper_summary.md` with:
+
+**Whole-Paper Snapshot:** Overview of the anyon braiding experiment using three-state RTN in graphene FQH interferometers, highlighting the 2π/3 phase-shifted branches, 3φ₀ super-periodicity, and systematic studies of fluctuations vs. plateau position and temperature.
+
+**Section Summaries:** Each of the 12 sections (abstract, introduction, 5 main results sections, outlook, 3 supplement sections) is summarized at appropriate length (50-150 words) with import recommendations ranging from **high** (core physics and results) to **low** (experimental apparatus details) to **skip** (tuning protocols and algorithms).
+
+**Full-Source Import Recommendation:** Prioritizes sections 01-02, 04-07 as high-value for understanding anyonic statistics and the RTN measurement innovation, with medium priority for device architecture (03) and low for fabrication/measurement details (09-10). The paper is flagged as high-priority overall for QFT work on topological phases and quantum Hall interferometry.

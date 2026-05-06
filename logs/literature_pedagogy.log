@@ -1,0 +1,29 @@
+============================================================
+ Literature Pedagogy Pass: Starting at Tue May  5 03:15:54 EDT 2026
+ Chapters: ch09_topological_order.tex ch10_anyons.tex ch11_fqhe.tex ch12_experiments.tex ch13_tqc.tex
+ Literature papers available: 79
+ Max parallel: 2
+ Log dir: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/literature_pedagogy
+============================================================
+
+[03:15:54] >>>>>> WAVE 1: ch09 + ch10 <<<<<<
+[03:15:54] Starting pedagogy pass: ch09_topological_order
+[03:15:54] Starting pedagogy pass: ch10_anyons
+[03:20:27] Completed pedagogy pass: ch09_topological_order
+[03:21:40] Completed pedagogy pass: ch10_anyons
+[03:21:40] >>>>>> WAVE 1 COMPLETE <<<<<<
+
+[03:21:40] >>>>>> WAVE 2: ch11 + ch12 <<<<<<
+[03:21:40] Starting pedagogy pass: ch11_fqhe
+[03:21:40] Starting pedagogy pass: ch12_experiments
+[03:26:45] Completed pedagogy pass: ch11_fqhe
+[03:27:09] Completed pedagogy pass: ch12_experiments
+[03:27:09] >>>>>> WAVE 2 COMPLETE <<<<<<
+
+[03:27:09] >>>>>> WAVE 3: ch13 <<<<<<
+[03:27:09] Starting pedagogy pass: ch13_tqc
+[03:33:02] Completed pedagogy pass: ch13_tqc
+
+============================================================
+ LITERATURE PEDAGOGY PASS COMPLETE at Tue May  5 03:33:02 EDT 2026
+============================================================

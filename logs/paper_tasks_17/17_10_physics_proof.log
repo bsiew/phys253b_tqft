@@ -1,0 +1,18 @@
+Physics/citation proofreading pass is complete. Here's the summary:
+
+**10 issues found and fixed across ch11, ch12, ch13:**
+
+1. **Halperin (3,3,1) σ_xy** — was 2/5, corrected to 1/2 (arithmetic error in K-matrix evaluation)
+2. **Nakamura phase value** — was `0.65 × 2π`, corrected to `0.33 × 2π` (off by factor ~2)
+3. **"Google/Quantinuum"** → Google Quantum AI (wrong collaboration name)
+4. **Callan–Harvey** primary citation added (was citing only reviews)
+5. **Werkmeister date** — body text "2025" → "2024" to match citation key
+6. **Ch 12 section order** — swapped Andersen and Bartolomei to match epistemic hierarchy (direct → indirect → synthetic)
+7. **Ch 12 synthesis paragraph** — added explicit (a)/(b)/(c) summary
+8. **Andersen honesty box** — sharpened to required phrasing
+9. **Ch 13 honesty box** — added explicit "as of 2024–2025" temporal marker and "remains debated"
+10. **Missing bib entries** — added 5 entries (Andersen, Werkmeister, Callan-Harvey, Freed-Moore-Teleman, Bhardwaj)
+
+Also fixed a dangling `\ref{eq:fqhe-full-winding}` cross-reference in ch12.
+
+All experimental numbers verified against primary sources. Findings written to `logs/paper_tasks_17/17_10_physics_findings.md`.

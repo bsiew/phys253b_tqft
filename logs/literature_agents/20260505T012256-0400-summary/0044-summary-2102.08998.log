@@ -1,0 +1,13 @@
+Task complete. I've split the extracted paper content into section-level files and created the import map summary.
+
+**Created section files:**
+- `codex_section_extracts/00_abstract.md` (import: medium)
+- `codex_section_extracts/01_introduction.md` (import: high)
+- `codex_section_extracts/02_fractional_charge.md` (import: high)
+- `codex_section_extracts/03_fractional_statistics.md` (import: high)
+
+**Updated `codex_paper_summary.md`** with a whole-paper snapshot, section-by-section summaries with import triage, and a full-source recommendation.
+
+**Important caveat:** The source extraction is incomplete—it ends mid-section at line 117 with a placeholder. The paper promises coverage of experimental techniques, non-Abelian statistics, interferometry experiments, and other topics that are not present in the extracted text. The summary document flags this limitation and recommends re-processing the source `.tex` file or ingesting the full PDF to capture the complete paper.
+
+The available sections provide rigorous foundations for fractional charge (topological protection, operational definitions) and fractional statistics (anyon formalism, Chern-Simons potentials), making them high-priority imports for theoretical work on these topics.

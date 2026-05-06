@@ -1,0 +1,11 @@
+Done. Here's the summary:
+
+**Three edits made:**
+
+1. **ch12_experiments.tex** — Added a 16-line synthesis-backbone introduction that explicitly frames the chapter by epistemic strength (direct braiding → noise correlations → synthetic emulation), names the theoretical prediction tested by each class of experiment, and states the per-experiment structure. This transforms the chapter from a chronological list into an argument.
+
+2. **ch13_tqc.tex** — Fixed a factual error: "photonic experiments" → "superconducting-processor experiment" (ch12 discusses Andersen 2023 on a Google quantum processor, not a photonic setup).
+
+3. **ch15_defects_synthesis.tex** — Added a 6-line opening to §15.2 explicitly stating its role as the synthesis of Part I + Part II, unifying the local caveats from §11.7 and §14.4 into the four-category taxonomy.
+
+**No true duplication found** in Part II. The BF/toric-code triple-derivation issue flagged in the CRITICAL_EVALUATION is already resolved: ch09 §9.4 has a "Reader's note" cross-referencing ch06. Ch14 correctly references ch05 without re-deriving instantons. All `\ref` targets resolve cleanly.

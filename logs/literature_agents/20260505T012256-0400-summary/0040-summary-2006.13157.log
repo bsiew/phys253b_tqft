@@ -1,0 +1,13 @@
+Task completed. I've split the paper into 11 section files under `codex_section_extracts/` and written the comprehensive summary to `codex_paper_summary.md`.
+
+**Section breakdown:**
+- 11 Markdown files with YAML front matter and import priority tags
+- Sections range from abstract/introduction through experimental details to conclusions
+- Each preserves the technical content while maintaining logical boundaries
+
+**Summary structure:**
+- **Whole-paper snapshot:** Describes the first direct experimental demonstration of fractional anyonic statistics (φ=π/3) using collision-based noise measurements, with measured Fano factor P=-2.1±0.1
+- **Section summaries:** Scaled appropriately (50-100 words for shorter sections, longer for dense theoretical content)
+- **Import recommendations:** 5 HIGH priority sections (foundations, theory, results, conclusions), 4 MEDIUM (implementation and validation details), 1 LOW (technical specs)
+
+The paper is marked HIGH priority overall for QFT studies of anyonic statistics and edge-channel field theory, with sections 02, 03, 07, 08, and 11 recommended for detailed study.

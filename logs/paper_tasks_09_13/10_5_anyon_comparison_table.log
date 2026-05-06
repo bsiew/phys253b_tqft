@@ -1,0 +1,10 @@
+Done. I replaced the TODO block in `\subsection{Anyon Comparison Table}` with:
+
+1. A short introductory sentence framing the table as the capstone of the chapter.
+2. A five-column table (System / Labels / Fusion rules / Topological spin / Statistics) covering toric code, Laughlin $\nu=1/m$, and Ising anyons, with a caption cross-referencing all derivations.
+3. Three contextualizing paragraphs:
+   - **Abelian models** — discusses the toric code ($\Z_2\times\Z_2$ group structure, bosonic $e,m$, fermionic $\varepsilon$) and Laughlin (fractional spin $h_r = r^2/2m$).
+   - **Non-abelian model** — explains the Ising fusion degeneracy $2^{n-1}$, topological quantum computation, and the CFT identification $h_\sigma = 1/16$.
+   - **Chern–Simons realization** — links all three to their CS descriptions ($\Z_2$ gauge theory, $U(1)_m$, $SU(2)_2$) and ties back to Part I.
+
+All entries are cited or derived via `\ref{}` to earlier sections/examples in the file.

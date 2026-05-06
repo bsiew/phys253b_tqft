@@ -1,0 +1,12 @@
+Extraction complete. I've successfully created a cleaned scientific extract from the TeX source (1809.00815.tex → codex_scientific_text.md).
+
+**Summary of changes:**
+- Removed all TeX plumbing: document class, packages, macros, author/affiliation commands
+- Preserved YAML front matter with metadata
+- Converted section commands to markdown headings
+- Converted LaTeX citations to readable [citation: ...] format
+- Kept all scientific content: abstract, definitions, equations (align/equation environments intact), derivations, interpretations, results, and acknowledgments
+- Removed bibliography entries and purely presentational formatting
+- Cleaned up stray TeX artifacts and excessive blank lines
+
+The output file now contains 437 lines of pure scientific content with equations and mathematical notation preserved, ready for literature extraction and analysis.

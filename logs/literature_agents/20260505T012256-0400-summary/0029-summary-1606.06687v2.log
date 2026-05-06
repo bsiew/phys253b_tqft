@@ -1,0 +1,13 @@
+Task complete. I've successfully split David Tong's Quantum Hall Effect lecture notes into 30 section-level Markdown files and created a comprehensive summary with import recommendations.
+
+**Deliverables:**
+
+1. **`codex_section_extracts/`**: 30 numbered section files (01-30), each with YAML front matter preserving section metadata and full content from the source
+
+2. **`codex_paper_summary.md`**: 216-line import map containing:
+   - Whole-paper conceptual overview emphasizing the three theoretical approaches (wavefunctions, Chern-Simons, edge CFT)
+   - Section-by-section summaries scaled to content density (50-150 words)
+   - Import priority ratings: 14 high-priority sections (foundational material on Landau levels, Laughlin states, Chern-Simons theory, bulk-edge correspondence), 9 medium-priority sections (technical depth), 2 low-priority sections, 6 skip sections (headers only)
+   - Usage guidance for your 253b final paper context
+
+The high-priority sections cover the essential theoretical foundations: Landau level structure, Berry phase topology, Laughlin wavefunctions and plasma analogy, fractional excitations, Chern-Simons effective field theories, and bulk-boundary correspondence—exactly the material most relevant for understanding topological phases and effective theory constructions.

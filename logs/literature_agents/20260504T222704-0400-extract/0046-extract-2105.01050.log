@@ -1,0 +1,25 @@
+Done. I've extracted the scientific content from `ms.tex` into `codex_scientific_text.md` with the following approach:
+
+**Preserved:**
+- YAML front matter (updated timestamp)
+- All scientific prose: introduction, physical motivation, theoretical setup
+- Key definitions: bulk-boundary correspondence, topological crystalline insulators, multipole moments, dislocations, Burgers vectors
+- Physical quantities and parameters: q_xy = 1/2, o_xyz = 1/2, lattice constants, resonator frequencies
+- Experimental design and measurements: metamaterial architecture, RF reflection measurements, DOS calculations
+- Mathematical expressions: S_11, A(f), D(f) formulas and their interpretations
+- Results and conclusions: bound state localization, phase boundaries, robustness across geometries
+- Methods section: circuit design specifics, measurement techniques, loading effects and disorder analysis
+- Author contributions and data availability
+
+**Removed:**
+- LaTeX document class and package declarations
+- Formatting macros (\usepackage, \documentclass, \begin{document})
+- Bibliography machinery (\bibliographystyle, \bibliography, \cite commands retained semantically)
+- Figure environment scaffolding (\begin{figure}, \includegraphics paths, figure reference machinery)
+- Author/affiliation formatting commands
+- Section numbering and supplementary material TeX commands
+- Vertical spacing commands (\vspace, \newpage)
+- Hyperref and style configuration
+- Comments and commented-out code
+
+The file is now ready for subsequent scientific processing while maintaining full intellectual content.

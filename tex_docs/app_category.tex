@@ -1,0 +1,205 @@
+% ============================================================================
+% Appendix A: Category Theory Minimum
+% ============================================================================
+%
+% Purpose
+%   Provide the minimal category-theoretic definitions needed to read
+%   Chapters 3 and 4 (axiomatic TQFT and the Frobenius classification):
+%   categories, functors, natural transformations, symmetric monoidal
+%   categories, and dualizable objects.
+%
+% References
+%   Mac Lane, *Categories for the Working Mathematician* (\cite{MacLane1998})
+%   Kock, *Frobenius Algebras and 2D TQFTs* (\cite{Kock2004Frobenius})
+
+\section{Category Theory Minimum}\label{app:category}
+
+This appendix collects the definitions from category theory that appear in Chapters~\ref{ch:axiomatic} and~\ref{ch:frobenius}.  The goal is not to develop the subject but only to make precise the words ``category,'' ``functor,'' ``natural transformation,'' ``symmetric monoidal category,'' and ``dualizable object'' as they are used in the body of the paper.  The standard reference is Mac~Lane \cite{MacLane1998}; we follow the exposition and notation of Kock \cite{Kock2004Frobenius} wherever the two diverge.
+
+\subsection{Categories}\label{appsec:categories}
+
+\begin{definition}[Category]\label{def:category}
+A \emph{category} $\mathcal{C}$ consists of the following data.
+\begin{enumerate}
+\item A collection $\mathrm{Ob}(\mathcal{C})$ of \emph{objects}.
+\item For each ordered pair of objects $X,Y$, a set $\Hom_{\mathcal{C}}(X,Y)$ of \emph{morphisms} from $X$ to $Y$.  A morphism $f \in \Hom_{\mathcal{C}}(X,Y)$ is written $f : X \to Y$.
+\item For each triple of objects $X,Y,Z$, a \emph{composition law}
+\begin{equation}\label{eq:cat-composition}
+\circ : \Hom_{\mathcal{C}}(Y,Z) \times \Hom_{\mathcal{C}}(X,Y) \longrightarrow \Hom_{\mathcal{C}}(X,Z),
+\end{equation}
+sending $(g,f)$ to $g \circ f$.
+\item For each object $X$, an \emph{identity morphism} $\id_X \in \Hom_{\mathcal{C}}(X,X)$.
+\end{enumerate}
+These data are required to satisfy:
+\begin{itemize}
+\item \emph{Associativity:} $h \circ (g \circ f) = (h \circ g) \circ f$ whenever the compositions are defined.
+\item \emph{Identity law:} $f \circ \id_X = f$ and $\id_Y \circ f = f$ for all $f : X \to Y$.
+\end{itemize}
+\end{definition}
+
+\begin{example}[The category of vector spaces]\label{ex:Vect}
+Let $\mathrm{Vect}_\C$ denote the category whose objects are complex vector spaces and whose morphisms are $\C$-linear maps.  Composition is ordinary composition of linear maps, and the identity morphism on $V$ is the identity map $\id_V$.  More restrictively, one may consider $\mathrm{Vect}_\C^{\mathrm{fd}}$, the full subcategory of finite-dimensional vector spaces.  When we write $\mathrm{Vect}_\C$ in the body of the paper, we always mean this finite-dimensional variant.
+\end{example}
+
+\begin{example}[The category of sets]\label{ex:Set}
+The category $\mathrm{Set}$ has sets as objects and functions as morphisms.  This is the prototype from which all other categories are modeled: the axioms above simply axiomatize what is already true of functions between sets.
+\end{example}
+
+\begin{example}[Hilbert spaces]\label{ex:Hilb}
+The category $\mathrm{Hilb}$ has complex Hilbert spaces as objects and bounded linear operators as morphisms.  Quantum mechanics is naturally formulated in this category: states live in objects, and time evolution is a morphism.
+\end{example}
+
+\begin{example}[The cobordism category]\label{ex:Cobd-app}
+The category $\mathrm{Cob}_d$ of Definition~\ref{def:Cobd} in Chapter~\ref{ch:axiomatic} has closed oriented $(d{-}1)$-manifolds as objects and diffeomorphism classes of oriented $d$-dimensional cobordisms as morphisms.  Composition is gluing along shared boundary components (Definition~\ref{def:cobordism-composition}), and the identity morphism on $\Sigma$ is the cylinder $\Sigma \times [0,1]$.
+\end{example}
+
+\subsection{Functors}\label{appsec:functors}
+
+A functor is a structure-preserving map between categories: it sends objects to objects, morphisms to morphisms, and respects composition and identities.
+
+\begin{definition}[Covariant functor]\label{def:functor}
+Let $\mathcal{C}$ and $\mathcal{D}$ be categories.  A \emph{(covariant) functor} $F : \mathcal{C} \to \mathcal{D}$ consists of:
+\begin{enumerate}
+\item An assignment $X \mapsto F(X)$ on objects.
+\item For each morphism $f : X \to Y$ in $\mathcal{C}$, a morphism $F(f) : F(X) \to F(Y)$ in $\mathcal{D}$.
+\end{enumerate}
+These are required to satisfy:
+\begin{align}
+F(g \circ f) &= F(g) \circ F(f), \label{eq:functor-composition} \\
+F(\id_X) &= \id_{F(X)}. \label{eq:functor-identity}
+\end{align}
+\end{definition}
+
+\noindent Compare \eqref{eq:functor-composition}--\eqref{eq:functor-identity} with the TQFT axiom \eqref{eq:axiom-functoriality} and the identity axiom \eqref{eq:axiom-identity}: a TQFT is literally a functor $Z : \mathrm{Cob}_d \to \mathrm{Vect}_\C$.
+
+\begin{definition}[Contravariant functor]\label{def:contravariant-functor}
+A \emph{contravariant functor} $F : \mathcal{C} \to \mathcal{D}$ reverses the direction of morphisms: given $f : X \to Y$ in $\mathcal{C}$, one obtains $F(f) : F(Y) \to F(X)$ in $\mathcal{D}$, and the composition law becomes
+\begin{equation}\label{eq:contravariant-composition}
+F(g \circ f) = F(f) \circ F(g).
+\end{equation}
+\end{definition}
+
+\begin{example}[De~Rham cohomology as a contravariant functor]\label{ex:deRham-functor}
+Recall the de~Rham cohomology groups $H^p_{\mathrm{dR}}(M)$ from Section~\ref{sec:deRham}.  A smooth map $\varphi : M \to N$ induces a pullback $\varphi^* : H^p_{\mathrm{dR}}(N) \to H^p_{\mathrm{dR}}(M)$.  Note the reversal: $\varphi$ goes from $M$ to $N$, but $\varphi^*$ goes from $N$ to $M$.  The assignments
+\begin{equation}\label{eq:deRham-functor-def}
+M \longmapsto H^p_{\mathrm{dR}}(M), \qquad (\varphi : M \to N) \longmapsto (\varphi^* : H^p_{\mathrm{dR}}(N) \to H^p_{\mathrm{dR}}(M))
+\end{equation}
+define a contravariant functor from the category of smooth manifolds to the category of real vector spaces.  Contravariance here is a precise statement of the familiar rule that pullback reverses the direction of maps.
+\end{example}
+
+\begin{example}[The dual-space functor]\label{ex:dual-space-functor}
+The assignment $V \mapsto V^*$ extends to a contravariant functor $\mathrm{Vect}_\C \to \mathrm{Vect}_\C$: given a linear map $f : V \to W$, the transpose $f^* : W^* \to V^*$ acts by $f^*(\alpha) = \alpha \circ f$.  The duality axiom \eqref{eq:axiom-duality} of a TQFT is related to the interaction between this functor and orientation reversal.
+\end{example}
+
+\subsection{Natural transformations}\label{appsec:natural-transformations}
+
+A natural transformation is a systematic way to compare two functors that share the same source and target categories.
+
+\begin{definition}[Natural transformation]\label{def:natural-transformation}
+Let $F, G : \mathcal{C} \to \mathcal{D}$ be two functors.  A \emph{natural transformation} $\eta : F \Rightarrow G$ assigns to each object $X \in \mathcal{C}$ a morphism
+\begin{equation}\label{eq:nat-trans-component}
+\eta_X : F(X) \longrightarrow G(X)
+\end{equation}
+in $\mathcal{D}$, called the \emph{component at $X$}, such that for every morphism $f : X \to Y$ in $\mathcal{C}$ the \emph{naturality condition} holds:
+\begin{equation}\label{eq:naturality-square}
+G(f) \circ \eta_X \;=\; \eta_Y \circ F(f) \;:\; F(X) \longrightarrow G(Y).
+\end{equation}
+In diagram form: the square with $\eta_X$ across the top ($F(X) \to G(X)$), $\eta_Y$ across the bottom ($F(Y) \to G(Y)$), $F(f)$ on the left, and $G(f)$ on the right commutes.  If each component $\eta_X$ is an isomorphism, $\eta$ is called a \emph{natural isomorphism}.
+\end{definition}
+
+\noindent The commutativity of \eqref{eq:naturality-square} is the substance of the definition.  It says that the family $\{\eta_X\}$ is not an arbitrary collection of maps but one that intertwines the two functors in a way compatible with all morphisms simultaneously.
+
+The main natural transformation in this paper arises in the definition of a TQFT itself: the monoidal isomorphisms $Z(\Sigma_1 \sqcup \Sigma_2) \cong Z(\Sigma_1) \otimes Z(\Sigma_2)$ of \eqref{eq:axiom-monoidal-objects} are required to be natural in $\Sigma_1$ and $\Sigma_2$, meaning they commute with the maps induced by all cobordisms.  We defer the explicit statement to the discussion of monoidal functors below.
+
+\subsection{Symmetric monoidal categories}\label{appsec:monoidal}
+
+The axioms of a TQFT (Section~\ref{sec:atiyah-segal-axioms}) use not just functoriality but also a tensor-product-like operation on both the source and target categories.  The abstract structure encoding this is a symmetric monoidal category.
+
+\begin{definition}[Monoidal category]\label{def:monoidal-category}
+A \emph{monoidal category} $(\mathcal{C}, \otimes, \mathbf{1})$ is a category $\mathcal{C}$ equipped with:
+\begin{enumerate}
+\item A bifunctor $\otimes : \mathcal{C} \times \mathcal{C} \to \mathcal{C}$ (the \emph{monoidal product}).
+\item A distinguished object $\mathbf{1} \in \mathcal{C}$ (the \emph{unit object}).
+\item Natural isomorphisms
+\begin{align}
+\alpha_{X,Y,Z} &: (X \otimes Y) \otimes Z \xrightarrow{\;\sim\;} X \otimes (Y \otimes Z), \label{eq:associator} \\
+\lambda_X &: \mathbf{1} \otimes X \xrightarrow{\;\sim\;} X, \label{eq:left-unitor} \\
+\rho_X &: X \otimes \mathbf{1} \xrightarrow{\;\sim\;} X, \label{eq:right-unitor}
+\end{align}
+called the \emph{associator}, \emph{left unitor}, and \emph{right unitor}, respectively.
+\end{enumerate}
+These isomorphisms are required to satisfy the \emph{pentagon identity} (coherence for four-fold products) and the \emph{triangle identity} (coherence between the associator and unitors).  We omit the explicit diagrams and refer to \cite[\S VII.1]{MacLane1998}.
+\end{definition}
+
+\begin{definition}[Symmetric monoidal category]\label{def:symmetric-monoidal}
+A monoidal category $(\mathcal{C}, \otimes, \mathbf{1})$ is \emph{symmetric} if it is additionally equipped with a natural isomorphism
+\begin{equation}\label{eq:braiding}
+\sigma_{X,Y} : X \otimes Y \xrightarrow{\;\sim\;} Y \otimes X
+\end{equation}
+(the \emph{braiding} or \emph{symmetry}) satisfying $\sigma_{Y,X} \circ \sigma_{X,Y} = \id_{X \otimes Y}$ and compatible with the associator in the sense of the hexagon identity \cite[\S XI.1]{MacLane1998}.
+\end{definition}
+
+\begin{example}[$(\mathrm{Vect}_\C, \otimes, \C)$]\label{ex:Vect-monoidal}
+The category of finite-dimensional complex vector spaces is symmetric monoidal under the tensor product $\otimes$, with unit object $\C$.  The braiding sends $v \otimes w$ to $w \otimes v$.  This is the target category of a TQFT.
+\end{example}
+
+\begin{example}[$(\mathrm{Cob}_d, \sqcup, \emptyset)$]\label{ex:Cobd-monoidal-app}
+The cobordism category is symmetric monoidal under disjoint union $\sqcup$, with unit object the empty $(d{-}1)$-manifold $\emptyset$ (Proposition~\ref{prop:Cobd-monoidal}).  This is the source category of a TQFT.
+\end{example}
+
+\begin{definition}[Symmetric monoidal functor]\label{def:monoidal-functor}
+Let $(\mathcal{C}, \otimes, \mathbf{1}_{\mathcal{C}})$ and $(\mathcal{D}, \otimes, \mathbf{1}_{\mathcal{D}})$ be symmetric monoidal categories.  A \emph{symmetric monoidal functor} $F : \mathcal{C} \to \mathcal{D}$ is a functor equipped with:
+\begin{enumerate}
+\item A natural isomorphism $\mu_{X,Y} : F(X) \otimes F(Y) \xrightarrow{\;\sim\;} F(X \otimes Y)$ for all objects $X, Y$.
+\item An isomorphism $\mu_0 : \mathbf{1}_{\mathcal{D}} \xrightarrow{\;\sim\;} F(\mathbf{1}_{\mathcal{C}})$.
+\end{enumerate}
+These are required to be compatible with the associators, unitors, and braidings of $\mathcal{C}$ and $\mathcal{D}$.
+\end{definition}
+
+\noindent A TQFT in the sense of Definition~\ref{def:Atiyah-Segal} is precisely a symmetric monoidal functor
+\begin{equation}\label{eq:TQFT-as-smf}
+Z : (\mathrm{Cob}_d, \sqcup, \emptyset) \longrightarrow (\mathrm{Vect}_\C, \otimes, \C).
+\end{equation}
+The monoidality isomorphisms are exactly the identifications $Z(\Sigma_1 \sqcup \Sigma_2) \cong Z(\Sigma_1) \otimes Z(\Sigma_2)$ of \eqref{eq:axiom-monoidal-objects}, and the unit isomorphism is $Z(\emptyset) \cong \C$ of \eqref{eq:axiom-empty}.
+
+\subsection{Dualizable objects}\label{appsec:dualizable}
+
+The final ingredient needed in the body of the paper is the notion of a \emph{dual object} in a monoidal category.  This is the abstract version of the dual vector space $V^*$, but formulated without reference to elements.
+
+\begin{definition}[Dualizable object]\label{def:dualizable}
+Let $(\mathcal{C}, \otimes, \mathbf{1})$ be a monoidal category.  An object $V$ is \emph{dualizable} (or \emph{has a dual}) if there exists an object $V^\vee$ together with morphisms
+\begin{align}
+\operatorname{ev} &: V^\vee \otimes V \longrightarrow \mathbf{1}, \label{eq:evaluation-abstract} \\
+\operatorname{coev} &: \mathbf{1} \longrightarrow V \otimes V^\vee, \label{eq:coevaluation-abstract}
+\end{align}
+called the \emph{evaluation} and \emph{coevaluation}, satisfying the \emph{snake identities}:
+\begin{align}
+(\id_V \otimes \operatorname{ev}) \circ (\operatorname{coev} \otimes \id_V) &= \id_V, \label{eq:snake-abstract-V} \\
+(\operatorname{ev} \otimes \id_{V^\vee}) \circ (\id_{V^\vee} \otimes \operatorname{coev}) &= \id_{V^\vee}. \label{eq:snake-abstract-Vdual}
+\end{align}
+\end{definition}
+
+\noindent The snake identities \eqref{eq:snake-abstract-V}--\eqref{eq:snake-abstract-Vdual} are exactly the relations derived in Proposition~\ref{prop:evaluation-coevaluation} from the cylinder cobordism; compare equations \eqref{eq:snake-V}--\eqref{eq:snake-W}.
+
+\begin{example}[Duals in $\mathrm{Vect}_\C$]\label{ex:duals-Vect}
+In the category of finite-dimensional vector spaces, every object $V$ is dualizable with $V^\vee = V^*$.  Choose a basis $\{e_i\}$ for $V$ with dual basis $\{e^i\}$ for $V^*$.  The evaluation and coevaluation maps are
+\begin{align}
+\operatorname{ev}(\alpha \otimes v) &= \alpha(v), \label{eq:ev-Vect} \\
+\operatorname{coev}(1) &= \sum_{i=1}^n e_i \otimes e^i. \label{eq:coev-Vect}
+\end{align}
+The snake identities reduce to the statement that $\sum_i e_i \, e^i(v) = v$ and $\sum_i \alpha(e_i) \, e^i = \alpha$, both of which follow from completeness of the basis.
+
+Note that an \emph{infinite}-dimensional vector space is \emph{not} dualizable in $\mathrm{Vect}_\C$: one cannot write the identity as a finite sum $\sum_i e_i \otimes e^i$ if there are infinitely many basis vectors, because elements of the algebraic tensor product are finite sums by definition.
+\end{example}
+
+\begin{example}[Duals in $\mathrm{Cob}_d$]\label{ex:duals-Cobd}
+In the cobordism category $(\mathrm{Cob}_d, \sqcup, \emptyset)$, every object $\Sigma$ is dualizable with dual $\Sigma^\vee = \overline{\Sigma}$ (the same manifold with reversed orientation).  The evaluation and coevaluation are both given by the cylinder $\Sigma \times [0,1]$, read as a cobordism with different boundary decompositions---this is exactly the content of Proposition~\ref{prop:evaluation-coevaluation}.
+\end{example}
+
+\medskip
+\noindent\textbf{Why dualizability forces finite-dimensionality.}
+A symmetric monoidal functor preserves dualizable objects: if $V$ is dualizable in $\mathcal{C}$, then $F(V)$ is dualizable in $\mathcal{D}$, with $F(V)^\vee = F(V^\vee)$.  Since every object of $\mathrm{Cob}_d$ is dualizable (Example~\ref{ex:duals-Cobd}), applying the TQFT functor $Z$ shows that every state space $Z(\Sigma)$ is dualizable in $\mathrm{Vect}_\C$.  But the only dualizable objects in $\mathrm{Vect}_\C$ are the finite-dimensional ones (Example~\ref{ex:duals-Vect}).  Therefore:
+\begin{equation}\label{eq:fd-from-dualizability}
+\dim Z(\Sigma) < \infty \qquad \text{for every closed } (d{-}1)\text{-manifold } \Sigma.
+\end{equation}
+This is a conceptual restatement of Corollary~\ref{cor:finite-dimensionality}: the finite-dimensionality of TQFT state spaces is not an ad hoc condition but a consequence of the universal dualizability in the cobordism category, transmitted through the monoidal functor.

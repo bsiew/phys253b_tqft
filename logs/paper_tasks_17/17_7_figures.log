@@ -1,0 +1,11 @@
+Done. Here's a summary of what was created:
+
+**4 new TikZ figures:**
+1. `f_pair_of_pants.tex` — Pair-of-pants cobordism showing the multiplication map $\mu: V \otimes V \to V$ in 2D TQFT (Ch 3/4)
+2. `f_cobordism_generators.tex` — Four generators: identity cylinder, cup (unit), cap (counit), twist (Ch 3/4)
+3. `f_anyon_braiding.tex` — Two anyon worldlines exchanging in 2+1D spacetime with braid crossing and $R$-matrix annotation (Ch 10)
+4. `f_anomaly_inflow.tex` — 3D bulk with CS action, 2D boundary with chiral edge mode, inflow arrows (Ch 8)
+
+**Preamble update:** Added `\usepackage{tikz}` and `\usetikzlibrary{decorations.pathmorphing, calc, arrows.meta}` to `source_tex/preamble.tex` so the figures compile.
+
+Each figure uses only `\begin{tikzpicture}...\end{tikzpicture}` (no standalone document class) and can be included in any chapter with `\input{figures/f_pair_of_pants}` etc.

@@ -1,0 +1,33 @@
+You are helping prepare a 50-minute joint chalk-talk presentation on TQFT for a Physics 253b final project. Your task is to write Helena's 25-minute board script.
+
+## Context
+
+This is a two-author talk (Brian Siew + Helena Brittain). Brian goes first (minutes 0-25) covering Chern-Simons as a TQFT. Helena picks up at minute 25 covering CS as effective theory for FQH, anyons, and experiments.
+
+Brian's talk ends with: the CS action top-left (stays), k in Z boxed top-right (stays), Hopf link bottom-right (Helena will erase). His closing line: "k controls level, links, GSD. All topological. Helena will show you k is measurable."
+
+The paper lives in 253b_final_paper/tex_docs/. Helena's material draws from:
+- ch11_fqhe.tex — Laughlin state, effective CS, Hall conductance
+- ch10_anyons.tex — braiding, exchange statistics
+- ch12_experiments.tex — Nakamura, Werkmeister, Bartolomei
+- ch09_topological_order.tex — GSD, toric code
+
+## Requirements
+
+Write a detailed minute-by-minute chalk script in plan/presentation/helena_script.md. Include:
+
+1. A board-layout diagram showing what stays from Brian's talk vs. what Helena adds
+2. Minute-by-minute breakdown with:
+   - What to say
+   - What to write
+   - Key equations (exact LaTeX from our paper)
+3. The structure should be:
+   - Min 0-3: Pickup from Brian — physics picks k. Laughlin at nu=1/m, effective U(1)_m CS
+   - Min 3-10: Hall conductance derivation from CS (integrate out a, get sigma_xy)
+   - Min 10-17: Anyons from Wilson loops — quasiparticle charge e/m, braiding phase 2pi/m
+   - Min 17-23: Experiments — Nakamura 2020 (interferometry), Bartolomei 2020 (noise), Werkmeister 2025 (non-abelian)
+   - Min 23-25: Close — same theory, three levels: invariant, Lagrangian, measured
+4. Three anticipated questions with prepared answers
+5. Coordination notes with Brian's segment
+
+Read the actual tex files to get the exact equations from OUR paper. Create plan/presentation/ if needed.

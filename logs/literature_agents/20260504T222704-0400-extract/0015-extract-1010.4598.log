@@ -1,0 +1,11 @@
+Perfect. The extraction is complete. Let me generate a summary report:
+
+**Extraction complete.** Created `codex_scientific_text.md` from `FabPerot-v26.tex` with:
+
+- **Preserved:** Scientific prose, 20+ equations, definitions (Aharonov-Bohm effect, Coulomb-dominated regime, quasiparticle statistics), derived results, interpretations, caveats, citation links, figure captions with physical descriptions, section structure, table of symbols.
+
+- **Removed:** LaTeX preamble (\documentclass, \usepackage), macro definitions (\newcommand, \def), author/affiliation formatting, pure comments, bibliography scaffolding, end-of-document markers.
+
+- **File size:** 704 lines (original TeX: 1179 lines)
+- **YAML front matter:** Preserved with `updated_at` timestamp refreshed
+- **Content integrity:** Full paper text from title through acknowledgments, maintaining internal cross-references and mathematical notation.

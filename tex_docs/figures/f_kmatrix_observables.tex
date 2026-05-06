@@ -1,0 +1,44 @@
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.45}
+\begin{center}
+\begin{tabular}{@{}p{0.18\linewidth}p{0.33\linewidth}p{0.33\linewidth}@{}}
+\hline
+Input data & Operation & Observable output \\
+\hline
+$K$, $t$ &
+Invert the integer form &
+\[
+\nu=t^{\mathsf T}K^{-1}t,
+\qquad
+\sigma_{xy}=\nu e^2/h
+\]
+\\
+\hline
+$\ell\in\mathbb{Z}^N$ &
+Pair charge vector with quasiparticle vector &
+\[
+Q_\ell=e\,t^{\mathsf T}K^{-1}\ell
+\]
+\\
+\hline
+$\ell,\ell'$ &
+Pair quasiparticle vectors through $K^{-1}$ &
+\[
+\theta_{\ell\ell'}
+=2\pi\,\ell^{\mathsf T}K^{-1}\ell',
+\qquad
+\theta_\ell=\pi\,\ell^{\mathsf T}K^{-1}\ell
+\]
+\\
+\hline
+$K$ on genus $g$ &
+Count global holonomy sectors &
+\[
+\dim\mathcal{H}(\Sigma_g)=|\det K|^g
+\]
+\\
+\hline
+\end{tabular}
+\end{center}
+\endgroup

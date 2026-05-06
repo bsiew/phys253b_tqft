@@ -1,0 +1,15 @@
+Task complete. I've split `codex_scientific_text.md` into seven section-level files under `codex_section_extracts/` and written the import map to `codex_paper_summary.md`.
+
+**Sections created:**
+- `abstract.md` (medium priority)
+- `introduction.md` (high priority) 
+- `experiment.md` (high priority)
+- `data_and_analysis.md` (high priority)
+- `results.md` (medium priority)
+- `conclusion.md` (medium priority)
+- `acknowledgements.md` (skip)
+
+**Summary structure:**
+The import map includes a whole-paper snapshot describing the ADMX Generation 2 haloscope's first DFSZ-sensitivity exclusion of invisible axion dark matter at 2.66–2.81 μeV, section-by-section summaries scaled to source length with import recommendations, and a final recommendation to prioritize the Introduction, Experiment, and Data and Analysis sections for initial context loading.
+
+All files preserve YAML front matter with timestamps, project metadata, and source tracking.

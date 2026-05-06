@@ -1,0 +1,29 @@
+All edits are complete. Here's a summary of the 14 pedagogical improvements I made to `ch12_experiments.tex`:
+
+1. **Opening paragraph** — Added a sentence explaining physically why a single integer $m$ controls the entire topological structure (flux attachment → statistics).
+
+2. **Coulomb-blockade discussion** — Expanded with a physical explanation of *why* Coulomb effects are problematic (capacitive back-reaction mimics the topological phase), and noted the trilayer screening well design.
+
+3. **Phase jump discreteness** — Added "all-or-nothing" clarification: the phase doesn't grow gradually as a quasiparticle approaches the loop boundary.
+
+4. **Linking number** — Added a sentence explaining what the linking number physically captures (threading through a disk, independent of geometry).
+
+5. **Telegraph-noise mechanism** — Replaced the attribution-only sentence with a physical picture: quasiparticles sit in disorder-potential minima, and field changes shift energetics until one hops.
+
+6. **Werkmeister motivation** — Added a sentence explaining why material-independence matters conceptually (the whole point of a TQFT is universality; one measurement doesn't prove it).
+
+7. **Edge-state coherence** — Added a physical explanation of why reduced disorder increases visibility (less dephasing of interfering paths).
+
+8. **Graphene quasiparticle dynamics** — Noted that equilibration times can reach minutes, allowing sharp resolution of individual events.
+
+9. **Twist defect nonlocality** — Added "information resides in correlations between defect sites" to make the protection mechanism concrete.
+
+10. **Domain walls as branch cuts** — Added a brief intuitive picture for what domain walls do to particle labels.
+
+11. **Non-commutativity** — Added the crucial pedagogical point: phases always commute, but matrices don't, which is the essence of non-abelian vs. abelian.
+
+12. **Active vs. passive protection analogy** — Added the gyroscope analogy (motor-driven vs. angular-momentum-driven).
+
+13. **Shot noise principle** — Added "charge comes in lumps, lump size sets noise" before the formula.
+
+14. **Charge vs. statistics; exchange vs. braid** — Added that fractional charge is necessary but not sufficient for fractional statistics, and clarified the factor-of-two between exchange angle and braid angle.

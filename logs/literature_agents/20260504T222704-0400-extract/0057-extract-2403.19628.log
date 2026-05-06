@@ -1,0 +1,13 @@
+Done. I've extracted the scientific content from main.tex into codex_scientific_text.md, preserving:
+
+- **YAML front matter** with timestamps and metadata
+- **All definitions and equations**: the fundamental phase relation, Aharonov-Bohm physics, bulk-edge coupling parameters ($K_I$, $K_{IL}$), thermal dephasing formula
+- **Key measurements and results**: phase slip magnitudes ($\Delta\theta \approx 2\pi/3$), edge velocity, temperature scale ($T_0 = 87\,\text{mK}$), interferometer area estimates, field periods
+- **Theoretical framework**: chiral Luttinger liquids, anyonic statistics, nonequilibrium charge dynamics
+- **Interpretations and caveats**: the memory effect, hysteresis, evidence for correlated (multi-quasiparticle) dynamics, limitations of single-particle models
+- **Derivations and analysis methods**: FFT phase extraction, bulk-edge coupling estimates with geometric models, temperature dependence scaling
+- **Named phenomena**: "hard" vs "soft" phase slips, "charge fingerprint" effect, "triple-helix" pattern, exterior-edge coupling
+
+Removed only TeX plumbing: \documentclass, \usepackage, macros for color/comments, bibliography commands, author affiliation formatting, and purely presentational figure scaffolding commands.
+
+The extracted file preserves the logical structure and scientific content while being readable as clean markdown.

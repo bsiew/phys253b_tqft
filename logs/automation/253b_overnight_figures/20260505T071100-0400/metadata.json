@@ -1,0 +1,27 @@
+{
+  "job_name": "qft-253b-overnight-figures",
+  "workdir": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT",
+  "prompt_file": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/scripts/prompts/253b_overnight_figures_prompt.md",
+  "prompt_copy": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/automation/253b_overnight_figures/20260505T071100-0400/253b_overnight_figures_prompt.md",
+  "log_dir": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/automation/253b_overnight_figures",
+  "run_dir": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/automation/253b_overnight_figures/20260505T071100-0400",
+  "sandbox": "workspace-write",
+  "model": "gpt-5.5",
+  "completion_marker": "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/automation/253b_overnight_figures.done.json",
+  "command": [
+    "/Users/helenabrittain/.vscode/extensions/openai.chatgpt-26.429.30905-darwin-arm64/bin/macos-aarch64/codex",
+    "exec",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--full-auto",
+    "-C",
+    "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT",
+    "--model",
+    "gpt-5.5",
+    "-o",
+    "/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/logs/automation/253b_overnight_figures/20260505T071100-0400/last_message.txt",
+    "-"
+  ],
+  "started_at": "2026-05-05T07:11:00.183911-04:00"
+}

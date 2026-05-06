@@ -1,0 +1,161 @@
+% ============================================================================
+% Chapter 1: Introduction
+% ============================================================================
+%
+% Purpose
+%   Frame the paper as a transition narrative: ordinary gauge QFT already
+%   contains topological sectors and nonlocal observables; Chern-Simons theory
+%   is where those structures stop being peripheral and become the defining
+%   data; genuine TQFT is the formal completion; observables are the payoff.
+%
+% Target thesis (from tqft_observables_literature_review.md Sec. 11)
+%   "Ordinary gauge QFT already contains topological sectors, characteristic
+%    classes, and nonlocal observables, but Chern-Simons theory is the point
+%    at which these structures cease to be peripheral and become the defining
+%    data of the theory. The goal of this review is to explain that transition,
+%    formalize it in the language of TQFT, and then show how the same structure
+%    governs concrete observables ranging from Hall response and anyonic
+%    braiding to the eta' mass, neutron EDM constraints, axion physics, and
+%    monopole charge quantization."
+%
+% Status: PASS 2 STYLE REWRITE
+%
+% Length target: 3-5 pages
+%
+% Owner: Joint
+% Stage: VI (task 14_2_introduction.md)
+
+\chapter{Introduction}\label{ch:introduction}
+
+\begin{quote}
+\textbf{Abstract.}
+Topological quantum field theories provide infrared descriptions of gapped phases,
+organize anyon statistics and topological entanglement entropy, and furnish a natural
+language for generalized symmetries, topological defects, and anomaly inflow across
+high-energy and condensed-matter physics.
+%
+This review is written for a reader at the level of Schwartz's
+\emph{Quantum Field Theory and the Standard Model} through Chapter~30.
+%
+Starting from the topological sectors already present in ordinary gauge theory, we
+develop three concrete frameworks in full: two-dimensional Frobenius algebra TQFT,
+Chern--Simons theory on closed and bounded three-manifolds, and Dijkgraaf--Witten
+theory for finite gauge groups.  These serve as the backbone for a systematic
+treatment of generalized symmetries, anomaly inflow, and the physical realization of
+topological order in fractional quantum Hall states.
+%
+We tie the theoretical structure to experiment through the direct observation of
+anyonic braiding by Nakamura \emph{et al.}\ (2020) at filling fraction $\nu = 1/3$
+and subsequent graphene-based measurements, and we discuss the distinction between
+topological order arising in natural condensed-matter systems and synthetic
+realizations on quantum processors.
+%
+Differential-geometric machinery is developed only as needed, and every mathematical
+claim is either derived in full or cited to a specific verifiable location.
+\end{quote}
+
+\vspace{1em}
+
+\section{Why topology?}\label{sec:scope}
+
+Here is a fact that ought to disturb you.  Take ordinary $SU(3)$ gauge theory in four dimensions---the theory of the strong force.  The classical vacuum is not unique.  There is a countably infinite family of gauge-inequivalent vacua, labelled by an integer winding number, and the physical vacuum is a superposition over all of them weighted by a phase $e^{i\theta}$.  That angle $\theta$ is a measurable parameter of the Standard Model.  Its value is experimentally constrained to be less than $10^{-10}$, and explaining why has driven forty years of axion physics.
+
+Feynman diagrams know nothing about this.  The structure comes from the topology of the gauge group, specifically from $\pi_3(SU(3)) = \Z$.  The relevant field configurations are instantons, the relevant observable is the topological charge $\nu = \frac{1}{8\pi^2}\int \tr(F\wedge F)$, and the mathematical framework that organizes it is the theory of characteristic classes and fiber bundles.
+
+Now shift to a seemingly unrelated setting.  In a two-dimensional electron gas at low temperature and strong magnetic field, the Hall conductance takes values that are rational multiples of $e^2/h$.  The quasiparticle excitations carry fractional charge and obey anyonic statistics---exchanging two of them produces a phase that is neither $+1$ nor $-1$.  In 2020, Nakamura \emph{et~al.}\ directly observed this phase in an interferometry experiment at filling fraction $\nu = 1/3$ \cite{Nakamura2020AnyonicBraiding}.  The effective field theory governing this physics is Chern--Simons theory at level $k$, a three-dimensional topological gauge theory whose entire content is encoded in a single integer.
+
+These two examples---QCD instantons and the fractional quantum Hall effect---look very different.  One lives in $3{+}1$ dimensions with non-abelian gauge fields; the other in $2{+}1$ dimensions with an abelian statistical gauge field.  But the mathematical structure governing both is the same: a topological term in the action, built from characteristic classes of a gauge bundle, whose physical consequences are nonperturbative and exact.
+
+The thesis of this review is that these are not isolated accidents.  Ordinary gauge quantum field theory already contains topological sectors, characteristic classes, and nonlocal observables, but Chern--Simons theory is the point at which these structures cease to be peripheral and become the \emph{defining data} of the theory.  Genuine topological quantum field theory---in the sense of Atiyah and Witten---is the formal completion of that transition.  And the payoff is concrete: the same topological structure governs Hall response and anyonic braiding in condensed matter, the $\eta'$ mass and strong CP problem in QCD, monopole charge quantization, and the mathematical foundations of topological quantum computation.
+
+We trace topological structure through three stages.  Part~I (Chapters~\ref{ch:forms}--\ref{ch:gensym}) builds the mathematical formalism, beginning with the differential-geometric language of gauge theory and ending with the modern framework of generalized symmetries and anomaly inflow.  Part~II opens with the physical realization of these ideas in $2{+}1$ dimensions (Chapters~\ref{sec:topological-order}--\ref{sec:tqc}), where Chern--Simons theory provides an exact infrared description of topologically ordered phases.  The final chapters (Chapters~\ref{sec:sectors-3plus1d}--\ref{sec:defects-synthesis}) lift the discussion to $3{+}1$ dimensions, tracking observable families that include topological sectors in QCD, monopoles, and the interplay of higher-form symmetries with defects.
+
+
+\section{Prerequisites}\label{sec:audience}
+
+We assume you have worked through Schwartz's \emph{Quantum Field Theory and the Standard Model}~\cite{Schwartz2014QFT} through approximately Chapter~30.  In practice this means comfort with:
+\begin{itemize}
+\item path integrals and functional quantization of gauge fields,
+\item perturbative renormalization and running couplings,
+\item non-abelian gauge theory, Faddeev--Popov ghosts, and BRST symmetry,
+\item the chiral anomaly and its connection to $\tr(F\widetilde{F})$.
+\end{itemize}
+If you know why $\pi^0\to\gamma\gamma$ is anomaly-dominated, you have the right background.
+
+We do \emph{not} assume prior exposure to algebraic topology, category theory, or condensed-matter physics.  Chapter~\ref{ch:forms} develops differential forms and fiber bundles from scratch; Chapter~\ref{ch:axiomatic} introduces cobordisms without assuming you have seen a category before; and when condensed-matter concepts enter in Part~II, we build them from first principles.  A reader who has encountered de~Rham cohomology or homotopy groups will find the early chapters faster going.  Nakahara's \emph{Geometry, Topology and Physics}~\cite{Nakahara2003GTP} is an excellent companion.
+
+
+\section{How to read this paper}\label{sec:howto}
+
+\subsection*{Part I: Mathematical formalism (Chapters~\ref{ch:forms}--\ref{ch:gensym})}
+
+Part~I is designed for linear reading.  Each chapter depends on the one before it, and the notation accumulates:
+
+\begin{description}
+\item[Chapter~\ref{ch:forms}:]  Differential forms, connections, curvature, and the Chern--Weil homomorphism.  Everything later is written in this notation.
+
+\item[Chapter~\ref{ch:axiomatic}:]  Cobordisms, the composition law for amplitudes, and the axioms that define a TQFT.  The conceptual backbone.
+
+\item[Chapter~\ref{ch:frobenius}:]  2D TQFT and commutative Frobenius algebras.  Short, but it demonstrates the power of the axioms before the geometry becomes more involved.
+
+\item[Chapter~\ref{ch:chern-simons}:]  Chern--Simons theory.  The mathematical anchor of Part~I and the physical anchor of Part~II.  If you read only one chapter, read this one.
+
+\item[Chapter~\ref{ch:bf}:]  BF theory and discrete gauge theories.  The continuum route to the toric code and discrete topological order.
+
+\item[Chapter~\ref{ch:dw}:]  Dijkgraaf--Witten theory.  Topological gauge theory for finite groups---the cleanest laboratory for topological response.
+
+\item[Chapter~\ref{ch:gensym}:]  Generalized symmetries and anomaly inflow.  The conceptual bridge to Part~II.
+\end{description}
+
+\subsection*{Part II: Physical applications (Chapters~\ref{sec:topological-order}--\ref{sec:outlook})}
+
+Part~II is modular.  After Chapter~\ref{ch:chern-simons}, you can read the Part~II chapters in whatever order suits your interests, though the $2{+}1$-dimensional sequence (Chapters~\ref{sec:topological-order}--\ref{sec:tqc}) forms a natural arc:
+
+\begin{description}
+\item[Chapter~\ref{sec:topological-order}:]  Topological order and the toric code.  What Landau missed.
+
+\item[Chapter~\ref{sec:anyons}:]  Anyons, braiding, fusion, and modular data.  The algebraic framework that connects lattice models to Chern--Simons observables.
+
+\item[Chapter~\ref{sec:fqhe}:]  The fractional quantum Hall effect.  One Chern--Simons level, four universal predictions.
+
+\item[Chapter~\ref{sec:experiments}:]  Experiments on anyonic braiding.  What has actually been measured, and what has not.
+
+\item[Chapter~\ref{sec:tqc}:]  Topological quantum computation.  Non-abelian anyons as fault-tolerant gates.
+
+\item[Chapter~\ref{sec:sectors-3plus1d}:]  Topological sectors in $3{+}1$ dimensions.  Instantons, the $\eta'$ mass, strong CP, and axions.
+
+\item[Chapter~\ref{sec:defects-synthesis}:]  Defects, global structure, and synthesis.  When an observable is genuinely topological versus merely topology-inspired.
+
+\item[Chapter~\ref{sec:outlook}:]  Outlook.  Where the field goes next.
+\end{description}
+
+\medskip
+\noindent \textbf{Two reading paths.}  A condensed-matter reader can follow Chapter~\ref{ch:chern-simons} $\to$ Chapter~\ref{sec:topological-order} $\to$ Chapter~\ref{sec:anyons} $\to$ Chapter~\ref{sec:fqhe} $\to$ Chapter~\ref{sec:experiments}.  A high-energy reader can take Chapter~\ref{ch:forms} $\to$ Chapter~\ref{ch:chern-simons} $\to$ Chapter~\ref{ch:gensym} $\to$ Chapter~\ref{sec:sectors-3plus1d} $\to$ Chapter~\ref{sec:defects-synthesis}.  Both paths pass through Chapter~\ref{ch:chern-simons}, which is the hub.
+
+
+\section{What we leave out}\label{sec:noncoverage}
+
+Any review must choose what to exclude.  We state our choices so you know what not to look for.
+
+\paragraph{Jones polynomial.}
+We derive enough link-invariant structure in Chapter~\ref{ch:chern-simons} to exhibit the connection to the Jones polynomial---specifically, we compute $\langle W_R(L)\rangle$ in $SU(2)_k$ Chern--Simons theory and identify the result at $q = e^{2\pi i/(k+2)}$.  But we do not pursue skein relations, the colored Jones polynomial, or the volume conjecture.  See Witten~\cite{Witten1989Jones} and Marino~\cite{Marino2005}.
+
+\paragraph{Reshetikhin--Turaev.}
+We use path integrals throughout, not ribbon categories.  The categorical results are cited where relevant but not derived.
+
+\paragraph{Non-invertible symmetries.}
+Chapter~\ref{ch:gensym} covers higher-form symmetries and anomaly inflow.  Non-invertible (categorical) symmetries appear only in the outlook (Chapter~\ref{sec:outlook}).  A proper treatment would double the length of Part~I.
+
+\paragraph{Classifications beyond group cohomology.}
+Dijkgraaf--Witten (Chapter~\ref{ch:dw}) classifies topological actions via $H^d(BG, U(1))$.  More general cobordism-theoretic classifications exist but are discussed only in the outlook.
+
+\paragraph{Lattice gauge theory and tensor networks.}
+The toric code (Chapter~\ref{sec:topological-order}) is our entry to topological order, but we do not develop general lattice gauge theory or tensor-network descriptions.
+
+\paragraph{Topological insulators in $3{+}1$D.}
+SPT phases in three spatial dimensions are touched on in Chapter~\ref{sec:sectors-3plus1d} but not treated systematically.  See the reviews by Qi and Zhang or by Ryu \emph{et~al.}
+
+\medskip
+
+\noindent With these exclusions stated, let us begin.
+

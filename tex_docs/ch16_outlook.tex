@@ -44,46 +44,87 @@
 \subsection{What This Paper Demonstrated}
 \label{subsec:outlook-demonstrated}
 
-% TODO: ~1 paragraph restating the through-line.
-% "Ordinary gauge QFT already contains topological sectors... CS isolates them...
-% TQFT formalizes them... observable families organize the physics."
-% Summarize what each Part II chapter contributed.
+This paper proved a single thesis: \emph{ordinary gauge QFT already contains topological sectors; Chern--Simons theory isolates them; TQFT formalizes them; and observable families---response coefficients, vacuum angles, defect charges---organize the physics into computable invariants.} Part~I built the machinery: differential forms and characteristic classes (Ch.~\ref{ch:forms}), the Atiyah--Segal axioms (Ch.~\ref{ch:axiomatic}), the Frobenius-algebra classification in two dimensions (Ch.~\ref{ch:frobenius}), the Chern--Simons action and its observables (Ch.~\ref{ch:chern-simons}), BF and Dijkgraaf--Witten theories as discrete laboratories (Chs.~\ref{ch:bf}--\ref{ch:dw}), and generalized symmetries as the modern organizing language (Ch.~\ref{ch:gensym}). Part~II followed the topological data into physics that you can measure.
+
+The payoff: the Hall conductance, quasiparticle charge, and braiding statistics of the fractional quantum Hall effect all descend from a single level-$k$ Chern--Simons action (Ch.~\ref{sec:fqhe}). The $\eta'$ mass, the $U(1)_A$ anomaly, and axion phenomenology all trace to one integer---the instanton number $\nu = (1/8\pi^2)\int\tr(F\wedge F)$ and its coupling to fermionic zero modes (Ch.~\ref{sec:sectors-3plus1d}). Topological order is long-range entanglement diagnosed by ground-state degeneracy; the anyon formalism classifies $(2{+}1)$-dimensional phases through modular tensor categories (Chs.~\ref{sec:topological-order}--\ref{sec:anyons}) \cite{Wen1995TopologicalOrdersEdgeExcitations,NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. Anyonic interferometry confirms fractional statistics experimentally; Kitaev's proposal exploits the topological gap for fault-tolerant quantum computation (Chs.~\ref{sec:experiments}--\ref{sec:tqc}). And the four-category classification of Section~\ref{subsec:when-topological} drew the line honestly: which observables are genuinely topological, which are merely topologically inspired, and where the boundary lies (Ch.~\ref{sec:defects-synthesis}).
 
 \subsection{Open Directions}
 \label{subsec:open-directions}
 
-% TODO: ~1.5 pages. From BSIEW Ch 14 outlook items + new:
-% 1. Non-invertible symmetries in higher dimensions (one paragraph,
-%    cite Freed-Moore-Teleman 2024).
-% 2. Classification of gapped phases beyond group cohomology (one paragraph,
-%    cite cobordism-hypothesis literature generically).
-% 3. Fault-tolerant architectures based on more realistic anyonic platforms
-%    (one paragraph, cite Nayak et al. RMP 2008).
-% 4. Lattice and holographic checks of topological susceptibility
-%    (connect to Ch 14).
-% 5. The SymTFT perspective on symmetries and anomalies
-%    (cite Bhardwaj et al. 2023 lectures).
+\noindent\textbf{1.\ Non-invertible symmetries in higher dimensions.}
+Can we classify topological phases whose symmetries have no inverse? Chapter~\ref{ch:gensym} introduced higher-form symmetries organized by group-like fusion; dropping the invertibility requirement promotes the symmetry datum from a group to a \emph{fusion category} \cite{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries}. Freed, Moore, and Teleman separate this data from dynamics via a sandwich construction $F \cong \rho \otimes_\sigma \widetilde{F}$, where a $(d{+}1)$-dimensional TQFT $\sigma$ encodes the abstract symmetry and $\rho$ is its boundary theory \cite{FreedMooreTeleman2024TopologicalSymmetry}. The open problem: extending this to $(3{+}1)$ dimensions and above, where the relevant structures are braided fusion 2-categories rather than ordinary fusion categories. Success would systematize dualities, confinement criteria, and phase classification in a single algebraic framework.
+
+\medskip
+\noindent\textbf{2.\ Classification of gapped phases beyond group cohomology.}
+Which topological phases does Dijkgraaf--Witten miss? The group-cohomology classification $H^{d+1}(BG,\,U(1))$ of Chapter~\ref{ch:dw} is incomplete---it cannot see phases requiring cobordism-theoretic input. The cobordism hypothesis (Baez--Dolan, proved by Lurie) asserts that fully local $n$-dimensional TQFTs are classified by fully dualizable objects in a symmetric monoidal $(\infty,n)$-category. Freed and Hopkins have turned this into a conjectured classification of invertible field theories by Anderson-dual bordism groups $\Omega_d^{\xi}$, reproducing known results for topological insulators and superconductors. What remains: lifting the program to non-invertible phases, where the dualizable objects are far more intricate and the physical implications---new protected edge modes, new platform predictions---are largely unexplored.
+
+\medskip
+\noindent\textbf{3.\ Fault-tolerant architectures on realistic platforms.}
+What would it take to build an actual topological qubit? Chapter~\ref{sec:tqc} showed that non-abelian anyons enable intrinsically fault-tolerant gates, and Section~\ref{subsec:tqc-experimental-status} stated plainly that no unambiguous non-abelian platform exists today \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}. If one appeared---Moore--Read order at $\nu=5/2$, or Fibonacci anyons in a spin liquid---the question shifts to engineering: the gap $\Delta$ (setting thermal errors $\sim e^{-\Delta/2T}$), inter-anyon separation relative to $\xi$, and transport fidelity. For Ising anyons, braiding alone is not universal (Section~\ref{subsec:ising-gates}); magic-state distillation fills the gap, but its overhead on a real material is uncharacterized. The abstract braid-group representations of Chapter~\ref{sec:anyons} await a device.
+
+\medskip
+\noindent\textbf{4.\ Lattice and holographic checks of $\chi_t$.}
+How precisely can we compute the topological susceptibility $\chi_t = \int d^4x\,\langle Q(x)\,Q(0)\rangle$ that controls QCD vacuum physics? It generates the $\eta'$ mass via Witten--Veneziano (Section~\ref{subsec:eta-prime-wv}) and sets the axion mass (Section~\ref{subsec:strong-cp-axion}). Lattice QCD with $N_f = 2{+}1{+}1$ dynamical fermions confirms the formula at $\sim\!10\%$ \cite{CichyLatticeWittenVeneziano}; holographic soft-wall models reproduce both the chiral limit $\chi_t \sim m_q\langle\bar{q}q\rangle/N_f$ and the pure-gauge value \cite{AreanU1AHolographicQCD}. A few-percent determination---through finer lattice spacings at physical pion mass, or controlled top-down holographic duals---would provide a stringent benchmark for any proposed solution to the strong-$CP$ problem.
+
+\medskip
+\noindent\textbf{5.\ The SymTFT perspective on anomalies.}
+Can all anomalies be read off from a single bulk TQFT? Throughout this paper, bulk topological data encodes boundary physics: Chern--Simons on a 3-manifold with boundary determines edge WZW modes (Chapter~\ref{ch:chern-simons}); anomaly inflow relates a $(d{+}1)$-dimensional invertible phase to the 't~Hooft anomaly of its boundary (Chapter~\ref{ch:gensym}). The SymTFT program elevates this to a general principle \cite{Bhardwaj2023GeneralizedSymmetryLectures}: given a $d$-dimensional QFT with symmetry $\mathcal{S}$, one builds a $(d{+}1)$-dimensional TQFT $\mathcal{Z}(\mathcal{S})$ whose topological boundary conditions parametrize all global forms, discrete theta angles, and duality frames. Anomalies become bulk topology---the obstruction to extending a boundary condition across the slab. This turns case-by-case anomaly matching into a single geometric machine, from $(1{+}1)$-dimensional CFTs to $(3{+}1)$-dimensional gauge theories.
 
 \subsection{Guide du Routard: Where to Go Next}
 \label{subsec:guide-du-routard}
 
-% MIGRATED from old Sec 7.3 (archive_2026-05-04_pre_bsiew_integration/
-% part2_07_defects_caveats_outlook.tex lines 121-149).
-%
-% Short pointer list organized by reader interest:
-%   - Response and experiment: Wen 1995, Stern 2008, Halperin-Jain 2020,
-%     anyon-interferometry experiments.
-%   - Formal TQFT: Atiyah 1988, Witten 1988, Witten 1989,
-%     Birmingham et al. 1991.
-%   - QCD topology / axions: Dine 2000, Hook 2018, Marsh 2016,
-%     Witten 1979, Veneziano 1979, lattice literature.
-%   - Monopoles / solitons / defects: Dirac 1931, 't Hooft 1974,
-%     Polyakov 1974, Manton-Sutcliffe, Shnir, Rajantie 2024, Fairbairn 2021.
-%   - Modern operator language and generalized symmetries:
-%     Gaiotto-Kapustin-Seiberg-Willett 2015, Kapustin-Saulina,
-%     Freed-Moore-Teleman 2024, Bhardwaj et al. 2023.
-%
-% Close with final paragraph: TQFT reorganizes gauge theory around global
-% data; makes protected observables transparent; exposes anomaly/boundary
-% structure structurally; provides a computable language for universality
-% classes across condensed matter and particle physics.
+Each reference below gives you something this paper did not.
+
+\medskip
+\noindent\textbf{1.\ Topological response and experiment.}
+\begin{itemize}
+\item \textbf{Wen} \cite{Wen1995TopologicalOrdersEdgeExcitations}: the full $K$-matrix technology for abelian Hall states and edge propagators that Section~\ref{subsec:laughlin-to-cs} only sketched.
+\item \textbf{Stern} \cite{Stern2008AnyonsQHEReview}: pedagogical Berry-phase derivation of fractional statistics plus detailed interferometry proposals (Fabry--P\'erot and Mach--Zehnder).
+\item \textbf{Halperin and Jain} \cite{HalperinJain2020FQHENewDevelopments}: post-Laughlin developments---composite-fermion Fermi surfaces, parton constructions, updated $\nu=5/2$ status.
+\item \textbf{Nayak et~al.} \cite{NayakSimonSternFreedmanDasSarma2008NonabelianAnyons}: the definitive treatment of non-abelian anyons, fusion categories, and explicit gate constructions beyond Chapter~\ref{sec:tqc}'s scope.
+\end{itemize}
+
+\medskip
+\noindent\textbf{2.\ Axiomatic and formal TQFT.}
+\begin{itemize}
+\item \textbf{Atiyah} \cite{Atiyah1988TQFT}: four pages defining what a TQFT \emph{is}---still the cleanest statement, and every formalization since refers back to it.
+\item \textbf{Witten (1988)} \cite{Witten1988TQFT}: the cohomological (Witten-type) TQFT for Donaldson invariants via twisted $\mathcal{N}=2$ SYM---orthogonal to the Schwarz-type theories emphasized here.
+\item \textbf{Witten (1989)} \cite{Witten1989Jones}: derives the Jones polynomial from the Chern--Simons path integral via surgery, completing what Section~\ref{sec:witten-jones} outlined.
+\item \textbf{Birmingham et~al.} \cite{BirminghamBlauRakowskiThompson1991TopologicalFieldTheory}: comprehensive survey of both Schwarz-type and Witten-type theories with explicit computations in arbitrary dimension.
+\item \textbf{Witten} \cite{Witten2016ThreeLecturesTopologicalPhases}: three lectures bridging formal TQFT to condensed-matter applications---the missing link between the two literatures.
+\end{itemize}
+
+\medskip
+\noindent\textbf{3.\ QCD vacuum topology and axions.}
+\begin{itemize}
+\item \textbf{Witten} \cite{Witten1979U1GoldstoneBoson} and \textbf{Veneziano} \cite{Veneziano1979U1WithoutInstantons}: the original papers proving the $\eta'$ mass arises from topological charge fluctuations at large $N$.
+\item \textbf{Dine} \cite{Dine2000TASIStrongCP}: TASI lectures on strong $CP$---detailed instanton calculations, domain-wall numbers, and the Peccei--Quinn quality problem.
+\item \textbf{Hook} \cite{Hook2018TASIStrongCPAxions}: updates Dine with non-QCD solutions, relaxion mechanisms, and the current experimental landscape (ADMX, CASPEr, ABRACADABRA, helioscopes).
+\item \textbf{Marsh} \cite{Marsh2016AxionCosmology}: axion cosmology from misalignment production through ultralight dark matter to CMB constraints---everything beyond Section~\ref{subsec:strong-cp-axion}'s scope.
+\item \textbf{Cichy et~al.} \cite{CichyLatticeWittenVeneziano}: state-of-the-art lattice verification of Witten--Veneziano with full continuum extrapolation and error budget.
+\end{itemize}
+
+\medskip
+\noindent\textbf{4.\ Monopoles, solitons, and topological defects.}
+\begin{itemize}
+\item \textbf{Dirac} \cite{Dirac1931QuantisedSingularities}: the founding argument---single-valuedness of the wavefunction forces $eg = 2\pi n$, still the cleanest example of topology constraining physics.
+\item \textbf{'t~Hooft} \cite{tHooft1974MagneticMonopoles} and \textbf{Polyakov} \cite{Polyakov1974ParticleSpectrum}: smooth finite-energy monopoles in any theory where a simple group breaks to a $U(1)$ subgroup.
+\item \textbf{Manton and Sutcliffe} \cite{MantonSutcliffeTopologicalSolitons}: the textbook---kinks, vortices, monopoles, instantons, Skyrmions, with both topological classification and moduli-space dynamics.
+\item \textbf{Shnir} \cite{ShnirMagneticMonopoles}: monopole-specific---Bogomolny bounds, multimonopole moduli, and monopoles in supersymmetric theories.
+\item \textbf{Rajantie} \cite{Rajantie2024MonopoleTheoryOverview}: modern theory oriented toward collider and astrophysical searches, including the dual Schwinger mechanism.
+\item \textbf{Fairbairn et~al.} \cite{FairbairnMonopolesRevisited}: current experimental landscape---Parker bounds, MoEDAL/ATLAS constraints, future prospects.
+\end{itemize}
+
+\medskip
+\noindent\textbf{5.\ Generalized symmetries and the modern operator language.}
+\begin{itemize}
+\item \textbf{Gaiotto, Kapustin, Seiberg, and Willett} \cite{GaiottoKapustinSeibergWillett2015GeneralizedSymmetries}: the paper that launched the field---defines $q$-form symmetries, shows the photon is a Goldstone of a 1-form symmetry, reclassifies confinement as symmetry breaking.
+\item \textbf{Kapustin and Saulina} \cite{KapustinSaulinaLineOperatorsPlaceholder}: topological boundary conditions for Chern--Simons and BF theories---the technical underpinning of the sandwich construction.
+\item \textbf{Freed, Moore, and Teleman} \cite{FreedMooreTeleman2024TopologicalSymmetry}: the mathematically precise sandwich framework $F \cong \rho \otimes_\sigma \widetilde{F}$, separating symmetry data from dynamics.
+\item \textbf{Bhardwaj et~al.} \cite{Bhardwaj2023GeneralizedSymmetryLectures}: pedagogical lectures on higher-form symmetries, higher groups, gauging, anomalies, and SymTFT with worked examples---the natural sequel to Chapter~\ref{ch:gensym}.
+\end{itemize}
+
+\bigskip
+We close by making explicit what has been implicit throughout.  Topological quantum field theory reorganizes gauge theory around \emph{global} data---characteristic classes, bordism invariants, fusion categories---rather than local field configurations.  This is not aesthetics.  It makes topologically protected observables \emph{manifest}: $\sigma_{xy}=\nu\, e^2/h$, $\chi_t$, $eg=2\pi n$ appear as structural constants of the TQFT, not as outputs of heroic dynamical calculations.  It exposes anomalies and boundary physics \emph{functorially}: inflow, edge modes, and symmetry fractionalization become consequences of how the TQFT functor handles manifolds with boundary.  And it provides a \emph{computable} universal language---the same modular tensor category classifying a fractional quantum Hall state classifies the topological sector of a $(2{+}1)$-dimensional gauge theory.
+
+Topology is not a decoration on quantum field theory.  It is the load-bearing structure.

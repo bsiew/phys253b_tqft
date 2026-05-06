@@ -1,0 +1,18 @@
+Excellent! The extraction is complete and well-structured. The file contains:
+- YAML front matter with metadata
+- All scientific definitions, equations, derivations, and interpretations
+- All section structure and content organization
+- Removed only the TeX plumbing (inputs, macros, document class, bibliography commands)
+- Preserved all mathematical content and physical concepts
+
+The codex_scientific_text.md file is now ready for literature extraction work. It contains 2112 lines of scientific content extracted from the TeX source.
+
+Done. The mechanical starting copy has been created in `codex_scientific_text.md` with:
+
+- **YAML front matter** preserved and updated with current timestamp
+- **All scientific content** intact: definitions, equations, derivations, symmetry concepts, section organization, appendices
+- **TeX plumbing removed**: `\input`, `\documentclass`, macro definitions (`\def`), font setup, comment-only lines, bibliography scaffolding
+- **Citations and references** kept (preserving scholarly attribution like `\KalbYC`, `\refs{...}`)
+- **Footnotes** retained in original form
+
+The file is ready for the next cleaning phase to normalize TeX formatting and extract structured concepts.

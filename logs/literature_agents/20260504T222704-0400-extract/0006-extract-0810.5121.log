@@ -1,0 +1,9 @@
+Done. I've created a clean scientific extract from the TeX source by:
+
+1. **Preserved**: All scientific content including definitions (dislocations, topological insulators, Burgers vectors), assumptions (time reversal symmetry), derivations (the Dirac Hamiltonian analysis, phase shift arguments), equations (the main condition B⃗·M⃗_ν = π mod 2π, the Hamiltonian formulation), and named results (the "helical metal").
+
+2. **Removed**: All TeX plumbing (documentclass, usepackage declarations, macro definitions like `\be`, `\ee`, `\av`, reference formatting), author/affiliation formatting in strict LaTeX, bibliography commands, and purely presentational figure/table scaffolding (caption/label structures become descriptive text).
+
+3. **Maintained**: The YAML front matter with creation/update timestamps and metadata, linear logical flow organized by topic, and the paper's prose style appropriate for a physics audience.
+
+The document now reads as a coherent scientific text with all the physics intact and ready for further extraction or analysis.

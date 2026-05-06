@@ -1,0 +1,15 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_framing_ribbon.tex showing a framed knot as a ribbon.
+
+Requirements:
+- Draw a trefoil-like or unknot curve K as the central curve
+- Show it thickened into a ribbon (two parallel curves with shading between)
+- Include one visible twist in the ribbon
+- Label the central curve K and the push-off curve K_f
+- Mark the self-linking contribution from the twist
+- Professional quality, suitable for a review paper
+
+The file should be a standalone tikzpicture environment, includable via \input{figures/f_framing_ribbon.tex}.

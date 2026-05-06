@@ -1,0 +1,17 @@
+I've successfully completed the task. Here's what I created:
+
+## Section-level extracts created:
+1. **01_introduction.md** - Witten-Veneziano formula motivation and theoretical framework
+2. **02_lattice_actions.md** - Technical setup for both dynamical and quenched simulations
+3. **03_topological_susceptibility.md** - Spectral projector method and YM theory computation
+4. **04_fermionic_contributions.md** - Meson masses and singlet decay constant $f_0$ calculation
+5. **05_discussion_summary.md** - Results comparison and main conclusions
+6. **06_appendix.md** - $\kappa_c$ tuning details
+
+## Summary document created:
+**codex_paper_summary.md** contains:
+- **Whole-Paper Snapshot**: Overview of the Witten-Veneziano formula test confirming agreement within ~10% between quenched and dynamical QCD results
+- **Section Summaries**: Each section includes a 50-100+ word technical summary scaled to content density, plus import recommendations (high/medium/low) with rationale
+- **Full-Source Import Recommendation**: Strategic guidance for loading sections based on reader needs—essential physics (sections 01, 03-05), reference material (section 02), and optional technical details (section 06)
+
+All files preserve YAML front matter with timestamps, generator attribution, and project metadata as required.

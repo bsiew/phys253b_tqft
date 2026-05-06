@@ -1,0 +1,13 @@
+Task completed. I've split the paper into 7 section files under `codex_section_extracts/` and populated `codex_paper_summary.md` with the structured summary and import map.
+
+**Summary structure:**
+- **Whole-Paper Snapshot**: Covers the paper's main contribution—showing that generic parity-violating gravity (beyond CS gravity) modifies GW speed, enabling constraints from GW170817/GRB 170817A
+- **Section Summaries**: Each section annotated with import priority (high/medium/skip) scaled to technical density
+- **Full-Source Import Recommendation**: Groups sections by priority for future context loading
+
+**Import priorities:**
+- **High** (3 sections): parity_violating_gravity, propagation, observational_constraints—the core technical machinery
+- **Medium** (3 sections): abstract, introduction, conclusions—orientation and wrap-up
+- **Skip** (1 section): acknowledgments
+
+All section extracts preserve the original YAML front matter structure.

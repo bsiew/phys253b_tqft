@@ -1,0 +1,14 @@
+All balanced. The edits are complete.
+
+---
+
+**Summary of pedagogical improvements to ch13_tqc.tex:**
+
+I made 18 surgical additions (1-4 sentences each) incorporating insights from Nayak et al. (0707.1889), Stern (0711.4697), Tong (1606.06687), and Kitaev (cond-mat_0506438). The improvements fall into several categories:
+
+- **Physical motivation**: Why nonlocal encoding defeats local noise; why braids are immune to small errors (discreteness); what would go wrong if anyons were too close (thermal pair encircling two anyons)
+- **Intuitive analogies**: Angular momentum addition analogy for fusion; irrational quantum dimension as reflecting genuinely nonlocal information
+- **Clarifying explanations**: Why the $F$-matrix appears (change of fusion tree); why Ising braiding has finite image; the physical mechanism for the non-topological $T$ gate; what "magic state" means
+- **Mathematical context**: Polylogarithmic scaling for Fibonacci braid words; sketch of density proof via two-eigenvalue property; computations as closed links in spacetime
+
+No equations were modified, no sections restructured, and the existing voice/style is preserved throughout.

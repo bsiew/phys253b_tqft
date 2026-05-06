@@ -1,0 +1,15 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_bf_thooft_defects.tex showing t Hooft defects in BF theory producing a linking phase.
+
+Requirements:
+- In 2+1d: show a Wilson line (electric, labeled W) and a t Hooft line (magnetic, labeled T)
+- They link in spacetime (one wraps around the other)
+- The linking produces phase exp(2pi i/N) from the BF coupling (k/2pi) B wedge F
+- Show the B-field sourced by the t Hooft defect and the A-field sourced by the Wilson line
+- Labels: W (electric), T (magnetic), linking phase
+- Clean diagrammatic style
+
+Standalone tikzpicture, includable via \input{figures/f_bf_thooft_defects.tex}.

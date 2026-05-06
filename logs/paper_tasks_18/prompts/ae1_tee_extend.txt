@@ -1,0 +1,16 @@
+You are completing Appendix E (Topological Entanglement Entropy) for a physics review paper on TQFT.
+
+## Context
+
+The file 253b_final_paper/tex_docs/app_e_tee.tex already has 88 lines with a solid derivation. Read it first. According to the task spec, it needs:
+- Worked examples for Laughlin nu=1/m (D = sqrt(m), gamma = (1/2)log m) and Ising (D = 2 with d_sigma = sqrt(2))
+- A Kitaev-Preskill geometry figure
+
+## Task
+
+1. Read app_e_tee.tex in full.
+2. Check if the Laughlin and Ising examples are already present. If not, add them after the toric code verification.
+3. Add a TikZ figure showing the Kitaev-Preskill 4-region disk partition (this is listed as "simple TikZ OK" in the figure policy). The figure should show a disk divided into 3 sectors A1, A2, A3 meeting at a center point, with labels.
+4. Add the figure near the Kitaev-Preskill subtraction scheme discussion.
+
+Do NOT rewrite existing content — only extend. Keep the same style and notation.

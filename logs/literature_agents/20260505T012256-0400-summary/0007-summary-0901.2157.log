@@ -1,0 +1,14 @@
+Task completed. I've split the scientific text into 9 section-level files under `codex_section_extracts/` and created the paper summary with import recommendations.
+
+**Section files created:**
+- 01_abstract.md (high priority)
+- 02_introduction.md (high priority) 
+- 03_notation.md (medium priority)
+- 04_cells.md (high priority)
+- 05_cover_of_G.md (high priority)
+- 06_orbits_SU.md (medium priority)
+- 07_orbits_Sp.md (high priority)
+- 08_orbits_Spin_odd.md (medium priority)
+- 09_orbits_Spin_even.md (low priority)
+
+**Summary highlights:** The paper uses affine Weyl group geometry to bound Lusternik-Schnirelmann category via alcove-vertex conjugacy classes. The core technical machinery (sections 04-05) constructs contractible cells that lift to deformation retracts on the Lie group. The SU(n+1) case recovers Singhof's known result. The Sp(n) analysis is most developed, with quaternionic Grassmannian identifications and conjectured bounds; contractibility questions remain open. The Spin cases are structurally identified but lack detailed relative-category analysis.

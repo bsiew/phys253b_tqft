@@ -1,0 +1,22 @@
+Task complete. I've split the paper into 9 section-level files under `codex_section_extracts/` and written the paper summary import map to `codex_paper_summary.md`.
+
+**Section extracts created:**
+- 01_abstract.md
+- 02_introduction.md  
+- 03_results_arpes.md
+- 04_results_quantum_oscillation.md
+- 05_results_longitudinal_magnetoresistance.md
+- 06_results_origins_negative_lmr.md
+- 07_results_chiral_anomaly.md
+- 08_discussion.md
+- 09_methods.md
+
+**Summary structure:**
+- Whole-paper snapshot covering the experimental demonstration of the chiral anomaly in TaAs via negative magnetoresistance
+- Section-by-section summaries (50-150 words each) with import recommendations
+- Six sections rated **high** priority (abstract, introduction, LMR data, origins analysis, chiral anomaly fitting, discussion)
+- ARPES section rated **medium** 
+- Quantum oscillations rated **low**, methods rated **skip**
+- Context load recommendation: ~4200 words for theoretical subset, ~5400 words for full experimental context
+
+All files include proper YAML front matter with timestamps and project metadata.

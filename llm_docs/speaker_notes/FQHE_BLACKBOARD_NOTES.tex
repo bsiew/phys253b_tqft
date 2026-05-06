@@ -1,0 +1,484 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\definecolor{writecol}{RGB}{0,80,160}
+\definecolor{saycol}{RGB}{100,100,100}
+\definecolor{drawcol}{RGB}{0,130,60}
+\definecolor{emphcol}{RGB}{180,0,0}
+\definecolor{boxcol}{RGB}{140,0,140}
+
+\newcommand{\WRITE}{\textcolor{writecol}{\textbf{[WRITE]}}}
+\newcommand{\SAY}{\textcolor{saycol}{\textbf{[SAY]}}}
+\newcommand{\DRAW}{\textcolor{drawcol}{\textbf{[DRAW]}}}
+\newcommand{\BOX}{\textcolor{boxcol}{\textbf{[BOX]}}}
+\newcommand{\CIRCLE}{\textcolor{boxcol}{\textbf{[CIRCLE]}}}
+
+\titleformat{\section}{\large\bfseries}{Board \thesection:}{0.5em}{}
+\setcounter{secnumdepth}{1}
+
+\title{\textbf{FQHE Blackboard Talk --- Prepared Lecture Notes (v2)}}
+\author{Format: \textcolor{writecol}{WRITE on board} / \textcolor{saycol}{SAY aloud} / \textcolor{drawcol}{DRAW} / \textcolor{boxcol}{BOX/CIRCLE}}
+\date{Target: 20 min (derivation-heavy)}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section{The Experiment (1.5 min)}
+
+\DRAW\ Rectangle labeled ``2DEG.'' $\times$'s inside for $\vec B$ into page. Arrow along long edge: $I_x$. Arrow perpendicular: $V_y$. Labels: $T\sim50\,$mK, $B\sim10\,$T.
+
+\SAY\ ``Two-dimensional electron gas. GaAs/AlGaAs heterostructure---electrons confined to a plane. Strong perpendicular $B$-field. Cooled to millikelvin. We drive a current this way, measure the transverse voltage.''
+
+\WRITE
+\begin{equation*}
+\sigma_{xy} = I_x / V_y
+\end{equation*}
+
+\DRAW\ Staircase plot: $\sigma_{xy}$ vs $\nu$. Flat plateaux at $\nu = 1, 2, 3$ (integer) and $\nu = 1/3, 2/5, 2/3$ (fractional). Emphasize flatness.
+
+\WRITE
+\begin{align*}
+\text{Integer:}\quad & \sigma_{xy} = n\,\frac{e^2}{h}, \quad n=1,2,3,\ldots \\[3pt]
+\text{Fractional:}\quad & \sigma_{xy} = \nu\,\frac{e^2}{h}, \quad \nu = \tfrac{1}{3},\,\tfrac{2}{5},\,\tfrac{5}{2},\,\ldots
+\end{align*}
+
+\SAY\ ``Measured to one part in $10^{9}$. Does not drift with temperature, disorder, sample shape. These are the most precisely measured constants in condensed matter. Something deeply rigid is protecting them.''
+
+\section{Integer QHE --- Quick (1.5 min)}
+
+\WRITE
+\begin{align*}
+&\text{Landau levels: } E_n = \hbar\omega_c(n+\tfrac{1}{2}), \quad \omega_c = eB/m\\[4pt]
+&\text{Degeneracy/level: } N_\phi = BA/(h/e)\\[4pt]
+&\text{Filling fraction: } \nu = N_e / N_\phi
+\end{align*}
+
+\DRAW\ Energy ladder: horizontal lines. Shade bottom $n$ levels. Gap above.
+
+\SAY\ ``Charged particle in a $B$-field: energy quantized into Landau levels, massively degenerate. At integer filling, you fill exactly $n$ complete levels. Single-particle gap above. It's a band insulator. Hall conductance quantized by the Chern number of the filled bands. This is single-particle physics---no interactions required. Solved.''
+
+\WRITE
+\begin{equation*}
+\text{Integer QHE: band insulator + Chern number. DONE.}
+\end{equation*}
+
+\SAY\ ``Now. Set $\nu = 1/3$. Everything changes.''
+
+\section{Why Fractional Is Hard + What Survives (2.5 min)}
+
+\WRITE
+\begin{align*}
+&\nu = 1/m \text{ (start with }m=3\text{):}\\[4pt]
+&\quad N_e = N_\phi / m \quad\text{(lowest Landau level $1/m$ filled)}\\[6pt]
+&\quad\text{All electrons in ONE Landau level:}\\
+&\qquad\bullet\ \text{single-particle energies IDENTICAL}\\
+&\qquad\bullet\ \text{kinetic energy completely quenched}\\
+&\qquad\bullet\ \text{Coulomb is the ONLY energy scale}\\
+&\qquad\bullet\ \text{no small parameter, not perturbative}
+\end{align*}
+
+\SAY\ ``This is the key physical point. The magnetic field has taken away the kinetic energy. Normally in a many-body problem you have kinetic energy competing with interactions and you can perturb in the ratio. Here the kinetic energy is gone---it's been absorbed into the Landau level degeneracy. Coulomb is the whole story. $10^{11}$ electrons interacting with no small parameter. You can't solve it microscopically.''
+
+\SAY\ ``But Laughlin figured out something remarkable. The ground state is gapped---there's an energy gap above it, set by the Coulomb scale. And below that gap, the fluid is incompressible: no density waves, no phonons, no local order parameter.''
+
+\WRITE
+\begin{align*}
+&\text{Below the gap:}\\
+&\quad\bullet\ \text{incompressible quantum liquid}\\
+&\quad\bullet\ \text{no local order parameter (not Landau symmetry-breaking)}\\
+&\quad\bullet\ \text{no low-energy local modes}\\[8pt]
+&\text{What survives:}\\
+&\quad\bullet\ \text{response to external electromagnetic probes}\\
+&\quad\bullet\ \text{braiding/exchange of localized defects}\\
+&\quad\bullet\ \text{global topological data (genus dependence)}
+\end{align*}
+
+\SAY\ ``Once all local degrees of freedom are gapped out, the only remaining universal information is topological. Response, braiding, global structure. This is exactly the regime where a topological field theory is the correct effective description.''
+
+\SAY\ ``So the question becomes: what is the most general topological action I can write in $2+1$ dimensions for a charged fluid?''
+
+\section{The Effective Action (2.5 min)}
+
+\SAY\ ``We need the low-energy effective action. The rules:''
+
+\WRITE
+\begin{align*}
+&\text{Rules for the effective action:}\\
+&\quad\text{(i) gauge fields are 1-forms } (A,\,a\in\Omega^1)\\
+&\quad\text{(ii) action is } \textstyle\int\text{(3-form)}\quad [\text{spacetime is }2{+}1\text{ dim}]\\
+&\quad\text{(iii) no metric (topological---can't use Hodge star }\star\text{)}\\
+&\quad\text{(iv) gauge invariant (up to boundary terms)}
+\end{align*}
+
+\WRITE
+\begin{align*}
+&\text{Metric-free 3-forms built from 1-forms:}\\[4pt]
+&\qquad A\wedge dA \quad\leftarrow\text{background self-coupling}\\
+&\qquad a\wedge da \quad\leftarrow\text{emergent self-coupling}\\
+&\qquad A\wedge da \quad\leftarrow\text{mixed coupling (response)}
+\end{align*}
+
+\SAY\ ``In $2{+}1$ dimensions, with one-form gauge fields, the only things you can write WITHOUT a metric are wedge products of the fields and their exterior derivatives. These three terms exhaust the possibilities at leading order. The action is almost forced on you.''
+
+\WRITE\ {\large\bfseries (the centerpiece---write large and clean)}
+\begin{equation*}
+\boxed{S[a;\,A] \;=\; \int\!\left[\frac{1}{2\pi}\,A\wedge da \;-\; \frac{m}{4\pi}\,a\wedge da\right]}
+\end{equation*}
+
+\SAY\ (point to each piece):
+\begin{itemize}[nosep]
+\item ``$A$ is the external electromagnetic field. We put it in by hand as a probe---we don't path-integrate over it.''
+\item ``$a$ is the emergent $U(1)$ gauge field. It's the low-energy collective degree of freedom of the electron fluid. Same conceptual status as a phonon for a crystal.''
+\item ``This mixed term $A\wedge da$ tells me how the fluid responds to electromagnetism.''
+\item ``This pure CS term $a\wedge da$ gives the dynamics and the self-statistics.''
+\item ``$m$ is an integer. Odd for fermions.''
+\end{itemize}
+
+\WRITE\ (to the side, with $\boldsymbol\times$)
+\begin{align*}
+&\times\ \ \text{No } \tfrac{1}{4e^2}\!\int\! F\wedge\star F \quad\text{(no Maxwell term $\to$ no propagating modes)}\\
+&\times\ \ \text{No metric anywhere $\to$ observables immune to geometry}
+\end{align*}
+
+\SAY\ ``The absence of a Maxwell term means there are no propagating gauge bosons in the bulk. The absence of the metric means the action literally cannot see smooth deformations of the sample. Disorder, impurities, gentle perturbations---they cannot change the observables. Only closing the gap can. That's the protection mechanism.''
+
+\section{Derivation: Hall Conductance (3 min)}
+
+\SAY\ ``We integrate out the dynamical field $a$. Vary with respect to $a$:''
+
+\WRITE
+\begin{align*}
+\frac{\delta S}{\delta a} = 0: \qquad &\frac{1}{2\pi}\,dA - \frac{m}{2\pi}\,da = 0
+\end{align*}
+
+\SAY\ ``This is algebraic---$a$ is determined on-shell by $A$.''
+
+\WRITE
+\begin{align*}
+&da = \frac{1}{m}\,dA\\[4pt]
+&\text{On simply-connected patch:}\quad a = \frac{1}{m}\,A
+\end{align*}
+
+\SAY\ ``Plug back into the action. Both terms contribute.''
+
+\WRITE
+\begin{align*}
+S_{\mathrm{eff}}[A] &= \frac{1}{2\pi}\int A\wedge d\!\left(\frac{A}{m}\right) - \frac{m}{4\pi}\int \frac{A}{m}\wedge d\!\left(\frac{A}{m}\right)\\[4pt]
+&= \frac{1}{2\pi m}\int A\wedge dA - \frac{1}{4\pi m}\int A\wedge dA\\[4pt]
+&= \frac{1}{4\pi m}\int A\wedge dA
+\end{align*}
+
+\BOX\ the final line.
+
+\SAY\ ``This is a pure Chern--Simons term for the electromagnetic background at level $1/m$. It's the generating functional for the electromagnetic response.''
+
+\WRITE
+\begin{align*}
+\text{Current: } j^\mu &= \frac{\delta S_{\mathrm{eff}}}{\delta A_\mu} = \frac{1}{2\pi m}\,\varepsilon^{\mu\nu\rho}\partial_\nu A_\rho\\[6pt]
+j^0 &= \frac{1}{2\pi m}\,B \qquad\leftarrow\text{charge density $\sim$ magnetic field (Streda)}\\[4pt]
+j^i &= \frac{1}{2\pi m}\,\varepsilon^{ij}E_j \quad\leftarrow\text{Hall current}
+\end{align*}
+
+\WRITE\ {\large (box it)}
+\begin{equation*}
+\boxed{\sigma_{xy} = \frac{1}{2\pi m} = \frac{e^2}{h}\cdot\frac{1}{m}}
+\end{equation*}
+
+\SAY\ ``For $m=3$: $\sigma_{xy} = (1/3)(e^2/h)$. First universal number derived.''
+
+\SAY\ ``Now. Why must $m$ be an integer? This is the level quantization argument.''
+
+\WRITE
+\begin{align*}
+&\text{Level quantization:}\\[4pt]
+&\text{Place theory on } S^2\!\times S^1.\\
+&\text{Thread 1 magnetic flux quantum through }S^2:\ \frac{1}{2\pi}\!\int_{S^2}\! dA = 1\\[4pt]
+&\text{Large gauge transformation of }a\text{, winding once around }S^1\\[4pt]
+&\text{Gauge transf on }S^3\text{ changes }S_{\mathrm{CS}}\text{ by:}\\
+&\qquad\Delta S = 2\pi m\cdot(\text{winding number})\\[4pt]
+&e^{iS}\text{ single-valued } \Rightarrow m\in\mathbb{Z}
+\end{align*}
+
+\SAY\ ``The same argument you've seen for any Chern--Simons theory: large gauge invariance forces the coefficient to be an integer. For fermions, $m$ must be odd. The quantization of Hall conductance is not a fit---it's a consistency condition of the quantum theory.''
+
+\section{Derivation: Fractional Charge (2.5 min)}
+
+\SAY\ ``What are the excitations? A quasihole is a localized defect in the incompressible fluid. In the effective theory, it's the endpoint of a Wilson line of the emergent gauge field $a$.''
+
+\WRITE
+\begin{align*}
+&\text{Wilson line: } W(C) = \exp\!\left(i\oint_C\! a\right)\\[4pt]
+&\quad\to\ \text{worldline of a particle carrying unit }a\text{-charge}\\
+&\quad\to\ \text{endpoint = localized source for }a
+\end{align*}
+
+\SAY\ ``Same reason $\exp(ie\!\int\!A)$ is the worldline of an electron in QED. A Wilson line endpoint is where Gauss's law sees a source.''
+
+\WRITE
+\begin{align*}
+&\text{Static quasihole at }\mathbf{x}_0:\\[4pt]
+&\text{Source: } S_{\mathrm{src}} = \int\! a\wedge J,\quad J = 2\pi\,\delta^{(2)}(\mathbf{x}-\mathbf{x}_0)\,dt\\[6pt]
+&\text{EOM for }a\text{ with source:}\\[4pt]
+&\quad\frac{m}{2\pi}\,\varepsilon^{\mu\nu\rho}\partial_\nu a_\rho = \delta^{(2)}(\mathbf{x}-\mathbf{x}_0)\,\delta^{\mu 0}\\[4pt]
+&\text{Spatial ($\mu=0$) component:}\\[4pt]
+&\quad m\,f_{12}(\mathbf{x}) = 2\pi\,\delta^{(2)}(\mathbf{x}-\mathbf{x}_0)
+\end{align*}
+
+\WRITE
+\begin{equation*}
+\Longrightarrow\quad \int\! f_{12}\,d^2x = \frac{2\pi}{m} \qquad\text{(emergent flux bound to quasihole)}
+\end{equation*}
+
+\DRAW\ Dot at $\mathbf{x}_0$ with concentric circles indicating flux. Label: $\Phi_a = 2\pi/m$.
+
+\SAY\ ``Each quasihole is a charge-flux composite of the emergent field: it carries unit $a$-charge AND it binds $2\pi/m$ units of $a$-flux. This is flux attachment---the field-theoretic version of the Jastrow factor in Laughlin's wavefunction.''
+
+\SAY\ ``Now convert to electric charge. The mixed term $A\wedge da$ is what couples the emergent field to electromagnetism.''
+
+\WRITE
+\begin{align*}
+&\text{Charge density (vary $S$ w.r.t.\ $A_0$):}\\[4pt]
+&\quad j^0 = \frac{1}{2\pi}\,f_{12}\\[6pt]
+&\text{Electric charge of quasihole:}\\[4pt]
+&\quad Q = e\!\int\! j^0\,d^2x = \frac{e}{2\pi}\int\! f_{12}\,d^2x = \frac{e}{2\pi}\cdot\frac{2\pi}{m}
+\end{align*}
+
+\WRITE\ {\large (box it)}
+\begin{equation*}
+\boxed{Q_{\mathrm{qh}} = \frac{e}{m}}
+\end{equation*}
+
+\SAY\ ``For $m=3$: charge $e/3$. The electron hasn't split. The CS coupling has redistributed charge: $a$-flux $\to$ electric charge through the mixed term. Same $m$, second observable.''
+
+\SAY\ ``Measured directly: shot-noise experiments by Saminadayar and by de-Picciotto, both in 1997. They measure the Fano factor of tunneling current and extract the carrier charge.''
+
+\section{Derivation: Anyonic Statistics (3 min)}
+
+\SAY\ ``Each quasihole is both an $a$-charge and an $a$-flux. When one goes around another, there's an Aharonov--Bohm phase.''
+
+\DRAW\ Two quasiholes. Label each: ``$q=1$ ($a$-charge), $\Phi = 2\pi/m$ ($a$-flux).'' Draw one looping around the other with directional arrow.
+
+\WRITE
+\begin{align*}
+&\text{Quasihole 1: charge }q_1 = 1\text{ under }a\\
+&\text{Quasihole 2: carries }a\text{-flux }\Phi_2 = 2\pi/m\\[8pt]
+&\text{Full braid (1 goes around 2):}\\[4pt]
+&\quad\phi_{\text{braid}} = q_1\cdot\Phi_2 = 1\cdot\frac{2\pi}{m} = \frac{2\pi}{m}
+\end{align*}
+
+\SAY\ ``That's the Aharonov--Bohm effect. Charge times enclosed flux. Nothing fancy.''
+
+\DRAW\ Two worldlines as braids: show one crossing = one exchange, two crossings = full loop.
+
+\WRITE
+\begin{align*}
+&\text{Topologically: full braid = 2 exchanges}\\[4pt]
+&\Longrightarrow\quad \theta_{\text{exchange}} = \frac{1}{2}\cdot\frac{2\pi}{m} = \frac{\pi}{m}
+\end{align*}
+
+\WRITE\ {\large (box it)}
+\begin{equation*}
+\boxed{\theta_{\mathrm{exchange}} = \frac{\pi}{m}}
+\end{equation*}
+
+\SAY\ ``For $m=1$: $\theta=\pi$, fermions. For $m=3$: $\theta=\pi/3$. Neither boson nor fermion. These particles obey braid group statistics---anyons.''
+
+\SAY\ ``In Chern--Simons language, this has a beautiful restatement.''
+
+\WRITE
+\begin{align*}
+&\text{Wilson loop correlator in }U(1)_m\text{ CS:}\\[4pt]
+&\quad\bigl\langle W_1(\gamma_1)\,W_1(\gamma_2)\bigr\rangle = \exp\!\left(\frac{2\pi i}{m}\,\mathrm{Lk}(\gamma_1,\gamma_2)\right)\\[6pt]
+&\quad\mathrm{Lk} = \text{linking number of the two worldlines}\\[4pt]
+&\quad\mathrm{Lk} = 1\text{ (linked once)} \Rightarrow \text{phase} = 2\pi/m \quad\checkmark
+\end{align*}
+
+\SAY\ ``The expectation value of two Wilson loops in abelian Chern--Simons is the exponential of the linking number divided by the level. Braiding is linking. The topological invariant IS the physical observable.''
+
+\CIRCLE\ all three boxed results ($\sigma$, $Q$, $\theta$) if visible.
+
+\SAY\ ``One integer $m$. Three universal observables: $\sigma_{xy} = (1/m)(e^2/h)$, $Q = e/m$, $\theta = \pi/m$. Gauge invariance forces $m$ to be an integer. Everything else follows.''
+
+\SAY\ ``Nakamura et al., 2020. Fabry--P\'erot interferometer at $\nu = 1/3$. Measure phase accumulation as quasiparticles enter the interferometer. Observed: $2\pi/3$ per additional quasiparticle. First direct measurement of anyonic statistics in a natural condensed matter system.''
+
+\section{Global Structure: Edge + Torus (2.5 min)}
+
+\SAY\ ``The conductance, charge, and statistics are response measurements. But topological order also has structural signatures that require global topology to reveal.''
+
+\WRITE\ \textbf{(A) EDGE (boundary):}
+\begin{align*}
+&\text{On manifold }M\text{ with }\partial M\neq\varnothing:\\[4pt]
+&\quad\delta S_{\mathrm{CS}} = (\text{bulk EOM}) - \frac{m}{4\pi}\int_{\partial M}\!a\wedge\delta a\\[6pt]
+&\text{Boundary term is NOT gauge invariant!}\\
+&\to\ \text{bulk CS alone is inconsistent on }\partial M\\[6pt]
+&\text{Gauge invariance requires boundary DOF:}\\
+&\quad\text{chiral boson }\phi\text{ on }\partial M\\[4pt]
+&\quad S_{\mathrm{edge}} = \frac{m}{4\pi}\int_{\partial M}\!\bigl(\partial_t\phi\,\partial_x\phi - v\,(\partial_x\phi)^2\bigr)\,dt\,dx\\[6pt]
+&\quad\to\ \text{propagates in one direction (chiral)}\\
+&\quad\to\ \text{central charge }c = 1\quad\text{(topological)}\\
+&\quad\to\ \text{velocity }v\quad\text{(NOT topological)}
+\end{align*}
+
+\SAY\ ``This is anomaly inflow. You've seen the 4d version: axial anomaly in the bulk cancels the boundary fermion anomaly. Here: the bulk CS anomaly forces a chiral edge mode into existence. Its chirality and central charge are topological data; its speed is not.''
+
+\WRITE\ \textbf{(B) TORUS (ground-state degeneracy):}
+
+\DRAW\ Torus (or rectangle with identified sides). Label cycles $\alpha$, $\beta$.
+
+\WRITE
+\begin{align*}
+&\text{On }T^2,\text{ EOM: }da=0\text{ (flat connections only)}\\[4pt]
+&\text{Flat }U(1)\text{ connections on }T^2:\\
+&\quad u = \oint_\alpha\! a,\quad v = \oint_\beta\! a\\[6pt]
+&\text{Define operators: } T_1 = e^{iu},\quad T_2 = e^{iv}\\[6pt]
+&\text{CS commutation relation:}\\
+&\quad [u,\,v] = \frac{2\pi i}{m}\\[6pt]
+&\Longrightarrow\quad T_1\,T_2 = e^{2\pi i/m}\,T_2\,T_1
+\end{align*}
+
+\SAY\ ``The holonomies don't commute. The commutator is fixed by the CS level $m$. This is a finite Heisenberg algebra.''
+
+\WRITE
+\begin{align*}
+&T_1\,T_2 = e^{2\pi i/m}\,T_2\,T_1 \text{ cannot be satisfied on a}\\
+&\text{1-dimensional Hilbert space.}\\[4pt]
+&\text{Minimum faithful representation: dimension }m.
+\end{align*}
+
+\WRITE\ {\large (box it)}
+\begin{equation*}
+\boxed{\dim\mathcal{H}(T^2) = m}
+\end{equation*}
+
+\SAY\ ``For $\nu = 1/3$: three degenerate ground states on a torus. No local perturbation can lift this---it's not a symmetry degeneracy, it's topological. Threading a flux quantum through one cycle rotates you through the three sectors. This was Wen's definition of topological order.''
+
+\section{What's Protected / What's Not (1.5 min)}
+
+\SAY\ ``Let me be precise about what the topological theory actually controls versus what requires microscopic input.''
+
+\WRITE\ (two-column table)
+\begin{center}
+\begin{tabular}{@{}l|l@{}}
+\textbf{Topological data (set by $m$)} & \textbf{Non-universal (mesoscopic)} \\
+\midrule
+$\sigma_{xy} = (1/m)(e^2/h)$ & Edge velocity $v$ \\
+$Q_{\mathrm{qh}} = e/m$ & Tunneling exponents \\
+$\theta_{\mathrm{exchange}} = \pi/m$ & Equilibration lengths \\
+Edge chirality, $c=1$ & Interferometer visibility \\
+$\dim\mathcal{H}(T^2) = m$ & Coulomb-dominated interference \\
+$\langle WW\rangle \sim e^{2\pi i\,\mathrm{Lk}/m}$ & Quasiparticle localization \\
+\end{tabular}
+\end{center}
+
+\SAY\ ``Left column: universal. Cannot change without closing the gap. Right column: depends on confining potential, interaction details, device geometry. Experimental care: you must verify you're measuring a quantity in the left column. Early interferometry experiments were fooled by Coulomb charging effects masquerading as braiding phases. Nakamura 2020 was careful---verified Aharonov--Bohm regime first.''
+
+\section{Summary (1.5 min)}
+
+\SAY\ ``Let me close by writing the whole logical chain.''
+
+\WRITE
+\begin{align*}
+&\text{THE LOGICAL CHAIN:}\\[4pt]
+&\quad\text{Strong }B\text{-field}\\
+&\qquad\to\ \text{Landau level degeneracy}\\
+&\qquad\quad\to\ \text{kinetic energy quenched}\\
+&\qquad\qquad\to\ \text{Coulomb creates gapped incompressible liquid}\\
+&\qquad\qquad\quad\to\ \text{no local low-energy modes}\\
+&\qquad\qquad\qquad\to\ \text{effective theory must be topological}\\
+&\qquad\qquad\qquad\quad\to\ \textbf{CHERN--SIMONS}
+\end{align*}
+
+\WRITE
+\begin{align*}
+S &= \int\!\left[\tfrac{1}{2\pi}A\wedge da - \tfrac{m}{4\pi}a\wedge da\right]\\[8pt]
+&\text{One action, one integer }m\text{, five consequences:}\\[4pt]
+&\quad\sigma_{xy} = (1/m)(e^2/h) \quad\checkmark\ \ (10^{-9}\text{ precision})\\
+&\quad Q = e/m \quad\checkmark\ \ (\text{shot noise 1997})\\
+&\quad \theta = \pi/m \quad\checkmark\ \ (\text{interferometry 2020})\\
+&\quad \text{chiral edge, }c=1 \quad\checkmark\ \ (\text{tunneling})\\
+&\quad \text{GSD} = m\text{ on torus} \quad\checkmark\ \ (\text{flux threading})
+\end{align*}
+
+\SAY\ ``The fractional quantum Hall effect is the proof of concept that topological field theory describes real macroscopic matter. The fact that one integer---forced to be integer by gauge invariance---simultaneously controls five independently measurable quantities is not an accident. It's the physical content of having a topological effective theory.''
+
+\SAY\ (if time remains) ``The open frontier: $\nu = 5/2$. Believed to be the Moore--Read Pfaffian state---$SU(2)_2$ Chern--Simons theory. Non-abelian: exchanging quasiparticles executes unitary matrices on a degenerate ground state, not just phases. If confirmed, this gives topological qubits. Not yet observed in a natural condensed matter system. Open problem.''
+
+\newpage
+\section*{Timing}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Board & Time \\
+\midrule
+1: Experiment + staircase & 1.5 min \\
+2: Integer QHE (quick) & 1.5 min \\
+3: Why fractional is hard + what survives & 2.5 min \\
+4: Effective action + why CS is forced & 2.5 min \\
+5: Hall conductance derivation & 3 min \\
+6: Fractional charge derivation & 2.5 min \\
+7: Anyonic statistics + linking number & 3 min \\
+8: Global structure: edge + torus & 2.5 min \\
+9: Honesty table & 1.5 min \\
+10: Summary + logical chain & 1.5 min \\
+\midrule
+\textbf{Total} & \textbf{$\sim$22 min} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textit{To hit 20 min:} Slightly compress Boards 5 and 7 (skip writing intermediate steps of the $S_{\mathrm{eff}}$ substitution; skip writing the explicit linking formula).
+
+\noindent\textit{To hit 15 min:} Board 2 in 30\,s verbal. Boards 8+9 merged into 2 min verbal + table.
+
+\newpage
+\section*{Equations to Know Cold}
+
+\begin{enumerate}[nosep]
+\item Action: $S = \int [(1/2\pi)A\wedge da - (m/4\pi)a\wedge da]$
+\item EOM: $(1/2\pi)\,dA - (m/2\pi)\,da = 0 \;\Rightarrow\; da = (1/m)\,dA$
+\item Integrated out: $S_{\mathrm{eff}} = (1/4\pi m)\int A\wedge dA$
+\item Current: $j^\mu = (1/2\pi m)\,\varepsilon^{\mu\nu\rho}\partial_\nu A_\rho$
+\item Streda: $j^0 = (1/2\pi m)\,B$
+\item Flux attachment: $m\,f_{12} = 2\pi\,\delta^{(2)}(\mathbf{x}) \;\Rightarrow\; \int f_{12} = 2\pi/m$
+\item Charge: $Q = (e/2\pi)\int f_{12} = e/m$
+\item AB phase: $\phi = q\cdot\Phi = 1\cdot(2\pi/m) = 2\pi/m$
+\item Exchange: $\theta = \pi/m$ (half of full braid)
+\item Linking: $\langle W(\gamma_1)\,W(\gamma_2)\rangle = \exp(2\pi i\,\mathrm{Lk}(\gamma_1,\gamma_2)/m)$
+\item Commutator: $T_1 T_2 = e^{2\pi i/m}\,T_2 T_1 \;\Rightarrow\; \dim\mathcal{H} = m$
+\item Edge boundary term: $\delta S \supset -(m/4\pi)\int_{\partial M} a\wedge\delta a$
+\end{enumerate}
+
+\section*{Potential Questions}
+
+\textbf{Q: Why odd $m$?}\quad Electrons are fermions. $m=1$ gives $\theta=\pi$ (fermion). The quasihole at $m=1$ IS the electron. Odd $m$ $\leftrightarrow$ fermionic constituents. Even $m$ $\leftrightarrow$ bosonic (exist but not the electron QHE).
+
+\medskip
+\textbf{Q: Where does the emergent gauge field come from physically?}\quad Flux attachment (Zhang--Hansson--Kivelson 1989): attach $m$ flux quanta to each electron $\to$ composite bosons. The emergent $a$ implements that statistical transmutation. Same conceptual move as introducing a phonon field for a crystal---a collective degree of freedom that survives at low energy.
+
+\medskip
+\textbf{Q: What about $\nu = 2/5$, $2/3$?}\quad $K$-matrix generalization. Multiple emergent gauge fields $a^I$, integer matrix $K_{IJ}$:
+\[S = \int\!\left[\frac{1}{4\pi}K_{IJ}\,a^I\!\wedge da^J + \frac{1}{2\pi}t_I\,A\wedge da^I\right]\]
+Then $\sigma_{xy} = \mathbf{t}^T K^{-1}\mathbf{t}\,(e^2/h)$. Laughlin is $K=(m)$, $\mathbf{t}=(1)$.
+
+\medskip
+\textbf{Q: Why not Maxwell--Chern--Simons?}\quad Adding a Maxwell term $F\wedge\star F$ reintroduces the metric, gives a massive gauge boson (topological mass $m_{\mathrm{CS}} = ke^2/2\pi$), and creates propagating modes. It's NOT a TQFT---observables depend on geometry. The purity of CS is essential. This is why I emphasized ``no Hodge star.''
+
+\medskip
+\textbf{Q: How is the torus degeneracy measured?}\quad Not on an actual torus. On an annulus (Corbino geometry), thread external flux through the hole. The system cycles through degenerate sectors with period $h/e$---that periodicity is the signature.
+
+\medskip
+\textbf{Q: Connection to Jones polynomial / knot invariants?}\quad In non-abelian CS (e.g., $SU(2)_k$), Wilson loop expectation values on $S^3$ give the Jones polynomial of the knot. For abelian $U(1)_m$, it reduces to the linking number formula. The FQHE is the physical realization of this mathematics.
+
+\medskip
+\textbf{Q: Is the fractional charge ``real''---has an electron split?}\quad No. The electron is intact. The Chern--Simons duality redistributes electromagnetic charge: a unit source for $a$ binds fractional $a$-flux, and the mixed term converts that to fractional electric charge. It's a collective effect, not fission.
+
+\end{document}

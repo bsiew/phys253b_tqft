@@ -1,0 +1,11 @@
+All seven chapters rewritten and the change summary logged. Here's what was done:
+
+**Part I stylistic rewrite complete (Chapters 2–8).** All prose has been rewritten to match Tong's lecture-note voice:
+
+- Every section opener is now a physical question, surprising claim, or concrete statement (killed all "In this section we..." and "We now turn to..." phrasings)
+- Derivation blocks end with 1–2 sentence physical punchlines
+- 2–3 parenthetical editorial asides added per chapter
+- Bloated transitional paragraphs compressed throughout
+- All math, equation labels, and logical structure preserved exactly
+
+The change summary is at `logs/paper_tasks_19/pass2_part1_style.md`.

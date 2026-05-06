@@ -1,0 +1,7 @@
+Done. Three cross-references added:
+
+1. **ch06_bf.tex** (end of section 6.4): Two sentences pointing forward to the toric code in ch09 and to untwisted DW in ch07.
+2. **ch07_dw.tex** (end of section 7.3, after the scope remark): One sentence pointing back to ch06 and forward to the lattice Hamiltonian in ch09.
+3. **ch09_topological_order.tex** (beginning of section 9.4): A "Reader's note" remark letting Part II readers know the derivation is self-contained, while Part I readers can skip to the dictionary.
+
+No existing content was deleted or rewritten—only additive cross-reference text was inserted.

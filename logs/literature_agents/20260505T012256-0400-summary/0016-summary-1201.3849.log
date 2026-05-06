@@ -1,0 +1,12 @@
+Task complete. I've split the paper into 7 section files under `codex_section_extracts/` and generated `codex_paper_summary.md` with a whole-paper snapshot, section-by-section summaries scaled to source length, and import priority recommendations.
+
+**High-priority sections** for physics context:
+- Introduction (PQ mechanism, helioscope principle, strong-CP problem)
+- Sensitivity projections (quantitative reach, comparison to astrophysical constraints)
+
+**Medium-priority sections** for experimental design:
+- Abstract, magnet parameters, x-ray optics, detectors
+
+**Low-priority**: the experimental setup overview (organizational header only)
+
+All files include proper YAML front matter and preserve the original metadata conventions.

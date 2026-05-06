@@ -1,0 +1,3 @@
+Done. I've created `codex_scientific_text.md` with all scientific content preserved (definitions, derivations, equations, theorems, interpretations, caveats) and only TeX plumbing removed: documentclass, packages, author formatting, bibliography commands, pure styling macros, and figure/table scaffolding.
+
+The file includes YAML front matter with metadata (title, authors, affiliations, arxiv ID, timestamps) and all prose sections with equations intact. Section headings have been converted to markdown format, and figure captions describing scientific concepts have been preserved while removing pure scaffolding commands.

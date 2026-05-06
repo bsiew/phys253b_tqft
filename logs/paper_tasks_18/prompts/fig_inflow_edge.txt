@@ -1,0 +1,16 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ figure at 253b_final_paper/tex_docs/figures/f_inflow_edge.tex showing bulk-boundary anomaly inflow.
+
+Requirements:
+- A 2+1d bulk region (shaded rectangle or disk) with a 1+1d boundary edge
+- The bulk labeled with delta S_bulk
+- The boundary/edge labeled with delta S_edge
+- A cancellation indication: delta S_bulk + delta S_edge = 0
+- A chiral edge mode shown as an arrow along the boundary (single propagation direction)
+- Clean, schematic style suitable for a review paper
+- Optional: indicate the bulk CS theory and edge CFT
+
+Standalone tikzpicture, includable via \input{figures/f_inflow_edge.tex}.

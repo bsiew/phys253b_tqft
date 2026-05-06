@@ -1,0 +1,864 @@
+\chapter{2D TQFT and commutative Frobenius algebras}\label{ch:frobenius}
+
+How much data does a topological field theory actually contain?  In two dimensions, the answer is surprisingly little: a single finite-dimensional vector space equipped with a multiplication, a unit, and a trace form satisfying a compatibility condition.  That structure---a commutative Frobenius algebra---\emph{is} the theory.  Every 2D oriented TQFT determines one, and conversely every commutative Frobenius algebra determines a 2D TQFT.  The classification is complete \cite{Kock2004Frobenius}.
+
+Physically, the classification has teeth: the ground-state degeneracy of a 2D topological phase on a surface $\Sigma_g$ is determined by the Frobenius algebra of the underlying TQFT. In particular, the $N^{2g}$ degeneracy formula that reappears throughout Part~II---in $\Z_N$ BF theory (Chapter~\ref{ch:bf}), untwisted Dijkgraaf--Witten theory (Chapter~\ref{ch:dw}), and the toric code (Chapter~\ref{sec:topological-order})---is already fixed by the algebraic data of this chapter. The classification thus provides the universal bookkeeping behind topological order in two spatial dimensions.
+
+The reason the classification works is topological.  Every closed oriented 1-manifold is a disjoint union of circles, and every oriented 2-cobordism can be cut (via a Morse function) into a finite list of elementary pieces: caps, cups, and pairs of pants.  The geometric classification problem becomes a generators-and-relations problem in algebra---and that problem is solvable.
+
+\section{Generators and relations of \texorpdfstring{$\mathrm{Cob}_2$}{Cob2}}\label{sec:cob2-generators}
+
+There is only one connected closed oriented 1-manifold: the circle.  So the object side of $\mathrm{Cob}_2$ is trivial---every object is a disjoint union of circles.  The real question is: which cobordisms between circles are the building blocks, and what relations do they satisfy?
+
+\subsection{The basic generators}
+
+\begin{definition}[Elementary generators of $\mathrm{Cob}_2$]\label{def:cob2-generators}
+The following connected oriented cobordisms are the basic generators of the $2$-dimensional oriented cobordism category.
+\begin{enumerate}
+\item The \emph{cap}, namely the disk
+\begin{equation}\label{eq:cap-generator}
+D^2 : \emptyset \longrightarrow S^1.
+\end{equation}
+\item The \emph{cup}, namely the oppositely oriented disk
+\begin{equation}\label{eq:cup-generator}
+\overline{D^2} : S^1 \longrightarrow \emptyset.
+\end{equation}
+\item The \emph{cylinder}
+\begin{equation}\label{eq:cylinder-generator}
+S^1 \times [0,1] : S^1 \longrightarrow S^1.
+\end{equation}
+\item The \emph{pair of pants}
+\begin{equation}\label{eq:pop-generator}
+P : S^1 \sqcup S^1 \longrightarrow S^1.
+\end{equation}
+\item The \emph{reversed pair of pants}
+\begin{equation}\label{eq:copop-generator}
+\overline{P} : S^1 \longrightarrow S^1 \sqcup S^1.
+\end{equation}
+\end{enumerate}
+\end{definition}
+
+\noindent The cap and cup were already met in Section~\ref{sec:two-disks-sphere}, and the pair of pants already appeared in Section~\ref{sec:cobordism-category}. What is new here is the claim that these are not merely examples: after allowing gluing and disjoint union, they generate all of $\mathrm{Cob}_2$.
+
+\begin{figure}[h]
+    \centering
+    \IfFileExists{figures/cobordism_generators.pdf}{%
+        \includegraphics[width=0.8\linewidth]{figures/cobordism_generators}
+    }{%
+        \fbox{%
+            \parbox{0.88\linewidth}{%
+                \centering
+                \textbf{Generators of $\mathrm{Cob}_2$}\\[2mm]
+                cap $D^2 : \emptyset \to S^1$,\quad
+                cup $\overline{D^2} : S^1 \to \emptyset$,\quad
+                cylinder $S^1 \times [0,1] : S^1 \to S^1$,\\[1mm]
+                pair of pants $P : S^1 \sqcup S^1 \to S^1$,\quad
+                reversed pair of pants $\overline{P} : S^1 \to S^1 \sqcup S^1$.\\[2mm]
+                \small Final hand-drawn scan to be committed as \texttt{figures/cobordism\_generators.pdf} per the figure register.%
+            }%
+        }%
+    }
+    \caption{The elementary connected cobordisms from which all morphisms of $\mathrm{Cob}_2$ are built by gluing and disjoint union.}
+    \label{fig:cob2-generators}
+\end{figure}
+
+\begin{proposition}[Generation of $\mathrm{Cob}_2$]\label{prop:cob2-generated}
+Every morphism in $\mathrm{Cob}_2$ can be obtained from the generators of Definition~\ref{def:cob2-generators} by repeated use of composition and disjoint union.
+\end{proposition}
+
+\begin{proof}
+We give the standard proof sketch and refer to Kock's exposition \cite[\S1.3]{Kock2004Frobenius} for the full generator-and-relation presentation.
+
+\medskip
+
+\noindent Let $M : \Sigma_{\mathrm{in}} \to \Sigma_{\mathrm{out}}$ be a compact oriented $2$-dimensional cobordism. Choose a Morse function
+\begin{equation}\label{eq:morse-on-cobordism}
+f : M \longrightarrow [0,1]
+\end{equation}
+that is constant on each boundary component, equal to $0$ on the incoming boundary and $1$ on the outgoing boundary, and has distinct critical values. Between critical values, the topology of the level sets does not change, so the corresponding region of $M$ is a cylinder over a finite disjoint union of circles. At a critical point of index $0$, a circle is created; this contributes a cap. At a critical point of index $2$, a circle is annihilated; this contributes a cup. At a critical point of index $1$, either two circles merge into one or one circle splits into two; this contributes a pair of pants or its reverse.
+
+\medskip
+
+\noindent Cutting $M$ along regular level sets of $f$ therefore decomposes it into finitely many pieces, each diffeomorphic to one of the generators above. Reassembling those pieces by gluing along the intermediate level sets reconstructs $M$. Since disconnected components are handled by disjoint union, every morphism in $\mathrm{Cob}_2$ is generated by the stated list.
+\end{proof}
+
+\begin{remark}[Why there are no other connected objects]\label{rem:closed-1-manifolds}
+The object side of the story is simpler than the morphism side. A closed connected oriented $1$-manifold is diffeomorphic to $S^1$, so every object of $\mathrm{Cob}_2$ is a finite disjoint union
+\begin{equation}\label{eq:object-union-circles}
+\bigsqcup_{i=1}^n S^1.
+\end{equation}
+This is why the state space $V := Z(S^1)$ will carry the entire algebraic content of a 2-dimensional TQFT.
+\end{remark}
+
+\subsection{From generators to algebra}
+
+Let $Z$ be an oriented $2$-dimensional TQFT in the sense of Chapter~\ref{ch:axiomatic}, and set
+\begin{equation}\label{eq:circle-state-space}
+V := Z(S^1).
+\end{equation}
+By monoidality,
+\begin{equation}\label{eq:Z-two-circles}
+Z(S^1 \sqcup S^1) \cong V \otimes V.
+\end{equation}
+Applying $Z$ to the generators of Definition~\ref{def:cob2-generators} gives linear maps
+\begin{align}
+\eta &:= Z(D^2) : \C \longrightarrow V, \label{eq:eta-generator} \\[1mm]
+\epsilon &:= Z(\overline{D^2}) : V \longrightarrow \C, \label{eq:epsilon-generator} \\[1mm]
+\id_V &= Z(S^1 \times [0,1]) : V \longrightarrow V, \label{eq:id-generator} \\[1mm]
+m &:= Z(P) : V \otimes V \longrightarrow V, \label{eq:m-generator} \\[1mm]
+\Delta &:= Z(\overline{P}) : V \longrightarrow V \otimes V. \label{eq:Delta-generator}
+\end{align}
+
+\noindent At this point nothing has yet been proved about these maps beyond the fact that they exist. The next step is to identify the relations among them that are forced by topology.
+
+\subsection{The relations}
+
+\begin{proposition}[Relations forced by diffeomorphic decompositions]\label{prop:cob2-relations}
+The maps \eqref{eq:eta-generator}--\eqref{eq:Delta-generator} satisfy the following identities.
+\begin{enumerate}
+\item \emph{Commutativity of multiplication:}
+\begin{equation}\label{eq:commutativity}
+m \circ \tau = m,
+\end{equation}
+where $\tau : V \otimes V \to V \otimes V$ swaps the two tensor factors.
+
+\item \emph{Associativity of multiplication:}
+\begin{equation}\label{eq:associativity}
+m \circ (m \otimes \id_V) = m \circ (\id_V \otimes m).
+\end{equation}
+
+\item \emph{Unitality:}
+\begin{equation}\label{eq:unitality-left}
+m \circ (\eta \otimes \id_V) = \id_V,
+\qquad
+m \circ (\id_V \otimes \eta) = \id_V.
+\end{equation}
+
+\item \emph{Coassociativity and counitality:}
+\begin{align}
+(\Delta \otimes \id_V)\circ \Delta &= (\id_V \otimes \Delta)\circ \Delta, \label{eq:coassociativity} \\[1mm]
+(\epsilon \otimes \id_V)\circ \Delta &= \id_V,
+\qquad
+(\id_V \otimes \epsilon)\circ \Delta = \id_V. \label{eq:counitality}
+\end{align}
+
+\item \emph{Frobenius relation:}
+\begin{equation}\label{eq:frobenius-relation}
+(\id_V \otimes m)\circ (\Delta \otimes \id_V)
+=
+\Delta \circ m
+=
+(m \otimes \id_V)\circ (\id_V \otimes \Delta).
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each identity is obtained by applying the functor $Z$ to two decompositions of the same oriented surface and then using Axiom~1 of Section~\ref{sec:atiyah-segal-axioms}. We record the geometric reason in each case.
+
+\begin{enumerate}
+\item The two incoming boundary circles of the pair of pants may be interchanged by an orientation-preserving diffeomorphism of the surface. Applying $Z$ to that diffeomorphism gives \eqref{eq:commutativity}.
+
+\item Both sides of \eqref{eq:associativity} come from gluing two pairs of pants to form a connected cobordism
+\begin{equation*}
+S^1 \sqcup S^1 \sqcup S^1 \longrightarrow S^1.
+\end{equation*}
+The two gluings produce diffeomorphic four-holed spheres, differing only by where one places the cut along an intermediate circle. Applying $Z$ gives \eqref{eq:associativity}.
+
+\item Gluing a cap to either incoming leg of the pair of pants produces a cylinder from $S^1$ to $S^1$. Since the resulting cobordism is diffeomorphic to the identity cylinder, Axiom~1 gives \eqref{eq:unitality-left}.
+
+\item The identities in \eqref{eq:coassociativity} and \eqref{eq:counitality} are the orientation reversals of the associative and unital relations above. Reversing the orientation of the corresponding surfaces exchanges multiplication with comultiplication and cap with cup, so the same diffeomorphism arguments apply.
+
+\item The three composites in \eqref{eq:frobenius-relation} are all obtained by decomposing the same connected oriented cobordism
+\begin{equation*}
+S^1 \sqcup S^1 \longrightarrow S^1 \sqcup S^1
+\end{equation*}
+with four boundary circles, often called the four-holed sphere. One may cut that surface first along the left internal circle or first along the right internal circle, and one may also view the same result as multiplication followed by comultiplication. Because the three decompositions describe diffeomorphic cobordisms relative to the boundary, applying $Z$ yields \eqref{eq:frobenius-relation}.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}[What has and has not been proved]\label{rem:relations-not-yet-complete}
+Proposition~\ref{prop:cob2-relations} shows that every 2-dimensional TQFT produces algebraic data
+\begin{equation}\label{eq:frobenius-data-preview}
+(V,m,\eta,\Delta,\epsilon)
+\end{equation}
+satisfying the familiar relations of a commutative Frobenius algebra. What is still missing is the converse statement: if one starts with such algebraic data, does it determine a unique TQFT? That is the substance of the classification theorem in the next section.
+\end{remark}
+
+\begin{remark}[Why the Frobenius relation matters]\label{rem:why-frobenius}
+Associativity and unitality say that $V$ is an algebra. Coassociativity and counitality say that $V$ is a coalgebra. The genuinely new compatibility is \eqref{eq:frobenius-relation}. It is this identity, and not merely the existence of both $m$ and $\Delta$, that remembers the topology of cutting and regluing surfaces. Without it, the algebraic data would not know that the two decompositions of the four-holed sphere define the same cobordism.
+\end{remark}
+
+\medskip
+
+\noindent The punchline: these relations are not only necessary but sufficient.  A 2-dimensional oriented TQFT \emph{is} a commutative Frobenius algebra---nothing more, nothing less.
+
+\section{The classification theorem}\label{sec:frobenius-classification}
+
+The most economical algebraic package uses only multiplication, unit, and a trace functional---the comultiplication $\Delta$ is then recovered from the nondegenerate pairing defined by that trace.  (This is a general pattern in finite-dimensional algebra: once you have a nondegenerate bilinear form, the dual structure comes for free.)
+
+\begin{definition}[Commutative Frobenius algebra]\label{def:commutative-frobenius}
+A \emph{commutative Frobenius algebra} over $\C$ is a quadruple
+\begin{equation}\label{eq:frobenius-quadruple}
+(V,m,\eta,\epsilon)
+\end{equation}
+consisting of the following data.
+\begin{enumerate}
+\item A finite-dimensional complex vector space $V$.
+\item A commutative associative multiplication
+\begin{equation}\label{eq:frobenius-mult}
+m : V \otimes V \longrightarrow V.
+\end{equation}
+\item A unit map
+\begin{equation}\label{eq:frobenius-unit}
+\eta : \C \longrightarrow V,
+\qquad
+1_V := \eta(1).
+\end{equation}
+\item A linear functional
+\begin{equation}\label{eq:frobenius-counit}
+\epsilon : V \longrightarrow \C
+\end{equation}
+such that the bilinear pairing
+\begin{equation}\label{eq:frobenius-pairing}
+\beta(a,b) := \epsilon\bigl(m(a,b)\bigr)
+\end{equation}
+is nondegenerate.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[The Frobenius condition in bilinear-form language]\label{rem:frobenius-invariance}
+If we write $ab$ for $m(a,b)$, then associativity implies
+\begin{equation}\label{eq:beta-invariance}
+\beta(ab,c) = \epsilon((ab)c) = \epsilon(a(bc)) = \beta(a,bc).
+\end{equation}
+This invariance property is the Frobenius compatibility in its algebraic form. In finite dimensions it is equivalent to the coalgebra formulation of Section~\ref{sec:cob2-generators}: one may either specify $(m,\eta,\epsilon)$ with nondegenerate pairing or specify $(m,\eta,\Delta,\epsilon)$ with the Frobenius relation \eqref{eq:frobenius-relation}.
+\end{remark}
+
+\begin{proposition}[From a 2D TQFT to a commutative Frobenius algebra]\label{prop:TQFT-to-Frob}
+Let $Z$ be an oriented $2$-dimensional TQFT. Set
+\begin{equation}\label{eq:V-from-TQFT}
+V := Z(S^1),
+\end{equation}
+and define $m$, $\eta$, and $\epsilon$ by \eqref{eq:eta-generator}--\eqref{eq:m-generator}. Then
+\begin{equation}\label{eq:TQFT-produces-Frob}
+(V,m,\eta,\epsilon)
+\end{equation}
+is a commutative Frobenius algebra.
+\end{proposition}
+
+\begin{proof}
+We verify the items in Definition~\ref{def:commutative-frobenius} one by one.
+
+\medskip
+
+\noindent First, $V$ is finite-dimensional by Corollary~\ref{cor:finite-dimensionality} applied to the object $\Sigma = S^1$.
+
+\medskip
+
+\noindent Second, $m$ is commutative and associative by \eqref{eq:commutativity} and \eqref{eq:associativity} of Proposition~\ref{prop:cob2-relations}. The element
+\begin{equation}\label{eq:unit-element}
+1_V := \eta(1)
+\end{equation}
+is a unit by \eqref{eq:unitality-left}. Thus $(V,m,\eta)$ is a commutative unital associative algebra.
+
+\medskip
+
+\noindent Third, define
+\begin{equation}\label{eq:beta-main}
+\beta(a,b) := \epsilon\bigl(m(a,b)\bigr).
+\end{equation}
+This pairing is bilinear because $m$ and $\epsilon$ are linear. It is symmetric because $m$ is commutative:
+\begin{equation}\label{eq:beta-symmetric}
+\beta(a,b) = \epsilon(ab) = \epsilon(ba) = \beta(b,a).
+\end{equation}
+It is invariant in the Frobenius sense because $m$ is associative:
+\begin{equation}\label{eq:beta-associative}
+\beta(ab,c) = \epsilon((ab)c) = \epsilon(a(bc)) = \beta(a,bc).
+\end{equation}
+
+\medskip
+
+\noindent It remains to prove nondegeneracy. Let
+\begin{equation}\label{eq:Delta-of-unit}
+\Delta(1_V) = \sum_{i=1}^N x_i \otimes y_i
+\end{equation}
+for some finite family $x_i,y_i \in V$. Such a finite expansion exists because $\Delta(1_V)$ is an element of the tensor product $V \otimes V$. Using the Frobenius relation \eqref{eq:frobenius-relation}, the unit relation, and then counitality, we compute for any $a \in V$:
+\begin{align}
+\Delta(a)
+&= \Delta\bigl(m(a,1_V)\bigr) \label{eq:Delta-a-start} \\
+&= (m \otimes \id_V)\bigl((\id_V \otimes \Delta)(a \otimes 1_V)\bigr) \nonumber \\
+&= (m \otimes \id_V)\left(\sum_{i=1}^N a \otimes x_i \otimes y_i\right) \nonumber \\
+&= \sum_{i=1}^N m(a,x_i) \otimes y_i. \label{eq:Delta-a-expanded}
+\end{align}
+Applying $(\epsilon \otimes \id_V)$ and using \eqref{eq:counitality} gives
+\begin{align}
+a
+&= (\epsilon \otimes \id_V)\Delta(a) \label{eq:counit-a} \\
+&= \sum_{i=1}^N \epsilon\bigl(m(a,x_i)\bigr)\, y_i \nonumber \\
+&= \sum_{i=1}^N \beta(a,x_i)\, y_i. \label{eq:a-expansion}
+\end{align}
+Now suppose $\beta(a,b)=0$ for every $b \in V$. In particular, $\beta(a,x_i)=0$ for all $i$, so \eqref{eq:a-expansion} implies $a=0$. Thus $\beta$ is left-nondegenerate. Since $\beta$ is symmetric by \eqref{eq:beta-symmetric}, it is also right-nondegenerate. Therefore $\beta$ is nondegenerate.
+
+\medskip
+
+\noindent All conditions in Definition~\ref{def:commutative-frobenius} are now verified, so $(V,m,\eta,\epsilon)$ is a commutative Frobenius algebra.
+\end{proof}
+
+\begin{remark}[How the coalgebra structure reappears]\label{rem:recover-Delta}
+The proof above used the comultiplication $\Delta$ coming from the reversed pair of pants in order to prove nondegeneracy of $\beta$. Conversely, once $(V,m,\eta,\epsilon)$ is known to be a Frobenius algebra, the nondegenerate pairing $\beta$ determines $\Delta$ uniquely as the adjoint of $m$. Thus the two packages
+\begin{equation}\label{eq:two-packages}
+(V,m,\eta,\epsilon)
+\qquad\text{and}\qquad
+(V,m,\eta,\Delta,\epsilon)
+\end{equation}
+contain the same information in finite dimensions.
+\end{remark}
+
+\begin{proposition}[From a Frobenius algebra to a TQFT: construction sketch]\label{prop:Frob-to-TQFT}
+Let $(V,m,\eta,\epsilon)$ be a commutative Frobenius algebra. Then one can construct an oriented $2$-dimensional TQFT $Z_V$ such that
+\begin{equation}\label{eq:recovered-data}
+Z_V(S^1) = V,
+\qquad
+Z_V(D^2)=\eta,
+\qquad
+Z_V(\overline{D^2})=\epsilon,
+\qquad
+Z_V(P)=m.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We give the construction at review level and defer the full well-definedness proof to Appendix~\ref{app:frobenius}, especially Sections~\ref{appsec:frob-to-tqft} and \ref{appsec:mapping-class}, and to Kock's treatment \cite[Chs.~1--2]{Kock2004Frobenius}.
+
+\medskip
+
+\noindent Because the pairing $\beta(a,b)=\epsilon(ab)$ is nondegenerate, the linear map
+\begin{equation}\label{eq:Phi-map}
+\Phi : V \longrightarrow V^*,
+\qquad
+\Phi(a) := \beta(a,-)
+\end{equation}
+is an isomorphism. The multiplication therefore has an adjoint comultiplication
+\begin{equation}\label{eq:Delta-from-Phi}
+\Delta := (\Phi^{-1} \otimes \Phi^{-1}) \circ m^* \circ \Phi : V \longrightarrow V \otimes V.
+\end{equation}
+This is the linear map that will be assigned to the reversed pair of pants.
+
+\medskip
+
+\noindent We now define $Z_V$ on the generators of $\mathrm{Cob}_2$ by
+\begin{align}
+Z_V(S^1) &:= V, \label{eq:ZV-circle} \\[1mm]
+Z_V(S^1 \sqcup \cdots \sqcup S^1) &:= V^{\otimes n}, \label{eq:ZV-n-circles} \\[1mm]
+Z_V(D^2) &:= \eta, \qquad Z_V(\overline{D^2}) := \epsilon, \label{eq:ZV-disks} \\[1mm]
+Z_V(S^1 \times [0,1]) &:= \id_V, \label{eq:ZV-cylinder} \\[1mm]
+Z_V(P) &:= m, \qquad Z_V(\overline{P}) := \Delta, \label{eq:ZV-pants}
+\end{align}
+and on disconnected cobordisms by tensor product.
+
+\medskip
+
+\noindent The relations of Proposition~\ref{prop:cob2-relations} are then satisfied for purely algebraic reasons:
+\begin{itemize}
+\item commutativity and associativity come from the algebra structure on $V$,
+\item unitality comes from $\eta$,
+\item coassociativity, counitality, and the Frobenius relation are consequences of the adjoint definition \eqref{eq:Delta-from-Phi} together with the Frobenius invariance \eqref{eq:beta-invariance}.
+\end{itemize}
+Hence every decomposition of a cobordism into generators yields the same linear map, provided the decompositions differ only by the local generator relations listed in Section~\ref{sec:cob2-generators}.
+
+\medskip
+
+\noindent The remaining point is the global one: an arbitrary cobordism admits many Morse decompositions, and one must prove that the map obtained from \eqref{eq:ZV-circle}--\eqref{eq:ZV-pants} is independent of all such choices. This is the harder direction of the classification theorem. Kock proves it by analyzing how Morse decompositions change under homotopy and showing that the resulting moves are generated by the relations already encoded in the Frobenius algebra \cite[Chs.~1--2]{Kock2004Frobenius}. We defer that full argument to Appendix~\ref{app:frobenius}, especially Sections~\ref{appsec:frob-to-tqft} and \ref{appsec:mapping-class}.
+\end{proof}
+
+\begin{theorem}[Classification of oriented 2D TQFTs]\label{thm:2D-TQFT-Frob}
+The assignment
+\begin{equation}\label{eq:classification-forward}
+Z \longmapsto \bigl(Z(S^1), Z(P), Z(D^2), Z(\overline{D^2})\bigr)
+\end{equation}
+defines an equivalence between oriented $2$-dimensional topological quantum field theories over $\C$ and commutative Frobenius algebras over $\C$. In particular, isomorphism classes of oriented $2$-dimensional TQFTs are in bijection with isomorphism classes of commutative Frobenius algebras.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:TQFT-to-Frob} proves the forward direction in full. Proposition~\ref{prop:Frob-to-TQFT} gives the reverse construction and states exactly where the omitted well-definedness argument lives. Once the converse well-definedness statement deferred to Appendix~\ref{app:frobenius}, especially Sections~\ref{appsec:frob-to-tqft} and \ref{appsec:mapping-class}, is supplied, the two assignments are inverse to one another because both are defined by the same generator data: starting from a TQFT and passing to its circle state space recovers the multiplication, unit, and trace extracted from the cap, cup, and pair of pants, while starting from a Frobenius algebra and reconstructing the TQFT returns those same maps on the generators. This yields the claimed equivalence.
+\end{proof}
+
+\begin{remark}[What the theorem does for the rest of the paper]\label{rem:why-classification-matters}
+The theorem shows that in two dimensions all of the topology has been compressed into finite-dimensional algebra on the single space $V=Z(S^1)$. This is why Chapter~\ref{ch:dw} will later be able to analyze certain TQFTs through concrete algebraic models, and it is why the disk, sphere, and higher-genus partition functions can be computed from a handful of algebraic operations rather than from a full path integral each time.
+\end{remark}
+
+\medskip
+
+\noindent The theorem is useless without examples.  The two families below make the classification concrete and provide templates for the same structures when they reappear in Chapters~\ref{ch:bf} and \ref{ch:dw}.
+
+\section{Worked examples and the finite-group foreshadowing}\label{sec:frobenius-examples}
+
+Two families of commutative Frobenius algebras will do most of the work in this paper.  The first is a polynomial quotient ring; the second is a finite-group algebra that foreshadows Dijkgraaf--Witten theory.
+
+\begin{proposition}[Torus partition function]\label{prop:torus-partition}
+Let $Z$ be an oriented $2$-dimensional TQFT and set $V := Z(S^1)$. Then
+\begin{equation}\label{eq:torus-dimV}
+Z(T^2)=\Tr(\id_V)=\dim V.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write $W := Z(\overline{S^1}) \cong V^*$. Proposition~\ref{prop:evaluation-coevaluation} supplies a coevaluation map
+\begin{equation*}
+\operatorname{coev}_{S^1} : \C \longrightarrow V \otimes W
+\end{equation*}
+and an evaluation map
+\begin{equation*}
+\operatorname{ev}_{S^1} : W \otimes V \longrightarrow \C.
+\end{equation*}
+The torus is obtained by composing these two cylinders after swapping the middle two boundary circles, so
+\begin{equation}\label{eq:torus-trace-formula}
+Z(T^2) = \operatorname{ev}_{S^1} \circ \tau \circ \operatorname{coev}_{S^1},
+\end{equation}
+where $\tau : V \otimes W \to W \otimes V$ is the tensor-factor swap. Equation \eqref{eq:torus-trace-formula} is precisely the ordinary trace of $\id_V$. Since the trace of the identity on a finite-dimensional vector space is its dimension, \eqref{eq:torus-dimV} follows.
+\end{proof}
+
+\subsection{The polynomial example \texorpdfstring{$\C[x]/(x^n-1)$}{C[x]/(x^n-1)}}
+
+\begin{example}[A cyclic Frobenius algebra]\label{ex:cyclic-frobenius}
+Fix an integer $n \geq 1$ and define
+\begin{equation}\label{eq:An-definition}
+A_n := \C[x]/(x^n-1).
+\end{equation}
+Let multiplication be multiplication of residue classes modulo $x^n-1$, let the unit be the class of $1$, and define
+\begin{equation}\label{eq:An-trace}
+\epsilon_n(x^k) :=
+\begin{cases}
+1, & k \equiv 0 \pmod n,\\
+0, & k \not\equiv 0 \pmod n,
+\end{cases}
+\end{equation}
+extended linearly to all of $A_n$.
+\end{example}
+
+\begin{proposition}\label{prop:An-frobenius}
+The quadruple
+\begin{equation}\label{eq:An-quadruple}
+(A_n,m,\eta,\epsilon_n)
+\end{equation}
+is a commutative Frobenius algebra.
+\end{proposition}
+
+\begin{proof}
+The vector space $A_n$ has basis
+\begin{equation}\label{eq:An-basis}
+1,x,x^2,\ldots,x^{n-1},
+\end{equation}
+so it is finite-dimensional of dimension $n$. Multiplication in $A_n$ is commutative and associative because it is induced from multiplication in the polynomial ring $\C[x]$, and the class of $1$ is a unit.
+
+\medskip
+
+\noindent It remains to verify nondegeneracy of the pairing
+\begin{equation}\label{eq:An-pairing}
+\beta_n(x^a,x^b) := \epsilon_n(x^{a+b}).
+\end{equation}
+Since $x^n=1$ in $A_n$, the exponent is understood modulo $n$, so
+\begin{equation}\label{eq:An-pairing-explicit}
+\beta_n(x^a,x^b) =
+\begin{cases}
+1, & a+b \equiv 0 \pmod n,\\
+0, & a+b \not\equiv 0 \pmod n.
+\end{cases}
+\end{equation}
+Thus the basis vector $x^a$ pairs nontrivially only with $x^{-a}=x^{n-a}$, and
+\begin{equation}\label{eq:An-dual-basis}
+\beta_n(x^a,x^{-a}) = 1.
+\end{equation}
+If $v=\sum_{a=0}^{n-1} c_a x^a \in A_n$ satisfies $\beta_n(v,w)=0$ for all $w \in A_n$, then in particular
+\begin{equation*}
+0=\beta_n(v,x^{-a}) = c_a
+\qquad
+\text{for every } a=0,\dots,n-1.
+\end{equation*}
+Hence all coefficients vanish and $v=0$. So the pairing is nondegenerate, and $(A_n,m,\eta,\epsilon_n)$ is a commutative Frobenius algebra.
+\end{proof}
+
+\begin{remark}[Torus value for the cyclic example]\label{rem:An-torus}
+The TQFT associated to $A_n$ satisfies
+\begin{equation}\label{eq:An-torus}
+Z_{A_n}(T^2)=\dim A_n=n
+\end{equation}
+by Proposition~\ref{prop:torus-partition}. Since
+\begin{equation}\label{eq:An-group-algebra}
+A_n \cong \C[\Z_n]
+\end{equation}
+as algebras, this is the first finite-group example in disguise. The next section will derive the higher-genus partition functions from the handle operator. With the present choice of counit, the resulting amplitudes differ from the conventional finite-gauge-theory normalization by an overall genus-dependent scaling; that normalization issue will be made explicit there.
+\end{remark}
+
+\subsection{The finite-group example \texorpdfstring{$Z(\C[G])$}{Z(C[G])}}
+
+\begin{example}[Center of a finite group algebra]\label{ex:center-group-algebra}
+Let $G$ be a finite group and let
+\begin{equation}\label{eq:ZG-definition}
+A_G := Z(\C[G])
+\end{equation}
+be the center of its complex group algebra. Equivalently, one may identify $A_G$ with the space of class functions on $G$ equipped with convolution product. For the present purposes, the group-algebra picture is more convenient.
+
+If $\mathcal{C}_1,\dots,\mathcal{C}_r$ are the conjugacy classes of $G$, define the corresponding class sums
+\begin{equation}\label{eq:class-sums}
+z_i := \sum_{g \in \mathcal{C}_i} g \in \C[G].
+\end{equation}
+Then $z_1,\dots,z_r$ form a basis of $A_G$. Let multiplication be the product inherited from $\C[G]$, let the unit be the group identity element $e \in G \subset \C[G]$, and define
+\begin{equation}\label{eq:group-trace}
+\epsilon_G\!\left(\sum_{g \in G} a_g g\right) := a_e,
+\end{equation}
+the coefficient of the identity.
+\end{example}
+
+\begin{proposition}\label{prop:ZG-frobenius}
+The quadruple
+\begin{equation}\label{eq:ZG-quadruple}
+(A_G,m,\eta,\epsilon_G)
+\end{equation}
+is a commutative Frobenius algebra.
+\end{proposition}
+
+\begin{proof}
+Since $A_G$ is the center of an associative algebra, its multiplication is associative and commutative. Its unit is the identity element $e$, and it is finite-dimensional because $\dim_\C A_G$ equals the number of conjugacy classes of $G$.
+
+\medskip
+
+\noindent It remains to prove nondegeneracy of the pairing
+\begin{equation}\label{eq:ZG-pairing}
+\beta_G(a,b) := \epsilon_G(ab).
+\end{equation}
+We compute it on the class-sum basis \eqref{eq:class-sums}. Let $\mathcal{C}_i^{-1} := \{g^{-1} : g \in \mathcal{C}_i\}$, which is again a conjugacy class. The coefficient of the identity in $z_i z_j$ counts pairs $(g,h)$ with $g \in \mathcal{C}_i$, $h \in \mathcal{C}_j$, and $gh=e$. Such a pair must satisfy $h=g^{-1}$, so it exists precisely when $\mathcal{C}_j=\mathcal{C}_i^{-1}$. In that case there is exactly one admissible $h$ for each $g \in \mathcal{C}_i$. Therefore
+\begin{equation}\label{eq:class-sum-pairing}
+\beta_G(z_i,z_j) =
+\begin{cases}
+|\mathcal{C}_i|, & \mathcal{C}_j=\mathcal{C}_i^{-1},\\
+0, & \mathcal{C}_j\neq \mathcal{C}_i^{-1}.
+\end{cases}
+\end{equation}
+Thus each basis vector $z_i$ pairs nontrivially with the basis vector attached to the inverse conjugacy class, and the pairing matrix is block-diagonal with nonzero diagonal blocks. In particular it is nondegenerate. Hence $(A_G,m,\eta,\epsilon_G)$ is a commutative Frobenius algebra.
+\end{proof}
+
+\begin{remark}[Torus value and the finite-gauge-theory count]\label{rem:ZG-torus}
+The associated TQFT satisfies
+\begin{equation}\label{eq:ZG-torus}
+Z_{A_G}(T^2)=\dim A_G=r,
+\end{equation}
+where $r$ is the number of conjugacy classes of $G$, by Proposition~\ref{prop:torus-partition}. This is exactly the torus partition function of untwisted $2$-dimensional finite gauge theory with gauge group $G$:
+\begin{equation}\label{eq:DW-torus-count}
+Z_G(T^2)
+=
+\frac{\#\Hom(\pi_1(T^2),G)}{|G|}
+=
+\frac{\#\{(a,b)\in G^2 : ab=ba\}}{|G|}.
+\end{equation}
+To evaluate the last expression, sum over the first entry:
+\begin{equation}\label{eq:commuting-pairs}
+\#\{(a,b)\in G^2 : ab=ba\}
+=
+\sum_{a \in G} |C_G(a)|,
+\end{equation}
+where $C_G(a)$ is the centralizer of $a$. Grouping the sum by conjugacy classes gives
+\begin{equation}\label{eq:commuting-pairs-by-class}
+\sum_{a \in G} |C_G(a)|
+=
+\sum_{\mathcal{C}} |\mathcal{C}|\, |C_G(a_{\mathcal{C}})|
+=
+\sum_{\mathcal{C}} |G|
+=
+|G|\, r,
+\end{equation}
+because $|\mathcal{C}|\, |C_G(a_{\mathcal{C}})| = |G|$ for any representative $a_{\mathcal{C}} \in \mathcal{C}$. Dividing by $|G|$ yields
+\begin{equation}\label{eq:torus-class-number}
+Z_G(T^2)=r=\#\{\text{conjugacy classes of }G\}.
+\end{equation}
+For abelian $G$, every conjugacy class is a singleton, so \eqref{eq:torus-class-number} reduces to $|G|$. Example~\ref{ex:cyclic-frobenius} is the case $G=\Z_n$.
+\end{remark}
+
+\begin{remark}[Foreshadowing Dijkgraaf--Witten theory]\label{rem:foreshadow-dw}
+These examples are the $2$-dimensional shadow of the finite-group TQFTs that reappear in Chapter~\ref{ch:dw}. In two dimensions, the untwisted theory is already governed by a commutative Frobenius algebra built from the group. In three dimensions, one must keep track of additional cocycle data
+\begin{equation}\label{eq:dw-cocycle-foreshadow}
+\omega \in H^3(G,U(1)),
+\end{equation}
+which twists the amplitudes without destroying the finite-group character of the theory \cite{DijkgraafWitten1990}. For $G=\Z_n$, Chapter~\ref{ch:dw} will show that
+\begin{equation}\label{eq:H3-Zn-foreshadow}
+H^3(\Z_n,U(1)) \cong \Z_n,
+\end{equation}
+so even the cyclic case already contains a nontrivial family of three-dimensional topological actions.
+\end{remark}
+
+\medskip
+
+\noindent With these examples in hand, we can now derive the most powerful output of the classification: a closed-form expression for the partition function on \emph{any} closed surface, in terms of a single algebraic object called the handle operator.
+
+\section{Partition functions on closed surfaces of genus \texorpdfstring{$g$}{g}}\label{sec:genus-g-partition}
+
+How does the partition function depend on genus?  The answer is remarkably clean: adding a topological handle multiplies the state by a fixed element $e \in V$, and the genus-$g$ partition function is just $\epsilon(e^g)$.  We now derive this for a closed oriented surface
+\begin{equation}\label{eq:Sigma-g}
+\Sigma_g
+\end{equation}
+of genus $g$. The central object is the \emph{handle operator}, which algebraically records the effect of adding one topological handle.
+
+\subsection{The handle operator and the handle element}
+
+\begin{definition}[Handle operator and handle element]\label{def:handle-operator}
+Let $(V,m,\eta,\epsilon)$ be a commutative Frobenius algebra, and let $\Delta$ be the adjoint comultiplication from Proposition~\ref{prop:Frob-to-TQFT}. The \emph{handle operator} is the linear map
+\begin{equation}\label{eq:handle-operator}
+H := m \circ \Delta : V \longrightarrow V.
+\end{equation}
+Its value on the unit
+\begin{equation}\label{eq:handle-element}
+e := H(1_V) = m\bigl(\Delta(1_V)\bigr) \in V
+\end{equation}
+is called the \emph{handle element}.
+\end{definition}
+
+\begin{proposition}[The once-punctured torus acts by the handle operator]\label{prop:punctured-torus-handle}
+Let
+\begin{equation}\label{eq:punctured-torus-cobordism}
+T^\circ := P \circ \overline{P} : S^1 \longrightarrow S^1
+\end{equation}
+be the cobordism obtained by first splitting one circle into two and then merging those two circles back into one. Topologically, $T^\circ$ is a torus with one incoming and one outgoing boundary circle. Under the TQFT associated to $(V,m,\eta,\epsilon)$,
+\begin{equation}\label{eq:punctured-torus-map}
+Z_V(T^\circ)=H.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By definition,
+\begin{equation*}
+Z_V(\overline{P})=\Delta
+\qquad\text{and}\qquad
+Z_V(P)=m.
+\end{equation*}
+Applying functoriality to the composite cobordism $T^\circ=P\circ \overline{P}$ gives
+\begin{equation*}
+Z_V(T^\circ)=Z_V(P)\circ Z_V(\overline{P})=m\circ\Delta=H.
+\end{equation*}
+\end{proof}
+
+\begin{proposition}[The handle operator is multiplication by the handle element]\label{prop:H-is-mult-by-e}
+For every $a \in V$,
+\begin{equation}\label{eq:H-left-mult}
+H(a)=ae.
+\end{equation}
+Equivalently, $H=L_e$ is left multiplication by the handle element.
+\end{proposition}
+
+\begin{proof}
+Write
+\begin{equation}\label{eq:Delta-one-expansion}
+\Delta(1_V)=\sum_{i=1}^N x_i \otimes y_i.
+\end{equation}
+Using the same Frobenius relation as in the proof of Proposition~\ref{prop:TQFT-to-Frob},
+\begin{align}
+\Delta(a)
+&= \Delta(a\cdot 1_V) \label{eq:Delta-a-handle-start} \\
+&= (m \otimes \id_V)\bigl((\id_V \otimes \Delta)(a \otimes 1_V)\bigr) \nonumber \\
+&= (m \otimes \id_V)\left(\sum_{i=1}^N a \otimes x_i \otimes y_i\right) \nonumber \\
+&= \sum_{i=1}^N a x_i \otimes y_i. \label{eq:Delta-a-handle}
+\end{align}
+Applying $m$ gives
+\begin{align}
+H(a)
+&= m(\Delta(a)) \label{eq:H-a-first} \\
+&= \sum_{i=1}^N a x_i y_i \nonumber \\
+&= a \sum_{i=1}^N x_i y_i \nonumber \\
+&= a\, m\bigl(\Delta(1_V)\bigr) \nonumber \\
+&= ae. \label{eq:H-a-last}
+\end{align}
+This is exactly \eqref{eq:H-left-mult}.
+\end{proof}
+
+\subsection{The genus-\texorpdfstring{$g$}{g} formula}
+
+\begin{proposition}[Closed genus-$g$ surface as repeated handle attachment]\label{prop:sigma-g-decomposition}
+For every integer $g \geq 0$, the closed oriented surface $\Sigma_g$ is obtained by gluing together a cap, $g$ copies of the once-punctured torus cobordism $T^\circ$, and a cup:
+\begin{equation}\label{eq:sigma-g-cobordism}
+\Sigma_g \cong \overline{D^2} \circ (T^\circ)^g \circ D^2.
+\end{equation}
+Here $(T^\circ)^g$ denotes the $g$-fold composition of $T^\circ$ with itself, and for $g=0$ it is interpreted as the identity cylinder on $S^1$.
+\end{proposition}
+
+\begin{proof}
+The case $g=0$ is the disk-gluing description of the sphere from Section~\ref{sec:two-disks-sphere}. For $g\geq 1$, attach one topological handle to the cylinder $S^1\times[0,1]$ to obtain the once-punctured torus $T^\circ$. Repeating this $g$ times gives a genus-$g$ surface with one incoming and one outgoing boundary circle. Capping off those two boundary circles by a cap and a cup produces the closed surface $\Sigma_g$. This is precisely \eqref{eq:sigma-g-cobordism}.
+\end{proof}
+
+\begin{theorem}[Genus-$g$ partition function from the handle element]\label{thm:genus-g-handle}
+Let $Z_V$ be the 2-dimensional TQFT associated to a commutative Frobenius algebra $(V,m,\eta,\epsilon)$. Then
+\begin{equation}\label{eq:genus-g-epsilon-eg}
+Z_V(\Sigma_g)=\epsilon(e^g)
+\qquad
+\text{for every } g \geq 0,
+\end{equation}
+where $e$ is the handle element \eqref{eq:handle-element}. For $g\geq 1$, this is equivalently
+\begin{equation}\label{eq:genus-g-trace}
+Z_V(\Sigma_g)=\Tr(H^{g-1}).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply the TQFT functor to the decomposition \eqref{eq:sigma-g-cobordism}. Using Proposition~\ref{prop:punctured-torus-handle},
+\begin{equation}\label{eq:genus-g-first}
+Z_V(\Sigma_g)=\epsilon \circ H^g \circ \eta.
+\end{equation}
+Evaluating \eqref{eq:genus-g-first} on $1 \in \C$ gives
+\begin{equation}\label{eq:genus-g-evaluate}
+Z_V(\Sigma_g)=\epsilon\bigl(H^g(1_V)\bigr).
+\end{equation}
+Proposition~\ref{prop:H-is-mult-by-e} implies $H(a)=ae$, so in particular
+\begin{equation}\label{eq:H-g-on-one}
+H^g(1_V)=e^g.
+\end{equation}
+Substituting \eqref{eq:H-g-on-one} into \eqref{eq:genus-g-evaluate} yields \eqref{eq:genus-g-epsilon-eg}.
+
+\medskip
+
+\noindent It remains to prove the trace formula \eqref{eq:genus-g-trace} for $g \geq 1$. Let $\Delta(1_V)=\sum_i x_i \otimes y_i$ as in \eqref{eq:Delta-one-expansion}. The argument in \eqref{eq:a-expansion} shows that
+\begin{equation}\label{eq:dual-basis-trace}
+a=\sum_i \beta(a,x_i)\, y_i
+\qquad
+\text{for all } a \in V,
+\end{equation}
+so $\{y_i\}$ is a basis of $V$ and the functionals $\beta(-,x_i)$ are the corresponding dual basis. For any $a \in V$, the trace of left multiplication by $a$ is therefore
+\begin{align}
+\Tr(L_a)
+&= \sum_i \beta\bigl(L_a(y_i),x_i\bigr) \label{eq:trace-La-first} \\
+&= \sum_i \beta(ay_i,x_i) \nonumber \\
+&= \sum_i \epsilon(ay_i x_i) \nonumber \\
+&= \epsilon\left(a \sum_i x_i y_i\right) \nonumber \\
+&= \epsilon(ae). \label{eq:trace-La-last}
+\end{align}
+Now take $a=e^{g-1}$. Since $H=L_e$ by Proposition~\ref{prop:H-is-mult-by-e}, we have
+\begin{equation}\label{eq:H-trace-power}
+H^{g-1}=L_{e^{g-1}}.
+\end{equation}
+Applying \eqref{eq:trace-La-last} gives
+\begin{equation}\label{eq:trace-handle-final}
+\Tr(H^{g-1})=\Tr(L_{e^{g-1}})=\epsilon(e^{g-1}e)=\epsilon(e^g)=Z_V(\Sigma_g),
+\end{equation}
+which is \eqref{eq:genus-g-trace}.
+\end{proof}
+
+\begin{remark}[Small-genus checks]\label{rem:small-genus-checks}
+The formula of Theorem~\ref{thm:genus-g-handle} passes the expected low-genus tests.
+\begin{enumerate}
+\item For $g=0$,
+\begin{equation}\label{eq:sphere-check}
+Z_V(S^2)=\epsilon(1_V),
+\end{equation}
+which agrees with Proposition~\ref{prop:sphere-from-disk-gluing}.
+\item For $g=1$,
+\begin{equation}\label{eq:torus-check}
+Z_V(T^2)=\epsilon(e)=\Tr(\id_V)=\dim V,
+\end{equation}
+which agrees with Proposition~\ref{prop:torus-partition}.
+\end{enumerate}
+\end{remark}
+
+\subsection{Semisimple form of the formula}
+
+\begin{proposition}[Idempotent form of the genus formula]\label{prop:idempotent-genus}
+Assume $V$ is semisimple and choose orthogonal idempotents
+\begin{equation}\label{eq:orthogonal-idempotents}
+p_1,\dots,p_r \in V
+\end{equation}
+such that
+\begin{equation}\label{eq:idempotent-relations}
+p_i p_j = \delta_{ij} p_i,
+\qquad
+\sum_{i=1}^r p_i = 1_V.
+\end{equation}
+Set
+\begin{equation}\label{eq:theta-i}
+\theta_i := \epsilon(p_i).
+\end{equation}
+Then each $\theta_i$ is nonzero, the handle operator satisfies
+\begin{equation}\label{eq:H-idempotent}
+H(p_i)=\theta_i^{-1} p_i,
+\end{equation}
+and
+\begin{equation}\label{eq:genus-semismple}
+Z_V(\Sigma_g)=\sum_{i=1}^r \theta_i^{\,1-g}.
+\end{equation}
+Equivalently, if we write
+\begin{equation}\label{eq:lambda-i}
+\lambda_i := \theta_i^{-1},
+\end{equation}
+then
+\begin{equation}\label{eq:genus-semismple-lambda}
+Z_V(\Sigma_g)=\sum_{i=1}^r \lambda_i^{\,g-1}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since $p_i p_j = 0$ for $i\neq j$, the pairing satisfies
+\begin{equation}\label{eq:idempotent-pairing}
+\beta(p_i,p_j)=\epsilon(p_i p_j)=
+\begin{cases}
+\theta_i, & i=j,\\
+0, & i\neq j.
+\end{cases}
+\end{equation}
+Nondegeneracy of $\beta$ therefore forces $\theta_i \neq 0$ for every $i$.
+
+\medskip
+
+\noindent The basis dual to $\{p_i\}$ with respect to $\beta$ is $\{\theta_i^{-1}p_i\}$. Hence the coevaluation element is
+\begin{equation}\label{eq:Delta-one-idempotent}
+\Delta(1_V)=\sum_{i=1}^r p_i \otimes \theta_i^{-1} p_i,
+\end{equation}
+and the handle element is
+\begin{equation}\label{eq:handle-idempotent}
+e=m\bigl(\Delta(1_V)\bigr)=\sum_{i=1}^r \theta_i^{-1} p_i.
+\end{equation}
+Multiplying by $p_i$ gives
+\begin{equation}\label{eq:e-on-pi}
+ep_i=\theta_i^{-1} p_i,
+\end{equation}
+so Proposition~\ref{prop:H-is-mult-by-e} yields \eqref{eq:H-idempotent}.
+
+\medskip
+
+\noindent Finally,
+\begin{align}
+Z_V(\Sigma_g)
+&= \epsilon(e^g) \label{eq:semisimple-first} \\
+&= \epsilon\left(\sum_{i=1}^r \theta_i^{-g} p_i\right) \nonumber \\
+&= \sum_{i=1}^r \theta_i^{-g}\epsilon(p_i) \nonumber \\
+&= \sum_{i=1}^r \theta_i^{\,1-g}, \label{eq:semisimple-last}
+\end{align}
+which is \eqref{eq:genus-semismple}. Replacing $\theta_i$ by $\lambda_i^{-1}$ gives \eqref{eq:genus-semismple-lambda}.
+\end{proof}
+
+\begin{remark}[Normalization and finite gauge theory]\label{rem:normalization-gauge}
+The genus formula depends on the normalization of the counit. If one rescales
+\begin{equation}\label{eq:counit-rescale}
+\epsilon \longmapsto c\,\epsilon
+\end{equation}
+with $c \in \C^\times$, then the Frobenius pairing rescales by $c$, the adjoint comultiplication rescales by $c^{-1}$, the handle element rescales by $c^{-1}$, and Theorem~\ref{thm:genus-g-handle} becomes
+\begin{equation}\label{eq:rescaled-genus}
+Z_V(\Sigma_g) \longmapsto c^{\,1-g} Z_V(\Sigma_g).
+\end{equation}
+This matters for finite gauge theory. In Example~\ref{ex:cyclic-frobenius}, the current choice of counit gives
+\begin{equation}\label{eq:An-genus-unnormalized}
+Z_{A_n}(\Sigma_g)=n^g
+\end{equation}
+because $e=n\,1_V$. If instead one uses the normalized counit
+\begin{equation}\label{eq:An-normalized-counit}
+\widetilde{\epsilon}_n := \frac{1}{n}\epsilon_n,
+\end{equation}
+then
+\begin{equation}\label{eq:An-genus-normalized}
+\widetilde{Z}_{A_n}(\Sigma_g)=n^{2g-1},
+\end{equation}
+which is the standard untwisted finite-gauge-theory partition function
+\begin{equation}\label{eq:Zn-finite-gauge}
+\widetilde{Z}_{\Z_n}(\Sigma_g)=\frac{\#\Hom(\pi_1(\Sigma_g),\Z_n)}{|\Z_n|}.
+\end{equation}
+For the corresponding explicit handle-operator spectra in the cyclic and finite-group examples, see Appendix~\ref{app:frobenius}, Section~\ref{appsec:handle-spectrum}.
+\end{remark}
+
+\medskip
+
+\noindent That completes the 2-dimensional classification.  (Appendix~\ref{app:frobenius} holds the full Morse-theoretic well-definedness proof for the converse direction and the deferred handle-spectrum calculations.)  The payoff for later chapters: the genus formula \eqref{eq:genus-semismple} and the gauge-theory normalization of Remark~\ref{rem:normalization-gauge} will reappear as the state-counting structure of the toric code in Chapter~\ref{sec:topological-order}, where $N^{2g}$ becomes the topological ground-state degeneracy on a genus-$g$ surface.  In three dimensions the Schwarz-type example par excellence is Chern--Simons theory---the subject of the next chapter.

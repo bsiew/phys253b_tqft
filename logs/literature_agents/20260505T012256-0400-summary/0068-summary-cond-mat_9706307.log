@@ -1,0 +1,15 @@
+Task complete. I've split the paper into 11 section files under `codex_section_extracts/` and created a comprehensive summary import map in `codex_paper_summary.md`.
+
+**Key outputs**:
+
+1. **Section files** (all with YAML front matter):
+   - Abstract, Introduction, Physical Background, Shot Noise Principle
+   - Experimental Setup, Noise Technique, Results (25mK), Robustness
+   - Johnson-Nyquist Crossover, Conclusion, References
+
+2. **Import map** with three-tier triage:
+   - **High priority** (sections 01, 03, 04, 07, 09): Core theory, main results, thermal confirmation
+   - **Medium priority** (sections 02, 05, 08): Context and robustness tests  
+   - **Low/skip** (sections 06, 10, 11): Technical apparatus details and references
+
+The whole-paper snapshot emphasizes this as a landmark experimental demonstration of $e/3$ Laughlin quasiparticles via shot noise measurements—directly confirming that fractional charges carry current in the FQH regime at filling factor $\nu = 1/3$.

@@ -1,0 +1,8 @@
+The introduction is complete. At 328 lines (~260 lines of body content after the abstract), this should typeset to approximately 6 pages. Let me verify the acceptance criteria are met:
+
+**Done.** The full Chapter 1 introduction is written with four sections:
+
+- **§1.1 Scope and thesis** — Opens with the physical puzzle (QCD instantons and FQHE), states the unifying thesis, and outlines the three-stage structure (Part I formalism → 2+1D physics → 3+1D observables).
+- **§1.2 Target audience** — Specifies Schwartz through Ch 30, lists concrete prerequisites, clarifies what is *not* assumed.
+- **§1.3 How to read the paper** — Every chapter (2–16) is mentioned with a one-line description. Part I is linear; Part II is modular after Ch 5. Two suggested reading paths (condensed-matter and high-energy) are provided.
+- **§1.4 Decisions and non-coverage** — Explicit list: Jones polynomial (partial only), Reshetikhin–Turaev categorical machinery, non-invertible symmetries (outlook only), TFT classifications beyond group cohomology, lattice gauge theory/tensor networks, and topological insulators/SPT in 3+1D.

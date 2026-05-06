@@ -1,0 +1,16 @@
+Done. Here's what I wrote:
+
+**Chapter 9 (main text):** Added two things to the existing `\label{subsec:lre-vs-symmetry-breaking}` section:
+1. A forward reference to `Appendix~\ref{app:tee}` at the end of the TEE item in the enumerated list (line 96).
+2. A new paragraph (line 99) explicitly explaining *why* $\gamma \neq 0$ diagnoses long-range entanglement rather than symmetry breaking — symmetry-broken states are product states with $\gamma = 0$, and $\gamma$ is determined entirely by the TQFT anyon data $\{d_a\}$.
+
+**Appendix E** (`app_e_tee.tex`, new file): A ~1.5-page derivation containing:
+- The assumptions (gapped, $|\partial A| \gg \xi$, exponential decay of correlations).
+- The Kitaev--Preskill subtraction scheme \eqref{eq:kp-combination} and why boundary terms cancel.
+- The topological extraction formula giving $S_{\text{topo}} = -\gamma$.
+- A remark noting the equivalent Levin--Wen annular geometry.
+- The relation of $\gamma$ to total quantum dimension $\mathcal{D}$ via superselection sector decomposition.
+- Verification for the toric code ($\gamma = \log 2$).
+- Physical interpretation paragraph.
+
+The main wrapper now includes `\appendix` and `\input{app_e_tee.tex}` before the bibliography.

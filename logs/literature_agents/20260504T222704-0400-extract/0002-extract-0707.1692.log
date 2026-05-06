@@ -1,0 +1,7 @@
+Done. I've extracted and cleaned the TeX source into `codex_scientific_text.md`. The file now contains:
+
+**Preserved:** All scientific prose, definitions, assumptions, and derivations (equations in LaTeX notation), interpretations, caveats, and named results (MBS, topological insulator candidates, experimental signatures).
+
+**Removed:** Document class and packages, Pauli matrices and rotation definitions, author/affiliation formatting, bibliography commands, figure/caption scaffolding (though I noted the conceptual structure from captions), all `\cite` and `\ref` TeX macros, and macro setup.
+
+**Structure:** The paper is organized by physics content—surface Hamiltonians, proximity effect, vortex bound states, edge effects, line junctions, tri-junctions, MBS creation/manipulation/fusion, circuits with braiding operations, and experimental considerations. YAML front matter is preserved with an updated `source_file` field.

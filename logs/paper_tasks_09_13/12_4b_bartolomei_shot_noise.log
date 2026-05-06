@@ -1,0 +1,7 @@
+Done. I replaced the TODO block in `\label{subsec:bartolomei-shot-noise}` with ~75 lines of LaTeX prose covering:
+
+1. **Saminadayar/de-Picciotto 1997** — shot-noise measurement of fractional charge $e/3$ via the Fano factor, with the key equation for Poissonian noise.
+2. **Bartolomei 2020** — the anyon-collider experiment: device geometry (two input QPCs feeding a central beam-splitter QPC), the noise-correlation observable, and the measured statistical angle $\theta = \pi/3$.
+3. **Complementarity** — a summary table showing how shot-noise (charge), interferometry (braiding phase), and the anyon collider (statistical angle) independently constrain the same Chern--Simons level $m = 3$.
+
+All equations are numbered/labeled, citations use the keys from the file header, and cross-references point to the Nakamura subsection and its Wilson-loop equation.

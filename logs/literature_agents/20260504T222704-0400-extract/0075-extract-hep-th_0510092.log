@@ -1,0 +1,8 @@
+Done. I've extracted the scientific content from `entropy_rev.tex` into `codex_scientific_text.md`. The extraction preserves:
+
+- All definitions, assumptions, and main results (the entropy formula $S(\rho) = \alpha L - \gamma + \cdots$ and $\gamma = \log \mathcal{D}$)
+- All significant derivations, including the topological invariance argument and the TQFT wormhole construction
+- Key physical interpretations: anyonic charge fusion, quantum dimensions, the connection to topological order
+- Mathematical details: probability distributions, entropy calculations for punctured spheres, the CFT approach
+
+Removed: document class/package declarations, style macros (bra/ket definitions), author/affiliation formatting, bibliography commands, figure/table scaffolding (`\epsfxsize`, `\epsfbox`), comments, and the `\multicols` layout markup. The YAML front matter was preserved and updated.

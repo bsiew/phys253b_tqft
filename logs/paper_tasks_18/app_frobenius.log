@@ -1,0 +1,7 @@
+Appendix B is complete. The file now contains three sections totaling ~4.5 pages:
+
+- **B.1** proves well-definedness of the Frobenius-to-TQFT functor via Cerf theory, showing critical-point interchanges correspond to the Frobenius axioms and birth/death transitions correspond to unit/counit cancellation.
+- **B.2** proves mapping-class invariance by showing Dehn twists act trivially in any commutative Frobenius algebra TQFT, with commutativity as the essential ingredient.
+- **B.3** computes handle-operator spectra: the general formula $\lambda_\rho = |G|/(\dim\rho)^2$, the $\Z_N$ case (uniform eigenvalue $N$, giving $Z(\Sigma_g) = N^g$), and the $S_3$ case (eigenvalues $6, 6, 3/2$ with explicit low-genus checks against the Mednykh formula).
+
+All existing labels are preserved and notation matches Chapter 4 (same $m$, $\Delta$, $H$, $\epsilon$, $\theta_i$, $\lambda_i$ conventions).

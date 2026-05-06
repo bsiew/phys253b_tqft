@@ -1,0 +1,32 @@
+You are helping prepare a 50-minute joint chalk-talk presentation on TQFT for a Physics 253b final project. Your task is to write Brian's 25-minute board script.
+
+## Context
+
+This is a two-author talk (Brian Siew + Helena Brittain). Brian goes first (minutes 0-25) covering Chern-Simons theory as a TQFT. Helena follows (minutes 25-50) covering CS as effective theory + experiments.
+
+The paper lives in 253b_final_paper/tex_docs/. Brian's material draws from:
+- ch05_chern_simons.tex (or chern_simons_body.tex) — level quantization, Wilson loops
+- ch03_axiomatic.tex — TQFT axioms, Hilbert space structure
+- ch04_frobenius.tex — 2d classification
+
+## Requirements
+
+Write a detailed minute-by-minute chalk script in plan/presentation/brian_script.md. Include:
+
+1. A board-layout diagram (ASCII art) showing which equations live where permanently vs. working space
+2. Minute-by-minute breakdown with:
+   - What to say (key phrases, not a full transcript)
+   - What to write on the board
+   - Key equations with exact LaTeX
+3. The structure should be:
+   - Min 0-3: Setup — CS action, no metric dependence
+   - Min 4-10: Level quantization showpiece (the large-gauge argument for k integer)
+   - Min 11-18: Wilson loops, Hopf link, Jones polynomial connection
+   - Min 19-23: Hilbert space on surfaces, torus dimension = k
+   - Min 23-25: Handoff to Helena
+4. Three anticipated questions with prepared answers
+5. Timing notes (where to speed up/slow down)
+
+Read the actual tex files to get the exact equations and arguments used in OUR paper (not generic versions). The board script should reflect our specific presentation of these topics.
+
+Create the directory plan/presentation/ if it does not exist.

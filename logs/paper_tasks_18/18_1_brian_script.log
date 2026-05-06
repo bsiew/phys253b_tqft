@@ -1,0 +1,6 @@
+Done. The board script is at `plan/presentation/brian_script.md`. It includes:
+
+1. An ASCII board-layout diagram with permanent panels (left/right) vs. working space (center) that gets erased between sections
+2. Minute-by-minute breakdown with exact LaTeX equations pulled from your ch05 — the CS action (eq 5.7), gauge transformation shift (eq 5.29), winding number formula (eq 5.16), Wilson loop correlator from Example 5.4, the $S$-matrix and Hopf link (eqs 5.38-5.40), the Hamiltonian form (Prop 5.7), and the torus dimension result (Prop 5.8)
+3. Three anticipated questions with prepared answers (abelian cubic term, shifted level, axiomatic finite-dimensionality)
+4. A timing table with pace guidance and contingency plans for running short/long

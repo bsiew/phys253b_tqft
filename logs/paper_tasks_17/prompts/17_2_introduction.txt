@@ -1,0 +1,54 @@
+You are writing Chapter 1 (Introduction) for a physics review paper on Topological Quantum Field Theory for Physics 253b. Co-authored by Helena Brittain and Brian Siew.
+
+## Context
+
+The file is: /Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/253b_final_paper/tex_docs/ch01_introduction.tex
+It should already have an abstract block at the top (written by a prior task). You are writing the FULL introduction body after the abstract.
+
+## Style
+- Write like David Tong's lecture notes: open with a physical question, use "we" and occasional "you", vary sentence rhythm.
+- No AI-tell phrasing.
+- Target: ~6 pages of LaTeX.
+
+## Task specification
+
+# Task 17.2 — Chapter 1 Introduction
+
+- **Status:** pending
+- **Owner:** Brian + Helena
+- **Duration:** 2 hours
+- **Stage:** [VI](../stages/stage_VI_integration.md)
+
+## Goal
+
+Chapter 1 welcomes the reader, states the scope, identifies the audience, and explains how to read the paper.
+
+## Content
+
+1. **§1.1 Scope and thesis.** Extended version of the abstract.
+2. **§1.2 Target audience and prerequisites.** Grad student with Schwartz through Ch 30. Minor algebraic-topology exposure helpful but not required (Chapter 2 builds the machinery).
+3. **§1.3 How to read the paper.**
+   - Part I (Chs 2–8): mathematical buildup. Linear reading recommended.
+   - Part II (Chs 9–13): physical applications. Can be read after any deep-dive Part-I chapter.
+   - Chapter 5 (Chern–Simons) is the mathematical anchor of Part I and the physical anchor of Part II.
+4. **§1.4 Decisions and non-coverage.** Explicit list of what we leave out: full Jones polynomial derivation, Reshetikhin–Turaev categorical machinery, non-invertible symmetries (outlook only), TFT classifications beyond group cohomology.
+
+## Acceptance criteria
+
+- ~6 pages.
+- Every chapter in Parts I and II is mentioned once with a one-line description.
+- The decisions/non-coverage list is explicit.
+
+## Key content to include
+1. Section 1.1 Scope and thesis -- extended abstract. The paper traces topological structure through: formalism (Part I) -> physical realization in 2+1D (Chs 9-13) -> 3+1D observable families (Chs 14-15).
+2. Section 1.2 Target audience -- grad student with Schwartz QFT through Ch 30.
+3. Section 1.3 How to read the paper -- Part I is linear; Part II chapters can be read after Ch 5 (CS).
+4. Section 1.4 Decisions and non-coverage -- what we leave out.
+
+## Available chapter labels for cross-references
+ch:forms, ch:axiomatic, ch:frobenius, ch:chern-simons, ch:bf, ch:dw, ch:gensym, ch:toporder (ch09), ch:anyons (ch10), ch:fqhe (ch11), sec:experiments (ch12), ch:tqc (ch13), ch:sectors-3plus1d (ch14), ch:defects-synthesis (ch15), ch:outlook (ch16)
+
+## Instructions
+1. Read ch01_introduction.tex to see current state (should have abstract).
+2. Write the full introduction as LaTeX content with \section and \subsection commands.
+3. Every chapter should be mentioned once with a one-line description.

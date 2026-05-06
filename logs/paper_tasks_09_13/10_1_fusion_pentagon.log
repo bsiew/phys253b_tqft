@@ -1,0 +1,8 @@
+Done. I've replaced the TODO block in §10.1 with ~1.5 pages of LaTeX covering:
+
+1. **Labels** — Definition of an anyon model with vacuum, conjugation, and fusion rules (Eq. 10.1).
+2. **Abelian anyons** — $\Z_k$ Laughlin example and toric code example with explicit fusion rules.
+3. **Non-abelian anyons** — Ising model with $\sigma \times \sigma = 1 + \psi$, plus brief motivation for topological quantum computation.
+4. **Pentagon axiom** — $F$-symbols introduced as basis changes, pentagon equation stated (not derived), with a remark connecting the abelian case to group cohomology.
+
+All three required examples (Z_k, toric code, Ising) are present, equations are numbered/labeled, and forward references point to §10.2 for braiding content.

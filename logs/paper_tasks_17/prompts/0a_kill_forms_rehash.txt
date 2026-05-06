@@ -1,0 +1,17 @@
+You are editing a physics review paper on TQFT. Your job is a single structural surgery on Chapter 5 (Chern-Simons theory).
+
+## Context
+
+The file 253b_final_paper/tex_docs/ch05_chern_simons.tex contains a ~250-line section called "Differential forms: a working toolkit" (\section{...}\label{sec:forms}, starting around line 37). This material is ENTIRELY REDUNDANT with Chapter 2 (ch02_forms.tex), which covers the same content in greater depth. The critical evaluation identifies this as "Priority #1: the paper's single largest redundancy."
+
+## Your task
+
+1. Read ch05_chern_simons.tex.
+2. Find the section \section{Differential forms: a working toolkit}\label{sec:forms} and everything under it up to but NOT including \section{From $\tr(F\wedge F)$ to the Chern--Simons three-form}\label{sec:CS-form}.
+3. Replace that entire block with a SHORT convention-recall paragraph (5-10 lines of LaTeX):
+   - Keep the \section and \label (other parts of the paper reference \label{sec:forms}).
+   - Replace the content with a single paragraph stating: "We use the conventions of Chapter 2. The connection is a Lie-algebra-valued one-form $A$ in anti-Hermitian convention, with field strength $F = dA + A\wedge A$, and gauge transformation $A^g = g^{-1}Ag + g^{-1}dg$." Fill in appropriate cross-references to ch02's equation labels.
+   - Add a brief note about the trace normalization and the abelian simplification.
+4. Read ch02_forms.tex first to find the correct equation labels to reference.
+5. Do NOT modify anything else in ch05. Leave everything from \section{From $\tr(F\wedge F)$...} onward untouched.
+6. The section header line \section{Differential forms: a working toolkit}\label{sec:forms} MUST be preserved (just with new shorter content below it).

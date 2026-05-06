@@ -1,0 +1,19 @@
+Extraction complete. I've created a cleaned scientific codex from the TeX source that:
+
+**Preserved:**
+- All substantive scientific prose and explanations
+- All equations and mathematical definitions, rendered in LaTeX/markdown
+- Derivations and calculation steps
+- Physical interpretations and caveats
+- Named results and key concepts (anomalies, instantons, θ-dependence, etc.)
+- Pedagogical exercises and problem references
+
+**Removed:**
+- TeX class/package declarations and formatting commands
+- Macro definitions and style setup
+- Bibliography commands and author formatting
+- Presentational scaffolding (figure/table markup)
+- Document structure commands and comments
+- Non-scientific plumbing
+
+The document now reads as clean scientific prose with properly formatted equations, organized into logical sections with meaningful headings. The YAML front matter has been updated with creation/modification timestamps and source documentation.</s>

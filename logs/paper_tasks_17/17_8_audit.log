@@ -1,0 +1,15 @@
+Audit complete. Report written to `logs/paper_tasks_17/17_8_audit_report.md`.
+
+**Results: 15 PASS, 1 PASS (marginal), 4 PARTIAL, 1 FAIL.**
+
+**Stage VI cannot close yet.** The blocking items are:
+
+1. **FAIL — Ch 8 §8.7: CM anomaly inflow example** (CRITICAL). The Part 1→Part 2 bridge section is completely missing despite forward-pointers promising it. The TikZ figure for it exists but is unused. Needs 2–3 pages of new content.
+
+2. **PARTIAL — Ch 3 & Ch 4 figures.** TikZ sources exist (`f_pair_of_pants.tex`, `f_cobordism_generators.tex`) but are never wired into the chapters. The compiled PDF shows only text placeholders.
+
+3. **PARTIAL — Ch 11 §11.7 FQHE honesty box.** Present but too short (~1 page vs 2–3 target) and missing the universal vs non-universal edge discussion.
+
+4. **PARTIAL — BF/toric-code triple-derivation.** Content effectively implements Option A but the decision is unrecorded, ch07/ch09 overlap is unacknowledged editorially, and Appendix D is a stub.
+
+Everything else passes — Ch 5, Ch 8 §8.2/§8.6, Ch 10–16, Ch 01 introduction are all present and adequate.

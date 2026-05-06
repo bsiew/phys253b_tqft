@@ -1,0 +1,9 @@
+Done. I've extracted the scientific content from the TeX source and cleaned it into `codex_scientific_text.md`. The extraction:
+
+**Preserved:** All section headings, scientific prose, definitions (topological charge, chiral condensate), derivations (relation between $\chi_t$ and $m_{\eta'}$), equations with physical meaning, named results (Ginsparg-Wilson fermions, cooling algorithms), and the conceptual flow of the argument about topology in QCD.
+
+**Removed:** TeX plumbing (documentstyle, newcommand macros for $\di$, $\sib$, $\ssi$), author/title formatting, hyphenation lists, maketitle, commented sections, bibliography commands, and the entire bibliography section itself. Converted TeX notation (\\$ operators, formatting codes) to markdown/LaTeX where substantive.
+
+**Frontmatter:** Preserved as-is with update timestamp.
+
+The document now reads as clean scientific prose with equations intact, ready for research synthesis.

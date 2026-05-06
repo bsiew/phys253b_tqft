@@ -1,8 +1,9 @@
 ---
 created_at: "2026-05-03T15:30:00-04:00"
-updated_at: "2026-05-03T15:30:00-04:00"
+updated_at: "2026-05-05T22:03:06-04:00"
 generated_by: "claude_opus_4.6"
 timestamp_source: "agent_clock"
+updated_by: "claude-code"
 ---
 
 # Compiled Literature for Deep Lit Review
@@ -419,7 +420,7 @@ timestamp_source: "agent_clock"
 - **Venue:** (2023)
 - **Link:** [arXiv:2210.10255](https://arxiv.org/abs/2210.10255)
 - **Status:** `not-in-bib`
-- **Sections served:** Sec 5 or Sec 7 (requires honesty box: synthetic emulation, not natural phase)
+- **Sections served:** Sec 5 or Sec 7 (requires caveat: synthetic emulation, not natural phase)
 - **Role:** Non-abelian braiding on quantum hardware; must be framed as synthetic emulation
 
 ### [38] RosenowHalperinInterferometryPlaceholder

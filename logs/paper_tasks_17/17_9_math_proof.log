@@ -1,0 +1,19 @@
+## Proofreading Pass Complete
+
+**10 checks performed, 2 issues found and fixed:**
+
+1. **BF linking phase sign (ch09 line 334):** Changed `exp(+2πi/N · Lk)` → `exp(−2πi/N · Lk)` to match ch06's rigorous derivation. (For N=2 both give −1, but general N was wrong.)
+
+2. **Duplicate LaTeX labels (ch09):** Renamed `eq:bf-action`, `eq:bf-eom`, `eq:bf-gsd` → `eq:bf-action-ch9` etc. to avoid collisions with ch06's labels.
+
+**All other checks pass cleanly:**
+- Anti-Hermitian convention consistent throughout
+- H³(Z_N, U(1)) = Z_N correct
+- Modular S-matrix for U(1)_k correct
+- Hall conductance σ_xy = e²/(mh) correct
+- All three braiding phases (toric code, Laughlin, Ising) correct
+- Jones polynomial uses q = e^{2πi/(k+2)} correctly with dual Coxeter shift
+- No ghost references found
+- k/(4π) vs N/(2π) normalizations are standard and non-contradictory
+
+Full findings written to `logs/paper_tasks_17/17_9_math_findings.md`.

@@ -1,0 +1,10 @@
+Done. I've extracted and cleaned the scientific content from majorana.tex into codex_scientific_text.md. The file preserves:
+
+- All substantive physics: Majorana fermion definitions, the topological qubit concept, decoherence protection mechanism
+- Complete derivations: Hamiltonian formulations, special cases, canonical reduction, boundary mode analysis
+- All key equations: Majorana operators, dispersion relations, effective Hamiltonians, parity conditions
+- Named results: The Majorana number $\mathcal{M}$, loop condition, Pfaffian-based general condition for MFs
+- Physical interpretations: Phase transitions, zero modes, experimental signatures (Josephson junctions, phase slips)
+- Caveats: The practical difficulties in realization, CDW and magnetic field requirements
+
+Removed: TeX class/package commands, macro definitions, pure formatting scaffolding, bibliography commands, author metadata, and figure/table LaTeX plumbing. The YAML front matter is preserved with updated timestamp.

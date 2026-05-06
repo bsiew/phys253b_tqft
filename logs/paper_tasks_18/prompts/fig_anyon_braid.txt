@@ -1,0 +1,14 @@
+You are generating a figure for a physics paper on TQFT.
+
+## Task
+
+Create a TikZ or Python (matplotlib) figure showing anyon braiding worldlines. Output: 253b_final_paper/tex_docs/figures/f_anyon_braid.tex
+
+Requirements — two-panel figure:
+- Left panel: EXCHANGE — two quasiparticle worldlines (time vertical), one crossing over the other ONCE. Label phase: exp(i pi/m)
+- Right panel: FULL MONODROMY — one particle goes completely around the other (double crossing). Label phase: exp(2pi i/m)
+- Time axis labeled, worldlines colored or styled distinctly
+- Clear visual distinction between half-braid (exchange) and full braid (monodromy)
+- Caption text as a comment
+
+Use TikZ with knots library or manual crossing conventions. Make crossings clearly over/under. The file should be includable via \input{figures/f_anyon_braid.tex}.

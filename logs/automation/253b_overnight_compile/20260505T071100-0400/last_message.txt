@@ -1,0 +1,5 @@
+Compiled successfully with the project wrapper.
+
+PDF: [tex_docs_main_wrapper_20260501.pdf](/Users/helenabrittain/Documents/Research/Playground/RESEARCH/PROJECTS/QFT/artifacts/tex_compile/tex_docs_main_wrapper_20260501/tex_docs_main_wrapper_20260501.pdf)
+
+No TeX or code edits were made. The first run failed because `latexmk` was not on PATH; I reran the same wrapper with local TeX Live added via `/Library/TeX/texbin`. The build completed with warnings about unresolved references/citations, but it produced the 57-page PDF.
